@@ -1,0 +1,10 @@
+{
+  "title": "Semiconductor Physics",
+  "description": "An undergraduate junior-level course covering the quantum-mechanical and statistical foundations of semiconductor materials and devices, from crystal structure through the p-n junction and MOS capacitor.",
+  "creator": "Natol Dinka",
+  "date": "2026-07-22",
+  "version": "1.0",
+  "format": "Learning Graph JSON v1.0",
+  "schema": "https://raw.githubusercontent.com/dmccreary/learning-graphs/refs/heads/main/src/schema/learning-graph-schema.json",
+  "license": "CC BY-NC-SA 4.0 DEED"
+}

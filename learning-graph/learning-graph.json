@@ -1,0 +1,2422 @@
+{
+  "metadata": {
+    "title": "Semiconductor Physics",
+    "description": "An undergraduate junior-level course covering the quantum-mechanical and statistical foundations of semiconductor materials and devices, from crystal structure through the p-n junction and MOS capacitor.",
+    "creator": "Natol Dinka",
+    "date": "2026-07-22",
+    "version": "1.0",
+    "format": "Learning Graph JSON v1.0",
+    "schema": "https://raw.githubusercontent.com/dmccreary/learning-graphs/refs/heads/main/src/schema/learning-graph-schema.json",
+    "license": "CC BY-NC-SA 4.0 DEED"
+  },
+  "groups": {
+    "FOUND": {
+      "classifierName": "Physics & Math Foundations",
+      "color": "LightCoral",
+      "font": {
+        "color": "white"
+      }
+    },
+    "CRYS": {
+      "classifierName": "Crystal Structure & Bonding",
+      "color": "Plum",
+      "font": {
+        "color": "white"
+      }
+    },
+    "QMBT": {
+      "classifierName": "Quantum Mechanics & Band Theory",
+      "color": "PowderBlue",
+      "font": {
+        "color": "black"
+      }
+    },
+    "MATL": {
+      "classifierName": "Semiconductor Materials & Doping",
+      "color": "LightPink",
+      "font": {
+        "color": "black"
+      }
+    },
+    "STAT": {
+      "classifierName": "Carrier Statistics",
+      "color": "PaleTurquoise",
+      "font": {
+        "color": "black"
+      }
+    },
+    "TRAN": {
+      "classifierName": "Carrier Transport",
+      "color": "PeachPuff",
+      "font": {
+        "color": "black"
+      }
+    },
+    "NEQ": {
+      "classifierName": "Non-Equilibrium Carriers",
+      "color": "PaleGreen",
+      "font": {
+        "color": "black"
+      }
+    },
+    "PNJ": {
+      "classifierName": "P-N Junction",
+      "color": "LightSteelBlue",
+      "font": {
+        "color": "black"
+      }
+    },
+    "MSJ": {
+      "classifierName": "Metal-Semiconductor Junctions",
+      "color": "LightYellow",
+      "font": {
+        "color": "black"
+      }
+    },
+    "MOS": {
+      "classifierName": "MOS Capacitor & Surfaces",
+      "color": "Thistle",
+      "font": {
+        "color": "black"
+      }
+    },
+    "OPT": {
+      "classifierName": "Optical & Thermal Properties",
+      "color": "Gainsboro",
+      "font": {
+        "color": "black"
+      }
+    },
+    "DEV": {
+      "classifierName": "Devices & Applications",
+      "color": "Honeydew",
+      "font": {
+        "color": "black"
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "label": "Coulomb's Law",
+      "group": "FOUND",
+      "shape": "box"
+    },
+    {
+      "id": 2,
+      "label": "Electric Field",
+      "group": "FOUND"
+    },
+    {
+      "id": 3,
+      "label": "Electric Potential",
+      "group": "FOUND"
+    },
+    {
+      "id": 4,
+      "label": "Electrostatic Potential Energy",
+      "group": "FOUND"
+    },
+    {
+      "id": 5,
+      "label": "Kinetic Theory of Gases",
+      "group": "FOUND",
+      "shape": "box"
+    },
+    {
+      "id": 6,
+      "label": "Boltzmann Constant",
+      "group": "FOUND"
+    },
+    {
+      "id": 7,
+      "label": "Thermal Equilibrium",
+      "group": "FOUND"
+    },
+    {
+      "id": 8,
+      "label": "Photon Energy",
+      "group": "FOUND",
+      "shape": "box"
+    },
+    {
+      "id": 9,
+      "label": "Wave-Particle Duality",
+      "group": "FOUND"
+    },
+    {
+      "id": 10,
+      "label": "de Broglie Wavelength",
+      "group": "FOUND"
+    },
+    {
+      "id": 11,
+      "label": "Heisenberg Uncertainty Principle",
+      "group": "FOUND"
+    },
+    {
+      "id": 12,
+      "label": "Schrodinger Equation",
+      "group": "FOUND"
+    },
+    {
+      "id": 13,
+      "label": "Wavefunction",
+      "group": "FOUND"
+    },
+    {
+      "id": 14,
+      "label": "Probability Density",
+      "group": "FOUND"
+    },
+    {
+      "id": 15,
+      "label": "Eigenstate",
+      "group": "FOUND"
+    },
+    {
+      "id": 16,
+      "label": "Eigenvalue",
+      "group": "FOUND"
+    },
+    {
+      "id": 17,
+      "label": "Particle in a Box",
+      "group": "FOUND"
+    },
+    {
+      "id": 18,
+      "label": "Quantum Tunneling",
+      "group": "FOUND"
+    },
+    {
+      "id": 19,
+      "label": "Potential Well",
+      "group": "FOUND"
+    },
+    {
+      "id": 20,
+      "label": "Boundary Conditions",
+      "group": "FOUND"
+    },
+    {
+      "id": 21,
+      "label": "Crystal Lattice",
+      "group": "CRYS",
+      "shape": "box"
+    },
+    {
+      "id": 22,
+      "label": "Unit Cell",
+      "group": "CRYS"
+    },
+    {
+      "id": 23,
+      "label": "Primitive Cell",
+      "group": "CRYS"
+    },
+    {
+      "id": 24,
+      "label": "Lattice Constant",
+      "group": "CRYS"
+    },
+    {
+      "id": 25,
+      "label": "Simple Cubic Structure",
+      "group": "CRYS"
+    },
+    {
+      "id": 26,
+      "label": "Body-Centered Cubic",
+      "group": "CRYS"
+    },
+    {
+      "id": 27,
+      "label": "Face-Centered Cubic",
+      "group": "CRYS"
+    },
+    {
+      "id": 28,
+      "label": "Diamond Lattice Structure",
+      "group": "CRYS"
+    },
+    {
+      "id": 29,
+      "label": "Zincblende Structure",
+      "group": "CRYS"
+    },
+    {
+      "id": 30,
+      "label": "Miller Indices",
+      "group": "CRYS"
+    },
+    {
+      "id": 31,
+      "label": "Crystal Plane",
+      "group": "CRYS"
+    },
+    {
+      "id": 32,
+      "label": "Covalent Bond",
+      "group": "CRYS"
+    },
+    {
+      "id": 33,
+      "label": "Ionic Bond",
+      "group": "CRYS"
+    },
+    {
+      "id": 34,
+      "label": "Metallic Bond",
+      "group": "CRYS"
+    },
+    {
+      "id": 35,
+      "label": "Silicon Atom Structure",
+      "group": "CRYS"
+    },
+    {
+      "id": 36,
+      "label": "Valence Electron",
+      "group": "CRYS"
+    },
+    {
+      "id": 37,
+      "label": "Tetrahedral Bonding",
+      "group": "CRYS"
+    },
+    {
+      "id": 38,
+      "label": "Amorphous Solid",
+      "group": "CRYS"
+    },
+    {
+      "id": 39,
+      "label": "Polycrystalline Solid",
+      "group": "CRYS"
+    },
+    {
+      "id": 40,
+      "label": "Crystal Defect",
+      "group": "CRYS"
+    },
+    {
+      "id": 41,
+      "label": "Bloch Theorem",
+      "group": "QMBT"
+    },
+    {
+      "id": 42,
+      "label": "Periodic Potential",
+      "group": "QMBT"
+    },
+    {
+      "id": 43,
+      "label": "Kronig-Penney Model",
+      "group": "QMBT"
+    },
+    {
+      "id": 44,
+      "label": "Brillouin Zone",
+      "group": "QMBT"
+    },
+    {
+      "id": 45,
+      "label": "Reciprocal Lattice",
+      "group": "QMBT"
+    },
+    {
+      "id": 46,
+      "label": "Energy Band",
+      "group": "QMBT"
+    },
+    {
+      "id": 47,
+      "label": "Band Gap",
+      "group": "QMBT"
+    },
+    {
+      "id": 48,
+      "label": "Forbidden Energy Gap",
+      "group": "QMBT"
+    },
+    {
+      "id": 49,
+      "label": "Valence Band",
+      "group": "QMBT"
+    },
+    {
+      "id": 50,
+      "label": "Conduction Band",
+      "group": "QMBT"
+    },
+    {
+      "id": 51,
+      "label": "Allowed Energy States",
+      "group": "QMBT"
+    },
+    {
+      "id": 52,
+      "label": "Band Formation",
+      "group": "QMBT"
+    },
+    {
+      "id": 53,
+      "label": "Direct Bandgap",
+      "group": "QMBT"
+    },
+    {
+      "id": 54,
+      "label": "Indirect Bandgap",
+      "group": "QMBT"
+    },
+    {
+      "id": 55,
+      "label": "Effective Mass",
+      "group": "QMBT"
+    },
+    {
+      "id": 56,
+      "label": "E-K Diagram",
+      "group": "QMBT"
+    },
+    {
+      "id": 57,
+      "label": "Density of States",
+      "group": "QMBT"
+    },
+    {
+      "id": 58,
+      "label": "Fermi Level",
+      "group": "QMBT"
+    },
+    {
+      "id": 59,
+      "label": "Fermi Energy",
+      "group": "QMBT"
+    },
+    {
+      "id": 60,
+      "label": "Metal Band Structure",
+      "group": "QMBT"
+    },
+    {
+      "id": 61,
+      "label": "Insulator Band Structure",
+      "group": "QMBT"
+    },
+    {
+      "id": 62,
+      "label": "Semiconductor Band Structure",
+      "group": "QMBT"
+    },
+    {
+      "id": 63,
+      "label": "Semimetal",
+      "group": "QMBT"
+    },
+    {
+      "id": 64,
+      "label": "Intrinsic Semiconductor",
+      "group": "MATL"
+    },
+    {
+      "id": 65,
+      "label": "Extrinsic Semiconductor",
+      "group": "MATL"
+    },
+    {
+      "id": 66,
+      "label": "Elemental Semiconductor",
+      "group": "MATL"
+    },
+    {
+      "id": 67,
+      "label": "Compound Semiconductor",
+      "group": "MATL"
+    },
+    {
+      "id": 68,
+      "label": "Silicon",
+      "group": "MATL"
+    },
+    {
+      "id": 69,
+      "label": "Germanium",
+      "group": "MATL"
+    },
+    {
+      "id": 70,
+      "label": "Gallium Arsenide",
+      "group": "MATL"
+    },
+    {
+      "id": 71,
+      "label": "Donor Atom",
+      "group": "MATL"
+    },
+    {
+      "id": 72,
+      "label": "Acceptor Atom",
+      "group": "MATL"
+    },
+    {
+      "id": 73,
+      "label": "N-Type Doping",
+      "group": "MATL"
+    },
+    {
+      "id": 74,
+      "label": "P-Type Doping",
+      "group": "MATL"
+    },
+    {
+      "id": 75,
+      "label": "Dopant Ionization",
+      "group": "MATL"
+    },
+    {
+      "id": 76,
+      "label": "Ionization Energy",
+      "group": "MATL"
+    },
+    {
+      "id": 77,
+      "label": "Doping Concentration",
+      "group": "MATL"
+    },
+    {
+      "id": 78,
+      "label": "Compensated Semiconductor",
+      "group": "MATL"
+    },
+    {
+      "id": 79,
+      "label": "Degenerate Semiconductor",
+      "group": "MATL"
+    },
+    {
+      "id": 80,
+      "label": "Freeze-Out Regime",
+      "group": "MATL"
+    },
+    {
+      "id": 81,
+      "label": "Extrinsic Temperature Region",
+      "group": "MATL"
+    },
+    {
+      "id": 82,
+      "label": "Intrinsic Temperature Region",
+      "group": "MATL"
+    },
+    {
+      "id": 83,
+      "label": "Free Electron",
+      "group": "STAT"
+    },
+    {
+      "id": 84,
+      "label": "Hole",
+      "group": "STAT"
+    },
+    {
+      "id": 85,
+      "label": "Electron-Hole Pair",
+      "group": "STAT"
+    },
+    {
+      "id": 86,
+      "label": "Fermi-Dirac Distribution",
+      "group": "STAT"
+    },
+    {
+      "id": 87,
+      "label": "Fermi Function",
+      "group": "STAT"
+    },
+    {
+      "id": 88,
+      "label": "Density of States Function",
+      "group": "STAT"
+    },
+    {
+      "id": 89,
+      "label": "Effective Density of States",
+      "group": "STAT"
+    },
+    {
+      "id": 90,
+      "label": "Intrinsic Carrier Concentration",
+      "group": "STAT"
+    },
+    {
+      "id": 91,
+      "label": "Mass Action Law",
+      "group": "STAT"
+    },
+    {
+      "id": 92,
+      "label": "Charge Neutrality Condition",
+      "group": "STAT"
+    },
+    {
+      "id": 93,
+      "label": "Boltzmann Approximation",
+      "group": "STAT"
+    },
+    {
+      "id": 94,
+      "label": "Nondegenerate Semiconductor",
+      "group": "STAT"
+    },
+    {
+      "id": 95,
+      "label": "Electron Concentration",
+      "group": "STAT"
+    },
+    {
+      "id": 96,
+      "label": "Hole Concentration",
+      "group": "STAT"
+    },
+    {
+      "id": 97,
+      "label": "Carrier Temperature Dependence",
+      "group": "STAT"
+    },
+    {
+      "id": 98,
+      "label": "Fermi Level Position",
+      "group": "STAT"
+    },
+    {
+      "id": 99,
+      "label": "Intrinsic Fermi Level",
+      "group": "STAT"
+    },
+    {
+      "id": 100,
+      "label": "Carrier Concentration Equation",
+      "group": "STAT"
+    },
+    {
+      "id": 101,
+      "label": "Drift Current",
+      "group": "TRAN"
+    },
+    {
+      "id": 102,
+      "label": "Diffusion Current",
+      "group": "TRAN"
+    },
+    {
+      "id": 103,
+      "label": "Carrier Mobility",
+      "group": "TRAN"
+    },
+    {
+      "id": 104,
+      "label": "Drift Velocity",
+      "group": "TRAN"
+    },
+    {
+      "id": 105,
+      "label": "Scattering Mechanism",
+      "group": "TRAN"
+    },
+    {
+      "id": 106,
+      "label": "Lattice Scattering",
+      "group": "TRAN"
+    },
+    {
+      "id": 107,
+      "label": "Impurity Scattering",
+      "group": "TRAN"
+    },
+    {
+      "id": 108,
+      "label": "Conductivity",
+      "group": "TRAN"
+    },
+    {
+      "id": 109,
+      "label": "Resistivity",
+      "group": "TRAN"
+    },
+    {
+      "id": 110,
+      "label": "Sheet Resistance",
+      "group": "TRAN"
+    },
+    {
+      "id": 111,
+      "label": "Hall Effect",
+      "group": "TRAN"
+    },
+    {
+      "id": 112,
+      "label": "Hall Coefficient",
+      "group": "TRAN"
+    },
+    {
+      "id": 113,
+      "label": "Hall Voltage",
+      "group": "TRAN"
+    },
+    {
+      "id": 114,
+      "label": "Diffusion Coefficient",
+      "group": "TRAN"
+    },
+    {
+      "id": 115,
+      "label": "Einstein Relation",
+      "group": "TRAN"
+    },
+    {
+      "id": 116,
+      "label": "Fick's Law",
+      "group": "TRAN"
+    },
+    {
+      "id": 117,
+      "label": "Concentration Gradient",
+      "group": "TRAN"
+    },
+    {
+      "id": 118,
+      "label": "Total Current Density",
+      "group": "TRAN"
+    },
+    {
+      "id": 119,
+      "label": "Velocity Saturation",
+      "group": "TRAN"
+    },
+    {
+      "id": 120,
+      "label": "Mobility Temperature Dependence",
+      "group": "TRAN"
+    },
+    {
+      "id": 121,
+      "label": "Excess Carriers",
+      "group": "NEQ"
+    },
+    {
+      "id": 122,
+      "label": "Carrier Generation",
+      "group": "NEQ"
+    },
+    {
+      "id": 123,
+      "label": "Carrier Recombination",
+      "group": "NEQ"
+    },
+    {
+      "id": 124,
+      "label": "Optical Generation",
+      "group": "NEQ"
+    },
+    {
+      "id": 125,
+      "label": "Thermal Generation",
+      "group": "NEQ"
+    },
+    {
+      "id": 126,
+      "label": "Direct Recombination",
+      "group": "NEQ"
+    },
+    {
+      "id": 127,
+      "label": "Indirect Recombination",
+      "group": "NEQ"
+    },
+    {
+      "id": 128,
+      "label": "Trap-Assisted Recombination",
+      "group": "NEQ"
+    },
+    {
+      "id": 129,
+      "label": "Shockley-Read-Hall Recombination",
+      "group": "NEQ"
+    },
+    {
+      "id": 130,
+      "label": "Auger Recombination",
+      "group": "NEQ"
+    },
+    {
+      "id": 131,
+      "label": "Minority Carrier Lifetime",
+      "group": "NEQ"
+    },
+    {
+      "id": 132,
+      "label": "Recombination Rate",
+      "group": "NEQ"
+    },
+    {
+      "id": 133,
+      "label": "Low-Level Injection",
+      "group": "NEQ"
+    },
+    {
+      "id": 134,
+      "label": "High-Level Injection",
+      "group": "NEQ"
+    },
+    {
+      "id": 135,
+      "label": "Continuity Equation",
+      "group": "NEQ"
+    },
+    {
+      "id": 136,
+      "label": "Diffusion Length",
+      "group": "NEQ"
+    },
+    {
+      "id": 137,
+      "label": "Quasi-Fermi Level",
+      "group": "NEQ"
+    },
+    {
+      "id": 138,
+      "label": "Steady-State Carrier Profile",
+      "group": "NEQ"
+    },
+    {
+      "id": 139,
+      "label": "Carrier Injection",
+      "group": "NEQ"
+    },
+    {
+      "id": 140,
+      "label": "P-N Junction",
+      "group": "PNJ"
+    },
+    {
+      "id": 141,
+      "label": "Metallurgical Junction",
+      "group": "PNJ"
+    },
+    {
+      "id": 142,
+      "label": "Poisson's Equation",
+      "group": "PNJ"
+    },
+    {
+      "id": 143,
+      "label": "Depletion Region",
+      "group": "PNJ"
+    },
+    {
+      "id": 144,
+      "label": "Depletion Approximation",
+      "group": "PNJ"
+    },
+    {
+      "id": 145,
+      "label": "Built-In Potential",
+      "group": "PNJ"
+    },
+    {
+      "id": 146,
+      "label": "Depletion Charge Density",
+      "group": "PNJ"
+    },
+    {
+      "id": 147,
+      "label": "Junction Electric Field",
+      "group": "PNJ"
+    },
+    {
+      "id": 148,
+      "label": "Depletion Width",
+      "group": "PNJ"
+    },
+    {
+      "id": 149,
+      "label": "Junction Capacitance",
+      "group": "PNJ"
+    },
+    {
+      "id": 150,
+      "label": "Forward Bias",
+      "group": "PNJ"
+    },
+    {
+      "id": 151,
+      "label": "Reverse Bias",
+      "group": "PNJ"
+    },
+    {
+      "id": 152,
+      "label": "Minority Carrier Injection",
+      "group": "PNJ"
+    },
+    {
+      "id": 153,
+      "label": "Short-Base Diode",
+      "group": "PNJ"
+    },
+    {
+      "id": 154,
+      "label": "Long-Base Diode",
+      "group": "PNJ"
+    },
+    {
+      "id": 155,
+      "label": "Saturation Current",
+      "group": "PNJ"
+    },
+    {
+      "id": 156,
+      "label": "Ideal Diode Equation",
+      "group": "PNJ"
+    },
+    {
+      "id": 157,
+      "label": "Reverse Breakdown",
+      "group": "PNJ"
+    },
+    {
+      "id": 158,
+      "label": "Avalanche Breakdown",
+      "group": "PNJ"
+    },
+    {
+      "id": 159,
+      "label": "Zener Breakdown",
+      "group": "PNJ"
+    },
+    {
+      "id": 160,
+      "label": "Junction I-V Characteristic",
+      "group": "PNJ"
+    },
+    {
+      "id": 161,
+      "label": "Metal-Semiconductor Junction",
+      "group": "MSJ"
+    },
+    {
+      "id": 162,
+      "label": "Work Function",
+      "group": "MSJ"
+    },
+    {
+      "id": 163,
+      "label": "Electron Affinity",
+      "group": "MSJ"
+    },
+    {
+      "id": 164,
+      "label": "Barrier Height",
+      "group": "MSJ"
+    },
+    {
+      "id": 165,
+      "label": "Schottky Barrier",
+      "group": "MSJ"
+    },
+    {
+      "id": 166,
+      "label": "Schottky Diode",
+      "group": "MSJ"
+    },
+    {
+      "id": 167,
+      "label": "Ohmic Contact",
+      "group": "MSJ"
+    },
+    {
+      "id": 168,
+      "label": "Rectifying Contact",
+      "group": "MSJ"
+    },
+    {
+      "id": 169,
+      "label": "MOS Capacitor",
+      "group": "MOS"
+    },
+    {
+      "id": 170,
+      "label": "Gate Oxide",
+      "group": "MOS"
+    },
+    {
+      "id": 171,
+      "label": "Flat-Band Voltage",
+      "group": "MOS"
+    },
+    {
+      "id": 172,
+      "label": "Accumulation Region",
+      "group": "MOS"
+    },
+    {
+      "id": 173,
+      "label": "Depletion Mode",
+      "group": "MOS"
+    },
+    {
+      "id": 174,
+      "label": "Inversion Layer",
+      "group": "MOS"
+    },
+    {
+      "id": 175,
+      "label": "Threshold Voltage",
+      "group": "MOS"
+    },
+    {
+      "id": 176,
+      "label": "Surface Potential",
+      "group": "MOS"
+    },
+    {
+      "id": 177,
+      "label": "Oxide Capacitance",
+      "group": "MOS"
+    },
+    {
+      "id": 178,
+      "label": "Strong Inversion",
+      "group": "MOS"
+    },
+    {
+      "id": 179,
+      "label": "Weak Inversion",
+      "group": "MOS"
+    },
+    {
+      "id": 180,
+      "label": "Semiconductor Surface",
+      "group": "MOS"
+    },
+    {
+      "id": 181,
+      "label": "Optical Absorption",
+      "group": "OPT"
+    },
+    {
+      "id": 182,
+      "label": "Absorption Coefficient",
+      "group": "OPT"
+    },
+    {
+      "id": 183,
+      "label": "Photon Absorption",
+      "group": "OPT"
+    },
+    {
+      "id": 184,
+      "label": "Photoconductivity",
+      "group": "OPT"
+    },
+    {
+      "id": 185,
+      "label": "Photodiode",
+      "group": "OPT"
+    },
+    {
+      "id": 186,
+      "label": "Solar Cell",
+      "group": "OPT"
+    },
+    {
+      "id": 187,
+      "label": "Light-Emitting Diode",
+      "group": "OPT"
+    },
+    {
+      "id": 188,
+      "label": "Radiative Recombination",
+      "group": "OPT"
+    },
+    {
+      "id": 189,
+      "label": "Thermal Conductivity",
+      "group": "OPT"
+    },
+    {
+      "id": 190,
+      "label": "Thermal Generation Rate",
+      "group": "OPT"
+    },
+    {
+      "id": 191,
+      "label": "Power Diode",
+      "group": "DEV"
+    },
+    {
+      "id": 192,
+      "label": "Rectifier Circuit",
+      "group": "DEV"
+    },
+    {
+      "id": 193,
+      "label": "Varactor Diode",
+      "group": "DEV"
+    },
+    {
+      "id": 194,
+      "label": "Bipolar Transistor Basics",
+      "group": "DEV"
+    },
+    {
+      "id": 195,
+      "label": "MOSFET Basics",
+      "group": "DEV"
+    },
+    {
+      "id": 196,
+      "label": "Semiconductor Device Modeling",
+      "group": "DEV"
+    },
+    {
+      "id": 197,
+      "label": "Device Simulation Concept",
+      "group": "DEV"
+    },
+    {
+      "id": 198,
+      "label": "Band Diagram Construction",
+      "group": "DEV"
+    },
+    {
+      "id": 199,
+      "label": "Device Design Trade-Offs",
+      "group": "DEV"
+    },
+    {
+      "id": 200,
+      "label": "Capstone Device Project",
+      "group": "DEV"
+    }
+  ],
+  "edges": [
+    {
+      "from": 2,
+      "to": 1
+    },
+    {
+      "from": 3,
+      "to": 2
+    },
+    {
+      "from": 4,
+      "to": 3
+    },
+    {
+      "from": 6,
+      "to": 5
+    },
+    {
+      "from": 7,
+      "to": 6
+    },
+    {
+      "from": 9,
+      "to": 8
+    },
+    {
+      "from": 10,
+      "to": 9
+    },
+    {
+      "from": 11,
+      "to": 9
+    },
+    {
+      "from": 12,
+      "to": 10
+    },
+    {
+      "from": 12,
+      "to": 11
+    },
+    {
+      "from": 13,
+      "to": 12
+    },
+    {
+      "from": 14,
+      "to": 13
+    },
+    {
+      "from": 15,
+      "to": 12
+    },
+    {
+      "from": 16,
+      "to": 15
+    },
+    {
+      "from": 17,
+      "to": 12
+    },
+    {
+      "from": 17,
+      "to": 13
+    },
+    {
+      "from": 18,
+      "to": 17
+    },
+    {
+      "from": 19,
+      "to": 17
+    },
+    {
+      "from": 20,
+      "to": 19
+    },
+    {
+      "from": 22,
+      "to": 21
+    },
+    {
+      "from": 23,
+      "to": 22
+    },
+    {
+      "from": 24,
+      "to": 22
+    },
+    {
+      "from": 25,
+      "to": 24
+    },
+    {
+      "from": 26,
+      "to": 24
+    },
+    {
+      "from": 27,
+      "to": 24
+    },
+    {
+      "from": 28,
+      "to": 27
+    },
+    {
+      "from": 29,
+      "to": 28
+    },
+    {
+      "from": 30,
+      "to": 22
+    },
+    {
+      "from": 31,
+      "to": 30
+    },
+    {
+      "from": 32,
+      "to": 2
+    },
+    {
+      "from": 32,
+      "to": 4
+    },
+    {
+      "from": 33,
+      "to": 2
+    },
+    {
+      "from": 34,
+      "to": 2
+    },
+    {
+      "from": 35,
+      "to": 32
+    },
+    {
+      "from": 36,
+      "to": 35
+    },
+    {
+      "from": 37,
+      "to": 32
+    },
+    {
+      "from": 37,
+      "to": 36
+    },
+    {
+      "from": 38,
+      "to": 21
+    },
+    {
+      "from": 39,
+      "to": 21
+    },
+    {
+      "from": 40,
+      "to": 21
+    },
+    {
+      "from": 41,
+      "to": 12
+    },
+    {
+      "from": 41,
+      "to": 20
+    },
+    {
+      "from": 42,
+      "to": 20
+    },
+    {
+      "from": 42,
+      "to": 21
+    },
+    {
+      "from": 43,
+      "to": 41
+    },
+    {
+      "from": 43,
+      "to": 42
+    },
+    {
+      "from": 44,
+      "to": 43
+    },
+    {
+      "from": 45,
+      "to": 44
+    },
+    {
+      "from": 46,
+      "to": 43
+    },
+    {
+      "from": 47,
+      "to": 46
+    },
+    {
+      "from": 48,
+      "to": 47
+    },
+    {
+      "from": 49,
+      "to": 46
+    },
+    {
+      "from": 50,
+      "to": 46
+    },
+    {
+      "from": 51,
+      "to": 46
+    },
+    {
+      "from": 52,
+      "to": 43
+    },
+    {
+      "from": 52,
+      "to": 46
+    },
+    {
+      "from": 53,
+      "to": 47
+    },
+    {
+      "from": 54,
+      "to": 53
+    },
+    {
+      "from": 55,
+      "to": 49
+    },
+    {
+      "from": 55,
+      "to": 50
+    },
+    {
+      "from": 56,
+      "to": 53
+    },
+    {
+      "from": 56,
+      "to": 54
+    },
+    {
+      "from": 56,
+      "to": 55
+    },
+    {
+      "from": 57,
+      "to": 46
+    },
+    {
+      "from": 57,
+      "to": 55
+    },
+    {
+      "from": 58,
+      "to": 57
+    },
+    {
+      "from": 59,
+      "to": 58
+    },
+    {
+      "from": 60,
+      "to": 49
+    },
+    {
+      "from": 60,
+      "to": 50
+    },
+    {
+      "from": 61,
+      "to": 47
+    },
+    {
+      "from": 61,
+      "to": 60
+    },
+    {
+      "from": 62,
+      "to": 47
+    },
+    {
+      "from": 62,
+      "to": 60
+    },
+    {
+      "from": 63,
+      "to": 62
+    },
+    {
+      "from": 64,
+      "to": 62
+    },
+    {
+      "from": 65,
+      "to": 64
+    },
+    {
+      "from": 66,
+      "to": 64
+    },
+    {
+      "from": 67,
+      "to": 64
+    },
+    {
+      "from": 67,
+      "to": 29
+    },
+    {
+      "from": 68,
+      "to": 35
+    },
+    {
+      "from": 68,
+      "to": 66
+    },
+    {
+      "from": 69,
+      "to": 66
+    },
+    {
+      "from": 70,
+      "to": 67
+    },
+    {
+      "from": 71,
+      "to": 65
+    },
+    {
+      "from": 71,
+      "to": 36
+    },
+    {
+      "from": 72,
+      "to": 65
+    },
+    {
+      "from": 72,
+      "to": 36
+    },
+    {
+      "from": 73,
+      "to": 71
+    },
+    {
+      "from": 74,
+      "to": 72
+    },
+    {
+      "from": 75,
+      "to": 73
+    },
+    {
+      "from": 75,
+      "to": 74
+    },
+    {
+      "from": 76,
+      "to": 75
+    },
+    {
+      "from": 77,
+      "to": 73
+    },
+    {
+      "from": 77,
+      "to": 74
+    },
+    {
+      "from": 78,
+      "to": 73
+    },
+    {
+      "from": 78,
+      "to": 74
+    },
+    {
+      "from": 79,
+      "to": 77
+    },
+    {
+      "from": 80,
+      "to": 75
+    },
+    {
+      "from": 80,
+      "to": 76
+    },
+    {
+      "from": 81,
+      "to": 80
+    },
+    {
+      "from": 82,
+      "to": 64
+    },
+    {
+      "from": 82,
+      "to": 81
+    },
+    {
+      "from": 83,
+      "to": 50
+    },
+    {
+      "from": 84,
+      "to": 49
+    },
+    {
+      "from": 85,
+      "to": 83
+    },
+    {
+      "from": 85,
+      "to": 84
+    },
+    {
+      "from": 86,
+      "to": 58
+    },
+    {
+      "from": 86,
+      "to": 7
+    },
+    {
+      "from": 87,
+      "to": 86
+    },
+    {
+      "from": 88,
+      "to": 57
+    },
+    {
+      "from": 88,
+      "to": 87
+    },
+    {
+      "from": 89,
+      "to": 88
+    },
+    {
+      "from": 90,
+      "to": 89
+    },
+    {
+      "from": 90,
+      "to": 64
+    },
+    {
+      "from": 91,
+      "to": 90
+    },
+    {
+      "from": 92,
+      "to": 73
+    },
+    {
+      "from": 92,
+      "to": 74
+    },
+    {
+      "from": 92,
+      "to": 77
+    },
+    {
+      "from": 93,
+      "to": 86
+    },
+    {
+      "from": 94,
+      "to": 93
+    },
+    {
+      "from": 94,
+      "to": 79
+    },
+    {
+      "from": 95,
+      "to": 89
+    },
+    {
+      "from": 95,
+      "to": 93
+    },
+    {
+      "from": 96,
+      "to": 89
+    },
+    {
+      "from": 96,
+      "to": 93
+    },
+    {
+      "from": 97,
+      "to": 95
+    },
+    {
+      "from": 97,
+      "to": 96
+    },
+    {
+      "from": 98,
+      "to": 95
+    },
+    {
+      "from": 98,
+      "to": 96
+    },
+    {
+      "from": 98,
+      "to": 58
+    },
+    {
+      "from": 99,
+      "to": 98
+    },
+    {
+      "from": 99,
+      "to": 90
+    },
+    {
+      "from": 100,
+      "to": 91
+    },
+    {
+      "from": 100,
+      "to": 92
+    },
+    {
+      "from": 100,
+      "to": 95
+    },
+    {
+      "from": 100,
+      "to": 96
+    },
+    {
+      "from": 101,
+      "to": 2
+    },
+    {
+      "from": 101,
+      "to": 83
+    },
+    {
+      "from": 101,
+      "to": 84
+    },
+    {
+      "from": 102,
+      "to": 95
+    },
+    {
+      "from": 102,
+      "to": 96
+    },
+    {
+      "from": 103,
+      "to": 83
+    },
+    {
+      "from": 103,
+      "to": 84
+    },
+    {
+      "from": 104,
+      "to": 103
+    },
+    {
+      "from": 104,
+      "to": 2
+    },
+    {
+      "from": 105,
+      "to": 103
+    },
+    {
+      "from": 106,
+      "to": 105
+    },
+    {
+      "from": 107,
+      "to": 105
+    },
+    {
+      "from": 107,
+      "to": 77
+    },
+    {
+      "from": 108,
+      "to": 103
+    },
+    {
+      "from": 108,
+      "to": 95
+    },
+    {
+      "from": 108,
+      "to": 96
+    },
+    {
+      "from": 109,
+      "to": 108
+    },
+    {
+      "from": 110,
+      "to": 109
+    },
+    {
+      "from": 111,
+      "to": 101
+    },
+    {
+      "from": 111,
+      "to": 2
+    },
+    {
+      "from": 112,
+      "to": 111
+    },
+    {
+      "from": 113,
+      "to": 111
+    },
+    {
+      "from": 114,
+      "to": 103
+    },
+    {
+      "from": 115,
+      "to": 103
+    },
+    {
+      "from": 115,
+      "to": 114
+    },
+    {
+      "from": 116,
+      "to": 114
+    },
+    {
+      "from": 117,
+      "to": 116
+    },
+    {
+      "from": 118,
+      "to": 101
+    },
+    {
+      "from": 118,
+      "to": 102
+    },
+    {
+      "from": 119,
+      "to": 104
+    },
+    {
+      "from": 119,
+      "to": 106
+    },
+    {
+      "from": 120,
+      "to": 103
+    },
+    {
+      "from": 120,
+      "to": 106
+    },
+    {
+      "from": 120,
+      "to": 107
+    },
+    {
+      "from": 121,
+      "to": 85
+    },
+    {
+      "from": 121,
+      "to": 100
+    },
+    {
+      "from": 122,
+      "to": 8
+    },
+    {
+      "from": 122,
+      "to": 85
+    },
+    {
+      "from": 123,
+      "to": 85
+    },
+    {
+      "from": 124,
+      "to": 122
+    },
+    {
+      "from": 124,
+      "to": 8
+    },
+    {
+      "from": 125,
+      "to": 122
+    },
+    {
+      "from": 125,
+      "to": 7
+    },
+    {
+      "from": 126,
+      "to": 123
+    },
+    {
+      "from": 126,
+      "to": 53
+    },
+    {
+      "from": 127,
+      "to": 123
+    },
+    {
+      "from": 127,
+      "to": 54
+    },
+    {
+      "from": 128,
+      "to": 123
+    },
+    {
+      "from": 128,
+      "to": 40
+    },
+    {
+      "from": 129,
+      "to": 128
+    },
+    {
+      "from": 130,
+      "to": 123
+    },
+    {
+      "from": 131,
+      "to": 123
+    },
+    {
+      "from": 132,
+      "to": 123
+    },
+    {
+      "from": 132,
+      "to": 131
+    },
+    {
+      "from": 133,
+      "to": 121
+    },
+    {
+      "from": 134,
+      "to": 121
+    },
+    {
+      "from": 135,
+      "to": 118
+    },
+    {
+      "from": 135,
+      "to": 132
+    },
+    {
+      "from": 136,
+      "to": 114
+    },
+    {
+      "from": 136,
+      "to": 131
+    },
+    {
+      "from": 137,
+      "to": 98
+    },
+    {
+      "from": 137,
+      "to": 121
+    },
+    {
+      "from": 138,
+      "to": 135
+    },
+    {
+      "from": 138,
+      "to": 136
+    },
+    {
+      "from": 139,
+      "to": 121
+    },
+    {
+      "from": 139,
+      "to": 133
+    },
+    {
+      "from": 140,
+      "to": 73
+    },
+    {
+      "from": 140,
+      "to": 74
+    },
+    {
+      "from": 141,
+      "to": 140
+    },
+    {
+      "from": 142,
+      "to": 2
+    },
+    {
+      "from": 142,
+      "to": 3
+    },
+    {
+      "from": 143,
+      "to": 140
+    },
+    {
+      "from": 143,
+      "to": 92
+    },
+    {
+      "from": 144,
+      "to": 143
+    },
+    {
+      "from": 144,
+      "to": 142
+    },
+    {
+      "from": 145,
+      "to": 144
+    },
+    {
+      "from": 145,
+      "to": 98
+    },
+    {
+      "from": 146,
+      "to": 144
+    },
+    {
+      "from": 146,
+      "to": 77
+    },
+    {
+      "from": 147,
+      "to": 142
+    },
+    {
+      "from": 147,
+      "to": 146
+    },
+    {
+      "from": 148,
+      "to": 144
+    },
+    {
+      "from": 148,
+      "to": 145
+    },
+    {
+      "from": 149,
+      "to": 148
+    },
+    {
+      "from": 150,
+      "to": 145
+    },
+    {
+      "from": 151,
+      "to": 145
+    },
+    {
+      "from": 152,
+      "to": 150
+    },
+    {
+      "from": 152,
+      "to": 139
+    },
+    {
+      "from": 152,
+      "to": 137
+    },
+    {
+      "from": 153,
+      "to": 152
+    },
+    {
+      "from": 153,
+      "to": 136
+    },
+    {
+      "from": 154,
+      "to": 152
+    },
+    {
+      "from": 154,
+      "to": 136
+    },
+    {
+      "from": 155,
+      "to": 153
+    },
+    {
+      "from": 155,
+      "to": 154
+    },
+    {
+      "from": 155,
+      "to": 90
+    },
+    {
+      "from": 156,
+      "to": 155
+    },
+    {
+      "from": 156,
+      "to": 150
+    },
+    {
+      "from": 156,
+      "to": 151
+    },
+    {
+      "from": 156,
+      "to": 115
+    },
+    {
+      "from": 157,
+      "to": 151
+    },
+    {
+      "from": 157,
+      "to": 147
+    },
+    {
+      "from": 158,
+      "to": 157
+    },
+    {
+      "from": 158,
+      "to": 18
+    },
+    {
+      "from": 159,
+      "to": 157
+    },
+    {
+      "from": 159,
+      "to": 79
+    },
+    {
+      "from": 160,
+      "to": 156
+    },
+    {
+      "from": 160,
+      "to": 157
+    },
+    {
+      "from": 161,
+      "to": 65
+    },
+    {
+      "from": 161,
+      "to": 140
+    },
+    {
+      "from": 162,
+      "to": 59
+    },
+    {
+      "from": 163,
+      "to": 59
+    },
+    {
+      "from": 163,
+      "to": 64
+    },
+    {
+      "from": 164,
+      "to": 162
+    },
+    {
+      "from": 164,
+      "to": 163
+    },
+    {
+      "from": 165,
+      "to": 161
+    },
+    {
+      "from": 165,
+      "to": 164
+    },
+    {
+      "from": 166,
+      "to": 165
+    },
+    {
+      "from": 166,
+      "to": 156
+    },
+    {
+      "from": 167,
+      "to": 161
+    },
+    {
+      "from": 167,
+      "to": 77
+    },
+    {
+      "from": 168,
+      "to": 165
+    },
+    {
+      "from": 168,
+      "to": 167
+    },
+    {
+      "from": 169,
+      "to": 161
+    },
+    {
+      "from": 169,
+      "to": 64
+    },
+    {
+      "from": 169,
+      "to": 61
+    },
+    {
+      "from": 170,
+      "to": 169
+    },
+    {
+      "from": 171,
+      "to": 169
+    },
+    {
+      "from": 171,
+      "to": 162
+    },
+    {
+      "from": 172,
+      "to": 169
+    },
+    {
+      "from": 172,
+      "to": 171
+    },
+    {
+      "from": 173,
+      "to": 169
+    },
+    {
+      "from": 173,
+      "to": 144
+    },
+    {
+      "from": 174,
+      "to": 173
+    },
+    {
+      "from": 174,
+      "to": 84
+    },
+    {
+      "from": 175,
+      "to": 174
+    },
+    {
+      "from": 175,
+      "to": 171
+    },
+    {
+      "from": 176,
+      "to": 169
+    },
+    {
+      "from": 176,
+      "to": 142
+    },
+    {
+      "from": 177,
+      "to": 170
+    },
+    {
+      "from": 177,
+      "to": 149
+    },
+    {
+      "from": 178,
+      "to": 174
+    },
+    {
+      "from": 178,
+      "to": 176
+    },
+    {
+      "from": 179,
+      "to": 173
+    },
+    {
+      "from": 179,
+      "to": 176
+    },
+    {
+      "from": 180,
+      "to": 169
+    },
+    {
+      "from": 180,
+      "to": 176
+    },
+    {
+      "from": 181,
+      "to": 8
+    },
+    {
+      "from": 181,
+      "to": 47
+    },
+    {
+      "from": 182,
+      "to": 181
+    },
+    {
+      "from": 183,
+      "to": 181
+    },
+    {
+      "from": 183,
+      "to": 85
+    },
+    {
+      "from": 184,
+      "to": 183
+    },
+    {
+      "from": 184,
+      "to": 108
+    },
+    {
+      "from": 185,
+      "to": 184
+    },
+    {
+      "from": 185,
+      "to": 156
+    },
+    {
+      "from": 185,
+      "to": 127
+    },
+    {
+      "from": 186,
+      "to": 185
+    },
+    {
+      "from": 186,
+      "to": 90
+    },
+    {
+      "from": 187,
+      "to": 126
+    },
+    {
+      "from": 187,
+      "to": 156
+    },
+    {
+      "from": 187,
+      "to": 70
+    },
+    {
+      "from": 188,
+      "to": 126
+    },
+    {
+      "from": 188,
+      "to": 8
+    },
+    {
+      "from": 189,
+      "to": 7
+    },
+    {
+      "from": 189,
+      "to": 21
+    },
+    {
+      "from": 190,
+      "to": 125
+    },
+    {
+      "from": 190,
+      "to": 132
+    },
+    {
+      "from": 191,
+      "to": 156
+    },
+    {
+      "from": 191,
+      "to": 157
+    },
+    {
+      "from": 192,
+      "to": 156
+    },
+    {
+      "from": 192,
+      "to": 191
+    },
+    {
+      "from": 193,
+      "to": 149
+    },
+    {
+      "from": 193,
+      "to": 156
+    },
+    {
+      "from": 194,
+      "to": 140
+    },
+    {
+      "from": 194,
+      "to": 152
+    },
+    {
+      "from": 194,
+      "to": 69
+    },
+    {
+      "from": 195,
+      "to": 175
+    },
+    {
+      "from": 195,
+      "to": 178
+    },
+    {
+      "from": 195,
+      "to": 68
+    },
+    {
+      "from": 196,
+      "to": 156
+    },
+    {
+      "from": 196,
+      "to": 175
+    },
+    {
+      "from": 196,
+      "to": 110
+    },
+    {
+      "from": 197,
+      "to": 196
+    },
+    {
+      "from": 198,
+      "to": 58
+    },
+    {
+      "from": 198,
+      "to": 143
+    },
+    {
+      "from": 198,
+      "to": 169
+    },
+    {
+      "from": 198,
+      "to": 56
+    },
+    {
+      "from": 199,
+      "to": 196
+    },
+    {
+      "from": 199,
+      "to": 198
+    },
+    {
+      "from": 200,
+      "to": 199
+    },
+    {
+      "from": 200,
+      "to": 186
+    },
+    {
+      "from": 200,
+      "to": 195
+    }
+  ]
+}

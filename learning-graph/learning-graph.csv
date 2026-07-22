@@ -1,0 +1,201 @@
+ConceptID,ConceptLabel,Dependencies,TaxonomyID
+1,Coulomb's Law,,FOUND
+2,Electric Field,1,FOUND
+3,Electric Potential,2,FOUND
+4,Electrostatic Potential Energy,3,FOUND
+5,Kinetic Theory of Gases,,FOUND
+6,Boltzmann Constant,5,FOUND
+7,Thermal Equilibrium,6,FOUND
+8,Photon Energy,,FOUND
+9,Wave-Particle Duality,8,FOUND
+10,de Broglie Wavelength,9,FOUND
+11,Heisenberg Uncertainty Principle,9,FOUND
+12,Schrodinger Equation,10|11,FOUND
+13,Wavefunction,12,FOUND
+14,Probability Density,13,FOUND
+15,Eigenstate,12,FOUND
+16,Eigenvalue,15,FOUND
+17,Particle in a Box,12|13,FOUND
+18,Quantum Tunneling,17,FOUND
+19,Potential Well,17,FOUND
+20,Boundary Conditions,19,FOUND
+21,Crystal Lattice,,CRYS
+22,Unit Cell,21,CRYS
+23,Primitive Cell,22,CRYS
+24,Lattice Constant,22,CRYS
+25,Simple Cubic Structure,24,CRYS
+26,Body-Centered Cubic,24,CRYS
+27,Face-Centered Cubic,24,CRYS
+28,Diamond Lattice Structure,27,CRYS
+29,Zincblende Structure,28,CRYS
+30,Miller Indices,22,CRYS
+31,Crystal Plane,30,CRYS
+32,Covalent Bond,2|4,CRYS
+33,Ionic Bond,2,CRYS
+34,Metallic Bond,2,CRYS
+35,Silicon Atom Structure,32,CRYS
+36,Valence Electron,35,CRYS
+37,Tetrahedral Bonding,32|36,CRYS
+38,Amorphous Solid,21,CRYS
+39,Polycrystalline Solid,21,CRYS
+40,Crystal Defect,21,CRYS
+41,Bloch Theorem,12|20,QMBT
+42,Periodic Potential,20|21,QMBT
+43,Kronig-Penney Model,41|42,QMBT
+44,Brillouin Zone,43,QMBT
+45,Reciprocal Lattice,44,QMBT
+46,Energy Band,43,QMBT
+47,Band Gap,46,QMBT
+48,Forbidden Energy Gap,47,QMBT
+49,Valence Band,46,QMBT
+50,Conduction Band,46,QMBT
+51,Allowed Energy States,46,QMBT
+52,Band Formation,43|46,QMBT
+53,Direct Bandgap,47,QMBT
+54,Indirect Bandgap,53,QMBT
+55,Effective Mass,49|50,QMBT
+56,E-K Diagram,53|54|55,QMBT
+57,Density of States,46|55,QMBT
+58,Fermi Level,57,QMBT
+59,Fermi Energy,58,QMBT
+60,Metal Band Structure,49|50,QMBT
+61,Insulator Band Structure,47|60,QMBT
+62,Semiconductor Band Structure,47|60,QMBT
+63,Semimetal,62,QMBT
+64,Intrinsic Semiconductor,62,MATL
+65,Extrinsic Semiconductor,64,MATL
+66,Elemental Semiconductor,64,MATL
+67,Compound Semiconductor,64|29,MATL
+68,Silicon,35|66,MATL
+69,Germanium,66,MATL
+70,Gallium Arsenide,67,MATL
+71,Donor Atom,65|36,MATL
+72,Acceptor Atom,65|36,MATL
+73,N-Type Doping,71,MATL
+74,P-Type Doping,72,MATL
+75,Dopant Ionization,73|74,MATL
+76,Ionization Energy,75,MATL
+77,Doping Concentration,73|74,MATL
+78,Compensated Semiconductor,73|74,MATL
+79,Degenerate Semiconductor,77,MATL
+80,Freeze-Out Regime,75|76,MATL
+81,Extrinsic Temperature Region,80,MATL
+82,Intrinsic Temperature Region,64|81,MATL
+83,Free Electron,50,STAT
+84,Hole,49,STAT
+85,Electron-Hole Pair,83|84,STAT
+86,Fermi-Dirac Distribution,58|7,STAT
+87,Fermi Function,86,STAT
+88,Density of States Function,57|87,STAT
+89,Effective Density of States,88,STAT
+90,Intrinsic Carrier Concentration,89|64,STAT
+91,Mass Action Law,90,STAT
+92,Charge Neutrality Condition,73|74|77,STAT
+93,Boltzmann Approximation,86,STAT
+94,Nondegenerate Semiconductor,93|79,STAT
+95,Electron Concentration,89|93,STAT
+96,Hole Concentration,89|93,STAT
+97,Carrier Temperature Dependence,95|96,STAT
+98,Fermi Level Position,95|96|58,STAT
+99,Intrinsic Fermi Level,98|90,STAT
+100,Carrier Concentration Equation,91|92|95|96,STAT
+101,Drift Current,2|83|84,TRAN
+102,Diffusion Current,95|96,TRAN
+103,Carrier Mobility,83|84,TRAN
+104,Drift Velocity,103|2,TRAN
+105,Scattering Mechanism,103,TRAN
+106,Lattice Scattering,105,TRAN
+107,Impurity Scattering,105|77,TRAN
+108,Conductivity,103|95|96,TRAN
+109,Resistivity,108,TRAN
+110,Sheet Resistance,109,TRAN
+111,Hall Effect,101|2,TRAN
+112,Hall Coefficient,111,TRAN
+113,Hall Voltage,111,TRAN
+114,Diffusion Coefficient,103,TRAN
+115,Einstein Relation,103|114,TRAN
+116,Fick's Law,114,TRAN
+117,Concentration Gradient,116,TRAN
+118,Total Current Density,101|102,TRAN
+119,Velocity Saturation,104|106,TRAN
+120,Mobility Temperature Dependence,103|106|107,TRAN
+121,Excess Carriers,85|100,NEQ
+122,Carrier Generation,8|85,NEQ
+123,Carrier Recombination,85,NEQ
+124,Optical Generation,122|8,NEQ
+125,Thermal Generation,122|7,NEQ
+126,Direct Recombination,123|53,NEQ
+127,Indirect Recombination,123|54,NEQ
+128,Trap-Assisted Recombination,123|40,NEQ
+129,Shockley-Read-Hall Recombination,128,NEQ
+130,Auger Recombination,123,NEQ
+131,Minority Carrier Lifetime,123,NEQ
+132,Recombination Rate,123|131,NEQ
+133,Low-Level Injection,121,NEQ
+134,High-Level Injection,121,NEQ
+135,Continuity Equation,118|132,NEQ
+136,Diffusion Length,114|131,NEQ
+137,Quasi-Fermi Level,98|121,NEQ
+138,Steady-State Carrier Profile,135|136,NEQ
+139,Carrier Injection,121|133,NEQ
+140,P-N Junction,73|74,PNJ
+141,Metallurgical Junction,140,PNJ
+142,Poisson's Equation,2|3,PNJ
+143,Depletion Region,140|92,PNJ
+144,Depletion Approximation,143|142,PNJ
+145,Built-In Potential,144|98,PNJ
+146,Depletion Charge Density,144|77,PNJ
+147,Junction Electric Field,142|146,PNJ
+148,Depletion Width,144|145,PNJ
+149,Junction Capacitance,148,PNJ
+150,Forward Bias,145,PNJ
+151,Reverse Bias,145,PNJ
+152,Minority Carrier Injection,150|139|137,PNJ
+153,Short-Base Diode,152|136,PNJ
+154,Long-Base Diode,152|136,PNJ
+155,Saturation Current,153|154|90,PNJ
+156,Ideal Diode Equation,155|150|151|115,PNJ
+157,Reverse Breakdown,151|147,PNJ
+158,Avalanche Breakdown,157|18,PNJ
+159,Zener Breakdown,157|79,PNJ
+160,Junction I-V Characteristic,156|157,PNJ
+161,Metal-Semiconductor Junction,65|140,MSJ
+162,Work Function,59,MSJ
+163,Electron Affinity,59|64,MSJ
+164,Barrier Height,162|163,MSJ
+165,Schottky Barrier,161|164,MSJ
+166,Schottky Diode,165|156,MSJ
+167,Ohmic Contact,161|77,MSJ
+168,Rectifying Contact,165|167,MSJ
+169,MOS Capacitor,161|64|61,MOS
+170,Gate Oxide,169,MOS
+171,Flat-Band Voltage,169|162,MOS
+172,Accumulation Region,169|171,MOS
+173,Depletion Mode,169|144,MOS
+174,Inversion Layer,173|84,MOS
+175,Threshold Voltage,174|171,MOS
+176,Surface Potential,169|142,MOS
+177,Oxide Capacitance,170|149,MOS
+178,Strong Inversion,174|176,MOS
+179,Weak Inversion,173|176,MOS
+180,Semiconductor Surface,169|176,MOS
+181,Optical Absorption,8|47,OPT
+182,Absorption Coefficient,181,OPT
+183,Photon Absorption,181|85,OPT
+184,Photoconductivity,183|108,OPT
+185,Photodiode,184|156|127,OPT
+186,Solar Cell,185|90,OPT
+187,Light-Emitting Diode,126|156|70,OPT
+188,Radiative Recombination,126|8,OPT
+189,Thermal Conductivity,7|21,OPT
+190,Thermal Generation Rate,125|132,OPT
+191,Power Diode,156|157,DEV
+192,Rectifier Circuit,156|191,DEV
+193,Varactor Diode,149|156,DEV
+194,Bipolar Transistor Basics,140|152|69,DEV
+195,MOSFET Basics,175|178|68,DEV
+196,Semiconductor Device Modeling,156|175|110,DEV
+197,Device Simulation Concept,196,DEV
+198,Band Diagram Construction,58|143|169|56,DEV
+199,Device Design Trade-Offs,196|198,DEV
+200,Capstone Device Project,199|186|195,DEV

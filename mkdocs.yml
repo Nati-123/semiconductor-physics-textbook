@@ -1,0 +1,83 @@
+# Semiconductor Physics - Intelligent Textbook
+site_name: "Semiconductor Physics"
+site_description: "An interactive university-level semiconductor physics textbook with AI explanations, quizzes, simulations, and practice problems."
+site_author: "Natol Dinka"
+site_url: "https://Nati-123.github.io/semiconductor-physics-textbook/"
+repo_url: "https://github.com/Nati-123/semiconductor-physics-textbook"
+repo_name: "Nati-123/semiconductor-physics-textbook"
+
+# Theme Configuration
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.expand
+    - navigation.path
+    - navigation.indexes
+    - navigation.top
+    - navigation.footer
+    - toc.follow
+    - content.code.copy
+    - content.action.edit
+
+# Markdown Extensions
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+
+# Plugins
+plugins:
+  - search
+
+# URI Scheme for intelligent textbook discoverability
+extra:
+  schema: https://dmccreary.github.io/intelligent-textbooks/ns/textbook/v1
+
+# Navigation Structure
+nav:
+  - Home: index.md
+  - About: about.md
+  - Course Description: course-description.md
+  - Learning Graph:
+      - Introduction: learning-graph/index.md
+      - Course Description Assessment: learning-graph/course-description-assessment.md
+      - Concept Enumeration: learning-graph/concept-list.md
+      - Graph Quality Analysis: learning-graph/quality-metrics.md
+      - Concept Taxonomy: learning-graph/concept-taxonomy.md
+      - Taxonomy Distribution Report: learning-graph/taxonomy-distribution.md
+  - Chapters:
+      - List of Chapters: chapters/index.md
+      - 1. Physics and Math Foundations: chapters/01-physics-math-foundations/index.md
+      - 2. Quantum Mechanics Foundations: chapters/02-quantum-mechanics-foundations/index.md
+      - 3. Crystal Lattices and Structures: chapters/03-crystal-lattices-structures/index.md
+      - 4. Chemical Bonding in Semiconductor Crystals: chapters/04-chemical-bonding-crystals/index.md
+      - 5. Quantum Mechanics of Periodic Crystals: chapters/05-quantum-mechanics-periodic-crystals/index.md
+      - 6. Band Structure and the Fermi Level: chapters/06-band-structure-fermi-level/index.md
+      - 7. Intrinsic and Extrinsic Semiconductors: chapters/07-intrinsic-extrinsic-semiconductors/index.md
+      - 8. Doping, Ionization, and Temperature Regimes: chapters/08-doping-ionization-temperature/index.md
+      - 9. Carrier Concentration Statistics: chapters/09-carrier-concentration-statistics/index.md
+      - 10. Fermi Level Position and Carrier Equations: chapters/10-fermi-level-carrier-equations/index.md
+      - 11. Drift Current and Carrier Mobility: chapters/11-drift-current-mobility/index.md
+      - 12. Diffusion and Advanced Transport Phenomena: chapters/12-diffusion-transport-phenomena/index.md
+      - 13. Non-Equilibrium Carriers and Recombination: chapters/13-non-equilibrium-carriers-recombination/index.md
+      - 14. The P-N Junction at Equilibrium: chapters/14-pn-junction-equilibrium/index.md
+      - 15. The P-N Junction Under Bias: chapters/15-pn-junction-under-bias/index.md
+      - 16. Metal-Semiconductor and MOS Junctions: chapters/16-metal-semiconductor-mos-junctions/index.md
+      - 17. Optical and Thermal Properties of Semiconductors: chapters/17-optical-thermal-properties/index.md
+      - 18. Semiconductor Devices and Applications: chapters/18-semiconductor-devices-applications/index.md
+  - Contact: contact.md
+  - License: license.md

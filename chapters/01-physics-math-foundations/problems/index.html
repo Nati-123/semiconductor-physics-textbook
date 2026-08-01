@@ -6,37 +6,37 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="An interactive university-level semiconductor physics textbook with AI explanations, quizzes, simulations, and practice problems.">
+        <meta name="description" content="Practice problems for classical physics review, essential mathematics, vector calculus, and basic electromagnetics">
       
       
         <meta name="author" content="Natol Dinka">
       
       
-        <link rel="canonical" href="https://Nati-123.github.io/semiconductor-physics-textbook/chapters/12-diffusion-transport-phenomena/">
+        <link rel="canonical" href="https://Nati-123.github.io/semiconductor-physics-textbook/chapters/01-physics-math-foundations/problems/">
       
       
-        <link rel="prev" href="../11-drift-current-mobility/">
+        <link rel="prev" href="../quiz/">
       
       
-        <link rel="next" href="../13-non-equilibrium-carriers-recombination/">
+        <link rel="next" href="../glossary/">
       
       
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
-        <title>12. Diffusion and Advanced Transport Phenomena - Semiconductor Physics</title>
+        <title>Chapter 1 Problems - Physics and Math Foundations - Semiconductor Physics</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -55,11 +55,11 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css?v=1">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css?v=1">
     
-      <link rel="stylesheet" href="../../stylesheets/quiz.css?v=1">
+      <link rel="stylesheet" href="../../../stylesheets/quiz.css?v=1">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -84,7 +84,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#diffusion-and-advanced-transport-phenomena" class="md-skip">
+        <a href="#end-of-chapter-problems-physics-and-math-foundations" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +98,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Semiconductor Physics" class="md-header__button md-logo" aria-label="Semiconductor Physics" data-md-component="logo">
+    <a href="../../.." title="Semiconductor Physics" class="md-header__button md-logo" aria-label="Semiconductor Physics" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 11a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1M4.22 4.22C5.65 2.79 8.75 3.43 12 5.56c3.25-2.13 6.35-2.77 7.78-1.34s.79 4.53-1.34 7.78c2.13 3.25 2.77 6.35 1.34 7.78s-4.53.79-7.78-1.34c-3.25 2.13-6.35 2.77-7.78 1.34S3.43 15.25 5.56 12C3.43 8.75 2.79 5.65 4.22 4.22m11.32 4.24c.61.62 1.17 1.25 1.69 1.88 1.38-2.13 1.88-3.96 1.13-4.7-.74-.75-2.57-.25-4.7 1.13.63.52 1.26 1.08 1.88 1.69m-7.08 7.08c-.61-.62-1.17-1.25-1.69-1.88-1.38 2.13-1.88 3.96-1.13 4.7.74.75 2.57.25 4.7-1.13-.63-.52-1.26-1.08-1.88-1.69m-2.82-9.9c-.75.74-.25 2.57 1.13 4.7.52-.63 1.08-1.26 1.69-1.88.62-.61 1.25-1.17 1.88-1.69-2.13-1.38-3.96-1.88-4.7-1.13m4.24 8.48c.7.7 1.42 1.34 2.12 1.91.7-.57 1.42-1.21 2.12-1.91s1.34-1.42 1.91-2.12c-.57-.7-1.21-1.42-1.91-2.12S12.7 8.54 12 7.97c-.7.57-1.42 1.21-2.12 1.91S8.54 11.3 7.97 12c.57.7 1.21 1.42 1.91 2.12m8.48 4.24c.75-.74.25-2.57-1.13-4.7-.52.63-1.08 1.26-1.69 1.88-.62.61-1.25 1.17-1.88 1.69 2.13 1.38 3.96 1.88 4.7 1.13"/></svg>
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              12. Diffusion and Advanced Transport Phenomena
+              Chapter 1 Problems - Physics and Math Foundations
             
           </span>
         </div>
@@ -215,7 +215,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
   
@@ -234,7 +234,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../home/" class="md-tabs__link">
+      <a href="../../../home/" class="md-tabs__link">
         
   
   
@@ -253,7 +253,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../course-description/" class="md-tabs__link">
+      <a href="../../../course-description/" class="md-tabs__link">
         
   
   
@@ -272,7 +272,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../faq/" class="md-tabs__link">
+      <a href="../../../faq/" class="md-tabs__link">
         
   
   
@@ -291,7 +291,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../glossary/" class="md-tabs__link">
+      <a href="../../../glossary/" class="md-tabs__link">
         
   
   
@@ -314,7 +314,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+        <a href="../../" class="md-tabs__link">
           
   
   
@@ -334,7 +334,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../sims/" class="md-tabs__link">
+        <a href="../../../sims/" class="md-tabs__link">
           
   
   
@@ -354,7 +354,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../learning-graph/" class="md-tabs__link">
+        <a href="../../../learning-graph/" class="md-tabs__link">
           
   
   
@@ -372,7 +372,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../about/" class="md-tabs__link">
+      <a href="../../../about/" class="md-tabs__link">
         
   
   
@@ -391,7 +391,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../contact/" class="md-tabs__link">
+      <a href="../../../contact/" class="md-tabs__link">
         
   
   
@@ -410,7 +410,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../license/" class="md-tabs__link">
+      <a href="../../../license/" class="md-tabs__link">
         
   
   
@@ -447,7 +447,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Semiconductor Physics" class="md-nav__button md-logo" aria-label="Semiconductor Physics" data-md-component="logo">
+    <a href="../../.." title="Semiconductor Physics" class="md-nav__button md-logo" aria-label="Semiconductor Physics" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 11a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1M4.22 4.22C5.65 2.79 8.75 3.43 12 5.56c3.25-2.13 6.35-2.77 7.78-1.34s.79 4.53-1.34 7.78c2.13 3.25 2.77 6.35 1.34 7.78s-4.53.79-7.78-1.34c-3.25 2.13-6.35 2.77-7.78 1.34S3.43 15.25 5.56 12C3.43 8.75 2.79 5.65 4.22 4.22m11.32 4.24c.61.62 1.17 1.25 1.69 1.88 1.38-2.13 1.88-3.96 1.13-4.7-.74-.75-2.57-.25-4.7 1.13.63.52 1.26 1.08 1.88 1.69m-7.08 7.08c-.61-.62-1.17-1.25-1.69-1.88-1.38 2.13-1.88 3.96-1.13 4.7.74.75 2.57.25 4.7-1.13-.63-.52-1.26-1.08-1.88-1.69m-2.82-9.9c-.75.74-.25 2.57 1.13 4.7.52-.63 1.08-1.26 1.69-1.88.62-.61 1.25-1.17 1.88-1.69-2.13-1.38-3.96-1.88-4.7-1.13m4.24 8.48c.7.7 1.42 1.34 2.12 1.91.7-.57 1.42-1.21 2.12-1.91s1.34-1.42 1.91-2.12c-.57-.7-1.21-1.42-1.91-2.12S12.7 8.54 12 7.97c-.7.57-1.42 1.21-2.12 1.91S8.54 11.3 7.97 12c.57.7 1.21 1.42 1.91 2.12m8.48 4.24c.75-.74.25-2.57-1.13-4.7-.52.63-1.08 1.26-1.69 1.88-.62.61-1.25 1.17-1.88 1.69 2.13 1.38 3.96 1.88 4.7 1.13"/></svg>
@@ -477,7 +477,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -504,7 +504,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../home/" class="md-nav__link">
+      <a href="../../../home/" class="md-nav__link">
         
   
   
@@ -531,7 +531,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../course-description/" class="md-nav__link">
+      <a href="../../../course-description/" class="md-nav__link">
         
   
   
@@ -558,7 +558,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../faq/" class="md-nav__link">
+      <a href="../../../faq/" class="md-nav__link">
         
   
   
@@ -585,7 +585,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../glossary/" class="md-nav__link">
+      <a href="../../../glossary/" class="md-nav__link">
         
   
   
@@ -669,7 +669,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../" class="md-nav__link">
         
   
   
@@ -694,8 +694,10 @@
                 
   
   
+    
   
   
+  
     
     
     
@@ -709,13 +711,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" checked>
         
           
           <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="">
@@ -736,7 +736,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -754,7 +754,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-physics-math-foundations/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -782,7 +782,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-physics-math-foundations/quiz/" class="md-nav__link">
+      <a href="../quiz/" class="md-nav__link">
         
   
   
@@ -790,350 +790,6 @@
     
   
     Quiz
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../01-physics-math-foundations/problems/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Problems
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../01-physics-math-foundations/glossary/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Glossary
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../02-quantum-mechanics-foundations/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    2. Quantum Mechanics Foundations
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../03-crystal-lattices-structures/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    3. Crystal Lattices and Structures
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../04-chemical-bonding-crystals/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    4. Chemical Bonding in Semiconductor Crystals
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../05-quantum-mechanics-periodic-crystals/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    5. Quantum Mechanics of Periodic Crystals
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../06-band-structure-fermi-level/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    6. Band Structure and the Fermi Level
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../07-intrinsic-extrinsic-semiconductors/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    7. Intrinsic and Extrinsic Semiconductors
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../08-doping-ionization-temperature/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    8. Doping, Ionization, and Temperature Regimes
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../09-carrier-concentration-statistics/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    9. Carrier Concentration Statistics
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../10-fermi-level-carrier-equations/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    10. Fermi Level Position and Carrier Equations
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../11-drift-current-mobility/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    11. Drift Current and Carrier Mobility
   
 
     
@@ -1170,7 +826,7 @@
   <span class="md-ellipsis">
     
   
-    12. Diffusion and Advanced Transport Phenomena
+    Problems
   
 
     
@@ -1188,7 +844,7 @@
   <span class="md-ellipsis">
     
   
-    12. Diffusion and Advanced Transport Phenomena
+    Problems
   
 
     
@@ -1214,35 +870,284 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
+  <a href="#easy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Summary
+        Easy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Easy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#problem-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problem 1
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#concepts-covered" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#problem-2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Concepts Covered
+        Problem 2
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#problem-3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Prerequisites
+        Problem 3
       
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problem-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problem 4
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problem-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problem 5
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problem-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problem 6
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problem-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problem 7
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problem-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problem 8
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#medium" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Medium
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Medium">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#problem-9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problem 9
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problem-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problem 10
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problem-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problem 11
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problem-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problem 12
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problem-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problem 13
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problem-14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problem 14
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problem-15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problem 15
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problem-16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problem 16
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#difficult" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Difficult
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Difficult">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#problem-17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problem 17
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problem-18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problem 18
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problem-19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problem 19
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problem-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problem 20
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problem-21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problem 21
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1262,7 +1167,351 @@
   
   
     <li class="md-nav__item">
-      <a href="../13-non-equilibrium-carriers-recombination/" class="md-nav__link">
+      <a href="../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-quantum-mechanics-foundations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Quantum Mechanics Foundations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-crystal-lattices-structures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Crystal Lattices and Structures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-chemical-bonding-crystals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Chemical Bonding in Semiconductor Crystals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-quantum-mechanics-periodic-crystals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Quantum Mechanics of Periodic Crystals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-band-structure-fermi-level/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Band Structure and the Fermi Level
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-intrinsic-extrinsic-semiconductors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Intrinsic and Extrinsic Semiconductors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08-doping-ionization-temperature/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Doping, Ionization, and Temperature Regimes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09-carrier-concentration-statistics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Carrier Concentration Statistics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../10-fermi-level-carrier-equations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Fermi Level Position and Carrier Equations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../11-drift-current-mobility/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Drift Current and Carrier Mobility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../12-diffusion-transport-phenomena/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Diffusion and Advanced Transport Phenomena
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../13-non-equilibrium-carriers-recombination/" class="md-nav__link">
         
   
   
@@ -1290,7 +1539,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../14-pn-junction-equilibrium/" class="md-nav__link">
+      <a href="../../14-pn-junction-equilibrium/" class="md-nav__link">
         
   
   
@@ -1318,7 +1567,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../15-pn-junction-under-bias/" class="md-nav__link">
+      <a href="../../15-pn-junction-under-bias/" class="md-nav__link">
         
   
   
@@ -1346,7 +1595,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../16-metal-semiconductor-mos-junctions/" class="md-nav__link">
+      <a href="../../16-metal-semiconductor-mos-junctions/" class="md-nav__link">
         
   
   
@@ -1374,7 +1623,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../17-optical-thermal-properties/" class="md-nav__link">
+      <a href="../../17-optical-thermal-properties/" class="md-nav__link">
         
   
   
@@ -1402,7 +1651,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../18-semiconductor-devices-applications/" class="md-nav__link">
+      <a href="../../18-semiconductor-devices-applications/" class="md-nav__link">
         
   
   
@@ -1491,7 +1740,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sims/" class="md-nav__link">
+      <a href="../../../sims/" class="md-nav__link">
         
   
   
@@ -1573,7 +1822,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sims/coulomb-force-vectors/" class="md-nav__link">
+      <a href="../../../sims/coulomb-force-vectors/" class="md-nav__link">
         
   
   
@@ -1601,7 +1850,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sims/coulomb-force-explorer/" class="md-nav__link">
+      <a href="../../../sims/coulomb-force-explorer/" class="md-nav__link">
         
   
   
@@ -1629,7 +1878,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sims/vector-components-addition/" class="md-nav__link">
+      <a href="../../../sims/vector-components-addition/" class="md-nav__link">
         
   
   
@@ -1657,7 +1906,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sims/gradient-divergence-curl-explorer/" class="md-nav__link">
+      <a href="../../../sims/gradient-divergence-curl-explorer/" class="md-nav__link">
         
   
   
@@ -1685,7 +1934,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sims/electric-field-flux-explorer/" class="md-nav__link">
+      <a href="../../../sims/electric-field-flux-explorer/" class="md-nav__link">
         
   
   
@@ -1713,7 +1962,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sims/gauss-law-explorer/" class="md-nav__link">
+      <a href="../../../sims/gauss-law-explorer/" class="md-nav__link">
         
   
   
@@ -1741,7 +1990,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sims/maxwell-boltzmann-distribution/" class="md-nav__link">
+      <a href="../../../sims/maxwell-boltzmann-distribution/" class="md-nav__link">
         
   
   
@@ -1769,7 +2018,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sims/photon-energy-spectrum-chart/" class="md-nav__link">
+      <a href="../../../sims/photon-energy-spectrum-chart/" class="md-nav__link">
         
   
   
@@ -1866,7 +2115,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../learning-graph/" class="md-nav__link">
+      <a href="../../../learning-graph/" class="md-nav__link">
         
   
   
@@ -1894,7 +2143,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../learning-graph/course-description-assessment/" class="md-nav__link">
+      <a href="../../../learning-graph/course-description-assessment/" class="md-nav__link">
         
   
   
@@ -1922,7 +2171,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../learning-graph/concept-list/" class="md-nav__link">
+      <a href="../../../learning-graph/concept-list/" class="md-nav__link">
         
   
   
@@ -1950,7 +2199,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../learning-graph/quality-metrics/" class="md-nav__link">
+      <a href="../../../learning-graph/quality-metrics/" class="md-nav__link">
         
   
   
@@ -1978,7 +2227,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../learning-graph/concept-taxonomy/" class="md-nav__link">
+      <a href="../../../learning-graph/concept-taxonomy/" class="md-nav__link">
         
   
   
@@ -2006,7 +2255,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../learning-graph/taxonomy-distribution/" class="md-nav__link">
+      <a href="../../../learning-graph/taxonomy-distribution/" class="md-nav__link">
         
   
   
@@ -2034,7 +2283,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../learning-graph/glossary-quality-report/" class="md-nav__link">
+      <a href="../../../learning-graph/glossary-quality-report/" class="md-nav__link">
         
   
   
@@ -2062,7 +2311,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../learning-graph/quiz-generation-report/" class="md-nav__link">
+      <a href="../../../learning-graph/quiz-generation-report/" class="md-nav__link">
         
   
   
@@ -2097,7 +2346,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../about/" class="md-nav__link">
+      <a href="../../../about/" class="md-nav__link">
         
   
   
@@ -2124,7 +2373,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contact/" class="md-nav__link">
+      <a href="../../../contact/" class="md-nav__link">
         
   
   
@@ -2151,7 +2400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../license/" class="md-nav__link">
+      <a href="../../../license/" class="md-nav__link">
         
   
   
@@ -2188,7 +2437,7 @@
 
 
   
-    <a href="https://github.com/Nati-123/semiconductor-physics-textbook/edit/master/docs/chapters/12-diffusion-transport-phenomena/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/Nati-123/semiconductor-physics-textbook/edit/master/docs/chapters/01-physics-math-foundations/problems.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -2196,37 +2445,211 @@
   
 
 
-<h1 id="diffusion-and-advanced-transport-phenomena">Diffusion and Advanced Transport Phenomena</h1>
-<h2 id="summary">Summary</h2>
-<p>This chapter builds out the transport picture with the Hall effect (and its coefficient and voltage), the diffusion coefficient, and the Einstein relation that connects diffusion to mobility. Students learn Fick's law and concentration gradients, combine drift and diffusion into a total current density expression, and see how velocity saturation and temperature affect carrier mobility at high fields and elevated temperatures.</p>
-<h2 id="concepts-covered">Concepts Covered</h2>
-<p>This chapter covers the following 10 concepts from the learning graph:</p>
-<ol>
-<li>Hall Effect</li>
-<li>Hall Coefficient</li>
-<li>Hall Voltage</li>
-<li>Diffusion Coefficient</li>
-<li>Einstein Relation</li>
-<li>Fick's Law</li>
-<li>Concentration Gradient</li>
-<li>Total Current Density</li>
-<li>Velocity Saturation</li>
-<li>Mobility Temperature Dependence</li>
-</ol>
-<h2 id="prerequisites">Prerequisites</h2>
-<p>This chapter builds on concepts from:</p>
-<ul>
-<li><a href="../01-physics-math-foundations/">Chapter 1: Physics and Math Foundations</a></li>
-<li><a href="../11-drift-current-mobility/">Chapter 11: Drift Current and Carrier Mobility</a></li>
-</ul>
+<div class="problems-styled">
+<h1 id="end-of-chapter-problems-physics-and-math-foundations">End-of-Chapter Problems: Physics and Math Foundations</h1>
+<p>Work through these problems to reinforce your understanding of the physics and mathematics foundations from Chapter 1.</p>
 <hr />
-<p>TODO: Generate Chapter Content</p>
+<h2 id="easy">Easy</h2>
+<h3 id="problem-1">Problem 1</h3>
+<p>Convert <span class="arithmatex">\(90^\circ\)</span> to radians.</p>
+<details style="margin-top: 1rem;">
+<summary style="color: #5A3EED; font-weight: 700; cursor: pointer;">Show Solution</summary>
+<div style="background: #E7F7E7; border: 2px solid #81C784; border-radius: 10px; padding: 18px 22px; margin-top: 10px;">
+<p style="color: #333; line-height: 1.85; margin: 0;"><span class="arithmatex">\(90^\circ \times (\pi/180^\circ) = \pi/2\ \text{rad} \approx 1.571\ \text{rad}\)</span>.</p>
+</div>
+</details>
+<hr />
+<h3 id="problem-2">Problem 2</h3>
+<p>State Newton's second law and identify the SI unit of each quantity in it.</p>
+<details style="margin-top: 1rem;">
+<summary style="color: #5A3EED; font-weight: 700; cursor: pointer;">Show Solution</summary>
+<div style="background: #E7F7E7; border: 2px solid #81C784; border-radius: 10px; padding: 18px 22px; margin-top: 10px;">
+<p style="color: #333; line-height: 1.85; margin: 0;"><span class="arithmatex">\(\vec{F}=m\vec{a}\)</span>; force in newtons (N), mass in kilograms (kg), acceleration in meters per second squared (m/s²).</p>
+</div>
+</details>
+<hr />
+<h3 id="problem-3">Problem 3</h3>
+<p>What is the SI unit of electric potential, and what two quantities define it?</p>
+<details style="margin-top: 1rem;">
+<summary style="color: #5A3EED; font-weight: 700; cursor: pointer;">Show Solution</summary>
+<div style="background: #E7F7E7; border: 2px solid #81C784; border-radius: 10px; padding: 18px 22px; margin-top: 10px;">
+<p style="color: #333; line-height: 1.85; margin: 0;">Volt (V); defined as potential energy per unit charge, <span class="arithmatex">\(V = U/q\)</span>.</p>
+</div>
+</details>
+<hr />
+<h3 id="problem-4">Problem 4</h3>
+<p>Write the value of the elementary charge <span class="arithmatex">\(e\)</span> in coulombs.</p>
+<details style="margin-top: 1rem;">
+<summary style="color: #5A3EED; font-weight: 700; cursor: pointer;">Show Solution</summary>
+<div style="background: #E7F7E7; border: 2px solid #81C784; border-radius: 10px; padding: 18px 22px; margin-top: 10px;">
+<p style="color: #333; line-height: 1.85; margin: 0;"><span class="arithmatex">\(e = 1.602\times10^{-19}\ \text{C}\)</span>.</p>
+</div>
+</details>
+<hr />
+<h3 id="problem-5">Problem 5</h3>
+<p>Simplify <span class="arithmatex">\(e^{3}\cdot e^{-5}\)</span>.</p>
+<details style="margin-top: 1rem;">
+<summary style="color: #5A3EED; font-weight: 700; cursor: pointer;">Show Solution</summary>
+<div style="background: #E7F7E7; border: 2px solid #81C784; border-radius: 10px; padding: 18px 22px; margin-top: 10px;">
+<p style="color: #333; line-height: 1.85; margin: 0;"><span class="arithmatex">\(e^{3}\cdot e^{-5} = e^{3-5} = e^{-2} \approx 0.135\)</span>.</p>
+</div>
+</details>
+<hr />
+<h3 id="problem-6">Problem 6</h3>
+<p>What is the complex conjugate of <span class="arithmatex">\(z = 2-5i\)</span>?</p>
+<details style="margin-top: 1rem;">
+<summary style="color: #5A3EED; font-weight: 700; cursor: pointer;">Show Solution</summary>
+<div style="background: #E7F7E7; border: 2px solid #81C784; border-radius: 10px; padding: 18px 22px; margin-top: 10px;">
+<p style="color: #333; line-height: 1.85; margin: 0;"><span class="arithmatex">\(z^{*} = 2+5i\)</span>.</p>
+</div>
+</details>
+<hr />
+<h3 id="problem-7">Problem 7</h3>
+<p>Differentiate <span class="arithmatex">\(f(x) = 7x^3\)</span>.</p>
+<details style="margin-top: 1rem;">
+<summary style="color: #5A3EED; font-weight: 700; cursor: pointer;">Show Solution</summary>
+<div style="background: #E7F7E7; border: 2px solid #81C784; border-radius: 10px; padding: 18px 22px; margin-top: 10px;">
+<p style="color: #333; line-height: 1.85; margin: 0;"><span class="arithmatex">\(f'(x) = 21x^2\)</span>.</p>
+</div>
+</details>
+<hr />
+<h3 id="problem-8">Problem 8</h3>
+<p>State Coulomb's law in words (no equation).</p>
+<details style="margin-top: 1rem;">
+<summary style="color: #5A3EED; font-weight: 700; cursor: pointer;">Show Solution</summary>
+<div style="background: #E7F7E7; border: 2px solid #81C784; border-radius: 10px; padding: 18px 22px; margin-top: 10px;">
+<p style="color: #333; line-height: 1.85; margin: 0;">The electrostatic force between two point charges is directly proportional to the product of their magnitudes and inversely proportional to the square of the distance between them, acting along the line joining them.</p>
+</div>
+</details>
+<hr />
+<h2 id="medium">Medium</h2>
+<h3 id="problem-9">Problem 9</h3>
+<p>Two charges of <span class="arithmatex">\(+4\)</span> nC and <span class="arithmatex">\(+4\)</span> nC are separated by 3 nm. Find the electrostatic force between them.</p>
+<details style="margin-top: 1rem;">
+<summary style="color: #5A3EED; font-weight: 700; cursor: pointer;">Show Solution</summary>
+<div style="background: #E7F7E7; border: 2px solid #81C784; border-radius: 10px; padding: 18px 22px; margin-top: 10px;">
+<p style="color: #333; line-height: 1.85; margin: 0;"><span class="arithmatex">\(F = (8.99\times10^9)\dfrac{(4\times10^{-9})^2}{(3\times10^{-9})^2} = 1.60\times10^{-2}\ \text{N}\)</span> (repulsive, both positive).</p>
+</div>
+</details>
+<hr />
+<h3 id="problem-10">Problem 10</h3>
+<p>A test charge of <span class="arithmatex">\(+1.5\times10^{-19}\)</span> C experiences a force of <span class="arithmatex">\(6.0\times10^{-15}\)</span> N in an electric field. Find the field magnitude.</p>
+<details style="margin-top: 1rem;">
+<summary style="color: #5A3EED; font-weight: 700; cursor: pointer;">Show Solution</summary>
+<div style="background: #E7F7E7; border: 2px solid #81C784; border-radius: 10px; padding: 18px 22px; margin-top: 10px;">
+<p style="color: #333; line-height: 1.85; margin: 0;"><span class="arithmatex">\(E = F/q = (6.0\times10^{-15})/(1.5\times10^{-19}) = 4.0\times10^{4}\ \text{V/m}\)</span>.</p>
+</div>
+</details>
+<hr />
+<h3 id="problem-11">Problem 11</h3>
+<p>Solve <span class="arithmatex">\(50 = e^{x/0.05}\)</span> for <span class="arithmatex">\(x\)</span>.</p>
+<details style="margin-top: 1rem;">
+<summary style="color: #5A3EED; font-weight: 700; cursor: pointer;">Show Solution</summary>
+<div style="background: #E7F7E7; border: 2px solid #81C784; border-radius: 10px; padding: 18px 22px; margin-top: 10px;">
+<p style="color: #333; line-height: 1.85; margin: 0;"><span class="arithmatex">\(\ln(50) = x/0.05 \Rightarrow x = 0.05\times3.912 = 0.1956\)</span>.</p>
+</div>
+</details>
+<hr />
+<h3 id="problem-12">Problem 12</h3>
+<p>Find <span class="arithmatex">\(\partial f/\partial x\)</span> and <span class="arithmatex">\(\partial f/\partial y\)</span> for <span class="arithmatex">\(f(x,y) = x^3y^2 + 4y\)</span>.</p>
+<details style="margin-top: 1rem;">
+<summary style="color: #5A3EED; font-weight: 700; cursor: pointer;">Show Solution</summary>
+<div style="background: #E7F7E7; border: 2px solid #81C784; border-radius: 10px; padding: 18px 22px; margin-top: 10px;">
+<p style="color: #333; line-height: 1.85; margin: 0;"><span class="arithmatex">\(\partial f/\partial x = 3x^2y^2\)</span>; <span class="arithmatex">\(\partial f/\partial y = 2x^3y+4\)</span>.</p>
+</div>
+</details>
+<hr />
+<h3 id="problem-13">Problem 13</h3>
+<p>Evaluate <span class="arithmatex">\(\int_0^{2} 3x^2\,dx\)</span>.</p>
+<details style="margin-top: 1rem;">
+<summary style="color: #5A3EED; font-weight: 700; cursor: pointer;">Show Solution</summary>
+<div style="background: #E7F7E7; border: 2px solid #81C784; border-radius: 10px; padding: 18px 22px; margin-top: 10px;">
+<p style="color: #333; line-height: 1.85; margin: 0;"><span class="arithmatex">\(\int_0^2 3x^2\,dx = \big[x^3\big]_0^2 = 8-0 = 8\)</span>.</p>
+</div>
+</details>
+<hr />
+<h3 id="problem-14">Problem 14</h3>
+<p>Write <span class="arithmatex">\(z = -1 + i\)</span> in polar form.</p>
+<details style="margin-top: 1rem;">
+<summary style="color: #5A3EED; font-weight: 700; cursor: pointer;">Show Solution</summary>
+<div style="background: #E7F7E7; border: 2px solid #81C784; border-radius: 10px; padding: 18px 22px; margin-top: 10px;">
+<p style="color: #333; line-height: 1.85; margin: 0;"><span class="arithmatex">\(r=\sqrt{(-1)^2+1^2}=\sqrt2\)</span>; <span class="arithmatex">\(\theta = 135^\circ = 3\pi/4\ \text{rad}\)</span> (second quadrant). So <span class="arithmatex">\(z=\sqrt2\,e^{i3\pi/4}\)</span>.</p>
+</div>
+</details>
+<hr />
+<h3 id="problem-15">Problem 15</h3>
+<p>A Gaussian sphere of radius 1 nm encloses a charge of <span class="arithmatex">\(-2e\)</span>. Find the total flux through the sphere.</p>
+<details style="margin-top: 1rem;">
+<summary style="color: #5A3EED; font-weight: 700; cursor: pointer;">Show Solution</summary>
+<div style="background: #E7F7E7; border: 2px solid #81C784; border-radius: 10px; padding: 18px 22px; margin-top: 10px;">
+<p style="color: #333; line-height: 1.85; margin: 0;"><span class="arithmatex">\(\Phi_E = Q_{\text{enc}}/\varepsilon_0 = (-2\times1.602\times10^{-19})/(8.854\times10^{-12}) = -3.62\times10^{-8}\ \text{V·m}\)</span>.</p>
+</div>
+</details>
+<hr />
+<h3 id="problem-16">Problem 16</h3>
+<p>Find the photon energy, in eV, corresponding to a wavelength of 1100 nm. Is this photon energy above or below silicon's 1.12 eV band gap?</p>
+<details style="margin-top: 1rem;">
+<summary style="color: #5A3EED; font-weight: 700; cursor: pointer;">Show Solution</summary>
+<div style="background: #E7F7E7; border: 2px solid #81C784; border-radius: 10px; padding: 18px 22px; margin-top: 10px;">
+<p style="color: #333; line-height: 1.85; margin: 0;"><span class="arithmatex">\(E = hc/\lambda = (6.626\times10^{-34})(2.998\times10^8)/(1100\times10^{-9}) = 1.81\times10^{-19}\ \text{J} = 1.13\ \text{eV}\)</span>, just <strong>above</strong> silicon's 1.12 eV band gap (so this photon would still be absorbed, barely).</p>
+</div>
+</details>
+<hr />
+<h2 id="difficult">Difficult</h2>
+<h3 id="problem-17">Problem 17</h3>
+<p>Given <span class="arithmatex">\(V(x,y,z) = 5x^2y - 2z^3\)</span> (volts), find the electric field vector <span class="arithmatex">\(\vec{E} = -\nabla V\)</span> at the point <span class="arithmatex">\((1,2,1)\)</span> meters.</p>
+<details style="margin-top: 1rem;">
+<summary style="color: #5A3EED; font-weight: 700; cursor: pointer;">Show Solution</summary>
+<div style="background: #E7F7E7; border: 2px solid #81C784; border-radius: 10px; padding: 18px 22px; margin-top: 10px;">
+<p style="color: #333; line-height: 1.85; margin: 0;"><span class="arithmatex">\(\partial V/\partial x = 10xy\)</span>, <span class="arithmatex">\(\partial V/\partial y = 5x^2\)</span>, <span class="arithmatex">\(\partial V/\partial z=-6z^2\)</span>. At <span class="arithmatex">\((1,2,1)\)</span>: <span class="arithmatex">\(10(1)(2)=20\)</span>, <span class="arithmatex">\(5(1)^2=5\)</span>, <span class="arithmatex">\(-6(1)^2=-6\)</span>. So <span class="arithmatex">\(\vec{E} = -(20\hat{x}+5\hat{y}-6\hat{z})\ \text{V/m} = -20\hat{x}-5\hat{y}+6\hat{z}\ \text{V/m}\)</span>.</p>
+</div>
+</details>
+<hr />
+<h3 id="problem-18">Problem 18</h3>
+<p>Derive, starting from Coulomb's law, the expression for the electric potential <span class="arithmatex">\(V(r)\)</span> of a point charge <span class="arithmatex">\(q\)</span>, showing the integration step explicitly.</p>
+<details style="margin-top: 1rem;">
+<summary style="color: #5A3EED; font-weight: 700; cursor: pointer;">Show Solution</summary>
+<div style="background: #E7F7E7; border: 2px solid #81C784; border-radius: 10px; padding: 18px 22px; margin-top: 10px;">
+<p style="color: #333; line-height: 1.85; margin: 0;">Starting from <span class="arithmatex">\(\vec{E} = \dfrac{1}{4\pi\varepsilon_0}\dfrac{q}{r^2}\hat{r}\)</span>, integrate along a radial path from infinity to <span class="arithmatex">\(r\)</span>: <span class="arithmatex">\(V(r) = -\int_\infty^r \vec{E}\cdot d\vec{l} = -\int_\infty^r \dfrac{q}{4\pi\varepsilon_0 r'^2}dr' = \dfrac{q}{4\pi\varepsilon_0}\left[\dfrac{1}{r'}\right]_\infty^r = \dfrac{q}{4\pi\varepsilon_0}\left(\dfrac{1}{r}-0\right) = \dfrac{1}{4\pi\varepsilon_0}\dfrac{q}{r}\)</span>, matching the boxed formula in the Electric Potential subsection.</p>
+</div>
+</details>
+<hr />
+<h3 id="problem-19">Problem 19</h3>
+<p>A particle has average kinetic energy <span class="arithmatex">\(\langle KE\rangle = 0.05\)</span> eV. Estimate the temperature in kelvin using the kinetic theory of gases result <span class="arithmatex">\(\langle KE\rangle = \tfrac{3}{2}k_BT\)</span>.</p>
+<details style="margin-top: 1rem;">
+<summary style="color: #5A3EED; font-weight: 700; cursor: pointer;">Show Solution</summary>
+<div style="background: #E7F7E7; border: 2px solid #81C784; border-radius: 10px; padding: 18px 22px; margin-top: 10px;">
+<p style="color: #333; line-height: 1.85; margin: 0;"><span class="arithmatex">\(T = \dfrac{2\langle KE\rangle}{3k_B}\)</span>. Converting <span class="arithmatex">\(0.05\)</span> eV to joules: <span class="arithmatex">\(0.05\times1.602\times10^{-19}=8.01\times10^{-21}\ \text{J}\)</span>. <span class="arithmatex">\(T = \dfrac{2(8.01\times10^{-21})}{3(1.381\times10^{-23})} \approx 387\ \text{K}\)</span>.</p>
+</div>
+</details>
+<hr />
+<h3 id="problem-20">Problem 20</h3>
+<p>Compute the divergence of the vector field <span class="arithmatex">\(\vec{F} = x^2\hat{x} + y^2\hat{y} + z^2\hat{z}\)</span> and evaluate it at the point <span class="arithmatex">\((1,1,1)\)</span>.</p>
+<details style="margin-top: 1rem;">
+<summary style="color: #5A3EED; font-weight: 700; cursor: pointer;">Show Solution</summary>
+<div style="background: #E7F7E7; border: 2px solid #81C784; border-radius: 10px; padding: 18px 22px; margin-top: 10px;">
+<p style="color: #333; line-height: 1.85; margin: 0;"><span class="arithmatex">\(\nabla\cdot\vec{F} = \partial(x^2)/\partial x + \partial(y^2)/\partial y + \partial(z^2)/\partial z = 2x+2y+2z\)</span>. At <span class="arithmatex">\((1,1,1)\)</span>: <span class="arithmatex">\(2+2+2=6\)</span>.</p>
+</div>
+</details>
+<hr />
+<h3 id="problem-21">Problem 21</h3>
+<p>Using Euler's formula, show that <span class="arithmatex">\(\cos\theta = \dfrac{e^{i\theta}+e^{-i\theta}}{2}\)</span>.</p>
+<details style="margin-top: 1rem;">
+<summary style="color: #5A3EED; font-weight: 700; cursor: pointer;">Show Solution</summary>
+<div style="background: #E7F7E7; border: 2px solid #81C784; border-radius: 10px; padding: 18px 22px; margin-top: 10px;">
+<p style="color: #333; line-height: 1.85; margin: 0;">Euler's formula gives <span class="arithmatex">\(e^{i\theta}=\cos\theta+i\sin\theta\)</span> and <span class="arithmatex">\(e^{-i\theta}=\cos\theta-i\sin\theta\)</span>. Adding: <span class="arithmatex">\(e^{i\theta}+e^{-i\theta}=2\cos\theta\)</span>, so <span class="arithmatex">\(\cos\theta = \dfrac{e^{i\theta}+e^{-i\theta}}{2}\)</span>, as required.</p>
+</div>
+</details>
+</div>
 
 
 
 
 
 
+
+  
+  
 
 
 
@@ -2258,7 +2681,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../11-drift-current-mobility/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 11. Drift Current and Carrier Mobility">
+          <a href="../quiz/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Quiz">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -2268,20 +2691,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                11. Drift Current and Carrier Mobility
+                Quiz
               </div>
             </div>
           </a>
         
         
           
-          <a href="../13-non-equilibrium-carriers-recombination/" class="md-footer__link md-footer__link--next" aria-label="Next: 13. Non-Equilibrium Carriers and Recombination">
+          <a href="../glossary/" class="md-footer__link md-footer__link--next" aria-label="Next: Glossary">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                13. Non-Equilibrium Carriers and Recombination
+                Glossary
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -2323,22 +2746,22 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.footer", "navigation.top", "toc.integrate", "content.tabs.link", "content.code.copy", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.footer", "navigation.top", "toc.integrate", "content.tabs.link", "content.code.copy", "content.action.edit"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="../../javascripts/mathjax.js"></script>
+        <script src="../../../javascripts/mathjax.js"></script>
       
         <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
-        <script src="../../javascripts/tts-reader.js?v=1"></script>
+        <script src="../../../javascripts/tts-reader.js?v=1"></script>
       
-        <script src="../../javascripts/quiz-ui.js?v=1"></script>
+        <script src="../../../javascripts/quiz-ui.js?v=1"></script>
       
-        <script src="../../javascripts/problems-ui.js?v=1"></script>
+        <script src="../../../javascripts/problems-ui.js?v=1"></script>
       
-        <script src="../../javascripts/diagram-wrap.js?v=1"></script>
+        <script src="../../../javascripts/diagram-wrap.js?v=1"></script>
       
     
   </body>

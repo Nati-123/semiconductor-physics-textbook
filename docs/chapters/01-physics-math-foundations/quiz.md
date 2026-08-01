@@ -1,10 +1,25 @@
-# Quiz: Physics and Math Foundations
+---
+title: Chapter 1 Quiz - Physics and Math Foundations
+description: Test your understanding of classical physics review, essential mathematics, vector calculus, and basic electromagnetics
+hide:
+  - toc
+---
 
+<div class="problems-styled" markdown>
+
+<h1 style="color: #5A3EED !important; border-bottom: 3px solid #5A3EED; padding-bottom: 0.4rem; font-weight: 800; margin-bottom: 1.5rem;">Quiz: Physics and Math Foundations</h1>
+
+<p style="color: #555; line-height: 1.85; font-size: 1.05rem; margin-bottom: 2rem;">
 Test your understanding of the physics and mathematics foundations covered in Chapter 1 with these 20 questions.
+</p>
 
 ---
 
-#### 1. According to Newton's second law as used in this chapter, how is the net force on an object related to its mass and acceleration?
+<div style="background: #EEF4FF; border: 2px solid #A8C8FF; border-radius: 12px; padding: 24px 28px; margin: 1.5rem 0; box-shadow: 0 2px 8px rgba(90,61,237,0.07);" markdown>
+
+<p style="color: #1565C0; font-weight: 700; font-size: 1.08rem; margin-top: 0; margin-bottom: 14px;">Question 1</p>
+
+<p style="color: #333; line-height: 1.75;">According to Newton's second law as used in this chapter, how is the net force on an object related to its mass and acceleration?</p>
 
 <div class="upper-alpha" markdown>
 1. Force equals mass divided by acceleration
@@ -13,16 +28,24 @@ Test your understanding of the physics and mathematics foundations covered in Ch
 4. Force equals acceleration divided by mass
 </div>
 
-??? question "Show Answer"
-    The correct answer is **B**. Newton's second law states \(\vec{F}=m\vec{a}\): the net force on an object equals its mass times its acceleration. This relationship carries over directly to carriers in a semiconductor, where mass is often replaced by an effective mass \(m^*\).
+<details style="margin-top: 1rem;">
+<summary style="color: #5A3EED; font-weight: 700; cursor: pointer;">Show Answer</summary>
+<div style="background: #E7F7E7; border: 2px solid #81C784; border-radius: 10px; padding: 18px 22px; margin-top: 10px;">
+<p style="color: #2E7D32; font-weight: 700; margin-top: 0;">Correct Answer: B</p>
+<p style="color: #333; line-height: 1.75; margin-bottom: 0;">Newton's second law states <span class="arithmatex">\(\vec{F}=m\vec{a}\)</span>: the net force on an object equals its mass times its acceleration. This relationship carries over directly to carriers in a semiconductor, where mass is often replaced by an effective mass <span class="arithmatex">\(m^*\)</span>.</p>
+<p style="color: #555; font-style: italic; margin-bottom: 0; margin-top: 8px;"><strong>Concept Tested:</strong> Force</p>
+</div>
+</details>
 
-    **Concept Tested:** Force
-
-    **See:** [Force and Energy](index.md#force-and-energy)
+</div>
 
 ---
 
-#### 2. Which statement correctly describes electric charge as introduced in this chapter?
+<div style="background: #EEF4FF; border: 2px solid #A8C8FF; border-radius: 12px; padding: 24px 28px; margin: 1.5rem 0; box-shadow: 0 2px 8px rgba(90,61,237,0.07);" markdown>
+
+<p style="color: #1565C0; font-weight: 700; font-size: 1.08rem; margin-top: 0; margin-bottom: 14px;">Question 2</p>
+
+<p style="color: #333; line-height: 1.75;">Which statement correctly describes electric charge as introduced in this chapter?</p>
 
 <div class="upper-alpha" markdown>
 1. Charge can take any continuous value, not just multiples of a fixed unit
@@ -31,16 +54,24 @@ Test your understanding of the physics and mathematics foundations covered in Ch
 4. Charge is quantized in integer multiples of the elementary charge, e = 1.602×10⁻¹⁹ C
 </div>
 
-??? question "Show Answer"
-    The correct answer is **D**. Electric charge is a fundamental, conserved property of matter that is quantized: \(q=ne\), where \(e=1.602\times10^{-19}\) C. Options A and C contradict quantization and conservation of charge; option B ignores that charge comes in both signs.
+<details style="margin-top: 1rem;">
+<summary style="color: #5A3EED; font-weight: 700; cursor: pointer;">Show Answer</summary>
+<div style="background: #E7F7E7; border: 2px solid #81C784; border-radius: 10px; padding: 18px 22px; margin-top: 10px;">
+<p style="color: #2E7D32; font-weight: 700; margin-top: 0;">Correct Answer: D</p>
+<p style="color: #333; line-height: 1.75; margin-bottom: 0;">Electric charge is a fundamental, conserved property of matter that is quantized: <span class="arithmatex">\(q=ne\)</span>, where <span class="arithmatex">\(e=1.602\times10^{-19}\)</span> C. Options A and C contradict quantization and conservation of charge; option B ignores that charge comes in both signs.</p>
+<p style="color: #555; font-style: italic; margin-bottom: 0; margin-top: 8px;"><strong>Concept Tested:</strong> Electric Charge</p>
+</div>
+</details>
 
-    **Concept Tested:** Electric Charge
-
-    **See:** [Charge](index.md#charge)
+</div>
 
 ---
 
-#### 3. How is electric potential (voltage) defined in this chapter?
+<div style="background: #EEF4FF; border: 2px solid #A8C8FF; border-radius: 12px; padding: 24px 28px; margin: 1.5rem 0; box-shadow: 0 2px 8px rgba(90,61,237,0.07);" markdown>
+
+<p style="color: #1565C0; font-weight: 700; font-size: 1.08rem; margin-top: 0; margin-bottom: 14px;">Question 3</p>
+
+<p style="color: #333; line-height: 1.75;">How is electric potential (voltage) defined in this chapter?</p>
 
 <div class="upper-alpha" markdown>
 1. Potential energy per unit charge
@@ -49,16 +80,24 @@ Test your understanding of the physics and mathematics foundations covered in Ch
 4. Energy per unit time
 </div>
 
-??? question "Show Answer"
-    The correct answer is **A**. Electric potential is defined as \(V=U/q\), potential energy per unit charge. Option B describes the electric field, not potential; options C and D do not match any quantity defined in this chapter.
+<details style="margin-top: 1rem;">
+<summary style="color: #5A3EED; font-weight: 700; cursor: pointer;">Show Answer</summary>
+<div style="background: #E7F7E7; border: 2px solid #81C784; border-radius: 10px; padding: 18px 22px; margin-top: 10px;">
+<p style="color: #2E7D32; font-weight: 700; margin-top: 0;">Correct Answer: A</p>
+<p style="color: #333; line-height: 1.75; margin-bottom: 0;">Electric potential is defined as <span class="arithmatex">\(V=U/q\)</span>, potential energy per unit charge. Option B describes the electric field, not potential; options C and D do not match any quantity defined in this chapter.</p>
+<p style="color: #555; font-style: italic; margin-bottom: 0; margin-top: 8px;"><strong>Concept Tested:</strong> Electric Potential</p>
+</div>
+</details>
 
-    **Concept Tested:** Electric Potential
-
-    **See:** [Potential and Voltage](index.md#potential-and-voltage)
+</div>
 
 ---
 
-#### 4. What physical role does the Boltzmann constant play, as described in this chapter?
+<div style="background: #EEF4FF; border: 2px solid #A8C8FF; border-radius: 12px; padding: 24px 28px; margin: 1.5rem 0; box-shadow: 0 2px 8px rgba(90,61,237,0.07);" markdown>
+
+<p style="color: #1565C0; font-weight: 700; font-size: 1.08rem; margin-top: 0; margin-bottom: 14px;">Question 4</p>
+
+<p style="color: #333; line-height: 1.75;">What physical role does the Boltzmann constant play, as described in this chapter?</p>
 
 <div class="upper-alpha" markdown>
 1. It converts electric field into electric potential
@@ -67,16 +106,24 @@ Test your understanding of the physics and mathematics foundations covered in Ch
 4. It relates electric charge to electric current
 </div>
 
-??? question "Show Answer"
-    The correct answer is **C**. The Boltzmann constant, \(k_B=1.381\times10^{-23}\) J/K, bridges macroscopic temperature and microscopic particle energy, as in \(\langle KE\rangle = \tfrac{3}{2}k_BT\). Option B describes Planck's constant instead.
+<details style="margin-top: 1rem;">
+<summary style="color: #5A3EED; font-weight: 700; cursor: pointer;">Show Answer</summary>
+<div style="background: #E7F7E7; border: 2px solid #81C784; border-radius: 10px; padding: 18px 22px; margin-top: 10px;">
+<p style="color: #2E7D32; font-weight: 700; margin-top: 0;">Correct Answer: C</p>
+<p style="color: #333; line-height: 1.75; margin-bottom: 0;">The Boltzmann constant, <span class="arithmatex">\(k_B=1.381\times10^{-23}\)</span> J/K, bridges macroscopic temperature and microscopic particle energy, as in <span class="arithmatex">\(\langle KE\rangle = \tfrac{3}{2}k_BT\)</span>. Option B describes Planck's constant instead.</p>
+<p style="color: #555; font-style: italic; margin-bottom: 0; margin-top: 8px;"><strong>Concept Tested:</strong> Boltzmann Constant</p>
+</div>
+</details>
 
-    **Concept Tested:** Boltzmann Constant
-
-    **See:** [Kinetic Theory, the Boltzmann Constant, and Thermal Equilibrium](index.md#kinetic-theory-the-boltzmann-constant-and-thermal-equilibrium)
+</div>
 
 ---
 
-#### 5. What does the divergence of a vector field measure at a point?
+<div style="background: #EEF4FF; border: 2px solid #A8C8FF; border-radius: 12px; padding: 24px 28px; margin: 1.5rem 0; box-shadow: 0 2px 8px rgba(90,61,237,0.07);" markdown>
+
+<p style="color: #1565C0; font-weight: 700; font-size: 1.08rem; margin-top: 0; margin-bottom: 14px;">Question 5</p>
+
+<p style="color: #333; line-height: 1.75;">What does the divergence of a vector field measure at a point?</p>
 
 <div class="upper-alpha" markdown>
 1. The field's rotational tendency around the point
@@ -85,16 +132,24 @@ Test your understanding of the physics and mathematics foundations covered in Ch
 4. The magnitude of the field at that exact point only
 </div>
 
-??? question "Show Answer"
-    The correct answer is **B**. Divergence, \(\nabla\cdot\vec{F}\), measures whether a point behaves as a source (positive divergence) or sink (negative divergence) of the field. Option A describes curl, and option C describes the gradient.
+<details style="margin-top: 1rem;">
+<summary style="color: #5A3EED; font-weight: 700; cursor: pointer;">Show Answer</summary>
+<div style="background: #E7F7E7; border: 2px solid #81C784; border-radius: 10px; padding: 18px 22px; margin-top: 10px;">
+<p style="color: #2E7D32; font-weight: 700; margin-top: 0;">Correct Answer: B</p>
+<p style="color: #333; line-height: 1.75; margin-bottom: 0;">Divergence, <span class="arithmatex">\(\nabla\cdot\vec{F}\)</span>, measures whether a point behaves as a source (positive divergence) or sink (negative divergence) of the field. Option A describes curl, and option C describes the gradient.</p>
+<p style="color: #555; font-style: italic; margin-bottom: 0; margin-top: 8px;"><strong>Concept Tested:</strong> Divergence</p>
+</div>
+</details>
 
-    **Concept Tested:** Divergence
-
-    **See:** [Divergence](index.md#divergence)
+</div>
 
 ---
 
-#### 6. Two point charges are separated by distance r. If that distance is tripled while the charges stay the same, what happens to the electrostatic force between them, according to Coulomb's Law?
+<div style="background: #EEF4FF; border: 2px solid #A8C8FF; border-radius: 12px; padding: 24px 28px; margin: 1.5rem 0; box-shadow: 0 2px 8px rgba(90,61,237,0.07);" markdown>
+
+<p style="color: #1565C0; font-weight: 700; font-size: 1.08rem; margin-top: 0; margin-bottom: 14px;">Question 6</p>
+
+<p style="color: #333; line-height: 1.75;">Two point charges are separated by distance r. If that distance is tripled while the charges stay the same, what happens to the electrostatic force between them, according to Coulomb's Law?</p>
 
 <div class="upper-alpha" markdown>
 1. It becomes 1/3 of its original value
@@ -103,16 +158,24 @@ Test your understanding of the physics and mathematics foundations covered in Ch
 4. It becomes 1/9 of its original value
 </div>
 
-??? question "Show Answer"
-    The correct answer is **D**. Coulomb's Law states \(F \propto 1/r^2\). Tripling \(r\) increases \(r^2\) by a factor of 9, so the force drops to \(1/9\) of its original value. This inverse-square sensitivity is why electrostatic force falls off quickly with distance.
+<details style="margin-top: 1rem;">
+<summary style="color: #5A3EED; font-weight: 700; cursor: pointer;">Show Answer</summary>
+<div style="background: #E7F7E7; border: 2px solid #81C784; border-radius: 10px; padding: 18px 22px; margin-top: 10px;">
+<p style="color: #2E7D32; font-weight: 700; margin-top: 0;">Correct Answer: D</p>
+<p style="color: #333; line-height: 1.75; margin-bottom: 0;">Coulomb's Law states <span class="arithmatex">\(F \propto 1/r^2\)</span>. Tripling <span class="arithmatex">\(r\)</span> increases <span class="arithmatex">\(r^2\)</span> by a factor of 9, so the force drops to <span class="arithmatex">\(1/9\)</span> of its original value. This inverse-square sensitivity is why electrostatic force falls off quickly with distance.</p>
+<p style="color: #555; font-style: italic; margin-bottom: 0; margin-top: 8px;"><strong>Concept Tested:</strong> Coulomb's Law</p>
+</div>
+</details>
 
-    **Concept Tested:** Coulomb's Law
-
-    **See:** [Coulomb's Law](index.md#coulombs-law)
+</div>
 
 ---
 
-#### 7. Why is the electric field considered a more general description of electrostatic influence than the electrostatic force from Coulomb's Law?
+<div style="background: #EEF4FF; border: 2px solid #A8C8FF; border-radius: 12px; padding: 24px 28px; margin: 1.5rem 0; box-shadow: 0 2px 8px rgba(90,61,237,0.07);" markdown>
+
+<p style="color: #1565C0; font-weight: 700; font-size: 1.08rem; margin-top: 0; margin-bottom: 14px;">Question 7</p>
+
+<p style="color: #333; line-height: 1.75;">Why is the electric field considered a more general description of electrostatic influence than the electrostatic force from Coulomb's Law?</p>
 
 <div class="upper-alpha" markdown>
 1. The electric field is defined independent of any particular test charge, describing a property of space itself
@@ -121,16 +184,24 @@ Test your understanding of the physics and mathematics foundations covered in Ch
 4. The electric field is a scalar quantity, unlike force
 </div>
 
-??? question "Show Answer"
-    The correct answer is **A**. Unlike Coulomb's Law, which describes force between two specific charges, the electric field \(\vec{E}\) is defined without reference to any particular test charge, making it a property of space created by the source charge(s). It is a vector quantity, not a scalar, so option D is incorrect.
+<details style="margin-top: 1rem;">
+<summary style="color: #5A3EED; font-weight: 700; cursor: pointer;">Show Answer</summary>
+<div style="background: #E7F7E7; border: 2px solid #81C784; border-radius: 10px; padding: 18px 22px; margin-top: 10px;">
+<p style="color: #2E7D32; font-weight: 700; margin-top: 0;">Correct Answer: A</p>
+<p style="color: #333; line-height: 1.75; margin-bottom: 0;">Unlike Coulomb's Law, which describes force between two specific charges, the electric field <span class="arithmatex">\(\vec{E}\)</span> is defined without reference to any particular test charge, making it a property of space created by the source charge(s). It is a vector quantity, not a scalar, so option D is incorrect.</p>
+<p style="color: #555; font-style: italic; margin-bottom: 0; margin-top: 8px;"><strong>Concept Tested:</strong> Electric Field</p>
+</div>
+</details>
 
-    **Concept Tested:** Electric Field
-
-    **See:** [Electric Fields](index.md#electric-fields)
+</div>
 
 ---
 
-#### 8. According to Euler's formula introduced in this chapter, how is the complex exponential e^(iθ) related to trigonometric functions?
+<div style="background: #EEF4FF; border: 2px solid #A8C8FF; border-radius: 12px; padding: 24px 28px; margin: 1.5rem 0; box-shadow: 0 2px 8px rgba(90,61,237,0.07);" markdown>
+
+<p style="color: #1565C0; font-weight: 700; font-size: 1.08rem; margin-top: 0; margin-bottom: 14px;">Question 8</p>
+
+<p style="color: #333; line-height: 1.75;">According to Euler's formula introduced in this chapter, how is the complex exponential e^(iθ) related to trigonometric functions?</p>
 
 <div class="upper-alpha" markdown>
 1. e^(iθ) equals sin θ divided by cos θ
@@ -139,16 +210,24 @@ Test your understanding of the physics and mathematics foundations covered in Ch
 4. e^(iθ) equals the magnitude of a complex number only
 </div>
 
-??? question "Show Answer"
-    The correct answer is **B**. Euler's formula states \(e^{i\theta}=\cos\theta + i\sin\theta\), connecting complex exponentials to trigonometric functions. This is the identity behind writing traveling waves as complex exponentials in later chapters.
+<details style="margin-top: 1rem;">
+<summary style="color: #5A3EED; font-weight: 700; cursor: pointer;">Show Answer</summary>
+<div style="background: #E7F7E7; border: 2px solid #81C784; border-radius: 10px; padding: 18px 22px; margin-top: 10px;">
+<p style="color: #2E7D32; font-weight: 700; margin-top: 0;">Correct Answer: B</p>
+<p style="color: #333; line-height: 1.75; margin-bottom: 0;">Euler's formula states <span class="arithmatex">\(e^{i\theta}=\cos\theta + i\sin\theta\)</span>, connecting complex exponentials to trigonometric functions. This is the identity behind writing traveling waves as complex exponentials in later chapters.</p>
+<p style="color: #555; font-style: italic; margin-bottom: 0; margin-top: 8px;"><strong>Concept Tested:</strong> Complex Numbers</p>
+</div>
+</details>
 
-    **Concept Tested:** Complex Numbers
-
-    **See:** [Complex Numbers](index.md#complex-numbers)
+</div>
 
 ---
 
-#### 9. How does the electric field relate to the electric potential via the gradient, as presented in this chapter?
+<div style="background: #EEF4FF; border: 2px solid #A8C8FF; border-radius: 12px; padding: 24px 28px; margin: 1.5rem 0; box-shadow: 0 2px 8px rgba(90,61,237,0.07);" markdown>
+
+<p style="color: #1565C0; font-weight: 700; font-size: 1.08rem; margin-top: 0; margin-bottom: 14px;">Question 9</p>
+
+<p style="color: #333; line-height: 1.75;">How does the electric field relate to the electric potential via the gradient, as presented in this chapter?</p>
 
 <div class="upper-alpha" markdown>
 1. The electric field equals the positive gradient of the potential
@@ -157,16 +236,24 @@ Test your understanding of the physics and mathematics foundations covered in Ch
 4. The electric field equals the divergence of the potential
 </div>
 
-??? question "Show Answer"
-    The correct answer is **C**. The chapter states \(\vec{E}=-\nabla V\): the electric field is the negative gradient of the potential, pointing from high potential toward low potential. Curl and divergence are different operators with different physical meanings.
+<details style="margin-top: 1rem;">
+<summary style="color: #5A3EED; font-weight: 700; cursor: pointer;">Show Answer</summary>
+<div style="background: #E7F7E7; border: 2px solid #81C784; border-radius: 10px; padding: 18px 22px; margin-top: 10px;">
+<p style="color: #2E7D32; font-weight: 700; margin-top: 0;">Correct Answer: C</p>
+<p style="color: #333; line-height: 1.75; margin-bottom: 0;">The chapter states <span class="arithmatex">\(\vec{E}=-\nabla V\)</span>: the electric field is the negative gradient of the potential, pointing from high potential toward low potential. Curl and divergence are different operators with different physical meanings.</p>
+<p style="color: #555; font-style: italic; margin-bottom: 0; margin-top: 8px;"><strong>Concept Tested:</strong> Gradient</p>
+</div>
+</details>
 
-    **Concept Tested:** Gradient
-
-    **See:** [Gradient](index.md#gradient)
+</div>
 
 ---
 
-#### 10. A photon's wavelength is decreased while the speed of light stays constant. Based on E = hc/λ, what happens to its energy?
+<div style="background: #EEF4FF; border: 2px solid #A8C8FF; border-radius: 12px; padding: 24px 28px; margin: 1.5rem 0; box-shadow: 0 2px 8px rgba(90,61,237,0.07);" markdown>
+
+<p style="color: #1565C0; font-weight: 700; font-size: 1.08rem; margin-top: 0; margin-bottom: 14px;">Question 10</p>
+
+<p style="color: #333; line-height: 1.75;">A photon's wavelength is decreased while the speed of light stays constant. Based on E = hc/λ, what happens to its energy?</p>
 
 <div class="upper-alpha" markdown>
 1. The photon's energy decreases
@@ -175,16 +262,24 @@ Test your understanding of the physics and mathematics foundations covered in Ch
 4. The photon's energy increases
 </div>
 
-??? question "Show Answer"
-    The correct answer is **D**. Since \(E_{\text{photon}}=hc/\lambda\), energy is inversely proportional to wavelength. Decreasing \(\lambda\) therefore increases the photon's energy — shorter-wavelength light carries more energy per photon.
+<details style="margin-top: 1rem;">
+<summary style="color: #5A3EED; font-weight: 700; cursor: pointer;">Show Answer</summary>
+<div style="background: #E7F7E7; border: 2px solid #81C784; border-radius: 10px; padding: 18px 22px; margin-top: 10px;">
+<p style="color: #2E7D32; font-weight: 700; margin-top: 0;">Correct Answer: D</p>
+<p style="color: #333; line-height: 1.75; margin-bottom: 0;">Since <span class="arithmatex">\(E_{\text{photon}}=hc/\lambda\)</span>, energy is inversely proportional to wavelength. Decreasing <span class="arithmatex">\(\lambda\)</span> therefore increases the photon's energy — shorter-wavelength light carries more energy per photon.</p>
+<p style="color: #555; font-style: italic; margin-bottom: 0; margin-top: 8px;"><strong>Concept Tested:</strong> Photon Energy</p>
+</div>
+</details>
 
-    **Concept Tested:** Photon Energy
-
-    **See:** [Photon Energy](index.md#photon-energy)
+</div>
 
 ---
 
-#### 11. Given the potential V(x,y,z) = 3x²y + 2z, what is ∂V/∂x?
+<div style="background: #EEF4FF; border: 2px solid #A8C8FF; border-radius: 12px; padding: 24px 28px; margin: 1.5rem 0; box-shadow: 0 2px 8px rgba(90,61,237,0.07);" markdown>
+
+<p style="color: #1565C0; font-weight: 700; font-size: 1.08rem; margin-top: 0; margin-bottom: 14px;">Question 11</p>
+
+<p style="color: #333; line-height: 1.75;">Given the potential V(x,y,z) = 3x²y + 2z, what is ∂V/∂x?</p>
 
 <div class="upper-alpha" markdown>
 1. 6xy
@@ -193,16 +288,24 @@ Test your understanding of the physics and mathematics foundations covered in Ch
 4. 3y²
 </div>
 
-??? question "Show Answer"
-    The correct answer is **A**. Treating \(y\) and \(z\) as constants and differentiating \(3x^2y\) with respect to \(x\) gives \(6xy\); the term \(2z\) has no \(x\)-dependence and drops out. This is the same partial-derivative technique used to compute a gradient.
+<details style="margin-top: 1rem;">
+<summary style="color: #5A3EED; font-weight: 700; cursor: pointer;">Show Answer</summary>
+<div style="background: #E7F7E7; border: 2px solid #81C784; border-radius: 10px; padding: 18px 22px; margin-top: 10px;">
+<p style="color: #2E7D32; font-weight: 700; margin-top: 0;">Correct Answer: A</p>
+<p style="color: #333; line-height: 1.75; margin-bottom: 0;">Treating <span class="arithmatex">\(y\)</span> and <span class="arithmatex">\(z\)</span> as constants and differentiating <span class="arithmatex">\(3x^2y\)</span> with respect to <span class="arithmatex">\(x\)</span> gives <span class="arithmatex">\(6xy\)</span>; the term <span class="arithmatex">\(2z\)</span> has no <span class="arithmatex">\(x\)</span>-dependence and drops out. This is the same partial-derivative technique used to compute a gradient.</p>
+<p style="color: #555; font-style: italic; margin-bottom: 0; margin-top: 8px;"><strong>Concept Tested:</strong> Partial Derivatives</p>
+</div>
+</details>
 
-    **Concept Tested:** Partial Derivatives
-
-    **See:** [Partial Derivatives](index.md#partial-derivatives)
+</div>
 
 ---
 
-#### 12. A spherical Gaussian surface encloses a fixed point charge. If the radius of the sphere is doubled while the enclosed charge stays the same, what does Gauss's Law say happens to the total electric flux through the surface?
+<div style="background: #EEF4FF; border: 2px solid #A8C8FF; border-radius: 12px; padding: 24px 28px; margin: 1.5rem 0; box-shadow: 0 2px 8px rgba(90,61,237,0.07);" markdown>
+
+<p style="color: #1565C0; font-weight: 700; font-size: 1.08rem; margin-top: 0; margin-bottom: 14px;">Question 12</p>
+
+<p style="color: #333; line-height: 1.75;">A spherical Gaussian surface encloses a fixed point charge. If the radius of the sphere is doubled while the enclosed charge stays the same, what does Gauss's Law say happens to the total electric flux through the surface?</p>
 
 <div class="upper-alpha" markdown>
 1. The flux quadruples
@@ -211,16 +314,24 @@ Test your understanding of the physics and mathematics foundations covered in Ch
 4. The flux drops to zero
 </div>
 
-??? question "Show Answer"
-    The correct answer is **C**. Gauss's Law, \(\oint\vec{E}\cdot d\vec{A}=Q_{\text{enc}}/\varepsilon_0\), shows flux depends only on the enclosed charge, which is unchanged. The electric field magnitude does decrease, but the larger surface area exactly compensates, keeping flux constant.
+<details style="margin-top: 1rem;">
+<summary style="color: #5A3EED; font-weight: 700; cursor: pointer;">Show Answer</summary>
+<div style="background: #E7F7E7; border: 2px solid #81C784; border-radius: 10px; padding: 18px 22px; margin-top: 10px;">
+<p style="color: #2E7D32; font-weight: 700; margin-top: 0;">Correct Answer: C</p>
+<p style="color: #333; line-height: 1.75; margin-bottom: 0;">Gauss's Law, <span class="arithmatex">\(\oint\vec{E}\cdot d\vec{A}=Q_{\text{enc}}/\varepsilon_0\)</span>, shows flux depends only on the enclosed charge, which is unchanged. The electric field magnitude does decrease, but the larger surface area exactly compensates, keeping flux constant.</p>
+<p style="color: #555; font-style: italic; margin-bottom: 0; margin-top: 8px;"><strong>Concept Tested:</strong> Gauss's Law</p>
+</div>
+</details>
 
-    **Concept Tested:** Gauss's Law
-
-    **See:** [Gauss's Law](index.md#gausss-law)
+</div>
 
 ---
 
-#### 13. In this chapter's notation, what distinguishes a vector quantity like force from a scalar quantity like energy?
+<div style="background: #EEF4FF; border: 2px solid #A8C8FF; border-radius: 12px; padding: 24px 28px; margin: 1.5rem 0; box-shadow: 0 2px 8px rgba(90,61,237,0.07);" markdown>
+
+<p style="color: #1565C0; font-weight: 700; font-size: 1.08rem; margin-top: 0; margin-bottom: 14px;">Question 13</p>
+
+<p style="color: #333; line-height: 1.75;">In this chapter's notation, what distinguishes a vector quantity like force from a scalar quantity like energy?</p>
 
 <div class="upper-alpha" markdown>
 1. A vector has both magnitude and direction; a scalar has magnitude only
@@ -229,16 +340,24 @@ Test your understanding of the physics and mathematics foundations covered in Ch
 4. A vector has magnitude only; a scalar has both magnitude and direction
 </div>
 
-??? question "Show Answer"
-    The correct answer is **A**. Vectors, such as force and electric field, have both magnitude and direction. Scalars, such as energy and electric potential, have magnitude only. Option D reverses this distinction.
+<details style="margin-top: 1rem;">
+<summary style="color: #5A3EED; font-weight: 700; cursor: pointer;">Show Answer</summary>
+<div style="background: #E7F7E7; border: 2px solid #81C784; border-radius: 10px; padding: 18px 22px; margin-top: 10px;">
+<p style="color: #2E7D32; font-weight: 700; margin-top: 0;">Correct Answer: A</p>
+<p style="color: #333; line-height: 1.75; margin-bottom: 0;">Vectors, such as force and electric field, have both magnitude and direction. Scalars, such as energy and electric potential, have magnitude only. Option D reverses this distinction.</p>
+<p style="color: #555; font-style: italic; margin-bottom: 0; margin-top: 8px;"><strong>Concept Tested:</strong> Vectors</p>
+</div>
+</details>
 
-    **Concept Tested:** Vectors
-
-    **See:** [Vectors](index.md#vectors)
+</div>
 
 ---
 
-#### 14. What does the curl of the static electric field equal, according to this chapter?
+<div style="background: #EEF4FF; border: 2px solid #A8C8FF; border-radius: 12px; padding: 24px 28px; margin: 1.5rem 0; box-shadow: 0 2px 8px rgba(90,61,237,0.07);" markdown>
+
+<p style="color: #1565C0; font-weight: 700; font-size: 1.08rem; margin-top: 0; margin-bottom: 14px;">Question 14</p>
+
+<p style="color: #333; line-height: 1.75;">What does the curl of the static electric field equal, according to this chapter?</p>
 
 <div class="upper-alpha" markdown>
 1. The charge density divided by permittivity
@@ -247,16 +366,24 @@ Test your understanding of the physics and mathematics foundations covered in Ch
 4. Zero
 </div>
 
-??? question "Show Answer"
-    The correct answer is **D**. For the electric field produced by static charges, \(\nabla\times\vec{E}=0\). This is what allows an electrostatic field to always be written as the gradient of a scalar potential.
+<details style="margin-top: 1rem;">
+<summary style="color: #5A3EED; font-weight: 700; cursor: pointer;">Show Answer</summary>
+<div style="background: #E7F7E7; border: 2px solid #81C784; border-radius: 10px; padding: 18px 22px; margin-top: 10px;">
+<p style="color: #2E7D32; font-weight: 700; margin-top: 0;">Correct Answer: D</p>
+<p style="color: #333; line-height: 1.75; margin-bottom: 0;">For the electric field produced by static charges, <span class="arithmatex">\(\nabla\times\vec{E}=0\)</span>. This is what allows an electrostatic field to always be written as the gradient of a scalar potential.</p>
+<p style="color: #555; font-style: italic; margin-bottom: 0; margin-top: 8px;"><strong>Concept Tested:</strong> Curl</p>
+</div>
+</details>
 
-    **Concept Tested:** Curl
-
-    **See:** [Curl](index.md#curl)
+</div>
 
 ---
 
-#### 15. How is electric flux through a flat surface in a uniform field defined in this chapter?
+<div style="background: #EEF4FF; border: 2px solid #A8C8FF; border-radius: 12px; padding: 24px 28px; margin: 1.5rem 0; box-shadow: 0 2px 8px rgba(90,61,237,0.07);" markdown>
+
+<p style="color: #1565C0; font-weight: 700; font-size: 1.08rem; margin-top: 0; margin-bottom: 14px;">Question 15</p>
+
+<p style="color: #333; line-height: 1.75;">How is electric flux through a flat surface in a uniform field defined in this chapter?</p>
 
 <div class="upper-alpha" markdown>
 1. The charge enclosed divided by the surface area
@@ -265,16 +392,24 @@ Test your understanding of the physics and mathematics foundations covered in Ch
 4. The total charge on the surface
 </div>
 
-??? question "Show Answer"
-    The correct answer is **B**. Electric flux is defined as \(\Phi_E = \vec{E}\cdot\vec{A} = EA\cos\theta\), the component of the field perpendicular to the surface times the surface area. The parallel component (option C) contributes nothing to flux.
+<details style="margin-top: 1rem;">
+<summary style="color: #5A3EED; font-weight: 700; cursor: pointer;">Show Answer</summary>
+<div style="background: #E7F7E7; border: 2px solid #81C784; border-radius: 10px; padding: 18px 22px; margin-top: 10px;">
+<p style="color: #2E7D32; font-weight: 700; margin-top: 0;">Correct Answer: B</p>
+<p style="color: #333; line-height: 1.75; margin-bottom: 0;">Electric flux is defined as <span class="arithmatex">\(\Phi_E = \vec{E}\cdot\vec{A} = EA\cos\theta\)</span>, the component of the field perpendicular to the surface times the surface area. The parallel component (option C) contributes nothing to flux.</p>
+<p style="color: #555; font-style: italic; margin-bottom: 0; margin-top: 8px;"><strong>Concept Tested:</strong> Electric Flux</p>
+</div>
+</details>
 
-    **Concept Tested:** Electric Flux
-
-    **See:** [Electric Flux](index.md#electric-flux)
+</div>
 
 ---
 
-#### 16. Why is the permittivity of free space, ε₀, classified as a fundamental physical constant rather than a property specific to one experiment?
+<div style="background: #EEF4FF; border: 2px solid #A8C8FF; border-radius: 12px; padding: 24px 28px; margin: 1.5rem 0; box-shadow: 0 2px 8px rgba(90,61,237,0.07);" markdown>
+
+<p style="color: #1565C0; font-weight: 700; font-size: 1.08rem; margin-top: 0; margin-bottom: 14px;">Question 16</p>
+
+<p style="color: #333; line-height: 1.75;">Why is the permittivity of free space, ε₀, classified as a fundamental physical constant rather than a property specific to one experiment?</p>
 
 <div class="upper-alpha" markdown>
 1. Because its value changes depending on which material is being tested
@@ -283,16 +418,24 @@ Test your understanding of the physics and mathematics foundations covered in Ch
 4. Because it only applies inside semiconductor crystals
 </div>
 
-??? question "Show Answer"
-    The correct answer is **C**. Fundamental physical constants, like \(\varepsilon_0 = 8.854\times10^{-12}\) F/m, are fixed numerical quantities that appear throughout physics and do not vary between experiments or materials, unlike measured properties such as doping concentration.
+<details style="margin-top: 1rem;">
+<summary style="color: #5A3EED; font-weight: 700; cursor: pointer;">Show Answer</summary>
+<div style="background: #E7F7E7; border: 2px solid #81C784; border-radius: 10px; padding: 18px 22px; margin-top: 10px;">
+<p style="color: #2E7D32; font-weight: 700; margin-top: 0;">Correct Answer: C</p>
+<p style="color: #333; line-height: 1.75; margin-bottom: 0;">Fundamental physical constants, like <span class="arithmatex">\(\varepsilon_0 = 8.854\times10^{-12}\)</span> F/m, are fixed numerical quantities that appear throughout physics and do not vary between experiments or materials, unlike measured properties such as doping concentration.</p>
+<p style="color: #555; font-style: italic; margin-bottom: 0; margin-top: 8px;"><strong>Concept Tested:</strong> Fundamental Physical Constants</p>
+</div>
+</details>
 
-    **Concept Tested:** Fundamental Physical Constants
-
-    **See:** [Fundamental Constants](index.md#fundamental-constants)
+</div>
 
 ---
 
-#### 17. A crystal has a uniform temperature and exchanges no net energy with its surroundings, but a second sample of the same material has hot and cold regions. Which sample is in thermal equilibrium, and why?
+<div style="background: #EEF4FF; border: 2px solid #A8C8FF; border-radius: 12px; padding: 24px 28px; margin: 1.5rem 0; box-shadow: 0 2px 8px rgba(90,61,237,0.07);" markdown>
+
+<p style="color: #1565C0; font-weight: 700; font-size: 1.08rem; margin-top: 0; margin-bottom: 14px;">Question 17</p>
+
+<p style="color: #333; line-height: 1.75;">A crystal has a uniform temperature and exchanges no net energy with its surroundings, but a second sample of the same material has hot and cold regions. Which sample is in thermal equilibrium, and why?</p>
 
 <div class="upper-alpha" markdown>
 1. The first sample, because it has a single well-defined temperature and no net energy exchange with its surroundings
@@ -301,16 +444,24 @@ Test your understanding of the physics and mathematics foundations covered in Ch
 4. Both samples, because thermal equilibrium only depends on total energy, not its distribution
 </div>
 
-??? question "Show Answer"
-    The correct answer is **A**. Thermal equilibrium requires a single, well-defined temperature throughout the system and no net energy exchange with its surroundings. A sample with hot and cold regions has not reached this state, regardless of its total energy.
+<details style="margin-top: 1rem;">
+<summary style="color: #5A3EED; font-weight: 700; cursor: pointer;">Show Answer</summary>
+<div style="background: #E7F7E7; border: 2px solid #81C784; border-radius: 10px; padding: 18px 22px; margin-top: 10px;">
+<p style="color: #2E7D32; font-weight: 700; margin-top: 0;">Correct Answer: A</p>
+<p style="color: #333; line-height: 1.75; margin-bottom: 0;">Thermal equilibrium requires a single, well-defined temperature throughout the system and no net energy exchange with its surroundings. A sample with hot and cold regions has not reached this state, regardless of its total energy.</p>
+<p style="color: #555; font-style: italic; margin-bottom: 0; margin-top: 8px;"><strong>Concept Tested:</strong> Thermal Equilibrium</p>
+</div>
+</details>
 
-    **Concept Tested:** Thermal Equilibrium
-
-    **See:** [Kinetic Theory, the Boltzmann Constant, and Thermal Equilibrium](index.md#kinetic-theory-the-boltzmann-constant-and-thermal-equilibrium)
+</div>
 
 ---
 
-#### 18. If two like-signed point charges are moved closer together, what happens to their electrostatic potential energy, based on U = q_test V(r)?
+<div style="background: #EEF4FF; border: 2px solid #A8C8FF; border-radius: 12px; padding: 24px 28px; margin: 1.5rem 0; box-shadow: 0 2px 8px rgba(90,61,237,0.07);" markdown>
+
+<p style="color: #1565C0; font-weight: 700; font-size: 1.08rem; margin-top: 0; margin-bottom: 14px;">Question 18</p>
+
+<p style="color: #333; line-height: 1.75;">If two like-signed point charges are moved closer together, what happens to their electrostatic potential energy, based on U = q_test V(r)?</p>
 
 <div class="upper-alpha" markdown>
 1. It decreases
@@ -319,16 +470,24 @@ Test your understanding of the physics and mathematics foundations covered in Ch
 4. It increases
 </div>
 
-??? question "Show Answer"
-    The correct answer is **D**. Since \(U=\tfrac{1}{4\pi\varepsilon_0}\tfrac{qq_{\text{test}}}{r}\) and both charges share a sign, \(U\) is positive and grows larger as \(r\) decreases. It takes work to push like charges closer together.
+<details style="margin-top: 1rem;">
+<summary style="color: #5A3EED; font-weight: 700; cursor: pointer;">Show Answer</summary>
+<div style="background: #E7F7E7; border: 2px solid #81C784; border-radius: 10px; padding: 18px 22px; margin-top: 10px;">
+<p style="color: #2E7D32; font-weight: 700; margin-top: 0;">Correct Answer: D</p>
+<p style="color: #333; line-height: 1.75; margin-bottom: 0;">Since <span class="arithmatex">\(U=\tfrac{1}{4\pi\varepsilon_0}\tfrac{qq_{\text{test}}}{r}\)</span> and both charges share a sign, <span class="arithmatex">\(U\)</span> is positive and grows larger as <span class="arithmatex">\(r\)</span> decreases. It takes work to push like charges closer together.</p>
+<p style="color: #555; font-style: italic; margin-bottom: 0; margin-top: 8px;"><strong>Concept Tested:</strong> Electrostatic Potential Energy</p>
+</div>
+</details>
 
-    **Concept Tested:** Electrostatic Potential Energy
-
-    **See:** [Electric Potential](index.md#electric-potential)
+</div>
 
 ---
 
-#### 19. Using V = V_T ln(I/I₀ + 1), find V (in volts) when I = 99 I₀ and V_T = 0.0259 V.
+<div style="background: #EEF4FF; border: 2px solid #A8C8FF; border-radius: 12px; padding: 24px 28px; margin: 1.5rem 0; box-shadow: 0 2px 8px rgba(90,61,237,0.07);" markdown>
+
+<p style="color: #1565C0; font-weight: 700; font-size: 1.08rem; margin-top: 0; margin-bottom: 14px;">Question 19</p>
+
+<p style="color: #333; line-height: 1.75;">Using V = V_T ln(I/I₀ + 1), find V (in volts) when I = 99 I₀ and V_T = 0.0259 V.</p>
 
 <div class="upper-alpha" markdown>
 1. 0.0259 V
@@ -337,16 +496,24 @@ Test your understanding of the physics and mathematics foundations covered in Ch
 4. 9.9 V
 </div>
 
-??? question "Show Answer"
-    The correct answer is **B**. Substituting: \(V = 0.0259\ln(99+1) = 0.0259\ln(100) = 0.0259\times4.605 \approx 0.119\) V. This mirrors the algebra used to solve the diode equation for voltage given current.
+<details style="margin-top: 1rem;">
+<summary style="color: #5A3EED; font-weight: 700; cursor: pointer;">Show Answer</summary>
+<div style="background: #E7F7E7; border: 2px solid #81C784; border-radius: 10px; padding: 18px 22px; margin-top: 10px;">
+<p style="color: #2E7D32; font-weight: 700; margin-top: 0;">Correct Answer: B</p>
+<p style="color: #333; line-height: 1.75; margin-bottom: 0;">Substituting: <span class="arithmatex">\(V = 0.0259\ln(99+1) = 0.0259\ln(100) = 0.0259\times4.605 \approx 0.119\)</span> V. This mirrors the algebra used to solve the diode equation for voltage given current.</p>
+<p style="color: #555; font-style: italic; margin-bottom: 0; margin-top: 8px;"><strong>Concept Tested:</strong> Exponentials and Logarithms</p>
+</div>
+</details>
 
-    **Concept Tested:** Exponentials and Logarithms
-
-    **See:** [Algebra Review](index.md#algebra-review)
+</div>
 
 ---
 
-#### 20. A charged particle is released from rest near a fixed point charge of the same sign and moves away under the resulting repulsive force. Which statement best explains the underlying reason its kinetic energy increases while its electrostatic potential energy decreases?
+<div style="background: #EEF4FF; border: 2px solid #A8C8FF; border-radius: 12px; padding: 24px 28px; margin: 1.5rem 0; box-shadow: 0 2px 8px rgba(90,61,237,0.07);" markdown>
+
+<p style="color: #1565C0; font-weight: 700; font-size: 1.08rem; margin-top: 0; margin-bottom: 14px;">Question 20</p>
+
+<p style="color: #333; line-height: 1.75;">A charged particle is released from rest near a fixed point charge of the same sign and moves away under the resulting repulsive force. Which statement best explains the underlying reason its kinetic energy increases while its electrostatic potential energy decreases?</p>
 
 <div class="upper-alpha" markdown>
 1. Total charge is being converted into mass as the particle moves
@@ -355,9 +522,46 @@ Test your understanding of the physics and mathematics foundations covered in Ch
 4. Kinetic and potential energy are independent quantities with no required relationship
 </div>
 
-??? question "Show Answer"
-    The correct answer is **C**. In an isolated system, mechanical energy (kinetic plus potential) is conserved. As the particle moves away and its electrostatic potential energy drops, that same amount of energy must appear as kinetic energy — the two are not independent, ruling out option D.
+<details style="margin-top: 1rem;">
+<summary style="color: #5A3EED; font-weight: 700; cursor: pointer;">Show Answer</summary>
+<div style="background: #E7F7E7; border: 2px solid #81C784; border-radius: 10px; padding: 18px 22px; margin-top: 10px;">
+<p style="color: #2E7D32; font-weight: 700; margin-top: 0;">Correct Answer: C</p>
+<p style="color: #333; line-height: 1.75; margin-bottom: 0;">In an isolated system, mechanical energy (kinetic plus potential) is conserved. As the particle moves away and its electrostatic potential energy drops, that same amount of energy must appear as kinetic energy — the two are not independent, ruling out option D.</p>
+<p style="color: #555; font-style: italic; margin-bottom: 0; margin-top: 8px;"><strong>Concept Tested:</strong> Mechanical Energy</p>
+</div>
+</details>
 
-    **Concept Tested:** Mechanical Energy
+</div>
 
-    **See:** [Force and Energy](index.md#force-and-energy)
+---
+
+<h2 style="color: #5A3EED !important; border-left: none !important; border-bottom: 2px solid #5A3EED; padding-left: 0 !important; padding-bottom: 0.4rem; font-weight: 800; margin-top: 2.2rem; margin-bottom: 0.8rem;">Answers Summary</h2>
+
+<div style="background: #EEF4FF; border: 2px solid #A8C8FF; border-radius: 12px; padding: 24px 28px; margin: 1.5rem 0; box-shadow: 0 2px 8px rgba(90,61,237,0.07);" markdown>
+
+| Question | Answer | Concept |
+|----------|--------|---------|
+| 1 | B | Force |
+| 2 | D | Electric Charge |
+| 3 | A | Electric Potential |
+| 4 | C | Boltzmann Constant |
+| 5 | B | Divergence |
+| 6 | D | Coulomb's Law |
+| 7 | A | Electric Field |
+| 8 | B | Complex Numbers |
+| 9 | C | Gradient |
+| 10 | D | Photon Energy |
+| 11 | A | Partial Derivatives |
+| 12 | C | Gauss's Law |
+| 13 | A | Vectors |
+| 14 | D | Curl |
+| 15 | B | Electric Flux |
+| 16 | C | Fundamental Physical Constants |
+| 17 | A | Thermal Equilibrium |
+| 18 | D | Electrostatic Potential Energy |
+| 19 | B | Exponentials and Logarithms |
+| 20 | C | Mechanical Energy |
+
+</div>
+
+</div>

@@ -16,7 +16,7 @@ quality_score: 85
 <h2 style="color: #5A3EED !important; border-bottom: 2px solid #5A3EED; padding-bottom: 0.3rem; font-weight: 700; margin-top: 2rem;">Description</h2>
 
 <p style="color: #555; line-height: 1.85; font-size: 1.02rem; margin-bottom: 1.2rem;">
-This MicroSim plots the Maxwell-Boltzmann speed distribution for a representative gas particle (mass close to an N\(_2\) molecule) as a function of temperature. Dragging the temperature slider shows the curve broaden and its peak shift to higher speed, while numeric readouts show the most probable speed, the RMS speed, and the average kinetic energy \(\langle KE\rangle = \tfrac{3}{2}k_BT\) in both joules and electron-volts.
+This MicroSim plots the Maxwell-Boltzmann speed distribution for a representative gas particle (mass close to an N<span class="arithmatex">\(_2\)</span> molecule) as a function of temperature. Dragging the temperature slider shows the curve broaden and its peak shift to higher speed, while numeric readouts show the most probable speed, the RMS speed, and the average kinetic energy <span class="arithmatex">\(\langle KE\rangle = \tfrac{3}{2}k_BT\)</span> in both joules and electron-volts.
 </p>
 
 <div style="background: #FFF7DD; border: 2px solid #F0D87A; border-radius: 10px; padding: 20px 24px; margin: 1.2rem 0;">
@@ -44,7 +44,7 @@ This MicroSim plots the Maxwell-Boltzmann speed distribution for a representativ
 <p style="color: #333; line-height: 1.75; margin-bottom: 0.6rem;">After using this MicroSim, students will be able to:</p>
 <ul style="list-style: none; padding-left: 0; margin: 0;">
 <li style="margin-bottom: 0.5rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #2E7D32; font-weight: 700; margin-right: 0.4rem;">&#10003;</span> Interpret how raising temperature reshapes the Maxwell-Boltzmann speed distribution</li>
-<li style="margin-bottom: 0.5rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #2E7D32; font-weight: 700; margin-right: 0.4rem;">&#10003;</span> Connect the visual broadening of the curve to the increase in \(\langle KE\rangle = \tfrac{3}{2}k_BT\)</li>
+<li style="margin-bottom: 0.5rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #2E7D32; font-weight: 700; margin-right: 0.4rem;">&#10003;</span> Connect the visual broadening of the curve to the increase in <span class="arithmatex">\(\langle KE\rangle = \tfrac{3}{2}k_BT\)</span></li>
 <li style="margin-bottom: 0; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #2E7D32; font-weight: 700; margin-right: 0.4rem;">&#10003;</span> Explain why cooling a device changes the thermal energy available to its carriers</li>
 </ul>
 </div>

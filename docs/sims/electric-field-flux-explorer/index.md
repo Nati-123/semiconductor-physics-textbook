@@ -16,7 +16,7 @@ quality_score: 85
 <h2 style="color: #5A3EED !important; border-bottom: 2px solid #5A3EED; padding-bottom: 0.3rem; font-weight: 700; margin-top: 2rem;">Description</h2>
 
 <p style="color: #555; line-height: 1.85; font-size: 1.02rem; margin-bottom: 1.2rem;">
-This MicroSim shows the radial electric field of a point charge together with a small flat test surface placed a fixed distance away. A slider tilts the surface's normal vector relative to the field, and a live readout shows the electric field magnitude, the surface area, and the resulting flux \(\Phi_E = EA\cos\theta\) — including the special cases of maximum flux (\(\theta=0°\), normal aligned with the field) and zero flux (\(\theta=90°\), surface parallel to the field).
+This MicroSim shows the radial electric field of a point charge together with a small flat test surface placed a fixed distance away. A slider tilts the surface's normal vector relative to the field, and a live readout shows the electric field magnitude, the surface area, and the resulting flux <span class="arithmatex">\(\Phi_E = EA\cos\theta\)</span> — including the special cases of maximum flux (<span class="arithmatex">\(\theta=0°\)</span>, normal aligned with the field) and zero flux (<span class="arithmatex">\(\theta=90°\)</span>, surface parallel to the field).
 </p>
 
 <div style="background: #FFF7DD; border: 2px solid #F0D87A; border-radius: 10px; padding: 20px 24px; margin: 1.2rem 0;">
@@ -25,7 +25,7 @@ This MicroSim shows the radial electric field of a point charge together with a 
 <li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Charge slider</strong> (−5 to +5 nC) that reverses the field direction and the color of the radiating arrows</li>
 <li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Distance slider</strong> moving the test surface closer to or farther from the charge</li>
 <li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Angle slider</strong> (0&ndash;90°) tilting the surface's normal vector relative to the field</li>
-<li style="margin-bottom: 0; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Live numeric readout</strong> of \(E\), \(\cos\theta\), and \(\Phi_E\)</li>
+<li style="margin-bottom: 0; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Live numeric readout</strong> of <span class="arithmatex">\(E\)</span>, <span class="arithmatex">\(\cos\theta\)</span>, and <span class="arithmatex">\(\Phi_E\)</span></li>
 </ul>
 </div>
 
@@ -34,7 +34,7 @@ This MicroSim shows the radial electric field of a point charge together with a 
 <ol style="padding-left: 1.2rem; margin: 0.8rem 0 1.2rem 0;">
 <li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333;"><strong style="color: #5A3EED;">Set the angle slider to 0°</strong> and note the flux is at its maximum (normal aligned with the field)</li>
 <li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333;"><strong style="color: #5A3EED;">Slide the angle to 90°</strong> and note the flux drops to exactly zero</li>
-<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333;"><strong style="color: #5A3EED;">Change the distance slider</strong> and observe that \(E\) changes but \(\Phi_E\) still scales the same way with \(\cos\theta\)</li>
+<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333;"><strong style="color: #5A3EED;">Change the distance slider</strong> and observe that <span class="arithmatex">\(E\)</span> changes but <span class="arithmatex">\(\Phi_E\)</span> still scales the same way with <span class="arithmatex">\(\cos\theta\)</span></li>
 <li style="margin-bottom: 0; line-height: 1.75; color: #333;"><strong style="color: #5A3EED;">Flip the charge sign</strong> to see the field arrows reverse direction</li>
 </ol>
 
@@ -45,7 +45,7 @@ This MicroSim shows the radial electric field of a point charge together with a 
 <p style="color: #333; line-height: 1.75; margin-bottom: 0.6rem;">After using this MicroSim, students will be able to:</p>
 <ul style="list-style: none; padding-left: 0; margin: 0;">
 <li style="margin-bottom: 0.5rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #2E7D32; font-weight: 700; margin-right: 0.4rem;">&#10003;</span> Compute the electric field of a point charge at a given distance</li>
-<li style="margin-bottom: 0.5rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #2E7D32; font-weight: 700; margin-right: 0.4rem;">&#10003;</span> Apply \(\Phi_E = EA\cos\theta\) to compute electric flux through a flat surface</li>
+<li style="margin-bottom: 0.5rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #2E7D32; font-weight: 700; margin-right: 0.4rem;">&#10003;</span> Apply <span class="arithmatex">\(\Phi_E = EA\cos\theta\)</span> to compute electric flux through a flat surface</li>
 <li style="margin-bottom: 0; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #2E7D32; font-weight: 700; margin-right: 0.4rem;">&#10003;</span> Explain why flux is maximized when a surface is perpendicular to the field and zero when parallel to it</li>
 </ul>
 </div>
@@ -63,8 +63,8 @@ This MicroSim shows the radial electric field of a point charge together with a 
 
 <ol style="padding-left: 1.2rem; margin: 0.5rem 0 1rem 0;">
 <li style="margin-bottom: 0.5rem; line-height: 1.75; color: #333;">Sweep the angle slider from 0° to 90° and record the flux at 0°, 45°, and 90°</li>
-<li style="margin-bottom: 0.5rem; line-height: 1.75; color: #333;">Verify the 45° value matches \(E \cdot A \cdot \cos(45°)\) computed by hand</li>
-<li style="margin-bottom: 0; line-height: 1.75; color: #333;">Move the surface closer to the charge and note how much faster \(E\) grows than a linear change</li>
+<li style="margin-bottom: 0.5rem; line-height: 1.75; color: #333;">Verify the 45° value matches <span class="arithmatex">\(E \cdot A \cdot \cos(45°)\)</span> computed by hand</li>
+<li style="margin-bottom: 0; line-height: 1.75; color: #333;">Move the surface closer to the charge and note how much faster <span class="arithmatex">\(E\)</span> grows than a linear change</li>
 </ol>
 
 <h3 style="color: #5A3EED; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.6rem;">After the Simulation (5 minutes)</h3>

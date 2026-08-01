@@ -1,21 +1,122 @@
-# Welcome to Semiconductor Physics
+---
+title: Cover
+hide:
+  - navigation
+  - toc
+  - footer
+---
 
-An interactive university-level semiconductor physics textbook with AI explanations, quizzes, simulations, and practice problems.
+<style>
+/* Cover-page-only refinements — scoped to .cover-page selectors */
+.md-typeset .cover-page { min-height: 80vh; }
+.md-typeset .cover-content { padding: 2rem 2rem 1rem 2rem; }
+.md-typeset .cover-stats { margin: 2rem 0 1.2rem 0; }
+.md-typeset .cover-buttons { margin-top: 2rem; }
 
-## Getting Started
+.md-typeset .cover-page h2 {
+  font-weight: 500;
+  color: #90d8f4 !important;
+}
 
-This intelligent textbook is built with the MkDocs Material theme.
+.md-typeset .cover-circuit-bottom .circuit-svg-alt { opacity: 0.73; }
 
-### Navigation
+@keyframes circuit-glow {
+  0%, 100% { filter: drop-shadow(0 0 2px rgba(0,191,255,.08)) brightness(1.06); }
+  50%      { filter: drop-shadow(0 0 8px rgba(0,191,255,.22)) brightness(1.12); }
+}
+@keyframes circuit-glow-bottom {
+  0%, 100% { filter: drop-shadow(0 0 2px rgba(0,191,255,.06)); }
+  50%      { filter: drop-shadow(0 0 6px rgba(0,191,255,.18)); }
+}
+.md-typeset .cover-circuit .circuit-svg {
+  animation: circuit-glow 5s ease-in-out infinite;
+}
+.md-typeset .cover-circuit-bottom .circuit-svg-alt {
+  animation: circuit-glow-bottom 5s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .md-typeset .cover-circuit .circuit-svg {
+    animation: none; filter: brightness(1.06);
+  }
+  .md-typeset .cover-circuit-bottom .circuit-svg-alt {
+    animation: none;
+  }
+}
 
-Use the navigation menu on the left to explore chapters and content.
+.md-typeset .cover-buttons .md-button {
+  transition: transform .25s ease, box-shadow .25s ease,
+              background .25s ease, color .25s ease, border-color .25s ease;
+}
+.md-typeset .cover-buttons .md-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 18px rgba(0,191,255,.18);
+}
+.md-typeset .cover-buttons .md-button--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0,191,255,.4);
+}
 
-## Front Matter
+@media (max-width: 768px) {
+  .md-typeset .cover-content { padding: 1.2rem 1rem .8rem 1rem; }
+}
+</style>
 
-- `index.md` is the home page
-- `about.md` tells the reader about the book, its audience, and how to use the navigation and search
-- `course-description.md` is the file used to generate the learning graph for the course
+<div class="cover-page" markdown>
 
-## Chapters
+<div class="cover-circuit">
+  <img src="images/semiconductor-hero.svg" alt="Crystal lattice, Bohr atom, energy bands, and wavefunction diagram" class="circuit-svg">
+</div>
 
-This section contains the main chapter content of the textbook. Every chapter has its own folder with a two-digit number at the start of the directory name.
+<div class="cover-content" markdown>
+
+# Semiconductor Physics
+
+## An Intelligent Interactive Textbook
+
+**Quantum Foundations to the P-N Junction**
+
+---
+
+<p class="cover-institution">An AI-Assisted Interactive Textbook</p>
+
+<p class="cover-description">An AI-assisted interactive textbook with 18 chapters, interactive MicroSims,<br>and practice problems covering semiconductor physics from quantum foundations through devices.</p>
+
+<div class="cover-stats" markdown>
+
+<div class="stat-item">
+<div class="stat-number">18</div>
+<div class="stat-label">Chapters</div>
+</div>
+
+<div class="stat-item">
+<div class="stat-number">8</div>
+<div class="stat-label">MicroSims</div>
+</div>
+
+<div class="stat-item">
+<div class="stat-number">20</div>
+<div class="stat-label">Quiz Questions</div>
+</div>
+
+<div class="stat-item">
+<div class="stat-number">26</div>
+<div class="stat-label">Glossary Terms</div>
+</div>
+
+</div>
+
+<div class="cover-buttons" markdown>
+
+[Enter Textbook :material-arrow-right:](home.md){ .md-button .md-button--primary }
+[View MicroSims :material-play-box:](sims/index.md){ .md-button }
+[Course Description :material-book-open-variant:](course-description.md){ .md-button }
+
+</div>
+
+</div>
+
+<div class="cover-circuit cover-circuit-bottom">
+  <img src="images/semiconductor-bottom.svg" alt="P-N junction, band bending, diode I-V curve, and MOS capacitor diagram" class="circuit-svg-alt">
+</div>
+
+</div>

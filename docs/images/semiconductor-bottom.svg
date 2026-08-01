@@ -1,0 +1,78 @@
+<svg viewBox="0 0 1000 180" xmlns="http://www.w3.org/2000/svg">
+
+  <defs>
+    <filter id="glowB" x="-15%" y="-15%" width="130%" height="130%">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="arrowCyan" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M0,0 L6,3 L0,6 Z" fill="rgba(0,191,255,0.5)"/>
+    </marker>
+  </defs>
+
+  <!-- Subtle equation background -->
+  <text font-family="'Courier New', monospace" font-size="10" letter-spacing="2">
+    <tspan x="20" y="16" fill="rgba(0,191,255,0.05)">V(x) = -(kT/q) ln(n/ni)</tspan>
+    <tspan x="560" y="16" fill="rgba(0,191,255,0.04)">F = qE</tspan>
+    <tspan x="30" y="172" fill="rgba(0,191,255,0.05)">Nd - Na = n - p</tspan>
+  </text>
+
+  <!-- ===== P-N Junction with depletion region ===== -->
+  <g transform="translate(60,30)">
+    <rect x="0" y="0" width="140" height="90" fill="rgba(0,191,255,0.04)" stroke="rgba(0,191,255,0.4)" stroke-width="1.2" filter="url(#glowB)"/>
+    <text x="70" y="-8" fill="rgba(0,191,255,0.35)" font-size="8" font-family="'Courier New', monospace" text-anchor="middle">P-N JUNCTION</text>
+    <text x="35" y="45" fill="rgba(0,191,255,0.55)" font-size="16" font-family="'Courier New', monospace" text-anchor="middle" font-weight="bold">P</text>
+    <text x="105" y="45" fill="rgba(0,191,255,0.55)" font-size="16" font-family="'Courier New', monospace" text-anchor="middle" font-weight="bold">N</text>
+    <!-- depletion region -->
+    <rect x="60" y="0" width="20" height="90" fill="rgba(0,191,255,0.1)" stroke="rgba(0,191,255,0.3)" stroke-width="0.8" stroke-dasharray="3,3"/>
+    <text x="70" y="106" fill="rgba(0,191,255,0.25)" font-size="6" font-family="'Courier New', monospace" text-anchor="middle">DEPLETION</text>
+    <text x="20" y="70" fill="rgba(0,191,255,0.4)" font-size="8" font-family="'Courier New', monospace">- - -</text>
+    <text x="95" y="70" fill="rgba(0,191,255,0.4)" font-size="8" font-family="'Courier New', monospace">+ + +</text>
+  </g>
+
+  <!-- ===== Energy band bending diagram ===== -->
+  <g transform="translate(260,25)">
+    <path d="M0,20 Q70,20 90,60 T180,90" fill="none" stroke="rgba(0,191,255,0.5)" stroke-width="1.3" filter="url(#glowB)"/>
+    <path d="M0,60 Q70,60 90,100 T180,130" fill="none" stroke="rgba(0,191,255,0.5)" stroke-width="1.3" filter="url(#glowB)"/>
+    <line x1="90" y1="15" x2="90" y2="135" stroke="rgba(0,191,255,0.15)" stroke-width="0.8" stroke-dasharray="2,4"/>
+    <text x="0" y="12" fill="rgba(0,191,255,0.4)" font-size="7" font-family="'Courier New', monospace">Ec</text>
+    <text x="0" y="55" fill="rgba(0,191,255,0.4)" font-size="7" font-family="'Courier New', monospace">Ev</text>
+    <line x1="0" y1="0" x2="180" y2="0" stroke="rgba(0,191,255,0.2)" stroke-width="0.6" stroke-dasharray="4,4"/>
+    <text x="90" y="-6" fill="rgba(0,191,255,0.3)" font-size="7" font-family="'Courier New', monospace" text-anchor="middle">Ef</text>
+    <text x="90" y="150" fill="rgba(0,191,255,0.2)" font-size="8" font-family="'Courier New', monospace" text-anchor="middle">BAND BENDING</text>
+  </g>
+
+  <!-- ===== Carrier drift/diffusion arrows ===== -->
+  <g stroke="rgba(0,191,255,0.4)" stroke-width="1.2" fill="none">
+    <path d="M480,60 H540" marker-end="url(#arrowCyan)"/>
+    <path d="M540,90 H480" marker-end="url(#arrowCyan)"/>
+  </g>
+  <text x="510" y="50" fill="rgba(0,191,255,0.35)" font-size="7" font-family="'Courier New', monospace" text-anchor="middle">electrons</text>
+  <text x="510" y="105" fill="rgba(0,191,255,0.35)" font-size="7" font-family="'Courier New', monospace" text-anchor="middle">holes</text>
+
+  <!-- ===== I-V curve (diode) ===== -->
+  <g transform="translate(600,20)">
+    <rect x="0" y="0" width="120" height="100" rx="3" fill="rgba(0,191,255,0.03)" stroke="rgba(0,191,255,0.35)" stroke-width="1.2" filter="url(#glowB)"/>
+    <line x1="10" y1="60" x2="110" y2="60" stroke="rgba(0,191,255,0.25)" stroke-width="0.8"/>
+    <line x1="60" y1="10" x2="60" y2="90" stroke="rgba(0,191,255,0.25)" stroke-width="0.8"/>
+    <path d="M60,60 C70,58 80,50 90,20" fill="none" stroke="#00BFFF" stroke-width="1.3" filter="url(#glowB)"/>
+    <path d="M60,60 L15,64" fill="none" stroke="#00BFFF" stroke-width="1" stroke-dasharray="2,2" opacity="0.5"/>
+    <text x="60" y="115" fill="rgba(0,191,255,0.25)" font-size="7" font-family="'Courier New', monospace" text-anchor="middle">DIODE I-V</text>
+    <text x="95" y="18" fill="rgba(0,191,255,0.4)" font-size="7" font-family="'Courier New', monospace">I</text>
+    <text x="100" y="58" fill="rgba(0,191,255,0.4)" font-size="7" font-family="'Courier New', monospace">V</text>
+  </g>
+
+  <!-- ===== MOS capacitor cross-section ===== -->
+  <g transform="translate(780,20)">
+    <rect x="0" y="0" width="130" height="14" fill="rgba(0,191,255,0.15)" stroke="rgba(0,191,255,0.4)" stroke-width="1"/>
+    <text x="65" y="10" fill="rgba(0,191,255,0.6)" font-size="7" font-family="'Courier New', monospace" text-anchor="middle">METAL</text>
+    <rect x="0" y="14" width="130" height="16" fill="rgba(0,191,255,0.06)" stroke="rgba(0,191,255,0.35)" stroke-width="1"/>
+    <text x="65" y="26" fill="rgba(0,191,255,0.5)" font-size="7" font-family="'Courier New', monospace" text-anchor="middle">OXIDE</text>
+    <rect x="0" y="30" width="130" height="55" fill="rgba(0,191,255,0.03)" stroke="rgba(0,191,255,0.35)" stroke-width="1" filter="url(#glowB)"/>
+    <text x="65" y="62" fill="rgba(0,191,255,0.5)" font-size="8" font-family="'Courier New', monospace" text-anchor="middle">SEMICONDUCTOR</text>
+    <text x="65" y="100" fill="rgba(0,191,255,0.2)" font-size="8" font-family="'Courier New', monospace" text-anchor="middle">MOS CAPACITOR</text>
+  </g>
+</svg>

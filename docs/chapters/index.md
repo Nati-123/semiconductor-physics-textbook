@@ -1,3 +1,5 @@
+<div class="unit1-styled" markdown>
+
 # Chapters
 
 This textbook is organized into 18 chapters covering 218 concepts.
@@ -30,3 +32,5 @@ Chapters are ordered so that every concept appears after all of its prerequisite
 ---
 
 **Note:** Each chapter includes a list of concepts covered. Make sure to complete prerequisites before moving to advanced chapters.
+
+</div>

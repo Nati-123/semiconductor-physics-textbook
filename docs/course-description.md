@@ -4,6 +4,8 @@ description: A detailed course description for Semiconductor Physics including o
 quality_score: 100
 ---
 
+<div class="unit1-styled" markdown>
+
 # Semiconductor Physics
 
 **Title:** Semiconductor Physics
@@ -103,3 +105,5 @@ After completing this course, students will be able to:
 ## Course Importance
 
 Semiconductor physics is the physical foundation underneath nearly every modern electronic and photonic technology — microprocessors, memory, power converters, solar cells, LEDs, and sensors. Engineers who understand the underlying physics can reason about *why* devices behave as they do, diagnose failures at a fundamental level, and contribute to the design of next-generation devices, rather than treating components purely as circuit-level abstractions. This course is typically a prerequisite for upper-division device and VLSI courses and for research or industry work in semiconductor devices, photonics, and nanotechnology.
+
+</div>

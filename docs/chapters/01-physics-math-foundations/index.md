@@ -8,6 +8,26 @@ version: 0.04
 
 # Chapter 1: Physics and Math Foundations
 
+<div class="unit1-styled" markdown>
+
+<details class="video-overview" markdown>
+<summary><strong>Chapter Overview</strong> (click to expand)</summary>
+
+This chapter is the toolbox the rest of the course draws on: a fast, circuit-friendly review of classical physics and the mathematics needed to describe it, followed by the vector calculus and electromagnetics that connect force, field, and potential together.
+
+**Key Takeaways:**
+
+1. Force, energy, electric field, potential (voltage), and charge are all related through a small set of equations (\(\vec{F}=m\vec{a}\), \(\vec{F}=q\vec{E}\), \(V=U/q\)) that recur throughout the course.
+2. Algebra, trigonometry, exponentials/logarithms, complex numbers, differentiation, integration, and partial derivatives are reviewed at the level needed for later derivations, including the diode equation and complex wavefunctions.
+3. The gradient, divergence, and curl are the three vector-calculus operators that connect scalar potentials to vector fields and describe source, sink, and rotational behavior.
+4. Coulomb's law and Gauss's law both describe the electric field produced by charge, but Gauss's law is far easier to apply when the charge distribution has symmetry.
+5. Electric potential can be found either by integrating the electric field or by taking the gradient of the potential — two computational routes used again in the p-n junction chapters.
+6. The kinetic theory of gases and the Boltzmann constant connect macroscopic temperature to microscopic particle energy, a bridge used throughout the carrier-statistics chapters.
+7. Photon energy, \(E_{\text{photon}} = hf = hc/\lambda\), determines whether light of a given wavelength can be absorbed by a semiconductor with a given band gap.
+8. SI units and the fundamental physical constants (\(e\), \(\varepsilon_0\), \(h\), \(k_B\), \(m_0\)) introduced here are used numerically throughout the rest of the book.
+
+</details>
+
 ## Learning Objectives
 
 By the end of this chapter, you will be able to:
@@ -250,7 +270,7 @@ For example, if \(V(x,y,z) = x^2y + 3z\), then \(\partial V/\partial x = 2xy\), 
 
 A **vector** is a quantity with both magnitude and direction — force, velocity, and electric field are all vectors, in contrast to scalars like mass, energy, and electric potential, which have magnitude only. This course writes vectors with an arrow, \(\vec{F}\), and denotes a unit vector (magnitude exactly 1, direction only) with a caret, \(\hat{r}\). Two vector operations recur throughout electromagnetics: the **magnitude** of a vector, \(|\vec{A}| = \sqrt{A_x^2+A_y^2+A_z^2}\), and the **dot product** of two vectors, \(\vec{A}\cdot\vec{B} = A_xB_x+A_yB_y+A_zB_z = |\vec{A}||\vec{B}|\cos\theta\), which appears directly in the definitions of work (\(W=\vec{F}\cdot d\vec{r}\)) and electric flux (\(\Phi_E = \vec{E}\cdot\vec{A}\)) introduced elsewhere in this chapter.
 
-#### MicroSim: Vector Components and Addition
+#### Diagram: Vector Components and Addition
 <iframe src="../../sims/vector-components-addition/main.html" width="100%" height="610px" scrolling="auto"></iframe>
 
 !!! tip "How to use this MicroSim"
@@ -321,7 +341,7 @@ Continuing the fluid analogy, curl measures rotation: if you placed a tiny paddl
 ??? question "Concept Check — click to reveal answer"
     The gradient takes a **scalar** field as input and produces a **vector** field as output. Divergence takes a **vector** field as input and produces a **scalar** field as output. Curl takes a **vector** field as input and produces a **vector** field as output.
 
-#### MicroSim: Gradient, Divergence, and Curl Explorer
+#### Diagram: Gradient, Divergence, and Curl Explorer
 <iframe src="../../sims/gradient-divergence-curl-explorer/main.html" width="100%" height="590px" scrolling="auto"></iframe>
 
 !!! tip "How to use this MicroSim"
@@ -353,7 +373,7 @@ Because Coulomb's law describes force between two *specific* charges, it is ofte
 \vec{E} = \frac{1}{4\pi\varepsilon_0}\frac{q}{r^2}\hat{r}
 \]
 
-#### MicroSim: Coulomb's Law Force Vectors
+#### Diagram: Coulomb's Law Force Vectors
 <iframe src="../../sims/coulomb-force-vectors/main.html" width="100%" height="470px" scrolling="auto"></iframe>
 
 !!! tip "How to use this MicroSim"
@@ -365,7 +385,7 @@ Because Coulomb's law describes force between two *specific* charges, it is ofte
 
 [Full MicroSim documentation →](../../sims/coulomb-force-vectors/index.md)
 
-#### MicroSim: Coulomb's Law Force and Field Explorer
+#### Diagram: Coulomb's Law Force and Field Explorer
 <iframe src="../../sims/coulomb-force-explorer/main.html" width="100%" height="530px" scrolling="auto"></iframe>
 
 !!! tip "How to use this MicroSim"
@@ -387,7 +407,7 @@ Because Coulomb's law describes force between two *specific* charges, it is ofte
 
 where \(\theta\) is the angle between the field and the surface's normal vector. For a curved surface or non-uniform field, flux generalizes to a surface integral, \(\Phi_E = \oint \vec{E}\cdot d\vec{A}\), evaluated over a closed surface.
 
-#### MicroSim: Electric Field and Flux Explorer
+#### Diagram: Electric Field and Flux Explorer
 <iframe src="../../sims/electric-field-flux-explorer/main.html" width="100%" height="550px" scrolling="auto"></iframe>
 
 !!! tip "How to use this MicroSim"
@@ -420,7 +440,7 @@ flowchart TB
     E2 --> Sum
 ```
 
-#### MicroSim: Gauss's Law Explorer
+#### Diagram: Gauss's Law Explorer
 <iframe src="../../sims/gauss-law-explorer/main.html" width="100%" height="550px" scrolling="auto"></iframe>
 
 !!! tip "How to use this MicroSim"
@@ -476,7 +496,7 @@ k_BT \approx 0.0259\ \text{eV at } T = 300\ \text{K}
 
 A system is in **thermal equilibrium** when it has a single well-defined temperature throughout and there is no net energy flow between it and its surroundings. Much of this course begins by assuming thermal equilibrium, deriving properties under that assumption, and only afterward asking what changes when equilibrium is disturbed by an applied voltage or absorbed light.
 
-#### MicroSim: Maxwell-Boltzmann Speed Distribution and Temperature
+#### Diagram: Maxwell-Boltzmann Speed Distribution and Temperature
 <iframe src="../../sims/maxwell-boltzmann-distribution/main.html" width="100%" height="560px" scrolling="auto"></iframe>
 
 !!! tip "How to use this MicroSim"
@@ -560,117 +580,75 @@ A unit you will meet in nearly every chapter from here forward is the **electron
 
 ## Worked Examples
 
-**Example 1 — Newton's Second Law.** A carrier of effective mass \(m^* = 0.26\,m_0\) experiences a net force of \(4.0\times10^{-14}\) N. Find its acceleration.
+!!! example "Example 1 — Newton's Second Law"
+    A carrier of effective mass \(m^* = 0.26\,m_0\) experiences a net force of \(4.0\times10^{-14}\) N. Find its acceleration.
 
-*Solution:* \(a = F/m^* = (4.0\times10^{-14}\ \text{N}) / (0.26 \times 9.109\times10^{-31}\ \text{kg}) = 1.68\times10^{17}\ \text{m/s}^2\).
+    **Solution:** \(a = F/m^* = (4.0\times10^{-14}\ \text{N}) / (0.26 \times 9.109\times10^{-31}\ \text{kg}) = 1.68\times10^{17}\ \text{m/s}^2\).
 
-**Example 2 — Force from a Field.** An electron sits in a uniform electric field of magnitude \(E = 1.0\times10^{5}\) V/m. Find the force on it.
+!!! example "Example 2 — Force from a Field"
+    An electron sits in a uniform electric field of magnitude \(E = 1.0\times10^{5}\) V/m. Find the force on it.
 
-*Solution:* \(F = qE = (1.602\times10^{-19}\ \text{C})(1.0\times10^5\ \text{V/m}) = 1.602\times10^{-14}\ \text{N}\), directed opposite to \(\vec{E}\) since the electron's charge is negative.
+    **Solution:** \(F = qE = (1.602\times10^{-19}\ \text{C})(1.0\times10^5\ \text{V/m}) = 1.602\times10^{-14}\ \text{N}\), directed opposite to \(\vec{E}\) since the electron's charge is negative.
 
-**Example 3 — Voltage from Energy.** Moving a charge of \(q=2.0\times10^{-19}\) C between two points requires \(3.2\times10^{-19}\) J of work. Find the potential difference between the points.
+!!! example "Example 3 — Voltage from Energy"
+    Moving a charge of \(q=2.0\times10^{-19}\) C between two points requires \(3.2\times10^{-19}\) J of work. Find the potential difference between the points.
 
-*Solution:* \(V = U/q = (3.2\times10^{-19}\ \text{J})/(2.0\times10^{-19}\ \text{C}) = 1.6\ \text{V}\).
+    **Solution:** \(V = U/q = (3.2\times10^{-19}\ \text{J})/(2.0\times10^{-19}\ \text{C}) = 1.6\ \text{V}\).
 
-**Example 4 — Exponential Algebra.** Solve \(I = I_0 e^{V/V_T}\) for \(V\) given \(I = 100\,I_0\) and \(V_T = 0.0259\) V.
+!!! example "Example 4 — Exponential Algebra"
+    Solve \(I = I_0 e^{V/V_T}\) for \(V\) given \(I = 100\,I_0\) and \(V_T = 0.0259\) V.
 
-*Solution:* Divide both sides by \(I_0\): \(100 = e^{V/V_T}\). Take the natural log: \(\ln(100) = V/V_T\), so \(V = V_T\ln(100) = (0.0259)(4.605) = 0.1193\ \text{V}\).
+    **Solution:** Divide both sides by \(I_0\): \(100 = e^{V/V_T}\). Take the natural log: \(\ln(100) = V/V_T\), so \(V = V_T\ln(100) = (0.0259)(4.605) = 0.1193\ \text{V}\).
 
-**Example 5 — Complex Numbers.** Write \(z = 3 + 4i\) in polar form.
+!!! example "Example 5 — Complex Numbers"
+    Write \(z = 3 + 4i\) in polar form.
 
-*Solution:* \(r = \sqrt{3^2+4^2} = 5\), \(\theta = \arctan(4/3) = 53.13^\circ = 0.927\ \text{rad}\). So \(z = 5e^{i(0.927)}\).
+    **Solution:** \(r = \sqrt{3^2+4^2} = 5\), \(\theta = \arctan(4/3) = 53.13^\circ = 0.927\ \text{rad}\). So \(z = 5e^{i(0.927)}\).
 
-**Example 6 — Differentiation.** Find \(d/dx\) of \(f(x) = 5e^{-2x}\).
+!!! example "Example 6 — Differentiation"
+    Find \(d/dx\) of \(f(x) = 5e^{-2x}\).
 
-*Solution:* Using \(d(e^{kx})/dx = ke^{kx}\) with \(k=-2\): \(f'(x) = 5(-2)e^{-2x} = -10e^{-2x}\).
+    **Solution:** Using \(d(e^{kx})/dx = ke^{kx}\) with \(k=-2\): \(f'(x) = 5(-2)e^{-2x} = -10e^{-2x}\).
 
-**Example 7 — Integration.** Evaluate \(\int_0^\infty e^{-x/L}dx\) for a positive constant \(L\).
+!!! example "Example 7 — Integration"
+    Evaluate \(\int_0^\infty e^{-x/L}dx\) for a positive constant \(L\).
 
-*Solution:* The antiderivative is \(-Le^{-x/L}\). Evaluating from 0 to \(\infty\): \([-Le^{-\infty/L}] - [-Le^{0}] = 0-(-L) = L\).
+    **Solution:** The antiderivative is \(-Le^{-x/L}\). Evaluating from 0 to \(\infty\): \([-Le^{-\infty/L}] - [-Le^{0}] = 0-(-L) = L\).
 
-**Example 8 — Gradient.** Given \(V(x,y,z) = 2x^2 + 3y\) (volts, with \(x,y,z\) in meters), find the electric field \(\vec{E} = -\nabla V\).
+!!! example "Example 8 — Gradient"
+    Given \(V(x,y,z) = 2x^2 + 3y\) (volts, with \(x,y,z\) in meters), find the electric field \(\vec{E} = -\nabla V\).
 
-*Solution:* \(\partial V/\partial x = 4x\), \(\partial V/\partial y = 3\), \(\partial V/\partial z = 0\). So \(\vec{E} = -(4x\hat{x}+3\hat{y}+0\hat{z})\ \text{V/m}\).
+    **Solution:** \(\partial V/\partial x = 4x\), \(\partial V/\partial y = 3\), \(\partial V/\partial z = 0\). So \(\vec{E} = -(4x\hat{x}+3\hat{y}+0\hat{z})\ \text{V/m}\).
 
-**Example 9 — Coulomb's Law.** Two point charges, \(q_1=+3\) nC and \(q_2=-2\) nC, are separated by \(r=2\) nm. Find the force between them.
+!!! example "Example 9 — Coulomb's Law"
+    Two point charges, \(q_1=+3\) nC and \(q_2=-2\) nC, are separated by \(r=2\) nm. Find the force between them.
 
-*Solution:* \(F = \dfrac{1}{4\pi\varepsilon_0}\dfrac{q_1q_2}{r^2} = (8.99\times10^9)\dfrac{(3\times10^{-9})(2\times10^{-9})}{(2\times10^{-9})^2} = 1.35\times10^{-2}\ \text{N}\) (attractive, since the charges have opposite signs).
+    **Solution:** \(F = \dfrac{1}{4\pi\varepsilon_0}\dfrac{q_1q_2}{r^2} = (8.99\times10^9)\dfrac{(3\times10^{-9})(2\times10^{-9})}{(2\times10^{-9})^2} = 1.35\times10^{-2}\ \text{N}\) (attractive, since the charges have opposite signs).
 
-**Example 10 — Gauss's Law.** A spherical Gaussian surface of radius \(r = 0.5\) nm encloses a net charge of \(Q_{\text{enc}} = +e\). Find the total electric flux through the surface.
+!!! example "Example 10 — Gauss's Law"
+    A spherical Gaussian surface of radius \(r = 0.5\) nm encloses a net charge of \(Q_{\text{enc}} = +e\). Find the total electric flux through the surface.
 
-*Solution:* By Gauss's law, flux depends only on enclosed charge: \(\Phi_E = Q_{\text{enc}}/\varepsilon_0 = (1.602\times10^{-19}\ \text{C})/(8.854\times10^{-12}\ \text{F/m}) = 1.81\times10^{-8}\ \text{V·m}\).
+    **Solution:** By Gauss's law, flux depends only on enclosed charge: \(\Phi_E = Q_{\text{enc}}/\varepsilon_0 = (1.602\times10^{-19}\ \text{C})/(8.854\times10^{-12}\ \text{F/m}) = 1.81\times10^{-8}\ \text{V·m}\).
 
-**Example 11 — Photon Energy.** Find the energy, in eV, of a photon with wavelength \(\lambda = 650\) nm (red light).
+!!! example "Example 11 — Photon Energy"
+    Find the energy, in eV, of a photon with wavelength \(\lambda = 650\) nm (red light).
 
-*Solution:* \(E = hc/\lambda = (6.626\times10^{-34})(2.998\times10^{8})/(650\times10^{-9}) = 3.06\times10^{-19}\ \text{J} = 1.91\ \text{eV}\).
+    **Solution:** \(E = hc/\lambda = (6.626\times10^{-34})(2.998\times10^{8})/(650\times10^{-9}) = 3.06\times10^{-19}\ \text{J} = 1.91\ \text{eV}\).
 
-**Example 12 — Thermal Energy.** Estimate the average kinetic energy, in eV, of a gas particle at \(T=600\) K.
+!!! example "Example 12 — Thermal Energy"
+    Estimate the average kinetic energy, in eV, of a gas particle at \(T=600\) K.
 
-*Solution:* \(\langle KE\rangle = \tfrac{3}{2}k_BT = 1.5\times(0.0259\ \text{eV}\ \text{at 300 K}) \times (600/300) = 1.5 \times 0.0518\ \text{eV} = 0.0777\ \text{eV}\).
+    **Solution:** \(\langle KE\rangle = \tfrac{3}{2}k_BT = 1.5\times(0.0259\ \text{eV}\ \text{at 300 K}) \times (600/300) = 1.5 \times 0.0518\ \text{eV} = 0.0777\ \text{eV}\).
 
-**Example 13 — Effective Mass.** An electron with effective mass \(m^*=1.08\,m_0\) (the density-of-states effective mass of silicon) starts from rest and is accelerated by a uniform field of \(E=2.0\times10^{4}\) V/m. Find its speed after \(1.0\) picosecond (\(1.0\times10^{-12}\) s), assuming it does not collide with the lattice during this time.
+!!! example "Example 13 — Effective Mass"
+    An electron with effective mass \(m^*=1.08\,m_0\) (the density-of-states effective mass of silicon) starts from rest and is accelerated by a uniform field of \(E=2.0\times10^{4}\) V/m. Find its speed after \(1.0\) picosecond (\(1.0\times10^{-12}\) s), assuming it does not collide with the lattice during this time.
 
-*Solution:* First find the force: \(F = qE = (1.602\times10^{-19})(2.0\times10^4) = 3.20\times10^{-15}\ \text{N}\). Then the acceleration: \(a = F/m^* = (3.20\times10^{-15})/(1.08\times9.109\times10^{-31}) = 3.26\times10^{15}\ \text{m/s}^2\). Finally, \(v = at = (3.26\times10^{15})(1.0\times10^{-12}) = 3.26\times10^{3}\ \text{m/s}\).
+    **Solution:** First find the force: \(F = qE = (1.602\times10^{-19})(2.0\times10^4) = 3.20\times10^{-15}\ \text{N}\). Then the acceleration: \(a = F/m^* = (3.20\times10^{-15})/(1.08\times9.109\times10^{-31}) = 3.26\times10^{15}\ \text{m/s}^2\). Finally, \(v = at = (3.26\times10^{15})(1.0\times10^{-12}) = 3.26\times10^{3}\ \text{m/s}\).
 
-**Example 14 — Divergence Check.** Verify Gauss's law in differential form for the field \(\vec{E} = \dfrac{\rho_0 x}{\varepsilon_0}\hat{x}\) inside a region of uniform charge density \(\rho_0\) (a model used for the depletion region in Chapter 14).
+!!! example "Example 14 — Divergence Check"
+    Verify Gauss's law in differential form for the field \(\vec{E} = \dfrac{\rho_0 x}{\varepsilon_0}\hat{x}\) inside a region of uniform charge density \(\rho_0\) (a model used for the depletion region in Chapter 14).
 
-*Solution:* Compute the divergence: \(\nabla\cdot\vec{E} = \partial E_x/\partial x = \partial(\rho_0 x/\varepsilon_0)/\partial x = \rho_0/\varepsilon_0\). This matches \(\nabla\cdot\vec{E}=\rho/\varepsilon_0\) exactly, confirming that a field growing linearly with position is exactly what a uniform charge density produces — the same profile you will derive for the depletion region in Chapter 14.
-
-## Practice Problems
-
-**Easy**
-
-1. Convert \(90^\circ\) to radians.
-2. State Newton's second law and identify the SI unit of each quantity in it.
-3. What is the SI unit of electric potential, and what two quantities define it?
-4. Write the value of the elementary charge \(e\) in coulombs.
-5. Simplify \(e^{3}\cdot e^{-5}\).
-6. What is the complex conjugate of \(z = 2-5i\)?
-7. Differentiate \(f(x) = 7x^3\).
-8. State Coulomb's law in words (no equation).
-
-**Medium**
-
-9. Two charges of \(+4\) nC and \(+4\) nC are separated by 3 nm. Find the electrostatic force between them.
-10. A test charge of \(+1.5\times10^{-19}\) C experiences a force of \(6.0\times10^{-15}\) N in an electric field. Find the field magnitude.
-11. Solve \(50 = e^{x/0.05}\) for \(x\).
-12. Find \(\partial f/\partial x\) and \(\partial f/\partial y\) for \(f(x,y) = x^3y^2 + 4y\).
-13. Evaluate \(\int_0^{2} 3x^2\,dx\).
-14. Write \(z = -1 + i\) in polar form.
-15. A Gaussian sphere of radius 1 nm encloses a charge of \(-2e\). Find the total flux through the sphere.
-16. Find the photon energy, in eV, corresponding to a wavelength of 1100 nm. Is this photon energy above or below silicon's 1.12 eV band gap?
-
-**Difficult**
-
-17. Given \(V(x,y,z) = 5x^2y - 2z^3\) (volts), find the electric field vector \(\vec{E} = -\nabla V\) at the point \((1,2,1)\) meters.
-18. Derive, starting from Coulomb's law, the expression for the electric potential \(V(r)\) of a point charge \(q\), showing the integration step explicitly.
-19. A particle has average kinetic energy \(\langle KE\rangle = 0.05\) eV. Estimate the temperature in kelvin using the kinetic theory of gases result \(\langle KE\rangle = \tfrac{3}{2}k_BT\).
-20. Compute the divergence of the vector field \(\vec{F} = x^2\hat{x} + y^2\hat{y} + z^2\hat{z}\) and evaluate it at the point \((1,1,1)\).
-21. Using Euler's formula, show that \(\cos\theta = \dfrac{e^{i\theta}+e^{-i\theta}}{2}\).
-
-## Solutions
-
-1. \(90^\circ \times (\pi/180^\circ) = \pi/2\ \text{rad} \approx 1.571\ \text{rad}\).
-2. \(\vec{F}=m\vec{a}\); force in newtons (N), mass in kilograms (kg), acceleration in meters per second squared (m/s²).
-3. Volt (V); defined as potential energy per unit charge, \(V = U/q\).
-4. \(e = 1.602\times10^{-19}\ \text{C}\).
-5. \(e^{3}\cdot e^{-5} = e^{3-5} = e^{-2} \approx 0.135\).
-6. \(z^{*} = 2+5i\).
-7. \(f'(x) = 21x^2\).
-8. The electrostatic force between two point charges is directly proportional to the product of their magnitudes and inversely proportional to the square of the distance between them, acting along the line joining them.
-9. \(F = (8.99\times10^9)\dfrac{(4\times10^{-9})^2}{(3\times10^{-9})^2} = 1.60\times10^{-2}\ \text{N}\) (repulsive, both positive).
-10. \(E = F/q = (6.0\times10^{-15})/(1.5\times10^{-19}) = 4.0\times10^{4}\ \text{V/m}\).
-11. \(\ln(50) = x/0.05 \Rightarrow x = 0.05\times3.912 = 0.1956\).
-12. \(\partial f/\partial x = 3x^2y^2\); \(\partial f/\partial y = 2x^3y+4\).
-13. \(\int_0^2 3x^2\,dx = \big[x^3\big]_0^2 = 8-0 = 8\).
-14. \(r=\sqrt{(-1)^2+1^2}=\sqrt2\); \(\theta = 135^\circ = 3\pi/4\ \text{rad}\) (second quadrant). So \(z=\sqrt2\,e^{i3\pi/4}\).
-15. \(\Phi_E = Q_{\text{enc}}/\varepsilon_0 = (-2\times1.602\times10^{-19})/(8.854\times10^{-12}) = -3.62\times10^{-8}\ \text{V·m}\).
-16. \(E = hc/\lambda = (6.626\times10^{-34})(2.998\times10^8)/(1100\times10^{-9}) = 1.81\times10^{-19}\ \text{J} = 1.13\ \text{eV}\), just **above** silicon's 1.12 eV band gap (so this photon would still be absorbed, barely).
-17. \(\partial V/\partial x = 10xy\), \(\partial V/\partial y = 5x^2\), \(\partial V/\partial z=-6z^2\). At \((1,2,1)\): \(10(1)(2)=20\), \(5(1)^2=5\), \(-6(1)^2=-6\). So \(\vec{E} = -(20\hat{x}+5\hat{y}-6\hat{z})\ \text{V/m} = -20\hat{x}-5\hat{y}+6\hat{z}\ \text{V/m}\).
-18. Starting from \(\vec{E} = \dfrac{1}{4\pi\varepsilon_0}\dfrac{q}{r^2}\hat{r}\), integrate along a radial path from infinity to \(r\): \(V(r) = -\int_\infty^r \vec{E}\cdot d\vec{l} = -\int_\infty^r \dfrac{q}{4\pi\varepsilon_0 r'^2}dr' = \dfrac{q}{4\pi\varepsilon_0}\left[\dfrac{1}{r'}\right]_\infty^r = \dfrac{q}{4\pi\varepsilon_0}\left(\dfrac{1}{r}-0\right) = \dfrac{1}{4\pi\varepsilon_0}\dfrac{q}{r}\), matching the boxed formula in the Electric Potential subsection.
-19. \(T = \dfrac{2\langle KE\rangle}{3k_B}\). Converting \(0.05\) eV to joules: \(0.05\times1.602\times10^{-19}=8.01\times10^{-21}\ \text{J}\). \(T = \dfrac{2(8.01\times10^{-21})}{3(1.381\times10^{-23})} \approx 387\ \text{K}\).
-20. \(\nabla\cdot\vec{F} = \partial(x^2)/\partial x + \partial(y^2)/\partial y + \partial(z^2)/\partial z = 2x+2y+2z\). At \((1,1,1)\): \(2+2+2=6\).
-21. Euler's formula gives \(e^{i\theta}=\cos\theta+i\sin\theta\) and \(e^{-i\theta}=\cos\theta-i\sin\theta\). Adding: \(e^{i\theta}+e^{-i\theta}=2\cos\theta\), so \(\cos\theta = \dfrac{e^{i\theta}+e^{-i\theta}}{2}\), as required.
+    **Solution:** Compute the divergence: \(\nabla\cdot\vec{E} = \partial E_x/\partial x = \partial(\rho_0 x/\varepsilon_0)/\partial x = \rho_0/\varepsilon_0\). This matches \(\nabla\cdot\vec{E}=\rho/\varepsilon_0\) exactly, confirming that a field growing linearly with position is exactly what a uniform charge density produces — the same profile you will derive for the depletion region in Chapter 14.
 
 ## Summary
 
@@ -698,31 +676,7 @@ This chapter assembled the physics and mathematics vocabulary the rest of the co
 
 ## Glossary
 
-**Charge** — A fundamental, conserved, quantized property of matter that gives rise to electric and magnetic forces.
-
-**Complex number** — A number of the form \(a+bi\), with real part \(a\) and imaginary part \(b\), where \(i=\sqrt{-1}\).
-
-**Curl** — A vector-calculus operator that measures the rotational tendency of a vector field at a point; zero for a static electric field.
-
-**Divergence** — A vector-calculus operator that measures the net outward flow of a vector field per unit volume at a point.
-
-**Electric field** — The force per unit charge that would be exerted on a small positive test charge at a given point in space.
-
-**Electric flux** — A measure of the total electric field passing through a given surface.
-
-**Electric potential (voltage)** — Potential energy per unit charge; a scalar quantity whose difference between two points drives current flow.
-
-**Euler's formula** — The identity \(e^{i\theta} = \cos\theta + i\sin\theta\), connecting complex exponentials to trigonometric functions.
-
-**Gauss's law** — The law stating that the total electric flux through a closed surface equals the enclosed charge divided by \(\varepsilon_0\).
-
-**Gradient** — A vector-calculus operator that converts a scalar field into a vector field pointing in the direction of steepest increase.
-
-**Partial derivative** — The derivative of a multivariable function with respect to one variable, holding all others fixed.
-
-**Photon** — A discrete packet (quantum) of electromagnetic energy.
-
-**Thermal equilibrium** — A state in which a system has a single, well-defined, time-independent temperature and no net energy exchange with its surroundings.
+See the [Chapter 1 Glossary](glossary.md) for full definitions of every term introduced in this chapter.
 
 ## Further Reading
 
@@ -730,3 +684,5 @@ This chapter assembled the physics and mathematics vocabulary the rest of the co
 - Griffiths, *Introduction to Electrodynamics* — a rigorous treatment of vector calculus applied to Coulomb's law and Gauss's law
 - Stewart, *Calculus: Early Transcendentals* — reference for differentiation, integration, and partial derivatives
 - NIST Reference on Constants, Units, and Uncertainty (physics.nist.gov/cuu) — authoritative source for the fundamental physical constant values used throughout this course
+
+</div>

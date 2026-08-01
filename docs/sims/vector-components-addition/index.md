@@ -16,7 +16,7 @@ quality_score: 85
 <h2 style="color: #5A3EED !important; border-bottom: 2px solid #5A3EED; padding-bottom: 0.3rem; font-weight: 700; margin-top: 2rem;">Description</h2>
 
 <p style="color: #555; line-height: 1.85; font-size: 1.02rem; margin-bottom: 1.2rem;">
-This MicroSim lets students build two vectors, \(\vec{A}\) and \(\vec{B}\), by setting their magnitude and direction angle, and see the resulting x and y components. A tip-to-tail construction shows how the two vectors add to form the resultant \(\vec{R}=\vec{A}+\vec{B}\), with all magnitudes, angles, and components displayed numerically.
+This MicroSim lets students build two vectors, <span class="arithmatex">\(\vec{A}\)</span> and <span class="arithmatex">\(\vec{B}\)</span>, by setting their magnitude and direction angle, and see the resulting x and y components. A tip-to-tail construction shows how the two vectors add to form the resultant <span class="arithmatex">\(\vec{R}=\vec{A}+\vec{B}\)</span>, with all magnitudes, angles, and components displayed numerically.
 </p>
 
 <div style="background: #FFF7DD; border: 2px solid #F0D87A; border-radius: 10px; padding: 20px 24px; margin: 1.2rem 0;">
@@ -24,7 +24,7 @@ This MicroSim lets students build two vectors, \(\vec{A}\) and \(\vec{B}\), by s
 <ul style="list-style: none; padding-left: 0; margin: 0;">
 <li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Four sliders</strong> controlling the magnitude and angle of two independent vectors</li>
 <li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Dashed component projections</strong> onto the x and y axes (toggle on/off)</li>
-<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Tip-to-tail construction</strong> showing \(\vec{B}\) redrawn from the tip of \(\vec{A}\) to form the resultant</li>
+<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Tip-to-tail construction</strong> showing <span class="arithmatex">\(\vec{B}\)</span> redrawn from the tip of <span class="arithmatex">\(\vec{A}\)</span> to form the resultant</li>
 <li style="margin-bottom: 0; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Full numeric readout</strong> of magnitude, angle, and components for A, B, and R</li>
 </ul>
 </div>
@@ -34,8 +34,8 @@ This MicroSim lets students build two vectors, \(\vec{A}\) and \(\vec{B}\), by s
 <ol style="padding-left: 1.2rem; margin: 0.8rem 0 1.2rem 0;">
 <li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333;"><strong style="color: #5A3EED;">Adjust |A| and θA</strong> to change the blue vector's magnitude and direction</li>
 <li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333;"><strong style="color: #5A3EED;">Adjust |B| and θB</strong> to change the green vector</li>
-<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333;"><strong style="color: #5A3EED;">Watch the red resultant</strong> \(\vec{R}\) update as you move either vector</li>
-<li style="margin-bottom: 0; line-height: 1.75; color: #333;"><strong style="color: #5A3EED;">Toggle component projections</strong> to see how \(A_x\), \(A_y\) relate to \(|\vec{A}|\) and \(\theta_A\)</li>
+<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333;"><strong style="color: #5A3EED;">Watch the red resultant</strong> <span class="arithmatex">\(\vec{R}\)</span> update as you move either vector</li>
+<li style="margin-bottom: 0; line-height: 1.75; color: #333;"><strong style="color: #5A3EED;">Toggle component projections</strong> to see how <span class="arithmatex">\(A_x\)</span>, <span class="arithmatex">\(A_y\)</span> relate to <span class="arithmatex">\(|\vec{A}|\)</span> and <span class="arithmatex">\(\theta_A\)</span></li>
 </ol>
 
 <h2 style="color: #5A3EED !important; border-bottom: 2px solid #5A3EED; padding-bottom: 0.3rem; font-weight: 700; margin-top: 2rem;">Learning Objectives</h2>
@@ -64,7 +64,7 @@ This MicroSim lets students build two vectors, \(\vec{A}\) and \(\vec{B}\), by s
 <ol style="padding-left: 1.2rem; margin: 0.5rem 0 1rem 0;">
 <li style="margin-bottom: 0.5rem; line-height: 1.75; color: #333;">Set A to magnitude 5 at 0° and read off its components</li>
 <li style="margin-bottom: 0.5rem; line-height: 1.75; color: #333;">Set A to magnitude 5 at 90° and compare</li>
-<li style="margin-bottom: 0; line-height: 1.75; color: #333;">Add a second vector B and verify \(R_x = A_x+B_x\) and \(R_y=A_y+B_y\) against the on-screen readout</li>
+<li style="margin-bottom: 0; line-height: 1.75; color: #333;">Add a second vector B and verify <span class="arithmatex">\(R_x = A_x+B_x\)</span> and <span class="arithmatex">\(R_y=A_y+B_y\)</span> against the on-screen readout</li>
 </ol>
 
 <h3 style="color: #5A3EED; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.6rem;">After the Simulation (5 minutes)</h3>

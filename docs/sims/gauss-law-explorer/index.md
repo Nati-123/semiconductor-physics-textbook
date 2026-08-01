@@ -16,7 +16,7 @@ quality_score: 85
 <h2 style="color: #5A3EED !important; border-bottom: 2px solid #5A3EED; padding-bottom: 0.3rem; font-weight: 700; margin-top: 2rem;">Description</h2>
 
 <p style="color: #555; line-height: 1.85; font-size: 1.02rem; margin-bottom: 1.2rem;">
-This MicroSim draws a spherical Gaussian surface (shown as a circle, its 2D cross-section) around a point charge. Changing the surface's radius changes the electric field at the surface, but the total flux \(\Phi_E = Q_{\text{enc}}/\varepsilon_0\) stays exactly the same, since it depends only on the enclosed charge. A toggle button moves the charge outside the surface, showing that flux drops to exactly zero when no charge is enclosed.
+This MicroSim draws a spherical Gaussian surface (shown as a circle, its 2D cross-section) around a point charge. Changing the surface's radius changes the electric field at the surface, but the total flux <span class="arithmatex">\(\Phi_E = Q_{\text{enc}}/\varepsilon_0\)</span> stays exactly the same, since it depends only on the enclosed charge. A toggle button moves the charge outside the surface, showing that flux drops to exactly zero when no charge is enclosed.
 </p>
 
 <div style="background: #FFF7DD; border: 2px solid #F0D87A; border-radius: 10px; padding: 20px 24px; margin: 1.2rem 0;">

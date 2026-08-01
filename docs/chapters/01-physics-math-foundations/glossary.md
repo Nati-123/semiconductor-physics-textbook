@@ -1,8 +1,8 @@
 <div class="problems-styled" markdown>
 
-# Glossary of Terms
+# Chapter 1 Glossary
 
-This glossary currently covers the concepts introduced in [Chapter 1: Physics and Math Foundations](chapters/01-physics-math-foundations/index.md). Entries for later chapters will be added as those chapters are written.
+Terms introduced in [Chapter 1 — Physics and Math Foundations](index.md). See the [full site Glossary](../../glossary.md) for terms across all chapters.
 
 #### Algebra
 

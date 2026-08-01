@@ -16,7 +16,7 @@ quality_score: 85
 <h2 style="color: #5A3EED !important; border-bottom: 2px solid #5A3EED; padding-bottom: 0.3rem; font-weight: 700; margin-top: 2rem;">Description</h2>
 
 <p style="color: #555; line-height: 1.85; font-size: 1.02rem; margin-bottom: 1.2rem;">
-This MicroSim lets students switch between the three vector-calculus operators introduced in the chapter — gradient, divergence, and curl — and see each one applied to simple preset fields. In Gradient mode, a colored scalar field (a bowl or a saddle) is overlaid with arrows showing \(\nabla V\), the direction of steepest increase. In Divergence and Curl mode, arrows show a vector field, tinted red/blue (source/sink) or purple (rotational) according to the field's constant analytic divergence or curl.
+This MicroSim lets students switch between the three vector-calculus operators introduced in the chapter — gradient, divergence, and curl — and see each one applied to simple preset fields. In Gradient mode, a colored scalar field (a bowl or a saddle) is overlaid with arrows showing <span class="arithmatex">\(\nabla V\)</span>, the direction of steepest increase. In Divergence and Curl mode, arrows show a vector field, tinted red/blue (source/sink) or purple (rotational) according to the field's constant analytic divergence or curl.
 </p>
 
 <div style="background: #FFF7DD; border: 2px solid #F0D87A; border-radius: 10px; padding: 20px 24px; margin: 1.2rem 0;">

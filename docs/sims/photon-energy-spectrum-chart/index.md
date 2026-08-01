@@ -16,13 +16,13 @@ quality_score: 85
 <h2 style="color: #5A3EED !important; border-bottom: 2px solid #5A3EED; padding-bottom: 0.3rem; font-weight: 700; margin-top: 2rem;">Description</h2>
 
 <p style="color: #555; line-height: 1.85; font-size: 1.02rem; margin-bottom: 1.2rem;">
-This chart plots photon energy \(E=hc/\lambda\) against wavelength on logarithmic axes spanning gamma rays to radio waves. The visible-light band (380&ndash;700 nm) is shaded, and a dashed reference line marks silicon's 1.12 eV band gap, with a marker showing exactly where that energy falls on the curve (near-infrared, about 1107 nm).
+This chart plots photon energy <span class="arithmatex">\(E=hc/\lambda\)</span> against wavelength on logarithmic axes spanning gamma rays to radio waves. The visible-light band (380&ndash;700 nm) is shaded, and a dashed reference line marks silicon's 1.12 eV band gap, with a marker showing exactly where that energy falls on the curve (near-infrared, about 1107 nm).
 </p>
 
 <div style="background: #FFF7DD; border: 2px solid #F0D87A; border-radius: 10px; padding: 20px 24px; margin: 1.2rem 0;">
 <p style="color: #B8860B; font-weight: 700; font-size: 1.05rem; margin-top: 0; margin-bottom: 12px;">Key Features</p>
 <ul style="list-style: none; padding-left: 0; margin: 0;">
-<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Log-log curve</strong> computed directly from \(E=hc/\lambda\) across 12 orders of magnitude in wavelength</li>
+<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Log-log curve</strong> computed directly from <span class="arithmatex">\(E=hc/\lambda\)</span> across 12 orders of magnitude in wavelength</li>
 <li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Labeled spectrum bands</strong>: gamma ray, X-ray, ultraviolet, visible, infrared, microwave, and radio</li>
 <li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Shaded visible-light region</strong> and a dashed silicon band-gap reference line</li>
 <li style="margin-bottom: 0; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Hover tooltips</strong> showing the exact energy and wavelength at any point on the curve</li>
@@ -54,7 +54,7 @@ This chart plots photon energy \(E=hc/\lambda\) against wavelength on logarithmi
 <h3 style="color: #5A3EED; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.6rem;">Before the Simulation (5 minutes)</h3>
 
 <ul style="list-style: none; padding-left: 0.8rem; margin: 0.5rem 0 1rem 0;">
-<li style="margin-bottom: 0.5rem; line-height: 1.75; color: #333;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.5rem;">&#9679;</span> Review the photon energy equation \(E=hc/\lambda\) from the chapter</li>
+<li style="margin-bottom: 0.5rem; line-height: 1.75; color: #333;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.5rem;">&#9679;</span> Review the photon energy equation <span class="arithmatex">\(E=hc/\lambda\)</span> from the chapter</li>
 <li style="margin-bottom: 0; line-height: 1.75; color: #333;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.5rem;">&#9679;</span> Ask students whether higher or lower wavelength means higher photon energy</li>
 </ul>
 

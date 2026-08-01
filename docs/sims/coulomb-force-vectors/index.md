@@ -16,7 +16,7 @@ quality_score: 85
 <h2 style="color: #5A3EED !important; border-bottom: 2px solid #5A3EED; padding-bottom: 0.3rem; font-weight: 700; margin-top: 2rem;">Description</h2>
 
 <p style="color: #555; line-height: 1.85; font-size: 1.02rem; margin-bottom: 1.2rem;">
-This MicroSim shows two point charges, \(q_1\) and \(q_2\), drawn along a horizontal line with force vectors indicating the direction of the electrostatic force each charge exerts on the other. Selecting a charge combination toggles between repulsive (like-charge) and attractive (unlike-charge) configurations, and a separation slider shows how the relative force magnitude changes with distance.
+This MicroSim shows two point charges, <span class="arithmatex">\(q_1\)</span> and <span class="arithmatex">\(q_2\)</span>, drawn along a horizontal line with force vectors indicating the direction of the electrostatic force each charge exerts on the other. Selecting a charge combination toggles between repulsive (like-charge) and attractive (unlike-charge) configurations, and a separation slider shows how the relative force magnitude changes with distance.
 </p>
 
 <div style="background: #FFF7DD; border: 2px solid #F0D87A; border-radius: 10px; padding: 20px 24px; margin: 1.2rem 0;">
@@ -24,7 +24,7 @@ This MicroSim shows two point charges, \(q_1\) and \(q_2\), drawn along a horizo
 <ul style="list-style: none; padding-left: 0; margin: 0;">
 <li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Three charge combinations</strong>: like-positive, like-negative, and unlike charges</li>
 <li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Force vectors</strong> drawn along the line connecting the two charges, pointing apart (repulsion) or together (attraction)</li>
-<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Separation slider</strong> showing the relative force magnitude scale with distance (arrow length shrinks as \(r\) grows)</li>
+<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Separation slider</strong> showing the relative force magnitude scale with distance (arrow length shrinks as <span class="arithmatex">\(r\)</span> grows)</li>
 <li style="margin-bottom: 0; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Color-coded charges</strong>: red for positive, blue for negative</li>
 </ul>
 </div>

@@ -5,54 +5,67 @@ site_author: "Natol Dinka"
 site_url: "https://Nati-123.github.io/semiconductor-physics-textbook/"
 repo_url: "https://github.com/Nati-123/semiconductor-physics-textbook"
 repo_name: "Nati-123/semiconductor-physics-textbook"
+copyright: >
+  Created by Natol Dinka.
+  Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>.
 
 # Theme Configuration
 theme:
   name: material
-  palette:
-    - scheme: default
-      primary: indigo
-      accent: indigo
   font:
     text: Roboto
-    code: Roboto Mono
+    code: JetBrains Mono
   features:
-    - navigation.instant
-    - navigation.instant.progress
-    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
     - navigation.expand
-    - navigation.path
-    - navigation.indexes
-    - navigation.top
     - navigation.footer
-    - toc.follow
+    - navigation.top
+    - toc.integrate
+    - content.tabs.link
     - content.code.copy
     - content.action.edit
+  palette:
+    - scheme: default
+      primary: deep purple
+      accent: amber
+  icon:
+    logo: material/atom
 
 # Markdown Extensions
 markdown_extensions:
-  - admonition
-  - pymdownx.details
   - pymdownx.arithmatex:
       generic: true
+  - pymdownx.highlight
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
   - tables
+  - admonition
+  - pymdownx.details
   - attr_list
   - md_in_html
-  - toc:
-      permalink: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 # Plugins
 plugins:
   - search
 
+extra_css:
+  - stylesheets/extra.css?v=1
+  - stylesheets/quiz.css?v=1
+
 extra_javascript:
   - javascripts/mathjax.js
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+  - javascripts/tts-reader.js?v=1
+  - javascripts/quiz-ui.js?v=1
+  - javascripts/problems-ui.js?v=1
+  - javascripts/diagram-wrap.js?v=1
 
 # URI Scheme for intelligent textbook discoverability
 extra:
@@ -60,23 +73,18 @@ extra:
 
 # Navigation Structure
 nav:
-  - Home: index.md
-  - About: about.md
+  - Cover: index.md
+  - Home: home.md
   - Course Description: course-description.md
-  - Learning Graph:
-      - Introduction: learning-graph/index.md
-      - Course Description Assessment: learning-graph/course-description-assessment.md
-      - Concept Enumeration: learning-graph/concept-list.md
-      - Graph Quality Analysis: learning-graph/quality-metrics.md
-      - Concept Taxonomy: learning-graph/concept-taxonomy.md
-      - Taxonomy Distribution Report: learning-graph/taxonomy-distribution.md
-      - Glossary Quality Report: learning-graph/glossary-quality-report.md
-      - Quiz Generation Report: learning-graph/quiz-generation-report.md
-  - Chapters:
+  - FAQ: faq.md
+  - Glossary: glossary.md
+  - Chapter Modules:
       - List of Chapters: chapters/index.md
       - 1. Physics and Math Foundations:
           - Content: chapters/01-physics-math-foundations/index.md
           - Quiz: chapters/01-physics-math-foundations/quiz.md
+          - Problems: chapters/01-physics-math-foundations/problems.md
+          - Glossary: chapters/01-physics-math-foundations/glossary.md
       - 2. Quantum Mechanics Foundations: chapters/02-quantum-mechanics-foundations/index.md
       - 3. Crystal Lattices and Structures: chapters/03-crystal-lattices-structures/index.md
       - 4. Chemical Bonding in Semiconductor Crystals: chapters/04-chemical-bonding-crystals/index.md
@@ -105,6 +113,15 @@ nav:
           - Gauss's Law Explorer: sims/gauss-law-explorer/index.md
           - Maxwell-Boltzmann Speed Distribution: sims/maxwell-boltzmann-distribution/index.md
           - Photon Energy Spectrum Chart: sims/photon-energy-spectrum-chart/index.md
-  - Glossary: glossary.md
+  - Learning Graph:
+      - Introduction: learning-graph/index.md
+      - Course Description Assessment: learning-graph/course-description-assessment.md
+      - Concept Enumeration: learning-graph/concept-list.md
+      - Graph Quality Analysis: learning-graph/quality-metrics.md
+      - Concept Taxonomy: learning-graph/concept-taxonomy.md
+      - Taxonomy Distribution Report: learning-graph/taxonomy-distribution.md
+      - Glossary Quality Report: learning-graph/glossary-quality-report.md
+      - Quiz Generation Report: learning-graph/quiz-generation-report.md
+  - About: about.md
   - Contact: contact.md
   - License: license.md

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Particle in a Box Explorer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="particle-in-a-box-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Set \(n=1\) and count the number of nodes in \(\psi_n(x)\) inside the box (there should be none besides the walls).</li>
+            <li><strong>Predict:</strong> Before moving the n slider from 2 to 3, predict how many internal nodes \(\psi_3\) will have.</li>
+            <li><strong>Observe:</strong> Shrink the box width \(L\) and watch every energy level in the ladder diagram rise — note they do not rise by the same amount.</li>
+            <li><strong>Explain:</strong> Explain why \(E_4\) is four times \(E_1\) rather than merely four times as far up the ladder.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 2:</strong> This MicroSim plots the boxed particle-in-a-box wavefunction <span class="arithmatex">\(\psi_n(x) = \sqrt{2/L}\sin(n\pi x/L)\)</span> and energy levels <span class="arithmatex">\(E_n = n^2h^2/(8m_eL^2)\)</span> from the chapter, using <span class="arithmatex">\(h = 6.626\times10^{-34}\)</span> J·s and <span class="arithmatex">\(m_e = 9.109\times10^{-31}\)</span> kg.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>Box width L slider</dt>
+            <dd>Sets the width of the infinite square well, from 0.1 nm to 5 nm — smaller \(L\) pushes all energy levels higher, since \(E_n \propto 1/L^2\).</dd>
+            <dt>Quantum number n slider</dt>
+            <dd>Selects which stationary state (n = 1 to 6) is plotted — higher n means more nodes and a higher energy.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">1. How many internal nodes (zero crossings strictly inside the box, not counting the walls) does \(\psi_3(x)\) have?</p>
+            <label><input type="radio" name="pib-q1" value="a"> 1</label>
+            <label><input type="radio" name="pib-q1" value="b"> 2</label>
+            <label><input type="radio" name="pib-q1" value="c"> 3</label>
+            <label><input type="radio" name="pib-q1" value="d"> 0</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>State n has \(n-1\) internal nodes, so \(\psi_3\) has 2. Set n=3 and count the crossings between the walls to confirm.</p>
+            <p class="explain-incorrect" hidden>Set the n slider to 3 and count the points inside the box (not at the walls) where the curve crosses zero.</p>
+        </div>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">2. If \(L\) is cut in half, what happens to \(E_n\) for any fixed n?</p>
+            <label><input type="radio" name="pib-q2" value="a"> It is cut in half</label>
+            <label><input type="radio" name="pib-q2" value="b"> It doubles</label>
+            <label><input type="radio" name="pib-q2" value="c"> It quadruples</label>
+            <label><input type="radio" name="pib-q2" value="d"> It stays the same</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>\(E_n \propto 1/L^2\), so halving \(L\) quadruples \(E_n\) — try it and watch the ladder diagram shift.</p>
+            <p class="explain-incorrect" hidden>Look at the exponent on \(L\) in the denominator of \(E_n = n^2h^2/(8m_eL^2)\).</p>
+        </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">3. Why is the energy-level ladder unevenly spaced, with gaps growing wider for higher n?</p>
+            <label><input type="radio" name="pib-q3" value="a"> Because \(E_n \propto n^2\), so the gap \(E_{n+1}-E_n\) grows larger as n increases</label>
+            <label><input type="radio" name="pib-q3" value="b"> Because of rounding error in the simulation</label>
+            <label><input type="radio" name="pib-q3" value="c"> Because \(L\) changes with n</label>
+            <label><input type="radio" name="pib-q3" value="d"> The spacing is actually perfectly even</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Since energy scales as \(n^2\), consecutive gaps (\(n^2-(n-1)^2 = 2n-1\)) keep growing — this is exactly what the ladder diagram shows.</p>
+            <p class="explain-incorrect" hidden>Compare the vertical gap between E1-E2 to the gap between E5-E6 in the ladder diagram.</p>
+        </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">4. What does \(|\psi_n(x)|^2\) represent physically?</p>
+            <label><input type="radio" name="pib-q4" value="a"> The particle's velocity at position x</label>
+            <label><input type="radio" name="pib-q4" value="b"> The probability density of finding the particle at position x</label>
+            <label><input type="radio" name="pib-q4" value="c"> The particle's total energy</label>
+            <label><input type="radio" name="pib-q4" value="d"> The force on the particle at position x</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>The Born interpretation states that \(|\psi(x)|^2\) gives the probability density of finding the particle near x.</p>
+            <p class="explain-incorrect" hidden>Recall the Born rule discussed in the Wavefunction and Probability Density sections of the chapter.</p>
+        </div>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">5. Can the particle in the box ever have zero energy?</p>
+            <label><input type="radio" name="pib-q5" value="a"> Yes, when n = 0</label>
+            <label><input type="radio" name="pib-q5" value="b"> Yes, at the center of the box</label>
+            <label><input type="radio" name="pib-q5" value="c"> No — the lowest allowed state is n = 1, giving a nonzero minimum energy</label>
+            <label><input type="radio" name="pib-q5" value="d"> Yes, if L is large enough</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>n = 0 would give \(\psi = 0\) everywhere (no particle at all), which is not a valid state, so the smallest allowed energy is the nonzero \(E_1\) — a direct consequence of confinement, consistent with the uncertainty principle.</p>
+            <p class="explain-incorrect" hidden>Try setting the n slider as low as it goes and read the minimum allowed value.</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

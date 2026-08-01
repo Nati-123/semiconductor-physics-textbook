@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Vector Components and Addition MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="vector-components-addition.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Set \(|\vec{A}|=5\) and \(\theta_A=0°\), and read off \(A_x\) and \(A_y\) from the numeric panel.</li>
+            <li><strong>Predict:</strong> Before setting \(\theta_A=90°\), predict what \(A_x\) and \(A_y\) will become.</li>
+            <li><strong>Observe:</strong> Toggle "Show component projections" off and on — what do the dashed lines represent geometrically?</li>
+            <li><strong>Explain:</strong> Explain why redrawing \(\vec{B}\) starting from the tip of \(\vec{A}\) (instead of from the origin) still produces the correct resultant \(\vec{R}\).</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 1:</strong> This MicroSim builds the component relationships from the Vectors subsection — \(A_x=|\vec{A}|\cos\theta_A\), \(A_y=|\vec{A}|\sin\theta_A\), and \(|\vec{A}|=\sqrt{A_x^2+A_y^2}\) — the same notation used later for force, field, and the gradient.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>|A| slider</dt>
+            <dd>Sets the magnitude (length) of vector A, shown in blue — magnitude is always zero or positive, since it is a distance.</dd>
+            <dt>θA slider</dt>
+            <dd>Sets the direction of vector A, measured counterclockwise from the positive x-axis (standard math convention used throughout this course).</dd>
+            <dt>|B| and θB sliders</dt>
+            <dd>Set the magnitude and direction of vector B, shown in green, independently of A.</dd>
+            <dt>Show component projections</dt>
+            <dd>Toggles the dashed lines that show \(A_x\) and \(A_y\) as projections onto the axes — turn it off to see just the vectors themselves.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">1. If \(|\vec{A}|=5\) and \(\theta_A=0°\), what are the components \((A_x, A_y)\)?</p>
+            <label><input type="radio" name="vca-q1" value="a"> (5, 0)</label>
+            <label><input type="radio" name="vca-q1" value="b"> (0, 5)</label>
+            <label><input type="radio" name="vca-q1" value="c"> (5, 5)</label>
+            <label><input type="radio" name="vca-q1" value="d"> (0, 0)</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>At \(\theta=0°\), \(\cos 0°=1\) and \(\sin 0°=0\), so all the magnitude lies along x: \((A_x,A_y)=(5,0)\).</p>
+            <p class="explain-incorrect" hidden>Set the sliders to these exact values in the simulation and read the panel.</p>
+        </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">2. If \(|\vec{A}|=5\) and \(\theta_A=90°\), what are the components \((A_x, A_y)\)?</p>
+            <label><input type="radio" name="vca-q2" value="a"> (5, 0)</label>
+            <label><input type="radio" name="vca-q2" value="b"> (0, 5)</label>
+            <label><input type="radio" name="vca-q2" value="c"> (−5, 0)</label>
+            <label><input type="radio" name="vca-q2" value="d"> (0, −5)</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>At \(\theta=90°\), \(\cos 90°=0\) and \(\sin 90°=1\), so all the magnitude lies along y: \((A_x,A_y)=(0,5)\).</p>
+            <p class="explain-incorrect" hidden>Try it directly: set the sliders and read the component readout.</p>
+        </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">3. If \(\vec{A}\) has components (3, 4) and \(\vec{B}\) has components (1, 0), what is \(R_x\)?</p>
+            <label><input type="radio" name="vca-q3" value="a"> 3</label>
+            <label><input type="radio" name="vca-q3" value="b"> 4</label>
+            <label><input type="radio" name="vca-q3" value="c"> 1</label>
+            <label><input type="radio" name="vca-q3" value="d"> 7</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>\(R_x=A_x+B_x=3+1=4\) — components add independently along each axis.</p>
+            <p class="explain-incorrect" hidden>Add only the x-components of A and B together; leave y out of it.</p>
+        </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">4. When adding vectors "tip-to-tail," where should you draw the start (tail) of vector B?</p>
+            <label><input type="radio" name="vca-q4" value="a"> At the origin</label>
+            <label><input type="radio" name="vca-q4" value="b"> At the tip (head) of vector A</label>
+            <label><input type="radio" name="vca-q4" value="c"> At the tip of the resultant R</label>
+            <label><input type="radio" name="vca-q4" value="d"> Anywhere — it doesn't matter</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>The tip-to-tail method places B's tail at A's tip; the resultant R then runs from A's tail to B's tip.</p>
+            <p class="explain-incorrect" hidden>Look at the dashed green vector in the diagram above — where does it start?</p>
+        </div>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">5. Vector A points due east and vector B points due west with the same magnitude. What is \(|\vec{R}|\)?</p>
+            <label><input type="radio" name="vca-q5" value="a"> Equal to |A|</label>
+            <label><input type="radio" name="vca-q5" value="b"> Twice |A|</label>
+            <label><input type="radio" name="vca-q5" value="c"> Zero</label>
+            <label><input type="radio" name="vca-q5" value="d"> Cannot be determined</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Opposite vectors of equal magnitude cancel exactly: their components sum to zero in both x and y.</p>
+            <p class="explain-incorrect" hidden>Try it: set θA=0° and θB=180° with equal magnitudes, and read the resultant.</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

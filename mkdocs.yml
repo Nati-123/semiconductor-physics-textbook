@@ -33,7 +33,14 @@ theme:
 markdown_extensions:
   - admonition
   - pymdownx.details
-  - pymdownx.superfences
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - tables
   - attr_list
   - md_in_html
   - toc:
@@ -42,6 +49,10 @@ markdown_extensions:
 # Plugins
 plugins:
   - search
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
 
 # URI Scheme for intelligent textbook discoverability
 extra:
@@ -59,9 +70,13 @@ nav:
       - Graph Quality Analysis: learning-graph/quality-metrics.md
       - Concept Taxonomy: learning-graph/concept-taxonomy.md
       - Taxonomy Distribution Report: learning-graph/taxonomy-distribution.md
+      - Glossary Quality Report: learning-graph/glossary-quality-report.md
+      - Quiz Generation Report: learning-graph/quiz-generation-report.md
   - Chapters:
       - List of Chapters: chapters/index.md
-      - 1. Physics and Math Foundations: chapters/01-physics-math-foundations/index.md
+      - 1. Physics and Math Foundations:
+          - Content: chapters/01-physics-math-foundations/index.md
+          - Quiz: chapters/01-physics-math-foundations/quiz.md
       - 2. Quantum Mechanics Foundations: chapters/02-quantum-mechanics-foundations/index.md
       - 3. Crystal Lattices and Structures: chapters/03-crystal-lattices-structures/index.md
       - 4. Chemical Bonding in Semiconductor Crystals: chapters/04-chemical-bonding-crystals/index.md
@@ -79,5 +94,17 @@ nav:
       - 16. Metal-Semiconductor and MOS Junctions: chapters/16-metal-semiconductor-mos-junctions/index.md
       - 17. Optical and Thermal Properties of Semiconductors: chapters/17-optical-thermal-properties/index.md
       - 18. Semiconductor Devices and Applications: chapters/18-semiconductor-devices-applications/index.md
+  - MicroSims:
+      - Overview: sims/index.md
+      - Chapter 1:
+          - Coulomb's Law Force Vectors: sims/coulomb-force-vectors/index.md
+          - Coulomb's Law Force and Field Explorer: sims/coulomb-force-explorer/index.md
+          - Vector Components and Addition: sims/vector-components-addition/index.md
+          - Gradient, Divergence, and Curl Explorer: sims/gradient-divergence-curl-explorer/index.md
+          - Electric Field and Flux Explorer: sims/electric-field-flux-explorer/index.md
+          - Gauss's Law Explorer: sims/gauss-law-explorer/index.md
+          - Maxwell-Boltzmann Speed Distribution: sims/maxwell-boltzmann-distribution/index.md
+          - Photon Energy Spectrum Chart: sims/photon-energy-spectrum-chart/index.md
+  - Glossary: glossary.md
   - Contact: contact.md
   - License: license.md

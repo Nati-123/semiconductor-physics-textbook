@@ -1,10 +1,10 @@
 # Chapters
 
-This textbook is organized into 18 chapters covering 200 concepts.
+This textbook is organized into 18 chapters covering 218 concepts.
 
 ## Chapter Overview
 
-1. [Physics and Math Foundations](01-physics-math-foundations/index.md) - Reviews electrostatics, thermal physics, and photon concepts needed for later chapters.
+1. [Physics and Math Foundations](01-physics-math-foundations/index.md) - Reviews classical mechanics, essential mathematics (algebra through partial derivatives), vector calculus, electrostatics, Gauss's Law, thermal physics, and photon concepts needed for later chapters.
 2. [Quantum Mechanics Foundations](02-quantum-mechanics-foundations/index.md) - Introduces wave-particle duality, the Schrödinger equation, and simple quantum systems.
 3. [Crystal Lattices and Structures](03-crystal-lattices-structures/index.md) - Covers crystal lattices, unit cells, lattice types, and Miller indices.
 4. [Chemical Bonding in Semiconductor Crystals](04-chemical-bonding-crystals/index.md) - Covers covalent, ionic, and metallic bonding and tetrahedral bonding in silicon.

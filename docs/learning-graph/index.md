@@ -26,8 +26,11 @@ The course description uses the 2001 Bloom taxonomy to order learning objectives
 
 We use generative AI to convert the course description into a [Concept List](./concept-list.md).
 Each concept is in the form of a short Title Case label with most labels under 32 characters long.
-This course has 200 concepts spanning crystal structure, quantum mechanics and band theory,
-carrier statistics and transport, the p-n junction, and semiconductor devices.
+This course has 218 concepts spanning prerequisite mathematics and electromagnetics, crystal structure, quantum mechanics and band theory,
+carrier statistics and transport, the p-n junction, and semiconductor devices. Concepts 201–218 (algebra, trigonometry, complex numbers,
+differentiation, integration, partial derivatives, vectors, gradient, divergence, curl, electric flux, Gauss's Law, SI units, and
+fundamental constants) were added after Chapter 1 was written, to represent the prerequisite mathematics and electromagnetics it
+actually teaches. They were appended with new IDs rather than inserted at the front, so that every original concept ID (1–200) is preserved.
 
 ## Concept Dependency List
 
@@ -44,7 +47,7 @@ graph using an editor built with the vis-network tools.
 This report rates the overall quality of the course description for the purpose of generating a learning graph.
 
 - Course description fields and content depth analysis
-- Validates course description has sufficient depth for generating 200 concepts
+- Validates course description has sufficient depth for generating 200 domain concepts (plus 18 appended prerequisite math/EM concepts, see below)
 - Compares course description against similar courses
 - Identifies content gaps and strengths
 - Suggests areas of improvement
@@ -56,9 +59,12 @@ This report rates the overall quality of the course description for the purpose 
 This report gives you an overall assessment of the quality of the learning graph.
 It uses graph algorithms to look for specific quality patterns in the graph.
 
-- Graph structure validation - all 200 concepts are connected in a single component
-- DAG validation (0 cycles detected; every dependency references a strictly earlier concept ID)
-- Foundational concepts: 4 entry points (Coulomb's Law, Kinetic Theory of Gases, Photon Energy, Crystal Lattice)
+- Graph structure validation - all 218 concepts are connected in a single component
+- DAG validation (0 cycles detected). Dependencies normally reference a strictly earlier concept ID; the one documented exception
+  is the 18 prerequisite math/EM concepts appended at IDs 201-218, which a handful of early electrostatics concepts
+  (Coulomb's Law, Electric Field, Electric Potential, Electrostatic Potential Energy, Poisson's Equation) now correctly
+  reference even though those IDs are numerically higher, since the concepts themselves are taught earlier in Chapter 1
+- Foundational concepts: 7 entry points (Kinetic Theory of Gases, Photon Energy, Crystal Lattice, Force, Electric Charge, Algebra, SI Units)
 - Indegree distribution analysis
 - Longest dependency chain: 32 concepts, from Photon Energy through to the Capstone Device Project
 - Connectivity: 100% of nodes connected to the main cluster
@@ -74,7 +80,7 @@ into a single primary classifier.
 
 - A concept classifier taxonomy with 12 categories
 - Category organization - foundational elements first, course capstone project ideas last
-- Balanced categories (4% - 11.5% each)
+- Balanced categories (3.7% - 17.4% each); Physics & Math Foundations (FOUND) is now the largest category after the Chapter 1 math/EM concepts were appended, but remains well under the over-representation threshold
 - All categories under the 30% threshold
 - Pedagogical flow recommendations
 - Clear 3-5 letter abbreviations for use in the CSV file

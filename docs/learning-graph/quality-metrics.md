@@ -2,10 +2,10 @@
 
 ## Overview
 
-- **Total Concepts**: 200
-- **Foundational Concepts** (no dependencies): 4
-- **Concepts with Dependencies**: 196
-- **Average Dependencies per Concept**: 1.68
+- **Total Concepts**: 218
+- **Foundational Concepts** (no dependencies): 7
+- **Concepts with Dependencies**: 211
+- **Average Dependencies per Concept**: 1.69
 
 ## Graph Structure Validation
 
@@ -17,10 +17,13 @@
 
 These concepts have no prerequisites:
 
-- **1**: Coulomb's Law
 - **5**: Kinetic Theory of Gases
 - **8**: Photon Energy
 - **21**: Crystal Lattice
+- **201**: Force
+- **203**: Electric Charge
+- **204**: Algebra
+- **217**: SI Units
 
 ## Dependency Chain Analysis
 
@@ -63,7 +66,7 @@ These concepts have no prerequisites:
 
 ## Orphaned Nodes Analysis
 
-- **Total Orphaned Nodes**: 51
+- **Total Orphaned Nodes**: 55
 
 Concepts that are not prerequisites for any other concept:
 
@@ -88,7 +91,7 @@ Concepts that are not prerequisites for any other concept:
 - **94**: Nondegenerate Semiconductor
 - **97**: Carrier Temperature Dependence
 
-*...and 31 more*
+*...and 35 more*
 
 ## Connected Components
 
@@ -102,7 +105,7 @@ Top 10 concepts that are prerequisites for the most other concepts:
 
 | Rank | Concept ID | Concept Label | Indegree |
 |------|-----------|---------------|----------|
-| 1 | 2 | Electric Field | 8 |
+| 1 | 2 | Electric Field | 9 |
 | 2 | 156 | Ideal Diode Equation | 8 |
 | 3 | 64 | Intrinsic Semiconductor | 7 |
 | 4 | 169 | MOS Capacitor | 7 |
@@ -117,15 +120,15 @@ Top 10 concepts that are prerequisites for the most other concepts:
 
 | Dependencies | Number of Concepts |
 |--------------|--------------------|
-| 0 | 4 |
-| 1 | 84 |
-| 2 | 94 |
-| 3 | 15 |
+| 0 | 7 |
+| 1 | 89 |
+| 2 | 101 |
+| 3 | 18 |
 | 4 | 3 |
 
 ## Recommendations
 
-- ⚠️ **Many orphaned nodes** (51): Consider if these should be prerequisites for advanced concepts
+- ⚠️ **Many orphaned nodes** (55): Consider if these should be prerequisites for advanced concepts
 - ℹ️ **Long dependency chains** (32): Ensure students can follow extended learning paths
 
 ---

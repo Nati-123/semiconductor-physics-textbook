@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Electric Field and Flux Explorer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="electric-field-flux-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Set the angle slider to 0° and note the flux value, then set it to 90° and compare.</li>
+            <li><strong>Predict:</strong> Before dragging the distance slider farther from the charge, predict whether flux will grow or shrink.</li>
+            <li><strong>Observe:</strong> Flip the charge's sign and watch the field arrows — do they point toward or away from the charge?</li>
+            <li><strong>Explain:</strong> Explain why flux depends on \(\cos\theta\) rather than on \(\theta\) directly.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 1:</strong> This MicroSim computes the boxed electric field equation \(\vec{E}=\frac{1}{4\pi\varepsilon_0}\frac{q}{r^2}\hat{r}\) and the flux equation \(\Phi_E=EA\cos\theta\) from the Electric Flux subsection. Compare your readings to the Concept Check just after Gauss's Law.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>Charge slider</dt>
+            <dd>Sets \(q\) in nanocoulombs — changes both the field's magnitude and its direction (field points away from a positive charge, toward a negative one).</dd>
+            <dt>Distance slider</dt>
+            <dd>Sets the separation \(d\) between the charge and the test surface — governs the \(1/d^2\) falloff of \(E\) at the surface's location.</dd>
+            <dt>Angle slider</dt>
+            <dd>Sets \(\theta\), the angle between the field and the surface's normal vector — this is what directly controls flux through \(\cos\theta\), from maximum at 0° to zero at 90°.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">1. At \(\theta=0°\), the surface's normal is aligned with the field. What is \(\cos(0°)\), and is flux at its maximum or minimum?</p>
+            <label><input type="radio" name="effe-q1" value="a"> cos = 1, maximum flux</label>
+            <label><input type="radio" name="effe-q1" value="b"> cos = 0, minimum flux</label>
+            <label><input type="radio" name="effe-q1" value="c"> cos = 1, minimum flux</label>
+            <label><input type="radio" name="effe-q1" value="d"> cos = 0, maximum flux</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>\(\cos(0°)=1\), the largest possible value of cosine, so \(\Phi_E=EA\cos\theta\) is at its maximum.</p>
+            <p class="explain-incorrect" hidden>Set the angle slider to 0 in the simulation and read the flux value directly.</p>
+        </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">2. At \(\theta=90°\), what is the flux \(\Phi_E\)?</p>
+            <label><input type="radio" name="effe-q2" value="a"> Maximum</label>
+            <label><input type="radio" name="effe-q2" value="b"> Zero</label>
+            <label><input type="radio" name="effe-q2" value="c"> Negative infinity</label>
+            <label><input type="radio" name="effe-q2" value="d"> Cannot be determined</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>\(\cos(90°)=0\), so \(\Phi_E=EA\cos\theta=0\) regardless of how strong \(E\) is — the surface is parallel to the field, so no field lines pass through it.</p>
+            <p class="explain-incorrect" hidden>Set the angle slider to 90 and read the flux readout.</p>
+        </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">3. At \(\theta=0°\), if you double the distance \(d\) (keeping the charge fixed), what happens to the flux?</p>
+            <label><input type="radio" name="effe-q3" value="a"> It halves</label>
+            <label><input type="radio" name="effe-q3" value="b"> It drops to one-quarter</label>
+            <label><input type="radio" name="effe-q3" value="c"> It doubles</label>
+            <label><input type="radio" name="effe-q3" value="d"> It stays the same</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Since \(E\propto 1/d^2\) and \(A\), \(\theta\) stay fixed, doubling \(d\) divides \(\Phi_E=EA\cos\theta\) by 4, the same way it divides \(E\) by 4.</p>
+            <p class="explain-incorrect" hidden>Set the angle to 0°, note the flux at d=2.5, then move d to 5 and compare.</p>
+        </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">4. If the charge is negative, which direction do the field arrows point?</p>
+            <label><input type="radio" name="effe-q4" value="a"> Toward the charge</label>
+            <label><input type="radio" name="effe-q4" value="b"> Away from the charge</label>
+            <label><input type="radio" name="effe-q4" value="c"> Perpendicular to the radius</label>
+            <label><input type="radio" name="effe-q4" value="d"> They disappear</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>A negative charge's field points inward, toward the charge — the opposite of a positive charge's outward-pointing field.</p>
+            <p class="explain-incorrect" hidden>Set the charge slider to a negative value and look at the arrow directions.</p>
+        </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">5. Which equation correctly gives the electric flux used in this simulation?</p>
+            <label><input type="radio" name="effe-q5" value="a"> \(\Phi_E = E/A\)</label>
+            <label><input type="radio" name="effe-q5" value="b"> \(\Phi_E = EA\cos\theta\)</label>
+            <label><input type="radio" name="effe-q5" value="c"> \(\Phi_E = E + A + \theta\)</label>
+            <label><input type="radio" name="effe-q5" value="d"> \(\Phi_E = EA\sin\theta\)</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Flux is the field's component perpendicular to the surface, times the area — that is exactly \(EA\cos\theta\), using cosine (not sine) of the angle to the normal.</p>
+            <p class="explain-incorrect" hidden>Re-read the boxed Electric Flux equation in the chapter just above this MicroSim.</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

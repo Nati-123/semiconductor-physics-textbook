@@ -1,10 +1,10 @@
 # Concept Taxonomy
 
-This taxonomy organizes the 200 concepts in the Semiconductor Physics learning graph into 12 categories, each evenly distributed to avoid any single category dominating the graph.
+This taxonomy organizes the 218 concepts in the Semiconductor Physics learning graph into 12 categories, each evenly distributed to avoid any single category dominating the graph.
 
 | Category | TaxonomyID | Description |
 |----------|-----------|-------------|
-| Physics & Math Foundations | FOUND | Prerequisite physics and quantum mechanics concepts (electrostatics, thermal physics, wave-particle duality, the Schrödinger equation) that underlie the rest of the course. |
+| Physics & Math Foundations | FOUND | Prerequisite physics, mathematics, and quantum mechanics concepts (mechanics, electrostatics, algebra, trigonometry, complex numbers, calculus, vector calculus, Gauss's Law, thermal physics, wave-particle duality, the Schrödinger equation) that underlie the rest of the course. |
 | Crystal Structure & Bonding | CRYS | Crystalline solids: lattice types, unit cells, Miller indices, and the bonding that holds semiconductor crystals together. |
 | Quantum Mechanics & Band Theory | QMBT | How periodic crystal potentials give rise to energy bands, band gaps, and the E-k relationships that distinguish metals, insulators, and semiconductors. |
 | Semiconductor Materials & Doping | MATL | Intrinsic vs. extrinsic materials, donor/acceptor doping, ionization, and the temperature regimes of doped semiconductors. |

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Coulomb's Law Force Vectors MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="coulomb-force-vectors.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Switch between all three charge combinations while keeping the separation slider fixed, and note how the arrow direction changes each time.</li>
+            <li><strong>Predict:</strong> Before dragging the separation slider from 1 to 5, predict whether the force arrows will grow longer or shrink.</li>
+            <li><strong>Observe:</strong> Drag the separation slider slowly and watch how quickly the arrows shrink. Does the length seem to shrink in a straight line, or faster than that?</li>
+            <li><strong>Explain:</strong> In your own words, explain why the "Unlike Charges" combination produces arrows pointing toward each other instead of away.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 1:</strong> This diagram illustrates the boxed Coulomb's Law equation, \(F = \frac{1}{4\pi\varepsilon_0}\frac{q_1q_2}{r^2}\), and the sign rule described just above it — repulsive when \(q_1\) and \(q_2\) share a sign, attractive when they differ.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>Charge combination</dt>
+            <dd>Switches between like-positive, like-negative, and unlike charge pairs — this changes only the <em>sign</em> in Coulomb's Law, which flips the force from repulsive to attractive.</dd>
+            <dt>Separation r</dt>
+            <dd>Changes the distance between the two charges — the force arrows shrink following the \(1/r^2\) inverse-square dependence, not a straight-line decrease.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">1. If you select "Unlike Charges (+, −)", which direction do the force arrows point?</p>
+            <label><input type="radio" name="cfv-q1" value="a"> Away from each other</label>
+            <label><input type="radio" name="cfv-q1" value="b"> Toward each other</label>
+            <label><input type="radio" name="cfv-q1" value="c"> Both arrows point right</label>
+            <label><input type="radio" name="cfv-q1" value="d"> No arrows are drawn</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Unlike charges attract, so both arrows point toward the opposite charge.</p>
+            <p class="explain-incorrect" hidden>Try selecting "Unlike Charges" in the simulation above and look at the arrow directions.</p>
+        </div>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">2. Coulomb's Law says force is proportional to \(1/r^2\). If you double the separation \(r\), what happens to the force magnitude?</p>
+            <label><input type="radio" name="cfv-q2" value="a"> It doubles</label>
+            <label><input type="radio" name="cfv-q2" value="b"> It stays the same</label>
+            <label><input type="radio" name="cfv-q2" value="c"> It drops to one-quarter</label>
+            <label><input type="radio" name="cfv-q2" value="d"> It drops to one-half</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Since \(F \propto 1/r^2\), doubling \(r\) means dividing \(F\) by \(2^2 = 4\).</p>
+            <p class="explain-incorrect" hidden>Remember: the exponent on \(r\) is 2, so distance changes are squared in their effect on force.</p>
+        </div>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">3. Which charge combination(s) in this simulation are repulsive?</p>
+            <label><input type="radio" name="cfv-q3" value="a"> Like-positive only</label>
+            <label><input type="radio" name="cfv-q3" value="b"> Like-negative only</label>
+            <label><input type="radio" name="cfv-q3" value="c"> Both like-positive and like-negative</label>
+            <label><input type="radio" name="cfv-q3" value="d"> Unlike charges</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Any pair of charges sharing the same sign repels — it doesn't matter whether both are positive or both are negative.</p>
+            <p class="explain-incorrect" hidden>Check both like-charge options in the simulation — do they both push apart?</p>
+        </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">4. For the same pair of charges, which separation produces the larger force arrow?</p>
+            <label><input type="radio" name="cfv-q4" value="a"> r = 1 (closer together)</label>
+            <label><input type="radio" name="cfv-q4" value="b"> r = 5 (farther apart)</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Smaller separation means a larger force, since force falls off as \(1/r^2\) — closer charges exert (and feel) a stronger force.</p>
+            <p class="explain-incorrect" hidden>Slide r to 1 and then to 5 in the simulation and compare the arrow lengths directly.</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

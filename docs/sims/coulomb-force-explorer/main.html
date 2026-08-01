@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Coulomb's Law Force and Field Explorer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="coulomb-force-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Click Reset, then read off all four values (\(F\), \(E\), \(V\), \(U\)) at the default settings.</li>
+            <li><strong>Predict:</strong> Before dragging \(r\) from 1 nm to 2 nm, predict which will shrink more: \(F\) or \(V\).</li>
+            <li><strong>Observe:</strong> Flip the sign of \(q_2\) only (keep its magnitude) and watch which readouts change sign and which stay exactly the same.</li>
+            <li><strong>Explain:</strong> Explain why \(E\) and \(V\) do not depend on \(q_2\) at all, even though the diagram shows the field "at \(q_2\)'s location."</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 1:</strong> This MicroSim computes the four boxed equations from the Coulomb's Law and Electric Potential sections — \(F=\frac{1}{4\pi\varepsilon_0}\frac{q_1q_2}{r^2}\), \(E=\frac{1}{4\pi\varepsilon_0}\frac{q_1}{r^2}\), \(V=\frac{1}{4\pi\varepsilon_0}\frac{q_1}{r}\), and \(U=q_2V(r)\). Compare your readings to Worked Examples 3 and 9.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>q₁ slider</dt>
+            <dd>Sets the source charge — both \(E\) and \(V\) (measured at \(q_2\)'s location) depend only on \(q_1\), never on \(q_2\).</dd>
+            <dt>q₂ slider</dt>
+            <dd>Sets the test charge — it appears in \(F\) and \(U\) (which describe the interaction between both charges), but not in \(E\) or \(V\).</dd>
+            <dt>r slider</dt>
+            <dd>Sets the separation in nanometers — governs the \(1/r^2\) falloff of \(F\) and \(E\), and the slower \(1/r\) falloff of \(V\) and \(U\).</dd>
+            <dt>Reset to Defaults</dt>
+            <dd>Returns all three sliders to the chapter's example values (\(q_1=+2\) nC, \(q_2=-1\) nC, \(r=1\) nm).</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">1. Starting from the defaults, if you double \(r\) from 1 nm to 2 nm, what happens to \(F\)?</p>
+            <label><input type="radio" name="cfe-q1" value="a"> It drops to one-half</label>
+            <label><input type="radio" name="cfe-q1" value="b"> It drops to one-quarter</label>
+            <label><input type="radio" name="cfe-q1" value="c"> It doubles</label>
+            <label><input type="radio" name="cfe-q1" value="d"> It stays the same</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>\(F\propto 1/r^2\), so doubling \(r\) divides \(F\) by \(2^2=4\).</p>
+            <p class="explain-incorrect" hidden>Try it in the simulation: set r=1, note F, then set r=2 and compare.</p>
+        </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">2. Using the same doubling of \(r\), what happens to \(V\)?</p>
+            <label><input type="radio" name="cfe-q2" value="a"> It drops to one-quarter</label>
+            <label><input type="radio" name="cfe-q2" value="b"> It drops to one-half</label>
+            <label><input type="radio" name="cfe-q2" value="c"> It doubles</label>
+            <label><input type="radio" name="cfe-q2" value="d"> It stays the same</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>\(V\propto 1/r\), so doubling \(r\) only divides \(V\) by 2 — it falls off more slowly than \(F\).</p>
+            <p class="explain-incorrect" hidden>Compare the exponent on \(r\) in the \(V\) equation to the exponent in the \(F\) equation.</p>
+        </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">3. If \(q_1\) and \(q_2\) have the same sign, what is the sign of \(U\)?</p>
+            <label><input type="radio" name="cfe-q3" value="a"> Positive</label>
+            <label><input type="radio" name="cfe-q3" value="b"> Negative</label>
+            <label><input type="radio" name="cfe-q3" value="c"> Always zero</label>
+            <label><input type="radio" name="cfe-q3" value="d"> Depends on r</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>\(U=\frac{1}{4\pi\varepsilon_0}\frac{q_1q_2}{r}\); the product of two same-sign charges is always positive, regardless of r.</p>
+            <p class="explain-incorrect" hidden>Set both q1 and q2 positive in the simulation and read the sign of U.</p>
+        </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">4. If you flip the sign of \(q_2\) only (keep its magnitude the same), which readouts change sign?</p>
+            <label><input type="radio" name="cfe-q4" value="a"> F and U only</label>
+            <label><input type="radio" name="cfe-q4" value="b"> E and V only</label>
+            <label><input type="radio" name="cfe-q4" value="c"> All four</label>
+            <label><input type="radio" name="cfe-q4" value="d"> None of them</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>F and U both contain the product \(q_1q_2\), so they flip sign. E and V depend only on \(q_1\), so they are unaffected by q2's sign.</p>
+            <p class="explain-incorrect" hidden>Look at which equations actually contain q2 as a variable.</p>
+        </div>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">5. Which quantity falls off the <em>slowest</em> as separation \(r\) increases?</p>
+            <label><input type="radio" name="cfe-q5" value="a"> F</label>
+            <label><input type="radio" name="cfe-q5" value="b"> E</label>
+            <label><input type="radio" name="cfe-q5" value="c"> V</label>
+            <label><input type="radio" name="cfe-q5" value="d"> They all fall off at the same rate</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>V (and U) depend on \(1/r\), while F and E depend on the much steeper \(1/r^2\).</p>
+            <p class="explain-incorrect" hidden>Compare the exponents on r in each boxed equation from the chapter.</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

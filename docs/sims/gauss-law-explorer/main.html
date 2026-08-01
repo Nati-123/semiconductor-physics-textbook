@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Gauss's Law Explorer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="gauss-law-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Set the radius to 1 nm and note the flux value, then increase it to 5 nm and compare.</li>
+            <li><strong>Predict:</strong> Before clicking "Move Charge Outside Surface," predict what will happen to the flux reading.</li>
+            <li><strong>Observe:</strong> Watch the "E at surface" readout as you change the radius — does it change the same way the flux readout does?</li>
+            <li><strong>Explain:</strong> Explain why Gauss's Law is easier to apply here than integrating Coulomb's Law directly over the surface.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 1:</strong> This MicroSim verifies the boxed integral form of Gauss's Law, \(\oint\vec{E}\cdot d\vec{A}=Q_{\text{enc}}/\varepsilon_0\), and previews the exact technique Chapter 14 uses to find the electric field inside a p-n junction's depletion region.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>Radius slider</dt>
+            <dd>Sets the Gaussian surface's radius — this changes \(E\) at the surface, but never changes the total flux, as long as the charge stays enclosed.</dd>
+            <dt>Charge slider</dt>
+            <dd>Sets the enclosed charge \(q\) — flux scales directly and only with this value, exactly as Gauss's Law predicts.</dd>
+            <dt>Move Charge Outside Surface button</dt>
+            <dd>Relocates the charge outside the Gaussian surface, to demonstrate that only <em>enclosed</em> charge contributes to flux.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">1. If you double the Gaussian surface's radius while the charge stays enclosed, what happens to the flux \(\Phi\)?</p>
+            <label><input type="radio" name="gle-q1" value="a"> It quadruples</label>
+            <label><input type="radio" name="gle-q1" value="b"> It stays exactly the same</label>
+            <label><input type="radio" name="gle-q1" value="c"> It drops to one-quarter</label>
+            <label><input type="radio" name="gle-q1" value="d"> It doubles</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Gauss's Law says \(\Phi=Q_{\text{enc}}/\varepsilon_0\), which has no \(r\) in it at all — flux depends only on enclosed charge.</p>
+            <p class="explain-incorrect" hidden>Try it directly: note the flux at r=2.5, then double r to 5 and compare.</p>
+        </div>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">2. Using the same radius doubling, what happens to the electric field \(E\) at the surface?</p>
+            <label><input type="radio" name="gle-q2" value="a"> It stays the same</label>
+            <label><input type="radio" name="gle-q2" value="b"> It doubles</label>
+            <label><input type="radio" name="gle-q2" value="c"> It drops to one-quarter</label>
+            <label><input type="radio" name="gle-q2" value="d"> It quadruples</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>\(E=k|q|/r^2\), so doubling r divides E by 4 — even though flux stays constant, the field spreads over 4x the surface area.</p>
+            <p class="explain-incorrect" hidden>Read the "E at surface" value at r=2.5 and again at r=5.</p>
+        </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">3. If the charge is moved outside the Gaussian surface, what is the flux?</p>
+            <label><input type="radio" name="gle-q3" value="a"> The same as before</label>
+            <label><input type="radio" name="gle-q3" value="b"> Exactly zero</label>
+            <label><input type="radio" name="gle-q3" value="c"> Negative infinity</label>
+            <label><input type="radio" name="gle-q3" value="d"> It depends on the radius</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>With no charge enclosed, \(Q_{\text{enc}}=0\), so \(\Phi=0/\varepsilon_0=0\) — field lines that enter the surface on one side must also exit it.</p>
+            <p class="explain-incorrect" hidden>Click the toggle button and read the flux readout.</p>
+        </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">4. If you double the enclosed charge \(q\) (charge still inside), what happens to the flux?</p>
+            <label><input type="radio" name="gle-q4" value="a"> It stays the same</label>
+            <label><input type="radio" name="gle-q4" value="b"> It doubles</label>
+            <label><input type="radio" name="gle-q4" value="c"> It quadruples</label>
+            <label><input type="radio" name="gle-q4" value="d"> It halves</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>\(\Phi=Q_{\text{enc}}/\varepsilon_0\) is directly proportional to charge, so doubling \(q\) exactly doubles the flux.</p>
+            <p class="explain-incorrect" hidden>Try it: note the flux at q=3, then set q=6 (if the slider allows) or compare ratios directly.</p>
+        </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">5. Why is flux unaffected by the Gaussian surface's radius, as long as the charge stays enclosed?</p>
+            <label><input type="radio" name="gle-q5" value="a"> Because flux depends only on the enclosed charge, not the surface's size or shape</label>
+            <label><input type="radio" name="gle-q5" value="b"> Because the electric field is zero everywhere on the surface</label>
+            <label><input type="radio" name="gle-q5" value="c"> Because surface radius isn't a real physical quantity</label>
+            <label><input type="radio" name="gle-q5" value="d"> Because Gauss's Law is only a rough approximation</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>This is exactly what the boxed Gauss's Law equation states — the right-hand side, \(Q_{\text{enc}}/\varepsilon_0\), contains no reference to the surface's size or shape at all.</p>
+            <p class="explain-incorrect" hidden>Look again at the boxed Gauss's Law equation in the chapter — what variables does it actually contain?</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

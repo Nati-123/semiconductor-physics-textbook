@@ -1,8 +1,8 @@
 ConceptID,ConceptLabel,Dependencies,TaxonomyID
-1,Coulomb's Law,,FOUND
-2,Electric Field,1,FOUND
-3,Electric Potential,2,FOUND
-4,Electrostatic Potential Energy,3,FOUND
+1,Coulomb's Law,201|203|218,FOUND
+2,Electric Field,1|201|211,FOUND
+3,Electric Potential,2|209,FOUND
+4,Electrostatic Potential Energy,3|203,FOUND
 5,Kinetic Theory of Gases,,FOUND
 6,Boltzmann Constant,5,FOUND
 7,Thermal Equilibrium,6,FOUND
@@ -140,7 +140,7 @@ ConceptID,ConceptLabel,Dependencies,TaxonomyID
 139,Carrier Injection,121|133,NEQ
 140,P-N Junction,73|74,PNJ
 141,Metallurgical Junction,140,PNJ
-142,Poisson's Equation,2|3,PNJ
+142,Poisson's Equation,2|3|216,PNJ
 143,Depletion Region,140|92,PNJ
 144,Depletion Approximation,143|142,PNJ
 145,Built-In Potential,144|98,PNJ
@@ -199,3 +199,21 @@ ConceptID,ConceptLabel,Dependencies,TaxonomyID
 198,Band Diagram Construction,58|143|169|56,DEV
 199,Device Design Trade-Offs,196|198,DEV
 200,Capstone Device Project,199|186|195,DEV
+201,Force,,FOUND
+202,Mechanical Energy,201,FOUND
+203,Electric Charge,,FOUND
+204,Algebra,,FOUND
+205,Trigonometry,204,FOUND
+206,Exponentials and Logarithms,204,FOUND
+207,Complex Numbers,205|206,FOUND
+208,Differentiation,204,FOUND
+209,Integration,208,FOUND
+210,Partial Derivatives,208,FOUND
+211,Vectors,204,FOUND
+212,Gradient,210|211,FOUND
+213,Divergence,210|211,FOUND
+214,Curl,210|211,FOUND
+215,Electric Flux,2|211,FOUND
+216,Gauss's Law,215|213,FOUND
+217,SI Units,,FOUND
+218,Fundamental Physical Constants,217,FOUND

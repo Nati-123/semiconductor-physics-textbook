@@ -2,42 +2,42 @@
 
 ## Overview
 
-- **Total Concepts**: 200
+- **Total Concepts**: 218
 - **Number of Taxonomies**: 12
-- **Average Concepts per Taxonomy**: 16.7
+- **Average Concepts per Taxonomy**: 18.2
 
 ## Distribution Summary
 
 | Category | TaxonomyID | Count | Percentage | Status |
 |----------|-----------|-------|------------|--------|
-| QMBT | QMBT | 23 | 11.5% | ✅ |
-| PNJ | PNJ | 21 | 10.5% | ✅ |
-| Foundation Concepts - Prerequisites | FOUND | 20 | 10.0% | ✅ |
-| CRYS | CRYS | 20 | 10.0% | ✅ |
-| TRAN | TRAN | 20 | 10.0% | ✅ |
-| MATL | MATL | 19 | 9.5% | ✅ |
-| NEQ | NEQ | 19 | 9.5% | ✅ |
-| STAT | STAT | 18 | 9.0% | ✅ |
-| MOS | MOS | 12 | 6.0% | ✅ |
-| OPT | OPT | 10 | 5.0% | ✅ |
-| DEV | DEV | 10 | 5.0% | ✅ |
-| MSJ | MSJ | 8 | 4.0% | ✅ |
+| Foundation Concepts - Prerequisites | FOUND | 38 | 17.4% | ✅ |
+| QMBT | QMBT | 23 | 10.6% | ✅ |
+| PNJ | PNJ | 21 | 9.6% | ✅ |
+| CRYS | CRYS | 20 | 9.2% | ✅ |
+| TRAN | TRAN | 20 | 9.2% | ✅ |
+| MATL | MATL | 19 | 8.7% | ✅ |
+| NEQ | NEQ | 19 | 8.7% | ✅ |
+| STAT | STAT | 18 | 8.3% | ✅ |
+| MOS | MOS | 12 | 5.5% | ✅ |
+| OPT | OPT | 10 | 4.6% | ✅ |
+| DEV | DEV | 10 | 4.6% | ✅ |
+| MSJ | MSJ | 8 | 3.7% | ✅ |
 
 ## Visual Distribution
 
 ```
-QMBT   █████  23 ( 11.5%)
-PNJ    █████  21 ( 10.5%)
-FOUND  █████  20 ( 10.0%)
-CRYS   █████  20 ( 10.0%)
-TRAN   █████  20 ( 10.0%)
-MATL   ████  19 (  9.5%)
-NEQ    ████  19 (  9.5%)
-STAT   ████  18 (  9.0%)
-MOS    ███  12 (  6.0%)
-OPT    ██  10 (  5.0%)
-DEV    ██  10 (  5.0%)
-MSJ    ██   8 (  4.0%)
+FOUND  ████████  38 ( 17.4%)
+QMBT   █████  23 ( 10.6%)
+PNJ    ████  21 (  9.6%)
+CRYS   ████  20 (  9.2%)
+TRAN   ████  20 (  9.2%)
+MATL   ████  19 (  8.7%)
+NEQ    ████  19 (  8.7%)
+STAT   ████  18 (  8.3%)
+MOS    ██  12 (  5.5%)
+OPT    ██  10 (  4.6%)
+DEV    ██  10 (  4.6%)
+MSJ    █   8 (  3.7%)
 ```
 
 ## Balance Analysis
@@ -48,9 +48,32 @@ All categories are under the 30% threshold. Good balance!
 
 ## Category Details
 
+### Foundation Concepts - Prerequisites (FOUND)
+
+**Count**: 38 concepts (17.4%)
+
+**Concepts**:
+
+- 1. Coulomb's Law
+- 2. Electric Field
+- 3. Electric Potential
+- 4. Electrostatic Potential Energy
+- 5. Kinetic Theory of Gases
+- 6. Boltzmann Constant
+- 7. Thermal Equilibrium
+- 8. Photon Energy
+- 9. Wave-Particle Duality
+- 10. de Broglie Wavelength
+- 11. Heisenberg Uncertainty Principle
+- 12. Schrodinger Equation
+- 13. Wavefunction
+- 14. Probability Density
+- 15. Eigenstate
+- *...and 23 more*
+
 ### QMBT (QMBT)
 
-**Count**: 23 concepts (11.5%)
+**Count**: 23 concepts (10.6%)
 
 **Concepts**:
 
@@ -73,7 +96,7 @@ All categories are under the 30% threshold. Good balance!
 
 ### PNJ (PNJ)
 
-**Count**: 21 concepts (10.5%)
+**Count**: 21 concepts (9.6%)
 
 **Concepts**:
 
@@ -94,32 +117,9 @@ All categories are under the 30% threshold. Good balance!
 - 154. Long-Base Diode
 - *...and 6 more*
 
-### Foundation Concepts - Prerequisites (FOUND)
-
-**Count**: 20 concepts (10.0%)
-
-**Concepts**:
-
-- 1. Coulomb's Law
-- 2. Electric Field
-- 3. Electric Potential
-- 4. Electrostatic Potential Energy
-- 5. Kinetic Theory of Gases
-- 6. Boltzmann Constant
-- 7. Thermal Equilibrium
-- 8. Photon Energy
-- 9. Wave-Particle Duality
-- 10. de Broglie Wavelength
-- 11. Heisenberg Uncertainty Principle
-- 12. Schrodinger Equation
-- 13. Wavefunction
-- 14. Probability Density
-- 15. Eigenstate
-- *...and 5 more*
-
 ### CRYS (CRYS)
 
-**Count**: 20 concepts (10.0%)
+**Count**: 20 concepts (9.2%)
 
 **Concepts**:
 
@@ -142,7 +142,7 @@ All categories are under the 30% threshold. Good balance!
 
 ### TRAN (TRAN)
 
-**Count**: 20 concepts (10.0%)
+**Count**: 20 concepts (9.2%)
 
 **Concepts**:
 
@@ -165,7 +165,7 @@ All categories are under the 30% threshold. Good balance!
 
 ### MATL (MATL)
 
-**Count**: 19 concepts (9.5%)
+**Count**: 19 concepts (8.7%)
 
 **Concepts**:
 
@@ -188,7 +188,7 @@ All categories are under the 30% threshold. Good balance!
 
 ### NEQ (NEQ)
 
-**Count**: 19 concepts (9.5%)
+**Count**: 19 concepts (8.7%)
 
 **Concepts**:
 
@@ -211,7 +211,7 @@ All categories are under the 30% threshold. Good balance!
 
 ### STAT (STAT)
 
-**Count**: 18 concepts (9.0%)
+**Count**: 18 concepts (8.3%)
 
 **Concepts**:
 
@@ -234,7 +234,7 @@ All categories are under the 30% threshold. Good balance!
 
 ### MOS (MOS)
 
-**Count**: 12 concepts (6.0%)
+**Count**: 12 concepts (5.5%)
 
 **Concepts**:
 
@@ -253,7 +253,7 @@ All categories are under the 30% threshold. Good balance!
 
 ### OPT (OPT)
 
-**Count**: 10 concepts (5.0%)
+**Count**: 10 concepts (4.6%)
 
 **Concepts**:
 
@@ -270,7 +270,7 @@ All categories are under the 30% threshold. Good balance!
 
 ### DEV (DEV)
 
-**Count**: 10 concepts (5.0%)
+**Count**: 10 concepts (4.6%)
 
 **Concepts**:
 
@@ -287,7 +287,7 @@ All categories are under the 30% threshold. Good balance!
 
 ### MSJ (MSJ)
 
-**Count**: 8 concepts (4.0%)
+**Count**: 8 concepts (3.7%)
 
 **Concepts**:
 
@@ -302,7 +302,7 @@ All categories are under the 30% threshold. Good balance!
 
 ## Recommendations
 
-- ✅ **Excellent balance**: Categories are evenly distributed (spread: 7.5%)
+- ✅ **Excellent balance**: Categories are evenly distributed (spread: 13.8%)
 - ✅ **MISC category minimal**: Good categorization specificity
 
 ### Educational Use Recommendations

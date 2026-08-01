@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Diamond / Zincblende Structure Explorer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+        .control-panel {
+            background: #f5f5f5;
+            border-top: 1px solid silver;
+            padding: 12px 16px;
+            box-sizing: border-box;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px 20px;
+        }
+        .control-panel .ctrl-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #333;
+        }
+        .control-panel select {
+            font-size: 13px;
+            padding: 3px 6px;
+        }
+        .control-panel .ctrl-hint {
+            font-size: 12px;
+            color: #777;
+            font-style: italic;
+            margin-left: auto;
+        }
+        .readout-panel {
+            background: #ffffff;
+            border-top: 1px solid #ddd;
+            padding: 10px 16px 12px 16px;
+            font-size: 13px;
+            color: #222;
+            box-sizing: border-box;
+            line-height: 1.6;
+        }
+        .readout-panel .readout-row { margin-bottom: 2px; }
+        .readout-panel .readout-value { font-weight: 700; color: #5A3EED; }
+        .readout-panel .legend { margin-top: 6px; font-size: 12px; color: #555; }
+        .readout-panel .swatch {
+            display: inline-block;
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            margin-right: 3px;
+            vertical-align: middle;
+            border: 1px solid rgba(0,0,0,0.25);
+        }
+    </style>
+    <script src="diamond-zincblende-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> In Diamond mode, rotate the cell and follow one of the four gray bonds from an interior atom out to a corner or face atom — count how many bonds leave each interior atom.</li>
+            <li><strong>Predict:</strong> Before switching to Zincblende mode, predict which atoms will change color: only the interior 4, only the outer 14, or both.</li>
+            <li><strong>Observe:</strong> Switch to Zincblende (GaAs) and notice that every bond now connects a blue Ga atom to an orange As atom — never two atoms of the same color.</li>
+            <li><strong>Explain:</strong> Explain why the diamond cubic structure has a much lower coordination number (4) than Face-Centered Cubic (12), even though both are built from FCC sublattices.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 3:</strong> This MicroSim renders the diamond cubic conventional unit cell as an FCC lattice (8 corners + 6 face centers) with a 2-atom basis repeated at <span class="arithmatex">\((0,0,0)\)</span> and <span class="arithmatex">\((\tfrac14,\tfrac14,\tfrac14)a\)</span> — equivalently, two interpenetrating FCC lattices offset along the body diagonal by <span class="arithmatex">\(\tfrac14\)</span> of its length. Silicon crystallizes in this structure with lattice constant <span class="arithmatex">\(a = 0.543\)</span> nm. Zincblende (e.g. GaAs) is geometrically identical but uses two different atomic species, one per sublattice.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>Structure dropdown</dt>
+            <dd>Toggles between Diamond (single element, both sublattices the same color) and Zincblende (two elements, Ga and As shown in distinct colors).</dd>
+            <dt>Click-and-drag on the 3D view</dt>
+            <dd>Rotates the unit cell freely so you can trace individual tetrahedral bonds (uses p5.js <span class="arithmatex">\(\texttt{orbitControl()}\)</span>).</dd>
+            <dt>Scroll / pinch on the 3D view</dt>
+            <dd>Zooms the camera in and out.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">1. How many atoms are in the diamond cubic conventional unit cell?</p>
+            <label><input type="radio" name="dze-q1" value="a"> 2</label>
+            <label><input type="radio" name="dze-q1" value="b"> 4</label>
+            <label><input type="radio" name="dze-q1" value="c"> 8</label>
+            <label><input type="radio" name="dze-q1" value="d"> 14</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>8 corners × 1/8 + 6 faces × 1/2 + 4 interior atoms × 1 = 1 + 3 + 4 = 8 atoms per cell.</p>
+            <p class="explain-incorrect" hidden>Add up the shared fractions: 8 corners × 1/8, 6 faces × 1/2, and 4 fully-interior atoms × 1.</p>
+        </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">2. What is the coordination number of each atom in diamond cubic?</p>
+            <label><input type="radio" name="dze-q2" value="a"> 6</label>
+            <label><input type="radio" name="dze-q2" value="b"> 4</label>
+            <label><input type="radio" name="dze-q2" value="c"> 8</label>
+            <label><input type="radio" name="dze-q2" value="d"> 12</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Each atom bonds tetrahedrally to exactly 4 nearest neighbors, visible as the 4 gray bonds leaving every interior atom in the MicroSim.</p>
+            <p class="explain-incorrect" hidden>Count the bonds leaving any single interior atom in the 3D view.</p>
+        </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">3. In Zincblende mode, what distinguishes it from Diamond mode geometrically?</p>
+            <label><input type="radio" name="dze-q3" value="a"> Nothing geometric changes — only the two sublattices are different atomic species instead of the same element</label>
+            <label><input type="radio" name="dze-q3" value="b"> The bond angles change from tetrahedral to octahedral</label>
+            <label><input type="radio" name="dze-q3" value="c"> Zincblende has twice as many atoms per cell</label>
+            <label><input type="radio" name="dze-q3" value="d"> The coordination number drops to 2</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Diamond and zincblende share the exact same atom positions and bonding geometry — zincblende simply places a different element on each of the two interpenetrating FCC sublattices (e.g. Ga and As).</p>
+            <p class="explain-incorrect" hidden>Toggle between the two modes and watch the sphere positions — do they move, or only change color?</p>
+        </div>
+
+        <div class="challenge" data-correct="d">
+            <p class="q-text">4. In Zincblende (GaAs) mode, what species does each bond connect?</p>
+            <label><input type="radio" name="dze-q4" value="a"> Two Ga atoms</label>
+            <label><input type="radio" name="dze-q4" value="b"> Two As atoms</label>
+            <label><input type="radio" name="dze-q4" value="c"> A random mix of Ga-Ga, As-As, and Ga-As</label>
+            <label><input type="radio" name="dze-q4" value="d"> Always one Ga atom and one As atom</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Because the two sublattices are the interior atoms and the corner/face atoms respectively, and every bond connects an interior atom to an outer-lattice atom, each bond always joins one Ga and one As atom.</p>
+            <p class="explain-incorrect" hidden>Switch to Zincblende mode and look at the color of the two atoms at each end of any bond.</p>
+        </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">5. What is silicon's lattice constant in the diamond cubic structure?</p>
+            <label><input type="radio" name="dze-q5" value="a"> 0.100 nm</label>
+            <label><input type="radio" name="dze-q5" value="b"> 0.543 nm</label>
+            <label><input type="radio" name="dze-q5" value="c"> 1.000 nm</label>
+            <label><input type="radio" name="dze-q5" value="d"> 5.430 nm</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Silicon has lattice constant a = 0.543 nm, one of the key numeric facts from the chapter.</p>
+            <p class="explain-incorrect" hidden>This value is given directly in the chapter text and in the "Connects to Chapter 3" note above.</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

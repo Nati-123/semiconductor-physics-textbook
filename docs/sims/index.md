@@ -31,4 +31,12 @@ Interactive educational simulations that accompany this textbook.
 | [Particle in a Box Explorer](particle-in-a-box-explorer/index.md) | L3-L4 Apply/Analyze | Plot the infinite-square-well wavefunction, probability density, and energy-level ladder for n = 1 to 6 |
 | [Quantum Tunneling Probability Explorer](quantum-tunneling-explorer/index.md) | L3 Apply | Compute tunneling probability through a rectangular barrier as height and width change |
 
+## Chapter 3: Crystal Lattices and Structures
+
+| MicroSim | Bloom Level | Description |
+|----------|-------------|-------------|
+| [Cubic Lattice Explorer](cubic-lattice-explorer/index.md) | L2-L3 Understand/Apply | Rotate 3D Simple Cubic, Body-Centered Cubic, and Face-Centered Cubic unit cells and compare atoms per cell, coordination number, and packing fraction |
+| [Diamond / Zincblende Structure Explorer](diamond-zincblende-explorer/index.md) | L2 Understand | Rotate the diamond-cubic unit cell with tetrahedral bonds, toggling between single-element diamond and two-element zincblende coloring |
+| [Miller Indices Explorer](miller-indices-explorer/index.md) | L3 Apply | Slice a shaded crystal plane through a rotatable unit cell for adjustable Miller indices (h k l), with presets for (100), (110), (111), and (200) |
+
 </div>

@@ -2,13 +2,29 @@
 
 # Glossary of Terms
 
-This glossary currently covers the concepts introduced in [Chapter 1: Physics and Math Foundations](chapters/01-physics-math-foundations/index.md) and [Chapter 2: Quantum Mechanics Foundations](chapters/02-quantum-mechanics-foundations/index.md). Entries for later chapters will be added as those chapters are written.
+This glossary currently covers the concepts introduced in [Chapter 1: Physics and Math Foundations](chapters/01-physics-math-foundations/index.md), [Chapter 2: Quantum Mechanics Foundations](chapters/02-quantum-mechanics-foundations/index.md), and [Chapter 3: Crystal Lattices and Structures](chapters/03-crystal-lattices-structures/index.md). Entries for later chapters will be added as those chapters are written.
 
 #### Algebra
 
 The branch of mathematics dealing with symbolic manipulation of equations, including solving for an unknown variable and working with exponents and ratios.
 
 **Example:** Rearranging the diode current equation \(I = I_0(e^{V/V_T}-1)\) to solve for \(V\) is an algebra skill applied to a physical law.
+
+#### Basis
+
+The atom, or small group of atoms, attached to every point of a crystal lattice to produce a crystal structure.
+
+**Example:** The zincblende structure attaches a two-atom basis (one atom of each species, such as gallium and arsenic) to the underlying lattice geometry it shares with diamond.
+
+See also: [Crystal Lattice](#crystal-lattice), [Diamond Lattice Structure](#diamond-lattice-structure).
+
+#### Body-Centered Cubic
+
+A cubic crystal structure with atoms at the 8 corners of the conventional cell plus one additional whole atom at the body center, giving 2 atoms per cell, coordination number 8, and packing fraction \(\sqrt3\pi/8\approx0.680\).
+
+**Example:** The touching condition for BCC, \(4r=\sqrt3\,a\), comes from atoms touching along the cube's body diagonal.
+
+See also: [Simple Cubic Structure](#simple-cubic-structure), [Face-Centered Cubic](#face-centered-cubic), [Coordination Number](#coordination-number).
 
 #### Boltzmann Constant
 
@@ -30,6 +46,14 @@ Numbers of the form \(a+bi\), with real part \(a\) and imaginary part \(b\) wher
 
 **Example:** Euler's formula, \(e^{i\theta}=\cos\theta+i\sin\theta\), rewrites an oscillation as a complex exponential.
 
+#### Coordination Number
+
+The number of nearest-neighbor atoms surrounding any given atom in a crystal structure.
+
+**Example:** Simple cubic has coordination number 6, body-centered cubic has 8, face-centered cubic has 12, and diamond cubic has 4.
+
+See also: [Simple Cubic Structure](#simple-cubic-structure), [Body-Centered Cubic](#body-centered-cubic), [Face-Centered Cubic](#face-centered-cubic), [Diamond Lattice Structure](#diamond-lattice-structure).
+
 #### Coulomb's Law
 
 A physical law stating that the electrostatic force between two point charges is proportional to the product of their magnitudes and inversely proportional to the square of the distance separating them.
@@ -37,6 +61,22 @@ A physical law stating that the electrostatic force between two point charges is
 **Example:** Two charges separated by 1 nm exert a measurable attractive or repulsive force depending on whether their signs match.
 
 See also: [Electric Field](#electric-field), [Electric Charge](#electric-charge).
+
+#### Crystal Lattice
+
+An infinite, perfectly periodic array of points in space, with every point having an environment identical to every other point; a purely geometric object containing no atoms until a basis is attached.
+
+**Example:** Attaching a single-atom basis to every point of a face-centered cubic lattice produces the FCC crystal structure of many common metals.
+
+See also: [Basis](#basis), [Unit Cell](#unit-cell).
+
+#### Crystal Plane
+
+Any flat plane passing through a set of points within a crystal lattice, labeled using Miller indices; physically relevant to cleavage, surface properties, and device fabrication.
+
+**Example:** Silicon wafers are commonly cut along the \((100)\) crystal plane, while silicon cleaves most readily along \((111)\) planes.
+
+See also: [Miller Indices](#miller-indices).
 
 #### Curl
 
@@ -53,6 +93,16 @@ The wavelength associated with any particle of momentum \(p\), given by \(\lambd
 **Example:** An electron accelerated through 100 V has a de Broglie wavelength of about 0.123 nm, comparable to the spacing between atoms in a crystal.
 
 See also: [Wave-Particle Duality](#wave-particle-duality), [Wavefunction](#wavefunction).
+
+#### Diamond Lattice Structure
+
+A crystal structure formed from two interpenetrating face-centered cubic lattices offset by \((1/4,1/4,1/4)a\) along the body diagonal, giving 8 atoms per conventional cell and tetrahedral (4-fold) coordination.
+
+**Example:** Silicon (\(a=0.543\) nm) and germanium (\(a=0.566\) nm) both crystallize in the diamond lattice structure, with nearest-neighbor distance \(d=\sqrt3\,a/4\).
+
+See also: [Face-Centered Cubic](#face-centered-cubic), [Zincblende Structure](#zincblende-structure), [Coordination Number](#coordination-number).
+
+Contrast with: [Zincblende Structure](#zincblende-structure), which shares the same geometry but places two different atomic species on the two sublattices.
 
 #### Differentiation
 
@@ -128,6 +178,14 @@ A pair of inverse mathematical functions, \(e^x\) and \(\ln x\), used to describ
 
 **Example:** Carrier concentration in a semiconductor depends exponentially on energy divided by thermal energy, \(k_BT\).
 
+#### Face-Centered Cubic
+
+A cubic crystal structure with atoms at the 8 corners and at the center of each of the 6 faces of the conventional cell, giving 4 atoms per cell, coordination number 12, and packing fraction \(\sqrt2\pi/6\approx0.740\), the highest of the three cubic Bravais lattices.
+
+**Example:** The touching condition for FCC, \(4r=\sqrt2\,a\), comes from atoms touching along the face diagonal.
+
+See also: [Simple Cubic Structure](#simple-cubic-structure), [Body-Centered Cubic](#body-centered-cubic), [Packing Fraction](#packing-fraction).
+
 #### Force
 
 A push or pull that, if unopposed, changes an object's velocity; related to mass and acceleration by Newton's second law, \(\vec{F}=m\vec{a}\).
@@ -182,11 +240,27 @@ A model that treats a gas as a large collection of particles in constant random 
 
 See also: [Boltzmann Constant](#boltzmann-constant), [Thermal Equilibrium](#thermal-equilibrium).
 
+#### Lattice Constant
+
+The edge length \(a\) of the conventional cubic unit cell, setting the fundamental length scale of a crystal.
+
+**Example:** Silicon has lattice constant \(a=0.543\) nm; gallium arsenide has \(a=0.565\) nm.
+
+See also: [Unit Cell](#unit-cell), [Crystal Lattice](#crystal-lattice).
+
 #### Mechanical Energy
 
 The combined kinetic and potential energy of an object due to its motion and position, conserved in an isolated system with no external forces.
 
 **Example:** A charged particle accelerating through an electric field converts electrostatic potential energy into kinetic energy.
+
+#### Miller Indices
+
+A set of three integers \((hkl)\), used to label a crystal plane, found by taking the reciprocals of the plane's axis intercepts (in units of the lattice constant) and clearing fractions to the smallest integers.
+
+**Example:** A plane intercepting all three axes at \(1a\) has Miller indices \((111)\); a plane parallel to the \(z\) axis intercepting \(x\) and \(y\) at \(1a\) has Miller indices \((110)\).
+
+See also: [Crystal Plane](#crystal-plane).
 
 #### Normalization
 
@@ -195,6 +269,14 @@ The requirement that the total probability of finding a particle somewhere in sp
 **Example:** Normalizing \(\psi(x)=A\sin(\pi x/L)\) on \(0<x<L\) determines the constant \(A=\sqrt{2/L}\).
 
 See also: [Probability Density](#probability-density), [Wavefunction](#wavefunction).
+
+#### Packing Fraction
+
+The fraction of a unit cell's volume actually occupied by atoms, treating each atom as a hard sphere whose radius is set by the structure's geometric touching condition.
+
+**Example:** Simple cubic has packing fraction \(\pi/6\approx0.524\); face-centered cubic has the highest packing fraction of the cubic structures, \(\sqrt2\pi/6\approx0.740\).
+
+See also: [Simple Cubic Structure](#simple-cubic-structure), [Body-Centered Cubic](#body-centered-cubic), [Face-Centered Cubic](#face-centered-cubic).
 
 #### Partial Derivatives
 
@@ -225,6 +307,14 @@ A region of space where the potential energy is lower than in the surrounding re
 **Example:** A finite potential well allows the wavefunction to decay smoothly into the classically forbidden region outside the well, unlike the idealized particle-in-a-box.
 
 See also: [Particle in a Box](#particle-in-a-box), [Quantum Tunneling](#quantum-tunneling).
+
+#### Primitive Cell
+
+The smallest possible unit cell, containing exactly one lattice point (counting shared points by the fraction actually inside the cell).
+
+**Example:** For a simple cubic lattice, the conventional unit cell and the primitive cell coincide, but for body-centered and face-centered cubic lattices the true primitive cell is smaller and non-cubic.
+
+See also: [Unit Cell](#unit-cell), [Crystal Lattice](#crystal-lattice).
 
 #### Probability Density
 
@@ -264,6 +354,14 @@ The Système International system of standardized physical units, including the 
 
 See also: [Fundamental Physical Constants](#fundamental-physical-constants).
 
+#### Simple Cubic Structure
+
+A cubic crystal structure with atoms only at the 8 corners of the conventional cell, giving 1 atom per cell, coordination number 6, and packing fraction \(\pi/6\approx0.524\), the lowest of the three cubic Bravais lattices.
+
+**Example:** The touching condition for SC, \(2r=a\), comes from atoms touching directly along the cube edge.
+
+See also: [Body-Centered Cubic](#body-centered-cubic), [Face-Centered Cubic](#face-centered-cubic), [Packing Fraction](#packing-fraction).
+
 #### Thermal Equilibrium
 
 A state in which a system has a single, well-defined temperature throughout and experiences no net exchange of energy with its surroundings.
@@ -285,6 +383,14 @@ See also: [Quantum Tunneling](#quantum-tunneling).
 The branch of mathematics describing the relationships between angles and the sides of triangles, used to model periodic and oscillatory phenomena.
 
 **Example:** Sines and cosines describe the alternating voltage waveform in an AC circuit.
+
+#### Unit Cell
+
+A repeating volume that tiles all of space by simple translation to reproduce an entire crystal lattice; the conventional choice for a cubic crystal is a cube with edge length equal to the lattice constant.
+
+**Example:** The conventional unit cell of face-centered cubic contains 4 atoms, even though its true primitive cell contains only 1 lattice point.
+
+See also: [Primitive Cell](#primitive-cell), [Lattice Constant](#lattice-constant).
 
 #### Vectors
 
@@ -317,5 +423,15 @@ The complex-valued function \(\psi(x)\) that describes a particle's quantum stat
 **Example:** A free particle's wavefunction is often written \(\psi(x)=Ae^{ikx}\), with wavevector \(k=2\pi/\lambda\) tied to the particle's de Broglie wavelength.
 
 See also: [Probability Density](#probability-density), [Schrodinger Equation](#schrodinger-equation).
+
+#### Zincblende Structure
+
+A crystal structure geometrically identical to the diamond lattice structure — two interpenetrating face-centered cubic sublattices offset by \((1/4,1/4,1/4)a\), 8 atoms per cell, tetrahedral coordination — but with two different atomic species occupying the two sublattices, which removes the inversion symmetry present in pure diamond.
+
+**Example:** Gallium arsenide (GaAs) crystallizes in the zincblende structure, with gallium atoms on one sublattice and arsenic atoms on the other.
+
+See also: [Diamond Lattice Structure](#diamond-lattice-structure).
+
+Contrast with: [Diamond Lattice Structure](#diamond-lattice-structure), which uses a single atomic species on both sublattices and retains inversion symmetry.
 
 </div>

@@ -22,4 +22,13 @@ Interactive educational simulations that accompany this textbook.
 | [Maxwell-Boltzmann Speed Distribution](maxwell-boltzmann-distribution/index.md) | L2 Understand | See how temperature reshapes the Maxwell-Boltzmann speed distribution |
 | [Photon Energy Across the Electromagnetic Spectrum](photon-energy-spectrum-chart/index.md) | L4 Analyze | Compare photon energy to wavelength and locate silicon's band gap |
 
+## Chapter 2: Quantum Mechanics Foundations
+
+| MicroSim | Bloom Level | Description |
+|----------|-------------|-------------|
+| [de Broglie Wavelength Explorer](debroglie-wavelength-explorer/index.md) | L3 Apply | Compute the de Broglie wavelength of objects from an electron to a bowling ball and compare to atomic and everyday length scales |
+| [Heisenberg Uncertainty Principle Explorer](heisenberg-uncertainty-explorer/index.md) | L2-L3 Understand/Apply | Visualize the inverse relationship between position and momentum uncertainty for an electron or proton |
+| [Particle in a Box Explorer](particle-in-a-box-explorer/index.md) | L3-L4 Apply/Analyze | Plot the infinite-square-well wavefunction, probability density, and energy-level ladder for n = 1 to 6 |
+| [Quantum Tunneling Probability Explorer](quantum-tunneling-explorer/index.md) | L3 Apply | Compute tunneling probability through a rectangular barrier as height and width change |
+
 </div>

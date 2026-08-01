@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Heisenberg Uncertainty Principle Explorer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="heisenberg-uncertainty-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Drag the \(\Delta x\) slider to its smallest value and watch the position curve narrow while the momentum curve widens.</li>
+            <li><strong>Predict:</strong> Before switching the particle type from Electron to Proton at the same \(\Delta x\), predict whether \(\Delta v_{min}\) will be larger or smaller.</li>
+            <li><strong>Observe:</strong> Set \(\Delta x\) to its largest value and note how small \(\Delta p_{min}\) becomes.</li>
+            <li><strong>Explain:</strong> Explain why confining an electron to a smaller region necessarily increases the uncertainty in its momentum.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 2:</strong> This MicroSim visualizes the boxed Heisenberg Uncertainty Principle <span class="arithmatex">\(\Delta x\,\Delta p \geq \hbar/2\)</span> from the chapter, using <span class="arithmatex">\(\hbar = 1.0546\times10^{-34}\)</span> J·s, and computes the minimum momentum uncertainty <span class="arithmatex">\(\Delta p_{min} = \hbar/(2\Delta x)\)</span>.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>&Delta;x slider</dt>
+            <dd>Sets the position uncertainty on a log scale from 1 pm to 1 µm — narrower confinement means a smaller \(\Delta x\).</dd>
+            <dt>Particle type dropdown</dt>
+            <dd>Selects electron or proton, which converts the minimum momentum uncertainty into a minimum velocity uncertainty \(\Delta v_{min} = \Delta p_{min}/m\).</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">1. If you decrease \(\Delta x\) by a factor of 10, what happens to the minimum \(\Delta p\)?</p>
+            <label><input type="radio" name="hue-q1" value="a"> It decreases by a factor of 10</label>
+            <label><input type="radio" name="hue-q1" value="b"> It increases by a factor of 10</label>
+            <label><input type="radio" name="hue-q1" value="c"> It stays the same</label>
+            <label><input type="radio" name="hue-q1" value="d"> It decreases by a factor of 100</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>\(\Delta p_{min} = \hbar/(2\Delta x)\) is inversely proportional to \(\Delta x\), so shrinking \(\Delta x\) by 10x grows \(\Delta p_{min}\) by 10x.</p>
+            <p class="explain-incorrect" hidden>Look at where \(\Delta x\) appears in the formula for \(\Delta p_{min}\) — numerator or denominator?</p>
+        </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">2. At the same \(\Delta x\), why does the proton have a smaller minimum \(\Delta v\) than the electron?</p>
+            <label><input type="radio" name="hue-q2" value="a"> Because \(\Delta v_{min} = \Delta p_{min}/m\), and the proton's much larger mass divides \(\Delta p_{min}\) down further</label>
+            <label><input type="radio" name="hue-q2" value="b"> Because protons are not subject to the uncertainty principle</label>
+            <label><input type="radio" name="hue-q2" value="c"> Because \(\Delta p_{min}\) is smaller for protons</label>
+            <label><input type="radio" name="hue-q2" value="d"> There is no difference</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>\(\Delta p_{min}\) depends only on \(\Delta x\), not mass, so it is identical for both particles — but dividing by the proton's ~1836x larger mass gives a much smaller \(\Delta v_{min}\).</p>
+            <p class="explain-incorrect" hidden>Switch the particle dropdown at a fixed \(\Delta x\) and compare the \(\Delta p\) and \(\Delta v\) readouts separately.</p>
+        </div>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">3. What does the widening momentum-spread curve represent as \(\Delta x\) shrinks?</p>
+            <label><input type="radio" name="hue-q3" value="a"> The particle is speeding up</label>
+            <label><input type="radio" name="hue-q3" value="b"> The particle's mass is increasing</label>
+            <label><input type="radio" name="hue-q3" value="c"> The range of possible momentum values consistent with that confinement is growing</label>
+            <label><input type="radio" name="hue-q3" value="d"> A measurement error in the apparatus</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>The uncertainty principle is a fundamental property of nature, not a measurement flaw — confining the position more tightly fundamentally widens the range of possible momenta.</p>
+            <p class="explain-incorrect" hidden>Re-read the distinction between "measurement error" and "fundamental uncertainty" in the chapter text.</p>
+        </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">4. Which expression correctly gives the minimum momentum uncertainty?</p>
+            <label><input type="radio" name="hue-q4" value="a"> \(\Delta p_{min} = \hbar/(2\Delta x)\)</label>
+            <label><input type="radio" name="hue-q4" value="b"> \(\Delta p_{min} = 2\hbar\Delta x\)</label>
+            <label><input type="radio" name="hue-q4" value="c"> \(\Delta p_{min} = \hbar \Delta x/2\)</label>
+            <label><input type="radio" name="hue-q4" value="d"> \(\Delta p_{min} = 2\Delta x/\hbar\)</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Rearranging \(\Delta x\,\Delta p \geq \hbar/2\) for the minimum case gives \(\Delta p_{min} = \hbar/(2\Delta x)\).</p>
+            <p class="explain-incorrect" hidden>Start from \(\Delta x\,\Delta p \geq \hbar/2\) and solve for \(\Delta p\) directly.</p>
+        </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">5. Confining an electron inside a nucleus-sized region (~1 fm) instead of an atom-sized region (~0.1 nm) would make \(\Delta p_{min}\):</p>
+            <label><input type="radio" name="hue-q5" value="a"> Much smaller</label>
+            <label><input type="radio" name="hue-q5" value="b"> Much larger</label>
+            <label><input type="radio" name="hue-q5" value="c"> Exactly the same</label>
+            <label><input type="radio" name="hue-q5" value="d"> Zero</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>A nucleus is roughly 100,000 times smaller than an atom, so \(\Delta p_{min} = \hbar/(2\Delta x)\) becomes roughly 100,000 times larger — this is part of why electrons are not found inside nuclei.</p>
+            <p class="explain-incorrect" hidden>Drag \(\Delta x\) to its smallest slider value and note how large \(\Delta p_{min}\) and \(\Delta v_{min}\) become.</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

@@ -85,7 +85,11 @@ nav:
           - Quiz: chapters/01-physics-math-foundations/quiz.md
           - Problems: chapters/01-physics-math-foundations/problems.md
           - Glossary: chapters/01-physics-math-foundations/glossary.md
-      - 2. Quantum Mechanics Foundations: chapters/02-quantum-mechanics-foundations/index.md
+      - 2. Quantum Mechanics Foundations:
+          - Content: chapters/02-quantum-mechanics-foundations/index.md
+          - Quiz: chapters/02-quantum-mechanics-foundations/quiz.md
+          - Problems: chapters/02-quantum-mechanics-foundations/problems.md
+          - Glossary: chapters/02-quantum-mechanics-foundations/glossary.md
       - 3. Crystal Lattices and Structures: chapters/03-crystal-lattices-structures/index.md
       - 4. Chemical Bonding in Semiconductor Crystals: chapters/04-chemical-bonding-crystals/index.md
       - 5. Quantum Mechanics of Periodic Crystals: chapters/05-quantum-mechanics-periodic-crystals/index.md
@@ -113,6 +117,11 @@ nav:
           - Gauss's Law Explorer: sims/gauss-law-explorer/index.md
           - Maxwell-Boltzmann Speed Distribution: sims/maxwell-boltzmann-distribution/index.md
           - Photon Energy Spectrum Chart: sims/photon-energy-spectrum-chart/index.md
+      - Chapter 2:
+          - de Broglie Wavelength Explorer: sims/debroglie-wavelength-explorer/index.md
+          - Heisenberg Uncertainty Principle Explorer: sims/heisenberg-uncertainty-explorer/index.md
+          - Particle in a Box Explorer: sims/particle-in-a-box-explorer/index.md
+          - Quantum Tunneling Probability Explorer: sims/quantum-tunneling-explorer/index.md
   - Learning Graph:
       - Introduction: learning-graph/index.md
       - Course Description Assessment: learning-graph/course-description-assessment.md

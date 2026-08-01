@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Miller Indices Explorer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+        .control-panel {
+            background: #f5f5f5;
+            border-top: 1px solid silver;
+            padding: 10px 16px;
+            box-sizing: border-box;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px 18px;
+        }
+        .control-panel .ctrl-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #333;
+        }
+        .control-panel .slider-field {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .control-panel .index-slider {
+            width: 110px;
+        }
+        .control-panel .slider-value {
+            font-size: 13px;
+            font-weight: 700;
+            color: #5A3EED;
+            min-width: 18px;
+            display: inline-block;
+        }
+        .control-panel .preset-btn {
+            font-size: 12px;
+            padding: 4px 10px;
+            background: #EEF4FF;
+            border: 1px solid #A8C8FF;
+            border-radius: 6px;
+            color: #5A3EED;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .control-panel .preset-btn:hover {
+            background: #DDE8FF;
+        }
+        .control-panel .ctrl-hint {
+            font-size: 12px;
+            color: #777;
+            font-style: italic;
+            margin-left: auto;
+        }
+        .readout-panel {
+            background: #ffffff;
+            border-top: 1px solid #ddd;
+            padding: 10px 16px 12px 16px;
+            font-size: 13px;
+            color: #222;
+            box-sizing: border-box;
+            line-height: 1.6;
+        }
+        .readout-panel .readout-row { margin-bottom: 2px; }
+        .readout-panel .readout-value { font-weight: 700; color: #5A3EED; }
+        .readout-panel .legend { margin-top: 6px; font-size: 12px; color: #555; }
+        .readout-panel .warn { color: #B8860B; font-weight: 600; margin-top: 4px; }
+        .readout-panel .swatch {
+            display: inline-block;
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            margin-right: 3px;
+            vertical-align: middle;
+            border: 1px solid rgba(0,0,0,0.25);
+        }
+    </style>
+    <script src="miller-indices-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Click the (100) preset and rotate the cell — notice the shaded plane is simply the entire face of the cube where <span class="arithmatex">\(x=a\)</span>.</li>
+            <li><strong>Predict:</strong> Before clicking the (111) preset, predict how many corners of the cube the resulting plane will touch.</li>
+            <li><strong>Observe:</strong> Click (200) and compare it to (100) — the plane orientation looks identical, but the x-intercept is now half as far out (<span class="arithmatex">\(a/2\)</span> instead of <span class="arithmatex">\(a\)</span>), because (200) belongs to a more closely spaced family of parallel planes.</li>
+            <li><strong>Explain:</strong> Set <span class="arithmatex">\(h=0\)</span> and explain, using the readout panel, why the plane never crosses the x-axis no matter how you rotate the view.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 3:</strong> This MicroSim computes Miller indices the standard way — take a plane's intercepts with the crystal axes in units of the lattice constant <span class="arithmatex">\(a\)</span>, form the reciprocals of those intercepts, then clear to the smallest integer ratio <span class="arithmatex">\((h\,k\,l)\)</span>. An index of 0 means the plane is parallel to that axis (intercept at infinity). The shaded plane satisfies <span class="arithmatex">\(hX+kY+lZ=1\)</span> in fractional cell coordinates, which is exactly the intercept form of a Miller-indexed plane.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>h, k, l sliders</dt>
+            <dd>Set each Miller index independently from &minus;3 to 3 (integers, 0 allowed). The plane, intercept markers, and readout panel update immediately.</dd>
+            <dt>Preset buttons</dt>
+            <dd>Jump directly to the common planes (100), (110), (111), and (200) referenced throughout the chapter.</dd>
+            <dt>Click-and-drag on the 3D view</dt>
+            <dd>Rotates the unit cell so you can view the plane's orientation from any angle (uses p5.js <span class="arithmatex">\(\texttt{orbitControl()}\)</span>).</dd>
+            <dt>Colored dots on the axes</dt>
+            <dd>Mark the x (blue), y (green), and z (orange) intercept points used to derive the current indices.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">1. What are the (h k l) Miller indices of a plane parallel to the y and z axes, intersecting the x-axis at <span class="arithmatex">\(x=a\)</span>?</p>
+            <label><input type="radio" name="mie-q1" value="a"> (0 1 1)</label>
+            <label><input type="radio" name="mie-q1" value="b"> (1 1 1)</label>
+            <label><input type="radio" name="mie-q1" value="c"> (1 0 0)</label>
+            <label><input type="radio" name="mie-q1" value="d"> (0 0 1)</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Intercepts (1, &infin;, &infin;) give reciprocals (1, 0, 0), so the indices are (100) — try the (100) preset to confirm.</p>
+            <p class="explain-incorrect" hidden>Take the reciprocal of each intercept: 1/1=1 for x, and 1/&infin;=0 for the axes never crossed.</p>
+        </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">2. What does an index of 0 mean in Miller notation?</p>
+            <label><input type="radio" name="mie-q2" value="a"> The plane passes through the origin</label>
+            <label><input type="radio" name="mie-q2" value="b"> The plane is parallel to that axis and never intersects it</label>
+            <label><input type="radio" name="mie-q2" value="c"> The plane is perpendicular to that axis</label>
+            <label><input type="radio" name="mie-q2" value="d"> There is a calculation error</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>An index of 0 comes from 1/&infin; — the plane's intercept with that axis is at infinity, meaning the plane runs parallel to it.</p>
+            <p class="explain-incorrect" hidden>Set one index to 0 with the sliders and read the corresponding intercept line in the readout panel.</p>
+        </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">3. How do the (100) and (200) planes differ?</p>
+            <label><input type="radio" name="mie-q3" value="a"> Same orientation, but (200) has half the intercept distance of (100)</label>
+            <label><input type="radio" name="mie-q3" value="b"> They are perpendicular to each other</label>
+            <label><input type="radio" name="mie-q3" value="c"> (200) has twice as many atoms in the plane</label>
+            <label><input type="radio" name="mie-q3" value="d"> They are completely unrelated planes</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>(200) is parallel to (100) but its x-intercept is a/2 instead of a — it belongs to a family of planes spaced half as far apart.</p>
+            <p class="explain-incorrect" hidden>Click both presets in turn and compare the plane orientation and the x-intercept value in the readout panel.</p>
+        </div>
+
+        <div class="challenge" data-correct="d">
+            <p class="q-text">4. Which preset produces a triangular plane touching three different cube corners?</p>
+            <label><input type="radio" name="mie-q4" value="a"> (100)</label>
+            <label><input type="radio" name="mie-q4" value="b"> (200)</label>
+            <label><input type="radio" name="mie-q4" value="c"> (110)</label>
+            <label><input type="radio" name="mie-q4" value="d"> (111)</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>(111) has finite intercepts on all three axes at the same distance, producing an equilateral-triangle-shaped plane cutting off one corner of the cube.</p>
+            <p class="explain-incorrect" hidden>Click through each preset and count the sides of the shaded polygon.</p>
+        </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">5. If you set h = -1, k = 0, l = 0, what happens to the shaded plane in this MicroSim?</p>
+            <label><input type="radio" name="mie-q5" value="a"> It is identical to (100)</label>
+            <label><input type="radio" name="mie-q5" value="b"> No plane appears within the shown unit cell, because the intercept lies in the neighboring cell along -x</label>
+            <label><input type="radio" name="mie-q5" value="c"> The cube itself disappears</label>
+            <label><input type="radio" name="mie-q5" value="d"> The plane becomes a single point</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>The x-intercept works out to -a, which lies outside the [0,a] cell shown, so the readout reports that the plane does not cross this particular unit cell.</p>
+            <p class="explain-incorrect" hidden>Set the h slider to -1 with k and l at 0, and read the warning message in the readout panel.</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

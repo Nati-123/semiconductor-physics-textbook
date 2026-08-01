@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="An interactive university-level semiconductor physics textbook with AI explanations, quizzes, simulations, and practice problems.">
+        <meta name="description" content="An introduction to crystal lattices, unit cells, primitive cells, the cubic Bravais lattices (SC, BCC, FCC), the diamond and zincblende structures, and the use of Miller indices to describe crystal planes">
       
       
         <meta name="author" content="Natol Dinka">
@@ -18,7 +18,7 @@
         <link rel="prev" href="../02-quantum-mechanics-foundations/glossary/">
       
       
-        <link rel="next" href="../04-chemical-bonding-crystals/">
+        <link rel="next" href="quiz/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>3. Crystal Lattices and Structures - Semiconductor Physics</title>
+        <title>Crystal Lattices and Structures - Semiconductor Physics</title>
       
     
     
@@ -84,7 +84,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#crystal-lattices-and-structures" class="md-skip">
+        <a href="#chapter-3-crystal-lattices-and-structures" class="md-skip">
           Skip to content
         </a>
       
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              3. Crystal Lattices and Structures
+              Crystal Lattices and Structures
             
           </span>
         </div>
@@ -1052,6 +1052,63 @@
   
   
   
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6_4" id="__nav_6_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Crystal Lattices and Structures
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    3. Crystal Lattices and Structures
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
     <li class="md-nav__item md-nav__item--active">
       
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
@@ -1067,7 +1124,7 @@
   <span class="md-ellipsis">
     
   
-    3. Crystal Lattices and Structures
+    Content
   
 
     
@@ -1085,7 +1142,7 @@
   <span class="md-ellipsis">
     
   
-    3. Crystal Lattices and Structures
+    Content
   
 
     
@@ -1111,10 +1168,21 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
+  <a href="#learning-objectives" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Summary
+        Learning Objectives
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
       
     </span>
   </a>
@@ -1143,9 +1211,396 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#crystal-lattices-unit-cells-and-the-primitive-cell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Crystal Lattices, Unit Cells, and the Primitive Cell
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Crystal Lattices, Unit Cells, and the Primitive Cell">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lattice-basis-and-crystal-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lattice, Basis, and Crystal Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unit-cells-and-the-primitive-cell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unit Cells and the Primitive Cell
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-lattice-constant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Lattice Constant
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cubic-lattice-structures-sc-bcc-and-fcc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cubic Lattice Structures: SC, BCC, and FCC
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cubic Lattice Structures: SC, BCC, and FCC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#simple-cubic-sc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Simple Cubic (SC)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#body-centered-cubic-bcc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Body-Centered Cubic (BCC)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#face-centered-cubic-fcc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Face-Centered Cubic (FCC)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#packing-fraction-a-worked-derivation-for-fcc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Packing Fraction: A Worked Derivation for FCC
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Packing Fraction: A Worked Derivation for FCC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-cubic-lattice-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Cubic Lattice Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-diamond-and-zincblende-structures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Diamond and Zincblende Structures
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Diamond and Zincblende Structures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diamond-cubic-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diamond Cubic Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zincblende-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Zincblende Structure
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Zincblende Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-diamond-and-zincblende-lattice-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Diamond and Zincblende Lattice Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#describing-crystal-planes-miller-indices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Describing Crystal Planes: Miller Indices
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Describing Crystal Planes: Miller Indices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#finding-miller-indices-from-intercepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Finding Miller Indices from Intercepts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-crystal-planes-matter-for-devices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Crystal Planes Matter for Devices
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Why Crystal Planes Matter for Devices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-miller-indices-plane-visualizer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Miller Indices Plane Visualizer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-equations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Equations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Glossary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Further Reading
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked Examples
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="problems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Problems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
       
     </li>
   
@@ -2121,6 +2576,152 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_4" id="__nav_7_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 3
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 3
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/cubic-lattice-explorer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cubic Lattice Explorer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/diamond-zincblende-explorer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Diamond and Zincblende Lattice Explorer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/miller-indices-explorer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Miller Indices Plane Visualizer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2519,9 +3120,47 @@
   
 
 
-<h1 id="crystal-lattices-and-structures">Crystal Lattices and Structures</h1>
-<h2 id="summary">Summary</h2>
-<p>This chapter introduces the geometric structure of crystalline solids: lattices, unit cells, and the common cubic and diamond-family lattice structures found in semiconductor materials. Students learn to describe crystal planes using Miller indices, a tool used throughout the course to discuss crystal orientation and surfaces.</p>
+<h1 id="chapter-3-crystal-lattices-and-structures">Chapter 3: Crystal Lattices and Structures</h1>
+<div class="unit1-styled">
+<details class="video-overview">
+<summary><strong>Chapter Overview</strong> (click to expand)</summary>
+<p>This chapter introduces the geometric language used to describe crystalline solids: the infinite, repeating array of points called a crystal lattice, the unit cell and primitive cell used to describe it compactly, and the specific cubic and tetrahedral structures — simple cubic, body-centered cubic, face-centered cubic, diamond, and zincblende — that describe real semiconductor materials such as silicon, germanium, and gallium arsenide. It closes with Miller indices, the standard notation for labeling crystal planes, which underlies how silicon wafers are cut, how crystals cleave, and how devices are fabricated.</p>
+<p><strong>Key Takeaways:</strong></p>
+<ol>
+<li>A crystal lattice is an infinite, perfectly periodic array of points in space; a crystal structure is formed by attaching a basis (one or more atoms) to every lattice point.</li>
+<li>A unit cell is a repeating volume that tiles all of space to reproduce the full lattice; a primitive cell is the smallest possible unit cell, containing exactly one lattice point.</li>
+<li>The lattice constant <span class="arithmatex">\(a\)</span> is the edge length of the conventional cubic unit cell and sets the fundamental length scale of a crystal — for silicon, <span class="arithmatex">\(a = 0.543\)</span> nm.</li>
+<li>The three cubic Bravais lattices — simple cubic (SC), body-centered cubic (BCC), and face-centered cubic (FCC) — differ in how many atoms occupy each conventional cell (1, 2, and 4 respectively) and in their coordination number and packing fraction.</li>
+<li>The diamond lattice structure, formed from two interpenetrating FCC lattices offset by one quarter of the body diagonal, gives silicon and germanium their characteristic four-fold (tetrahedral) coordination, with 8 atoms per conventional cell.</li>
+<li>The zincblende structure is geometrically identical to diamond but places two different atomic species on the two interpenetrating sublattices — the structure of compound semiconductors such as gallium arsenide (GaAs) — and this loss of a single atomic species also removes the inversion symmetry that pure diamond possesses.</li>
+<li>Miller indices <span class="arithmatex">\((hkl)\)</span> are a compact integer notation for crystal planes, found by taking the reciprocals of a plane's axis intercepts (in units of the lattice constant) and clearing fractions to the smallest integers.</li>
+<li>Every structure introduced here supplies the geometric scaffold for later chapters: Chapter 4 discusses the bonding that holds these atoms in place, and Chapter 5 solves the Schrödinger equation for an electron moving through the periodic potential that this lattice geometry creates.</li>
+</ol>
+</details>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<p>By the end of this chapter, you will be able to:</p>
+<ul>
+<li>Define a crystal lattice and distinguish it from a crystal structure (lattice plus basis)</li>
+<li>Distinguish a unit cell from a primitive cell, and state how many lattice points each contains</li>
+<li>Identify the lattice constant of a cubic crystal and use it to compute interatomic distances</li>
+<li>Count the number of atoms per conventional unit cell for the simple cubic, body-centered cubic, and face-centered cubic structures</li>
+<li>State the coordination number and packing fraction of the simple cubic, body-centered cubic, and face-centered cubic structures, and derive the packing fraction of at least one from its geometric touching condition</li>
+<li>Describe the diamond lattice structure as two interpenetrating FCC lattices and explain why it gives four-fold (tetrahedral) coordination</li>
+<li>Explain how the zincblende structure differs from the diamond structure, and why that difference removes inversion symmetry</li>
+<li>Compute the nearest-neighbor distance in a diamond-cubic crystal from its lattice constant</li>
+<li>Determine the Miller indices of a crystal plane from its axis intercepts, and sketch (in words) the plane corresponding to a given set of Miller indices</li>
+<li>Explain why crystal planes and Miller indices matter for semiconductor device fabrication (wafer cutting, cleaving, surface orientation)</li>
+<li>Solve worked and practice problems combining these ideas, in preparation for the bonding and band-theory discussions of Chapters 4–6</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">How to read this chapter</p>
+<p>This chapter is almost entirely geometric — there is very little new physics beyond counting, symmetry, and simple trigonometry, but the <em>vocabulary</em> introduced here (lattice, basis, unit cell, primitive cell, coordination number, Miller indices) is used without re-explanation in every later chapter. Pay particular attention to the atoms-per-cell counting arguments and the packing-fraction derivations, since the same "shared atom" bookkeeping reappears whenever a new structure is introduced. The MicroSims let you rotate and inspect each structure in three dimensions — take the time to interact with them, since the mermaid flowcharts in the text intentionally do not attempt to reproduce the three-dimensional geometry.</p>
+</div>
+<h2 id="introduction">Introduction</h2>
+<p>Chapter 1 introduced Coulomb's law and electrostatic potential energy to describe how two charges interact, and Chapter 2 developed the Schrödinger equation to predict the allowed energies of a particle confined by a potential. Both chapters, however, worked with idealized single particles or single potential wells. Real semiconductor crystals are nothing like that: they are vast, repeating arrangements of billions of atoms, each one a nucleus surrounded by electrons, held in place by the same electrostatic forces Chapter 1 described. Before any of the quantum-mechanical machinery of Chapter 2 can be applied to a real material, the geometry of that material — exactly how its atoms are arranged in space — has to be pinned down precisely. That geometric description is the entire subject of this chapter.</p>
+<p>A <strong>crystal lattice</strong> is the mathematical idealization of this repeating arrangement: an infinite, perfectly periodic array of points extending in every direction, with every point having an environment identical to every other point. A real crystal is built by attaching a <strong>basis</strong> — one atom, or a small group of atoms — to every point of this lattice, producing what is called a <strong>crystal structure</strong>. This chapter works through the specific lattices and structures most relevant to semiconductor physics: the three cubic <strong>Bravais lattices</strong> (simple cubic, body-centered cubic, and face-centered cubic), and the <strong>diamond</strong> and <strong>zincblende</strong> structures that describe silicon, germanium, and compound semiconductors such as gallium arsenide. Along the way, the chapter introduces the <strong>unit cell</strong> and <strong>primitive cell</strong>, the two standard ways of describing a lattice compactly, and the <strong>lattice constant</strong>, the single length scale that sets the size of a cubic unit cell.</p>
+<p>Why does this geometry matter for the physics still to come? The electrostatic forces of Chapter 1 are exactly what hold these atoms in their regular, repeating positions in the first place — Chapter 4 picks up this thread directly, explaining the bonding (ionic, covalent, and metallic) that determines <em>why</em> atoms arrange themselves into these particular structures rather than some other configuration. And Chapter 5's central achievement — solving the Schrödinger equation from Chapter 2 for an electron moving through a crystal — depends entirely on the potential energy <span class="arithmatex">\(V(x)\)</span> it uses being <em>periodic</em>, repeating with exactly the periodicity established by the lattice this chapter defines. Without a precise geometric description of that periodicity, the Kronig-Penney model of Chapter 5 and the energy bands of Chapter 6 would have no crystal structure to be periodic <em>in</em>. This chapter, in other words, supplies the stage on which the rest of the course's physics is performed.</p>
+<p>The chapter closes with <strong>Miller indices</strong>, a compact integer notation, <span class="arithmatex">\((hkl)\)</span>, used to label any plane within a crystal. Miller indices are not merely bookkeeping: the plane along which a silicon wafer is cut, the direction along which a crystal cleaves, and the surface exposed during device fabrication are all specified using this notation, making it one of the most practically important tools introduced in this course.</p>
 <h2 id="concepts-covered">Concepts Covered</h2>
 <p>This chapter covers the following 11 concepts from the learning graph:</p>
 <ol>
@@ -2538,15 +3177,293 @@
 <li>Crystal Plane</li>
 </ol>
 <h2 id="prerequisites">Prerequisites</h2>
-<p>This chapter assumes only the prerequisites listed in the <a href="../../course-description/">course description</a>.</p>
-<hr />
-<p>TODO: Generate Chapter Content</p>
+<p>This chapter builds on <a href="../01-physics-math-foundations/">Chapter 1: Physics and Math Foundations</a>, particularly Coulomb's law and electrostatic potential energy, and on <a href="../02-quantum-mechanics-foundations/">Chapter 2: Quantum Mechanics Foundations</a>, particularly the Schrödinger equation and the idea of a confining potential, which Chapter 5 will apply to the periodic geometry developed here.</p>
+<h2 id="crystal-lattices-unit-cells-and-the-primitive-cell">Crystal Lattices, Unit Cells, and the Primitive Cell</h2>
+<h3 id="lattice-basis-and-crystal-structure">Lattice, Basis, and Crystal Structure</h3>
+<p>A <strong>crystal lattice</strong> is an infinite, perfectly periodic array of points in space, defined purely by geometry: every lattice point has exactly the same surroundings as every other lattice point, and the entire array can be generated by repeatedly stepping by a small set of fixed translation vectors. A lattice by itself contains no atoms — it is a mathematical scaffold. A real crystal is produced by attaching a <strong>basis</strong> (one atom, for a simple element like silicon considered alone, or a small group of atoms for a compound) to every single point of the lattice. The combination is what this chapter calls a <strong>crystal structure</strong>:</p>
+<div class="arithmatex">\[
+\text{Crystal Structure} = \text{Lattice} + \text{Basis}
+\]</div>
+<p>This distinction matters immediately: two crystals can share the <em>same</em> underlying lattice while looking geometrically different, simply because they attach different bases to it. The diamond and zincblende structures discussed later in this chapter are the clearest illustration — they share an identical lattice geometry but differ entirely in their basis.</p>
+<h3 id="unit-cells-and-the-primitive-cell">Unit Cells and the Primitive Cell</h3>
+<p>Because a lattice is infinite, it cannot be described by listing every point; instead, it is described by specifying a single repeating volume, called a <strong>unit cell</strong>, that tiles all of space by simple translation to reproduce the entire lattice. Many different choices of unit cell can describe the same lattice. The conventional choice for a cubic lattice is simply a cube, with edge length equal to the <strong>lattice constant</strong> <span class="arithmatex">\(a\)</span> (discussed below) — this conventional cell is often chosen for its convenient, highly symmetric shape even when it is not the smallest possible repeating volume.</p>
+<p>The <strong>primitive cell</strong> is the smallest possible unit cell: a repeating volume containing exactly <strong>one</strong> lattice point (counting shared points by the fraction that actually lies inside the cell), such that stacking primitive cells with no gaps and no overlaps reproduces the full lattice. For a simple cubic lattice, the conventional cell and the primitive cell happen to coincide, since a simple cubic conventional cell already contains exactly one lattice point. For body-centered and face-centered cubic lattices, however, the conventional cubic cell contains <em>more</em> than one lattice point (as the atoms-per-cell counting in the next section shows explicitly), so their true primitive cells are smaller, non-cubic shapes. This course primarily works with the conventional cubic cell, since it is far easier to visualize and count atoms within, but it is important to know that the primitive cell — by definition containing exactly one lattice point — is always the more fundamental geometric object.</p>
+<h3 id="the-lattice-constant">The Lattice Constant</h3>
+<p>The <strong>lattice constant</strong>, denoted <span class="arithmatex">\(a\)</span>, is the edge length of the conventional cubic unit cell — the single length scale that fixes the absolute size of a cubic crystal's repeating pattern. Lattice constants are typically a few tenths of a nanometer: silicon has <span class="arithmatex">\(a = 0.543\)</span> nm, germanium has <span class="arithmatex">\(a = 0.566\)</span> nm, and gallium arsenide has <span class="arithmatex">\(a = 0.565\)</span> nm. Every geometric quantity discussed in this chapter — nearest-neighbor distances, packing fractions, plane spacings — is ultimately expressed as some numerical factor multiplied by <span class="arithmatex">\(a\)</span>.</p>
+<pre class="mermaid"><code>flowchart LR
+    A["Lattice&lt;br/&gt;(infinite array of points)"] --&gt; C["Crystal Structure"]
+    B["Basis&lt;br/&gt;(one or more atoms)"] --&gt; C
+    C --&gt; D["Unit Cell&lt;br/&gt;(conventional, e.g. cube of side a)"]
+    C --&gt; E["Primitive Cell&lt;br/&gt;(smallest cell, 1 lattice point)"]</code></pre>
+<h2 id="cubic-lattice-structures-sc-bcc-and-fcc">Cubic Lattice Structures: SC, BCC, and FCC</h2>
+<h3 id="simple-cubic-sc">Simple Cubic (SC)</h3>
+<p>The <strong>simple cubic structure</strong> places one atom at each of the 8 corners of the conventional cubic cell. Because each corner atom is shared among the 8 cells that meet at that corner, only <span class="arithmatex">\(1/8\)</span> of each corner atom effectively belongs to any single cell:</p>
+<div class="arithmatex">\[
+\text{Atoms per cell (SC)} = 8 \times \frac{1}{8} = 1
+\]</div>
+<p>In the simple cubic structure, atoms touch along the cube edge, so the touching condition relates the atomic radius <span class="arithmatex">\(r\)</span> directly to the lattice constant: <span class="arithmatex">\(2r = a\)</span>. The <strong>coordination number</strong> — the number of nearest neighbors surrounding any given atom — is 6 (one neighbor in each of the <span class="arithmatex">\(\pm x\)</span>, <span class="arithmatex">\(\pm y\)</span>, <span class="arithmatex">\(\pm z\)</span> directions). The <strong>packing fraction</strong> — the fraction of the cell's volume actually occupied by atoms, treating each as a hard sphere of radius <span class="arithmatex">\(r\)</span> — is derived explicitly below.</p>
+<h3 id="body-centered-cubic-bcc">Body-Centered Cubic (BCC)</h3>
+<p>The <strong>body-centered cubic structure</strong> starts from the same 8 corner atoms as the simple cubic structure, and adds one additional whole atom at the exact center of the cube (not shared with any neighboring cell):</p>
+<div class="arithmatex">\[
+\text{Atoms per cell (BCC)} = \left(8\times\frac{1}{8}\right) + 1 = 2
+\]</div>
+<p>In BCC, the corner atoms do not touch each other along the edge; instead, the corner atoms touch the body-center atom along the cube's body diagonal, giving the touching condition <span class="arithmatex">\(4r = \sqrt{3}\,a\)</span> (the body diagonal has length <span class="arithmatex">\(\sqrt{3}a\)</span>, and it spans four atomic radii: one radius at each end plus the full diameter of the center atom). The coordination number of BCC is 8 (each atom's nearest neighbors are the 8 atoms at the corners of the surrounding cube, or equivalently the body-center atoms of the 8 adjacent cells).</p>
+<h3 id="face-centered-cubic-fcc">Face-Centered Cubic (FCC)</h3>
+<p>The <strong>face-centered cubic structure</strong> again starts from the 8 corner atoms, and additionally places one atom at the center of each of the cube's 6 faces. Each face atom is shared between exactly 2 cells (the cell on either side of that face), contributing <span class="arithmatex">\(1/2\)</span> of each face atom to a given cell:</p>
+<div class="arithmatex">\[
+\text{Atoms per cell (FCC)} = \left(8\times\frac{1}{8}\right) + \left(6\times\frac{1}{2}\right) = 1 + 3 = 4
+\]</div>
+<p>In FCC, atoms touch along the face diagonal, giving the touching condition <span class="arithmatex">\(4r = \sqrt{2}\,a\)</span> (the face diagonal has length <span class="arithmatex">\(\sqrt{2}a\)</span> and spans four atomic radii, since it passes through the face-center atom). The coordination number of FCC is 12, the highest of the three cubic structures, reflecting its status as one of the two densest possible ways to pack identical spheres.</p>
+<h3 id="packing-fraction-a-worked-derivation-for-fcc">Packing Fraction: A Worked Derivation for FCC</h3>
+<p>The <strong>packing fraction</strong> is the ratio of the total volume of the atoms inside a cell (treated as hard spheres) to the volume of the cell itself. For FCC, the touching condition <span class="arithmatex">\(4r=\sqrt2 a\)</span> gives <span class="arithmatex">\(r = \sqrt2 a/4\)</span>. With 4 atoms per cell, each of volume <span class="arithmatex">\(\tfrac{4}{3}\pi r^3\)</span>, the packing fraction is:</p>
+<div class="arithmatex">\[
+\text{Packing Fraction} = \frac{4\times\tfrac{4}{3}\pi r^3}{a^3} = \frac{\tfrac{16}{3}\pi\left(\dfrac{\sqrt2\,a}{4}\right)^3}{a^3} = \frac{\tfrac{16}{3}\pi\cdot\dfrac{2\sqrt2}{64}a^3}{a^3} = \frac{\pi\sqrt2}{6} \approx 0.740
+\]</div>
+<p>The same style of calculation, carried out for SC (touching condition <span class="arithmatex">\(2r=a\)</span>) and BCC (touching condition <span class="arithmatex">\(4r=\sqrt3 a\)</span>), gives packing fractions of approximately 0.524 and 0.680 respectively. The three results form a clear physical progression:</p>
+<table>
+<thead>
+<tr>
+<th>Structure</th>
+<th>Atoms/cell</th>
+<th>Coordination number</th>
+<th>Packing fraction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Simple Cubic (SC)</td>
+<td>1</td>
+<td>6</td>
+<td><span class="arithmatex">\(\pi/6 \approx 0.524\)</span></td>
+</tr>
+<tr>
+<td>Body-Centered Cubic (BCC)</td>
+<td>2</td>
+<td>8</td>
+<td><span class="arithmatex">\(\sqrt3\pi/8 \approx 0.680\)</span></td>
+</tr>
+<tr>
+<td>Face-Centered Cubic (FCC)</td>
+<td>4</td>
+<td>12</td>
+<td><span class="arithmatex">\(\sqrt2\pi/6 \approx 0.740\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Higher coordination number consistently accompanies higher packing fraction — a more densely surrounded atom fits into a more densely packed structure overall. FCC's packing fraction of about 0.740 is, along with the geometrically distinct hexagonal close-packed structure, the maximum packing fraction achievable by any arrangement of identical spheres.</p>
+<h4 id="diagram-cubic-lattice-explorer">Diagram: Cubic Lattice Explorer</h4>
+<iframe height="620px" scrolling="auto" src="../../sims/cubic-lattice-explorer/main.html" width="100%"></iframe>
+<div class="admonition tip">
+<p class="admonition-title">How to use this MicroSim</p>
+<p><strong>Instructions:</strong> Select simple cubic, body-centered cubic, or face-centered cubic from the structure selector, and drag to rotate the three-dimensional view. Toggle the display of shared-atom fractions to see how the atoms-per-cell count is built up.</p>
+<p><strong>Learning objective:</strong> Visualize the three cubic Bravais lattices in three dimensions, and connect the visual sharing of corner, face, and body-center atoms to the atoms-per-cell arithmetic worked out in the text.</p>
+<p><strong>What to observe:</strong> Notice how the atoms visually "grow" in coordination as you move from SC to BCC to FCC, consistent with the increasing coordination numbers (6, 8, 12) and packing fractions (0.524, 0.680, 0.740) given in the table above.</p>
+</div>
+<p><a href="../../sims/cubic-lattice-explorer/">Full MicroSim documentation →</a></p>
+<div class="admonition question">
+<p class="admonition-title">Concept Check</p>
+<p>A face-centered cubic crystal and a body-centered cubic crystal are made of atoms with the same atomic radius <span class="arithmatex">\(r\)</span>. Which crystal has the larger lattice constant <span class="arithmatex">\(a\)</span>, and why?</p>
+</div>
+<details class="question">
+<summary>Concept Check — click to reveal answer</summary>
+<p>The FCC crystal has the larger lattice constant. From the touching conditions, <span class="arithmatex">\(a_{\text{BCC}} = 4r/\sqrt3 \approx 2.31r\)</span>, while <span class="arithmatex">\(a_{\text{FCC}} = 4r/\sqrt2 \approx 2.83r\)</span>. This may seem surprising given that FCC is the more densely packed structure, but the comparison that matters is packing efficiency, not raw cell size, since the two structures also pack different numbers of atoms into their cells. FCC has the larger conventional cell, but it packs 4 atoms into that larger cell rather than BCC's 2, giving FCC the higher overall packing fraction (0.740 versus 0.680).</p>
+</details>
+<h2 id="the-diamond-and-zincblende-structures">The Diamond and Zincblende Structures</h2>
+<h3 id="diamond-cubic-structure">Diamond Cubic Structure</h3>
+<p>The <strong>diamond lattice structure</strong> is the crystal structure of silicon and germanium, and it is built from the FCC lattice already introduced, but with a two-atom basis rather than a single atom. Concretely, diamond cubic consists of <strong>two interpenetrating FCC lattices</strong>, with the second lattice shifted relative to the first by one quarter of the way along the cube's body diagonal, a displacement of <span class="arithmatex">\((1/4,\,1/4,\,1/4)a\)</span>. Counting atoms carefully (the first FCC sublattice contributes its usual 4 atoms per conventional cell, and the second, shifted FCC sublattice contributes 4 more, all fully inside the cell) gives:</p>
+<div class="arithmatex">\[
+\text{Atoms per cell (Diamond)} = 4 + 4 = 8
+\]</div>
+<p>The defining physical feature of the diamond structure is its <strong>coordination number of 4</strong>: every atom sits at the center of a tetrahedron formed by its four nearest neighbors, rather than the coordination number of 12 you might expect from a close-packed FCC arrangement. This tetrahedral coordination is a direct consequence of the specific <span class="arithmatex">\((1/4,1/4,1/4)a\)</span> offset between the two interpenetrating sublattices, and — as Chapter 4 explains in detail — it reflects the directional nature of the covalent bonds silicon and germanium atoms form, which strongly favor exactly four bonds arranged tetrahedrally rather than the more isotropic packing of a metallic FCC crystal.</p>
+<p>Silicon has lattice constant <span class="arithmatex">\(a = 0.543\)</span> nm. The nearest-neighbor distance in a diamond-cubic crystal — the bond length between an atom and each of its four tetrahedral neighbors — is:</p>
+<div class="arithmatex">\[
+d = \frac{\sqrt3}{4}\,a
+\]</div>
+<p>For silicon, this gives <span class="arithmatex">\(d = \frac{\sqrt3}{4}(0.543\ \text{nm}) \approx 0.235\ \text{nm}\)</span>, consistent with the measured silicon-silicon bond length.</p>
+<h3 id="zincblende-structure">Zincblende Structure</h3>
+<p>The <strong>zincblende structure</strong> is geometrically identical to diamond cubic in every respect — two interpenetrating FCC sublattices offset by <span class="arithmatex">\((1/4,1/4,1/4)a\)</span>, the same 8 atoms per cell, the same tetrahedral 4-fold coordination — with exactly one difference: the two sublattices are occupied by two <strong>different</strong> atomic species. Gallium arsenide (GaAs), for example, places gallium atoms on one FCC sublattice and arsenic atoms on the other, so that every gallium atom is tetrahedrally bonded to four arsenic neighbors and vice versa.</p>
+<p>This single change — two species instead of one — has an important physical consequence: it destroys the <strong>inversion symmetry</strong> that pure diamond cubic possesses. In diamond cubic, every atom is chemically identical, so inverting the crystal through any atom (replacing every position <span class="arithmatex">\(\vec r\)</span> with <span class="arithmatex">\(-\vec r\)</span> relative to that atom) maps the crystal exactly onto itself. In zincblende, inverting through a gallium atom would map every neighboring arsenic atom onto a position that, in the true crystal, is occupied by gallium — the two atomic species are not interchangeable, so the symmetry operation fails. This loss of inversion symmetry is not just a mathematical curiosity: it is physically responsible for properties such as piezoelectricity that appear in compound semiconductors like GaAs but are absent in silicon and germanium.</p>
+<div class="admonition question">
+<p class="admonition-title">Concept Check</p>
+<p>Silicon crystallizes in the diamond cubic structure, built from two interpenetrating FCC lattices. Why is silicon's coordination number 4 rather than the 12 you would expect from an FCC-based structure?</p>
+</div>
+<details class="question">
+<summary>Concept Check — click to reveal answer</summary>
+<p>The coordination number of 12 applies to a single, simple FCC lattice with one atom per lattice point. Diamond cubic is not a simple FCC structure — it is two interpenetrating FCC lattices shifted by <span class="arithmatex">\((1/4,1/4,1/4)a\)</span>, a much larger displacement than the spacing between nearest FCC neighbors. This large offset means that each silicon atom's <em>nearest</em> neighbors are not other atoms on its own FCC sublattice (which would give coordination 12) but instead the four closest atoms on the <em>other</em>, shifted sublattice, giving the true coordination number of 4. The tetrahedral bonding preference of covalent silicon (discussed further in Chapter 4) is exactly what favors this open, lower-coordination structure over a denser close-packed alternative.</p>
+</details>
+<h4 id="diagram-diamond-and-zincblende-lattice-explorer">Diagram: Diamond and Zincblende Lattice Explorer</h4>
+<iframe height="620px" scrolling="auto" src="../../sims/diamond-zincblende-explorer/main.html" width="100%"></iframe>
+<div class="admonition tip">
+<p class="admonition-title">How to use this MicroSim</p>
+<p><strong>Instructions:</strong> Toggle between the diamond and zincblende structures, and rotate the three-dimensional view to inspect the tetrahedral bonding of a highlighted atom to its four nearest neighbors. In zincblende mode, the two atomic species are shown in different colors.</p>
+<p><strong>Learning objective:</strong> Visualize diamond cubic as two interpenetrating FCC lattices, and see directly why each atom has exactly four nearest neighbors arranged tetrahedrally rather than the twelve neighbors of a simple FCC lattice.</p>
+<p><strong>What to observe:</strong> In zincblende mode, notice that every atom of one color is bonded exclusively to four atoms of the other color — direct visual evidence of why zincblende, unlike diamond, has no inversion symmetry.</p>
+</div>
+<p><a href="../../sims/diamond-zincblende-explorer/">Full MicroSim documentation →</a></p>
+<h2 id="describing-crystal-planes-miller-indices">Describing Crystal Planes: Miller Indices</h2>
+<h3 id="finding-miller-indices-from-intercepts">Finding Miller Indices from Intercepts</h3>
+<p>A <strong>crystal plane</strong> is any flat plane passing through a set of lattice points within a crystal — surfaces along which real crystals cleave, and along which semiconductor wafers are commonly sliced during fabrication. Because a lattice contains infinitely many parallel families of such planes, a compact, standardized notation is needed to specify exactly which family is meant. That notation is the <strong>Miller indices</strong>, written <span class="arithmatex">\((hkl)\)</span>, and found by the following procedure:</p>
+<ol>
+<li>Find where the plane intercepts each of the three crystal axes, measured in units of the lattice constant <span class="arithmatex">\(a\)</span> (for example, intercepts at <span class="arithmatex">\(2a\)</span>, <span class="arithmatex">\(1a\)</span>, and <span class="arithmatex">\(\infty\)</span> along <span class="arithmatex">\(x\)</span>, <span class="arithmatex">\(y\)</span>, and <span class="arithmatex">\(z\)</span> respectively — an intercept of <span class="arithmatex">\(\infty\)</span> means the plane never crosses that axis, i.e., it is parallel to it).</li>
+<li>Take the reciprocal of each intercept.</li>
+<li>Clear any fractions by multiplying through by the smallest common integer, producing the smallest possible set of integers <span class="arithmatex">\(h\)</span>, <span class="arithmatex">\(k\)</span>, <span class="arithmatex">\(l\)</span>.</li>
+</ol>
+<p>A Miller index of 0 in any position always signals a plane parallel to that axis, since the reciprocal of an infinite intercept is zero.</p>
+<p><strong>Worked intercept example 1:</strong> Suppose a plane intercepts the <span class="arithmatex">\(x\)</span>, <span class="arithmatex">\(y\)</span>, and <span class="arithmatex">\(z\)</span> axes at <span class="arithmatex">\(1a\)</span>, <span class="arithmatex">\(1a\)</span>, and <span class="arithmatex">\(1a\)</span>. The reciprocals are <span class="arithmatex">\(1, 1, 1\)</span> — already integers, requiring no clearing — giving Miller indices <span class="arithmatex">\((111)\)</span>. This is the plane that cuts diagonally across a single unit cell, touching all three axes at equal distances; in the diamond and zincblende structures, the <span class="arithmatex">\((111)\)</span> planes are the planes along which those crystals most readily cleave.</p>
+<p><strong>Worked intercept example 2:</strong> Suppose a plane intercepts the <span class="arithmatex">\(x\)</span> axis at <span class="arithmatex">\(2a\)</span>, the <span class="arithmatex">\(y\)</span> axis at <span class="arithmatex">\(1a\)</span>, and never intercepts the <span class="arithmatex">\(z\)</span> axis (it is parallel to <span class="arithmatex">\(z\)</span>, i.e., an intercept at <span class="arithmatex">\(\infty\)</span>). The reciprocals are <span class="arithmatex">\(1/2,\ 1,\ 1/\infty = 0\)</span>. Clearing the fraction by multiplying through by 2 gives <span class="arithmatex">\(1,\ 2,\ 0\)</span>, so the Miller indices are <span class="arithmatex">\((120)\)</span>.</p>
+<pre class="mermaid"><code>flowchart LR
+    A["Plane Intercepts&lt;br/&gt;(in units of a)"] --&gt; B["Take Reciprocals"]
+    B --&gt; C["Clear Fractions&lt;br/&gt;(smallest integers)"]
+    C --&gt; D["Miller Indices (hkl)"]</code></pre>
+<h3 id="why-crystal-planes-matter-for-devices">Why Crystal Planes Matter for Devices</h3>
+<p>Miller indices are not an abstract classification exercise — they describe physically distinct surfaces with different atomic densities, different numbers of dangling (unsatisfied) bonds, and different chemical and electronic properties. Silicon wafers used in integrated-circuit fabrication are most commonly cut along the <span class="arithmatex">\((100)\)</span> plane, which offers a favorable, low-defect interface for growing the silicon-dioxide layers used in transistor gates, though <span class="arithmatex">\((111)\)</span>-oriented wafers are also used for certain applications. Because diamond-cubic crystals such as silicon and germanium cleave preferentially along <span class="arithmatex">\((111)\)</span> planes (the planes of highest atomic density and weakest inter-plane bonding), Miller indices also predict how a crystal will fracture when cut or stressed — directly relevant to wafer dicing during chip manufacturing.</p>
+<h4 id="diagram-miller-indices-plane-visualizer">Diagram: Miller Indices Plane Visualizer</h4>
+<iframe height="620px" scrolling="auto" src="../../sims/miller-indices-explorer/main.html" width="100%"></iframe>
+<div class="admonition tip">
+<p class="admonition-title">How to use this MicroSim</p>
+<p><strong>Instructions:</strong> Enter or select values of <span class="arithmatex">\(h\)</span>, <span class="arithmatex">\(k\)</span>, and <span class="arithmatex">\(l\)</span>, and observe the corresponding plane rendered inside a cubic unit cell, along with its axis intercepts.</p>
+<p><strong>Learning objective:</strong> Connect a set of Miller indices <span class="arithmatex">\((hkl)\)</span> to the physical plane it represents, and practice converting between axis intercepts and Miller indices in both directions.</p>
+<p><strong>What to observe:</strong> Notice that a Miller index of 0 always corresponds to a plane running parallel to that axis, and that smaller Miller indices generally correspond to planes with larger spacing and higher atomic density within the plane.</p>
+</div>
+<p><a href="../../sims/miller-indices-explorer/">Full MicroSim documentation →</a></p>
+<h2 id="summary">Summary</h2>
+<p>This chapter built the geometric vocabulary that every later chapter relies on. A crystal lattice, the infinite periodic array of points, becomes a crystal structure once a basis of one or more atoms is attached to each point, and that structure can be compactly described by a unit cell (conventionally a cube of edge length equal to the lattice constant <span class="arithmatex">\(a\)</span>) or, more fundamentally, by the smallest possible primitive cell containing exactly one lattice point. The three cubic Bravais lattices — simple cubic, body-centered cubic, and face-centered cubic — were distinguished by their atoms-per-cell counts (1, 2, and 4), coordination numbers (6, 8, and 12), and packing fractions (0.524, 0.680, and 0.740), each derived from a geometric touching condition relating atomic radius to lattice constant. The diamond lattice structure, built from two interpenetrating FCC lattices offset by <span class="arithmatex">\((1/4,1/4,1/4)a\)</span>, explained the tetrahedral, four-fold coordination of silicon and germanium, while the zincblende structure showed that placing two different atomic species on those same two sublattices — as in gallium arsenide — preserves the geometry but removes the inversion symmetry present in pure diamond. Finally, Miller indices <span class="arithmatex">\((hkl)\)</span>, found by taking reciprocals of a plane's axis intercepts and clearing fractions, provided the standard notation used to specify crystal planes, directly relevant to how silicon wafers are cut and how crystals cleave during device fabrication. With this geometric foundation in place, Chapter 4 turns to the bonding forces that hold these structures together, and Chapter 5 uses the periodicity established here to solve the Schrödinger equation for an electron moving through a real crystal.</p>
+<h2 id="key-equations">Key Equations</h2>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Equation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Crystal structure</td>
+<td>Lattice + Basis</td>
+</tr>
+<tr>
+<td>Atoms per cell (SC)</td>
+<td><span class="arithmatex">\(8\times\tfrac18 = 1\)</span></td>
+</tr>
+<tr>
+<td>Atoms per cell (BCC)</td>
+<td><span class="arithmatex">\(8\times\tfrac18 + 1 = 2\)</span></td>
+</tr>
+<tr>
+<td>Atoms per cell (FCC)</td>
+<td><span class="arithmatex">\(8\times\tfrac18 + 6\times\tfrac12 = 4\)</span></td>
+</tr>
+<tr>
+<td>Atoms per cell (Diamond)</td>
+<td><span class="arithmatex">\(4+4=8\)</span></td>
+</tr>
+<tr>
+<td>SC touching condition / packing fraction</td>
+<td><span class="arithmatex">\(2r=a\)</span>; <span class="arithmatex">\(\pi/6\approx0.524\)</span></td>
+</tr>
+<tr>
+<td>BCC touching condition / packing fraction</td>
+<td><span class="arithmatex">\(4r=\sqrt3\,a\)</span>; <span class="arithmatex">\(\sqrt3\pi/8\approx0.680\)</span></td>
+</tr>
+<tr>
+<td>FCC touching condition / packing fraction</td>
+<td><span class="arithmatex">\(4r=\sqrt2\,a\)</span>; <span class="arithmatex">\(\sqrt2\pi/6\approx0.740\)</span></td>
+</tr>
+<tr>
+<td>Diamond-cubic nearest-neighbor distance</td>
+<td><span class="arithmatex">\(d = \dfrac{\sqrt3}{4}a\)</span></td>
+</tr>
+<tr>
+<td>Miller index rule</td>
+<td><span class="arithmatex">\((hkl)\)</span>: reciprocals of axis intercepts (in units of <span class="arithmatex">\(a\)</span>), cleared to smallest integers</td>
+</tr>
+</tbody>
+</table>
+<h2 id="glossary">Glossary</h2>
+<p>See the <a href="glossary/">Chapter 3 Glossary</a> for full definitions of every term introduced in this chapter.</p>
+<h2 id="further-reading">Further Reading</h2>
+<ul>
+<li>Kittel, <em>Introduction to Solid State Physics</em> — the standard reference on Bravais lattices, crystal structures, and Miller indices</li>
+<li>Neamen, <em>Semiconductor Physics and Devices</em> — connects diamond and zincblende crystal structures directly to silicon and compound-semiconductor device physics</li>
+<li>Ashcroft and Mermin, <em>Solid State Physics</em> — a rigorous treatment of lattices, unit cells, and crystallographic notation</li>
+<li>International Union of Crystallography, <em>Online Dictionary of Crystallography</em> (dictionary.iucr.org) — an authoritative reference for Miller indices and crystallographic terminology</li>
+</ul>
+<h2 id="worked-examples">Worked Examples</h2>
+<div class="admonition example">
+<p class="admonition-title">Example 1 — Atoms per Cell in Simple Cubic</p>
+<p>Verify that the simple cubic structure has exactly 1 atom per conventional unit cell.</p>
+<p><strong>Solution:</strong> Simple cubic places one atom at each of the 8 corners of the cube. Each corner is shared among 8 cells that meet at that point, so each corner atom contributes <span class="arithmatex">\(1/8\)</span> to any one cell: <span class="arithmatex">\(8\times\tfrac18 = 1\)</span> atom per cell.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 2 — Atoms per Cell in Body-Centered Cubic</p>
+<p>Verify that the body-centered cubic structure has exactly 2 atoms per conventional unit cell.</p>
+<p><strong>Solution:</strong> BCC has the same 8 corner atoms as SC, contributing <span class="arithmatex">\(8\times\tfrac18=1\)</span> atom, plus one additional atom located entirely inside the cell at the body center, contributing a full atom. Total: <span class="arithmatex">\(1+1=2\)</span> atoms per cell.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 3 — Atoms per Cell in Face-Centered Cubic</p>
+<p>Verify that the face-centered cubic structure has exactly 4 atoms per conventional unit cell.</p>
+<p><strong>Solution:</strong> FCC has the 8 corner atoms (<span class="arithmatex">\(8\times\tfrac18=1\)</span> atom) plus 6 face-center atoms, each shared between the 2 cells on either side of that face (<span class="arithmatex">\(6\times\tfrac12=3\)</span> atoms). Total: <span class="arithmatex">\(1+3=4\)</span> atoms per cell.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 4 — Packing Fraction of Simple Cubic</p>
+<p>Derive the packing fraction of the simple cubic structure.</p>
+<p><strong>Solution:</strong> The touching condition for SC is <span class="arithmatex">\(2r=a\)</span>, so <span class="arithmatex">\(r=a/2\)</span>. With 1 atom per cell, each of volume <span class="arithmatex">\(\tfrac43\pi r^3\)</span>: packing fraction <span class="arithmatex">\(=\dfrac{1\times\tfrac43\pi r^3}{a^3} = \dfrac{\tfrac43\pi (a/2)^3}{a^3} = \dfrac{\tfrac43\pi\cdot\tfrac{1}{8}a^3}{a^3} = \dfrac{\pi}{6}\approx0.524\)</span>.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 5 — Packing Fraction of Body-Centered Cubic</p>
+<p>Derive the packing fraction of the body-centered cubic structure.</p>
+<p><strong>Solution:</strong> The touching condition for BCC is <span class="arithmatex">\(4r=\sqrt3 a\)</span>, so <span class="arithmatex">\(r=\sqrt3 a/4\)</span>. With 2 atoms per cell: packing fraction <span class="arithmatex">\(=\dfrac{2\times\tfrac43\pi r^3}{a^3} = \dfrac{\tfrac83\pi\left(\dfrac{\sqrt3 a}{4}\right)^3}{a^3} = \dfrac{\tfrac83\pi\cdot\dfrac{3\sqrt3}{64}a^3}{a^3} = \dfrac{\sqrt3\pi}{8}\approx0.680\)</span>.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 6 — Coordination Number Identification</p>
+<p>A crystal structure has 8 atoms per conventional unit cell and each atom is bonded to exactly 4 nearest neighbors arranged tetrahedrally. Identify the structure.</p>
+<p><strong>Solution:</strong> Eight atoms per cell together with four-fold tetrahedral coordination is the defining signature of the diamond lattice structure (or, if two different atomic species occupy the two sublattices, the zincblende structure) — not any of the three simple cubic Bravais lattices, all of which have coordination number 6, 8, or 12 and at most 4 atoms per cell.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 7 — Silicon's Nearest-Neighbor Distance</p>
+<p>Silicon has lattice constant <span class="arithmatex">\(a=0.543\)</span> nm and crystallizes in the diamond cubic structure. Find the nearest-neighbor (bond) distance.</p>
+<p><strong>Solution:</strong> <span class="arithmatex">\(d = \dfrac{\sqrt3}{4}a = \dfrac{1.732}{4}(0.543\ \text{nm}) = 0.433\times0.543\ \text{nm} = 0.235\ \text{nm}\)</span>.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 8 — Density of Silicon from Its Crystal Structure</p>
+<p>Silicon has lattice constant <span class="arithmatex">\(a=0.543\)</span> nm, 8 atoms per conventional cell, and atomic mass 28.09 u. Using <span class="arithmatex">\(N_A=6.022\times10^{23}\ \text{mol}^{-1}\)</span>, compute silicon's mass density and compare it to the accepted value of about 2.33 g/cm<span class="arithmatex">\(^3\)</span>.</p>
+<p><strong>Solution:</strong> Cell volume: <span class="arithmatex">\(a^3 = (0.543\times10^{-7}\ \text{cm})^3 = 1.601\times10^{-22}\ \text{cm}^3\)</span>. Mass of 8 silicon atoms: <span class="arithmatex">\(m = 8\times\dfrac{28.09\ \text{g/mol}}{6.022\times10^{23}\ \text{mol}^{-1}} = 8\times4.665\times10^{-23}\ \text{g} = 3.732\times10^{-22}\ \text{g}\)</span>. Density: <span class="arithmatex">\(\rho = m/a^3 = (3.732\times10^{-22})/(1.601\times10^{-22}) = 2.33\ \text{g/cm}^3\)</span> — an excellent match to silicon's accepted density, confirming the diamond-cubic atom count and lattice constant.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 9 — Miller Indices from Intercepts</p>
+<p>A crystal plane intercepts the <span class="arithmatex">\(x\)</span>, <span class="arithmatex">\(y\)</span>, and <span class="arithmatex">\(z\)</span> axes at <span class="arithmatex">\(1a\)</span>, <span class="arithmatex">\(2a\)</span>, and <span class="arithmatex">\(2a\)</span> respectively. Find its Miller indices.</p>
+<p><strong>Solution:</strong> Reciprocals: <span class="arithmatex">\(1/1,\ 1/2,\ 1/2\)</span>. Clearing fractions by multiplying through by 2: <span class="arithmatex">\(2,\ 1,\ 1\)</span>. Miller indices: <span class="arithmatex">\((211)\)</span>.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 10 — Miller Indices for a Plane Parallel to an Axis</p>
+<p>A crystal plane intercepts the <span class="arithmatex">\(x\)</span> axis at <span class="arithmatex">\(1a\)</span> and the <span class="arithmatex">\(y\)</span> axis at <span class="arithmatex">\(1a\)</span>, and never intercepts the <span class="arithmatex">\(z\)</span> axis. Find its Miller indices.</p>
+<p><strong>Solution:</strong> Reciprocals: <span class="arithmatex">\(1/1,\ 1/1,\ 1/\infty = 0\)</span>. Already integers: Miller indices <span class="arithmatex">\((110)\)</span> — a plane running parallel to the <span class="arithmatex">\(z\)</span> axis.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 11 — Intercepts from Miller Indices</p>
+<p>A crystal plane has Miller indices <span class="arithmatex">\((100)\)</span>. Describe, in words, the plane it represents and its axis intercepts.</p>
+<p><strong>Solution:</strong> Reversing the procedure, the intercepts are the reciprocals of <span class="arithmatex">\(h,k,l\)</span>: <span class="arithmatex">\(1/1=1\)</span> along <span class="arithmatex">\(x\)</span>, <span class="arithmatex">\(1/0=\infty\)</span> along <span class="arithmatex">\(y\)</span>, and <span class="arithmatex">\(1/0=\infty\)</span> along <span class="arithmatex">\(z\)</span>. This plane crosses the <span class="arithmatex">\(x\)</span> axis at exactly one lattice constant from the origin and never crosses the <span class="arithmatex">\(y\)</span> or <span class="arithmatex">\(z\)</span> axes — it is a plane parallel to the <span class="arithmatex">\(y\)</span>-<span class="arithmatex">\(z\)</span> face of the cube, the orientation commonly used for silicon wafers in device fabrication.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 12 — The (111) Cleavage Plane</p>
+<p>Describe the <span class="arithmatex">\((111)\)</span> plane of a diamond-cubic crystal in words and explain its practical significance.</p>
+<p><strong>Solution:</strong> The <span class="arithmatex">\((111)\)</span> plane intercepts all three axes at exactly <span class="arithmatex">\(1a\)</span>, cutting diagonally through a unit cell so that it is equally inclined to all three crystal axes. In diamond-cubic crystals like silicon and germanium, <span class="arithmatex">\((111)\)</span> planes have the highest atomic density and the weakest bonding between adjacent planes, so these are the planes along which such crystals cleave most readily — a fact used both in crystallography and during wafer dicing in semiconductor manufacturing.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 13 — Comparing Packing Fractions</p>
+<p>A materials engineer must choose between a BCC and an FCC arrangement of identical atoms to maximize packing density. Which should be chosen, and by what factor is the packing fraction higher?</p>
+<p><strong>Solution:</strong> FCC has the higher packing fraction, <span class="arithmatex">\(\sqrt2\pi/6\approx0.740\)</span>, compared to BCC's <span class="arithmatex">\(\sqrt3\pi/8\approx0.680\)</span>. The ratio is <span class="arithmatex">\(0.740/0.680\approx1.088\)</span>, so FCC packs about 8.8% more atomic volume into the same cell volume than BCC — consistent with FCC's higher coordination number of 12 versus BCC's 8.</p>
+</div>
+</div>
 
 
 
 
 
 
+
+  
+  
 
 
 
@@ -2595,13 +3512,13 @@
         
         
           
-          <a href="../04-chemical-bonding-crystals/" class="md-footer__link md-footer__link--next" aria-label="Next: 4. Chemical Bonding in Semiconductor Crystals">
+          <a href="quiz/" class="md-footer__link md-footer__link--next" aria-label="Next: Quiz">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                4. Chemical Bonding in Semiconductor Crystals
+                Quiz
               </div>
             </div>
             <div class="md-footer__button md-icon">

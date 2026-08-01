@@ -1,0 +1,40 @@
+{
+  "chapter": "Chapter 1: Physics and Math Foundations",
+  "chapter_file": "docs/chapters/01-physics-math-foundations/index.md",
+  "quiz_file": "docs/chapters/01-physics-math-foundations/quiz.md",
+  "generated_date": "2026-07-31",
+  "total_questions": 20,
+  "content_readiness_score": 95,
+  "overall_quality_score": 88,
+  "note": "Question count (20) intentionally exceeds the default 8-12 range because Chapter 1 covers an unusually large 26 concepts (8 original electrostatics/thermal concepts plus 18 prerequisite math/EM concepts appended to the learning graph).",
+  "questions": [
+    { "id": "ch1-q001", "number": 1, "question_text": "According to Newton's second law as used in this chapter, how is the net force on an object related to its mass and acceleration?", "correct_answer": "B", "bloom_level": "Remember", "difficulty": "easy", "concept_tested": "Force", "source_link": "index.md#force-and-energy" },
+    { "id": "ch1-q002", "number": 2, "question_text": "Which statement correctly describes electric charge as introduced in this chapter?", "correct_answer": "D", "bloom_level": "Remember", "difficulty": "easy", "concept_tested": "Electric Charge", "source_link": "index.md#charge" },
+    { "id": "ch1-q003", "number": 3, "question_text": "How is electric potential (voltage) defined in this chapter?", "correct_answer": "A", "bloom_level": "Remember", "difficulty": "easy", "concept_tested": "Electric Potential", "source_link": "index.md#potential-and-voltage" },
+    { "id": "ch1-q004", "number": 4, "question_text": "What physical role does the Boltzmann constant play, as described in this chapter?", "correct_answer": "C", "bloom_level": "Remember", "difficulty": "easy", "concept_tested": "Boltzmann Constant", "source_link": "index.md#kinetic-theory-the-boltzmann-constant-and-thermal-equilibrium" },
+    { "id": "ch1-q005", "number": 5, "question_text": "What does the divergence of a vector field measure at a point?", "correct_answer": "B", "bloom_level": "Remember", "difficulty": "easy", "concept_tested": "Divergence", "source_link": "index.md#divergence" },
+    { "id": "ch1-q006", "number": 6, "question_text": "Two point charges are separated by distance r. If that distance is tripled while the charges stay the same, what happens to the electrostatic force between them, according to Coulomb's Law?", "correct_answer": "D", "bloom_level": "Understand", "difficulty": "medium", "concept_tested": "Coulomb's Law", "source_link": "index.md#coulombs-law" },
+    { "id": "ch1-q007", "number": 7, "question_text": "Why is the electric field considered a more general description of electrostatic influence than the electrostatic force from Coulomb's Law?", "correct_answer": "A", "bloom_level": "Understand", "difficulty": "medium", "concept_tested": "Electric Field", "source_link": "index.md#electric-fields" },
+    { "id": "ch1-q008", "number": 8, "question_text": "According to Euler's formula introduced in this chapter, how is the complex exponential e^(i-theta) related to trigonometric functions?", "correct_answer": "B", "bloom_level": "Understand", "difficulty": "medium", "concept_tested": "Complex Numbers", "source_link": "index.md#complex-numbers" },
+    { "id": "ch1-q009", "number": 9, "question_text": "How does the electric field relate to the electric potential via the gradient, as presented in this chapter?", "correct_answer": "C", "bloom_level": "Understand", "difficulty": "medium", "concept_tested": "Gradient", "source_link": "index.md#gradient" },
+    { "id": "ch1-q010", "number": 10, "question_text": "A photon's wavelength is decreased while the speed of light stays constant. Based on E = hc/lambda, what happens to its energy?", "correct_answer": "D", "bloom_level": "Understand", "difficulty": "medium", "concept_tested": "Photon Energy", "source_link": "index.md#photon-energy" },
+    { "id": "ch1-q011", "number": 11, "question_text": "Given the potential V(x,y,z) = 3x^2y + 2z, what is dV/dx (partial)?", "correct_answer": "A", "bloom_level": "Apply", "difficulty": "medium", "concept_tested": "Partial Derivatives", "source_link": "index.md#partial-derivatives" },
+    { "id": "ch1-q012", "number": 12, "question_text": "A spherical Gaussian surface encloses a fixed point charge. If the radius of the sphere is doubled while the enclosed charge stays the same, what does Gauss's Law say happens to the total electric flux through the surface?", "correct_answer": "C", "bloom_level": "Apply", "difficulty": "medium", "concept_tested": "Gauss's Law", "source_link": "index.md#gausss-law" },
+    { "id": "ch1-q013", "number": 13, "question_text": "In this chapter's notation, what distinguishes a vector quantity like force from a scalar quantity like energy?", "correct_answer": "A", "bloom_level": "Remember", "difficulty": "easy", "concept_tested": "Vectors", "source_link": "index.md#vectors" },
+    { "id": "ch1-q014", "number": 14, "question_text": "What does the curl of the static electric field equal, according to this chapter?", "correct_answer": "D", "bloom_level": "Remember", "difficulty": "easy", "concept_tested": "Curl", "source_link": "index.md#curl" },
+    { "id": "ch1-q015", "number": 15, "question_text": "How is electric flux through a flat surface in a uniform field defined in this chapter?", "correct_answer": "B", "bloom_level": "Remember", "difficulty": "easy", "concept_tested": "Electric Flux", "source_link": "index.md#electric-flux" },
+    { "id": "ch1-q016", "number": 16, "question_text": "Why is the permittivity of free space, epsilon-0, classified as a fundamental physical constant rather than a property specific to one experiment?", "correct_answer": "C", "bloom_level": "Understand", "difficulty": "medium", "concept_tested": "Fundamental Physical Constants", "source_link": "index.md#fundamental-constants" },
+    { "id": "ch1-q017", "number": 17, "question_text": "A crystal has a uniform temperature and exchanges no net energy with its surroundings, but a second sample of the same material has hot and cold regions. Which sample is in thermal equilibrium, and why?", "correct_answer": "A", "bloom_level": "Understand", "difficulty": "medium", "concept_tested": "Thermal Equilibrium", "source_link": "index.md#kinetic-theory-the-boltzmann-constant-and-thermal-equilibrium" },
+    { "id": "ch1-q018", "number": 18, "question_text": "If two like-signed point charges are moved closer together, what happens to their electrostatic potential energy, based on U = q_test V(r)?", "correct_answer": "D", "bloom_level": "Understand", "difficulty": "medium", "concept_tested": "Electrostatic Potential Energy", "source_link": "index.md#electric-potential" },
+    { "id": "ch1-q019", "number": 19, "question_text": "Using V = V_T ln(I/I0 + 1), find V (in volts) when I = 99 I0 and V_T = 0.0259 V.", "correct_answer": "B", "bloom_level": "Apply", "difficulty": "medium", "concept_tested": "Exponentials and Logarithms", "source_link": "index.md#algebra-review" },
+    { "id": "ch1-q020", "number": 20, "question_text": "A charged particle is released from rest near a fixed point charge of the same sign and moves away under the resulting repulsive force. Which statement best explains the underlying reason its kinetic energy increases while its electrostatic potential energy decreases?", "correct_answer": "C", "bloom_level": "Analyze", "difficulty": "hard", "concept_tested": "Mechanical Energy", "source_link": "index.md#force-and-energy" }
+  ],
+  "answer_distribution": { "A": 5, "B": 5, "C": 5, "D": 5 },
+  "bloom_distribution": { "Remember": 8, "Understand": 8, "Apply": 3, "Analyze": 1, "Evaluate": 0, "Create": 0 },
+  "concept_coverage": {
+    "total_concepts": 26,
+    "tested_concepts": 20,
+    "coverage_percentage": 77,
+    "untested_concepts": ["Algebra", "Trigonometry", "Differentiation", "Integration", "SI Units", "Kinetic Theory of Gases"]
+  }
+}

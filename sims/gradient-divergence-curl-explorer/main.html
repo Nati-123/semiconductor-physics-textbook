@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Gradient, Divergence, and Curl Explorer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="gradient-divergence-curl-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> In Gradient mode, switch between "Bowl" and "Saddle" and note which way the arrows point at a spot away from the center.</li>
+            <li><strong>Predict:</strong> Before switching to the Divergence "Sink (inward)" field, predict what tint color the background will show.</li>
+            <li><strong>Observe:</strong> In Curl mode, compare "Rotational" and "Radial" — which one has arrows that visibly curve around in circles?</li>
+            <li><strong>Explain:</strong> Explain why a static electric field, which always points radially from a point charge, has zero curl.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 1:</strong> This MicroSim visualizes the three boxed operator definitions — \(\nabla f\), \(\nabla\cdot\vec{F}\), and \(\nabla\times\vec{F}\) — from the Vector Calculus section, and previews why \(\nabla\times\vec{E}=0\) is stated for every electrostatic field used later in this course.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>Operator dropdown</dt>
+            <dd>Selects which vector-calculus operator is applied: Gradient (turns a scalar field into a vector), Divergence (turns a vector field into a scalar), or Curl (turns a vector field into another vector).</dd>
+            <dt>Field dropdown</dt>
+            <dd>Selects the preset field the chosen operator acts on — the list of options changes automatically to match the selected operator.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">1. In Gradient mode with the "Bowl: V = x² + y²" field, which direction do the arrows point at a spot away from the center?</p>
+            <label><input type="radio" name="gdc-q1" value="a"> Toward the origin</label>
+            <label><input type="radio" name="gdc-q1" value="b"> Away from the origin</label>
+            <label><input type="radio" name="gdc-q1" value="c"> Always straight up</label>
+            <label><input type="radio" name="gdc-q1" value="d"> Randomly in different directions</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>V grows larger farther from the origin in a bowl shape, so the gradient (steepest increase) points outward, away from the center.</p>
+            <p class="explain-incorrect" hidden>Select the Bowl field and look at an arrow near the edge of the grid.</p>
+        </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">2. In Divergence mode, which field produces a blue background tint (negative divergence)?</p>
+            <label><input type="radio" name="gdc-q2" value="a"> Source (outward)</label>
+            <label><input type="radio" name="gdc-q2" value="b"> Sink (inward)</label>
+            <label><input type="radio" name="gdc-q2" value="c"> Uniform</label>
+            <label><input type="radio" name="gdc-q2" value="d"> None of them</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>The sink field's arrows all point inward, meaning more flow enters than leaves any region — negative divergence, tinted blue.</p>
+            <p class="explain-incorrect" hidden>Switch to each field in Divergence mode and read the numeric ∇·F value at the bottom.</p>
+        </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">3. In Curl mode, which field produces a nonzero curl (purple tint)?</p>
+            <label><input type="radio" name="gdc-q3" value="a"> Rotational (CCW)</label>
+            <label><input type="radio" name="gdc-q3" value="b"> Radial</label>
+            <label><input type="radio" name="gdc-q3" value="c"> Uniform</label>
+            <label><input type="radio" name="gdc-q3" value="d"> None of them</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Only the rotational field's arrows circulate around a point, which is exactly what nonzero curl measures.</p>
+            <p class="explain-incorrect" hidden>Compare the arrow patterns: which one forms circles instead of straight lines?</p>
+        </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">4. Which operator converts a scalar field (like height or potential) into a vector pointing in the direction of steepest increase?</p>
+            <label><input type="radio" name="gdc-q4" value="a"> Gradient</label>
+            <label><input type="radio" name="gdc-q4" value="b"> Divergence</label>
+            <label><input type="radio" name="gdc-q4" value="c"> Curl</label>
+            <label><input type="radio" name="gdc-q4" value="d"> None of these</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>The gradient is the only one of the three operators whose input is a scalar field and whose output is a vector.</p>
+            <p class="explain-incorrect" hidden>Recall which operator takes \(V(x,y,z)\) as its input in the chapter's definitions.</p>
+        </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">5. If you placed a tiny paddlewheel at a point in each Curl-mode field, in which field would it spin fastest?</p>
+            <label><input type="radio" name="gdc-q5" value="a"> Rotational (CCW)</label>
+            <label><input type="radio" name="gdc-q5" value="b"> Radial</label>
+            <label><input type="radio" name="gdc-q5" value="c"> Uniform</label>
+            <label><input type="radio" name="gdc-q5" value="d"> It spins the same in all three</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Curl magnitude is proportional to how fast the paddlewheel would spin, and only the rotational field has nonzero curl.</p>
+            <p class="explain-incorrect" hidden>Re-read the paddlewheel analogy in the Curl subsection of the chapter.</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

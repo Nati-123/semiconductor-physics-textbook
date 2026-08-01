@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Photon Energy Across the Electromagnetic Spectrum</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f5f5f5;
+            box-sizing: border-box;
+        }
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 15px;
+            box-sizing: border-box;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 1.2em;
+            margin: 0 0 12px 0;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            height: 420px;
+        }
+        .legend-note {
+            text-align: center;
+            font-size: 0.82em;
+            color: #666;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Photon Energy vs. Wavelength Across the Electromagnetic Spectrum</h1>
+        <div class="chart-container">
+            <canvas id="photonChart"></canvas>
+        </div>
+        <p class="legend-note">Shaded band = visible light (380&ndash;700 nm). Dashed red line = silicon's 1.12 eV band gap. Both axes are logarithmic.</p>
+    </div>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Hover over the gamma-ray end and the radio-wave end of the curve and compare the two energy readouts.</li>
+            <li><strong>Predict:</strong> Before hovering, predict whether violet light (~400 nm) or red light (~700 nm) carries more photon energy.</li>
+            <li><strong>Observe:</strong> Look at exactly where the dashed red line crosses the curve — which spectral band is it in?</li>
+            <li><strong>Explain:</strong> Using \(E=hc/\lambda\), explain in your own words why shorter wavelengths always carry more photon energy.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 1:</strong> This chart plots the boxed photon-energy equation \(E_{\text{photon}}=hf=\frac{hc}{\lambda}\) across the full electromagnetic spectrum. Compare the near-infrared intersection point to Worked Example 11, which computes the energy of a 650 nm red photon.</p>
+
+        <h3>How to Use This Chart</h3>
+        <dl class="control-captions">
+            <dt>Hovering over the curve</dt>
+            <dd>Shows the exact photon energy and wavelength at that point — there are no sliders on this chart since it plots a single fixed equation across the whole spectrum.</dd>
+            <dt>Shaded violet band</dt>
+            <dd>Marks the visible-light range (380–700 nm) so you can see how narrow it is compared to the full spectrum.</dd>
+            <dt>Dashed red line</dt>
+            <dd>Marks silicon's 1.12 eV band gap — light above this line carries enough energy per photon for silicon to absorb it.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">1. Which region of the spectrum has higher photon energy?</p>
+            <label><input type="radio" name="pesc-q1" value="a"> Gamma rays</label>
+            <label><input type="radio" name="pesc-q1" value="b"> Radio waves</label>
+            <label><input type="radio" name="pesc-q1" value="c"> They are equal</label>
+            <label><input type="radio" name="pesc-q1" value="d"> Cannot be determined</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Gamma rays have extremely short wavelengths, and since \(E\propto 1/\lambda\), they carry the highest photon energy on the chart.</p>
+            <p class="explain-incorrect" hidden>Hover over both ends of the curve and compare the y-axis values.</p>
+        </div>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">2. The dashed silicon band-gap line crosses the curve in which spectral region?</p>
+            <label><input type="radio" name="pesc-q2" value="a"> Visible</label>
+            <label><input type="radio" name="pesc-q2" value="b"> Ultraviolet</label>
+            <label><input type="radio" name="pesc-q2" value="c"> Near-infrared</label>
+            <label><input type="radio" name="pesc-q2" value="d"> Microwave</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>The intersection sits at about 1107 nm, just past the red end of visible light — in the near-infrared.</p>
+            <p class="explain-incorrect" hidden>Look at the red marker dot and read the labeled band directly above it.</p>
+        </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">3. Using \(E=hc/\lambda\), if wavelength is cut in half, what happens to photon energy?</p>
+            <label><input type="radio" name="pesc-q3" value="a"> It is cut in half</label>
+            <label><input type="radio" name="pesc-q3" value="b"> It doubles</label>
+            <label><input type="radio" name="pesc-q3" value="c"> It quadruples</label>
+            <label><input type="radio" name="pesc-q3" value="d"> It stays the same</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Energy is inversely proportional to wavelength (no exponent), so halving \(\lambda\) exactly doubles \(E\).</p>
+            <p class="explain-incorrect" hidden>Hover at 700 nm and then at 350 nm and compare the two energy readouts.</p>
+        </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">4. Which has more photon energy: 400 nm (violet) light or 700 nm (red) light?</p>
+            <label><input type="radio" name="pesc-q4" value="a"> 400 nm (violet)</label>
+            <label><input type="radio" name="pesc-q4" value="b"> 700 nm (red)</label>
+            <label><input type="radio" name="pesc-q4" value="c"> They are equal</label>
+            <label><input type="radio" name="pesc-q4" value="d"> Depends on brightness</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Shorter wavelength means higher energy, so 400 nm violet light carries more energy per photon than 700 nm red light.</p>
+            <p class="explain-incorrect" hidden>Hover over both wavelengths inside the shaded visible band and compare.</p>
+        </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">5. Why can silicon absorb the near-infrared photon (~1107 nm) marked on this chart?</p>
+            <label><input type="radio" name="pesc-q5" value="a"> That photon's energy exceeds silicon's 1.12 eV band gap</label>
+            <label><input type="radio" name="pesc-q5" value="b"> Because infrared light is invisible to humans</label>
+            <label><input type="radio" name="pesc-q5" value="c"> Because that photon has zero energy</label>
+            <label><input type="radio" name="pesc-q5" value="d"> Because silicon only absorbs visible light</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Absorption requires photon energy to meet or exceed the band gap energy — at this marker, the two are exactly equal, so photons at slightly shorter wavelengths (more energy) are absorbed.</p>
+            <p class="explain-incorrect" hidden>Re-read the paragraph on optical absorption just above this chart in the chapter.</p>
+        </div>
+
+    </div>
+    </details>
+
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+    <script>
+        const H = 6.626e-34;   // Planck's constant, J*s
+        const C = 2.998e8;     // speed of light, m/s
+        const EV = 1.602e-19;  // joules per eV
+        const SI_GAP_EV = 1.12;
+
+        function photonEnergyEv(lambdaM) {
+            return (H * C) / (lambdaM * EV);
+        }
+
+        // Build ~150 log-spaced points from 1e-12 m to 1e3 m
+        const points = [];
+        const logMin = Math.log10(1e-12);
+        const logMax = Math.log10(1e3);
+        const n = 150;
+        for (let i = 0; i <= n; i++) {
+            const logL = logMin + (i / n) * (logMax - logMin);
+            const lambda = Math.pow(10, logL);
+            points.push({ x: lambda, y: photonEnergyEv(lambda) });
+        }
+
+        // Wavelength where E = 1.12 eV: lambda = hc / (1.12 eV in joules)
+        const lambdaAtGap = (H * C) / (SI_GAP_EV * EV);
+
+        const bands = [
+            { name: 'Gamma Ray', x1: 1e-12, x2: 1e-11 },
+            { name: 'X-Ray', x1: 1e-11, x2: 1e-8 },
+            { name: 'UV', x1: 1e-8, x2: 3.8e-7 },
+            { name: 'Visible', x1: 3.8e-7, x2: 7e-7 },
+            { name: 'Infrared', x1: 7e-7, x2: 1e-3 },
+            { name: 'Microwave', x1: 1e-3, x2: 1e-1 },
+            { name: 'Radio', x1: 1e-1, x2: 1e3 }
+        ];
+
+        const bandPlugin = {
+            id: 'spectrumBandPlugin',
+            beforeDraw(chart) {
+                const { ctx, chartArea, scales } = chart;
+                const xScale = scales.x;
+                const yScale = scales.y;
+
+                // Shade the visible-light band
+                const vx1 = xScale.getPixelForValue(380e-9);
+                const vx2 = xScale.getPixelForValue(700e-9);
+                ctx.save();
+                ctx.fillStyle = 'rgba(148, 0, 211, 0.14)';
+                ctx.fillRect(Math.min(vx1, vx2), chartArea.top, Math.abs(vx2 - vx1), chartArea.bottom - chartArea.top);
+                ctx.restore();
+
+                // Dashed reference line at the silicon band gap energy
+                const gapY = yScale.getPixelForValue(SI_GAP_EV);
+                ctx.save();
+                ctx.strokeStyle = '#C62828';
+                ctx.lineWidth = 1.5;
+                ctx.setLineDash([6, 4]);
+                ctx.beginPath();
+                ctx.moveTo(chartArea.left, gapY);
+                ctx.lineTo(chartArea.right, gapY);
+                ctx.stroke();
+                ctx.setLineDash([]);
+                ctx.fillStyle = '#C62828';
+                ctx.font = '11px Arial';
+                ctx.textAlign = 'right';
+                ctx.fillText('Silicon Band Gap (1.12 eV)', chartArea.right - 4, gapY - 4);
+                ctx.restore();
+
+                // Marker at the curve/band-gap intersection point
+                const markerX = xScale.getPixelForValue(lambdaAtGap);
+                ctx.save();
+                ctx.fillStyle = '#C62828';
+                ctx.beginPath();
+                ctx.arc(markerX, gapY, 4, 0, 2 * Math.PI);
+                ctx.fill();
+                ctx.restore();
+
+                // Spectrum band name labels along the top of the plot area
+                ctx.save();
+                ctx.fillStyle = '#555';
+                ctx.font = '10px Arial';
+                ctx.textAlign = 'center';
+                bands.forEach(function (b) {
+                    const cx1 = Math.max(b.x1, 1e-12);
+                    const cx2 = Math.min(b.x2, 1e3);
+                    if (cx2 <= cx1) return;
+                    const mid = Math.sqrt(cx1 * cx2); // geometric mean on a log scale
+                    const px = xScale.getPixelForValue(mid);
+                    if (px < chartArea.left || px > chartArea.right) return;
+                    ctx.fillText(b.name, px, chartArea.top + 12);
+                });
+                ctx.restore();
+            }
+        };
+
+        const ctx = document.getElementById('photonChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                datasets: [{
+                    label: 'Photon Energy E = hc/λ',
+                    data: points,
+                    borderColor: '#37474F',
+                    backgroundColor: 'transparent',
+                    borderWidth: 2,
+                    pointRadius: 0,
+                    tension: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                animation: false,
+                parsing: false,
+                scales: {
+                    x: {
+                        type: 'logarithmic',
+                        min: 1e-12,
+                        max: 1e3,
+                        title: { display: true, text: 'Wavelength (m, log scale)' }
+                    },
+                    y: {
+                        type: 'logarithmic',
+                        title: { display: true, text: 'Photon Energy (eV, log scale)' }
+                    }
+                },
+                plugins: {
+                    legend: { display: true, position: 'top' },
+                    tooltip: {
+                        callbacks: {
+                            label: function (context) {
+                                return 'E = ' + context.parsed.y.toExponential(3) + ' eV at λ = ' + context.parsed.x.toExponential(3) + ' m';
+                            }
+                        }
+                    }
+                }
+            },
+            plugins: [bandPlugin]
+        });
+    </script>
+</body>
+</html>

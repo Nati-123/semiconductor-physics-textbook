@@ -1,0 +1,158 @@
+/* learning-panel.css — shared styling for the Guided Exploration & Challenge
+   Questions panel used by every Chapter 1 MicroSim.
+   Include via <link rel="stylesheet" href="../learning-panel.css"> */
+
+.learning-panel {
+  font-family: Arial, Helvetica, sans-serif;
+  border-top: 3px solid #5A3EED;
+  background: #EEF4FF;
+}
+
+.learning-panel > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 10px 16px;
+  font-weight: 700;
+  font-size: 0.95em;
+  color: #5A3EED;
+  background: #E3E9FF;
+  user-select: none;
+}
+
+.learning-panel > summary::-webkit-details-marker {
+  display: none;
+}
+
+.learning-panel > summary::before {
+  content: "\25B8  ";
+}
+
+.learning-panel[open] > summary::before {
+  content: "\25BE  ";
+}
+
+.learning-panel > summary:focus-visible,
+.panel-content button:focus-visible,
+.panel-content input:focus-visible,
+.panel-content select:focus-visible,
+.panel-content label:focus-within {
+  outline: 3px solid #FFB300;
+  outline-offset: 2px;
+}
+
+.panel-content {
+  padding: 14px 18px 18px 18px;
+  box-sizing: border-box;
+  max-width: 900px;
+}
+
+.panel-content h3 {
+  color: #5A3EED;
+  font-size: 1em;
+  margin: 0.9em 0 0.4em 0;
+  border-bottom: 1px solid #C9D4FF;
+  padding-bottom: 3px;
+}
+
+.panel-content h3:first-child {
+  margin-top: 0;
+}
+
+.panel-content ul.explore-list {
+  margin: 0.4em 0 0.8em 0;
+  padding-left: 1.3em;
+}
+
+.panel-content ul.explore-list li {
+  margin-bottom: 0.5em;
+  line-height: 1.55;
+  font-size: 0.92em;
+  color: #333;
+}
+
+.panel-content .connects-to {
+  font-size: 0.88em;
+  color: #444;
+  background: #FFF7DD;
+  border: 1px solid #F0D87A;
+  border-radius: 6px;
+  padding: 8px 12px;
+  margin: 0.6em 0 1em 0;
+}
+
+.panel-content dl.control-captions {
+  margin: 0.4em 0 0.8em 0;
+  font-size: 0.9em;
+}
+
+.panel-content dl.control-captions dt {
+  font-weight: 700;
+  color: #5A3EED;
+  margin-top: 0.5em;
+}
+
+.panel-content dl.control-captions dd {
+  margin: 0.1em 0 0 0;
+  color: #333;
+  line-height: 1.5;
+}
+
+.challenge {
+  background: white;
+  border: 1px solid #D5DBEE;
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-bottom: 12px;
+}
+
+.challenge p.q-text {
+  font-weight: 600;
+  color: #222;
+  margin: 0 0 0.5em 0;
+  font-size: 0.92em;
+}
+
+.challenge label {
+  display: block;
+  font-size: 0.9em;
+  color: #333;
+  margin-bottom: 0.35em;
+  cursor: pointer;
+}
+
+.challenge label input[type="radio"] {
+  margin-right: 0.5em;
+}
+
+.challenge .check-btn {
+  margin-top: 0.4em;
+  background: #5A3EED;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 0.88em;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.challenge .check-btn:hover {
+  background: #4a30c9;
+}
+
+.feedback {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 0.88em;
+  font-weight: 600;
+}
+
+.feedback-correct { color: #2E7D32; }
+.feedback-incorrect { color: #C62828; }
+.feedback-warn { color: #B8860B; }
+
+@media (max-width: 480px) {
+  .panel-content { padding: 10px 12px 14px 12px; }
+  .panel-content h3 { font-size: 0.95em; }
+  .challenge { padding: 8px 10px; }
+}

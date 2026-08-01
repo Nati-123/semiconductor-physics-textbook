@@ -1198,3 +1198,143 @@ iframe:focus {
   outline-offset: 2px;
   border-radius: 8px;
 }
+
+/* ===== AUTHOR PROFILE CARD ===== */
+
+.md-typeset .author-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.75rem;
+  background: linear-gradient(145deg, #ffffff, #f8f6ff);
+  border: 1px solid #E0D6FF;
+  border-radius: 14px;
+  padding: 1.75rem 2rem;
+  margin: 1.2rem 0 1.6rem 0;
+  box-shadow: 0 4px 16px rgba(90, 62, 237, 0.08);
+}
+
+.md-typeset .author-avatar {
+  flex-shrink: 0;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #5A3EED, #7A5CFF);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 14px rgba(90, 62, 237, 0.35);
+  border: 3px solid #ffffff;
+  outline: 2px solid #E0D6FF;
+  user-select: none;
+}
+
+/* Swap in a real photo later by replacing the initials div with:
+   <img class="author-avatar" src="../img/your-photo.jpg" alt="Name"> */
+img.author-avatar {
+  object-fit: cover;
+  font-size: 0;
+}
+
+.md-typeset .author-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.md-typeset .author-name {
+  color: #5A3EED !important;
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin: 0 0 0.15rem 0;
+  border: none !important;
+  padding: 0 !important;
+}
+
+.md-typeset .author-title {
+  color: #666;
+  font-size: 0.95rem;
+  font-style: italic;
+  margin: 0 0 0.9rem 0;
+}
+
+.md-typeset .author-badges {
+  margin-bottom: 1.1rem;
+}
+
+/* python-markdown wraps the loose inline content of an md_in_html div in a <p> */
+.md-typeset .author-badges p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.md-typeset .badge-pill {
+  display: inline-flex;
+  align-items: center;
+  background: #F3EDFF;
+  color: #5A3EED;
+  border: 1.5px solid #C8B8FF;
+  border-radius: 999px;
+  padding: 0.3rem 0.85rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+}
+
+.md-typeset .author-links p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0;
+}
+
+.md-typeset .author-links a.author-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 20px;
+  border: 2px solid #5A3EED;
+  color: #5A3EED !important;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none !important;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.md-typeset .author-links a.author-link:hover {
+  background: #5A3EED;
+  color: #ffffff !important;
+}
+
+.md-typeset .author-links span.author-link--placeholder {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 20px;
+  border: 2px dashed #C8B8FF;
+  color: #9a8fc4;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  .md-typeset .author-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem 1.25rem;
+  }
+
+  .md-typeset .author-badges p,
+  .md-typeset .author-links p {
+    justify-content: center;
+  }
+}

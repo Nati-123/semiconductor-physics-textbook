@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Donor Atom Bonding Explorer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="../semiconductor-materials-lib.js"></script>
+    <script src="donor-atom-bonding-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Select "Phosphorus (P)" and count the 4 covalent bonds the donor atom forms with its silicon neighbors, same as any silicon atom.</li>
+            <li><strong>Observe:</strong> Notice the 5th valence electron, shown loosely orbiting the donor atom, not part of any bond.</li>
+            <li><strong>Click "Ionize Donor"</strong> and watch the 5th electron leave, becoming a free carrier, while the donor atom becomes a fixed, positively-charged ion.</li>
+            <li><strong>Try this:</strong> Switch the dopant dropdown between Phosphorus, Arsenic, and Antimony and confirm all three still contribute exactly one extra electron.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 7:</strong> A <strong>donor atom</strong> is a Group V element (5 valence electrons) substituted onto a silicon lattice site. Four of its valence electrons fill the same covalent bonds any silicon atom would form; the fifth has no bond to join and is only weakly bound to the donor atom by the atom's excess positive nuclear charge. At ordinary temperatures this fifth electron easily breaks free (donor ionization), leaving behind a fixed, immobile positive ion and contributing one free electron to the crystal — without needing to break any covalent bond at all.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>Dopant dropdown</dt>
+            <dd>Selects which Group V donor atom (P, As, or Sb) occupies the substitutional lattice site.</dd>
+            <dt>Ionize Donor button</dt>
+            <dd>Toggles the 5th electron between weakly bound (near the donor) and ionized (free, drifted away).</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">1. How many of a donor atom's valence electrons participate in covalent bonds with its silicon neighbors?</p>
+            <label><input type="radio" name="dae-q1" value="a"> 5</label>
+            <label><input type="radio" name="dae-q1" value="b"> 4</label>
+            <label><input type="radio" name="dae-q1" value="c"> 3</label>
+            <label><input type="radio" name="dae-q1" value="d"> 0</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>A Group V donor atom has 5 valence electrons; exactly 4 fill the covalent bonds to its 4 silicon neighbors, just like a silicon atom, leaving the 5th unbonded.</p>
+            <p class="explain-incorrect" hidden>Count the bonds drawn from the donor atom to its neighbors in the lattice.</p>
+        </div>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">2. After the donor atom ionizes, what is left behind at the donor's lattice site?</p>
+            <label><input type="radio" name="dae-q2" value="a"> A free electron</label>
+            <label><input type="radio" name="dae-q2" value="b"> A hole</label>
+            <label><input type="radio" name="dae-q2" value="c"> A fixed, positively-charged ion</label>
+            <label><input type="radio" name="dae-q2" value="d"> Nothing — the atom disappears</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Once the 5th electron leaves, the donor atom is left with one more proton than electron, becoming a fixed, immobile positive ion bound in the lattice — unlike the mobile free electron it released.</p>
+            <p class="explain-incorrect" hidden>Click "Ionize Donor" and look at the donor atom's label after ionization.</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

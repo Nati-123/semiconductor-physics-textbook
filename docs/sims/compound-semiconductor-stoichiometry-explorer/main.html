@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Compound Semiconductor Stoichiometry Explorer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="../semiconductor-materials-lib.js"></script>
+    <script src="compound-semiconductor-stoichiometry-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Set the Ga fraction slider to exactly 0.50 and confirm a perfect alternating Ga/As lattice with zero defects.</li>
+            <li><strong>Predict:</strong> Before dragging the slider away from 0.50, predict what kind of defect will appear.</li>
+            <li><strong>Observe:</strong> Drag the slider toward Ga-rich or As-rich and watch red-outlined antisite defects (a Ga atom sitting on an As site, or vice versa) appear.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 7:</strong> Unlike an elemental semiconductor such as silicon, a <strong>compound semiconductor</strong> like GaAs must be grown with its two species in almost exactly a 1:1 ratio. Even tiny stoichiometric deviations create antisite defects (a Ga atom sitting where an As atom belongs, or vice versa) that disrupt the ideal bonding pattern and degrade electronic performance — a crystal-growth engineering challenge elemental semiconductors simply do not have. (This MicroSim exaggerates the defect fraction well beyond real ppm-level deviations so the effect is visible.)</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>Ga fraction slider</dt>
+            <dd>Sets the fraction of Group III (Ga) atoms in the lattice; 0.50 is perfectly stoichiometric GaAs.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">1. What does a red-outlined atom represent in this MicroSim?</p>
+            <label><input type="radio" name="css-q1" value="a"> A donor atom</label>
+            <label><input type="radio" name="css-q1" value="b"> A missing atom</label>
+            <label><input type="radio" name="css-q1" value="c"> An antisite defect — the wrong species occupying that lattice site</label>
+            <label><input type="radio" name="css-q1" value="d"> A broken covalent bond</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>An antisite defect occurs when a Ga atom occupies a site that should hold As (or vice versa) — exactly the kind of defect off-stoichiometry growth introduces.</p>
+            <p class="explain-incorrect" hidden>Move the Ga fraction slider away from 0.50 and see which atoms get outlined in red.</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

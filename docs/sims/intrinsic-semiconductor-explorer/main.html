@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Intrinsic Semiconductor Explorer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="../semiconductor-materials-lib.js"></script>
+    <script src="intrinsic-semiconductor-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> With temperature set low (near 100 K), click Start and watch how rarely a covalent bond breaks.</li>
+            <li><strong>Predict:</strong> Before dragging the temperature slider to 900 K, predict whether the number of broken bonds will grow a little or a lot.</li>
+            <li><strong>Observe:</strong> Drag the temperature slider up while the animation runs and watch the broken-bond count rise sharply — each broken bond is one thermally generated electron-hole pair.</li>
+            <li><strong>Explain:</strong> Explain, in your own words, why every broken bond in this diagram creates exactly one free electron and exactly one hole, never just one or the other.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 7:</strong> Every silicon atom shares one covalent bond (an electron pair) with each of its four neighbors. In this simplified 2D schematic, a bond breaking represents a valence electron gaining enough thermal energy to leave its bond, becoming a free electron, and leaving behind a hole. This process — intrinsic (thermal) generation of electron-hole pairs in a pure semiconductor — is what defines an <strong>intrinsic semiconductor</strong>. The exact equation for how strongly carrier concentration depends on temperature is derived in Chapter 9; here, the qualitative trend (more broken bonds at higher T) is illustrated directly.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>Temperature slider</dt>
+            <dd>Sets the lattice temperature from 100 K to 900 K, controlling how often a bond thermally breaks.</dd>
+            <dt>Start/Stop button</dt>
+            <dd>Starts or pauses the bond-breaking and recombination animation. The sim loads paused so you can inspect the intact lattice first.</dd>
+            <dt>Reset button</dt>
+            <dd>Restores the default temperature and clears all broken bonds.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">1. In this MicroSim, what does a single broken bond represent physically?</p>
+            <label><input type="radio" name="ise-q1" value="a"> One free electron only</label>
+            <label><input type="radio" name="ise-q1" value="b"> One hole only</label>
+            <label><input type="radio" name="ise-q1" value="c"> One electron-hole pair — one free electron and one hole created together</label>
+            <label><input type="radio" name="ise-q1" value="d"> A missing silicon atom</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Breaking a covalent bond frees one valence electron while leaving behind exactly one hole in the same location — the two are always created together in an intrinsic semiconductor.</p>
+            <p class="explain-incorrect" hidden>Look at what appears at a broken bond: both a blue electron marker and a red hole marker.</p>
+        </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">2. Why does the number of broken bonds increase so sharply as temperature rises?</p>
+            <label><input type="radio" name="ise-q2" value="a"> Because silicon atoms physically move farther apart at high T</label>
+            <label><input type="radio" name="ise-q2" value="b"> Because the probability of a bond gaining enough thermal energy to break grows exponentially with temperature</label>
+            <label><input type="radio" name="ise-q2" value="c"> Because the lattice constant changes randomly</label>
+            <label><input type="radio" name="ise-q2" value="d"> It does not increase — the count stays roughly constant</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Thermal bond-breaking follows an exponential (Boltzmann-like) dependence on temperature, so even modest temperature increases produce large increases in the number of broken bonds.</p>
+            <p class="explain-incorrect" hidden>Compare the broken-bond count at 100 K versus 900 K after letting the animation run for a few seconds at each.</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

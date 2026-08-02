@@ -2,7 +2,15 @@
 
 # Glossary of Terms
 
-This glossary currently covers the concepts introduced in [Chapter 1: Physics and Math Foundations](chapters/01-physics-math-foundations/index.md), [Chapter 2: Quantum Mechanics Foundations](chapters/02-quantum-mechanics-foundations/index.md), [Chapter 3: Crystal Lattices and Structures](chapters/03-crystal-lattices-structures/index.md), [Chapter 4: Chemical Bonding in Semiconductor Crystals](chapters/04-chemical-bonding-crystals/index.md), [Chapter 5: Quantum Mechanics of Periodic Crystals](chapters/05-quantum-mechanics-periodic-crystals/index.md), and [Chapter 6: Band Structure and the Fermi Level](chapters/06-band-structure-fermi-level/index.md). Entries for later chapters will be added as those chapters are written.
+This glossary currently covers the concepts introduced in [Chapter 1: Physics and Math Foundations](chapters/01-physics-math-foundations/index.md), [Chapter 2: Quantum Mechanics Foundations](chapters/02-quantum-mechanics-foundations/index.md), [Chapter 3: Crystal Lattices and Structures](chapters/03-crystal-lattices-structures/index.md), [Chapter 4: Chemical Bonding in Semiconductor Crystals](chapters/04-chemical-bonding-crystals/index.md), [Chapter 5: Quantum Mechanics of Periodic Crystals](chapters/05-quantum-mechanics-periodic-crystals/index.md), [Chapter 6: Band Structure and the Fermi Level](chapters/06-band-structure-fermi-level/index.md), and [Chapter 7: Intrinsic and Extrinsic Semiconductors](chapters/07-intrinsic-extrinsic-semiconductors/index.md). Entries for later chapters will be added as those chapters are written.
+
+#### Acceptor Atom
+
+A Group III element substituted into a Group IV semiconductor lattice, completing only 3 of the 4 required covalent bonds and leaving a hole that ionizes into a mobile positive carrier, becoming a fixed negative ion.
+
+**Example:** Boron, aluminum, gallium, and indium are common acceptor dopants in silicon; boron's measured ionization energy in silicon is about 45 meV.
+
+See also: [Donor Atom](#donor-atom), [Extrinsic Semiconductor](#extrinsic-semiconductor).
 
 #### Algebra
 
@@ -93,6 +101,14 @@ See also: [Reciprocal Lattice](#reciprocal-lattice), [Band Gap](#band-gap).
 Numbers of the form \(a+bi\), with real part \(a\) and imaginary part \(b\) where \(i=\sqrt{-1}\), used to represent oscillations, phase, and quantum-mechanical wavefunctions.
 
 **Example:** Euler's formula, \(e^{i\theta}=\cos\theta+i\sin\theta\), rewrites an oscillation as a complex exponential.
+
+#### Compound Semiconductor
+
+A semiconductor built from two or more different atomic species alternating on the lattice, most commonly a Group III + Group V pairing (III-V) or a Group II + Group VI pairing (II-VI), whose average valence electron count equals 4.
+
+**Example:** Gallium arsenide (GaAs) alternates Ga (Group III) and As (Group V) atoms, each bond joining one atom of each species.
+
+See also: [Elemental Semiconductor](#elemental-semiconductor), [Gallium Arsenide](#gallium-arsenide).
 
 #### Conduction Band
 
@@ -210,6 +226,14 @@ A vector-calculus operator that measures the net outward flow of a vector field 
 
 See also: [Gauss's Law](#gausss-law), [Curl](#curl).
 
+#### Donor Atom
+
+A Group V element substituted into a Group IV semiconductor lattice, completing 4 covalent bonds like the host atom and contributing a 5th, weakly-bound electron that ionizes into a free electron, becoming a fixed positive ion.
+
+**Example:** Phosphorus, arsenic, and antimony are common donor dopants in silicon; phosphorus's measured ionization energy in silicon is about 45 meV.
+
+See also: [Acceptor Atom](#acceptor-atom), [Extrinsic Semiconductor](#extrinsic-semiconductor).
+
 #### E-K Diagram
 
 A plot of allowed electron energy \(E\) versus crystal momentum (Bloch wavevector) \(k\), showing the detailed shape of a material's energy bands.
@@ -286,6 +310,14 @@ The potential energy stored in a configuration of two charges held at a fixed se
 
 See also: [Electric Potential](#electric-potential), [Coulomb's Law](#coulombs-law).
 
+#### Elemental Semiconductor
+
+A semiconductor built from a single chemical element repeated throughout the crystal.
+
+**Example:** Silicon and germanium are both elemental semiconductors, each bonded only to atoms of its own species.
+
+See also: [Compound Semiconductor](#compound-semiconductor), [Silicon](#silicon), [Germanium](#germanium).
+
 #### Energy Band
 
 A continuous range of allowed electron energies produced by band formation in a periodic potential.
@@ -299,6 +331,14 @@ See also: [Allowed Energy States](#allowed-energy-states), [Band Gap](#band-gap)
 A pair of inverse mathematical functions, \(e^x\) and \(\ln x\), used to describe quantities that grow, decay, or accumulate multiplicatively rather than additively.
 
 **Example:** Carrier concentration in a semiconductor depends exponentially on energy divided by thermal energy, \(k_BT\).
+
+#### Extrinsic Semiconductor
+
+A semiconductor deliberately doped with donor or acceptor atoms, whose carrier population is dominated by the dopant rather than by thermal generation alone.
+
+**Example:** Silicon doped with phosphorus at \(10^{16}\ \text{cm}^{-3}\) has roughly a million times more carriers than pure (intrinsic) silicon at room temperature.
+
+See also: [Intrinsic Semiconductor](#intrinsic-semiconductor), [Donor Atom](#donor-atom), [Acceptor Atom](#acceptor-atom).
 
 #### Face-Centered Cubic
 
@@ -344,6 +384,14 @@ Fixed numerical quantities, such as the elementary charge, the permittivity of f
 
 See also: [SI Units](#si-units), [Boltzmann Constant](#boltzmann-constant).
 
+#### Gallium Arsenide
+
+A III-V compound semiconductor (GaAs) with a direct band gap of about 1.42 eV at room temperature and high electron mobility, widely used in LEDs, laser diodes, and high-frequency RF electronics.
+
+**Example:** GaAs's direct band gap allows efficient photon-only light emission, unlike silicon's indirect gap.
+
+See also: [Compound Semiconductor](#compound-semiconductor), [Direct Bandgap](#direct-bandgap).
+
 #### Gauss's Law
 
 A law of electrostatics stating that the total electric flux through any closed surface is proportional to the total electric charge enclosed by that surface.
@@ -351,6 +399,14 @@ A law of electrostatics stating that the total electric flux through any closed 
 **Example:** Gauss's Law lets the electric field inside a uniformly charged depletion region be computed without directly integrating Coulomb's Law.
 
 See also: [Electric Flux](#electric-flux), [Divergence](#divergence).
+
+#### Germanium
+
+An elemental semiconductor (Ge) with an indirect band gap of about 0.66 eV at room temperature, historically the material of the first practical transistors (1947).
+
+**Example:** Germanium's higher carrier mobility than silicon's is offset by its much lower melting point (938°C), which limits its thermal processing budget.
+
+See also: [Elemental Semiconductor](#elemental-semiconductor), [Silicon](#silicon).
 
 #### Gradient
 
@@ -401,6 +457,14 @@ A band structure with a completely full valence band and completely empty conduc
 **Example:** Diamond, with a band gap of about 5.5 eV, is classified as an insulator under this definition.
 
 See also: [Semiconductor Band Structure](#semiconductor-band-structure), [Metal Band Structure](#metal-band-structure).
+
+#### Intrinsic Semiconductor
+
+A chemically pure semiconductor whose only carriers come from thermally-broken covalent bonds, each producing one free electron and one hole together.
+
+**Example:** Pure silicon's intrinsic carrier concentration at room temperature is only about \(n_i\approx10^{10}\ \text{cm}^{-3}\), tiny compared to its atomic density of \(5\times10^{22}\ \text{cm}^{-3}\).
+
+See also: [Extrinsic Semiconductor](#extrinsic-semiconductor).
 
 #### Ionic Bond
 
@@ -601,6 +665,14 @@ See also: [Metal Band Structure](#metal-band-structure), [Density of States](#de
 The Système International system of standardized physical units, including the meter, kilogram, second, and ampere, used to express all quantities in this course.
 
 See also: [Fundamental Physical Constants](#fundamental-physical-constants).
+
+#### Silicon
+
+An elemental semiconductor (Si) with an indirect band gap of about 1.12 eV at room temperature, the dominant material in digital integrated circuits due to its low cost, high melting point, and excellent native oxide (SiO\(_2\)).
+
+**Example:** Silicon's diamond-cubic crystal structure, introduced in Chapter 3, gives every atom 4 tetrahedrally-arranged covalent bonds.
+
+See also: [Elemental Semiconductor](#elemental-semiconductor), [Germanium](#germanium).
 
 #### Silicon Atom Structure
 

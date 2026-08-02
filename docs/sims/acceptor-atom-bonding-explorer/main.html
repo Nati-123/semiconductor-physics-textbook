@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Acceptor Atom Bonding Explorer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="../semiconductor-materials-lib.js"></script>
+    <script src="acceptor-atom-bonding-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Select "Boron (B)" and count the acceptor atom's bonds — only 3 are complete, since boron has just 3 valence electrons.</li>
+            <li><strong>Observe:</strong> Notice the incomplete 4th bond, shown as a hole (open red circle) right next to the acceptor atom.</li>
+            <li><strong>Click "Ionize Acceptor"</strong> and watch the hole move away (an electron from a neighboring bond fills the vacancy instead), while the acceptor atom becomes a fixed, negatively-charged ion.</li>
+            <li><strong>Try this:</strong> Switch the dopant dropdown between Boron, Aluminum, Gallium, and Indium and confirm all four still create exactly one hole.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 7:</strong> An <strong>acceptor atom</strong> is a Group III element (3 valence electrons) substituted onto a silicon lattice site. It can only complete 3 of its 4 required covalent bonds, leaving one bond incomplete — a hole. At ordinary temperatures, an electron from a neighboring bond easily hops into this vacancy, effectively moving the hole away through the lattice and leaving the acceptor atom as a fixed, immobile negative ion — without needing to break any covalent bond elsewhere first.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>Dopant dropdown</dt>
+            <dd>Selects which Group III acceptor atom (B, Al, Ga, or In) occupies the substitutional lattice site.</dd>
+            <dt>Ionize Acceptor button</dt>
+            <dd>Toggles the hole between sitting at the acceptor site and having moved away into the lattice.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">1. How many covalent bonds can a Group III acceptor atom complete on its own?</p>
+            <label><input type="radio" name="aae-q1" value="a"> 4</label>
+            <label><input type="radio" name="aae-q1" value="b"> 5</label>
+            <label><input type="radio" name="aae-q1" value="c"> 3</label>
+            <label><input type="radio" name="aae-q1" value="d"> 0</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>A Group III atom has only 3 valence electrons, enough to complete only 3 of the 4 covalent bonds a lattice site needs, leaving one bond incomplete (a hole).</p>
+            <p class="explain-incorrect" hidden>Count the complete bonds versus the open hole marker near the acceptor atom.</p>
+        </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">2. After the acceptor "ionizes," what charge does the fixed acceptor atom carry?</p>
+            <label><input type="radio" name="aae-q2" value="a"> Negative</label>
+            <label><input type="radio" name="aae-q2" value="b"> Positive</label>
+            <label><input type="radio" name="aae-q2" value="c"> Neutral</label>
+            <label><input type="radio" name="aae-q2" value="d"> It has no charge at all</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Once a neighboring electron fills the acceptor's incomplete bond, the acceptor atom has one more electron than protons, making it a fixed negative ion — opposite in sign to an ionized donor.</p>
+            <p class="explain-incorrect" hidden>Click "Ionize Acceptor" and look at the sign on the acceptor atom's marker.</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

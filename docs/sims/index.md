@@ -64,4 +64,25 @@ Interactive educational simulations that accompany this textbook.
 | [Direct vs. Indirect Bandgap E-k Explorer](direct-indirect-bandgap-explorer/index.md) | L2-L4 Understand/Analyze | Compare direct-gap (GaAs) and indirect-gap (Si, Ge) E-k diagrams with a switchable photon-only vs. phonon-assisted transition arrow and an adjustable effective-mass curvature slider |
 | [Density of States and Fermi Level Explorer](density-of-states-fermi-level-explorer/index.md) | L2-L4 Understand/Analyze | Compare density-of-states and Fermi-level position across Metal, Insulator, Semiconductor, and Semimetal presets, with a Fermi-Dirac thermal smearing slider |
 
+## Chapter 7: Intrinsic and Extrinsic Semiconductors
+
+| MicroSim | Bloom Level | Description |
+|----------|-------------|-------------|
+| [Intrinsic Semiconductor Explorer](intrinsic-semiconductor-explorer/index.md) | L2 Understand | Animated silicon lattice where covalent bonds thermally break into electron-hole pairs at a temperature-dependent rate |
+| [Elemental vs. Compound Structure Comparer](elemental-compound-structure-comparer/index.md) | L2 Understand | Toggle between silicon (elemental) and GaAs (compound) lattice diagrams |
+| [Periodic Table of Semiconductor Elements](periodic-table-semiconductor-elements/index.md) | L1-L2 Remember/Understand | Clickable Group II-VI periodic table showing each element's semiconductor role |
+| [Intrinsic vs. Extrinsic Comparison](intrinsic-extrinsic-comparison/index.md) | L2-L4 Understand/Analyze | Side-by-side pure vs. donor-doped lattice with a log-scale carrier-concentration chart |
+| [Semiconductor Material Properties Dashboard](material-properties-dashboard/index.md) | L2-L3 Understand/Apply | Property card and live Varshni-equation band gap for Si, Ge, and GaAs |
+| [Si / Ge / GaAs Property Comparison Chart](material-property-comparison-chart/index.md) | L4-L5 Analyze/Evaluate | Bar chart comparing band gap, mobility, lattice constant, and melting point |
+| [Bandgap vs. Temperature (Varshni) Explorer](bandgap-temperature-varshni-explorer/index.md) | L4 Analyze | Overlaid multi-material Eg(T) curves with a movable temperature marker |
+| [Melting Point & Thermal Processing Comparison](melting-point-processing-comparison/index.md) | L5 Evaluate | Clickable thermometers comparing melting points and processing implications |
+| [Donor Atom Bonding Explorer](donor-atom-bonding-explorer/index.md) | L2-L3 Understand/Apply | Group V dopant lattice with an ionize toggle releasing the 5th electron |
+| [Acceptor Atom Bonding Explorer](acceptor-atom-bonding-explorer/index.md) | L2-L3 Understand/Apply | Group III dopant lattice with an ionize toggle releasing the hole |
+| [Hydrogenic Ionization Energy Calculator](hydrogenic-ionization-energy-calculator/index.md) | L3 Apply | Compute donor/acceptor ionization energy from effective mass and dielectric constant sliders |
+| [Common Dopant Ionization Energy Chart](dopant-ionization-energy-chart/index.md) | L1-L2 Remember/Understand | Measured donor/acceptor ionization energies in silicon and germanium |
+| [Doping Concentration Scale Visualizer](doping-concentration-scale-visualizer/index.md) | L3-L4 Apply/Analyze | Log-scale comparison of dopant concentration to silicon's atomic density |
+| [Compound Semiconductor Stoichiometry Explorer](compound-semiconductor-stoichiometry-explorer/index.md) | L5 Evaluate | GaAs lattice showing antisite defects as Ga:As ratio deviates from 1:1 |
+| [N-Type vs. P-Type Majority Carrier Comparison](ntype-ptype-majority-carrier-comparison/index.md) | L2 Understand | Side-by-side donor-doped and acceptor-doped lattices previewing majority carriers |
+| [Semiconductor Material Selector for Applications](semiconductor-material-selector/index.md) | L5 Evaluate | Clickable application-to-material recommendation tool with engineering reasoning |
+
 </div>

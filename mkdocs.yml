@@ -110,7 +110,11 @@ nav:
           - Quiz: chapters/06-band-structure-fermi-level/quiz.md
           - Problems: chapters/06-band-structure-fermi-level/problems.md
           - Glossary: chapters/06-band-structure-fermi-level/glossary.md
-      - 7. Intrinsic and Extrinsic Semiconductors: chapters/07-intrinsic-extrinsic-semiconductors/index.md
+      - 7. Intrinsic and Extrinsic Semiconductors:
+          - Content: chapters/07-intrinsic-extrinsic-semiconductors/index.md
+          - Quiz: chapters/07-intrinsic-extrinsic-semiconductors/quiz.md
+          - Problems: chapters/07-intrinsic-extrinsic-semiconductors/problems.md
+          - Glossary: chapters/07-intrinsic-extrinsic-semiconductors/glossary.md
       - 8. Doping, Ionization, and Temperature Regimes: chapters/08-doping-ionization-temperature/index.md
       - 9. Carrier Concentration Statistics: chapters/09-carrier-concentration-statistics/index.md
       - 10. Fermi Level Position and Carrier Equations: chapters/10-fermi-level-carrier-equations/index.md
@@ -155,6 +159,23 @@ nav:
       - Chapter 6:
           - Direct vs. Indirect Bandgap E-k Explorer: sims/direct-indirect-bandgap-explorer/index.md
           - Density of States and Fermi Level Explorer: sims/density-of-states-fermi-level-explorer/index.md
+      - Chapter 7:
+          - Intrinsic Semiconductor Explorer: sims/intrinsic-semiconductor-explorer/index.md
+          - Elemental vs. Compound Structure Comparer: sims/elemental-compound-structure-comparer/index.md
+          - Periodic Table of Semiconductor Elements: sims/periodic-table-semiconductor-elements/index.md
+          - Intrinsic vs. Extrinsic Comparison: sims/intrinsic-extrinsic-comparison/index.md
+          - Semiconductor Material Properties Dashboard: sims/material-properties-dashboard/index.md
+          - Si / Ge / GaAs Property Comparison Chart: sims/material-property-comparison-chart/index.md
+          - Bandgap vs. Temperature (Varshni) Explorer: sims/bandgap-temperature-varshni-explorer/index.md
+          - Melting Point & Thermal Processing Comparison: sims/melting-point-processing-comparison/index.md
+          - Donor Atom Bonding Explorer: sims/donor-atom-bonding-explorer/index.md
+          - Acceptor Atom Bonding Explorer: sims/acceptor-atom-bonding-explorer/index.md
+          - Hydrogenic Ionization Energy Calculator: sims/hydrogenic-ionization-energy-calculator/index.md
+          - Common Dopant Ionization Energy Chart: sims/dopant-ionization-energy-chart/index.md
+          - Doping Concentration Scale Visualizer: sims/doping-concentration-scale-visualizer/index.md
+          - Compound Semiconductor Stoichiometry Explorer: sims/compound-semiconductor-stoichiometry-explorer/index.md
+          - N-Type vs. P-Type Majority Carrier Comparison: sims/ntype-ptype-majority-carrier-comparison/index.md
+          - Semiconductor Material Selector for Applications: sims/semiconductor-material-selector/index.md
   - Learning Graph:
       - Introduction: learning-graph/index.md
       - Course Description Assessment: learning-graph/course-description-assessment.md

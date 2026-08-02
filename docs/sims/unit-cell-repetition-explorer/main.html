@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Unit Cell Repetition Explorer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+        .control-panel {
+            background: #f5f5f5;
+            border-top: 1px solid silver;
+            padding: 8px 16px;
+            box-sizing: border-box;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px 18px;
+        }
+        .control-panel .ctrl-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #333;
+        }
+        .control-panel select {
+            font-size: 13px;
+            padding: 3px 6px;
+        }
+        .control-panel .index-slider {
+            width: 130px;
+        }
+        .control-panel .preset-btn {
+            font-size: 12px;
+            padding: 4px 10px;
+            background: #EEF4FF;
+            border: 1px solid #A8C8FF;
+            border-radius: 6px;
+            color: #5A3EED;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .control-panel .preset-btn:hover {
+            background: #DDE8FF;
+        }
+        .control-panel .ctrl-hint {
+            font-size: 12px;
+            color: #777;
+            font-style: italic;
+            margin-left: auto;
+        }
+        .readout-panel {
+            background: #ffffff;
+            border-top: 1px solid #ddd;
+            padding: 10px 16px 12px 16px;
+            font-size: 13px;
+            color: #222;
+            box-sizing: border-box;
+            line-height: 1.6;
+        }
+        .readout-panel .readout-row { margin-bottom: 2px; }
+        .readout-panel .readout-value { font-weight: 700; color: #5A3EED; }
+    </style>
+    <script src="unit-cell-repetition-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> With N=1, rotate the single Simple Cubic unit cell, then move N up to 4 and watch it become a 4×4×4 block built entirely from copies of that same cell.</li>
+            <li><strong>Predict:</strong> Before pressing Start at N=3, predict which cell will appear first if cells are revealed in order from the center outward.</li>
+            <li><strong>Observe:</strong> Press Start and watch the block grow outward from its center, one cell at a time, until all N³ cells are shown.</li>
+            <li><strong>Compare:</strong> Switch structures at the same N and compare how much denser the FCC block looks compared to SC, even though both use the same lattice constant.</li>
+            <li><strong>Explain:</strong> Explain why turning off "Show every cell's edges" and looking only at the outer boundary still leaves the atom positions unchanged.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 3:</strong> This MicroSim makes the lattice/unit-cell relationship from the chapter's introduction concrete: a <strong>lattice</strong> is the infinite repetition of a single point pattern, and the <strong>unit cell</strong> (edge length <span class="arithmatex">\(a\)</span>, the lattice constant) is the smallest repeating block that generates it by simple translation. Here, translating one Simple Cubic, Body-Centered Cubic, or Face-Centered Cubic cell by integer multiples of <span class="arithmatex">\(a\)</span> along each axis builds the N×N×N block shown — exactly the construction described before the chapter introduces each structure's specific atom positions.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>Crystal structure dropdown</dt>
+            <dd>Switches the repeating cell between Simple Cubic, Body-Centered Cubic, and Face-Centered Cubic.</dd>
+            <dt>Repeat count N slider</dt>
+            <dd>Sets how many cells are stacked along each of the three axes, from a single cell (N=1) up to a 4×4×4 block (N=4).</dd>
+            <dt>Show every cell's edges checkbox</dt>
+            <dd>Toggles between drawing the wireframe outline of every individual unit cell versus only the outer boundary of the whole block.</dd>
+            <dt>Atom size slider</dt>
+            <dd>Scales every sphere's drawn radius.</dd>
+            <dt>Start / Stop (Replay) button</dt>
+            <dd>Reveals the block one cell at a time, growing outward from the center, instead of showing it fully built immediately.</dd>
+            <dt>Reset Camera button</dt>
+            <dd>Returns the view to a default framing sized for the current N.</dd>
+            <dt>Click-and-drag / scroll on the 3D view</dt>
+            <dd>Rotates and zooms the camera (uses p5.js <span class="arithmatex">\(\texttt{orbitControl()}\)</span>).</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">1. What does the N×N×N block in this MicroSim represent?</p>
+            <label><input type="radio" name="ucr-q1" value="a"> N different, unrelated crystal structures shown side by side</label>
+            <label><input type="radio" name="ucr-q1" value="b"> A single atom magnified N times</label>
+            <label><input type="radio" name="ucr-q1" value="c"> A single unit cell repeated by translation N times along each of the three axes</label>
+            <label><input type="radio" name="ucr-q1" value="d"> A random arrangement of atoms</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Every cell in the block uses the exact same atom-position pattern, just translated by whole multiples of the lattice constant a along x, y, and z — this is literally what "a lattice is a repeating unit cell" means.</p>
+            <p class="explain-incorrect" hidden>Set N=1, note the single cell's atom pattern, then increase N and check whether that same pattern repeats.</p>
+        </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">2. At N=4, how many unit cells make up the block?</p>
+            <label><input type="radio" name="ucr-q2" value="a"> 4</label>
+            <label><input type="radio" name="ucr-q2" value="b"> 64</label>
+            <label><input type="radio" name="ucr-q2" value="c"> 16</label>
+            <label><input type="radio" name="ucr-q2" value="d"> 128</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>N×N×N with N=4 is 4³ = 64 unit cells — read this directly from the readout panel below the canvas.</p>
+            <p class="explain-incorrect" hidden>Set N to 4 and read the "Unit cells shown" line in the readout panel.</p>
+        </div>
+
+        <div class="challenge" data-correct="d">
+            <p class="q-text">3. How wide is the whole N×N×N block, in terms of the lattice constant a?</p>
+            <label><input type="radio" name="ucr-q3" value="a"> Always exactly a, regardless of N</label>
+            <label><input type="radio" name="ucr-q3" value="b"> a divided by N</label>
+            <label><input type="radio" name="ucr-q3" value="c"> a squared</label>
+            <label><input type="radio" name="ucr-q3" value="d"> N times a, in each of the three directions</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Each additional cell adds one more lattice constant of length along that axis, so an N-cell-wide block spans N·a in each direction — stated directly in the readout panel.</p>
+            <p class="explain-incorrect" hidden>Read the note in the readout panel below the canvas about how far the block spans.</p>
+        </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">4. Does turning off "Show every cell's edges" change the atom positions?</p>
+            <label><input type="radio" name="ucr-q4" value="a"> No — only the wireframe display changes; the atoms stay exactly where they were</label>
+            <label><input type="radio" name="ucr-q4" value="b"> Yes — the atoms rearrange into a different structure</label>
+            <label><input type="radio" name="ucr-q4" value="c"> Yes — half the atoms disappear</label>
+            <label><input type="radio" name="ucr-q4" value="d"> Yes — N automatically changes</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>The edges checkbox only controls which wireframe lines are drawn (every cell's outline vs. just the outer boundary) — it is a purely visual toggle and never moves an atom.</p>
+            <p class="explain-incorrect" hidden>Toggle the checkbox on and off while watching the atom spheres specifically, not the wireframe lines.</p>
+        </div>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">5. When you press Start, in what order are the cells revealed?</p>
+            <label><input type="radio" name="ucr-q5" value="a"> Left to right, one row at a time</label>
+            <label><input type="radio" name="ucr-q5" value="b"> Completely at random</label>
+            <label><input type="radio" name="ucr-q5" value="c"> Outward from the center of the block</label>
+            <label><input type="radio" name="ucr-q5" value="d"> Largest atoms first</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Cells are sorted by distance from the block's center and revealed nearest-first, so the block visibly grows outward as more particles appear.</p>
+            <p class="explain-incorrect" hidden>Set N=4, press Start, and watch which cell (relative to the block's middle) appears first.</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

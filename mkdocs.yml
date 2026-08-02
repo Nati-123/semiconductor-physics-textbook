@@ -122,11 +122,15 @@ nav:
           - Maxwell-Boltzmann Speed Distribution: sims/maxwell-boltzmann-distribution/index.md
           - Photon Energy Spectrum Chart: sims/photon-energy-spectrum-chart/index.md
       - Chapter 2:
+          - Wave-Particle Duality Explorer: sims/wave-particle-duality-explorer/index.md
           - de Broglie Wavelength Explorer: sims/debroglie-wavelength-explorer/index.md
           - Heisenberg Uncertainty Principle Explorer: sims/heisenberg-uncertainty-explorer/index.md
+          - Schrödinger Wavefunction & Eigenstates Visualizer: sims/schrodinger-wavefunction-explorer/index.md
           - Particle in a Box Explorer: sims/particle-in-a-box-explorer/index.md
+          - Finite Potential Well Explorer: sims/finite-potential-well-explorer/index.md
           - Quantum Tunneling Probability Explorer: sims/quantum-tunneling-explorer/index.md
       - Chapter 3:
+          - Unit Cell Repetition Explorer: sims/unit-cell-repetition-explorer/index.md
           - Crystal Structure Explorer: sims/cubic-lattice-explorer/index.md
           - Diamond and Zincblende Lattice Explorer: sims/diamond-zincblende-explorer/index.md
           - Miller Indices Plane Visualizer: sims/miller-indices-explorer/index.md

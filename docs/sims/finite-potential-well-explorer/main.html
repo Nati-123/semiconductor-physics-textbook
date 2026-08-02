@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Finite Potential Well Explorer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="finite-potential-well-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Set well depth V₀ to its minimum — notice only 1 bound state exists, and its wavefunction extends visibly outside the well walls.</li>
+            <li><strong>Predict:</strong> Before increasing V₀ toward its maximum, predict whether the number of bound states will increase or decrease.</li>
+            <li><strong>Observe:</strong> Increase V₀ until 3-4 bound states appear, then select each one in turn and watch the wavefunction gain one more node each time (n=1: no nodes, n=2: 1 node, n=3: 2 nodes, ...).</li>
+            <li><strong>Compare:</strong> Check "Compare to infinite well" and notice the dashed infinite-well curve is forced to exactly zero at the walls, while the solid finite-well curve visibly decays into the walls instead.</li>
+            <li><strong>Explain:</strong> Explain why the ground state energy of the finite well is always somewhat lower than the corresponding infinite-well energy for the same L.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 2:</strong> This MicroSim solves the finite-square-well matching equations exactly: even-parity bound states satisfy <span class="arithmatex">\(z\tan z=\sqrt{z_0^2-z^2}\)</span> and odd-parity states satisfy <span class="arithmatex">\(z\cot z=-\sqrt{z_0^2-z^2}\)</span>, where <span class="arithmatex">\(z=kL/2\)</span> and <span class="arithmatex">\(z_0=(L/2\hbar)\sqrt{2mV_0}\)</span>. Outside the well, the wavefunction decays as <span class="arithmatex">\(e^{-\kappa(|x|-L/2)}\)</span> rather than dropping to exactly zero — this is exactly the "Finite Potential Wells" text discusses: real confining potentials (a doped-atom electron, a thin semiconductor layer) always let the wavefunction leak into the classically forbidden region.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>Bound state dropdown</dt>
+            <dd>Selects which bound state's wavefunction to plot; the list updates automatically as L and V₀ change the number of available states.</dd>
+            <dt>Compare to infinite well checkbox</dt>
+            <dd>Overlays the corresponding infinite-well eigenfunction (dashed) for direct comparison against the finite-well curve (solid).</dd>
+            <dt>Well width L slider</dt>
+            <dd>Sets the width of the square well from 0.3 nm to 1.5 nm.</dd>
+            <dt>Well depth V₀ slider</dt>
+            <dd>Sets the potential energy of the walls from 0.2 eV to 3.0 eV — deeper or wider wells support more bound states.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">1. What happens to the wavefunction of a finite-well bound state at the well's walls?</p>
+            <label><input type="radio" name="fpw-q1" value="a"> It becomes exactly zero, just like the infinite well</label>
+            <label><input type="radio" name="fpw-q1" value="b"> It becomes infinite</label>
+            <label><input type="radio" name="fpw-q1" value="c"> It smoothly continues and decays exponentially into the classically forbidden region</label>
+            <label><input type="radio" name="fpw-q1" value="d"> It oscillates forever outside the well</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Because V₀ is finite, the wavefunction and its derivative must be continuous at the walls, giving an exponential decay <span class="arithmatex">\(e^{-\kappa(|x|-L/2)}\)</span> outside rather than an abrupt drop to zero.</p>
+            <p class="explain-incorrect" hidden>Look at where the solid blue curve crosses the well walls — does it stop abruptly or continue smoothly?</p>
+        </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">2. Increasing the well depth V₀ (holding L fixed) generally does what to the number of bound states?</p>
+            <label><input type="radio" name="fpw-q2" value="a"> Always decreases it</label>
+            <label><input type="radio" name="fpw-q2" value="b"> Increases it (more states become bound)</label>
+            <label><input type="radio" name="fpw-q2" value="c"> Has no effect on the count</label>
+            <label><input type="radio" name="fpw-q2" value="d"> Always leaves exactly one bound state</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>A deeper well raises <span class="arithmatex">\(z_0\)</span>, which extends the range over which the matching-equation branches can find a root, so more bound states fit.</p>
+            <p class="explain-incorrect" hidden>Drag V₀ from its minimum to its maximum and watch the "Bound states found" readout update.</p>
+        </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">3. Comparing a finite well to the infinite well of the same width L, which has the lower ground-state energy?</p>
+            <label><input type="radio" name="fpw-q3" value="a"> The finite well — its wavefunction leaking outside effectively relaxes the confinement</label>
+            <label><input type="radio" name="fpw-q3" value="b"> The infinite well — its energy is always lower</label>
+            <label><input type="radio" name="fpw-q3" value="c"> They are always exactly equal</label>
+            <label><input type="radio" name="fpw-q3" value="d"> It depends only on the particle's charge</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Because the finite-well wavefunction is allowed to spread slightly beyond the walls, it is less sharply confined than the infinite well's, which lowers its kinetic energy and therefore its total energy.</p>
+            <p class="explain-incorrect" hidden>Check "Compare to infinite well" and note how much wider the finite-well curve's effective extent is.</p>
+        </div>
+
+        <div class="challenge" data-correct="d">
+            <p class="q-text">4. How does the number of internal nodes change from the n=1 bound state to the n=2 bound state?</p>
+            <label><input type="radio" name="fpw-q4" value="a"> n=1 has more nodes than n=2</label>
+            <label><input type="radio" name="fpw-q4" value="b"> Both always have zero nodes</label>
+            <label><input type="radio" name="fpw-q4" value="c"> Node count is unrelated to n</label>
+            <label><input type="radio" name="fpw-q4" value="d"> n=1 (ground state) has 0 nodes; n=2 has 1 node — each higher state gains one more node</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Just like the infinite well and other bound-state systems, node count increases by one with each successive energy level — select each available state in the dropdown and count the internal zero-crossings.</p>
+            <p class="explain-incorrect" hidden>Select n=1 and n=2 from the dropdown in turn and count how many times the curve crosses zero inside the well.</p>
+        </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">5. What determines whether a bound state is labeled "even" or "odd" parity?</p>
+            <label><input type="radio" name="fpw-q5" value="a"> Whether n itself is an even or odd number</label>
+            <label><input type="radio" name="fpw-q5" value="b"> Whether the wavefunction is symmetric (cosine-like) or antisymmetric (sine-like) about the center of the well</label>
+            <label><input type="radio" name="fpw-q5" value="c"> The sign of the energy</label>
+            <label><input type="radio" name="fpw-q5" value="d"> The well's width</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Even-parity states use <span class="arithmatex">\(\cos(kx)\)</span> inside the well (mirror-symmetric about x=0); odd-parity states use <span class="arithmatex">\(\sin(kx)\)</span> (antisymmetric) — this happens to alternate with n in this labeling, but the defining property is the symmetry, not the number itself.</p>
+            <p class="explain-incorrect" hidden>Look at the parity label shown next to each energy level and compare the curve shapes for an even vs. an odd state.</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

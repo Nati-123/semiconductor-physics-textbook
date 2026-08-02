@@ -86,6 +86,18 @@ Chapter 1 introduced photon energy, \(E_{\text{photon}} = hf\), as the resolutio
 
 The genuinely surprising extension, proposed by Louis de Broglie in 1924, is that this duality is not a special property of light. **Every** particle with momentum — an electron, a proton, an atom, even (in principle) a thrown baseball — has an associated wave character. This was confirmed experimentally within a few years by the Davisson-Germer experiment, in which a beam of electrons reflected from a nickel crystal produced a diffraction pattern indistinguishable in kind from the diffraction of X-rays off the same crystal — direct evidence that electrons, ordinarily thought of as point particles, propagate as waves.
 
+#### Diagram: Wave-Particle Duality Explorer
+<iframe src="../../sims/wave-particle-duality-explorer/main.html" width="100%" height="600px" scrolling="auto"></iframe>
+
+!!! tip "How to use this MicroSim"
+    **Instructions:** Press Start with two slits open and let particles accumulate one at a time on the screen; clear the pattern and switch to one slit to compare.
+
+    **Learning objective:** See directly that individual particles are always detected as single, localized events, while the statistics of many detections follow a wave-interference pattern — the two halves of wave-particle duality at once.
+
+    **What to observe:** Fringes appear only with two slits open; with one slit, only a single broad band remains, since there is no second path to interfere with.
+
+[Full MicroSim documentation →](../../sims/wave-particle-duality-explorer/index.md)
+
 ### The de Broglie Hypothesis
 
 De Broglie's hypothesis assigns a wavelength to any particle in terms of its momentum, using the same constant \(h\) that relates photon energy to frequency:
@@ -196,6 +208,18 @@ flowchart LR
 ??? question "Concept Check — click to reveal answer"
     \(\psi(x)\) is in general a complex-valued function whose phase carries physical information (for example, momentum, encoded in how rapidly it oscillates) but which can be negative or complex-valued, so it cannot itself represent a probability — probabilities must be real numbers between 0 and 1. The probability density \(|\psi(x)|^2 = \psi^*(x)\psi(x)\) is always real and non-negative, and it integrates to exactly 1 when \(\psi\) is normalized, which is exactly the property required of a probability density. Only \(|\psi(x)|^2\), not \(\psi(x)\) itself, corresponds to something you can measure.
 
+#### Diagram: Schrödinger Wavefunction & Eigenstates Visualizer
+<iframe src="../../sims/schrodinger-wavefunction-explorer/main.html" width="100%" height="640px" scrolling="auto"></iframe>
+
+!!! tip "How to use this MicroSim"
+    **Instructions:** In Eigenstate mode, press Start and watch the probability density stay flat while the complex phase rotates; switch to Wave Packet mode to see it localize, drift, and spread instead.
+
+    **Learning objective:** Distinguish the complex wavefunction ψ from the real, measurable probability density |ψ|², and see concretely what "stationary state" means.
+
+    **What to observe:** The eigenstate's |ψ|² never changes shape — only Re[ψ] and Im[ψ] ripple as the phase rotates. The wave packet's |ψ|² visibly moves and widens over time.
+
+[Full MicroSim documentation →](../../sims/schrodinger-wavefunction-explorer/index.md)
+
 ## Particle in a Box: A Solvable Quantum System
 
 ### Setting Up Boundary Conditions
@@ -261,6 +285,18 @@ Several features of this result are worth internalizing, since they reappear (in
 The particle-in-a-box model idealizes its walls as infinitely tall, so the wavefunction is forced to be exactly zero outside the well. Real confining potentials — an electron held near a doped atom, a carrier confined to a thin semiconductor layer — are better modeled as a **finite potential well**, with a wall of finite height \(V_0\) rather than infinite height. Solving the Schrödinger equation for a finite well shows that the wavefunction does *not* drop to exactly zero at the walls; instead, it decays smoothly into the classically forbidden region outside the well, meaning there is a small but nonzero probability of finding the particle *outside* the well altogether — a region where, classically, it could never be found, since its kinetic energy there would have to be negative.
 
 This same phenomenon, generalized to a *barrier* (a finite region of potential energy higher than the particle's own energy, with allowed regions on both sides) rather than a well, is the setting for **quantum tunneling**.
+
+#### Diagram: Finite Potential Well Explorer
+<iframe src="../../sims/finite-potential-well-explorer/main.html" width="100%" height="580px" scrolling="auto"></iframe>
+
+!!! tip "How to use this MicroSim"
+    **Instructions:** Drag V₀ from minimum to maximum and watch the number of bound states change; select each state and check "Compare to infinite well" to see the wavefunction penetrate the walls.
+
+    **Learning objective:** Contrast the finite well's exponentially decaying wavefunction outside the walls against the infinite well's exact zero there.
+
+    **What to observe:** Every finite-well curve continues smoothly past the walls instead of stopping abruptly, and the finite-well ground-state energy is always somewhat lower than the corresponding infinite-well energy.
+
+[Full MicroSim documentation →](../../sims/finite-potential-well-explorer/index.md)
 
 ### Quantum Tunneling Through a Barrier
 

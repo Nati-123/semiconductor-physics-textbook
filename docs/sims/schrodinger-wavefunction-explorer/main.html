@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Schrödinger Wavefunction &amp; Eigenstates Visualizer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="schrodinger-wavefunction-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Uncheck "Wave packet" to switch to Eigenstate mode, press Start, and watch the Re[ψ] and Im[ψ] curves ripple in place while the shaded |ψ|² band underneath stays perfectly flat and unchanging.</li>
+            <li><strong>Predict:</strong> Before checking "Wave packet" again, predict what will happen to the flat |ψ|² band once you switch to a superposition of several k-components.</li>
+            <li><strong>Observe:</strong> In Wave Packet mode, watch the |ψ|² hump drift sideways and slowly widen over time — this is the same spreading behavior connected to the Heisenberg uncertainty tradeoff from earlier in the chapter.</li>
+            <li><strong>Compare:</strong> Increase the packet width Δk slider — a wider spread of k-components produces a *narrower* initial packet in space, which then spreads faster. This is Heisenberg's <span class="arithmatex">\(\Delta x \Delta p \gtrsim \hbar/2\)</span> in action.</li>
+            <li><strong>Explain:</strong> Explain, using the two modes, why a single eigenstate is called a "stationary state" even though its complex phase is visibly rotating.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 2:</strong> This MicroSim animates the general wavefunction concepts from the "Schrödinger Equation, Wavefunction, and Probability" section — the wavefunction <span class="arithmatex">\(\psi(x,t)\)</span> is complex-valued (hence the separate Re and Im curves), and the physically measurable quantity is always the real, non-negative probability density <span class="arithmatex">\(|\psi(x,t)|^2\)</span>. The single-eigenstate mode uses the plane wave <span class="arithmatex">\(\psi=Ae^{i(kx-\omega t)}\)</span> with free-particle dispersion <span class="arithmatex">\(\omega \propto k^2\)</span>; the wave-packet mode sums seven such components with Gaussian weights, so their differing <span class="arithmatex">\(\omega\)</span> values dephase over time, producing real spreading. Animation time here is a dimensionless, dramatized "phase-time," not real seconds — a genuine free electron's phase would rotate far too fast (sub-femtosecond) to animate at human timescales.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>Start / Stop button</dt>
+            <dd>Starts or pauses the time evolution of ψ(x,t); the displayed curves and density freeze in place while stopped.</dd>
+            <dt>Wave packet checkbox</dt>
+            <dd>Switches between a single plane-wave eigenstate (unchecked) and a 7-component Gaussian wave packet (checked); toggling it resets the animation time.</dd>
+            <dt>Central k₀ slider</dt>
+            <dd>Sets the central wavenumber shared by all components — higher k₀ means shorter spatial wavelength and faster phase rotation.</dd>
+            <dt>Packet width Δk slider</dt>
+            <dd>Sets the spacing between the 7 k-components in Wave Packet mode (ignored in Eigenstate mode) — a larger Δk spread produces a more tightly localized initial packet that spreads more quickly.</dd>
+            <dt>Animation speed slider</dt>
+            <dd>Scales how quickly the illustrative "phase-time" advances each frame.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">1. In Eigenstate mode, what happens to the probability density |ψ|² while the animation runs?</p>
+            <label><input type="radio" name="swe-q1" value="a"> It drifts steadily to the right</label>
+            <label><input type="radio" name="swe-q1" value="b"> It stays flat and constant — only the complex phase rotates</label>
+            <label><input type="radio" name="swe-q1" value="c"> It oscillates up and down rhythmically</label>
+            <label><input type="radio" name="swe-q1" value="d"> It shrinks to zero</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>A single plane-wave eigenstate has time-independent |ψ|² — this is exactly what "stationary state" means, even though Re[ψ] and Im[ψ] individually ripple as the complex phase rotates.</p>
+            <p class="explain-incorrect" hidden>Switch to Eigenstate mode (uncheck "Wave packet"), press Start, and watch the shaded density band at the bottom while the curves above it ripple.</p>
+        </div>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">2. What happens to the probability density in Wave Packet mode that does NOT happen in Eigenstate mode?</p>
+            <label><input type="radio" name="swe-q2" value="a"> Nothing — both modes look identical</label>
+            <label><input type="radio" name="swe-q2" value="b"> The wavefunction becomes real-valued</label>
+            <label><input type="radio" name="swe-q2" value="c"> The density localizes into a hump that drifts and spreads over time</label>
+            <label><input type="radio" name="swe-q2" value="d"> The density becomes negative</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Summing several k-components with different omega values (the dispersion relation) causes the components to interfere constructively in one region and destructively elsewhere, producing a localized, moving, spreading probability hump — impossible with only one k-component.</p>
+            <p class="explain-incorrect" hidden>Toggle between the two modes and compare the shape and motion of the shaded |ψ|² band at the bottom of the canvas.</p>
+        </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">3. Why does a real free electron's wavefunction phase rotate far too fast to animate at real-time, human-observable speed?</p>
+            <label><input type="radio" name="swe-q3" value="a"> Because the associated angular frequency ω is enormous (order 10¹⁶ rad/s), so a full cycle takes well under a femtosecond</label>
+            <label><input type="radio" name="swe-q3" value="b"> Because electrons do not actually have a wavefunction</label>
+            <label><input type="radio" name="swe-q3" value="c"> Because Planck's constant is very large</label>
+            <label><input type="radio" name="swe-q3" value="d"> Because the electron mass is too large to oscillate quickly</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>With realistic nm-scale wavenumbers, the free-particle dispersion <span class="arithmatex">\(\omega=\hbar k^2/2m\)</span> gives angular frequencies around 10¹⁶ rad/s — a full phase cycle in a small fraction of a femtosecond, which is why this MicroSim uses a dramatized, illustrative timescale instead.</p>
+            <p class="explain-incorrect" hidden>Reread the "Connects to Chapter 2" note above the controls section.</p>
+        </div>
+
+        <div class="challenge" data-correct="d">
+            <p class="q-text">4. Increasing the packet width Δk slider (spreading the k-components further apart) makes the initial wave packet in space:</p>
+            <label><input type="radio" name="swe-q4" value="a"> Wider and slower to spread</label>
+            <label><input type="radio" name="swe-q4" value="b"> Unchanged in width</label>
+            <label><input type="radio" name="swe-q4" value="c"> Flat, like an eigenstate</label>
+            <label><input type="radio" name="swe-q4" value="d"> Narrower, and it spreads more quickly afterward</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>This is Heisenberg's uncertainty principle: a wider spread of momentum components (Δk) forces a narrower initial position spread, but that same wide spread of components dephases faster, so the packet spreads more quickly over time.</p>
+            <p class="explain-incorrect" hidden>Set Δk to its minimum, note the initial packet width, then set it to its maximum and compare — clear the pattern by re-toggling the checkbox between comparisons.</p>
+        </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">5. What physical quantity does the shaded |ψ|² panel represent?</p>
+            <label><input type="radio" name="swe-q5" value="a"> The particle's exact position at every instant</label>
+            <label><input type="radio" name="swe-q5" value="b"> The probability density of finding the particle at each position</label>
+            <label><input type="radio" name="swe-q5" value="c"> The particle's momentum</label>
+            <label><input type="radio" name="swe-q5" value="d"> The particle's electric charge distribution</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>|ψ(x,t)|² is the Born-rule probability density — the relative likelihood of detecting the particle near position x, not a literal charge cloud or a definite trajectory.</p>
+            <p class="explain-incorrect" hidden>Reread the "Connects to Chapter 2" note, which restates the Born interpretation of |ψ|².</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

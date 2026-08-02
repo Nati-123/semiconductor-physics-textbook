@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Wave-Particle Duality Explorer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="wave-particle-duality-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> With two slits open, press Start and watch the first 10-20 particles land — the dots look scattered and random, with no visible pattern yet.</li>
+            <li><strong>Predict:</strong> Before letting many more particles accumulate, predict whether the dots will eventually fill in evenly or clump into bands.</li>
+            <li><strong>Observe:</strong> Let 100+ particles accumulate with two slits open — distinct bright and dark fringe bands emerge, even though each particle landed individually and unpredictably.</li>
+            <li><strong>Compare:</strong> Clear the pattern, switch to "one slit," and build up a new pattern — the fringes disappear, leaving one broad central band. This is the interference term vanishing when there is only one path.</li>
+            <li><strong>Explain:</strong> Explain why this experiment shows both particle behavior (individual, localized detections) and wave behavior (a collective interference pattern) at the same time.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 2:</strong> This MicroSim illustrates <strong>wave-particle duality</strong> using the same two-path interference logic behind the Davisson-Germer electron-diffraction result described in the text. Each particle is detected as a single, localized dot (particle behavior), yet the accumulated pattern follows the wave-interference intensity <span class="arithmatex">\(I(y)\propto\cos^2(\pi d y/\lambda L)\)</span> (wave behavior) — neither description alone explains the full result. Units here are schematic/dimensionless, not literal nanometer-scale distances, since real electron fringe spacing is far too fine to render at canvas scale.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>Start / Stop button</dt>
+            <dd>Starts or pauses firing particles one at a time; each new particle's landing spot is sampled from the interference intensity, then added permanently to the accumulated pattern.</dd>
+            <dt>↺ Clear Pattern button</dt>
+            <dd>Erases the accumulated dot pattern and resets the particle counter to zero, without changing the slider settings.</dd>
+            <dt>Two slits open checkbox</dt>
+            <dd>Toggles between one slit and two slits open in the barrier; unchecking it also clears the pattern, since the underlying intensity distribution changes.</dd>
+            <dt>Slit separation d slider</dt>
+            <dd>Sets the distance between the two slits — larger separation produces more closely spaced fringes.</dd>
+            <dt>Wavelength λ slider</dt>
+            <dd>Sets the particle's wavelength — longer wavelength produces more widely spaced fringes.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">1. When two slits are open and many particles have accumulated, what does the resulting pattern show?</p>
+            <label><input type="radio" name="wpd-q1" value="a"> A single bright spot directly behind each slit</label>
+            <label><input type="radio" name="wpd-q1" value="b"> A perfectly uniform, evenly-lit screen</label>
+            <label><input type="radio" name="wpd-q1" value="c"> Alternating bright and dark interference fringes</label>
+            <label><input type="radio" name="wpd-q1" value="d"> No particles ever land on the screen</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>The two-slit intensity pattern <span class="arithmatex">\(\cos^2(\pi dy/\lambda L)\)</span> has repeating maxima and minima, so particles accumulate into alternating bright fringes (constructive interference) and dark gaps (destructive interference).</p>
+            <p class="explain-incorrect" hidden>Run the simulation with two slits open and let at least 100 particles accumulate before checking the pattern.</p>
+        </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">2. What happens to the fringe pattern when you switch from two slits to one slit?</p>
+            <label><input type="radio" name="wpd-q2" value="a"> The fringes get closer together but do not disappear</label>
+            <label><input type="radio" name="wpd-q2" value="b"> The fringes disappear, leaving one broad central band</label>
+            <label><input type="radio" name="wpd-q2" value="c"> Nothing changes at all</label>
+            <label><input type="radio" name="wpd-q2" value="d"> Twice as many particles are needed to see any pattern</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>With only one slit there is only one path, so there is no second wave to interfere with — the pattern becomes the smooth single-slit diffraction envelope, with no closely spaced fringes.</p>
+            <p class="explain-incorrect" hidden>Clear the pattern, uncheck "Two slits open," and build up a fresh pattern to compare directly against the two-slit case.</p>
+        </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">3. Each individual particle lands at one specific point on the screen. What does this demonstrate?</p>
+            <label><input type="radio" name="wpd-q3" value="a"> Particle-like behavior — each detection is a single, localized event</label>
+            <label><input type="radio" name="wpd-q3" value="b"> Wave-like behavior only</label>
+            <label><input type="radio" name="wpd-q3" value="c"> That the particle passed through both slits at once, observably</label>
+            <label><input type="radio" name="wpd-q3" value="d"> A flaw in the simulation</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>A single, sharp landing point per particle is exactly the particle-like half of wave-particle duality — detection is always localized, never spread out like a classical wave.</p>
+            <p class="explain-incorrect" hidden>Watch a single particle travel from source to screen — notice it lands at one sharp point, not a smeared-out region.</p>
+        </div>
+
+        <div class="challenge" data-correct="d">
+            <p class="q-text">4. If you increase the slit separation d, what happens to the fringe spacing?</p>
+            <label><input type="radio" name="wpd-q4" value="a"> Fringe spacing increases</label>
+            <label><input type="radio" name="wpd-q4" value="b"> Fringe spacing is unaffected by d</label>
+            <label><input type="radio" name="wpd-q4" value="c"> The fringes disappear entirely</label>
+            <label><input type="radio" name="wpd-q4" value="d"> Fringe spacing decreases (fringes get closer together)</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Fringe spacing is proportional to <span class="arithmatex">\(\lambda L/d\)</span>, so increasing d in the denominator makes the fringes more closely spaced — read the live "Fringe spacing" readout as you drag the d slider.</p>
+            <p class="explain-incorrect" hidden>Drag the slit separation d slider while watching the predicted intensity curve on the right — count how many peaks fit in the same screen height.</p>
+        </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">5. Why can't wavelength λ or slit separation d in this MicroSim be read as literal nanometer distances?</p>
+            <label><input type="radio" name="wpd-q5" value="a"> Because the simulation is not based on real physics at all</label>
+            <label><input type="radio" name="wpd-q5" value="b"> Because real electron fringe spacing is far too fine to render at canvas scale, so schematic/dimensionless units are used instead</label>
+            <label><input type="radio" name="wpd-q5" value="c"> Because only photons, never electrons, show this pattern</label>
+            <label><input type="radio" name="wpd-q5" value="d"> Because the pattern only works for very large objects</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>The underlying interference math is exactly right, but real de Broglie wavelengths for electrons are sub-nanometer while screens are centimeters to meters away — rendering that ratio on a canvas would make fringes far too fine to see, so the sliders use illustrative schematic units instead.</p>
+            <p class="explain-incorrect" hidden>Reread the "Connects to Chapter 2" note above the controls section.</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

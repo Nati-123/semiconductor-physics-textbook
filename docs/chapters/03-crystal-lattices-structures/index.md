@@ -107,6 +107,18 @@ flowchart LR
     C --> E["Primitive Cell<br/>(smallest cell, 1 lattice point)"]
 ```
 
+#### Diagram: Unit Cell Repetition Explorer
+<iframe src="../../sims/unit-cell-repetition-explorer/main.html" width="100%" height="760px" scrolling="auto"></iframe>
+
+!!! tip "How to use this MicroSim"
+    **Instructions:** Start at N=1 and note the single unit cell's atom pattern, then increase N to 4 and press Start to watch the block grow, cell by cell, outward from its center.
+
+    **Learning objective:** See directly that a crystal lattice is a single unit cell repeated by translation in three dimensions.
+
+    **What to observe:** Every cell in the block uses the identical atom pattern; only its position shifts by whole multiples of the lattice constant a.
+
+[Full MicroSim documentation →](../../sims/unit-cell-repetition-explorer/index.md)
+
 ## Cubic Lattice Structures: SC, BCC, and FCC
 
 ### Simple Cubic (SC)

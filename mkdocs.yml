@@ -105,7 +105,11 @@ nav:
           - Quiz: chapters/05-quantum-mechanics-periodic-crystals/quiz.md
           - Problems: chapters/05-quantum-mechanics-periodic-crystals/problems.md
           - Glossary: chapters/05-quantum-mechanics-periodic-crystals/glossary.md
-      - 6. Band Structure and the Fermi Level: chapters/06-band-structure-fermi-level/index.md
+      - 6. Band Structure and the Fermi Level:
+          - Content: chapters/06-band-structure-fermi-level/index.md
+          - Quiz: chapters/06-band-structure-fermi-level/quiz.md
+          - Problems: chapters/06-band-structure-fermi-level/problems.md
+          - Glossary: chapters/06-band-structure-fermi-level/glossary.md
       - 7. Intrinsic and Extrinsic Semiconductors: chapters/07-intrinsic-extrinsic-semiconductors/index.md
       - 8. Doping, Ionization, and Temperature Regimes: chapters/08-doping-ionization-temperature/index.md
       - 9. Carrier Concentration Statistics: chapters/09-carrier-concentration-statistics/index.md
@@ -148,6 +152,9 @@ nav:
       - Chapter 5:
           - Reciprocal Lattice and Brillouin Zone Explorer: sims/reciprocal-lattice-brillouin-zone-explorer/index.md
           - Kronig-Penney Band Formation Explorer: sims/kronig-penney-band-explorer/index.md
+      - Chapter 6:
+          - Direct vs. Indirect Bandgap E-k Explorer: sims/direct-indirect-bandgap-explorer/index.md
+          - Density of States and Fermi Level Explorer: sims/density-of-states-fermi-level-explorer/index.md
   - Learning Graph:
       - Introduction: learning-graph/index.md
       - Course Description Assessment: learning-graph/course-description-assessment.md

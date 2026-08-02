@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Density of States and Fermi Level Explorer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="density-of-states-fermi-level-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Select "Insulator" and observe the wide white (empty, g(E)=0) gap between the green valence band and blue conduction band, with the dashed E_F line sitting in the middle of that empty gap.</li>
+            <li><strong>Predict:</strong> Before switching to "Semiconductor", predict whether the gap will be wider or narrower than the insulator's.</li>
+            <li><strong>Observe:</strong> Switch to "Semiconductor" and confirm the gap is much narrower, though the qualitative picture (full valence band, empty conduction band at T=0) is otherwise identical.</li>
+            <li><strong>Switch to "Metal"</strong> and notice that E_F now sits inside a region where the density-of-states curve is nonzero on both sides — no gap at all.</li>
+            <li><strong>Switch to "Semimetal"</strong> and zoom in (visually) on how thin the density-of-states curve is right at E_F, compared to the Metal preset.</li>
+            <li><strong>Drag the thermal energy kT slider up</strong> from 0 and watch the sharp occupied/empty boundary near E_F blur into a smooth gradient in both panels.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 6:</strong> This MicroSim draws the density of states <span class="arithmatex">\(g_v(E)\propto\sqrt{E_v-E}\)</span> and <span class="arithmatex">\(g_c(E)\propto\sqrt{E-E_c}\)</span> for a valence-like and conduction-like band, shaded by the Fermi-Dirac occupation probability <span class="arithmatex">\(f(E)=1/[1+\exp((E-E_F)/k_BT)]\)</span>. Whether the two bands overlap in energy (Metal, Semimetal) or are separated by a real gap (Semiconductor, Insulator), and how large that gap or overlap is, is exactly what this chapter uses to classify a material's band structure.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>Material dropdown</dt>
+            <dd>Selects a preset band-edge configuration (valence-band top, conduction-band bottom, and Fermi level) representative of a metal, insulator, semiconductor, or semimetal.</dd>
+            <dt>Thermal energy kT slider</dt>
+            <dd>Sets \(k_BT\) in the Fermi-Dirac distribution; larger values smear the sharp T=0 occupied/empty boundary near E_F.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">1. In the Insulator preset, where does the Fermi level E_F sit?</p>
+            <label><input type="radio" name="dfl-q1" value="a"> Inside the valence band</label>
+            <label><input type="radio" name="dfl-q1" value="b"> Inside the conduction band</label>
+            <label><input type="radio" name="dfl-q1" value="c"> Inside the gap, where g(E) = 0</label>
+            <label><input type="radio" name="dfl-q1" value="d"> Below the valence band entirely</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>E_F sits inside the wide band gap, where the density of states is exactly zero — consistent with the fact that no real state exists at E_F in an insulator.</p>
+            <p class="explain-incorrect" hidden>Look at where the dashed E_F line crosses relative to the green (valence) and blue (conduction) shaded regions.</p>
+        </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">2. What distinguishes the Metal preset from the Semiconductor and Insulator presets?</p>
+            <label><input type="radio" name="dfl-q2" value="a"> Metals have no electrons</label>
+            <label><input type="radio" name="dfl-q2" value="b"> In the Metal preset, E_F lies inside a region with nonzero density of states (no gap), rather than inside an empty gap</label>
+            <label><input type="radio" name="dfl-q2" value="c"> Metals have a larger band gap</label>
+            <label><input type="radio" name="dfl-q2" value="d"> There is no difference</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>The Metal preset's valence-like and conduction-like bands overlap in energy, so E_F sits where g(E) > 0 — real states exist right at E_F, unlike the semiconductor and insulator cases.</p>
+            <p class="explain-incorrect" hidden>Compare where the green and blue curves are nonzero relative to E_F in the Metal preset versus the Semiconductor preset.</p>
+        </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">3. What happens to the sharp occupied/empty boundary near E_F as you increase the thermal energy kT slider?</p>
+            <label><input type="radio" name="dfl-q3" value="a"> It smears into a smooth gradient over an energy range of order kT</label>
+            <label><input type="radio" name="dfl-q3" value="b"> It becomes sharper</label>
+            <label><input type="radio" name="dfl-q3" value="c"> It disappears and every state becomes fully occupied</label>
+            <label><input type="radio" name="dfl-q3" value="d"> Nothing changes</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Increasing kT smooths the Fermi-Dirac step function, smearing the occupied/empty boundary over an energy range of order kT around E_F, visible as a fading gradient rather than a hard edge.</p>
+            <p class="explain-incorrect" hidden>Drag the kT slider from its minimum to a larger value and watch the boundary near the dashed E_F line.</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

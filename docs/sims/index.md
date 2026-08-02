@@ -57,4 +57,11 @@ Interactive educational simulations that accompany this textbook.
 | [Reciprocal Lattice and Brillouin Zone Explorer](reciprocal-lattice-brillouin-zone-explorer/index.md) | L2-L3 Understand/Apply | Compare a real-space lattice to its reciprocal lattice with adjustable a_x/a_y, and construct the first Brillouin zone via the Wigner-Seitz procedure |
 | [Kronig-Penney Band Formation Explorer](kronig-penney-band-explorer/index.md) | L2-L4 Understand/Analyze | Plot the Kronig-Penney transcendental equation with shaded forbidden band gaps, and the resulting E-k band diagram with Brillouin zone boundaries marked |
 
+## Chapter 6: Band Structure and the Fermi Level
+
+| MicroSim | Bloom Level | Description |
+|----------|-------------|-------------|
+| [Direct vs. Indirect Bandgap E-k Explorer](direct-indirect-bandgap-explorer/index.md) | L2-L4 Understand/Analyze | Compare direct-gap (GaAs) and indirect-gap (Si, Ge) E-k diagrams with a switchable photon-only vs. phonon-assisted transition arrow and an adjustable effective-mass curvature slider |
+| [Density of States and Fermi Level Explorer](density-of-states-fermi-level-explorer/index.md) | L2-L4 Understand/Analyze | Compare density-of-states and Fermi-level position across Metal, Insulator, Semiconductor, and Semimetal presets, with a Fermi-Dirac thermal smearing slider |
+
 </div>

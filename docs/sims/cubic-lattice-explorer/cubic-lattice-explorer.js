@@ -385,6 +385,16 @@ function updateReadout() {
   let planeNote = '';
   if (isHexStructure(s)) {
     planeNote = '<div class="readout-row warn">Miller plane / direction overlay is disabled for hexagonal structures (HCP, Wurtzite) in this simplified tool -- hexagonal systems use 4-index Miller-Bravais (hkil) notation, not the 3-index (hkl) notation modeled here.</div>';
+  } else if (overlayToggle && overlayToggle.checked()) {
+    const h = parseIntSafe(hInput.value());
+    const k = parseIntSafe(kInput.value());
+    const l = parseIntSafe(lInput.value());
+    if (!(h === 0 && k === 0 && l === 0)) {
+      const poly = computeIntersectionPolygonCubic(h, k, l);
+      if (!poly) {
+        planeNote = '<div class="readout-row warn">Plane (' + h + ' ' + k + ' ' + l + ') does not cross this conventional unit cell -- this cell spans (0,0,0) to (a,a,a), and at least one of this plane\'s axis intercepts falls outside that range. Negative indices are valid and shade correctly when mixed with a positive index that pulls the intercept back into range -- try (1 1 -1) or (-1 1 1). A negative index with no compensating positive index (e.g. (-1 0 0) or (-1 1 0)) places the whole plane in a neighboring cell, so nothing is visible here -- this itself is a useful observation about how Miller planes relate to adjacent unit cells.</div>';
+      }
+    }
   }
 
   readoutDiv.html(

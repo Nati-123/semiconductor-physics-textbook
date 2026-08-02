@@ -139,6 +139,7 @@ nav:
           - Diamond and Zincblende Lattice Explorer: sims/diamond-zincblende-explorer/index.md
           - Miller Indices Plane Visualizer: sims/miller-indices-explorer/index.md
       - Chapter 4:
+          - Electron Configuration Explorer: sims/electron-configuration-explorer/index.md
           - Bonding and Crystal Order Explorer: sims/bonding-crystal-order-explorer/index.md
   - Learning Graph:
       - Introduction: learning-graph/index.md

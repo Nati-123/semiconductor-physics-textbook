@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Electron Configuration Explorer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="electron-configuration-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Press the "Si (Z=14)" button and read the configuration readout — confirm it matches <span class="arithmatex">\(1s^2\,2s^2\,2p^6\,3s^2\,3p^2\)</span> from the chapter text.</li>
+            <li><strong>Predict:</strong> Before pressing "Na (Z=11)", predict how many valence electrons sodium will have, based on its single outer-shell electron discussed in the ionic bonding section.</li>
+            <li><strong>Compare:</strong> Press "Na", "Si", and "Cl" in turn and compare the number of orange (valence) electrons on the outermost ring for each — 1, 4, and 7 respectively.</li>
+            <li><strong>Observe:</strong> Slide Z slowly from 10 to 18 and watch the outermost ring refill from empty back up to 8 electrons, while the inner rings (green, core) stay fixed.</li>
+            <li><strong>Explain:</strong> Explain why silicon (Z=14) and carbon (Z=6) both have exactly 4 valence electrons despite being in different rows of the periodic table.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 4:</strong> This MicroSim visualizes the electron-shell-filling logic behind the chapter's central claim: silicon's electron configuration <span class="arithmatex">\(1s^2\,2s^2\,2p^6\,3s^2\,3p^2\)</span> leaves exactly 4 electrons in its outermost (valence) shell, and that single number, 4, is what determines silicon's preference for covalent, tetrahedral bonding over the metallic or ionic bonding preferred by elements with different valence electron counts (compare Na's 1 valence electron or Cl's 7).</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>Atomic number Z slider</dt>
+            <dd>Selects any element from hydrogen (Z=1) to argon (Z=18); the diagram, configuration string, and core/valence counts update live.</dd>
+            <dt>Na / Si / Cl preset buttons</dt>
+            <dd>Jump directly to the three elements compared in this chapter's bonding discussion (sodium, silicon, chlorine).</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">1. How many valence electrons does silicon (Z=14) have?</p>
+            <label><input type="radio" name="ece-q1" value="a"> 2</label>
+            <label><input type="radio" name="ece-q1" value="b"> 14</label>
+            <label><input type="radio" name="ece-q1" value="c"> 4</label>
+            <label><input type="radio" name="ece-q1" value="d"> 10</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Silicon's outermost shell (n=3) holds 4 electrons (from <span class="arithmatex">\(3s^2\,3p^2\)</span>), shown as the 4 orange dots on the outer ring.</p>
+            <p class="explain-incorrect" hidden>Press the "Si (Z=14)" button and read the "Valence electrons" readout below the diagram.</p>
+        </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">2. What color represents core (non-valence) electrons in this diagram?</p>
+            <label><input type="radio" name="ece-q2" value="a"> Green</label>
+            <label><input type="radio" name="ece-q2" value="b"> Orange</label>
+            <label><input type="radio" name="ece-q2" value="c"> Purple</label>
+            <label><input type="radio" name="ece-q2" value="d"> There is no color distinction</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Electrons in any shell below the outermost occupied shell are drawn green (core electrons); only the outermost ring is orange (valence electrons).</p>
+            <p class="explain-incorrect" hidden>Check the legend box in the top-left of the canvas.</p>
+        </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">3. According to this MicroSim, how many valence electrons does sodium (Na, Z=11) have?</p>
+            <label><input type="radio" name="ece-q3" value="a"> 11</label>
+            <label><input type="radio" name="ece-q3" value="b"> 1</label>
+            <label><input type="radio" name="ece-q3" value="c"> 7</label>
+            <label><input type="radio" name="ece-q3" value="d"> 8</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Sodium's configuration is <span class="arithmatex">\(1s^2\,2s^2\,2p^6\,3s^1\)</span> — only 1 electron in its outermost (n=3) shell, matching the single valence electron discussed in the ionic bonding section.</p>
+            <p class="explain-incorrect" hidden>Press the "Na (Z=11)" button and count the orange dots on the outer ring.</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

@@ -47,6 +47,7 @@ Interactive educational simulations that accompany this textbook.
 
 | MicroSim | Bloom Level | Description |
 |----------|-------------|-------------|
+| [Electron Configuration Explorer](electron-configuration-explorer/index.md) | L2-L3 Understand/Apply | Bohr-model diagram of electron shell filling for Z=1–18, distinguishing core from valence electrons, with Na/Si/Cl presets |
 | [Bonding and Crystal Order Explorer](bonding-crystal-order-explorer/index.md) | L2-L4 Understand/Analyze | Compare covalent, ionic, and metallic bonding side by side, and compare single-crystal, polycrystalline, and amorphous order with optional vacancy, interstitial, and substitutional point defects |
 
 </div>

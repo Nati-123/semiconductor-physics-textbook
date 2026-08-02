@@ -101,6 +101,19 @@ flowchart LR
     C --> D["Determine Bonding<br/>Behavior"]
 ```
 
+#### Diagram: Electron Configuration Explorer
+
+<iframe src="../../sims/electron-configuration-explorer/main.html" width="100%" height="660px" scrolling="auto"></iframe>
+
+!!! tip "How to use this MicroSim"
+    **Instructions:** Press the "Si (Z=14)" preset button and confirm the configuration string matches \(1s^2\,2s^2\,2p^6\,3s^2\,3p^2\). Then press "Na" and "Cl" to compare their valence electron counts to silicon's.
+
+    **Learning objective:** Determine the electron configuration of an element from its atomic number, and identify how many of its electrons are core versus valence.
+
+    **What to observe:** The outermost ring's orange electron count is exactly the "valence electrons" number used throughout the rest of this chapter — 1 for sodium, 4 for silicon, 7 for chlorine.
+
+[Full MicroSim documentation →](../../sims/electron-configuration-explorer/index.md)
+
 ### Why the Valence Electron Count Matters
 
 The number of valence electrons an atom has, together with how strongly its nucleus attracts electrons (a property called electronegativity), together determine which of the three bonding mechanisms discussed in this chapter — covalent, ionic, or metallic — that atom prefers. Atoms with 1, 2, or 3 valence electrons and low electronegativity, like sodium or copper, tend to give those electrons up entirely, favoring metallic or ionic bonding. Atoms with 5, 6, or 7 valence electrons and high electronegativity, like chlorine, tend to strongly attract additional electrons, also favoring ionic bonding when paired with an electron-donating partner. Atoms with exactly 4 valence electrons, like carbon, silicon, and germanium, sit at a natural midpoint: they neither strongly attract nor strongly donate electrons, and instead satisfy their bonding requirements most efficiently by **sharing** electrons with neighboring atoms of the same or similar type — the defining behavior of a covalent bond, discussed next.

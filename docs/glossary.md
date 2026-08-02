@@ -2,13 +2,21 @@
 
 # Glossary of Terms
 
-This glossary currently covers the concepts introduced in [Chapter 1: Physics and Math Foundations](chapters/01-physics-math-foundations/index.md), [Chapter 2: Quantum Mechanics Foundations](chapters/02-quantum-mechanics-foundations/index.md), [Chapter 3: Crystal Lattices and Structures](chapters/03-crystal-lattices-structures/index.md), and [Chapter 4: Chemical Bonding in Semiconductor Crystals](chapters/04-chemical-bonding-crystals/index.md). Entries for later chapters will be added as those chapters are written.
+This glossary currently covers the concepts introduced in [Chapter 1: Physics and Math Foundations](chapters/01-physics-math-foundations/index.md), [Chapter 2: Quantum Mechanics Foundations](chapters/02-quantum-mechanics-foundations/index.md), [Chapter 3: Crystal Lattices and Structures](chapters/03-crystal-lattices-structures/index.md), [Chapter 4: Chemical Bonding in Semiconductor Crystals](chapters/04-chemical-bonding-crystals/index.md), and [Chapter 5: Quantum Mechanics of Periodic Crystals](chapters/05-quantum-mechanics-periodic-crystals/index.md). Entries for later chapters will be added as those chapters are written.
 
 #### Algebra
 
 The branch of mathematics dealing with symbolic manipulation of equations, including solving for an unknown variable and working with exponents and ratios.
 
 **Example:** Rearranging the diode current equation \(I = I_0(e^{V/V_T}-1)\) to solve for \(V\) is an algebra skill applied to a physical law.
+
+#### Allowed Energy States
+
+The specific, continuously-varying \((E,k)\) pairs that satisfy the periodic Schrödinger equation within an energy band.
+
+**Example:** Within a single energy band, \(k\) can vary continuously, so allowed energy states form a dense, quasi-continuous range rather than the widely-separated discrete levels of an isolated atom.
+
+See also: [Energy Band](#energy-band), [Band Formation](#band-formation).
 
 #### Amorphous Solid
 
@@ -18,6 +26,22 @@ A solid in which atoms preserve roughly the same local bonding environment a cry
 
 See also: [Polycrystalline Solid](#polycrystalline-solid), [Crystal Lattice](#crystal-lattice).
 
+#### Band Formation
+
+The splitting of a free particle's continuous energy spectrum into alternating allowed energy bands and forbidden band gaps, caused by the periodicity of the crystal potential.
+
+**Example:** In the Kronig-Penney model, band formation appears as soon as the barrier strength \(P>0\); at \(P=0\) (no periodicity) the spectrum is one continuous band with no gaps.
+
+See also: [Energy Band](#energy-band), [Band Gap](#band-gap), [Kronig-Penney Model](#kronig-penney-model).
+
+#### Band Gap
+
+A range of energy, also called a forbidden energy gap, containing no allowed electron states, lying between two energy bands.
+
+**Example:** In the Kronig-Penney model, band gaps occur wherever \(P\sin(\alpha a)/(\alpha a)+\cos(\alpha a)\) falls outside \([-1,1]\), and these gaps are centered on the Brillouin zone boundaries \(k=\pm n\pi/a\).
+
+See also: [Forbidden Energy Gap](#forbidden-energy-gap), [Energy Band](#energy-band), [Brillouin Zone](#brillouin-zone).
+
 #### Basis
 
 The atom, or small group of atoms, attached to every point of a crystal lattice to produce a crystal structure.
@@ -25,6 +49,14 @@ The atom, or small group of atoms, attached to every point of a crystal lattice 
 **Example:** The zincblende structure attaches a two-atom basis (one atom of each species, such as gallium and arsenic) to the underlying lattice geometry it shares with diamond.
 
 See also: [Crystal Lattice](#crystal-lattice), [Diamond Lattice Structure](#diamond-lattice-structure).
+
+#### Bloch Theorem
+
+The theorem stating that any solution to the Schrödinger equation in a periodic potential must take the form \(\psi_k(x)=e^{ikx}u_k(x)\), where \(u_k(x)\) has the same periodicity as the lattice.
+
+**Example:** Bloch's theorem introduces the Bloch wavevector \(k\) and the associated crystal momentum \(\hbar k\).
+
+See also: [Periodic Potential](#periodic-potential), [Kronig-Penney Model](#kronig-penney-model).
 
 #### Body-Centered Cubic
 
@@ -48,11 +80,27 @@ Constraints imposed on a wavefunction (or its derivative) at the edges of a spat
 
 See also: [Eigenvalue](#eigenvalue), [Particle in a Box](#particle-in-a-box).
 
+#### Brillouin Zone
+
+The primitive cell of the reciprocal lattice, constructed by the Wigner-Seitz procedure; the first Brillouin zone of a 1D chain with lattice constant \(a\) is the interval \(-\pi/a \leq k \leq \pi/a\).
+
+**Example:** The Kronig-Penney model's band gaps open precisely at the first, second, and higher Brillouin zone boundaries, \(k=\pm n\pi/a\).
+
+See also: [Reciprocal Lattice](#reciprocal-lattice), [Band Gap](#band-gap).
+
 #### Complex Numbers
 
 Numbers of the form \(a+bi\), with real part \(a\) and imaginary part \(b\) where \(i=\sqrt{-1}\), used to represent oscillations, phase, and quantum-mechanical wavefunctions.
 
 **Example:** Euler's formula, \(e^{i\theta}=\cos\theta+i\sin\theta\), rewrites an oscillation as a complex exponential.
+
+#### Conduction Band
+
+The energy band immediately above the valence band, typically empty (or nearly so) of electrons at absolute zero.
+
+**Example:** Whether a material conducts electricity well depends heavily on how easily electrons can be excited from the valence band into the conduction band across the band gap.
+
+See also: [Valence Band](#valence-band), [Band Gap](#band-gap).
 
 #### Coordination Number
 
@@ -206,6 +254,14 @@ The potential energy stored in a configuration of two charges held at a fixed se
 
 See also: [Electric Potential](#electric-potential), [Coulomb's Law](#coulombs-law).
 
+#### Energy Band
+
+A continuous range of allowed electron energies produced by band formation in a periodic potential.
+
+**Example:** The Kronig-Penney model produces a sequence of energy bands of increasing width as energy increases, separated by narrowing band gaps.
+
+See also: [Allowed Energy States](#allowed-energy-states), [Band Gap](#band-gap), [Band Formation](#band-formation).
+
 #### Exponentials and Logarithms
 
 A pair of inverse mathematical functions, \(e^x\) and \(\ln x\), used to describe quantities that grow, decay, or accumulate multiplicatively rather than additively.
@@ -219,6 +275,14 @@ A cubic crystal structure with atoms at the 8 corners and at the center of each 
 **Example:** The touching condition for FCC, \(4r=\sqrt2\,a\), comes from atoms touching along the face diagonal.
 
 See also: [Simple Cubic Structure](#simple-cubic-structure), [Body-Centered Cubic](#body-centered-cubic), [Packing Fraction](#packing-fraction).
+
+#### Forbidden Energy Gap
+
+An alternate name for a band gap, emphasizing that no electron states exist within this energy range.
+
+**Example:** The forbidden energy gap between the valence and conduction bands is the single most important number in determining whether a material behaves as an insulator, semiconductor, or conductor.
+
+See also: [Band Gap](#band-gap).
 
 #### Force
 
@@ -292,6 +356,14 @@ A model that treats a gas as a large collection of particles in constant random 
 
 See also: [Boltzmann Constant](#boltzmann-constant), [Thermal Equilibrium](#thermal-equilibrium).
 
+#### Kronig-Penney Model
+
+An idealized, exactly solvable periodic potential — an infinite array of finite rectangular barriers — used to demonstrate band formation explicitly via a transcendental equation relating energy to the Bloch wavevector.
+
+**Example:** The Kronig-Penney transcendental equation, \(P\sin(\alpha a)/(\alpha a)+\cos(\alpha a)=\cos(ka)\), has no real solution for \(k\) whenever its left-hand side falls outside \([-1,1]\), directly producing band gaps.
+
+See also: [Bloch Theorem](#bloch-theorem), [Periodic Potential](#periodic-potential), [Band Formation](#band-formation).
+
 #### Lattice Constant
 
 The edge length \(a\) of the conventional cubic unit cell, setting the fundamental length scale of a crystal.
@@ -356,6 +428,14 @@ An idealized quantum system in which a particle is confined between two infinite
 
 See also: [Potential Well](#potential-well), [Boundary Conditions](#boundary-conditions), [Eigenvalue](#eigenvalue).
 
+#### Periodic Potential
+
+A potential energy function that repeats with the same spatial period as the crystal lattice, \(V(x+a)=V(x)\).
+
+**Example:** The electrostatic potential an electron experiences from every atomic core in a crystal is periodic because the crystal lattice itself is periodic.
+
+See also: [Bloch Theorem](#bloch-theorem), [Crystal Lattice](#crystal-lattice).
+
 #### Photon Energy
 
 The energy carried by a single discrete packet of electromagnetic radiation, directly proportional to the radiation's frequency.
@@ -411,6 +491,14 @@ The phenomenon in which a particle has a nonzero probability of being found on t
 **Example:** An electron with energy 0.5 eV incident on a 1 nm barrier of height 1.0 eV has a tunneling transmission probability of roughly 0.07%.
 
 See also: [Potential Well](#potential-well), [Transmission Coefficient](#transmission-coefficient).
+
+#### Reciprocal Lattice
+
+A lattice constructed in k-space (momentum space) from a real-space lattice, via the condition \(\vec a_i\cdot\vec b_j=2\pi\delta_{ij}\); generally distinct in geometry from the real-space lattice.
+
+**Example:** The reciprocal lattice of a simple cubic lattice with constant \(a\) is itself simple cubic with constant \(2\pi/a\), while the reciprocal lattice of FCC is BCC.
+
+See also: [Brillouin Zone](#brillouin-zone), [Bloch Theorem](#bloch-theorem).
 
 #### Schrodinger Equation
 
@@ -487,6 +575,14 @@ A repeating volume that tiles all of space by simple translation to reproduce an
 **Example:** The conventional unit cell of face-centered cubic contains 4 atoms, even though its true primitive cell contains only 1 lattice point.
 
 See also: [Primitive Cell](#primitive-cell), [Lattice Constant](#lattice-constant).
+
+#### Valence Band
+
+The highest energy band that is completely filled with electrons at absolute zero.
+
+**Example:** Electrons in the valence band, closest in energy to the band gap, are the ones that can be thermally or optically excited into the conduction band.
+
+See also: [Conduction Band](#conduction-band), [Band Gap](#band-gap).
 
 #### Valence Electron
 

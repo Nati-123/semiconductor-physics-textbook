@@ -50,4 +50,11 @@ Interactive educational simulations that accompany this textbook.
 | [Electron Configuration Explorer](electron-configuration-explorer/index.md) | L2-L3 Understand/Apply | Bohr-model diagram of electron shell filling for Z=1–18, distinguishing core from valence electrons, with Na/Si/Cl presets |
 | [Bonding and Crystal Order Explorer](bonding-crystal-order-explorer/index.md) | L2-L4 Understand/Analyze | Compare covalent, ionic, and metallic bonding side by side, and compare single-crystal, polycrystalline, and amorphous order with optional vacancy, interstitial, and substitutional point defects |
 
+## Chapter 5: Quantum Mechanics of Periodic Crystals
+
+| MicroSim | Bloom Level | Description |
+|----------|-------------|-------------|
+| [Reciprocal Lattice and Brillouin Zone Explorer](reciprocal-lattice-brillouin-zone-explorer/index.md) | L2-L3 Understand/Apply | Compare a real-space lattice to its reciprocal lattice with adjustable a_x/a_y, and construct the first Brillouin zone via the Wigner-Seitz procedure |
+| [Kronig-Penney Band Formation Explorer](kronig-penney-band-explorer/index.md) | L2-L4 Understand/Analyze | Plot the Kronig-Penney transcendental equation with shaded forbidden band gaps, and the resulting E-k band diagram with Brillouin zone boundaries marked |
+
 </div>

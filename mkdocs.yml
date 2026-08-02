@@ -95,7 +95,11 @@ nav:
           - Quiz: chapters/03-crystal-lattices-structures/quiz.md
           - Problems: chapters/03-crystal-lattices-structures/problems.md
           - Glossary: chapters/03-crystal-lattices-structures/glossary.md
-      - 4. Chemical Bonding in Semiconductor Crystals: chapters/04-chemical-bonding-crystals/index.md
+      - 4. Chemical Bonding in Semiconductor Crystals:
+          - Content: chapters/04-chemical-bonding-crystals/index.md
+          - Quiz: chapters/04-chemical-bonding-crystals/quiz.md
+          - Problems: chapters/04-chemical-bonding-crystals/problems.md
+          - Glossary: chapters/04-chemical-bonding-crystals/glossary.md
       - 5. Quantum Mechanics of Periodic Crystals: chapters/05-quantum-mechanics-periodic-crystals/index.md
       - 6. Band Structure and the Fermi Level: chapters/06-band-structure-fermi-level/index.md
       - 7. Intrinsic and Extrinsic Semiconductors: chapters/07-intrinsic-extrinsic-semiconductors/index.md
@@ -134,6 +138,8 @@ nav:
           - Crystal Structure Explorer: sims/cubic-lattice-explorer/index.md
           - Diamond and Zincblende Lattice Explorer: sims/diamond-zincblende-explorer/index.md
           - Miller Indices Plane Visualizer: sims/miller-indices-explorer/index.md
+      - Chapter 4:
+          - Bonding and Crystal Order Explorer: sims/bonding-crystal-order-explorer/index.md
   - Learning Graph:
       - Introduction: learning-graph/index.md
       - Course Description Assessment: learning-graph/course-description-assessment.md

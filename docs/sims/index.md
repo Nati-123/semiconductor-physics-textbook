@@ -43,4 +43,10 @@ Interactive educational simulations that accompany this textbook.
 | [Diamond / Zincblende Structure Explorer](diamond-zincblende-explorer/index.md) | L2 Understand | Rotate the diamond-cubic unit cell with tetrahedral bonds, toggling between single-element diamond and two-element zincblende coloring |
 | [Miller Indices Explorer](miller-indices-explorer/index.md) | L3 Apply | Slice a shaded crystal plane through a rotatable unit cell for adjustable Miller indices (h k l), with presets for (100), (110), (111), and (200) |
 
+## Chapter 4: Chemical Bonding in Semiconductor Crystals
+
+| MicroSim | Bloom Level | Description |
+|----------|-------------|-------------|
+| [Bonding and Crystal Order Explorer](bonding-crystal-order-explorer/index.md) | L2-L4 Understand/Analyze | Compare covalent, ionic, and metallic bonding side by side, and compare single-crystal, polycrystalline, and amorphous order with optional vacancy, interstitial, and substitutional point defects |
+
 </div>

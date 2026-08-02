@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Bonding and Crystal Order Explorer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="bonding-crystal-order-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> In "Bond Types" view, switch between Covalent, Ionic, and Metallic and compare how each one draws its valence electrons — shared between two atoms, transferred to one atom, or delocalized across the whole grid.</li>
+            <li><strong>Predict:</strong> Before switching to Ionic, predict which atom (Na or Cl) will end up positively charged and which negatively charged, based on their valence electron counts.</li>
+            <li><strong>Compare:</strong> Switch to "Crystal Order" view and compare Single Crystal, Polycrystalline, and Amorphous side by side — notice that Polycrystalline still has straight grid lines within each grain, while Amorphous has none anywhere.</li>
+            <li><strong>Observe:</strong> In Single Crystal mode, toggle "Show defects" and identify the vacancy (dashed outline, no atom), interstitial (small orange atom between grid sites), and substitutional (green atom on a regular site) defects using the legend.</li>
+            <li><strong>Explain:</strong> Explain why the grain boundaries in Polycrystalline mode are exactly where two differently-rotated grids meet.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 4:</strong> The Bond Types view illustrates the three bonding mechanisms this chapter derives from valence electron count: covalent (shared pairs, e.g. Si–Si), ionic (complete transfer, e.g. Na⁺Cl⁻), and metallic (delocalized electron sea, e.g. Cu). The Crystal Order view illustrates how real crystals deviate from the perfect periodicity assumed in Chapter 3: a polycrystalline solid is a mosaic of internally-periodic grains at random orientations, an amorphous solid has no long-range order at all, and even a defect-free-looking single crystal can contain vacancy, interstitial, and substitutional point defects — the last of which becomes the deliberate tool of doping in Chapter 8.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>View dropdown</dt>
+            <dd>Switches the entire MicroSim between "Bond Types" and "Crystal Order" mode, showing the relevant second control for each.</dd>
+            <dt>Bond type dropdown (Bond Types view)</dt>
+            <dd>Selects which of the three bonding mechanisms — Covalent, Ionic, or Metallic — is illustrated.</dd>
+            <dt>Order dropdown (Crystal Order view)</dt>
+            <dd>Selects Single Crystal, Polycrystalline, or Amorphous atomic arrangement.</dd>
+            <dt>Show defects checkbox (Crystal Order view)</dt>
+            <dd>When Single Crystal is selected, overlays a vacancy, an interstitial, and a substitutional point defect onto the otherwise perfect grid, with a legend.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">1. In the Ionic bond view, why does chlorine end up negatively charged?</p>
+            <label><input type="radio" name="bco-q1" value="a"> Because chlorine has more protons than electrons</label>
+            <label><input type="radio" name="bco-q1" value="b"> Because chlorine accepts the electron sodium transfers away, gaining one extra electron</label>
+            <label><input type="radio" name="bco-q1" value="c"> Because chlorine shares an electron pair with sodium</label>
+            <label><input type="radio" name="bco-q1" value="d"> Ionic bonds do not involve charge</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Sodium's single, loosely-held valence electron transfers completely to chlorine, which needs just one more electron to complete its octet — chlorine gains a negative charge (Cl⁻) and sodium is left positive (Na⁺).</p>
+            <p class="explain-incorrect" hidden>Select "Ionic" and follow the electron-transfer arrow from Na to Cl.</p>
+        </div>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">2. What visually distinguishes the Metallic bond view from the Covalent bond view?</p>
+            <label><input type="radio" name="bco-q2" value="a"> Metallic bonding has no electrons at all</label>
+            <label><input type="radio" name="bco-q2" value="b"> Covalent bonding uses a grid of ion cores</label>
+            <label><input type="radio" name="bco-q2" value="c"> Metallic electrons are scattered across the entire grid rather than localized between two specific atoms</label>
+            <label><input type="radio" name="bco-q2" value="d"> There is no visual difference</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>The metallic view's orange electron dots are spread across the whole ion-core grid (the "electron sea"), while the covalent view's two electrons are localized in a cloud between exactly two atoms.</p>
+            <p class="explain-incorrect" hidden>Switch between Covalent and Metallic and compare where the orange electron dots are drawn.</p>
+        </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">3. In Crystal Order view, what does a grain boundary in Polycrystalline mode represent?</p>
+            <label><input type="radio" name="bco-q3" value="a"> The region where two differently-oriented, internally periodic grains meet</label>
+            <label><input type="radio" name="bco-q3" value="b"> A missing atom</label>
+            <label><input type="radio" name="bco-q3" value="c"> A region with no atoms anywhere</label>
+            <label><input type="radio" name="bco-q3" value="d"> An interstitial defect</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Each of the four quadrants in Polycrystalline mode is drawn with its own rotated grid; the bold lines mark the grain boundaries where these differently-oriented periodic regions meet.</p>
+            <p class="explain-incorrect" hidden>Select Polycrystalline and look closely at the grid line angles on either side of the bold boundary lines.</p>
+        </div>
+
+        <div class="challenge" data-correct="d">
+            <p class="q-text">4. In Single Crystal mode with "Show defects" checked, which marker represents a vacancy?</p>
+            <label><input type="radio" name="bco-q4" value="a"> A green filled circle on a regular site</label>
+            <label><input type="radio" name="bco-q4" value="b"> A small orange circle between grid sites</label>
+            <label><input type="radio" name="bco-q4" value="c"> A purple filled circle</label>
+            <label><input type="radio" name="bco-q4" value="d"> A dashed, empty circle outline at a regular site</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>A vacancy is a missing atom, drawn as a dashed, empty outline at a site that should otherwise hold a normal (purple) atom — check the legend in the top-right of the canvas.</p>
+            <p class="explain-incorrect" hidden>Turn on "Show defects" and read the legend box in the corner of the canvas, which labels each of the three defect markers.</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

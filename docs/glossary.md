@@ -2,13 +2,21 @@
 
 # Glossary of Terms
 
-This glossary currently covers the concepts introduced in [Chapter 1: Physics and Math Foundations](chapters/01-physics-math-foundations/index.md), [Chapter 2: Quantum Mechanics Foundations](chapters/02-quantum-mechanics-foundations/index.md), and [Chapter 3: Crystal Lattices and Structures](chapters/03-crystal-lattices-structures/index.md). Entries for later chapters will be added as those chapters are written.
+This glossary currently covers the concepts introduced in [Chapter 1: Physics and Math Foundations](chapters/01-physics-math-foundations/index.md), [Chapter 2: Quantum Mechanics Foundations](chapters/02-quantum-mechanics-foundations/index.md), [Chapter 3: Crystal Lattices and Structures](chapters/03-crystal-lattices-structures/index.md), and [Chapter 4: Chemical Bonding in Semiconductor Crystals](chapters/04-chemical-bonding-crystals/index.md). Entries for later chapters will be added as those chapters are written.
 
 #### Algebra
 
 The branch of mathematics dealing with symbolic manipulation of equations, including solving for an unknown variable and working with exponents and ratios.
 
 **Example:** Rearranging the diode current equation \(I = I_0(e^{V/V_T}-1)\) to solve for \(V\) is an algebra skill applied to a physical law.
+
+#### Amorphous Solid
+
+A solid in which atoms preserve roughly the same local bonding environment a crystal would prefer, but with no long-range periodic order extending beyond a few atomic spacings.
+
+**Example:** Amorphous silicon (a-Si) preserves silicon's approximate 4-fold local coordination but lacks the long-range periodicity of single-crystal silicon, and is used in low-cost thin-film solar cells.
+
+See also: [Polycrystalline Solid](#polycrystalline-solid), [Crystal Lattice](#crystal-lattice).
 
 #### Basis
 
@@ -61,6 +69,24 @@ A physical law stating that the electrostatic force between two point charges is
 **Example:** Two charges separated by 1 nm exert a measurable attractive or repulsive force depending on whether their signs match.
 
 See also: [Electric Field](#electric-field), [Electric Charge](#electric-charge).
+
+#### Covalent Bond
+
+A chemical bond formed when two atoms each contribute one valence electron to a shared electron pair that is electrostatically attracted to both nuclei; directional, and the bond type used by silicon and germanium.
+
+**Example:** Each silicon atom forms 4 covalent bonds, one to each of 4 tetrahedrally-arranged neighbors, satisfying its octet by counting the 8 total electrons shared across those 4 bonds.
+
+See also: [Valence Electron](#valence-electron), [Tetrahedral Bonding](#tetrahedral-bonding).
+
+Contrast with: [Ionic Bond](#ionic-bond), which transfers electrons completely rather than sharing them, and [Metallic Bond](#metallic-bond), which delocalizes electrons across the entire crystal.
+
+#### Crystal Defect
+
+Any local disruption of the ideal, perfectly periodic crystal lattice, including point defects such as vacancies (missing atoms), interstitials (extra atoms between regular sites), and substitutional impurities (foreign atoms replacing host atoms).
+
+**Example:** A phosphorus atom occupying a silicon lattice site is a substitutional defect — the same mechanism deliberately exploited during doping.
+
+See also: [Amorphous Solid](#amorphous-solid), [Polycrystalline Solid](#polycrystalline-solid).
 
 #### Crystal Lattice
 
@@ -164,6 +190,14 @@ The electrostatic potential energy per unit charge at a point in space, commonly
 
 See also: [Electrostatic Potential Energy](#electrostatic-potential-energy), [Gradient](#gradient).
 
+#### Electronegativity
+
+A measure of how strongly an atom's nucleus attracts electrons in a chemical bond, used together with valence electron count to predict whether a bond will be covalent, ionic, or metallic.
+
+**Example:** Chlorine's high electronegativity and sodium's low electronegativity together favor complete electron transfer, producing the ionic bond in NaCl.
+
+See also: [Valence Electron](#valence-electron), [Ionic Bond](#ionic-bond).
+
 #### Electrostatic Potential Energy
 
 The potential energy stored in a configuration of two charges held at a fixed separation, equal to one charge's magnitude times the electric potential created by the other.
@@ -214,6 +248,14 @@ A vector-calculus operator that converts a scalar field into a vector field poin
 
 See also: [Divergence](#divergence), [Curl](#curl).
 
+#### Grain Boundary
+
+The thin, disordered boundary region separating two differently-oriented single-crystal grains within a polycrystalline solid.
+
+**Example:** In polycrystalline silicon ("polysilicon"), grain boundaries scatter charge carriers and degrade electronic performance relative to single-crystal silicon.
+
+See also: [Polycrystalline Solid](#polycrystalline-solid).
+
 #### Heisenberg Uncertainty Principle
 
 A fundamental limit stating that the uncertainties in a particle's position and momentum cannot both be made arbitrarily small at the same time, expressed as \(\Delta x\,\Delta p \geq \hbar/2\).
@@ -231,6 +273,16 @@ The mathematical operation, inverse to differentiation, that computes the accumu
 **Example:** Integrating the electric field along a path from infinity to a point gives the electric potential at that point.
 
 See also: [Differentiation](#differentiation).
+
+#### Ionic Bond
+
+A chemical bond formed when one atom transfers one or more valence electrons completely to another, producing oppositely charged ions held together by Coulomb attraction; non-directional.
+
+**Example:** Sodium transfers its single valence electron to chlorine, forming \(\text{Na}^+\) and \(\text{Cl}^-\) ions bound by \(U(r) = -e^2/(4\pi\varepsilon_0 r)\).
+
+See also: [Valence Electron](#valence-electron), [Electronegativity](#electronegativity).
+
+Contrast with: [Covalent Bond](#covalent-bond), which shares electrons rather than transferring them.
 
 #### Kinetic Theory of Gases
 
@@ -253,6 +305,16 @@ See also: [Unit Cell](#unit-cell), [Crystal Lattice](#crystal-lattice).
 The combined kinetic and potential energy of an object due to its motion and position, conserved in an isolated system with no external forces.
 
 **Example:** A charged particle accelerating through an electric field converts electrostatic potential energy into kinetic energy.
+
+#### Metallic Bond
+
+A chemical bond in which the valence electrons of every atom in a crystal delocalize into a shared, mobile "electron sea" surrounding fixed positive ion cores; non-directional and responsible for metals' electrical conductivity and malleability.
+
+**Example:** Copper's single, loosely-bound valence electron delocalizes readily, producing an electron sea that explains copper's high conductivity and malleability.
+
+See also: [Valence Electron](#valence-electron).
+
+Contrast with: [Covalent Bond](#covalent-bond) and [Ionic Bond](#ionic-bond), in which electrons remain localized to a specific bond or ion rather than delocalizing across the whole crystal.
 
 #### Miller Indices
 
@@ -299,6 +361,16 @@ See also: [Potential Well](#potential-well), [Boundary Conditions](#boundary-con
 The energy carried by a single discrete packet of electromagnetic radiation, directly proportional to the radiation's frequency.
 
 **Example:** A photon of red light (650 nm) carries about 1.9 eV of energy.
+
+#### Polycrystalline Solid
+
+A solid composed of many small single-crystal regions, called grains, each internally periodic but oriented at a different angle relative to its neighbors, separated by grain boundaries.
+
+**Example:** Polycrystalline silicon ("polysilicon") is widely used for gate electrodes and interconnects in integrated-circuit fabrication.
+
+See also: [Grain Boundary](#grain-boundary), [Amorphous Solid](#amorphous-solid).
+
+Contrast with: [Amorphous Solid](#amorphous-solid), which lacks long-range order even within small regions, and a single crystal, which has no grain boundaries at all.
 
 #### Potential Well
 
@@ -354,6 +426,14 @@ The Système International system of standardized physical units, including the 
 
 See also: [Fundamental Physical Constants](#fundamental-physical-constants).
 
+#### Silicon Atom Structure
+
+The electron configuration of a neutral silicon atom (atomic number 14), \(1s^2\,2s^2\,2p^6\,3s^2\,3p^2\), consisting of 10 chemically inert core electrons and 4 valence electrons.
+
+**Example:** Silicon's group-14 position in the periodic table directly reflects its 4 valence electrons, the same count germanium (also group 14) shares.
+
+See also: [Valence Electron](#valence-electron).
+
 #### Simple Cubic Structure
 
 A cubic crystal structure with atoms only at the 8 corners of the conventional cell, giving 1 atom per cell, coordination number 6, and packing fraction \(\pi/6\approx0.524\), the lowest of the three cubic Bravais lattices.
@@ -361,6 +441,22 @@ A cubic crystal structure with atoms only at the 8 corners of the conventional c
 **Example:** The touching condition for SC, \(2r=a\), comes from atoms touching directly along the cube edge.
 
 See also: [Body-Centered Cubic](#body-centered-cubic), [Face-Centered Cubic](#face-centered-cubic), [Packing Fraction](#packing-fraction).
+
+#### sp3 Hybridization
+
+The quantum-mechanical combination of one \(s\) orbital and three \(p\) orbitals into four new, equivalent hybrid orbitals that point toward the corners of a regular tetrahedron.
+
+**Example:** Silicon's \(3s\) and three \(3p\) valence orbitals hybridize into 4 sp3 orbitals, each forming one covalent bond, producing the tetrahedral bond angle of \(109.5°\).
+
+See also: [Tetrahedral Bonding](#tetrahedral-bonding), [Valence Electron](#valence-electron).
+
+#### Tetrahedral Bonding
+
+The bonding geometry in which an atom's four covalent bonds point toward the corners of a regular tetrahedron, at a bond angle of \(109.5°\), produced by sp3 hybridization.
+
+**Example:** Silicon's tetrahedral bonding directly produces the diamond lattice structure's coordination number of 4.
+
+See also: [sp3 Hybridization](#sp3-hybridization), [Diamond Lattice Structure](#diamond-lattice-structure).
 
 #### Thermal Equilibrium
 
@@ -391,6 +487,14 @@ A repeating volume that tiles all of space by simple translation to reproduce an
 **Example:** The conventional unit cell of face-centered cubic contains 4 atoms, even though its true primitive cell contains only 1 lattice point.
 
 See also: [Primitive Cell](#primitive-cell), [Lattice Constant](#lattice-constant).
+
+#### Valence Electron
+
+An electron in an atom's outermost occupied shell, available for participation in chemical bonding; the count and behavior of these electrons determines which bonding type an atom prefers.
+
+**Example:** Silicon has 4 valence electrons (from \(3s^2\,3p^2\)), the single number that determines its preference for covalent, tetrahedral bonding.
+
+See also: [Silicon Atom Structure](#silicon-atom-structure), [Covalent Bond](#covalent-bond).
 
 #### Vectors
 

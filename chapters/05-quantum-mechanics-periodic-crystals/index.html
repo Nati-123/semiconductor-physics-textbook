@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="An interactive university-level semiconductor physics textbook with AI explanations, quizzes, simulations, and practice problems.">
+        <meta name="description" content="Bloch's theorem, the Kronig-Penney model, the reciprocal lattice, and the Brillouin zone, showing how a periodic crystal potential splits allowed atomic energy levels into continuous energy bands separated by forbidden band gaps">
       
       
         <meta name="author" content="Natol Dinka">
@@ -18,7 +18,7 @@
         <link rel="prev" href="../04-chemical-bonding-crystals/glossary/">
       
       
-        <link rel="next" href="../06-band-structure-fermi-level/">
+        <link rel="next" href="quiz/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>5. Quantum Mechanics of Periodic Crystals - Semiconductor Physics</title>
+        <title>Quantum Mechanics of Periodic Crystals - Semiconductor Physics</title>
       
     
     
@@ -84,7 +84,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#quantum-mechanics-of-periodic-crystals" class="md-skip">
+        <a href="#chapter-5-quantum-mechanics-of-periodic-crystals" class="md-skip">
           Skip to content
         </a>
       
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              5. Quantum Mechanics of Periodic Crystals
+              Quantum Mechanics of Periodic Crystals
             
           </span>
         </div>
@@ -1406,6 +1406,63 @@
   
   
   
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6_6" id="__nav_6_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Quantum Mechanics of Periodic Crystals
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    5. Quantum Mechanics of Periodic Crystals
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
     <li class="md-nav__item md-nav__item--active">
       
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
@@ -1421,7 +1478,7 @@
   <span class="md-ellipsis">
     
   
-    5. Quantum Mechanics of Periodic Crystals
+    Content
   
 
     
@@ -1439,7 +1496,7 @@
   <span class="md-ellipsis">
     
   
-    5. Quantum Mechanics of Periodic Crystals
+    Content
   
 
     
@@ -1465,10 +1522,21 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
+  <a href="#learning-objectives" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Summary
+        Learning Objectives
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
       
     </span>
   </a>
@@ -1497,9 +1565,385 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#the-periodic-potential-and-blochs-theorem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Periodic Potential and Bloch's Theorem
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Periodic Potential and Bloch&#39;s Theorem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-a-crystals-potential-is-periodic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why a Crystal's Potential Is Periodic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blochs-theorem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bloch's Theorem
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-kronig-penney-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Kronig-Penney Model
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Kronig-Penney Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-a-solvable-periodic-potential" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setting Up a Solvable Periodic Potential
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-kronig-penney-transcendental-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Kronig-Penney Transcendental Equation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-certain-energies-are-forbidden" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Certain Energies Are Forbidden
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Why Certain Energies Are Forbidden">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-kronig-penney-band-formation-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Kronig-Penney Band Formation Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-reciprocal-lattice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Reciprocal Lattice
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Reciprocal Lattice">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definition-and-construction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Definition and Construction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reciprocal-lattice-vectors-and-diffraction-notation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reciprocal Lattice Vectors and Diffraction Notation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-brillouin-zone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Brillouin Zone
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Brillouin Zone">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Definition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#band-gaps-open-at-the-brillouin-zone-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Band Gaps Open at the Brillouin Zone Boundary
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Band Gaps Open at the Brillouin Zone Boundary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-reciprocal-lattice-and-brillouin-zone-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Reciprocal Lattice and Brillouin Zone Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#energy-bands-band-gaps-and-band-formation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Energy Bands, Band Gaps, and Band Formation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Energy Bands, Band Gaps, and Band Formation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#naming-the-bands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Naming the Bands
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-equations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Equations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Glossary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Further Reading
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked Examples
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="problems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Problems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
       
     </li>
   
@@ -2795,6 +3239,124 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_6" id="__nav_7_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 5
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 5
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/reciprocal-lattice-brillouin-zone-explorer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reciprocal Lattice and Brillouin Zone Explorer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/kronig-penney-band-explorer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kronig-Penney Band Formation Explorer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -3193,9 +3755,46 @@
   
 
 
-<h1 id="quantum-mechanics-of-periodic-crystals">Quantum Mechanics of Periodic Crystals</h1>
-<h2 id="summary">Summary</h2>
-<p>This chapter applies quantum mechanics to a periodic crystal potential, using Bloch's theorem and the Kronig-Penney model to show how discrete atomic energy levels broaden into continuous energy bands. Students learn the reciprocal lattice and Brillouin zone concepts used to describe these bands, and see how allowed and forbidden energy regions emerge from the crystal's periodicity.</p>
+<h1 id="chapter-5-quantum-mechanics-of-periodic-crystals">Chapter 5: Quantum Mechanics of Periodic Crystals</h1>
+<div class="unit1-styled">
+<details class="video-overview">
+<summary><strong>Chapter Overview</strong> (click to expand)</summary>
+<p>This chapter solves the Schrödinger equation, introduced in Chapter 2, for an electron moving through the periodic potential created by the crystal lattice and chemical bonding of Chapters 3 and 4. Bloch's theorem shows that the solutions must take a specific wavelike form, and the Kronig-Penney model — a simplified but exactly solvable periodic potential — shows explicitly how this periodicity forces electron energies to split into continuous allowed bands separated by forbidden band gaps. Along the way, the chapter introduces the reciprocal lattice and Brillouin zone, the standard mathematical tools used to describe a crystal's periodicity in momentum space, and shows that band gaps open precisely at Brillouin zone boundaries.</p>
+<p><strong>Key Takeaways:</strong></p>
+<ol>
+<li>Chapter 4's chemical bonding produces the periodic lattice of Chapter 3; this periodicity means an electron in a crystal experiences a periodic potential energy <span class="arithmatex">\(V(x+a) = V(x)\)</span>, not the isolated, localized potentials of Chapter 2.</li>
+<li><strong>Bloch's theorem</strong> states that the Schrödinger equation's solutions in any periodic potential must take the form <span class="arithmatex">\(\psi_k(x) = e^{ikx}u_k(x)\)</span>, where <span class="arithmatex">\(u_k(x)\)</span> has the same periodicity as the lattice — a traveling wave modulated by a periodic function.</li>
+<li>The <strong>Kronig-Penney model</strong> — a periodic array of finite square barriers — is a simplified periodic potential that can be solved exactly, producing a transcendental equation relating energy <span class="arithmatex">\(E\)</span> to a wavevector <span class="arithmatex">\(k\)</span>.</li>
+<li>Because the Kronig-Penney transcendental equation requires <span class="arithmatex">\(\cos(ka)\)</span>, a quantity restricted to <span class="arithmatex">\([-1,1]\)</span>, certain ranges of energy <span class="arithmatex">\(E\)</span> have no valid solution at all — these forbidden ranges are <strong>band gaps</strong>, while the ranges that do have solutions are continuous <strong>energy bands</strong> of <strong>allowed energy states</strong>.</li>
+<li>The <strong>reciprocal lattice</strong> is a lattice in "k-space" (or momentum space) that describes a crystal's periodicity in the same natural units used by Bloch's theorem's wavevector <span class="arithmatex">\(k\)</span>; it is mathematically derived from, but geometrically distinct from, the real-space lattice of Chapter 3.</li>
+<li>The <strong>Brillouin zone</strong> is the primitive cell of the reciprocal lattice; the Kronig-Penney model's band gaps open precisely at the Brillouin zone boundaries, <span class="arithmatex">\(k=\pm n\pi/a\)</span>, giving reciprocal-space meaning to where bands split.</li>
+<li>Solving the periodic-potential problem is called <strong>band formation</strong>; the resulting bands are conventionally labeled by function — the highest band fully occupied by electrons at absolute zero is the <strong>valence band</strong>, and the next-higher, largely empty band is the <strong>conduction band</strong>.</li>
+<li>This chapter's band-formation physics is the foundation for Chapter 6's direct treatment of band structure, effective mass, and density of states, and ultimately for Chapter 7's classification of materials as insulators, semiconductors, or conductors based on the size of the band gap between these two bands.</li>
+</ol>
+</details>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<p>By the end of this chapter, you will be able to:</p>
+<ul>
+<li>Explain why an electron in a crystal experiences a periodic potential, and why this periodicity requires new mathematics beyond Chapter 2's isolated potential wells</li>
+<li>State Bloch's theorem and interpret the meaning of the Bloch wavevector <span class="arithmatex">\(k\)</span> and the periodic function <span class="arithmatex">\(u_k(x)\)</span></li>
+<li>Describe the Kronig-Penney model's periodic potential and set up its solution using the boundary conditions at each barrier</li>
+<li>Explain, using the Kronig-Penney transcendental equation, why certain energy ranges are allowed and others forbidden</li>
+<li>Define the reciprocal lattice and compute reciprocal lattice vectors from a set of real-space lattice vectors</li>
+<li>Define the Brillouin zone as the primitive cell of the reciprocal lattice, and identify the first Brillouin zone boundary for a 1D lattice</li>
+<li>Connect the location of band gaps directly to the Brillouin zone boundaries</li>
+<li>Distinguish an energy band, a band gap, and the allowed and forbidden energy states within them</li>
+<li>Distinguish the valence band from the conduction band and state which is higher in energy</li>
+<li>Solve worked and practice problems combining these ideas, in preparation for the effective-mass and density-of-states discussions of Chapter 6</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">How to read this chapter</p>
+<p>This chapter is mathematically the most demanding one so far, but its central physical idea is simple: periodicity forces energy into bands. Chapters 3 and 4 explained <em>where</em> atoms sit and <em>why</em> they bond the way they do; this chapter finally asks what that arrangement does to an electron's allowed energies. The Kronig-Penney model is worked through in enough detail to see exactly how the band structure emerges mathematically, but you are not expected to reproduce every algebraic step from memory — focus instead on the qualitative shape of the result (bands separated by gaps, gaps at zone boundaries) since that shape, not the specific transcendental equation, is what every later chapter relies on.</p>
+</div>
+<h2 id="introduction">Introduction</h2>
+<p>Chapter 2 solved the Schrödinger equation for isolated, idealized potentials — a single infinite well, a single finite well, a single barrier. Chapter 3 then described the precise geometric arrangement of atoms in a real crystal, and Chapter 4 explained the chemical bonding forces that hold those atoms in that arrangement. Putting these threads together, an electron moving through an actual crystal does not see an isolated potential at all: it sees the electrostatic potential energy of <em>every</em> atomic core in the lattice, repeating with exactly the periodicity Chapter 3 established. This chapter solves the Schrödinger equation for exactly this situation — a <strong>periodic potential</strong>, <span class="arithmatex">\(V(x+a)=V(x)\)</span>, where <span class="arithmatex">\(a\)</span> is the lattice constant — and shows that the result is qualitatively different from anything in Chapter 2.</p>
+<p>The key mathematical tool is <strong>Bloch's theorem</strong>, which shows that <em>any</em> solution to the Schrödinger equation in a periodic potential must take a specific form: a traveling wave, <span class="arithmatex">\(e^{ikx}\)</span>, multiplied by a function <span class="arithmatex">\(u_k(x)\)</span> that repeats with the same periodicity as the lattice itself. This theorem does not, by itself, solve for the allowed energies — it only constrains the <em>form</em> the solution must take. To actually compute allowed energies, this chapter uses the <strong>Kronig-Penney model</strong>, a periodic potential simple enough (a repeating series of finite rectangular barriers) to solve exactly. The Kronig-Penney model's solution takes the form of a transcendental equation, and the key discovery is that this equation can only be satisfied for certain ranges of energy <span class="arithmatex">\(E\)</span> — other ranges are mathematically forbidden entirely. The allowed ranges are called <strong>energy bands</strong>, and the forbidden ranges between them are called <strong>band gaps</strong>. This splitting of continuous free-particle energy into bands and gaps, called <strong>band formation</strong>, is the single most important result of this chapter, and the physical basis for every subsequent chapter's treatment of semiconductors.</p>
+<p>Describing exactly <em>where</em> these bands and gaps occur requires one more set of tools: the <strong>reciprocal lattice</strong> and the <strong>Brillouin zone</strong>. Bloch's theorem describes solutions using the wavevector <span class="arithmatex">\(k\)</span>, which has units of inverse length — the same units used to describe a crystal's periodicity in "k-space," or momentum space. The reciprocal lattice is precisely this k-space description of a crystal's periodicity, constructed mathematically from the real-space lattice vectors of Chapter 3 but generally different in geometry from the real lattice itself. The <strong>Brillouin zone</strong> is the primitive cell of this reciprocal lattice — the k-space analog of Chapter 3's primitive cell — and this chapter's central geometric result is that the Kronig-Penney model's band gaps open exactly at the Brillouin zone boundaries.</p>
+<p>Finally, the chapter introduces the terminology used to describe the resulting bands: at absolute zero temperature, electrons fill the lowest available energy bands first, so the highest band that ends up completely full is called the <strong>valence band</strong>, and the next band up — typically empty at absolute zero — is called the <strong>conduction band</strong>. Whether a material behaves as an insulator, a semiconductor, or a conductor turns out to depend almost entirely on the size of the band gap separating these two bands, and on whether any band is only partially filled — the subject of Chapter 7.</p>
 <h2 id="concepts-covered">Concepts Covered</h2>
 <p>This chapter covers the following 12 concepts from the learning graph:</p>
 <ol>
@@ -3213,19 +3812,266 @@
 <li>Band Formation</li>
 </ol>
 <h2 id="prerequisites">Prerequisites</h2>
-<p>This chapter builds on concepts from:</p>
+<p>This chapter builds on <a href="../02-quantum-mechanics-foundations/">Chapter 2: Quantum Mechanics Foundations</a>, particularly the Schrödinger equation, wavefunctions, and eigenvalues, and on <a href="../03-crystal-lattices-structures/">Chapter 3: Crystal Lattices and Structures</a>, particularly the lattice constant and the periodic geometric arrangement of atoms that gives rise to the periodic potential this chapter solves.</p>
+<h2 id="the-periodic-potential-and-blochs-theorem">The Periodic Potential and Bloch's Theorem</h2>
+<h3 id="why-a-crystals-potential-is-periodic">Why a Crystal's Potential Is Periodic</h3>
+<p>Chapter 2's Schrödinger equation, <span class="arithmatex">\(-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2}+V(x)\psi=E\psi\)</span>, was solved there for potentials <span class="arithmatex">\(V(x)\)</span> describing a single isolated feature: one infinite wall, one finite well, one barrier. A real crystal is nothing like this. Chapter 3 showed that a crystal is an essentially infinite, perfectly periodic arrangement of atoms, spaced by the lattice constant <span class="arithmatex">\(a\)</span>; Chapter 4 showed that each of those atoms holds onto its electrons, and bonds to its neighbors, through electrostatic forces identical in kind to the ones that create any atomic potential well. An electron moving through this crystal therefore experiences the combined electrostatic potential of every atomic core in the lattice, and because the lattice itself is periodic, so is this potential energy function:</p>
+<div class="arithmatex">\[
+V(x+a) = V(x)
+\]</div>
+<p>This single equation is the starting point for the entire chapter: whatever solves the Schrödinger equation in a crystal must do so subject to this periodicity constraint, a fundamentally different requirement from any potential solved in Chapter 2.</p>
+<h3 id="blochs-theorem">Bloch's Theorem</h3>
+<p><strong>Bloch's theorem</strong> states that any solution to the Schrödinger equation for a periodic potential satisfying <span class="arithmatex">\(V(x+a)=V(x)\)</span> must take the form:</p>
+<div class="arithmatex">\[
+\psi_k(x) = e^{ikx}\,u_k(x), \qquad u_k(x+a) = u_k(x)
+\]</div>
+<p>That is, the wavefunction is a plane wave <span class="arithmatex">\(e^{ikx}\)</span> (a traveling wave, similar in form to the free-particle wavefunctions encountered in Chapter 2's discussion of wave packets) multiplied by a function <span class="arithmatex">\(u_k(x)\)</span> that repeats with exactly the same periodicity as the lattice itself. The quantity <span class="arithmatex">\(k\)</span> is called the <strong>Bloch wavevector</strong>, and <span class="arithmatex">\(\hbar k\)</span> is often called the electron's <strong>crystal momentum</strong> — it behaves like momentum in many respects (it appears in group-velocity and semiclassical equations of motion used in later chapters) but, unlike true momentum, it is only meaningful modulo a reciprocal lattice vector, a subtlety this chapter returns to once the reciprocal lattice has been defined.</p>
+<p>Bloch's theorem is powerful but incomplete on its own: it constrains the <em>form</em> of every solution, but it does not by itself say which energies <span class="arithmatex">\(E\)</span> are actually achievable. To answer that question — the central question of this chapter — requires an explicit, solvable periodic potential, which is exactly what the Kronig-Penney model provides.</p>
+<pre class="mermaid"><code>flowchart LR
+    A["Periodic Potential&lt;br/&gt;V(x+a) = V(x)"] --&gt; B["Bloch's Theorem"]
+    B --&gt; C["psi_k(x) = e^(ikx) u_k(x)&lt;br/&gt;u_k periodic"]
+    C --&gt; D["Solve for allowed E(k):&lt;br/&gt;Kronig-Penney Model"]</code></pre>
+<h2 id="the-kronig-penney-model">The Kronig-Penney Model</h2>
+<h3 id="setting-up-a-solvable-periodic-potential">Setting Up a Solvable Periodic Potential</h3>
+<p>The <strong>Kronig-Penney model</strong> replaces the true, complicated periodic potential of a real crystal with the simplest periodic potential that can still be solved exactly: an infinite, repeating series of rectangular potential barriers, each of height <span class="arithmatex">\(V_0\)</span> and width <span class="arithmatex">\(b\)</span>, separated by wells of width <span class="arithmatex">\(a-b\)</span> where the electron moves freely. This is a direct periodic-potential analog of the finite potential well Chapter 2 already solved, repeated infinitely with period <span class="arithmatex">\(a\)</span>.</p>
+<p>Inside each well, the electron's wavefunction is an oscillating solution (as in the free regions of Chapter 2's finite well), and inside each barrier, the wavefunction is an exponentially decaying/growing solution (as in Chapter 2's quantum tunneling discussion) — the difference here is that Bloch's theorem must additionally be imposed at the boundary between neighboring periods, linking the solution in one cell to the solution in the next via the factor <span class="arithmatex">\(e^{ika}\)</span>.</p>
+<h3 id="the-kronig-penney-transcendental-equation">The Kronig-Penney Transcendental Equation</h3>
+<p>Applying the wavefunction and derivative continuity conditions at each boundary, together with Bloch's theorem's periodicity requirement, produces the model's central result — a single transcendental equation relating the electron's energy (through a wavenumber <span class="arithmatex">\(\alpha=\sqrt{2mE}/\hbar\)</span> inside the wells) to the Bloch wavevector <span class="arithmatex">\(k\)</span>:</p>
+<div class="arithmatex">\[
+P\,\frac{\sin(\alpha a)}{\alpha a} + \cos(\alpha a) = \cos(ka)
+\]</div>
+<p>where <span class="arithmatex">\(P\)</span> is a dimensionless constant proportional to the barrier strength (increasing with barrier height <span class="arithmatex">\(V_0\)</span> and width <span class="arithmatex">\(b\)</span>), often written <span class="arithmatex">\(P = m V_0 b a/\hbar^2\)</span> in the idealized limit of thin, tall barriers (<span class="arithmatex">\(b\to0\)</span>, <span class="arithmatex">\(V_0\to\infty\)</span>, with <span class="arithmatex">\(V_0 b\)</span> held fixed). This equation is the mathematical heart of the entire chapter, and its structure is what produces band formation, explained next.</p>
+<h3 id="why-certain-energies-are-forbidden">Why Certain Energies Are Forbidden</h3>
+<p>The right-hand side of the transcendental equation, <span class="arithmatex">\(\cos(ka)\)</span>, is a cosine of a real number, and therefore can only ever take values between <span class="arithmatex">\(-1\)</span> and <span class="arithmatex">\(+1\)</span>. The left-hand side, however, is a specific function of energy <span class="arithmatex">\(E\)</span> (through <span class="arithmatex">\(\alpha\)</span>) that is <em>not</em> restricted to this range — for many values of <span class="arithmatex">\(\alpha a\)</span>, the left-hand side evaluates to something greater than <span class="arithmatex">\(+1\)</span> or less than <span class="arithmatex">\(-1\)</span>. Whenever this happens, there is <strong>no real value of <span class="arithmatex">\(k\)</span></strong> that can satisfy the equation, because no real <span class="arithmatex">\(k\)</span> produces a cosine outside <span class="arithmatex">\([-1,1]\)</span>. That range of energy is therefore physically forbidden to the electron — a <strong>band gap</strong>, or <strong>forbidden energy gap</strong>. Wherever the left-hand side does fall within <span class="arithmatex">\([-1,1]\)</span>, a real <span class="arithmatex">\(k\)</span> exists, and — because <span class="arithmatex">\(k\)</span> can vary continuously within this range — that range of energy forms a continuous <strong>energy band</strong> of <strong>allowed energy states</strong>. This alternating pattern of bands and gaps, repeating as energy increases, is what this chapter calls <strong>band formation</strong>.</p>
+<div class="admonition question">
+<p class="admonition-title">Concept Check</p>
+<p>In the limit <span class="arithmatex">\(P \to 0\)</span> (very weak or vanishing barriers), the Kronig-Penney transcendental equation reduces to <span class="arithmatex">\(\cos(\alpha a) = \cos(ka)\)</span>, which has a solution <span class="arithmatex">\(k=\alpha\)</span> for every value of <span class="arithmatex">\(\alpha\)</span>. What does this limit physically represent, and are there any band gaps in it?</p>
+</div>
+<details class="question">
+<summary>Concept Check — click to reveal answer</summary>
+<p>As <span class="arithmatex">\(P\to0\)</span>, the barriers vanish and the periodic potential becomes flat — the electron is simply a free particle. In this limit, every energy <span class="arithmatex">\(E=\hbar^2\alpha^2/2m\)</span> is achievable for some real <span class="arithmatex">\(k\)</span>, so there are no forbidden gaps at all: the allowed energies form one continuous band, exactly like a free particle's continuous energy spectrum. Band gaps only appear once <span class="arithmatex">\(P&gt;0\)</span>, confirming that the periodic potential itself — not some separate effect — is the direct cause of band formation.</p>
+</details>
+<h4 id="diagram-kronig-penney-band-formation-explorer">Diagram: Kronig-Penney Band Formation Explorer</h4>
+<iframe height="660px" scrolling="auto" src="../../sims/kronig-penney-band-explorer/main.html" width="100%"></iframe>
+<div class="admonition tip">
+<p class="admonition-title">How to use this MicroSim</p>
+<p><strong>Instructions:</strong> Drag the barrier-strength slider <span class="arithmatex">\(P\)</span> from 0 upward and watch the left-hand-side curve of the transcendental equation develop regions that exceed <span class="arithmatex">\(\pm1\)</span> — these shaded regions are the forbidden band gaps. Switch to the "E-k Diagram" view to see the corresponding allowed bands and gaps plotted directly against the Bloch wavevector <span class="arithmatex">\(k\)</span>, with the first few Brillouin zone boundaries marked.</p>
+<p><strong>Learning objective:</strong> Connect the algebraic restriction <span class="arithmatex">\(|\cos(ka)|\leq1\)</span> directly to the physical appearance of band gaps, and see those gaps appear at the Brillouin zone boundaries <span class="arithmatex">\(k=\pm n\pi/a\)</span>.</p>
+<p><strong>What to observe:</strong> At <span class="arithmatex">\(P=0\)</span> there are no shaded forbidden regions at all (the free-electron limit from the Concept Check above); as <span class="arithmatex">\(P\)</span> increases, the gaps widen and the allowed bands narrow, and every gap is centered exactly on a Brillouin zone boundary.</p>
+</div>
+<p><a href="../../sims/kronig-penney-band-explorer/">Full MicroSim documentation →</a></p>
+<h2 id="the-reciprocal-lattice">The Reciprocal Lattice</h2>
+<h3 id="definition-and-construction">Definition and Construction</h3>
+<p>To describe <em>where</em> in <span class="arithmatex">\(k\)</span>-space the Kronig-Penney model's bands and gaps occur, it is useful to define a lattice not in real space but in the space of wavevectors <span class="arithmatex">\(k\)</span> — this is the <strong>reciprocal lattice</strong>. Given a set of real-space primitive lattice vectors <span class="arithmatex">\(\vec a_1, \vec a_2, \vec a_3\)</span> (Chapter 3), the reciprocal lattice vectors <span class="arithmatex">\(\vec b_1, \vec b_2, \vec b_3\)</span> are defined by the orthogonality condition:</p>
+<div class="arithmatex">\[
+\vec a_i \cdot \vec b_j = 2\pi\,\delta_{ij}
+\]</div>
+<p>where <span class="arithmatex">\(\delta_{ij}\)</span> is 1 if <span class="arithmatex">\(i=j\)</span> and 0 otherwise. In one dimension, this reduces to a single, simple relationship: for a 1D chain with real-space lattice constant <span class="arithmatex">\(a\)</span>, the reciprocal lattice is itself a 1D lattice of points spaced by <span class="arithmatex">\(2\pi/a\)</span>. This spacing, <span class="arithmatex">\(2\pi/a\)</span>, is exactly the periodicity that appears throughout the Kronig-Penney analysis (for instance, in the location of the band gaps, discussed below).</p>
+<p>The reciprocal lattice of a three-dimensional crystal is generally <em>not</em> geometrically identical to its real-space lattice. A well-known result, useful for connecting back to Chapter 3, is that the reciprocal lattice of an FCC (face-centered cubic) real-space lattice is a BCC (body-centered cubic) lattice, and vice versa — while the reciprocal lattice of a simple cubic lattice with constant <span class="arithmatex">\(a\)</span> is itself simple cubic, with constant <span class="arithmatex">\(2\pi/a\)</span>.</p>
+<table>
+<thead>
+<tr>
+<th>Real-space lattice (Ch. 3)</th>
+<th>Reciprocal lattice</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Simple Cubic, constant <span class="arithmatex">\(a\)</span></td>
+<td>Simple Cubic, constant <span class="arithmatex">\(2\pi/a\)</span></td>
+</tr>
+<tr>
+<td>Face-Centered Cubic (FCC)</td>
+<td>Body-Centered Cubic (BCC)</td>
+</tr>
+<tr>
+<td>Body-Centered Cubic (BCC)</td>
+<td>Face-Centered Cubic (FCC)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="reciprocal-lattice-vectors-and-diffraction-notation">Reciprocal Lattice Vectors and Diffraction Notation</h3>
+<p>Reciprocal lattice vectors are also exactly the vectors used to index the Miller-index planes of Chapter 3: a reciprocal lattice vector <span class="arithmatex">\(\vec G_{hkl} = h\vec b_1 + k\vec b_2 + l\vec b_3\)</span> points perpendicular to the real-space <span class="arithmatex">\((hkl)\)</span> crystal plane, with magnitude inversely proportional to the spacing between adjacent <span class="arithmatex">\((hkl)\)</span> planes — a direct, practically important link between the real-space crystallography of Chapter 3 and the momentum-space description this chapter introduces.</p>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 1 — Reciprocal Lattice Spacing</p>
+<p>A 1D chain of atoms has lattice constant <span class="arithmatex">\(a = 0.30\)</span> nm. Find the spacing of its reciprocal lattice.</p>
+<p><strong>Solution:</strong> The reciprocal lattice spacing is <span class="arithmatex">\(2\pi/a = 2\pi/(0.30\times10^{-9}\ \text{m}) \approx 2.09\times10^{10}\ \text{m}^{-1}\)</span>.</p>
+</div>
+<h2 id="the-brillouin-zone">The Brillouin Zone</h2>
+<h3 id="definition">Definition</h3>
+<p>The <strong>Brillouin zone</strong> is defined as the primitive cell of the reciprocal lattice — the k-space analog of Chapter 3's primitive cell, constructed by the same Wigner-Seitz procedure (the region of k-space closer to a given reciprocal lattice point than to any other). The <strong>first Brillouin zone</strong> is this primitive cell centered on <span class="arithmatex">\(k=0\)</span>; for a 1D chain of lattice constant <span class="arithmatex">\(a\)</span>, the first Brillouin zone is simply the interval:</p>
+<div class="arithmatex">\[
+-\frac{\pi}{a} \leq k \leq \frac{\pi}{a}
+\]</div>
+<p>Because the reciprocal lattice has spacing <span class="arithmatex">\(2\pi/a\)</span>, the first Brillouin zone boundary sits at exactly half that spacing, <span class="arithmatex">\(\pi/a\)</span>, on either side of the origin — directly analogous to how a 1D real-space Wigner-Seitz cell extends half a lattice constant on either side of a lattice point.</p>
+<h3 id="band-gaps-open-at-the-brillouin-zone-boundary">Band Gaps Open at the Brillouin Zone Boundary</h3>
+<p>The chapter's central geometric result connects the Kronig-Penney model directly to the Brillouin zone: solving the Kronig-Penney transcendental equation in detail shows that the forbidden energy gaps occur precisely at the values <span class="arithmatex">\(k = \pm n\pi/a\)</span> for integer <span class="arithmatex">\(n\)</span> — exactly the Brillouin zone boundaries (the first Brillouin zone boundary at <span class="arithmatex">\(n=1\)</span>, the second at <span class="arithmatex">\(n=2\)</span>, and so on). This is not a coincidence: at these special <span class="arithmatex">\(k\)</span> values, the electron's wave reflects constructively off the periodic lattice (an effect closely related to the Bragg-type reflection condition for waves in a periodic medium), and this standing-wave condition is exactly what opens an energy gap. Physically, this means the reciprocal lattice and Brillouin zone are not just bookkeeping devices — they directly predict <em>where</em> in k-space a real crystal's band gaps will appear.</p>
+<pre class="mermaid"><code>flowchart TB
+    A["Reciprocal Lattice&lt;br/&gt;spacing 2*pi/a"] --&gt; B["Brillouin Zone&lt;br/&gt;primitive cell of&lt;br/&gt;reciprocal lattice"]
+    B --&gt; C["1st BZ boundary:&lt;br/&gt;k = +/- pi/a"]
+    C --&gt; D["Kronig-Penney band gaps&lt;br/&gt;open exactly at these k values"]</code></pre>
+<h4 id="diagram-reciprocal-lattice-and-brillouin-zone-explorer">Diagram: Reciprocal Lattice and Brillouin Zone Explorer</h4>
+<iframe height="660px" scrolling="auto" src="../../sims/reciprocal-lattice-brillouin-zone-explorer/main.html" width="100%"></iframe>
+<div class="admonition tip">
+<p class="admonition-title">How to use this MicroSim</p>
+<p><strong>Instructions:</strong> Use the "View" dropdown to switch between "Real vs. Reciprocal Lattice" (compare a real-space lattice to its reciprocal lattice side by side, for SC, BCC, and FCC) and "Brillouin Zone" (see the first Brillouin zone constructed as the Wigner-Seitz cell of the 2D reciprocal lattice).</p>
+<p><strong>Learning objective:</strong> Connect a real-space lattice (Chapter 3) to its reciprocal lattice, and see the Brillouin zone constructed directly from reciprocal lattice points using the same Wigner-Seitz procedure used for real-space primitive cells.</p>
+<p><strong>What to observe:</strong> Note that the reciprocal lattice spacing shrinks as the real lattice constant grows (an inverse relationship), and that the first Brillouin zone boundary sits exactly halfway between the origin and the nearest reciprocal lattice point.</p>
+</div>
+<p><a href="../../sims/reciprocal-lattice-brillouin-zone-explorer/">Full MicroSim documentation →</a></p>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 2 — First Brillouin Zone Boundary</p>
+<p>Find the first Brillouin zone boundary, in units of m<span class="arithmatex">\(^{-1}\)</span>, for silicon's diamond-cubic conventional lattice constant <span class="arithmatex">\(a=0.543\)</span> nm, treated as a 1D chain of the same spacing for this estimate.</p>
+<p><strong>Solution:</strong> <span class="arithmatex">\(k_{\text{boundary}} = \pi/a = \pi/(0.543\times10^{-9}\ \text{m}) \approx 5.79\times10^{9}\ \text{m}^{-1}\)</span>.</p>
+</div>
+<h2 id="energy-bands-band-gaps-and-band-formation">Energy Bands, Band Gaps, and Band Formation</h2>
+<h3 id="naming-the-bands">Naming the Bands</h3>
+<p>Once the Kronig-Penney model (or any more realistic periodic-potential calculation) has been solved, the result is a set of continuous energy bands, each spanning a range of allowed energies, separated by forbidden band gaps. At absolute zero temperature, electrons fill these bands from the lowest energy upward, obeying the Pauli exclusion principle (introduced formally through Fermi-Dirac statistics in Chapter 9), until all available electrons are placed. This filling process gives the bands their physically important names:</p>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Energy Band</td>
+<td>A continuous range of allowed electron energies, arising from band formation in a periodic potential</td>
+</tr>
+<tr>
+<td>Band Gap (Forbidden Energy Gap)</td>
+<td>A range of energy with no allowed electron states, lying between two energy bands</td>
+</tr>
+<tr>
+<td>Allowed Energy States</td>
+<td>The specific, continuously-varying <span class="arithmatex">\((E,k)\)</span> pairs that satisfy the periodic Schrödinger equation within a band</td>
+</tr>
+<tr>
+<td>Valence Band</td>
+<td>The highest energy band that is completely filled with electrons at absolute zero</td>
+</tr>
+<tr>
+<td>Conduction Band</td>
+<td>The next energy band above the valence band, typically empty (or nearly so) at absolute zero</td>
+</tr>
+</tbody>
+</table>
+<p>The valence and conduction bands are singled out for special attention because, as Chapter 7 will show in detail, essentially all of a semiconductor's electrical behavior — its conductivity, its response to doping, its behavior in a diode or transistor — is governed by electrons and holes in exactly these two bands and the size of the band gap separating them.</p>
+<div class="admonition question">
+<p class="admonition-title">Concept Check</p>
+<p>Explain why the valence band is, by definition, always the band immediately <em>below</em> the band gap that separates it from the conduction band, rather than some lower-lying, already fully-occupied band.</p>
+</div>
+<details class="question">
+<summary>Concept Check — click to reveal answer</summary>
+<p>"Valence band" is not simply any filled band — it is specifically the <em>highest-energy</em> filled band at absolute zero, because it is the electrons in this band (closest in energy to the gap and to the conduction band above) that participate in bonding and, more importantly, that can be thermally or optically excited across the gap into the conduction band. Lower-lying, more tightly bound bands (corresponding to core electrons, in the language of Chapter 4) are completely inert for this purpose, so the valence-band label is reserved for the outermost filled band specifically because that is the band whose electrons determine the material's electrical and chemical behavior.</p>
+</details>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 3 — Identifying Bands from a Filling Description</p>
+<p>A hypothetical 1D crystal's Kronig-Penney solution produces three energy bands, labeled I (lowest), II (middle), and III (highest). At absolute zero, bands I and II are completely full of electrons, and band III is completely empty. Identify the valence band and the conduction band.</p>
+<p><strong>Solution:</strong> The valence band is the highest <em>completely filled</em> band, which is band II. The conduction band is the next band up, band III.</p>
+</div>
+<h2 id="summary">Summary</h2>
+<p>This chapter solved the Schrödinger equation for the periodic potential created by a real crystal lattice (Chapter 3) and its chemical bonding (Chapter 4). Bloch's theorem showed that every solution must take the form <span class="arithmatex">\(\psi_k(x)=e^{ikx}u_k(x)\)</span>, a traveling wave modulated by a lattice-periodic function, introducing the Bloch wavevector <span class="arithmatex">\(k\)</span> and crystal momentum <span class="arithmatex">\(\hbar k\)</span>. The Kronig-Penney model, an exactly solvable periodic array of rectangular barriers, produced a transcendental equation, <span class="arithmatex">\(P\sin(\alpha a)/(\alpha a)+\cos(\alpha a)=\cos(ka)\)</span>, whose right-hand side's restriction to <span class="arithmatex">\([-1,1]\)</span> directly explained band formation: energies where the equation has no real solution become forbidden band gaps, and energies where it does become continuous allowed energy bands. The reciprocal lattice and Brillouin zone provided the natural k-space language for this result, and the chapter's key geometric finding was that band gaps open precisely at the Brillouin zone boundaries <span class="arithmatex">\(k=\pm n\pi/a\)</span>. Finally, the highest completely-filled band at absolute zero was named the valence band, and the next band up the conduction band — terminology that Chapters 6 and 7 build on directly. With band formation now established, Chapter 6 turns to the detailed shape of these bands (direct vs. indirect gaps, effective mass, density of states) and locates the Fermi level within them.</p>
+<h2 id="key-equations">Key Equations</h2>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Equation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Periodic potential</td>
+<td><span class="arithmatex">\(V(x+a) = V(x)\)</span></td>
+</tr>
+<tr>
+<td>Bloch's theorem</td>
+<td><span class="arithmatex">\(\psi_k(x) = e^{ikx}\,u_k(x)\)</span>, with <span class="arithmatex">\(u_k(x+a)=u_k(x)\)</span></td>
+</tr>
+<tr>
+<td>Kronig-Penney transcendental equation</td>
+<td><span class="arithmatex">\(P\,\dfrac{\sin(\alpha a)}{\alpha a} + \cos(\alpha a) = \cos(ka)\)</span></td>
+</tr>
+<tr>
+<td>Reciprocal lattice vector condition</td>
+<td><span class="arithmatex">\(\vec a_i\cdot\vec b_j = 2\pi\,\delta_{ij}\)</span></td>
+</tr>
+<tr>
+<td>1D reciprocal lattice spacing</td>
+<td><span class="arithmatex">\(2\pi/a\)</span></td>
+</tr>
+<tr>
+<td>First Brillouin zone (1D)</td>
+<td><span class="arithmatex">\(-\pi/a \leq k \leq \pi/a\)</span></td>
+</tr>
+<tr>
+<td>Band gap locations (1D)</td>
+<td><span class="arithmatex">\(k = \pm n\pi/a,\ n=1,2,3,\ldots\)</span></td>
+</tr>
+</tbody>
+</table>
+<h2 id="glossary">Glossary</h2>
+<p>See the <a href="glossary/">Chapter 5 Glossary</a> for full definitions of every term introduced in this chapter.</p>
+<h2 id="further-reading">Further Reading</h2>
 <ul>
-<li><a href="../02-quantum-mechanics-foundations/">Chapter 2: Quantum Mechanics Foundations</a></li>
-<li><a href="../03-crystal-lattices-structures/">Chapter 3: Crystal Lattices and Structures</a></li>
+<li>Kittel, <em>Introduction to Solid State Physics</em> — the standard reference on Bloch's theorem, the Kronig-Penney model, and reciprocal lattices</li>
+<li>Ashcroft and Mermin, <em>Solid State Physics</em> — a rigorous treatment of band theory and the Brillouin zone</li>
+<li>Neamen, <em>Semiconductor Physics and Devices</em> — connects band formation directly to semiconductor device behavior</li>
+<li>Kronig and Penney, "Quantum Mechanics of Electrons in Crystal Lattices," <em>Proc. R. Soc. Lond. A</em> (1931) — the original paper introducing the model</li>
 </ul>
-<hr />
-<p>TODO: Generate Chapter Content</p>
+<h2 id="worked-examples">Worked Examples</h2>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 4 — Crystal Momentum vs. True Momentum</p>
+<p>Explain, in one or two sentences, why <span class="arithmatex">\(\hbar k\)</span> in Bloch's theorem is called "crystal momentum" rather than simply "momentum."</p>
+<p><strong>Solution:</strong> True momentum <span class="arithmatex">\(p=\hbar k\)</span> applies to a free particle with no potential at all, whereas the Bloch electron moves in a periodic potential and its wavefunction is only a plane wave <em>modulated</em> by a periodic function, not a pure plane wave. <span class="arithmatex">\(\hbar k\)</span> still governs the electron's group velocity and its response to external forces in a way that resembles ordinary momentum, but it is only meaningful modulo a reciprocal lattice vector, which distinguishes it from true momentum.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 5 — Reciprocal Lattice of a Simple Cubic Crystal</p>
+<p>A simple cubic crystal has lattice constant <span class="arithmatex">\(a=0.35\)</span> nm. State the Bravais lattice type and lattice constant of its reciprocal lattice.</p>
+<p><strong>Solution:</strong> The reciprocal lattice of a simple cubic lattice is itself simple cubic, with lattice constant <span class="arithmatex">\(2\pi/a = 2\pi/(0.35\times10^{-9}\ \text{m}) \approx 1.80\times10^{10}\ \text{m}^{-1}\)</span>.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 6 — Reciprocal Lattice of FCC</p>
+<p>Silicon's diamond lattice structure (Chapter 3) is built from an FCC sublattice. What Bravais lattice describes the reciprocal lattice of an FCC crystal?</p>
+<p><strong>Solution:</strong> The reciprocal lattice of an FCC lattice is a body-centered cubic (BCC) lattice — one of the standard results connecting the three cubic Bravais lattices to their reciprocal-space counterparts.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 7 — Locating the Second Brillouin Zone Boundary</p>
+<p>For a 1D chain with lattice constant <span class="arithmatex">\(a\)</span>, state the location (in terms of <span class="arithmatex">\(a\)</span>) of the boundary between the first and second Brillouin zones.</p>
+<p><strong>Solution:</strong> Band gaps, and Brillouin zone boundaries, occur at <span class="arithmatex">\(k=n\pi/a\)</span>. The boundary between the first zone (<span class="arithmatex">\(n=1\)</span>) and the second zone begins at <span class="arithmatex">\(k=\pi/a\)</span> and the second zone extends from <span class="arithmatex">\(\pi/a\)</span> to <span class="arithmatex">\(2\pi/a\)</span> (and the mirror-image range on the negative side).</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 8 — Testing the Free-Electron Limit</p>
+<p>Using the Kronig-Penney equation, explain what happens to the band gaps as the barrier strength <span class="arithmatex">\(P\)</span> is increased from a small positive value to a much larger value.</p>
+<p><strong>Solution:</strong> As <span class="arithmatex">\(P\)</span> increases, the barriers become more effective at reflecting the electron, and the range of <span class="arithmatex">\(\alpha a\)</span> for which the left-hand side of the transcendental equation exceeds <span class="arithmatex">\(|1|\)</span> grows — meaning the forbidden band gaps widen. In the opposite limit, <span class="arithmatex">\(P\to0\)</span> (Concept Check above), the gaps close entirely and the spectrum becomes continuous, as in a free electron.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 9 — Valence and Conduction Band Filling</p>
+<p>A 1D crystal's Kronig-Penney bands are labeled I, II, and III from lowest to highest energy. At absolute zero, band I is full, band II is half full, and band III is empty. Identify which band, if any, is the valence band under the standard definition used in this chapter.</p>
+<p><strong>Solution:</strong> The standard valence/conduction terminology assumes the highest occupied band is <em>completely</em> full; here, band II is only half full, so this material does not fit the simple insulator/semiconductor picture at all — a partially-filled band like this is instead the hallmark of a metal (or conductor), a case Chapter 7 revisits when classifying materials by band filling.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 10 — Reciprocal Lattice Spacing and Real Lattice Constant</p>
+<p>Two 1D crystals have lattice constants <span class="arithmatex">\(a_1 = 0.20\)</span> nm and <span class="arithmatex">\(a_2 = 0.40\)</span> nm. Which crystal has the more widely spaced reciprocal lattice, and by what factor?</p>
+<p><strong>Solution:</strong> Reciprocal lattice spacing is <span class="arithmatex">\(2\pi/a\)</span>, inversely proportional to the real-space lattice constant. Crystal 1 (<span class="arithmatex">\(a_1=0.20\)</span> nm) has reciprocal spacing <span class="arithmatex">\(2\pi/a_1\)</span>, twice as large as crystal 2's <span class="arithmatex">\(2\pi/a_2\)</span> (since <span class="arithmatex">\(a_2=2a_1\)</span>) — the crystal with the <em>smaller</em> real-space lattice constant has the <em>more widely spaced</em> reciprocal lattice.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 11 — Brillouin Zone Boundary and Bragg-like Reflection</p>
+<p>Explain, qualitatively, why an electron wave with wavevector exactly at the Brillouin zone boundary <span class="arithmatex">\(k=\pi/a\)</span> is especially susceptible to being reflected by the periodic lattice.</p>
+<p><strong>Solution:</strong> At <span class="arithmatex">\(k=\pi/a\)</span>, the electron's wavelength is <span class="arithmatex">\(\lambda = 2\pi/k = 2a\)</span>, meaning successive lattice periods are separated by exactly half a wavelength. Waves reflected from successive periods interfere constructively under this condition (closely analogous to a Bragg-type reflection condition), reinforcing a standing wave rather than a freely propagating one — this standing-wave condition is exactly what opens an energy gap at the zone boundary.</p>
+</div>
+</div>
 
 
 
 
 
 
+
+  
+  
 
 
 
@@ -3274,13 +4120,13 @@
         
         
           
-          <a href="../06-band-structure-fermi-level/" class="md-footer__link md-footer__link--next" aria-label="Next: 6. Band Structure and the Fermi Level">
+          <a href="quiz/" class="md-footer__link md-footer__link--next" aria-label="Next: Quiz">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                6. Band Structure and the Fermi Level
+                Quiz
               </div>
             </div>
             <div class="md-footer__button md-icon">

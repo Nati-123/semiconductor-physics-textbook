@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Reciprocal Lattice and Brillouin Zone Explorer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="reciprocal-lattice-brillouin-zone-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> In "Real vs. Reciprocal Lattice" view, drag the a_x slider from small to large and watch the reciprocal lattice (right panel) compress as the real lattice (left panel) expands.</li>
+            <li><strong>Predict:</strong> Before unchecking "Square lattice," predict what shape the reciprocal lattice will become if you stretch a_x much larger than a_y in real space.</li>
+            <li><strong>Observe:</strong> Uncheck "Square lattice," set a_x much larger than a_y, and confirm the reciprocal lattice points become widely spaced in the x-direction but closely spaced in y — the inverse relationship applies independently along each axis.</li>
+            <li><strong>Switch views:</strong> Select "Brillouin Zone" and watch the shaded first-zone rectangle resize as you adjust a_x and a_y — note it always extends exactly half the reciprocal spacing in each direction.</li>
+            <li><strong>Explain:</strong> Explain why the dashed perpendicular-bisector lines, not the reciprocal lattice points themselves, are what actually define the Brillouin zone boundary.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 5:</strong> This MicroSim visualizes the reciprocal lattice (spacing <span class="arithmatex">\(2\pi/a\)</span> along each axis) constructed from a real-space lattice (Chapter 3), and the first Brillouin zone as the Wigner-Seitz primitive cell of that reciprocal lattice — the same k-space region whose boundary, <span class="arithmatex">\(k=\pm\pi/a\)</span> in 1D, is exactly where the Kronig-Penney model's band gaps open.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>View dropdown</dt>
+            <dd>Switches between "Real vs. Reciprocal Lattice" (side-by-side comparison) and "Brillouin Zone" (Wigner-Seitz construction).</dd>
+            <dt>a_x slider</dt>
+            <dd>Sets the real-space lattice constant along x; the reciprocal lattice spacing along x updates as <span class="arithmatex">\(2\pi/a_x\)</span>.</dd>
+            <dt>a_y slider</dt>
+            <dd>Sets the real-space lattice constant along y (only active when "Square lattice" is unchecked).</dd>
+            <dt>Square lattice checkbox</dt>
+            <dd>When checked, locks a_y to always match a_x, showing a square lattice; uncheck to explore a rectangular lattice independently along each axis.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">1. As the real-space lattice constant a_x increases, what happens to the reciprocal lattice spacing along x?</p>
+            <label><input type="radio" name="rlbz-q1" value="a"> It also increases</label>
+            <label><input type="radio" name="rlbz-q1" value="b"> It decreases (inverse relationship)</label>
+            <label><input type="radio" name="rlbz-q1" value="c"> It stays exactly the same</label>
+            <label><input type="radio" name="rlbz-q1" value="d"> It becomes undefined</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Reciprocal lattice spacing is <span class="arithmatex">\(2\pi/a\)</span>, so a larger real-space lattice constant produces a smaller (more closely spaced) reciprocal lattice — an inverse relationship.</p>
+            <p class="explain-incorrect" hidden>Drag the a_x slider to its largest value and compare the reciprocal-lattice spacing in the right panel to its value at the smallest a_x.</p>
+        </div>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">2. What construction defines the boundary of the first Brillouin zone shown in "Brillouin Zone" view?</p>
+            <label><input type="radio" name="rlbz-q2" value="a"> A random rectangle</label>
+            <label><input type="radio" name="rlbz-q2" value="b"> The real-space unit cell, unchanged</label>
+            <label><input type="radio" name="rlbz-q2" value="c"> The perpendicular bisectors to the nearest reciprocal lattice points (Wigner-Seitz construction)</label>
+            <label><input type="radio" name="rlbz-q2" value="d"> The diagonal of the reciprocal lattice</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>The Brillouin zone is the Wigner-Seitz cell of the reciprocal lattice — the region enclosed by perpendicular bisector planes to the nearest reciprocal lattice points, shown as dashed lines in this MicroSim.</p>
+            <p class="explain-incorrect" hidden>Switch to "Brillouin Zone" view and look at the dashed lines connecting to the shaded rectangle.</p>
+        </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">3. If a_x is stretched much larger than a_y in real space, what shape does the Brillouin zone become?</p>
+            <label><input type="radio" name="rlbz-q3" value="a"> Narrow along k_x, tall along k_y (elongated perpendicular to the real-space stretch)</label>
+            <label><input type="radio" name="rlbz-q3" value="b"> Tall along k_x, narrow along k_y (same orientation as the real-space stretch)</label>
+            <label><input type="radio" name="rlbz-q3" value="c"> Always a perfect square regardless of a_x, a_y</label>
+            <label><input type="radio" name="rlbz-q3" value="d"> Undefined</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Because reciprocal spacing is inversely proportional to real-space spacing along each axis independently, stretching a_x (making it large) shrinks the reciprocal spacing along k_x, making the Brillouin zone narrow in k_x and, by comparison, tall in k_y.</p>
+            <p class="explain-incorrect" hidden>Uncheck "Square lattice," set a_x much larger than a_y, and switch to "Brillouin Zone" view to see the resulting rectangle's proportions.</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

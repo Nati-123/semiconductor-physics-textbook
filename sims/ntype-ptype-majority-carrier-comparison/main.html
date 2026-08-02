@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>N-Type vs. P-Type Majority Carrier Comparison MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="../semiconductor-materials-lib.js"></script>
+    <script src="ntype-ptype-majority-carrier-comparison.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Compare the two lattices side by side before checking the ionized-state box — one has a donor (blue), the other an acceptor (red).</li>
+            <li><strong>Observe:</strong> Check "Show Ionized State" and see the donor side release a free electron while the acceptor side's hole moves away, leaving a fixed positive ion on the left and a fixed negative ion on the right.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 7:</strong> A silicon crystal doped with donor atoms is called <strong>n-type</strong> material because its majority carriers are negatively-charged free electrons; a crystal doped with acceptor atoms is called <strong>p-type</strong> material because its majority carriers are positively-charged holes. Chapter 8 develops n-type and p-type doping in full quantitative detail — this comparison previews the essential physical picture side by side.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>Show Ionized State checkbox</dt>
+            <dd>Toggles both lattices between their neutral (freshly-doped) state and their ionized state, where the donor's electron and the acceptor's hole have become free carriers.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">1. What is the majority carrier in n-type (donor-doped) material?</p>
+            <label><input type="radio" name="npc-q1" value="a"> Free electrons</label>
+            <label><input type="radio" name="npc-q1" value="b"> Holes</label>
+            <label><input type="radio" name="npc-q1" value="c"> Protons</label>
+            <label><input type="radio" name="npc-q1" value="d"> Neutrons</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Donor atoms contribute free electrons, so n-type ("n" for negative) material's majority carriers are electrons.</p>
+            <p class="explain-incorrect" hidden>Look at the carrier released on the donor (left) side of the comparison.</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

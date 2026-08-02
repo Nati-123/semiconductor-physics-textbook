@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Elemental vs. Compound Semiconductor Structure Comparer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="../semiconductor-materials-lib.js"></script>
+    <script src="elemental-compound-structure-comparer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Select "Silicon (Elemental)" and confirm every atom in the lattice has the same label and color.</li>
+            <li><strong>Predict:</strong> Before switching to "GaAs (Compound)", predict whether the lattice will still use only one atom type.</li>
+            <li><strong>Observe:</strong> Switch to "GaAs (Compound)" and see the lattice alternate between two atom types in a checkerboard pattern, with every bond connecting one Ga atom to one As atom.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 7:</strong> An <strong>elemental semiconductor</strong> like silicon is built from a single atomic species repeated throughout the crystal. A <strong>compound semiconductor</strong> like gallium arsenide (GaAs) is built from two different atomic species that alternate on the lattice — every bond connects a Group III atom (Ga) to a Group V atom (As), whose average of 4 valence electrons per atom mimics silicon's own 4 valence electrons.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>Material dropdown</dt>
+            <dd>Switches between the elemental silicon lattice (one atom type) and the compound GaAs lattice (two alternating atom types).</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">1. In the GaAs lattice, what does every bond connect?</p>
+            <label><input type="radio" name="ecs-q1" value="a"> Two Ga atoms</label>
+            <label><input type="radio" name="ecs-q1" value="b"> One Ga atom and one As atom</label>
+            <label><input type="radio" name="ecs-q1" value="c"> Two As atoms</label>
+            <label><input type="radio" name="ecs-q1" value="d"> A Ga atom and a Si atom</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>GaAs alternates two species on its lattice sites, so every bond connects one gallium atom to one arsenic atom.</p>
+            <p class="explain-incorrect" hidden>Look at the two alternating colors/labels in the GaAs lattice and see which pairs are always bonded together.</p>
+        </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">2. What makes silicon an "elemental" semiconductor?</p>
+            <label><input type="radio" name="ecs-q2" value="a"> It is built from a single atomic species (element) repeated throughout the crystal</label>
+            <label><input type="radio" name="ecs-q2" value="b"> It contains no atoms at all</label>
+            <label><input type="radio" name="ecs-q2" value="c"> It is always doped</label>
+            <label><input type="radio" name="ecs-q2" value="d"> It has no covalent bonds</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>"Elemental" means the crystal is built from a single chemical element — silicon atoms bonded only to other silicon atoms.</p>
+            <p class="explain-incorrect" hidden>Compare how many distinct atom labels appear in the Silicon lattice versus the GaAs lattice.</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

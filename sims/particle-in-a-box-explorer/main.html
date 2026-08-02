@@ -32,6 +32,7 @@
             <li><strong>Predict:</strong> Before moving the n slider from 2 to 3, predict how many internal nodes \(\psi_3\) will have.</li>
             <li><strong>Observe:</strong> Shrink the box width \(L\) and watch every energy level in the ladder diagram rise — note they do not rise by the same amount.</li>
             <li><strong>Explain:</strong> Explain why \(E_4\) is four times \(E_1\) rather than merely four times as far up the ladder.</li>
+            <li><strong>Try negative n:</strong> The n slider now goes down to \(n=-6\) and includes \(n=0\). Drag it to \(n=-3\) and compare \(\psi_{-3}\) and \(|\psi_{-3}|^2\) against \(\psi_3\) — then drag to \(n=0\) and read the note that appears explaining why that case is excluded from the physical spectrum.</li>
         </ul>
 
         <p class="connects-to"><strong>Connects to Chapter 2:</strong> This MicroSim plots the boxed particle-in-a-box wavefunction <span class="arithmatex">\(\psi_n(x) = \sqrt{2/L}\sin(n\pi x/L)\)</span> and energy levels <span class="arithmatex">\(E_n = n^2h^2/(8m_eL^2)\)</span> from the chapter, using <span class="arithmatex">\(h = 6.626\times10^{-34}\)</span> J·s and <span class="arithmatex">\(m_e = 9.109\times10^{-31}\)</span> kg.</p>
@@ -41,7 +42,7 @@
             <dt>Box width L slider</dt>
             <dd>Sets the width of the infinite square well, from 0.1 nm to 5 nm — smaller \(L\) pushes all energy levels higher, since \(E_n \propto 1/L^2\).</dd>
             <dt>Quantum number n slider</dt>
-            <dd>Selects which stationary state (n = 1 to 6) is plotted — higher n means more nodes and a higher energy.</dd>
+            <dd>Selects which stationary state is plotted, from n = 1 to 6 — higher n means more nodes and a higher energy. The slider also extends down through n = 0 and to n = -6, purely for exploration: negative n reproduces the exact same energy and probability density as its positive counterpart (only the overall sign of ψ flips), and n = 0 gives the trivial ψ = 0 state that is excluded from the true physical spectrum.</dd>
         </dl>
 
         <h3>Challenge Questions</h3>
@@ -103,7 +104,19 @@
             <button class="check-btn" type="button">Check Answer</button>
             <span class="feedback" role="status" aria-live="polite"></span>
             <p class="explain-correct" hidden>n = 0 would give \(\psi = 0\) everywhere (no particle at all), which is not a valid state, so the smallest allowed energy is the nonzero \(E_1\) — a direct consequence of confinement, consistent with the uncertainty principle.</p>
-            <p class="explain-incorrect" hidden>Try setting the n slider as low as it goes and read the minimum allowed value.</p>
+            <p class="explain-incorrect" hidden>Drag the n slider down to 0 and read the explanatory note that appears above the box.</p>
+        </div>
+
+        <div class="challenge" data-correct="d">
+            <p class="q-text">6. How does \(\psi_{-3}(x)\) compare physically to \(\psi_3(x)\)?</p>
+            <label><input type="radio" name="pib-q6" value="a"> \(\psi_{-3}\) has a completely different energy than \(\psi_3\)</label>
+            <label><input type="radio" name="pib-q6" value="b"> \(\psi_{-3}\) has a different number of nodes than \(\psi_3\)</label>
+            <label><input type="radio" name="pib-q6" value="c"> \(\psi_{-3}\) is not a valid function at all</label>
+            <label><input type="radio" name="pib-q6" value="d"> \(\psi_{-3}\) is the same physical state as \(\psi_3\) — same energy and same \(|\psi|^2\), only the overall sign flips</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Because \(E_n\propto n^2\) and \(|\psi_n|^2=\sin^2(n\pi x/L)\) both depend only on \(n^2\) or \(|\sin|\), flipping the sign of n leaves the energy and probability density completely unchanged — only \(\psi\) itself flips sign, which carries no physical meaning.</p>
+            <p class="explain-incorrect" hidden>Set n=3, note the energy and node positions, then set n=-3 and compare directly — also check which rung lights up in the energy ladder.</p>
         </div>
 
     </div>

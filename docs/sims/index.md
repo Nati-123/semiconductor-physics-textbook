@@ -35,7 +35,7 @@ Interactive educational simulations that accompany this textbook.
 
 | MicroSim | Bloom Level | Description |
 |----------|-------------|-------------|
-| [Cubic Lattice Explorer](cubic-lattice-explorer/index.md) | L2-L3 Understand/Apply | Rotate 3D Simple Cubic, Body-Centered Cubic, and Face-Centered Cubic unit cells and compare atoms per cell, coordination number, and packing fraction |
+| [Crystal Structure Explorer](cubic-lattice-explorer/index.md) | L2-L4 Understand/Apply/Analyze | Rotate, pan, and zoom all nine major crystal structures (SC, BCC, FCC, HCP, Diamond Cubic, Zinc Blende, Rock Salt, CsCl, Wurtzite) and compare crystal system, basis, atoms per cell, coordination number, and packing factor |
 | [Diamond / Zincblende Structure Explorer](diamond-zincblende-explorer/index.md) | L2 Understand | Rotate the diamond-cubic unit cell with tetrahedral bonds, toggling between single-element diamond and two-element zincblende coloring |
 | [Miller Indices Explorer](miller-indices-explorer/index.md) | L3 Apply | Slice a shaded crystal plane through a rotatable unit cell for adjustable Miller indices (h k l), with presets for (100), (110), (111), and (200) |
 

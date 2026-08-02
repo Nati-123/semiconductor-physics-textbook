@@ -157,11 +157,11 @@ The same style of calculation, carried out for SC (touching condition \(2r=a\)) 
 
 Higher coordination number consistently accompanies higher packing fraction — a more densely surrounded atom fits into a more densely packed structure overall. FCC's packing fraction of about 0.740 is, along with the geometrically distinct hexagonal close-packed structure, the maximum packing fraction achievable by any arrangement of identical spheres.
 
-#### Diagram: Cubic Lattice Explorer
-<iframe src="../../sims/cubic-lattice-explorer/main.html" width="100%" height="620px" scrolling="auto"></iframe>
+#### Diagram: Crystal Structure Explorer
+<iframe src="../../sims/cubic-lattice-explorer/main.html" width="100%" height="900px" scrolling="auto"></iframe>
 
 !!! tip "How to use this MicroSim"
-    **Instructions:** Select simple cubic, body-centered cubic, or face-centered cubic from the structure selector, and drag to rotate the three-dimensional view. Toggle the display of shared-atom fractions to see how the atoms-per-cell count is built up.
+    **Instructions:** Select simple cubic, body-centered cubic, or face-centered cubic from the structure selector, and drag to rotate the three-dimensional view (right-drag to pan, scroll to zoom). This same tool also covers HCP, Diamond Cubic, Zinc Blende, Rock Salt, CsCl, and Wurtzite — the remaining structures introduced later in this chapter — so keep it open as you read on.
 
     **Learning objective:** Visualize the three cubic Bravais lattices in three dimensions, and connect the visual sharing of corner, face, and body-center atoms to the atoms-per-cell arithmetic worked out in the text.
 

@@ -127,7 +127,7 @@ nav:
           - Particle in a Box Explorer: sims/particle-in-a-box-explorer/index.md
           - Quantum Tunneling Probability Explorer: sims/quantum-tunneling-explorer/index.md
       - Chapter 3:
-          - Cubic Lattice Explorer: sims/cubic-lattice-explorer/index.md
+          - Crystal Structure Explorer: sims/cubic-lattice-explorer/index.md
           - Diamond and Zincblende Lattice Explorer: sims/diamond-zincblende-explorer/index.md
           - Miller Indices Plane Visualizer: sims/miller-indices-explorer/index.md
   - Learning Graph:

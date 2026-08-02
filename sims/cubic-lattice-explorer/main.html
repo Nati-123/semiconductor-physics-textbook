@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
-    <title>Cubic Lattice Explorer MicroSim</title>
+    <title>Crystal Structure Explorer MicroSim</title>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
     <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
     <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
@@ -16,12 +16,12 @@
         .control-panel {
             background: #f5f5f5;
             border-top: 1px solid silver;
-            padding: 12px 16px;
+            padding: 8px 16px;
             box-sizing: border-box;
             display: flex;
             flex-wrap: wrap;
             align-items: center;
-            gap: 8px 20px;
+            gap: 8px 18px;
         }
         .control-panel .ctrl-label {
             font-size: 13px;
@@ -31,6 +31,39 @@
         .control-panel select {
             font-size: 13px;
             padding: 3px 6px;
+        }
+        .control-panel .slider-field {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .control-panel .slider-field label {
+            font-size: 13px;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+        }
+        .control-panel .index-slider {
+            width: 130px;
+        }
+        .control-panel .preset-btn {
+            font-size: 12px;
+            padding: 4px 10px;
+            background: #EEF4FF;
+            border: 1px solid #A8C8FF;
+            border-radius: 6px;
+            color: #5A3EED;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .control-panel .preset-btn:hover {
+            background: #DDE8FF;
+        }
+        .control-panel input[type="number"] {
+            font-size: 13px;
+            padding: 2px 4px;
         }
         .control-panel .ctrl-hint {
             font-size: 12px;
@@ -50,6 +83,7 @@
         .readout-panel .readout-row { margin-bottom: 2px; }
         .readout-panel .readout-value { font-weight: 700; color: #5A3EED; }
         .readout-panel .legend { margin-top: 6px; font-size: 12px; color: #555; }
+        .readout-panel .warn { color: #B8860B; font-weight: 600; margin-top: 4px; }
         .readout-panel .swatch {
             display: inline-block;
             width: 11px;
@@ -60,7 +94,7 @@
             border: 1px solid rgba(0,0,0,0.25);
         }
     </style>
-    <script src="cubic-lattice-explorer.js?v=2"></script>
+    <script src="cubic-lattice-explorer.js?v=5"></script>
     <script src="../sim-accessibility.js"></script>
     <script src="../fullscreen-toggle.js"></script>
     <script src="../challenge-quiz.js"></script>
@@ -74,22 +108,46 @@
 
         <h3>Try This</h3>
         <ul class="explore-list">
-            <li><strong>Try this:</strong> Select Simple Cubic and drag the cell to view it from a corner — count how many blue corner atoms you can see, then confirm only <span class="arithmatex">\(1/8\)</span> of each belongs to this cell.</li>
-            <li><strong>Predict:</strong> Before switching to Body-Centered Cubic, predict whether adding the single orange atom will raise or lower the coordination number compared to Simple Cubic.</li>
-            <li><strong>Observe:</strong> Switch to Face-Centered Cubic and rotate until you are looking straight at one face — notice the orange face atom sits exactly at the center of that square face.</li>
-            <li><strong>Explain:</strong> Explain why FCC has both the highest coordination number (12) and the highest packing fraction (0.740) among the three cubic structures.</li>
+            <li><strong>Try this:</strong> Select Simple Cubic, Body-Centered Cubic, and Face-Centered Cubic in turn and watch the "Atoms per conventional cell" and "Atomic packing factor" values climb from 1 &rarr; 2 &rarr; 4 and 0.524 &rarr; 0.680 &rarr; 0.740 as more atoms are added to the same cube.</li>
+            <li><strong>Predict:</strong> Before selecting Diamond Cubic, predict what the coordination number will be, knowing it is built from two interpenetrating FCC lattices offset by <span class="arithmatex">\((1/4,1/4,1/4)a\)</span> — then check the readout and the gray tetrahedral bonds.</li>
+            <li><strong>Compare:</strong> Switch between Zinc Blende (GaAs) and Rock Salt (NaCl) and compare the legend colors and bond geometry — Zinc Blende bonds are tetrahedral (CN=4), Rock Salt has no drawn bonds but an octahedral CN=6 arrangement.</li>
+            <li><strong>Observe:</strong> Turn on "Primitive cell (instead of conventional)" for Face-Centered Cubic and see the purple rhombohedral primitive cell (1 atom) drawn inside the same conventional cube (4 atoms).</li>
+            <li><strong>Explore Miller indices:</strong> Turn on "Show plane / direction overlay" for Simple Cubic, set the plane to (1 1 1), and rotate until you see the shaded triangular plane connecting three cube corners.</li>
+            <li><strong>Explain:</strong> Explain why silicon and germanium crystallize in Diamond Cubic while GaAs crystallizes in the geometrically identical Zinc Blende structure.</li>
         </ul>
 
-        <p class="connects-to"><strong>Connects to Chapter 3:</strong> This MicroSim renders the three cubic Bravais lattices from the chapter — Simple Cubic, Body-Centered Cubic (BCC), and Face-Centered Cubic (FCC) — using the standard touching-sphere conditions <span class="arithmatex">\(2r=a\)</span> (SC), <span class="arithmatex">\(4r=\sqrt{3}\,a\)</span> (BCC), and <span class="arithmatex">\(4r=\sqrt{2}\,a\)</span> (FCC) to compute the atomic packing fractions 0.524, 0.680, and 0.740.</p>
+        <p class="connects-to"><strong>Connects to Chapter 3:</strong> This MicroSim renders all nine crystal structures introduced in the chapter using the standard touching-sphere and interpenetrating-sublattice constructions: the three cubic Bravais lattices (SC, BCC, FCC), the hexagonal close-packed structure (HCP), the two tetrahedrally-coordinated diamond-family structures (Diamond Cubic, Zinc Blende), and the three ionic/compound structures (Rock Salt, Cesium Chloride, Wurtzite). Diamond Cubic and Zinc Blende are the two structures most central to semiconductor physics: silicon and germanium — the workhorse elemental semiconductors — crystallize in Diamond Cubic, while most III&ndash;V compound semiconductors such as GaAs, GaP, and InP crystallize in the geometrically identical but two-species Zinc Blende structure.</p>
 
         <h3>What Each Control Does</h3>
         <dl class="control-captions">
             <dt>Crystal structure dropdown</dt>
-            <dd>Switches the displayed unit cell between Simple Cubic, Body-Centered Cubic, and Face-Centered Cubic, updating the atom positions, colors, and the readout panel below the canvas.</dd>
+            <dd>Switches between all nine structures, updating atom positions, species colors, bonds, and every value in the readout panel below the canvas.</dd>
             <dt>Click-and-drag on the 3D view</dt>
-            <dd>Rotates the unit cell freely so you can inspect atom positions from any angle (uses p5.js <span class="arithmatex">\(\texttt{orbitControl()}\)</span>).</dd>
+            <dd>Rotates (orbits) the structure freely so you can inspect atom positions from any angle (uses p5.js <span class="arithmatex">\(\texttt{orbitControl()}\)</span>).</dd>
+            <dt>Right-click-and-drag (or two-finger drag) on the 3D view</dt>
+            <dd>Pans the camera sideways without changing the viewing angle.</dd>
             <dt>Scroll / pinch on the 3D view</dt>
             <dd>Zooms the camera in and out.</dd>
+            <dt>Atom labels checkbox</dt>
+            <dd>Prints each species' chemical symbol (e.g. Si, Ga, As, Na, Cl, Cs) directly above every atom it draws.</dd>
+            <dt>Unit-cell edges checkbox</dt>
+            <dd>Shows or hides the black wireframe boundary of the current cell (conventional cube, or hexagonal prism for HCP/Wurtzite).</dd>
+            <dt>Nearest-neighbor bonds checkbox</dt>
+            <dd>Draws gray tetrahedral bonds for the diamond-family structures (Diamond Cubic, Zinc Blende, Wurtzite); has no visual effect for structures without tetrahedral bonding, as noted in the readout panel.</dd>
+            <dt>Primitive cell checkbox</dt>
+            <dd>Replaces the black conventional-cell wireframe with a purple primitive-cell parallelepiped (the smallest repeating cell, containing exactly one lattice point).</dd>
+            <dt>Show plane / direction overlay checkbox</dt>
+            <dd>Reveals the Miller-index plane (h k l) and direction [u v w] controls below, and shades/draws them on cubic structures (disabled for the hexagonal structures HCP and Wurtzite, which require 4-index Miller&ndash;Bravais notation).</dd>
+            <dt>Atom size slider</dt>
+            <dd>Scales every sphere's drawn radius, useful for separating overlapping atoms or emphasizing the touching-sphere condition.</dd>
+            <dt>Plane (h k l) fields</dt>
+            <dd>Sets the Miller indices of the shaded plane; a plane satisfying <span class="arithmatex">\(hX+kY+lZ=1\)</span> in fractional cell coordinates is clipped to the cube and shaded blue.</dd>
+            <dt>Direction [u v w] fields</dt>
+            <dd>Draws an orange arrow from the origin along the crystallographic direction <span class="arithmatex">\([uvw]\)</span>.</dd>
+            <dt>Reset Camera button</dt>
+            <dd>Returns the view to its original default orbit position and zoom level.</dd>
+            <dt>Fullscreen button (top-right of the canvas)</dt>
+            <dd>Expands the MicroSim to fill the browser window for a larger, more detailed view; press Escape or the button again to exit.</dd>
         </dl>
 
         <h3>Challenge Questions</h3>
@@ -103,55 +161,67 @@
             <button class="check-btn" type="button">Check Answer</button>
             <span class="feedback" role="status" aria-live="polite"></span>
             <p class="explain-correct" hidden>8 corner atoms × 1/8 each = 1, plus 1 full body-center atom = 2 atoms per cell, matching the readout panel.</p>
-            <p class="explain-incorrect" hidden>Select BCC and read the "Atoms per unit cell" value directly from the readout panel below the canvas.</p>
+            <p class="explain-incorrect" hidden>Select BCC and read the "Atoms per conventional cell" value directly from the readout panel below the canvas.</p>
         </div>
 
         <div class="challenge" data-correct="c">
             <p class="q-text">2. Which structure has the highest coordination number?</p>
             <label><input type="radio" name="cle-q2" value="a"> Simple Cubic</label>
             <label><input type="radio" name="cle-q2" value="b"> Body-Centered Cubic</label>
-            <label><input type="radio" name="cle-q2" value="c"> Face-Centered Cubic</label>
-            <label><input type="radio" name="cle-q2" value="d"> All three are equal</label>
+            <label><input type="radio" name="cle-q2" value="c"> Face-Centered Cubic or Hexagonal Close-Packed</label>
+            <label><input type="radio" name="cle-q2" value="d"> Diamond Cubic</label>
             <button class="check-btn" type="button">Check Answer</button>
             <span class="feedback" role="status" aria-live="polite"></span>
-            <p class="explain-correct" hidden>FCC has coordination number 12 — each atom touches 12 nearest neighbors, the closest possible packing among these three structures.</p>
-            <p class="explain-incorrect" hidden>Cycle through all three structures in the dropdown and compare the "Coordination number" line in the readout panel.</p>
-        </div>
-
-        <div class="challenge" data-correct="a">
-            <p class="q-text">3. In Simple Cubic, what fraction of each corner atom actually belongs to a single unit cell?</p>
-            <label><input type="radio" name="cle-q3" value="a"> 1/8</label>
-            <label><input type="radio" name="cle-q3" value="b"> 1/4</label>
-            <label><input type="radio" name="cle-q3" value="c"> 1/2</label>
-            <label><input type="radio" name="cle-q3" value="d"> The whole atom</label>
-            <button class="check-btn" type="button">Check Answer</button>
-            <span class="feedback" role="status" aria-live="polite"></span>
-            <p class="explain-correct" hidden>Each corner is shared by 8 adjacent unit cells, so only 1/8 of each corner atom counts toward this cell — 8 × 1/8 = 1 atom total for SC.</p>
-            <p class="explain-incorrect" hidden>Think about how many unit cells meet at a single corner of a cube packed in 3D space.</p>
+            <p class="explain-correct" hidden>FCC and HCP are tied at coordination number 12 — both are the closest possible packings of identical spheres, giving them the highest packing fraction (0.740) of any structure in this MicroSim.</p>
+            <p class="explain-incorrect" hidden>Cycle through the structures in the dropdown and compare the "Coordination number" line in the readout panel.</p>
         </div>
 
         <div class="challenge" data-correct="d">
-            <p class="q-text">4. Why does Face-Centered Cubic have a higher packing fraction (0.740) than Simple Cubic (0.524)?</p>
-            <label><input type="radio" name="cle-q4" value="a"> FCC atoms are physically smaller</label>
-            <label><input type="radio" name="cle-q4" value="b"> FCC has a larger lattice constant</label>
-            <label><input type="radio" name="cle-q4" value="c"> Packing fraction is unrelated to atom arrangement</label>
-            <label><input type="radio" name="cle-q4" value="d"> The added face-center atoms let spheres touch along the face diagonal, filling space more efficiently</label>
+            <p class="q-text">3. What is the coordination number of Diamond Cubic and Zinc Blende, and why is it lower than FCC's?</p>
+            <label><input type="radio" name="cle-q3" value="a"> 12 — same as FCC because both are built from FCC sublattices</label>
+            <label><input type="radio" name="cle-q3" value="b"> 6 — octahedral coordination like Rock Salt</label>
+            <label><input type="radio" name="cle-q3" value="c"> 8 — cubic coordination like CsCl</label>
+            <label><input type="radio" name="cle-q3" value="d"> 4 — the large (1/4,1/4,1/4)a offset between the two interpenetrating FCC sublattices makes each atom's true nearest neighbors the 4 closest atoms on the other sublattice, not the 12 on its own</label>
             <button class="check-btn" type="button">Check Answer</button>
             <span class="feedback" role="status" aria-live="polite"></span>
-            <p class="explain-correct" hidden>The FCC touching condition <span class="arithmatex">\(4r=\sqrt{2}\,a\)</span> lets relatively larger atoms fit for a given <span class="arithmatex">\(a\)</span>, filling 74% of the volume versus 52.4% for SC.</p>
-            <p class="explain-incorrect" hidden>Compare how atoms touch along the cube edge (SC) versus along the face diagonal (FCC) using the sphere positions shown.</p>
+            <p class="explain-correct" hidden>Select Diamond Cubic and count the gray tetrahedral bonds leaving any interior atom — exactly 4, reflecting the covalent tetrahedral bonding of silicon and germanium.</p>
+            <p class="explain-incorrect" hidden>Turn on "Nearest-neighbor bonds" for Diamond Cubic and count the bonds leaving one atom.</p>
+        </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">4. Which real semiconductor materials crystallize in the Diamond Cubic structure, versus the Zinc Blende structure?</p>
+            <label><input type="radio" name="cle-q4" value="a"> Silicon and germanium use Diamond Cubic (one element); GaAs, GaP, and InP use Zinc Blende (two elements)</label>
+            <label><input type="radio" name="cle-q4" value="b"> Silicon uses Zinc Blende; GaAs uses Diamond Cubic</label>
+            <label><input type="radio" name="cle-q4" value="c"> Both use Rock Salt</label>
+            <label><input type="radio" name="cle-q4" value="d"> Diamond Cubic and Zinc Blende are unrelated to real semiconductors</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Diamond Cubic requires the two interpenetrating sublattices to hold the same element (Si-Si or Ge-Ge bonds), while Zinc Blende places two different species on the sublattices (e.g. Ga and As) — the readout panel's "Example materials" line confirms this for each structure.</p>
+            <p class="explain-incorrect" hidden>Select Diamond Cubic and Zinc Blende in turn and read the "Example materials" and "Semiconductor relevance" lines in the readout panel.</p>
         </div>
 
         <div class="challenge" data-correct="b">
-            <p class="q-text">5. How many face-center atoms are added in the FCC unit cell, and what color are they in this MicroSim?</p>
-            <label><input type="radio" name="cle-q5" value="a"> 8 corner atoms, blue</label>
-            <label><input type="radio" name="cle-q5" value="b"> 6 face-center atoms, orange</label>
-            <label><input type="radio" name="cle-q5" value="c"> 1 body-center atom, orange</label>
-            <label><input type="radio" name="cle-q5" value="d"> 12 edge atoms, green</label>
+            <p class="q-text">5. In the Cesium Chloride (CsCl) structure, why is the Bravais lattice classified as Simple Cubic rather than Body-Centered Cubic, even though there is an atom at the cube's body center?</p>
+            <label><input type="radio" name="cle-q5" value="a"> Because CsCl has more atoms per cell than BCC</label>
+            <label><input type="radio" name="cle-q5" value="b"> Because the corner sites (Cs) and the body-center site (Cl) are occupied by different species, so the two sites are not translationally equivalent — the lattice + 2-atom basis is Simple Cubic, not Body-Centered Cubic</label>
+            <label><input type="radio" name="cle-q5" value="c"> Because CsCl is actually hexagonal</label>
+            <label><input type="radio" name="cle-q5" value="d"> Because the coordination number is different from BCC</label>
             <button class="check-btn" type="button">Check Answer</button>
             <span class="feedback" role="status" aria-live="polite"></span>
-            <p class="explain-correct" hidden>A cube has 6 faces, and FCC places one atom at the center of each — shown in orange, each shared between 2 neighboring cells (6 × 1/2 = 3 additional atoms, plus 1 from the corners = 4 total).</p>
-            <p class="explain-incorrect" hidden>Select Face-Centered Cubic and count the orange spheres, then check the legend below the readout panel.</p>
+            <p class="explain-correct" hidden>A true Bravais lattice requires every lattice point to see an identical environment. In CsCl the corner and body-center sites hold different ions, so translating by (1/2,1/2,1/2)a does not map the crystal onto itself — the correct description is a Simple Cubic lattice with a 2-atom (Cs, Cl) basis, exactly as shown in the readout panel's "Bravais lattice / basis" line.</p>
+            <p class="explain-incorrect" hidden>Select CsCl and read the "Bravais lattice / basis" line in the readout panel — it explicitly explains why this is Simple Cubic, not BCC.</p>
+        </div>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">6. What structural relationship does Wurtzite have to Hexagonal Close-Packed (HCP)?</p>
+            <label><input type="radio" name="cle-q6" value="a"> They are unrelated structures</label>
+            <label><input type="radio" name="cle-q6" value="b"> Wurtzite is HCP with twice the lattice constant</label>
+            <label><input type="radio" name="cle-q6" value="c"> Wurtzite is the two-species compound analog of HCP — two HCP-type sublattices of different species, offset along c by the internal parameter u</label>
+            <label><input type="radio" name="cle-q6" value="d"> Wurtzite is HCP with no atoms in the interior sites</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Just as Zinc Blende is the compound analog of Diamond Cubic (both built on FCC), Wurtzite is the compound analog of HCP — select Wurtzite (GaN) and compare its blue/orange two-sublattice structure to the single-species HCP structure.</p>
+            <p class="explain-incorrect" hidden>Switch between HCP and Wurtzite (GaN) and compare the "Bravais lattice / basis" and legend entries in the readout panel.</p>
         </div>
 
     </div>

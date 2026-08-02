@@ -23,7 +23,7 @@ This MicroSim lets students adjust the box width <span class="arithmatex">\(L\)<
 <p style="color: #B8860B; font-weight: 700; font-size: 1.05rem; margin-top: 0; margin-bottom: 12px;">Key Features</p>
 <ul style="list-style: none; padding-left: 0; margin: 0;">
 <li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Box width slider</strong> from 0.1 nm to 5 nm</li>
-<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Integer quantum-number slider</strong> for n = 1 through 6</li>
+<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Integer quantum-number slider</strong> for n = 1 through 6, extended down through n = 0 and to n = -6 for exploration</li>
 <li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Overlaid ψₙ(x) and |ψₙ(x)|² plots</strong> with internal nodes marked</li>
 <li style="margin-bottom: 0; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Energy-level ladder diagram</strong> for E₁ through E₆, with the selected level highlighted</li>
 </ul>
@@ -34,7 +34,8 @@ This MicroSim lets students adjust the box width <span class="arithmatex">\(L\)<
 <ol style="padding-left: 1.2rem; margin: 0.8rem 0 1.2rem 0;">
 <li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333;"><strong style="color: #5A3EED;">Drag the n slider</strong> and count how the number of internal nodes changes</li>
 <li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333;"><strong style="color: #5A3EED;">Drag the L slider</strong> and watch every level in the energy ladder shift</li>
-<li style="margin-bottom: 0; line-height: 1.75; color: #333;"><strong style="color: #5A3EED;">Compare the highlighted level</strong> to the other five to see the n² spacing pattern</li>
+<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333;"><strong style="color: #5A3EED;">Compare the highlighted level</strong> to the other five to see the n² spacing pattern</li>
+<li style="margin-bottom: 0; line-height: 1.75; color: #333;"><strong style="color: #5A3EED;">Drag n below 1</strong> to see why n = 0 and negative n are excluded from (or redundant with) the physical spectrum</li>
 </ol>
 
 <h2 style="color: #5A3EED !important; border-bottom: 2px solid #5A3EED; padding-bottom: 0.3rem; font-weight: 700; margin-top: 2rem;">Learning Objectives</h2>
@@ -69,7 +70,7 @@ This MicroSim lets students adjust the box width <span class="arithmatex">\(L\)<
 <h3 style="color: #5A3EED; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.6rem;">After the Simulation (5 minutes)</h3>
 
 <ul style="list-style: none; padding-left: 0.8rem; margin: 0.5rem 0 1rem 0;">
-<li style="margin-bottom: 0.5rem; line-height: 1.75; color: #333;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.5rem;">&#9679;</span> Discuss why n = 0 is not a valid state (it would mean no particle at all)</li>
+<li style="margin-bottom: 0.5rem; line-height: 1.75; color: #333;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.5rem;">&#9679;</span> Drag n to 0 live and discuss why it is not a valid state (it would mean no particle at all); drag to a negative n and discuss why it duplicates its positive counterpart rather than describing a new state</li>
 <li style="margin-bottom: 0; line-height: 1.75; color: #333;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.5rem;">&#9679;</span> Preview how this quantized-level structure foreshadows the energy bands built from many confined electrons later in the course</li>
 </ul>
 

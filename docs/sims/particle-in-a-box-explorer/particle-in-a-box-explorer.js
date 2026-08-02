@@ -34,10 +34,10 @@ function setup() {
   lSlider.input(() => redraw());
   lSlider.attribute('aria-label', 'Box width L in nanometers');
 
-  nSlider = createSlider(1, N_MAX, 1, 1);
+  nSlider = createSlider(-N_MAX, N_MAX, 1, 1);
   nSlider.size(180);
   nSlider.input(() => redraw());
-  nSlider.attribute('aria-label', 'Quantum number n');
+  nSlider.attribute('aria-label', 'Quantum number n, including negative values and zero for exploration');
 
   positionUIElements();
 
@@ -94,18 +94,28 @@ function drawWavefunction(L, Lnm, n, plotRight) {
   const midY = 220;
   const ampScale = 70;
 
+  const boxTop = 106; // fixed, leaves room above for the label + a note row (used only for n <= 0)
+
   // box walls
   stroke(90);
   strokeWeight(2);
-  line(x0, 60, x0, drawHeight - 30);
-  line(x1, 60, x1, drawHeight - 30);
+  line(x0, boxTop, x0, drawHeight - 30);
+  line(x1, boxTop, x1, drawHeight - 30);
   line(x0, drawHeight - 30, x1, drawHeight - 30);
+
+  const absN = Math.abs(n);
 
   noStroke();
   fill(20);
   textAlign(LEFT, TOP);
   textSize(13);
-  text('ψ' + subscript(n) + '(x)  (blue)   and   |ψ' + subscript(n) + '(x)|² (orange, shaded)', x0, 40);
+  text('ψ' + subscript(n) + '(x)  (blue)   and   |ψ' + subscript(n) + '(x)|² (orange, shaded)', x0, 32);
+
+  if (n === 0) {
+    drawNoteBox(x0, x1, 'n = 0 gives ψ = 0 everywhere: the trivial null state, not physically valid. This is why n must start at 1.');
+  } else if (n < 0) {
+    drawNoteBox(x0, x1, 'n = ' + n + ' is the same physical state as n = ' + absN + ': same |ψ|² and same Eₙ (∝ n²). Only the sign of ψ flips, which is not observable.');
+  }
 
   // normalization amplitude sqrt(2/L) -- for display we normalize the curve
   // to a fixed pixel amplitude so all n look comparable on screen.
@@ -142,19 +152,20 @@ function drawWavefunction(L, Lnm, n, plotRight) {
   strokeWeight(1);
   line(x0, nodesY, x1, nodesY);
 
-  // node markers (internal nodes only, n-1 of them)
+  // node markers (internal nodes only, |n|-1 of them -- the zero crossings
+  // of sin(n*pi*x/L) sit at the same positions regardless of the sign of n)
   noStroke();
   fill('#C62828');
-  for (let k = 1; k < n; k++) {
-    const xFrac = k / n;
+  for (let k = 1; k < absN; k++) {
+    const xFrac = k / absN;
     const px = x0 + xFrac * boxW;
     circle(px, nodesY, 6);
   }
-  if (n > 1) {
+  if (absN > 1) {
     fill(90);
     textAlign(CENTER, TOP);
     textSize(11);
-    text((n - 1) + ' internal node' + (n - 1 > 1 ? 's' : ''), x0 + boxW / 2, drawHeight - 24);
+    text((absN - 1) + ' internal node' + (absN - 1 > 1 ? 's' : ''), x0 + boxW / 2, drawHeight - 24);
   }
 
   noStroke();
@@ -166,15 +177,29 @@ function drawWavefunction(L, Lnm, n, plotRight) {
   text('x = L = ' + Lnm.toFixed(2) + ' nm', x1, drawHeight - 24);
 }
 
+function drawNoteBox(x0, x1, message) {
+  const boxY = 52;
+  const boxH = 48;
+  fill(255, 247, 221, 235);
+  stroke('#F0D87A');
+  strokeWeight(1);
+  rect(x0, boxY, x1 - x0, boxH, 6);
+  noStroke();
+  fill('#8A6D1B');
+  textAlign(LEFT, TOP);
+  textSize(11);
+  text(message, x0 + 8, boxY + 6, x1 - x0 - 16, boxH - 12);
+}
+
 function subscript(n) {
   const subs = ['₀','₁','₂','₃','₄','₅','₆','₇','₈','₉'];
-  return String(n).split('').map(d => subs[parseInt(d)]).join('');
+  return String(n).split('').map(d => d === '-' ? '₋' : subs[parseInt(d)]).join('');
 }
 
 function drawEnergyLadder(L, nSelected, plotLeft) {
   const x0 = plotLeft + 30;
   const x1 = canvasWidth - margin;
-  const topY = 55;
+  const topY = 72; // clears the "Energy levels En" header above (was 55, which let the E(N_MAX) rung label overlap the header)
   const bottomY = drawHeight - 40;
 
   const energies = [];
@@ -191,10 +216,13 @@ function drawEnergyLadder(L, nSelected, plotLeft) {
   strokeWeight(1);
   line(x0, bottomY, x0, topY);
 
+  const absSelected = Math.abs(nSelected);
   for (let n = 1; n <= N_MAX; n++) {
     const frac = energies[n - 1] / maxE;
     const y = bottomY - frac * (bottomY - topY);
-    const isSelected = (n === nSelected);
+    // Eₙ depends on n^2, so a negative-n selection highlights the same
+    // rung as its positive counterpart -- they are the same energy level.
+    const isSelected = (n === absSelected);
     stroke(isSelected ? '#E53935' : 100);
     strokeWeight(isSelected ? 3 : 1.5);
     line(x0, y, x1, y);

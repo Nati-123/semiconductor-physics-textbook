@@ -2,7 +2,7 @@
 
 # Glossary of Terms
 
-This glossary currently covers the concepts introduced in [Chapter 1: Physics and Math Foundations](chapters/01-physics-math-foundations/index.md), [Chapter 2: Quantum Mechanics Foundations](chapters/02-quantum-mechanics-foundations/index.md), [Chapter 3: Crystal Lattices and Structures](chapters/03-crystal-lattices-structures/index.md), [Chapter 4: Chemical Bonding in Semiconductor Crystals](chapters/04-chemical-bonding-crystals/index.md), [Chapter 5: Quantum Mechanics of Periodic Crystals](chapters/05-quantum-mechanics-periodic-crystals/index.md), [Chapter 6: Band Structure and the Fermi Level](chapters/06-band-structure-fermi-level/index.md), [Chapter 7: Intrinsic and Extrinsic Semiconductors](chapters/07-intrinsic-extrinsic-semiconductors/index.md), [Chapter 8: Doping, Ionization, and Temperature Regimes](chapters/08-doping-ionization-temperature/index.md), [Chapter 9: Carrier Concentration Statistics](chapters/09-carrier-concentration-statistics/index.md), and [Chapter 10: Fermi Level Position and Carrier Equations](chapters/10-fermi-level-carrier-equations/index.md). Entries for later chapters will be added as those chapters are written.
+This glossary currently covers the concepts introduced in [Chapter 1: Physics and Math Foundations](chapters/01-physics-math-foundations/index.md), [Chapter 2: Quantum Mechanics Foundations](chapters/02-quantum-mechanics-foundations/index.md), [Chapter 3: Crystal Lattices and Structures](chapters/03-crystal-lattices-structures/index.md), [Chapter 4: Chemical Bonding in Semiconductor Crystals](chapters/04-chemical-bonding-crystals/index.md), [Chapter 5: Quantum Mechanics of Periodic Crystals](chapters/05-quantum-mechanics-periodic-crystals/index.md), [Chapter 6: Band Structure and the Fermi Level](chapters/06-band-structure-fermi-level/index.md), [Chapter 7: Intrinsic and Extrinsic Semiconductors](chapters/07-intrinsic-extrinsic-semiconductors/index.md), [Chapter 8: Doping, Ionization, and Temperature Regimes](chapters/08-doping-ionization-temperature/index.md), [Chapter 9: Carrier Concentration Statistics](chapters/09-carrier-concentration-statistics/index.md), [Chapter 10: Fermi Level Position and Carrier Equations](chapters/10-fermi-level-carrier-equations/index.md), and [Chapter 11: Drift Current and Carrier Mobility](chapters/11-drift-current-mobility/index.md). Entries for later chapters will be added as those chapters are written.
 
 #### Acceptor Atom
 
@@ -112,6 +112,14 @@ The final, most-used form of the electron and hole concentration equations, refe
 
 See also: [Intrinsic Fermi Level](#intrinsic-fermi-level), [Electron Concentration](#electron-concentration).
 
+#### Carrier Mobility
+
+The proportionality constant \(\mu\) relating drift velocity to electric field, \(v_d=\mu E\), capturing how efficiently an applied field converts into net carrier motion given the scattering environment.
+
+**Example:** GaAs's much smaller electron effective mass gives it a higher intrinsic mobility than silicon, useful for high-frequency devices.
+
+See also: [Drift Velocity](#drift-velocity), [Scattering Mechanism](#scattering-mechanism).
+
 #### Carrier Temperature Dependence
 
 The behavior of carrier concentration as a function of temperature, explained by the exact electron concentration equation smoothly transitioning between the extrinsic and intrinsic limits as \(n_i(T)\) changes.
@@ -157,6 +165,14 @@ The energy band immediately above the valence band, typically empty (or nearly s
 **Example:** Whether a material conducts electricity well depends heavily on how easily electrons can be excited from the valence band into the conduction band across the band gap.
 
 See also: [Valence Band](#valence-band), [Band Gap](#band-gap).
+
+#### Conductivity
+
+The quantity \(\sigma=q(n\mu_n+p\mu_p)\) summarizing how easily a doped semiconductor conducts current, combining carrier concentration and mobility.
+
+**Example:** Even though heavier doping reduces mobility through impurity scattering, conductivity still rises with doping because the carrier concentration increase dominates.
+
+See also: [Resistivity](#resistivity), [Carrier Mobility](#carrier-mobility).
 
 #### Coordination Number
 
@@ -266,6 +282,14 @@ The mathematical operation of finding the instantaneous rate of change of a func
 
 See also: [Partial Derivatives](#partial-derivatives), [Integration](#integration).
 
+#### Diffusion Current
+
+Current driven by a carrier concentration gradient rather than an electric field, \(J_{n,\text{diff}}=qD_n(dn/dx)\).
+
+**Example:** Carriers injected at one edge of a semiconductor region diffuse toward regions of lower concentration, exactly like ink spreading in water.
+
+See also: [Drift Current](#drift-current).
+
 #### Direct Bandgap
 
 A band structure in which the conduction-band minimum and valence-band maximum occur at the same crystal momentum \(k\).
@@ -305,6 +329,22 @@ The number density of donor (\(N_D\)) or acceptor (\(N_A\)) atoms introduced int
 **Example:** In the extrinsic temperature region, an n-type sample doped at \(N_D=2\times10^{16}\ \text{cm}^{-3}\) has majority electron concentration \(n_0\approx2\times10^{16}\ \text{cm}^{-3}\).
 
 See also: [Extrinsic Temperature Region](#extrinsic-temperature-region), [Dopant Ionization](#dopant-ionization).
+
+#### Drift Current
+
+Current produced when an applied electric field superimposes a net drift velocity on carriers' random thermal motion, \(J_{\text{drift}}=q(n\mu_n+p\mu_p)E\).
+
+**Example:** Drift current is the dominant current mechanism inside a resistor or the quasi-neutral regions of a biased diode.
+
+See also: [Drift Velocity](#drift-velocity), [Diffusion Current](#diffusion-current).
+
+#### Drift Velocity
+
+The small, steady net velocity, \(v_d=\mu E\), that an applied electric field adds to a carrier's much larger random thermal motion.
+
+**Example:** Even at typical operating fields, drift velocity is usually far smaller than a carrier's random thermal speed — it is a small bias, not a replacement for thermal motion.
+
+See also: [Carrier Mobility](#carrier-mobility), [Drift Current](#drift-current).
 
 #### E-K Diagram
 
@@ -594,6 +634,14 @@ The exact equilibrium hole concentration, \(p_0=\big[(N_A-N_D)+\sqrt{(N_A-N_D)^2
 
 See also: [Electron Concentration](#electron-concentration).
 
+#### Impurity Scattering
+
+Scattering of a carrier by the Coulomb field of an ionized donor or acceptor atom, worse at low temperature (slow carriers are deflected more) and high doping (more impurities present).
+
+**Example:** Impurity scattering typically dominates mobility at low temperature or very heavy doping, following approximately \(\mu_I\propto T^{3/2}/N\).
+
+See also: [Lattice Scattering](#lattice-scattering), [Scattering Mechanism](#scattering-mechanism).
+
 #### Indirect Bandgap
 
 A band structure in which the conduction-band minimum and valence-band maximum occur at different crystal momenta \(k\).
@@ -691,6 +739,14 @@ The edge length \(a\) of the conventional cubic unit cell, setting the fundament
 **Example:** Silicon has lattice constant \(a=0.543\) nm; gallium arsenide has \(a=0.565\) nm.
 
 See also: [Unit Cell](#unit-cell), [Crystal Lattice](#crystal-lattice).
+
+#### Lattice Scattering
+
+Scattering of a carrier by the thermally-vibrating atoms of the crystal lattice, worse at high temperature.
+
+**Example:** Lattice scattering typically dominates mobility at room temperature and above in lightly-doped material, following approximately \(\mu_L\propto T^{-3/2}\).
+
+See also: [Impurity Scattering](#impurity-scattering), [Scattering Mechanism](#scattering-mechanism).
 
 #### Mass Action Law
 
@@ -860,6 +916,22 @@ A lattice constructed in k-space (momentum space) from a real-space lattice, via
 
 See also: [Brillouin Zone](#brillouin-zone), [Bloch Theorem](#bloch-theorem).
 
+#### Resistivity
+
+The reciprocal of conductivity, \(\rho=1/\sigma\), with units of \(\Omega\cdot\text{cm}\), commonly measured directly on a doped wafer using a four-point probe.
+
+**Example:** A lightly-doped silicon wafer has much higher resistivity than a heavily-doped one, even though both are the same base material.
+
+See also: [Conductivity](#conductivity), [Sheet Resistance](#sheet-resistance).
+
+#### Scattering Mechanism
+
+Any collision process that randomizes a carrier's direction of motion, ultimately limiting mobility.
+
+**Example:** Lattice scattering and impurity scattering are the two dominant scattering mechanisms in a doped semiconductor, combined via Matthiessen's rule.
+
+See also: [Lattice Scattering](#lattice-scattering), [Impurity Scattering](#impurity-scattering).
+
 #### Schrodinger Equation
 
 The fundamental equation of motion of non-relativistic quantum mechanics; in its time-independent form, \(-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2}+V(x)\psi=E\psi\), it determines the allowed wavefunctions and energies of a particle in a given potential.
@@ -883,6 +955,14 @@ A band structure in which the valence and conduction bands touch or slightly ove
 **Example:** Bismuth and graphite are classified as semimetals: they conduct at all temperatures, unlike an insulator, but far more weakly than a true metal.
 
 See also: [Metal Band Structure](#metal-band-structure), [Density of States](#density-of-states).
+
+#### Sheet Resistance
+
+The thin-film form of resistivity, \(R_s=\rho/t\) (units \(\Omega/\square\)), letting a rectangular film's resistance be computed as \(R=R_s\times(L/W)\), the number of unit squares the film forms.
+
+**Example:** Doubling both a resistor's length and width leaves its resistance unchanged, since the number of squares (L/W) is unaffected.
+
+See also: [Resistivity](#resistivity).
 
 #### SI Units
 

@@ -130,7 +130,11 @@ nav:
           - Quiz: chapters/10-fermi-level-carrier-equations/quiz.md
           - Problems: chapters/10-fermi-level-carrier-equations/problems.md
           - Glossary: chapters/10-fermi-level-carrier-equations/glossary.md
-      - 11. Drift Current and Carrier Mobility: chapters/11-drift-current-mobility/index.md
+      - 11. Drift Current and Carrier Mobility:
+          - Content: chapters/11-drift-current-mobility/index.md
+          - Quiz: chapters/11-drift-current-mobility/quiz.md
+          - Problems: chapters/11-drift-current-mobility/problems.md
+          - Glossary: chapters/11-drift-current-mobility/glossary.md
       - 12. Diffusion and Advanced Transport Phenomena: chapters/12-diffusion-transport-phenomena/index.md
       - 13. Non-Equilibrium Carriers and Recombination: chapters/13-non-equilibrium-carriers-recombination/index.md
       - 14. The P-N Junction at Equilibrium: chapters/14-pn-junction-equilibrium/index.md
@@ -200,6 +204,10 @@ nav:
       - Chapter 10:
           - Exact Carrier Concentration Calculator: sims/exact-carrier-concentration-calculator/index.md
           - Fermi Level Position vs. Doping Explorer: sims/fermi-level-position-explorer/index.md
+      - Chapter 11:
+          - Drift Velocity and Carrier Scattering Explorer: sims/drift-velocity-scattering-explorer/index.md
+          - Mobility vs. Temperature and Doping (Matthiessen's Rule) Explorer: sims/mobility-temperature-doping-explorer/index.md
+          - Conductivity, Resistivity, and Sheet Resistance Calculator: sims/conductivity-resistivity-sheet-resistance-calculator/index.md
   - Learning Graph:
       - Introduction: learning-graph/index.md
       - Course Description Assessment: learning-graph/course-description-assessment.md

@@ -109,4 +109,12 @@ Interactive educational simulations that accompany this textbook.
 | [Exact Carrier Concentration Calculator](exact-carrier-concentration-calculator/index.md) | L3-L4 Apply/Analyze | Solves the mass action law and charge neutrality condition together for n0 and p0 at any doping level |
 | [Fermi Level Position vs. Doping Explorer](fermi-level-position-explorer/index.md) | L4-L5 Analyze/Evaluate | Computes the exact Fermi level position from doping, with the intrinsic Fermi level marked as reference |
 
+## Chapter 11: Drift Current and Carrier Mobility
+
+| MicroSim | Bloom Level | Description |
+|----------|-------------|-------------|
+| [Drift Velocity and Carrier Scattering Explorer](drift-velocity-scattering-explorer/index.md) | L2-L3 Understand/Apply | Animated electron random-walk motion biased into a net drift by an applied electric field |
+| [Mobility vs. Temperature and Doping (Matthiessen's Rule) Explorer](mobility-temperature-doping-explorer/index.md) | L4 Analyze | Overlaid lattice-limited, impurity-limited, and combined mobility curves |
+| [Conductivity, Resistivity, and Sheet Resistance Calculator](conductivity-resistivity-sheet-resistance-calculator/index.md) | L3-L4 Apply/Analyze | Computes conductivity, resistivity, and sheet resistance with a number-of-squares resistor diagram |
+
 </div>

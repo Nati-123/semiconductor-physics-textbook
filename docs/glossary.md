@@ -2,7 +2,7 @@
 
 # Glossary of Terms
 
-This glossary currently covers the concepts introduced in [Chapter 1: Physics and Math Foundations](chapters/01-physics-math-foundations/index.md), [Chapter 2: Quantum Mechanics Foundations](chapters/02-quantum-mechanics-foundations/index.md), [Chapter 3: Crystal Lattices and Structures](chapters/03-crystal-lattices-structures/index.md), [Chapter 4: Chemical Bonding in Semiconductor Crystals](chapters/04-chemical-bonding-crystals/index.md), [Chapter 5: Quantum Mechanics of Periodic Crystals](chapters/05-quantum-mechanics-periodic-crystals/index.md), [Chapter 6: Band Structure and the Fermi Level](chapters/06-band-structure-fermi-level/index.md), [Chapter 7: Intrinsic and Extrinsic Semiconductors](chapters/07-intrinsic-extrinsic-semiconductors/index.md), [Chapter 8: Doping, Ionization, and Temperature Regimes](chapters/08-doping-ionization-temperature/index.md), [Chapter 9: Carrier Concentration Statistics](chapters/09-carrier-concentration-statistics/index.md), [Chapter 10: Fermi Level Position and Carrier Equations](chapters/10-fermi-level-carrier-equations/index.md), and [Chapter 11: Drift Current and Carrier Mobility](chapters/11-drift-current-mobility/index.md). Entries for later chapters will be added as those chapters are written.
+This glossary currently covers the concepts introduced in [Chapter 1: Physics and Math Foundations](chapters/01-physics-math-foundations/index.md), [Chapter 2: Quantum Mechanics Foundations](chapters/02-quantum-mechanics-foundations/index.md), [Chapter 3: Crystal Lattices and Structures](chapters/03-crystal-lattices-structures/index.md), [Chapter 4: Chemical Bonding in Semiconductor Crystals](chapters/04-chemical-bonding-crystals/index.md), [Chapter 5: Quantum Mechanics of Periodic Crystals](chapters/05-quantum-mechanics-periodic-crystals/index.md), [Chapter 6: Band Structure and the Fermi Level](chapters/06-band-structure-fermi-level/index.md), [Chapter 7: Intrinsic and Extrinsic Semiconductors](chapters/07-intrinsic-extrinsic-semiconductors/index.md), [Chapter 8: Doping, Ionization, and Temperature Regimes](chapters/08-doping-ionization-temperature/index.md), [Chapter 9: Carrier Concentration Statistics](chapters/09-carrier-concentration-statistics/index.md), [Chapter 10: Fermi Level Position and Carrier Equations](chapters/10-fermi-level-carrier-equations/index.md), [Chapter 11: Drift Current and Carrier Mobility](chapters/11-drift-current-mobility/index.md), and [Chapter 12: Diffusion and Advanced Transport Phenomena](chapters/12-diffusion-transport-phenomena/index.md). Entries for later chapters will be added as those chapters are written.
 
 #### Acceptor Atom
 
@@ -158,6 +158,14 @@ A semiconductor built from two or more different atomic species alternating on t
 
 See also: [Elemental Semiconductor](#elemental-semiconductor), [Gallium Arsenide](#gallium-arsenide).
 
+#### Concentration Gradient
+
+The spatial rate of change of carrier concentration, \(dn/dx\) or \(dp/dx\), that drives diffusion current via Fick's law.
+
+**Example:** A steeper concentration gradient near an injection point drives a larger diffusion current than a shallow, gradual one.
+
+See also: [Diffusion Current](#diffusion-current).
+
 #### Conduction Band
 
 The energy band immediately above the valence band, typically empty (or nearly so) of electrons at absolute zero.
@@ -282,6 +290,14 @@ The mathematical operation of finding the instantaneous rate of change of a func
 
 See also: [Partial Derivatives](#partial-derivatives), [Integration](#integration).
 
+#### Diffusion Coefficient
+
+The proportionality constant \(D\) relating diffusion current to concentration gradient in Fick's law, directly tied to mobility through the Einstein relation.
+
+**Example:** Silicon's electron diffusion coefficient (\(D_n\approx35\ \text{cm}^2/\text{s}\) at 300 K) is much smaller than GaAs's, tracking the same ratio as their mobilities.
+
+See also: [Einstein Relation](#einstein-relation), [Diffusion Current](#diffusion-current).
+
 #### Diffusion Current
 
 Current driven by a carrier concentration gradient rather than an electric field, \(J_{n,\text{diff}}=qD_n(dn/dx)\).
@@ -385,6 +401,14 @@ One of the discrete, allowed total energies of a bound quantum system, paired wi
 **Example:** The particle-in-a-box eigenvalues are \(E_n = n^2h^2/(8mL^2)\), forming a discrete ladder of allowed energies rather than a continuum.
 
 See also: [Eigenstate](#eigenstate), [Quantum Number](#quantum-number).
+
+#### Einstein Relation
+
+The relationship \(D=\mu k_BT/q\) tying the diffusion coefficient directly to mobility, since both drift and diffusion are governed by the same carrier-scattering environment.
+
+**Example:** At 300 K, since \(k_BT/q\approx0.0259\) V, the Einstein relation lets \(D\) be computed directly from \(\mu\) with no separate measurement needed.
+
+See also: [Diffusion Coefficient](#diffusion-coefficient), [Carrier Mobility](#carrier-mobility).
 
 #### Electric Charge
 
@@ -532,6 +556,14 @@ The general statistical law governing how fermions (including electrons, which o
 
 See also: [Fermi Function](#fermi-function).
 
+#### Fick's Law
+
+The law stating that diffusion current density is directly proportional to the concentration gradient, \(J_{n,\text{diff}}=qD_n(dn/dx)\).
+
+**Example:** Fick's law explains why carriers injected at one edge of a semiconductor region spread toward areas of lower concentration, exactly like ink diffusing in water.
+
+See also: [Concentration Gradient](#concentration-gradient), [Diffusion Coefficient](#diffusion-coefficient).
+
 #### Forbidden Energy Gap
 
 An alternate name for a band gap, emphasizing that no electron states exist within this energy range.
@@ -607,6 +639,30 @@ The thin, disordered boundary region separating two differently-oriented single-
 **Example:** In polycrystalline silicon ("polysilicon"), grain boundaries scatter charge carriers and degrade electronic performance relative to single-crystal silicon.
 
 See also: [Polycrystalline Solid](#polycrystalline-solid).
+
+#### Hall Coefficient
+
+The proportionality constant \(R_H\) relating Hall voltage to current and field, equal to \(1/(qp)\) for holes or \(-1/(qn)\) for electrons; its sign directly identifies majority carrier type.
+
+**Example:** A positive measured Hall coefficient (using the standard sign convention) indicates a p-type sample; a negative one indicates n-type.
+
+See also: [Hall Effect](#hall-effect), [Hall Voltage](#hall-voltage).
+
+#### Hall Effect
+
+The sideways deflection of moving carriers by the Lorentz force in a magnetic field, building up a measurable transverse voltage across a current-carrying bar.
+
+**Example:** The Hall effect is one of the only direct experimental probes of carrier type and concentration, independent of any assumptions about doping.
+
+See also: [Hall Coefficient](#hall-coefficient), [Hall Voltage](#hall-voltage).
+
+#### Hall Voltage
+
+The steady transverse voltage, \(V_H=R_HIB/t\), that develops across a current-carrying bar in a perpendicular magnetic field once magnetic deflection and the resulting transverse electric field balance.
+
+**Example:** Reversing the magnetic field direction flips the sign of the Hall voltage for a given carrier type, a useful experimental check.
+
+See also: [Hall Effect](#hall-effect), [Hall Coefficient](#hall-coefficient).
 
 #### Heisenberg Uncertainty Principle
 
@@ -787,6 +843,14 @@ A set of three integers \((hkl)\), used to label a crystal plane, found by takin
 **Example:** A plane intercepting all three axes at \(1a\) has Miller indices \((111)\); a plane parallel to the \(z\) axis intercepting \(x\) and \(y\) at \(1a\) has Miller indices \((110)\).
 
 See also: [Crystal Plane](#crystal-plane).
+
+#### Mobility Temperature Dependence
+
+The variation of mobility with temperature via Matthiessen's rule, combining lattice scattering (\(\mu_L\propto T^{-3/2}\)) and impurity scattering (\(\mu_I\propto T^{3/2}/N\)).
+
+**Example:** Since \(D=\mu k_BT/q\), the diffusion coefficient inherits mobility's temperature dependence, in addition to the direct \(T\) factor from \(k_BT\).
+
+See also: [Lattice Scattering](#lattice-scattering), [Impurity Scattering](#impurity-scattering), [Einstein Relation](#einstein-relation).
 
 #### N-Type Doping
 
@@ -1018,6 +1082,14 @@ A state in which a system has a single, well-defined temperature throughout and 
 
 See also: [Kinetic Theory of Gases](#kinetic-theory-of-gases).
 
+#### Total Current Density
+
+The sum of drift and diffusion current density at a point in a semiconductor, \(J=J_{\text{drift}}+J_{\text{diffusion}}\), the master transport equation used throughout the device chapters.
+
+**Example:** Inside a p-n junction's depletion region at equilibrium, drift and diffusion current densities are equal and opposite, so the total current density is zero.
+
+See also: [Fick's Law](#ficks-law), [Drift Current](#drift-current).
+
 #### Transmission Coefficient
 
 The fraction of incident particles (or incident wave intensity) that pass through a potential barrier, approximated for a rectangular barrier by \(T\approx e^{-2\kappa L}\) with \(\kappa = \sqrt{2m(V_0-E)}/\hbar\).
@@ -1063,6 +1135,14 @@ Quantities possessing both magnitude and direction, in contrast to scalars, whic
 **Example:** Electric field and force are vectors; electric potential and energy are scalars.
 
 See also: [Gradient](#gradient).
+
+#### Velocity Saturation
+
+The leveling-off of drift velocity at high electric field, as increased carrier energy triggers more effective scattering, following \(v_d(E)=\mu E/\sqrt{1+(\mu E/v_{sat})^2}\).
+
+**Example:** In a short-channel transistor, carriers can spend much of their transit time in the velocity-saturation regime, fundamentally limiting switching speed.
+
+See also: [Carrier Mobility](#carrier-mobility), [Mobility Temperature Dependence](#mobility-temperature-dependence).
 
 #### Wave Packet
 

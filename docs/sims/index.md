@@ -117,4 +117,13 @@ Interactive educational simulations that accompany this textbook.
 | [Mobility vs. Temperature and Doping (Matthiessen's Rule) Explorer](mobility-temperature-doping-explorer/index.md) | L4 Analyze | Overlaid lattice-limited, impurity-limited, and combined mobility curves |
 | [Conductivity, Resistivity, and Sheet Resistance Calculator](conductivity-resistivity-sheet-resistance-calculator/index.md) | L3-L4 Apply/Analyze | Computes conductivity, resistivity, and sheet resistance with a number-of-squares resistor diagram |
 
+## Chapter 12: Diffusion and Advanced Transport Phenomena
+
+| MicroSim | Bloom Level | Description |
+|----------|-------------|-------------|
+| [Hall Effect Explorer](hall-effect-explorer/index.md) | L2-L4 Understand/Analyze | Deflected carriers and accumulated edge charge in a current-carrying bar, computing Hall voltage and its sign for holes vs. electrons |
+| [Einstein Relation and Diffusion Coefficient Calculator](einstein-relation-diffusion-coefficient-calculator/index.md) | L3 Apply | Computes the diffusion coefficient from mobility via the Einstein relation, plotted against temperature |
+| [Fick's Law and Total Current Density Explorer](ficks-law-total-current-density-explorer/index.md) | L3-L4 Apply/Analyze | Movable marker on a decaying concentration profile showing local diffusion current, combined with drift into a total current density |
+| [Velocity Saturation Explorer](velocity-saturation-explorer/index.md) | L2-L4 Understand/Analyze | Overlaid linear and saturating drift-velocity-vs-field curves showing high-field velocity saturation |
+
 </div>

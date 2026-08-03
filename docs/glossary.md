@@ -2,7 +2,7 @@
 
 # Glossary of Terms
 
-This glossary currently covers the concepts introduced in [Chapter 1: Physics and Math Foundations](chapters/01-physics-math-foundations/index.md), [Chapter 2: Quantum Mechanics Foundations](chapters/02-quantum-mechanics-foundations/index.md), [Chapter 3: Crystal Lattices and Structures](chapters/03-crystal-lattices-structures/index.md), [Chapter 4: Chemical Bonding in Semiconductor Crystals](chapters/04-chemical-bonding-crystals/index.md), [Chapter 5: Quantum Mechanics of Periodic Crystals](chapters/05-quantum-mechanics-periodic-crystals/index.md), [Chapter 6: Band Structure and the Fermi Level](chapters/06-band-structure-fermi-level/index.md), [Chapter 7: Intrinsic and Extrinsic Semiconductors](chapters/07-intrinsic-extrinsic-semiconductors/index.md), [Chapter 8: Doping, Ionization, and Temperature Regimes](chapters/08-doping-ionization-temperature/index.md), [Chapter 9: Carrier Concentration Statistics](chapters/09-carrier-concentration-statistics/index.md), [Chapter 10: Fermi Level Position and Carrier Equations](chapters/10-fermi-level-carrier-equations/index.md), [Chapter 11: Drift Current and Carrier Mobility](chapters/11-drift-current-mobility/index.md), and [Chapter 12: Diffusion and Advanced Transport Phenomena](chapters/12-diffusion-transport-phenomena/index.md). Entries for later chapters will be added as those chapters are written.
+This glossary currently covers the concepts introduced in [Chapter 1: Physics and Math Foundations](chapters/01-physics-math-foundations/index.md), [Chapter 2: Quantum Mechanics Foundations](chapters/02-quantum-mechanics-foundations/index.md), [Chapter 3: Crystal Lattices and Structures](chapters/03-crystal-lattices-structures/index.md), [Chapter 4: Chemical Bonding in Semiconductor Crystals](chapters/04-chemical-bonding-crystals/index.md), [Chapter 5: Quantum Mechanics of Periodic Crystals](chapters/05-quantum-mechanics-periodic-crystals/index.md), [Chapter 6: Band Structure and the Fermi Level](chapters/06-band-structure-fermi-level/index.md), [Chapter 7: Intrinsic and Extrinsic Semiconductors](chapters/07-intrinsic-extrinsic-semiconductors/index.md), [Chapter 8: Doping, Ionization, and Temperature Regimes](chapters/08-doping-ionization-temperature/index.md), [Chapter 9: Carrier Concentration Statistics](chapters/09-carrier-concentration-statistics/index.md), [Chapter 10: Fermi Level Position and Carrier Equations](chapters/10-fermi-level-carrier-equations/index.md), [Chapter 11: Drift Current and Carrier Mobility](chapters/11-drift-current-mobility/index.md), [Chapter 12: Diffusion and Advanced Transport Phenomena](chapters/12-diffusion-transport-phenomena/index.md), and [Chapter 13: Non-Equilibrium Carriers and Recombination](chapters/13-non-equilibrium-carriers-recombination/index.md). Entries for later chapters will be added as those chapters are written.
 
 #### Acceptor Atom
 
@@ -33,6 +33,14 @@ A solid in which atoms preserve roughly the same local bonding environment a cry
 **Example:** Amorphous silicon (a-Si) preserves silicon's approximate 4-fold local coordination but lacks the long-range periodicity of single-crystal silicon, and is used in low-cost thin-film solar cells.
 
 See also: [Polycrystalline Solid](#polycrystalline-solid), [Crystal Lattice](#crystal-lattice).
+
+#### Auger Recombination
+
+A three-carrier recombination process in which the energy released by an electron-hole recombination event is transferred to a third carrier instead of being emitted as a photon or phonon; its rate scales as \(\Delta n^3\).
+
+**Example:** Auger recombination is negligible at low injection but becomes the dominant loss mechanism in heavily-illuminated solar cells and high-current laser diodes.
+
+See also: [Trap-Assisted Recombination](#trap-assisted-recombination), [Carrier Recombination](#carrier-recombination).
 
 #### Band Formation
 
@@ -112,6 +120,22 @@ The final, most-used form of the electron and hole concentration equations, refe
 
 See also: [Intrinsic Fermi Level](#intrinsic-fermi-level), [Electron Concentration](#electron-concentration).
 
+#### Carrier Generation
+
+The creation of electron-hole pairs, promoting an electron from the valence band to the conduction band, via optical or thermal processes.
+
+**Example:** A beam of above-bandgap light striking a semiconductor generates electron-hole pairs uniformly through the illuminated region.
+
+See also: [Optical Generation](#optical-generation), [Thermal Generation](#thermal-generation), [Excess Carriers](#excess-carriers).
+
+#### Carrier Injection
+
+The general process of adding excess carriers to a semiconductor, by illumination, applied bias, or other means, classified as low-level or high-level depending on the excess concentration relative to doping.
+
+**Example:** Forward-biasing a p-n junction injects minority carriers across the junction, a direct application of carrier injection.
+
+See also: [Low-Level Injection](#low-level-injection), [High-Level Injection](#high-level-injection).
+
 #### Carrier Mobility
 
 The proportionality constant \(\mu\) relating drift velocity to electric field, \(v_d=\mu E\), capturing how efficiently an applied field converts into net carrier motion given the scattering environment.
@@ -119,6 +143,14 @@ The proportionality constant \(\mu\) relating drift velocity to electric field, 
 **Example:** GaAs's much smaller electron effective mass gives it a higher intrinsic mobility than silicon, useful for high-frequency devices.
 
 See also: [Drift Velocity](#drift-velocity), [Scattering Mechanism](#scattering-mechanism).
+
+#### Carrier Recombination
+
+The process by which an electron and hole recombine, returning excess carrier concentration toward its equilibrium value.
+
+**Example:** Carrier recombination is the reverse process of carrier generation, and the two exactly balance at thermal equilibrium.
+
+See also: [Direct Recombination](#direct-recombination), [Indirect Recombination](#indirect-recombination), [Minority Carrier Lifetime](#minority-carrier-lifetime).
 
 #### Carrier Temperature Dependence
 
@@ -181,6 +213,14 @@ The quantity \(\sigma=q(n\mu_n+p\mu_p)\) summarizing how easily a doped semicond
 **Example:** Even though heavier doping reduces mobility through impurity scattering, conductivity still rises with doping because the carrier concentration increase dominates.
 
 See also: [Resistivity](#resistivity), [Carrier Mobility](#carrier-mobility).
+
+#### Continuity Equation
+
+The master equation governing how excess carrier concentration evolves in space and time, combining diffusion, drift, generation, and recombination.
+
+**Example:** Solving the continuity equation at steady state for carriers injected at a boundary yields the exponential steady-state carrier profile characterized by the diffusion length.
+
+See also: [Steady-State Carrier Profile](#steady-state-carrier-profile), [Diffusion Length](#diffusion-length).
 
 #### Coordination Number
 
@@ -306,6 +346,14 @@ Current driven by a carrier concentration gradient rather than an electric field
 
 See also: [Drift Current](#drift-current).
 
+#### Diffusion Length
+
+The characteristic distance, \(L=\sqrt{D\tau}\), that a minority carrier diffuses, on average, before recombining.
+
+**Example:** A solar cell's absorber layer must generally be kept well below the minority carrier diffusion length, or photogenerated carriers will recombine before reaching a collecting junction.
+
+See also: [Continuity Equation](#continuity-equation), [Steady-State Carrier Profile](#steady-state-carrier-profile).
+
 #### Direct Bandgap
 
 A band structure in which the conduction-band minimum and valence-band maximum occur at the same crystal momentum \(k\).
@@ -313,6 +361,14 @@ A band structure in which the conduction-band minimum and valence-band maximum o
 **Example:** GaAs is a direct-gap material, so a photon alone can drive a vertical, momentum-conserving transition between its band edges — the physical basis for efficient LEDs and laser diodes.
 
 See also: [Indirect Bandgap](#indirect-bandgap), [E-K Diagram](#e-k-diagram).
+
+#### Direct Recombination
+
+Band-to-band recombination in a direct-gap material, where the conduction band minimum and valence band maximum sit at the same crystal momentum, allowing an electron to recombine without a momentum-conserving assist.
+
+**Example:** Direct recombination's efficiency in GaAs (a direct-gap material) is why GaAs and related compounds are used to make LEDs and laser diodes.
+
+See also: [Indirect Recombination](#indirect-recombination).
 
 #### Divergence
 
@@ -485,6 +541,14 @@ A continuous range of allowed electron energies produced by band formation in a 
 **Example:** The Kronig-Penney model produces a sequence of energy bands of increasing width as energy increases, separated by narrowing band gaps.
 
 See also: [Allowed Energy States](#allowed-energy-states), [Band Gap](#band-gap), [Band Formation](#band-formation).
+
+#### Excess Carriers
+
+Carrier concentrations above their equilibrium values, \(\Delta n=n-n_0\) and \(\Delta p=p-p_0\), created by carrier generation.
+
+**Example:** Excess electrons and excess holes are always created in equal numbers by generation alone, so \(\Delta n=\Delta p\) whenever generation is the sole disturbance.
+
+See also: [Carrier Generation](#carrier-generation), [Carrier Recombination](#carrier-recombination).
 
 #### Exponentials and Logarithms
 
@@ -674,6 +738,14 @@ See also: [Wavefunction](#wavefunction).
 
 Contrast with: [de Broglie Wavelength](#de-broglie-wavelength), which assigns a definite wavelength to a particle rather than describing a fundamental limit on simultaneous knowledge.
 
+#### High-Level Injection
+
+The injection regime in which excess carrier concentration is comparable to or exceeds the doping concentration, \(\Delta n\gtrsim N\), significantly perturbing both carrier populations.
+
+**Example:** High-level injection requires more careful treatment than the simpler low-level injection equations, relevant in heavily-illuminated solar cells.
+
+See also: [Low-Level Injection](#low-level-injection), [Carrier Injection](#carrier-injection).
+
 #### Hole
 
 The vacancy left behind in the valence band by a missing electron, behaving as a mobile positive charge carrier with its own effective mass.
@@ -705,6 +777,14 @@ A band structure in which the conduction-band minimum and valence-band maximum o
 **Example:** Silicon is an indirect-gap material; a band-edge transition requires a phonon to supply the crystal-momentum difference \(\Delta k\) in addition to a photon, making silicon a much weaker light emitter than a direct-gap material.
 
 See also: [Direct Bandgap](#direct-bandgap), [E-K Diagram](#e-k-diagram).
+
+#### Indirect Recombination
+
+Band-to-band recombination in an indirect-gap material, where the conduction band minimum and valence band maximum sit at different crystal momenta, requiring a phonon to conserve momentum.
+
+**Example:** Indirect recombination's inherent inefficiency in silicon (an indirect-gap material) is why silicon is a poor light emitter.
+
+See also: [Direct Recombination](#direct-recombination), [Trap-Assisted Recombination](#trap-assisted-recombination).
 
 #### Insulator Band Structure
 
@@ -804,6 +884,14 @@ Scattering of a carrier by the thermally-vibrating atoms of the crystal lattice,
 
 See also: [Impurity Scattering](#impurity-scattering), [Scattering Mechanism](#scattering-mechanism).
 
+#### Low-Level Injection
+
+The injection regime in which excess carrier concentration is much smaller than the doping concentration, \(\Delta n\ll N\), leaving the majority carrier concentration essentially unperturbed.
+
+**Example:** Nearly all of the simple device equations used in later chapters assume low-level injection.
+
+See also: [High-Level Injection](#high-level-injection), [Carrier Injection](#carrier-injection).
+
 #### Mass Action Law
 
 The relationship \(n_0p_0=n_i^2\), true at thermal equilibrium in any non-degenerate semiconductor regardless of doping, since the Fermi level cancels when the electron and hole concentration formulas are multiplied together.
@@ -844,6 +932,14 @@ A set of three integers \((hkl)\), used to label a crystal plane, found by takin
 
 See also: [Crystal Plane](#crystal-plane).
 
+#### Minority Carrier Lifetime
+
+The exponential decay time constant \(\tau\) of excess carriers after generation stops, \(\Delta n(t)=\Delta n(0)e^{-t/\tau}\).
+
+**Example:** A longer minority carrier lifetime means excess carriers persist longer before recombining, generally desirable in solar cells and bipolar transistors.
+
+See also: [Recombination Rate](#recombination-rate), [Carrier Recombination](#carrier-recombination).
+
 #### Mobility Temperature Dependence
 
 The variation of mobility with temperature via Matthiessen's rule, combining lattice scattering (\(\mu_L\propto T^{-3/2}\)) and impurity scattering (\(\mu_I\propto T^{3/2}/N\)).
@@ -875,6 +971,14 @@ The requirement that the total probability of finding a particle somewhere in sp
 **Example:** Normalizing \(\psi(x)=A\sin(\pi x/L)\) on \(0<x<L\) determines the constant \(A=\sqrt{2/L}\).
 
 See also: [Probability Density](#probability-density), [Wavefunction](#wavefunction).
+
+#### Optical Generation
+
+Carrier generation by photon absorption, in which a photon with energy at or above the band gap excites an electron across the gap.
+
+**Example:** Optical generation is the mechanism behind solar cells and photodetectors.
+
+See also: [Carrier Generation](#carrier-generation), [Thermal Generation](#thermal-generation).
 
 #### P-Type Doping
 
@@ -972,6 +1076,14 @@ The phenomenon in which a particle has a nonzero probability of being found on t
 
 See also: [Potential Well](#potential-well), [Transmission Coefficient](#transmission-coefficient).
 
+#### Quasi-Fermi Level
+
+One of two separate energy levels, \(E_{Fn}\) for electrons and \(E_{Fp}\) for holes, describing carrier occupation statistics under non-equilibrium conditions where a single Fermi level no longer applies.
+
+**Example:** The splitting \(E_{Fn}-E_{Fp}\) between the two quasi-Fermi levels under illumination sets the open-circuit voltage of a solar cell.
+
+See also: [Excess Carriers](#excess-carriers), [Carrier Injection](#carrier-injection).
+
 #### Reciprocal Lattice
 
 A lattice constructed in k-space (momentum space) from a real-space lattice, via the condition \(\vec a_i\cdot\vec b_j=2\pi\delta_{ij}\); generally distinct in geometry from the real-space lattice.
@@ -979,6 +1091,14 @@ A lattice constructed in k-space (momentum space) from a real-space lattice, via
 **Example:** The reciprocal lattice of a simple cubic lattice with constant \(a\) is itself simple cubic with constant \(2\pi/a\), while the reciprocal lattice of FCC is BCC.
 
 See also: [Brillouin Zone](#brillouin-zone), [Bloch Theorem](#bloch-theorem).
+
+#### Recombination Rate
+
+The number of carriers recombining per unit volume per unit time, \(R=\Delta n/\tau\) for a single dominant mechanism at low injection.
+
+**Example:** At steady state, generation rate and recombination rate balance, \(G=R\), directly giving the steady-state excess concentration \(\Delta n_{ss}=G\tau\).
+
+See also: [Minority Carrier Lifetime](#minority-carrier-lifetime), [Carrier Recombination](#carrier-recombination).
 
 #### Resistivity
 
@@ -1028,6 +1148,14 @@ The thin-film form of resistivity, \(R_s=\rho/t\) (units \(\Omega/\square\)), le
 
 See also: [Resistivity](#resistivity).
 
+#### Shockley-Read-Hall Recombination
+
+The quantitative theory of trap-assisted recombination, showing that traps located near midgap are the most effective recombination centers.
+
+**Example:** Shockley-Read-Hall recombination is the standard model for recombination in silicon devices, where indirect band-to-band recombination is too inefficient to dominate.
+
+See also: [Trap-Assisted Recombination](#trap-assisted-recombination), [Indirect Recombination](#indirect-recombination).
+
 #### SI Units
 
 The Système International system of standardized physical units, including the meter, kilogram, second, and ampere, used to express all quantities in this course.
@@ -1066,6 +1194,14 @@ The quantum-mechanical combination of one \(s\) orbital and three \(p\) orbitals
 
 See also: [Tetrahedral Bonding](#tetrahedral-bonding), [Valence Electron](#valence-electron).
 
+#### Steady-State Carrier Profile
+
+The spatial distribution of excess carrier concentration once transients have died out, typically an exponentially decaying profile, \(\Delta p(x)=\Delta p(0)e^{-x/L_p}\), for carriers injected at a boundary.
+
+**Example:** The steady-state carrier profile in a p-n junction's quasi-neutral region directly determines the diode current in a biased junction.
+
+See also: [Diffusion Length](#diffusion-length), [Continuity Equation](#continuity-equation).
+
 #### Tetrahedral Bonding
 
 The bonding geometry in which an atom's four covalent bonds point toward the corners of a regular tetrahedron, at a bond angle of \(109.5°\), produced by sp3 hybridization.
@@ -1082,6 +1218,14 @@ A state in which a system has a single, well-defined temperature throughout and 
 
 See also: [Kinetic Theory of Gases](#kinetic-theory-of-gases).
 
+#### Thermal Generation
+
+Carrier generation by random thermal fluctuations alone, the same process responsible for equilibrium carrier concentrations \(n_0\) and \(p_0\).
+
+**Example:** Under illumination or bias, optical or electrical generation typically dwarfs the thermal contribution, driving concentrations well above equilibrium.
+
+See also: [Carrier Generation](#carrier-generation), [Optical Generation](#optical-generation).
+
 #### Total Current Density
 
 The sum of drift and diffusion current density at a point in a semiconductor, \(J=J_{\text{drift}}+J_{\text{diffusion}}\), the master transport equation used throughout the device chapters.
@@ -1097,6 +1241,14 @@ The fraction of incident particles (or incident wave intensity) that pass throug
 **Example:** Doubling a barrier's width roughly squares its (small) transmission coefficient, an exponential sensitivity exploited by the scanning tunneling microscope.
 
 See also: [Quantum Tunneling](#quantum-tunneling).
+
+#### Trap-Assisted Recombination
+
+Recombination mediated by defect or impurity energy levels within the forbidden gap, capturing an electron and a hole in two separate steps rather than one direct jump.
+
+**Example:** Trap-assisted recombination usually dominates over direct band-to-band recombination in indirect-gap materials like silicon.
+
+See also: [Shockley-Read-Hall Recombination](#shockley-read-hall-recombination), [Indirect Recombination](#indirect-recombination).
 
 #### Trigonometry
 

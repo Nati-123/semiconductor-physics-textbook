@@ -126,4 +126,14 @@ Interactive educational simulations that accompany this textbook.
 | [Fick's Law and Total Current Density Explorer](ficks-law-total-current-density-explorer/index.md) | L3-L4 Apply/Analyze | Movable marker on a decaying concentration profile showing local diffusion current, combined with drift into a total current density |
 | [Velocity Saturation Explorer](velocity-saturation-explorer/index.md) | L2-L4 Understand/Analyze | Overlaid linear and saturating drift-velocity-vs-field curves showing high-field velocity saturation |
 
+## Chapter 13: Non-Equilibrium Carriers and Recombination
+
+| MicroSim | Bloom Level | Description |
+|----------|-------------|-------------|
+| [Excess Carrier Generation and Recombination Explorer](excess-carrier-generation-recombination-explorer/index.md) | L2-L3 Understand/Apply | Plots excess carrier concentration rising under generation and decaying exponentially with the minority carrier lifetime |
+| [Recombination Mechanism Comparison Explorer](recombination-mechanism-comparison-explorer/index.md) | L4-L5 Analyze/Evaluate | Log-scaled bar chart comparing SRH, Auger, and direct recombination rates across injection levels and materials |
+| [Injection Level Classifier](injection-level-classifier/index.md) | L2-L3 Understand/Apply | Compares excess carrier concentration to doping concentration, classifying low-level versus high-level injection |
+| [Continuity Equation and Diffusion Length Explorer](continuity-equation-diffusion-length-explorer/index.md) | L3-L4 Apply/Analyze | Plots the steady-state exponential minority carrier profile and its diffusion length |
+| [Quasi-Fermi Level Explorer](quasi-fermi-level-explorer/index.md) | L4-L5 Analyze/Evaluate | Band diagram showing electron and hole quasi-Fermi levels splitting apart under carrier injection |
+
 </div>

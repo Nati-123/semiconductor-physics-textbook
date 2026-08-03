@@ -147,4 +147,14 @@ Interactive educational simulations that accompany this textbook.
 | [Junction Capacitance Explorer](junction-capacitance-explorer/index.md) | L3 Apply | Computes junction capacitance from doping, area, and reverse bias, plotted against reverse bias alongside a parallel-plate schematic |
 | [P-N Junction Equilibrium Interactive Walkthrough](pn-junction-equilibrium-interactive-walkthrough/index.md) | L1-L2 Remember/Understand | An 8-step guided-tour capstone review retracing the chapter's full storyline from the metallurgical junction through junction capacitance |
 
+## Chapter 15: The P-N Junction Under Bias
+
+| MicroSim | Bloom Level | Description |
+|----------|-------------|-------------|
+| [Forward and Reverse Bias Band Diagram Explorer](forward-reverse-bias-band-diagram-explorer/index.md) | L2-L3 Understand/Apply | Live band diagram and depletion-width readout showing how forward and reverse bias modify the equilibrium barrier |
+| [Minority Carrier Injection Profile Explorer](minority-carrier-injection-profile-explorer/index.md) | L3-L4 Apply/Analyze | Compares the long-base exponential and short-base linear excess minority carrier profiles injected at the depletion edge |
+| [Ideal Diode I-V Curve Explorer](ideal-diode-iv-curve-explorer/index.md) | L3 Apply | Plots the ideal diode equation in linear or semi-log view, with adjustable saturation current and temperature |
+| [Reverse Breakdown Mechanism Explorer](reverse-breakdown-mechanism-explorer/index.md) | L4-L5 Analyze/Evaluate | Log-log breakdown-voltage-vs-doping chart with schematic comparison of avalanche and Zener breakdown |
+| [P-N Junction Under Bias Interactive Walkthrough](pn-junction-under-bias-interactive-walkthrough/index.md) | L1-L2 Remember/Understand | An 8-step guided-tour capstone review retracing the chapter's full storyline from applied bias through the complete I-V characteristic |
+
 </div>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>P-N Junction Under Bias Interactive Walkthrough MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="../semiconductor-materials-lib.js"></script>
+    <script src="pn-junction-under-bias-interactive-walkthrough.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Click "Next ▶" through all eight steps in order to review the entire chapter's storyline in sequence.</li>
+            <li><strong>Predict:</strong> Before reaching Step 6, predict which breakdown mechanism a lightly-doped junction will exhibit.</li>
+            <li><strong>Observe:</strong> Each step's small illustration mirrors a MicroSim used earlier in the chapter, tying the whole narrative together in one place.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 15:</strong> This capstone review retraces the full chain of reasoning behind the biased <strong>p-n junction</strong>: applying <strong>forward bias</strong> or <strong>reverse bias</strong>, setting up <strong>minority carrier injection</strong> at the depletion edge, solving for the <strong>short-base diode</strong> or <strong>long-base diode</strong> carrier profile, computing the <strong>saturation current</strong>, applying the <strong>ideal diode equation</strong>, and finally describing <strong>reverse breakdown</strong> via <strong>avalanche breakdown</strong> or <strong>Zener breakdown</strong> to complete the <strong>junction I-V characteristic</strong>.</p>
+
+        <h3>What Each Step Shows</h3>
+        <dl class="control-captions">
+            <dt>Steps 1-3</dt>
+            <dd>Applying bias, injecting minority carriers, and solving for the carrier profile.</dd>
+            <dt>Steps 4-5</dt>
+            <dd>Saturation current and the ideal diode equation.</dd>
+            <dt>Steps 6-8</dt>
+            <dd>Avalanche and Zener breakdown, and the complete I-V characteristic.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">1. Which concept in this walkthrough directly sets the boundary condition used to solve for the injected carrier profile?</p>
+            <label><input type="radio" name="pjubw-q1" value="a"> The ideal diode equation</label>
+            <label><input type="radio" name="pjubw-q1" value="b"> Avalanche breakdown</label>
+            <label><input type="radio" name="pjubw-q1" value="c"> The law of the junction (minority carrier injection)</label>
+            <label><input type="radio" name="pjubw-q1" value="d"> Junction capacitance</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Correct. The law of the junction, pn(xn)=pn0·e^(V/VT), is the boundary condition that launches the continuity-equation solution for the injected carrier profile.</p>
+            <p class="explain-incorrect" hidden>Revisit Step 2 — which concept connects applied voltage to the carrier concentration right at the depletion edge?</p>
+        </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">2. Which breakdown mechanism dominates in heavily-doped junctions with narrow depletion regions?</p>
+            <label><input type="radio" name="pjubw-q2" value="a"> Avalanche breakdown</label>
+            <label><input type="radio" name="pjubw-q2" value="b"> Zener breakdown</label>
+            <label><input type="radio" name="pjubw-q2" value="c"> Neither mechanism applies to heavily-doped junctions</label>
+            <label><input type="radio" name="pjubw-q2" value="d"> The ideal diode equation</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Correct. Zener breakdown is quantum tunneling through a thin barrier, which only becomes significant when the depletion region is narrow — true for heavily-doped junctions.</p>
+            <p class="explain-incorrect" hidden>Revisit Steps 6-7 — which mechanism needs a wide depletion region, and which needs a narrow one?</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

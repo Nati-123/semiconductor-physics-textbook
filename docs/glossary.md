@@ -2,7 +2,7 @@
 
 # Glossary of Terms
 
-This glossary currently covers the concepts introduced in [Chapter 1: Physics and Math Foundations](chapters/01-physics-math-foundations/index.md), [Chapter 2: Quantum Mechanics Foundations](chapters/02-quantum-mechanics-foundations/index.md), [Chapter 3: Crystal Lattices and Structures](chapters/03-crystal-lattices-structures/index.md), [Chapter 4: Chemical Bonding in Semiconductor Crystals](chapters/04-chemical-bonding-crystals/index.md), [Chapter 5: Quantum Mechanics of Periodic Crystals](chapters/05-quantum-mechanics-periodic-crystals/index.md), [Chapter 6: Band Structure and the Fermi Level](chapters/06-band-structure-fermi-level/index.md), [Chapter 7: Intrinsic and Extrinsic Semiconductors](chapters/07-intrinsic-extrinsic-semiconductors/index.md), [Chapter 8: Doping, Ionization, and Temperature Regimes](chapters/08-doping-ionization-temperature/index.md), [Chapter 9: Carrier Concentration Statistics](chapters/09-carrier-concentration-statistics/index.md), [Chapter 10: Fermi Level Position and Carrier Equations](chapters/10-fermi-level-carrier-equations/index.md), [Chapter 11: Drift Current and Carrier Mobility](chapters/11-drift-current-mobility/index.md), [Chapter 12: Diffusion and Advanced Transport Phenomena](chapters/12-diffusion-transport-phenomena/index.md), [Chapter 13: Non-Equilibrium Carriers and Recombination](chapters/13-non-equilibrium-carriers-recombination/index.md), and [Chapter 14: The P-N Junction at Equilibrium](chapters/14-pn-junction-equilibrium/index.md). Entries for later chapters will be added as those chapters are written.
+This glossary currently covers the concepts introduced in [Chapter 1: Physics and Math Foundations](chapters/01-physics-math-foundations/index.md), [Chapter 2: Quantum Mechanics Foundations](chapters/02-quantum-mechanics-foundations/index.md), [Chapter 3: Crystal Lattices and Structures](chapters/03-crystal-lattices-structures/index.md), [Chapter 4: Chemical Bonding in Semiconductor Crystals](chapters/04-chemical-bonding-crystals/index.md), [Chapter 5: Quantum Mechanics of Periodic Crystals](chapters/05-quantum-mechanics-periodic-crystals/index.md), [Chapter 6: Band Structure and the Fermi Level](chapters/06-band-structure-fermi-level/index.md), [Chapter 7: Intrinsic and Extrinsic Semiconductors](chapters/07-intrinsic-extrinsic-semiconductors/index.md), [Chapter 8: Doping, Ionization, and Temperature Regimes](chapters/08-doping-ionization-temperature/index.md), [Chapter 9: Carrier Concentration Statistics](chapters/09-carrier-concentration-statistics/index.md), [Chapter 10: Fermi Level Position and Carrier Equations](chapters/10-fermi-level-carrier-equations/index.md), [Chapter 11: Drift Current and Carrier Mobility](chapters/11-drift-current-mobility/index.md), [Chapter 12: Diffusion and Advanced Transport Phenomena](chapters/12-diffusion-transport-phenomena/index.md), [Chapter 13: Non-Equilibrium Carriers and Recombination](chapters/13-non-equilibrium-carriers-recombination/index.md), [Chapter 14: The P-N Junction at Equilibrium](chapters/14-pn-junction-equilibrium/index.md), and [Chapter 15: The P-N Junction Under Bias](chapters/15-pn-junction-under-bias/index.md). Entries for later chapters will be added as those chapters are written.
 
 #### Acceptor Atom
 
@@ -41,6 +41,14 @@ A three-carrier recombination process in which the energy released by an electro
 **Example:** Auger recombination is negligible at low injection but becomes the dominant loss mechanism in heavily-illuminated solar cells and high-current laser diodes.
 
 See also: [Trap-Assisted Recombination](#trap-assisted-recombination), [Carrier Recombination](#carrier-recombination).
+
+#### Avalanche Breakdown
+
+A reverse-breakdown mechanism in which carriers accelerated by the junction electric field gain enough energy between collisions to generate new electron-hole pairs on impact, multiplying into a runaway chain reaction.
+
+**Example:** Avalanche breakdown dominates in lightly-doped junctions, where the depletion region is wide enough for carriers to accelerate over a long distance before colliding.
+
+See also: [Reverse Breakdown](#reverse-breakdown), [Zener Breakdown](#zener-breakdown).
 
 #### Band Formation
 
@@ -682,6 +690,14 @@ A push or pull that, if unopposed, changes an object's velocity; related to mass
 
 **Example:** An electric field exerts a force on a charged carrier equal to the charge times the field, \(\vec{F}=q\vec{E}\).
 
+#### Forward Bias
+
+An applied voltage, positive on the p-side relative to the n-side, that subtracts from the built-in potential, lowering the junction barrier to \(V_{bi}-V\) and sharply increasing diffusion current.
+
+**Example:** Under forward bias, the depletion width narrows and injected minority carrier concentration at the depletion edge can exceed its equilibrium value by many orders of magnitude.
+
+See also: [Reverse Bias](#reverse-bias), [Minority Carrier Injection](#minority-carrier-injection).
+
 #### Free Electron
 
 A conduction-band electron free to move through the crystal and contribute to current.
@@ -802,6 +818,14 @@ The exact equilibrium hole concentration, \(p_0=\big[(N_A-N_D)+\sqrt{(N_A-N_D)^2
 
 See also: [Electron Concentration](#electron-concentration).
 
+#### Ideal Diode Equation
+
+The equation \(I=I_0(e^{V/V_T}-1)\) giving diode current as a function of applied voltage, derived by combining the law of the junction with the saturation current.
+
+**Example:** At forward voltages a few \(V_T\) above zero, the ideal diode equation predicts current rising exponentially, doubling roughly every \(V_T\ln2\approx18\ \text{mV}\).
+
+See also: [Saturation Current](#saturation-current), [Junction I-V Characteristic](#junction-i-v-characteristic).
+
 #### Impurity Scattering
 
 Scattering of a carrier by the Coulomb field of an ionized donor or acceptor atom, worse at low temperature (slow carriers are deflected more) and high doping (more impurities present).
@@ -908,6 +932,14 @@ The internal electric field \(E(x)\) created by exposed depletion-region charge,
 
 See also: [Depletion Charge Density](#depletion-charge-density), [Poisson's Equation](#poissons-equation).
 
+#### Junction I-V Characteristic
+
+The complete current-voltage relationship of a p-n junction, combining the ideal diode equation's forward exponential rise and reverse saturation current with reverse breakdown at large reverse bias.
+
+**Example:** The junction I-V characteristic's exponential forward rise and roughly-constant forward voltage drop is the basis of the familiar "0.7 V diode drop" approximation used in circuit analysis.
+
+See also: [Ideal Diode Equation](#ideal-diode-equation), [Reverse Breakdown](#reverse-breakdown).
+
 #### Kinetic Theory of Gases
 
 A model that treats a gas as a large collection of particles in constant random motion, whose average kinetic energy depends only on absolute temperature.
@@ -939,6 +971,14 @@ Scattering of a carrier by the thermally-vibrating atoms of the crystal lattice,
 **Example:** Lattice scattering typically dominates mobility at room temperature and above in lightly-doped material, following approximately \(\mu_L\propto T^{-3/2}\).
 
 See also: [Impurity Scattering](#impurity-scattering), [Scattering Mechanism](#scattering-mechanism).
+
+#### Long-Base Diode
+
+A diode geometry in which the quasi-neutral region is much longer than the minority carrier diffusion length, giving an exponentially-decaying injected carrier profile.
+
+**Example:** Discrete diodes with thick substrates are typically long-base, in contrast to the short-base diodes common in integrated circuits.
+
+See also: [Short-Base Diode](#short-base-diode), [Minority Carrier Injection](#minority-carrier-injection).
 
 #### Low-Level Injection
 
@@ -995,6 +1035,14 @@ A set of three integers \((hkl)\), used to label a crystal plane, found by takin
 **Example:** A plane intercepting all three axes at \(1a\) has Miller indices \((111)\); a plane parallel to the \(z\) axis intercepting \(x\) and \(y\) at \(1a\) has Miller indices \((110)\).
 
 See also: [Crystal Plane](#crystal-plane).
+
+#### Minority Carrier Injection
+
+The process by which forward bias drives majority carriers across the junction, where they become injected minority carriers in the neutral region on the far side, with a boundary concentration set by the law of the junction.
+
+**Example:** Minority carrier injection under forward bias is the direct analog of the excess-carrier generation studied in Chapter 13, except carriers are injected by crossing the junction rather than created by photon absorption.
+
+See also: [Forward Bias](#forward-bias), [Long-Base Diode](#long-base-diode).
 
 #### Minority Carrier Lifetime
 
@@ -1188,6 +1236,30 @@ The reciprocal of conductivity, \(\rho=1/\sigma\), with units of \(\Omega\cdot\t
 
 See also: [Conductivity](#conductivity), [Sheet Resistance](#sheet-resistance).
 
+#### Reverse Bias
+
+An applied voltage, negative on the p-side relative to the n-side, that adds to the built-in potential, raising the junction barrier to \(V_{bi}+V\) and suppressing diffusion to a small drift-limited current.
+
+**Example:** Under reverse bias, the depletion width widens and current saturates at the small, nearly voltage-independent value \(-I_0\).
+
+See also: [Forward Bias](#forward-bias), [Saturation Current](#saturation-current).
+
+#### Reverse Breakdown
+
+The dramatic increase in reverse current beyond a critical reverse voltage \(V_{BR}\), occurring via avalanche or Zener mechanisms.
+
+**Example:** Practical circuits using reverse breakdown deliberately (voltage-reference diodes) must limit current with a series resistor to avoid exceeding the diode's power rating.
+
+See also: [Avalanche Breakdown](#avalanche-breakdown), [Zener Breakdown](#zener-breakdown).
+
+#### Saturation Current
+
+The small, nearly fixed reverse current \(I_0\) (or current density \(J_0\)) that a p-n junction approaches under reverse bias, set by the injected minority carrier profile's gradient at the depletion edge.
+
+**Example:** Because \(J_0\propto n_i^2\), saturation current is extremely temperature-sensitive, roughly doubling for every 8-10°C rise in silicon.
+
+See also: [Ideal Diode Equation](#ideal-diode-equation), [Long-Base Diode](#long-base-diode).
+
 #### Scattering Mechanism
 
 Any collision process that randomizes a carrier's direction of motion, ultimately limiting mobility.
@@ -1235,6 +1307,14 @@ The quantitative theory of trap-assisted recombination, showing that traps locat
 **Example:** Shockley-Read-Hall recombination is the standard model for recombination in silicon devices, where indirect band-to-band recombination is too inefficient to dominate.
 
 See also: [Trap-Assisted Recombination](#trap-assisted-recombination), [Indirect Recombination](#indirect-recombination).
+
+#### Short-Base Diode
+
+A diode geometry in which the quasi-neutral region is much shorter than the minority carrier diffusion length, giving a linear injected carrier profile forced to zero at the nearby ohmic contact.
+
+**Example:** Short-base diodes give a larger saturation current than an equivalent long-base diode, since the same concentration drop occurs over a shorter distance, producing a steeper gradient.
+
+See also: [Long-Base Diode](#long-base-diode), [Saturation Current](#saturation-current).
 
 #### SI Units
 
@@ -1399,6 +1479,14 @@ The complex-valued function \(\psi(x)\) that describes a particle's quantum stat
 **Example:** A free particle's wavefunction is often written \(\psi(x)=Ae^{ikx}\), with wavevector \(k=2\pi/\lambda\) tied to the particle's de Broglie wavelength.
 
 See also: [Probability Density](#probability-density), [Schrodinger Equation](#schrodinger-equation).
+
+#### Zener Breakdown
+
+A reverse-breakdown mechanism in which valence electrons tunnel quantum-mechanically directly through a thin depletion-region barrier into the conduction band, with no collision involved.
+
+**Example:** Zener breakdown dominates in heavily-doped junctions, typically at doping levels above roughly \(10^{17}\)-\(10^{18}\ \text{cm}^{-3}\) in silicon, where breakdown voltage is only a few volts.
+
+See also: [Avalanche Breakdown](#avalanche-breakdown), [Reverse Breakdown](#reverse-breakdown).
 
 #### Zincblende Structure
 

@@ -150,7 +150,11 @@ nav:
           - Quiz: chapters/14-pn-junction-equilibrium/quiz.md
           - Problems: chapters/14-pn-junction-equilibrium/problems.md
           - Glossary: chapters/14-pn-junction-equilibrium/glossary.md
-      - 15. The P-N Junction Under Bias: chapters/15-pn-junction-under-bias/index.md
+      - 15. The P-N Junction Under Bias:
+          - Content: chapters/15-pn-junction-under-bias/index.md
+          - Quiz: chapters/15-pn-junction-under-bias/quiz.md
+          - Problems: chapters/15-pn-junction-under-bias/problems.md
+          - Glossary: chapters/15-pn-junction-under-bias/glossary.md
       - 16. Metal-Semiconductor and MOS Junctions: chapters/16-metal-semiconductor-mos-junctions/index.md
       - 17. Optical and Thermal Properties of Semiconductors: chapters/17-optical-thermal-properties/index.md
       - 18. Semiconductor Devices and Applications: chapters/18-semiconductor-devices-applications/index.md
@@ -238,6 +242,12 @@ nav:
           - Junction Electric Field and Depletion Width Explorer: sims/junction-field-and-depletion-width-explorer/index.md
           - Junction Capacitance Explorer: sims/junction-capacitance-explorer/index.md
           - P-N Junction Equilibrium Interactive Walkthrough: sims/pn-junction-equilibrium-interactive-walkthrough/index.md
+      - Chapter 15:
+          - Forward and Reverse Bias Band Diagram Explorer: sims/forward-reverse-bias-band-diagram-explorer/index.md
+          - Minority Carrier Injection Profile Explorer: sims/minority-carrier-injection-profile-explorer/index.md
+          - Ideal Diode I-V Curve Explorer: sims/ideal-diode-iv-curve-explorer/index.md
+          - Reverse Breakdown Mechanism Explorer: sims/reverse-breakdown-mechanism-explorer/index.md
+          - P-N Junction Under Bias Interactive Walkthrough: sims/pn-junction-under-bias-interactive-walkthrough/index.md
   - Learning Graph:
       - Introduction: learning-graph/index.md
       - Course Description Assessment: learning-graph/course-description-assessment.md

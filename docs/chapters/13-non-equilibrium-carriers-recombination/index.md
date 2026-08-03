@@ -365,4 +365,21 @@ See the [Chapter 13 Glossary](glossary.md) for full definitions of every term in
 
     **Solution:** \(\Delta n/N_A = 8\times10^{15}/5\times10^{15}=1.6\), far above the 0.1 threshold — this is high-level injection, since the excess concentration actually exceeds the doping concentration.
 
+## Interactive Chapter Walkthrough
+
+Use the MicroSim below as a capstone review: an 8-step guided tour, navigated with Prev/Next buttons, that retraces this entire chapter's storyline in order — from equilibrium to non-equilibrium, through generation, all four recombination mechanisms, lifetime and recombination rate, injection level, the continuity equation and diffusion length, and quasi-Fermi levels — ending with a summary chain diagram connecting every concept to the p-n junction ahead.
+
+#### Diagram: Non-Equilibrium Carriers Interactive Walkthrough
+
+<iframe src="../../sims/non-equilibrium-carriers-interactive-walkthrough/main.html" width="100%" height="670px" scrolling="auto"></iframe>
+
+!!! tip "How to use this MicroSim"
+    **Instructions:** Click "Next ▶" through all 8 steps in order, then use the step dots to jump back to any concept before the chapter quiz.
+
+    **Learning objective:** Recall and summarize the full chain of concepts connecting carrier generation to quasi-Fermi levels.
+
+    **What to observe:** Each step's small illustration mirrors a MicroSim you already used earlier in the chapter, tying the whole narrative together in one place.
+
+[Full MicroSim documentation →](../../sims/non-equilibrium-carriers-interactive-walkthrough/index.md)
+
 </div>

@@ -135,5 +135,6 @@ Interactive educational simulations that accompany this textbook.
 | [Injection Level Classifier](injection-level-classifier/index.md) | L2-L3 Understand/Apply | Compares excess carrier concentration to doping concentration, classifying low-level versus high-level injection |
 | [Continuity Equation and Diffusion Length Explorer](continuity-equation-diffusion-length-explorer/index.md) | L3-L4 Apply/Analyze | Plots the steady-state exponential minority carrier profile and its diffusion length |
 | [Quasi-Fermi Level Explorer](quasi-fermi-level-explorer/index.md) | L4-L5 Analyze/Evaluate | Band diagram showing electron and hole quasi-Fermi levels splitting apart under carrier injection |
+| [Non-Equilibrium Carriers Interactive Walkthrough](non-equilibrium-carriers-interactive-walkthrough/index.md) | L1-L2 Remember/Understand | An 8-step guided-tour capstone review retracing the chapter's full storyline from generation through quasi-Fermi levels |
 
 </div>

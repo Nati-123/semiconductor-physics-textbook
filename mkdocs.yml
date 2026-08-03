@@ -145,7 +145,11 @@ nav:
           - Quiz: chapters/13-non-equilibrium-carriers-recombination/quiz.md
           - Problems: chapters/13-non-equilibrium-carriers-recombination/problems.md
           - Glossary: chapters/13-non-equilibrium-carriers-recombination/glossary.md
-      - 14. The P-N Junction at Equilibrium: chapters/14-pn-junction-equilibrium/index.md
+      - 14. The P-N Junction at Equilibrium:
+          - Content: chapters/14-pn-junction-equilibrium/index.md
+          - Quiz: chapters/14-pn-junction-equilibrium/quiz.md
+          - Problems: chapters/14-pn-junction-equilibrium/problems.md
+          - Glossary: chapters/14-pn-junction-equilibrium/glossary.md
       - 15. The P-N Junction Under Bias: chapters/15-pn-junction-under-bias/index.md
       - 16. Metal-Semiconductor and MOS Junctions: chapters/16-metal-semiconductor-mos-junctions/index.md
       - 17. Optical and Thermal Properties of Semiconductors: chapters/17-optical-thermal-properties/index.md
@@ -228,6 +232,12 @@ nav:
           - Continuity Equation and Diffusion Length Explorer: sims/continuity-equation-diffusion-length-explorer/index.md
           - Quasi-Fermi Level Explorer: sims/quasi-fermi-level-explorer/index.md
           - Non-Equilibrium Carriers Interactive Walkthrough: sims/non-equilibrium-carriers-interactive-walkthrough/index.md
+      - Chapter 14:
+          - Metallurgical Junction and Depletion Formation Explorer: sims/metallurgical-junction-depletion-formation-explorer/index.md
+          - Built-In Potential Calculator: sims/built-in-potential-calculator/index.md
+          - Junction Electric Field and Depletion Width Explorer: sims/junction-field-and-depletion-width-explorer/index.md
+          - Junction Capacitance Explorer: sims/junction-capacitance-explorer/index.md
+          - P-N Junction Equilibrium Interactive Walkthrough: sims/pn-junction-equilibrium-interactive-walkthrough/index.md
   - Learning Graph:
       - Introduction: learning-graph/index.md
       - Course Description Assessment: learning-graph/course-description-assessment.md

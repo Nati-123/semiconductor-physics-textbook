@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Work Function &amp; Barrier Height Explorer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="../semiconductor-materials-lib.js"></script>
+    <script src="work-function-barrier-height-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Switch between metals and watch Φ_Bn change directly with Φ_M, while Φ_Bp changes in the opposite direction (since they must sum to the band gap).</li>
+            <li><strong>Predict:</strong> Before switching doping type from n-type to p-type at the same concentration, predict whether Φ_S will increase or decrease.</li>
+            <li><strong>Observe:</strong> Raising doping concentration always pulls Φ_S toward χ (for n-type) or toward χ+Eg (for p-type), since heavier doping pulls EF closer to the nearby band edge.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 16:</strong> A metal's <strong>work function</strong> and a semiconductor's <strong>electron affinity</strong> (combined with its doping-dependent Fermi level) determine the <strong>barrier height</strong> at a <strong>metal-semiconductor junction</strong>. The band bending required to align Fermi levels at contact gives the built-in potential, directly analogous to the p-n junction's V_bi from Chapter 14.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>Metal</dt>
+            <dd>Sets the metal work function Φ_M, which directly sets the electron barrier height Φ_Bn = Φ_M − χ.</dd>
+            <dt>Doping type</dt>
+            <dd>Switches between n-type and p-type semiconductor, changing how Φ_S is computed.</dd>
+            <dt>N</dt>
+            <dd>Sets doping concentration, which moves EF and therefore Φ_S.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">1. What sets the electron barrier height Φ_Bn on n-type material?</p>
+            <label><input type="radio" name="wfbhe-q1" value="a"> The semiconductor's doping concentration alone</label>
+            <label><input type="radio" name="wfbhe-q1" value="b"> The difference between the metal's work function and the semiconductor's electron affinity</label>
+            <label><input type="radio" name="wfbhe-q1" value="c"> The band gap alone</label>
+            <label><input type="radio" name="wfbhe-q1" value="d"> The applied bias voltage</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Correct. Φ_Bn = Φ_M − χ (the Schottky-Mott rule) depends only on the metal and the semiconductor's electron affinity, not on doping.</p>
+            <p class="explain-incorrect" hidden>Look at the Φ_Bn formula shown in the results card — which two quantities does it subtract?</p>
+        </div>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">2. Why do Φ_Bn and Φ_Bp always sum to the band gap Eg?</p>
+            <label><input type="radio" name="wfbhe-q2" value="a"> They don't — this is a coincidence in this simulation</label>
+            <label><input type="radio" name="wfbhe-q2" value="b"> Because the metal work function always equals Eg</label>
+            <label><input type="radio" name="wfbhe-q2" value="c"> Because together they span the full distance from EC to EV at the interface</label>
+            <label><input type="radio" name="wfbhe-q2" value="d"> Because doping always cancels out in the sum</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Correct. Φ_Bn measures from the metal Fermi level to EC, and Φ_Bp measures from the metal Fermi level to EV on the other side — together they span exactly EC to EV, which is Eg.</p>
+            <p class="explain-incorrect" hidden>Think about what EC minus EV equals, and where the metal Fermi level sits relative to both band edges at the interface.</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

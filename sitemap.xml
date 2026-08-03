@@ -281,6 +281,18 @@
          <lastmod>2026-08-03</lastmod>
     </url>
     <url>
+         <loc>https://Nati-123.github.io/semiconductor-physics-textbook/chapters/16-metal-semiconductor-mos-junctions/glossary/</loc>
+         <lastmod>2026-08-03</lastmod>
+    </url>
+    <url>
+         <loc>https://Nati-123.github.io/semiconductor-physics-textbook/chapters/16-metal-semiconductor-mos-junctions/problems/</loc>
+         <lastmod>2026-08-03</lastmod>
+    </url>
+    <url>
+         <loc>https://Nati-123.github.io/semiconductor-physics-textbook/chapters/16-metal-semiconductor-mos-junctions/quiz/</loc>
+         <lastmod>2026-08-03</lastmod>
+    </url>
+    <url>
          <loc>https://Nati-123.github.io/semiconductor-physics-textbook/chapters/17-optical-thermal-properties/</loc>
          <lastmod>2026-08-03</lastmod>
     </url>
@@ -537,6 +549,14 @@
          <lastmod>2026-08-03</lastmod>
     </url>
     <url>
+         <loc>https://Nati-123.github.io/semiconductor-physics-textbook/sims/metal-semiconductor-contact-classifier/</loc>
+         <lastmod>2026-08-03</lastmod>
+    </url>
+    <url>
+         <loc>https://Nati-123.github.io/semiconductor-physics-textbook/sims/metal-semiconductor-mos-interactive-walkthrough/</loc>
+         <lastmod>2026-08-03</lastmod>
+    </url>
+    <url>
          <loc>https://Nati-123.github.io/semiconductor-physics-textbook/sims/metallurgical-junction-depletion-formation-explorer/</loc>
          <lastmod>2026-08-03</lastmod>
     </url>
@@ -550,6 +570,14 @@
     </url>
     <url>
          <loc>https://Nati-123.github.io/semiconductor-physics-textbook/sims/mobility-temperature-doping-explorer/</loc>
+         <lastmod>2026-08-03</lastmod>
+    </url>
+    <url>
+         <loc>https://Nati-123.github.io/semiconductor-physics-textbook/sims/mos-capacitor-band-bending-explorer/</loc>
+         <lastmod>2026-08-03</lastmod>
+    </url>
+    <url>
+         <loc>https://Nati-123.github.io/semiconductor-physics-textbook/sims/mos-surface-regime-explorer/</loc>
          <lastmod>2026-08-03</lastmod>
     </url>
     <url>
@@ -609,6 +637,10 @@
          <lastmod>2026-08-03</lastmod>
     </url>
     <url>
+         <loc>https://Nati-123.github.io/semiconductor-physics-textbook/sims/threshold-voltage-calculator/</loc>
+         <lastmod>2026-08-03</lastmod>
+    </url>
+    <url>
          <loc>https://Nati-123.github.io/semiconductor-physics-textbook/sims/unit-cell-repetition-explorer/</loc>
          <lastmod>2026-08-03</lastmod>
     </url>
@@ -622,6 +654,10 @@
     </url>
     <url>
          <loc>https://Nati-123.github.io/semiconductor-physics-textbook/sims/wave-particle-duality-explorer/</loc>
+         <lastmod>2026-08-03</lastmod>
+    </url>
+    <url>
+         <loc>https://Nati-123.github.io/semiconductor-physics-textbook/sims/work-function-barrier-height-explorer/</loc>
          <lastmod>2026-08-03</lastmod>
     </url>
 </urlset>

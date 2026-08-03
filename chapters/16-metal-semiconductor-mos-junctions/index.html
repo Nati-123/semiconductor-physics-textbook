@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="An interactive university-level semiconductor physics textbook with AI explanations, quizzes, simulations, and practice problems.">
+        <meta name="description" content="Work function, electron affinity, and barrier height as the basis for Schottky barriers, Schottky diodes, and ohmic contacts, followed by the MOS capacitor and its accumulation, depletion, and inversion regimes culminating in threshold voltage">
       
       
         <meta name="author" content="Natol Dinka">
@@ -18,7 +18,7 @@
         <link rel="prev" href="../15-pn-junction-under-bias/glossary/">
       
       
-        <link rel="next" href="../17-optical-thermal-properties/">
+        <link rel="next" href="quiz/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>16. Metal-Semiconductor and MOS Junctions - Semiconductor Physics</title>
+        <title>Metal-Semiconductor and MOS Junctions - Semiconductor Physics</title>
       
     
     
@@ -84,7 +84,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#metal-semiconductor-and-mos-junctions" class="md-skip">
+        <a href="#chapter-16-metal-semiconductor-and-mos-junctions" class="md-skip">
           Skip to content
         </a>
       
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              16. Metal-Semiconductor and MOS Junctions
+              Metal-Semiconductor and MOS Junctions
             
           </span>
         </div>
@@ -3353,6 +3353,63 @@
   
   
   
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_17" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6_17" id="__nav_6_17_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Metal-Semiconductor and MOS Junctions
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_17_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6_17">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    16. Metal-Semiconductor and MOS Junctions
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
     <li class="md-nav__item md-nav__item--active">
       
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
@@ -3368,7 +3425,7 @@
   <span class="md-ellipsis">
     
   
-    16. Metal-Semiconductor and MOS Junctions
+    Content
   
 
     
@@ -3386,7 +3443,7 @@
   <span class="md-ellipsis">
     
   
-    16. Metal-Semiconductor and MOS Junctions
+    Content
   
 
     
@@ -3412,10 +3469,21 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
+  <a href="#learning-objectives" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Summary
+        Learning Objectives
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
       
     </span>
   </a>
@@ -3444,9 +3512,469 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#part-1-metal-semiconductor-junctions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 1: Metal-Semiconductor Junctions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 1: Metal-Semiconductor Junctions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#work-function-electron-affinity-and-the-metal-semiconductor-junction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Work Function, Electron Affinity, and the Metal-Semiconductor Junction
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Work Function, Electron Affinity, and the Metal-Semiconductor Junction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#two-material-constants-that-set-the-barrier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Two Material Constants That Set the Barrier
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#barrier-height-and-the-schottky-barrier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Barrier Height and the Schottky Barrier
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Barrier Height and the Schottky Barrier">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bringing-metal-and-semiconductor-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bringing Metal and Semiconductor Together
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-work-function-and-barrier-height-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Work Function and Barrier Height Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ohmic-and-rectifying-contacts-the-schottky-diode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ohmic and Rectifying Contacts; The Schottky Diode
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ohmic and Rectifying Contacts; The Schottky Diode">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-contact-is-rectifying-and-when-it-isnt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When Contact Is Rectifying — and When It Isn't
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-metal-semiconductor-contact-classifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Metal-Semiconductor Contact Classifier
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-2-the-mos-capacitor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 2: The MOS Capacitor
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 2: The MOS Capacitor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-mos-capacitor-and-gate-oxide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The MOS Capacitor and Gate Oxide
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The MOS Capacitor and Gate Oxide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-new-structure-no-current-only-electrostatics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A New Structure: No Current, Only Electrostatics
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flat-band-voltage-and-surface-potential" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flat-Band Voltage and Surface Potential
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Flat-Band Voltage and Surface Potential">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-reference-point-for-everything-that-follows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Reference Point for Everything That Follows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-mos-capacitor-band-bending-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: MOS Capacitor Band Bending Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accumulation-depletion-and-inversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accumulation, Depletion, and Inversion
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Accumulation, Depletion, and Inversion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#four-regimes-of-the-semiconductor-surface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Four Regimes of the Semiconductor Surface
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-mos-surface-regime-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: MOS Surface Regime Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#threshold-voltage-and-oxide-capacitance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Threshold Voltage and Oxide Capacitance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Threshold Voltage and Oxide Capacitance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-gate-voltage-that-switches-on-the-channel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Gate Voltage That Switches On the Channel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-threshold-voltage-calculator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Threshold Voltage Calculator
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-equations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Equations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Glossary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Further Reading
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked Examples
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interactive-chapter-walkthrough" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interactive Chapter Walkthrough
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Interactive Chapter Walkthrough">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-metal-semiconductor-and-mos-junctions-interactive-walkthrough" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Metal-Semiconductor and MOS Junctions Interactive Walkthrough
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="problems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Problems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
       
     </li>
   
@@ -6572,6 +7100,236 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_17" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_17" id="__nav_7_17_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 16
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_17_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_17">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 16
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/work-function-barrier-height-explorer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Work Function and Barrier Height Explorer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/metal-semiconductor-contact-classifier/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metal-Semiconductor Contact Classifier
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/mos-capacitor-band-bending-explorer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MOS Capacitor Band Bending Explorer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/mos-surface-regime-explorer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MOS Surface Regime Explorer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/threshold-voltage-calculator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Threshold Voltage Calculator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/metal-semiconductor-mos-interactive-walkthrough/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metal-Semiconductor and MOS Junctions Interactive Walkthrough
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -6970,9 +7728,38 @@
   
 
 
-<h1 id="metal-semiconductor-and-mos-junctions">Metal-Semiconductor and MOS Junctions</h1>
-<h2 id="summary">Summary</h2>
-<p>This chapter extends junction physics to metal-semiconductor interfaces, covering work function, electron affinity, and barrier height as the basis for Schottky barriers, Schottky diodes, and ohmic contacts. Students then study the MOS capacitor, tracing how gate voltage moves the semiconductor surface through accumulation, depletion, and strong/weak inversion, culminating in the threshold voltage that defines the on/off behavior of a MOSFET.</p>
+<h1 id="chapter-16-metal-semiconductor-and-mos-junctions">Chapter 16: Metal-Semiconductor and MOS Junctions</h1>
+<div class="unit1-styled">
+<details class="video-overview">
+<summary><strong>Chapter Overview</strong> (click to expand)</summary>
+<p>Chapter 15 completed the story of the p-n junction. This chapter extends junction physics to two more structures that appear in nearly every integrated circuit: the <strong>metal-semiconductor junction</strong>, formed wherever a metal contact touches a semiconductor, and the <strong>MOS capacitor</strong>, the layered structure at the heart of every MOSFET. Metal-semiconductor junctions turn out to come in two flavors — the rectifying <strong>Schottky barrier</strong>, whose height is set by the metal's <strong>work function</strong> and the semiconductor's <strong>electron affinity</strong>, and the non-rectifying <strong>ohmic contact</strong>, engineered to have essentially no barrier at all. The second half of the chapter builds the <strong>MOS capacitor</strong> from a gate, a <strong>gate oxide</strong>, and a semiconductor, and traces what happens to the semiconductor surface as gate voltage sweeps from the <strong>flat-band voltage</strong> through <strong>accumulation</strong>, <strong>depletion</strong>, <strong>weak inversion</strong>, and finally <strong>strong inversion</strong> — the condition that creates the conducting <strong>inversion layer</strong> channel of a MOSFET, at the <strong>threshold voltage</strong> that switches the transistor on.</p>
+<p><strong>Key Takeaways:</strong></p>
+<ol>
+<li>A metal's <strong>work function</strong> and a semiconductor's <strong>electron affinity</strong> (plus its doping-dependent Fermi level position) together determine the <strong>barrier height</strong> that forms when the two are joined at a <strong>metal-semiconductor junction</strong>.</li>
+<li>When the barrier height is large enough, the result is a rectifying <strong>Schottky barrier</strong>, the basis of the fast-switching <strong>Schottky diode</strong>; when doping or work function alignment eliminates the barrier, the result is a low-resistance <strong>ohmic contact</strong> rather than a <strong>rectifying contact</strong>.</li>
+<li>A <strong>MOS capacitor</strong> stacks a gate, an insulating <strong>gate oxide</strong>, and a semiconductor; the gate voltage at which the semiconductor surface shows no band bending at all is the <strong>flat-band voltage</strong>.</li>
+<li>Sweeping gate voltage away from flat-band moves the <strong>semiconductor surface</strong> through <strong>accumulation</strong> (majority carriers pile up), <strong>depletion mode</strong> (majority carriers pushed away, exposing fixed charge), and eventually <strong>inversion</strong> — first <strong>weak inversion</strong>, then <strong>strong inversion</strong>, when the <strong>inversion layer</strong> of minority carriers becomes the dominant surface charge.</li>
+<li>The <strong>surface potential</strong> required to reach strong inversion sets the <strong>threshold voltage</strong> <span class="arithmatex">\(V_T\)</span>, the gate voltage marking a MOSFET's on/off switching point, computed using the <strong>oxide capacitance</strong> that converts stored charge into voltage across the gate oxide.</li>
+</ol>
+</details>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<p>By the end of this chapter, you will be able to:</p>
+<ul>
+<li>Compute barrier height from a metal's work function and a semiconductor's electron affinity, and explain how a Schottky barrier forms</li>
+<li>Distinguish ohmic from rectifying metal-semiconductor contacts for a given metal and doping type</li>
+<li>Compare the Schottky diode's thermionic-emission current mechanism to the p-n junction's diffusion-based ideal diode equation</li>
+<li>Describe the MOS capacitor structure and compute oxide capacitance from oxide thickness</li>
+<li>Explain how gate voltage moves the semiconductor surface through flat-band, accumulation, depletion, weak inversion, and strong inversion</li>
+<li>Derive and apply the threshold voltage equation from flat-band voltage, bulk potential, and maximum depletion charge</li>
+<li>Solve worked and practice problems combining these ideas, in preparation for the semiconductor device applications ahead</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">How to read this chapter</p>
+<p>This chapter's 20 concepts split cleanly into two parts. Part 1 (work function through Schottky diode) analyzes a metal touching a semiconductor directly. Part 2 (MOS capacitor through threshold voltage) inserts an insulating oxide layer between the metal and semiconductor, and asks what happens to the semiconductor surface as gate voltage changes. Part 2 reuses several ideas from Part 1 — especially work function and barrier physics — so reading in order pays off.</p>
+</div>
+<h2 id="introduction">Introduction</h2>
+<p>Chapters 14-15 analyzed the p-n junction: two doped regions of the <em>same</em> semiconductor crystal joined at a common interface. Real circuits also need to connect semiconductors to the outside world, and every such connection is a <strong>metal-semiconductor junction</strong> — a metal wire or contact pad touching a semiconductor surface. Depending on the metal and the semiconductor's doping, that junction behaves in one of two very different ways: it can form a <strong>Schottky barrier</strong>, a rectifying junction similar in spirit to a p-n junction but built from entirely different materials and physics, or it can form a low-resistance <strong>ohmic contact</strong>, engineered specifically to <em>avoid</em> rectification so that current can flow freely in and out of a device without distorting circuit behavior.</p>
+<p>The second half of this chapter builds toward the single most important structure in modern electronics: the <strong>MOS capacitor</strong> (Metal-Oxide-Semiconductor capacitor), formed by inserting a thin insulating <strong>gate oxide</strong> between a metal (or heavily-doped polysilicon) gate and a semiconductor substrate. Unlike a metal-semiconductor junction, no current flows through the oxide at equilibrium — instead, the gate voltage electrostatically controls the charge and carrier populations at the semiconductor surface underneath it, exactly the way a parallel-plate capacitor's voltage controls the charge on its plates. Sweeping that gate voltage moves the semiconductor surface through a sequence of distinct regimes — <strong>accumulation</strong>, <strong>depletion</strong>, <strong>weak inversion</strong>, and <strong>strong inversion</strong> — and the gate voltage at which strong inversion begins, the <strong>threshold voltage</strong>, is the single number that determines when a MOSFET switches on. Every transistor in Chapter 18 is built around exactly this physics.</p>
 <h2 id="concepts-covered">Concepts Covered</h2>
 <p>This chapter covers the following 20 concepts from the learning graph:</p>
 <ol>
@@ -7008,13 +7795,324 @@
 <li><a href="../15-pn-junction-under-bias/">Chapter 15: The P-N Junction Under Bias</a></li>
 </ul>
 <hr />
-<p>TODO: Generate Chapter Content</p>
+<h2 id="part-1-metal-semiconductor-junctions">Part 1: Metal-Semiconductor Junctions</h2>
+<h3 id="work-function-electron-affinity-and-the-metal-semiconductor-junction">Work Function, Electron Affinity, and the Metal-Semiconductor Junction</h3>
+<h4 id="two-material-constants-that-set-the-barrier">Two Material Constants That Set the Barrier</h4>
+<p>A <strong>metal-semiconductor junction</strong> forms wherever a metal is brought into intimate contact with a semiconductor — every bond pad, gate electrode, and wire contact in a real device. What happens electrically at that junction is governed by two material-specific energy quantities.</p>
+<p>The <strong>work function</strong> <span class="arithmatex">\(q\Phi_M\)</span> of a metal is the energy required to remove an electron from the metal's Fermi level all the way to the vacuum level just outside the surface — a measure of how tightly the metal's electron sea holds onto its electrons. Different metals have very different work functions: aluminum's is about 4.1 eV, gold's about 5.1 eV, platinum's about 5.65 eV.</p>
+<p>The <strong>electron affinity</strong> <span class="arithmatex">\(q\chi\)</span> of a semiconductor is the energy from the vacuum level down to the conduction band edge <span class="arithmatex">\(E_C\)</span> — a fixed material property, independent of doping (silicon's is about 4.05 eV). A semiconductor's <em>own</em> work function, unlike a metal's, depends on doping, because doping moves the Fermi level relative to the bands:</p>
+<div class="arithmatex">\[
+q\Phi_S = q\chi + (E_C - E_F)
+\]</div>
+<p>where <span class="arithmatex">\(E_C-E_F\)</span> is computed exactly as in Chapter 9-10, using <span class="arithmatex">\(N_C\)</span> and the doping concentration. Heavier n-type doping pulls <span class="arithmatex">\(E_F\)</span> closer to <span class="arithmatex">\(E_C\)</span>, shrinking <span class="arithmatex">\(\Phi_S\)</span>; heavier p-type doping pushes <span class="arithmatex">\(E_F\)</span> toward <span class="arithmatex">\(E_V\)</span>, growing <span class="arithmatex">\(\Phi_S\)</span>.</p>
+<div class="admonition question">
+<p class="admonition-title">Concept Check</p>
+<p>Two n-type silicon samples have different doping concentrations. Which one has the larger semiconductor work function <span class="arithmatex">\(\Phi_S\)</span> — the more lightly doped one, or the more heavily doped one?</p>
+</div>
+<details class="question">
+<summary>Concept Check — click to reveal answer</summary>
+<p>The more lightly doped one. Heavier n-type doping raises <span class="arithmatex">\(E_F\)</span> closer to <span class="arithmatex">\(E_C\)</span>, shrinking <span class="arithmatex">\(E_C-E_F\)</span> and therefore <span class="arithmatex">\(\Phi_S=\chi+(E_C-E_F)/q\)</span>. Lighter doping leaves <span class="arithmatex">\(E_F\)</span> farther below <span class="arithmatex">\(E_C\)</span>, giving a larger <span class="arithmatex">\(\Phi_S\)</span>.</p>
+</details>
+<h3 id="barrier-height-and-the-schottky-barrier">Barrier Height and the Schottky Barrier</h3>
+<h4 id="bringing-metal-and-semiconductor-together">Bringing Metal and Semiconductor Together</h4>
+<p>Just as with the p-n junction, joining two materials with different work functions at equilibrium forces a single, flat Fermi level across the whole structure, and the bands must bend to accommodate it. For a metal on an n-type semiconductor, the ideal (Schottky-Mott) <strong>barrier height</strong> seen by electrons trying to cross from the metal into the semiconductor is:</p>
+<div class="arithmatex">\[
+q\Phi_B = q(\Phi_M - \chi)
+\]</div>
+<p>and the semiconductor-side band bending — exactly analogous to the p-n junction's built-in potential — is:</p>
+<div class="arithmatex">\[
+qV_{bi} = q(\Phi_M-\Phi_S)
+\]</div>
+<p>When <span class="arithmatex">\(\Phi_M&gt;\Phi_S\)</span> for an n-type semiconductor, electrons flow from the semiconductor into the metal at contact (the semiconductor's Fermi level starts higher) until equilibrium, leaving a depletion region of exposed ionized donors on the semiconductor side — a <strong>Schottky barrier</strong>, with a depletion width and peak field given by exactly the same one-sided-junction formulas derived in Chapter 14, treating the metal as an infinitely-doped "other side":</p>
+<div class="arithmatex">\[
+W = \sqrt{\frac{2\varepsilon_sV_{bi}}{qN_D}}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">A caveat on the ideal picture</p>
+<p>The Schottky-Mott rule above is an idealization. Real metal-semiconductor interfaces almost always have a high density of surface/interface states that "pin" the Fermi level near a fixed position within the gap, largely independent of the metal's work function. Measured barrier heights on real silicon surfaces are therefore often closer to a metal-independent value (roughly 0.7-0.8 eV for many metals on n-Si) than the idealized Schottky-Mott prediction — a good example of how a clean first-principles model captures the right physics qualitatively while requiring empirical correction for quantitative device design.</p>
+</div>
+<h4 id="diagram-work-function-and-barrier-height-explorer">Diagram: Work Function and Barrier Height Explorer</h4>
+<iframe height="620px" scrolling="auto" src="../../sims/work-function-barrier-height-explorer/main.html" width="100%"></iframe>
+<div class="admonition tip">
+<p class="admonition-title">How to use this MicroSim</p>
+<p><strong>Instructions:</strong> Choose a metal and adjust the semiconductor doping; watch the pre-contact and post-contact band diagrams and the computed barrier height and built-in potential.</p>
+<p><strong>Learning objective:</strong> Compute barrier height from a metal's work function and a semiconductor's electron affinity, and explain how contact forces band bending.</p>
+<p><strong>What to observe:</strong> Raising the metal's work function increases the barrier height on n-type material; the semiconductor's own work function shifts as doping changes, changing <span class="arithmatex">\(V_{bi}\)</span> even though the barrier height itself (measured from the metal side) stays fixed for a given metal.</p>
+</div>
+<p><a href="../../sims/work-function-barrier-height-explorer/">Full MicroSim documentation →</a></p>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 1 — Barrier Height and Built-In Potential for Au on n-Si</p>
+<p>Gold (<span class="arithmatex">\(\Phi_M=5.1\ \text{V}\)</span>) is deposited on n-type silicon with <span class="arithmatex">\(N_D=1\times10^{16}\ \text{cm}^{-3}\)</span> (<span class="arithmatex">\(\chi=4.05\ \text{V}\)</span>, <span class="arithmatex">\(N_C=2.8\times10^{19}\ \text{cm}^{-3}\)</span>). Find the barrier height and built-in potential.</p>
+<p><strong>Solution:</strong> <span class="arithmatex">\(E_C-E_F=kT\ln(N_C/N_D)=0.0259\ln(2.8\times10^{19}/1\times10^{16})\approx0.206\ \text{eV}\)</span>, so <span class="arithmatex">\(\Phi_S=\chi+(E_C-E_F)/q\approx4.05+0.206=4.256\ \text{V}\)</span>.</p>
+<div class="arithmatex">\[
+\Phi_B=\Phi_M-\chi=5.1-4.05=1.05\ \text{V} \qquad V_{bi}=\Phi_M-\Phi_S=5.1-4.256\approx0.844\ \text{V}
+\]</div>
+</div>
+<h3 id="ohmic-and-rectifying-contacts-the-schottky-diode">Ohmic and Rectifying Contacts; The Schottky Diode</h3>
+<h4 id="when-contact-is-rectifying-and-when-it-isnt">When Contact Is Rectifying — and When It Isn't</h4>
+<p>A metal-semiconductor junction is a <strong>rectifying contact</strong> (a Schottky barrier that impedes current flow in one direction, just like a diode) or an <strong>ohmic contact</strong> (a low-resistance connection with essentially symmetric, linear current-voltage behavior) depending on how the metal and semiconductor work functions compare, <em>and</em> on the doping type:</p>
+<table>
+<thead>
+<tr>
+<th>Semiconductor type</th>
+<th><span class="arithmatex">\(\Phi_M&gt;\Phi_S\)</span></th>
+<th><span class="arithmatex">\(\Phi_M&lt;\Phi_S\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>n-type</td>
+<td>Rectifying (Schottky barrier forms)</td>
+<td>Ohmic (no barrier; accumulation of electrons at surface)</td>
+</tr>
+<tr>
+<td>p-type</td>
+<td>Ohmic (no barrier; accumulation of holes at surface)</td>
+<td>Rectifying (Schottky barrier forms)</td>
+</tr>
+</tbody>
+</table>
+<p>In practice, ohmic contacts are more often engineered a second way: doping the semiconductor extremely heavily right at the contact (<span class="arithmatex">\(N&gt;10^{19}\ \text{cm}^{-3}\)</span>) makes the Schottky barrier's depletion width so thin that carriers can <em>tunnel</em> straight through it regardless of the nominal barrier height — a heavily-doped contact behaves ohmically almost independent of which metal is used, which is why real integrated circuits use a heavily-doped implant under every metal contact.</p>
+<p>When a genuine rectifying Schottky barrier is used deliberately as a two-terminal device, the result is a <strong>Schottky diode</strong>. Current flow is dominated by <strong>thermionic emission</strong> — majority carriers in the semiconductor with enough thermal energy simply going <em>over</em> the barrier — rather than the minority-carrier diffusion mechanism of Chapter 15's p-n junction:</p>
+<div class="arithmatex">\[
+J = A^*T^2e^{-q\Phi_B/kT}\left(e^{V/V_T}-1\right) = J_0\left(e^{V/V_T}-1\right)
+\]</div>
+<p>where <span class="arithmatex">\(A^*\)</span> is the (material-dependent) effective Richardson constant. Because thermionic emission over a barrier is a much more efficient process than minority-carrier diffusion across a wide quasi-neutral region, Schottky diodes typically have a saturation current <span class="arithmatex">\(J_0\)</span> many orders of magnitude larger than an equivalent p-n diode's — which means a Schottky diode turns on at a much <em>lower</em> forward voltage (typically 0.2-0.3 V, versus 0.6-0.7 V for silicon p-n diodes). Schottky diodes are also purely majority-carrier devices: there is no minority carrier injection or storage to remove when switching off, making them dramatically faster than p-n diodes — the reason Schottky diodes are the standard choice in high-frequency rectification and as clamps in fast digital logic.</p>
+<pre class="mermaid"><code>flowchart TD
+    A["Metal work function Φ_M&lt;br/&gt;Semiconductor electron affinity χ, work function Φ_S"] --&gt; B{"Compare Φ_M to Φ_S&lt;br/&gt;(and doping type)"}
+    B --&gt;|"Barrier forms"| C["Rectifying Contact:&lt;br/&gt;Schottky Barrier"]
+    B --&gt;|"No barrier"| D["Ohmic Contact&lt;br/&gt;(or heavy doping + tunneling)"]
+    C --&gt; E["Schottky Diode&lt;br/&gt;thermionic emission current"]
+    E --&gt; F["Low turn-on voltage,&lt;br/&gt;fast switching,&lt;br/&gt;majority-carrier device"]</code></pre>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 2 — Schottky Diode vs. P-N Diode Saturation Current</p>
+<p>A Schottky diode has effective Richardson constant <span class="arithmatex">\(A^*=110\ \text{A/(cm}^2\text{K}^2)\)</span> and measured barrier height <span class="arithmatex">\(\Phi_B=0.8\ \text{V}\)</span> at 300 K. Find <span class="arithmatex">\(J_0\)</span>, and compare the forward current density at <span class="arithmatex">\(V=0.3\ \text{V}\)</span> to a p-n diode with <span class="arithmatex">\(J_0=1.34\times10^{-11}\ \text{A/cm}^2\)</span> (from Chapter 15).</p>
+<p><strong>Solution:</strong></p>
+<div class="arithmatex">\[
+J_0=A^*T^2e^{-\Phi_B/V_T}=(110)(300)^2e^{-0.8/0.0259}\approx3.81\times10^{-7}\ \text{A/cm}^2
+\]</div>
+<p>At <span class="arithmatex">\(V=0.3\ \text{V}\)</span>: <span class="arithmatex">\(J_{Schottky}=J_0(e^{0.3/0.0259}-1)\approx4.09\times10^{-2}\ \text{A/cm}^2\)</span>, while the p-n diode gives <span class="arithmatex">\(J_{pn}\approx1.44\times10^{-6}\ \text{A/cm}^2\)</span> — the Schottky diode carries roughly 30,000 times more current at the same modest forward voltage, exactly the "lower turn-on voltage" behavior that makes Schottky diodes useful as low-loss rectifiers.</p>
+</div>
+<h4 id="diagram-metal-semiconductor-contact-classifier">Diagram: Metal-Semiconductor Contact Classifier</h4>
+<iframe height="620px" scrolling="auto" src="../../sims/metal-semiconductor-contact-classifier/main.html" width="100%"></iframe>
+<div class="admonition tip">
+<p class="admonition-title">How to use this MicroSim</p>
+<p><strong>Instructions:</strong> Pick a metal, a doping type (n or p), and a doping level; the sim classifies the resulting contact as ohmic or rectifying and shows the band diagram.</p>
+<p><strong>Learning objective:</strong> Distinguish ohmic from rectifying metal-semiconductor contacts for a given metal and doping type.</p>
+<p><strong>What to observe:</strong> The same metal can form a rectifying contact on one doping type and an ohmic contact on the other — the classification flips depending on whether <span class="arithmatex">\(\Phi_M\)</span> is above or below <span class="arithmatex">\(\Phi_S\)</span>, and the rule itself flips between n-type and p-type.</p>
+</div>
+<p><a href="../../sims/metal-semiconductor-contact-classifier/">Full MicroSim documentation →</a></p>
+<div class="admonition question">
+<p class="admonition-title">Concept Check</p>
+<p>Aluminum (<span class="arithmatex">\(\Phi_M=4.1\ \text{V}\)</span>) is deposited on n-type silicon with <span class="arithmatex">\(\Phi_S=4.26\ \text{V}\)</span> (from Worked Example 1's doping level). Does this form an ohmic or rectifying contact?</p>
+</div>
+<details class="question">
+<summary>Concept Check — click to reveal answer</summary>
+<p>Ohmic. Since <span class="arithmatex">\(\Phi_M&lt;\Phi_S\)</span> on n-type material, no barrier forms — electrons instead accumulate at the semiconductor surface, giving a low-resistance contact. (This is a real, widely-used combination: aluminum forms a good ohmic contact to moderately-doped n-Si.)</p>
+</details>
+<hr />
+<h2 id="part-2-the-mos-capacitor">Part 2: The MOS Capacitor</h2>
+<h3 id="the-mos-capacitor-and-gate-oxide">The MOS Capacitor and Gate Oxide</h3>
+<h4 id="a-new-structure-no-current-only-electrostatics">A New Structure: No Current, Only Electrostatics</h4>
+<p>A <strong>MOS capacitor</strong> (Metal-Oxide-Semiconductor capacitor) stacks three layers: a conductive gate (historically a metal, today usually heavily-doped polysilicon), an insulating <strong>gate oxide</strong> (silicon dioxide, <span class="arithmatex">\(\text{SiO}_2\)</span>), and a semiconductor substrate. Because the oxide is an excellent insulator, essentially no DC current flows from gate to substrate — the gate voltage instead controls the electrostatic state of the <strong>semiconductor surface</strong> directly beneath the oxide, exactly the way a capacitor's plate voltage controls the charge stored on it.</p>
+<p>The oxide layer behaves as a simple parallel-plate capacitor, with <strong>oxide capacitance</strong> per unit area:</p>
+<div class="arithmatex">\[
+C_{ox} = \frac{\varepsilon_{ox}}{t_{ox}}
+\]</div>
+<p>where <span class="arithmatex">\(\varepsilon_{ox}\approx3.9\varepsilon_0\)</span> for <span class="arithmatex">\(\text{SiO}_2\)</span> and <span class="arithmatex">\(t_{ox}\)</span> is the oxide thickness — thinner oxides give larger <span class="arithmatex">\(C_{ox}\)</span>, which (as later sections show) makes the transistor more sensitive to gate voltage, a key driver of decades of transistor scaling.</p>
+<h3 id="flat-band-voltage-and-surface-potential">Flat-Band Voltage and Surface Potential</h3>
+<h4 id="the-reference-point-for-everything-that-follows">The Reference Point for Everything That Follows</h4>
+<p>Exactly as with the metal-semiconductor junction, the gate and semiconductor generally have different work functions, so even at zero applied gate voltage the semiconductor surface is not perfectly flat — the bands bend near the surface to accommodate the work-function difference. The <strong>flat-band voltage</strong> <span class="arithmatex">\(V_{FB}\)</span> is the <em>gate</em> voltage that must be applied to exactly cancel this built-in bending, leaving the semiconductor bands flat all the way to the surface:</p>
+<div class="arithmatex">\[
+V_{FB} = \Phi_M - \Phi_S
+\]</div>
+<p>(In real devices, <span class="arithmatex">\(V_{FB}\)</span> also includes a small correction for fixed charge trapped in the oxide, omitted here for the ideal MOS capacitor treated in this chapter.)</p>
+<p>Once a gate voltage other than <span class="arithmatex">\(V_{FB}\)</span> is applied, the semiconductor bands bend near the surface, exactly as in Chapter 14's depletion region — except here there is no opposing doped region, only the insulating oxide and the gate charge on the other side. The <strong>surface potential</strong> <span class="arithmatex">\(\psi_s\)</span> quantifies this bending: it is the difference between the intrinsic Fermi level deep in the bulk semiconductor and at the surface, in volts. By convention, <span class="arithmatex">\(\psi_s=0\)</span> at flat-band, and <span class="arithmatex">\(\psi_s\)</span> grows (for a p-type substrate) as gate voltage is swept positive.</p>
+<h4 id="diagram-mos-capacitor-band-bending-explorer">Diagram: MOS Capacitor Band Bending Explorer</h4>
+<iframe height="620px" scrolling="auto" src="../../sims/mos-capacitor-band-bending-explorer/main.html" width="100%"></iframe>
+<div class="admonition tip">
+<p class="admonition-title">How to use this MicroSim</p>
+<p><strong>Instructions:</strong> Adjust the gate voltage slider and watch the gate-oxide-semiconductor band diagram bend at the surface, with the flat-band condition marked.</p>
+<p><strong>Learning objective:</strong> Describe the MOS capacitor structure and explain how gate voltage produces band bending at the semiconductor surface.</p>
+<p><strong>What to observe:</strong> At <span class="arithmatex">\(V_G=V_{FB}\)</span>, the semiconductor bands are perfectly flat all the way to the oxide interface; moving away from <span class="arithmatex">\(V_{FB}\)</span> in either direction bends the bands up or down at the surface, exactly mirroring the depletion-region band bending from Chapter 14.</p>
+</div>
+<p><a href="../../sims/mos-capacitor-band-bending-explorer/">Full MicroSim documentation →</a></p>
+<h3 id="accumulation-depletion-and-inversion">Accumulation, Depletion, and Inversion</h3>
+<h4 id="four-regimes-of-the-semiconductor-surface">Four Regimes of the Semiconductor Surface</h4>
+<p>Sweeping gate voltage away from <span class="arithmatex">\(V_{FB}\)</span> moves a p-type semiconductor surface through a well-defined sequence of regimes, most easily described using the bulk potential <span class="arithmatex">\(\phi_F=(kT/q)\ln(N_A/n_i)\)</span> — the amount by which the bulk Fermi level sits below the intrinsic level:</p>
+<ul>
+<li><strong>Accumulation region</strong> (<span class="arithmatex">\(\psi_s&lt;0\)</span>, i.e., <span class="arithmatex">\(V_G&lt;V_{FB}\)</span>): a negative gate voltage attracts additional majority carriers (holes, for a p-type substrate) to the surface, <em>accumulating</em> them there — the surface becomes even more strongly p-type than the bulk.</li>
+<li><strong>Depletion mode</strong> (<span class="arithmatex">\(0&lt;\psi_s&lt;\phi_F\)</span>): a positive gate voltage repels majority carriers from the surface, exposing a region of fixed ionized acceptor charge — directly analogous to one side of a p-n junction's depletion region (Chapter 14), with depletion charge and width given by the same functional form:</li>
+</ul>
+<div class="arithmatex">\[
+Q_{dep}(\psi_s) = \sqrt{2\varepsilon_sqN_A\psi_s}, \qquad W_{dep}(\psi_s)=\sqrt{\frac{2\varepsilon_s\psi_s}{qN_A}}
+\]</div>
+<ul>
+<li><strong>Weak inversion</strong> (<span class="arithmatex">\(\phi_F&lt;\psi_s&lt;2\phi_F\)</span>): the surface potential is now large enough that the <em>minority</em> carrier (electron) concentration at the surface starts growing rapidly, though it remains below the bulk majority concentration — a transition regime responsible for subthreshold MOSFET conduction.</li>
+<li><strong>Strong inversion</strong> (<span class="arithmatex">\(\psi_s\geq2\phi_F\)</span>): once <span class="arithmatex">\(\psi_s\)</span> reaches <span class="arithmatex">\(2\phi_F\)</span>, the surface electron concentration equals the bulk hole concentration <span class="arithmatex">\(N_A\)</span> — the surface has effectively become n-type, forming a thin <strong>inversion layer</strong> of mobile electrons right at the oxide-semiconductor interface. This layer is the conducting channel of an n-channel MOSFET, and <span class="arithmatex">\(\psi_s=2\phi_F\)</span> is, by definition, the condition that sets the threshold voltage.</li>
+</ul>
+<pre class="mermaid"><code>flowchart LR
+    A["Accumulation&lt;br/&gt;ψs &lt; 0"] --&gt; B["Flat Band&lt;br/&gt;ψs = 0"]
+    B --&gt; C["Depletion&lt;br/&gt;0 &lt; ψs &lt; φF"]
+    C --&gt; D["Weak Inversion&lt;br/&gt;φF &lt; ψs &lt; 2φF"]
+    D --&gt; E["Strong Inversion&lt;br/&gt;ψs ≥ 2φF&lt;br/&gt;Inversion Layer forms"]</code></pre>
+<h4 id="diagram-mos-surface-regime-explorer">Diagram: MOS Surface Regime Explorer</h4>
+<p><iframe src="../../sims/mos-surface-regime-explorer/main.html" width="100%" height="660px" scrolling="auto"></iframe></p>
+<div class="admonition tip">
+<p class="admonition-title">How to use this MicroSim</p>
+<p><strong>Instructions:</strong> Sweep the gate voltage slider and watch the surface potential rise, with color-coded bands marking accumulation, depletion, weak inversion, and strong inversion.</p>
+<p><strong>Learning objective:</strong> Explain how gate voltage moves the semiconductor surface through flat-band, accumulation, depletion, weak inversion, and strong inversion.</p>
+<p><strong>What to observe:</strong> The transition from depletion to inversion is not instantaneous — weak inversion is a genuine intermediate regime spanning roughly <span class="arithmatex">\(\phi_F\)</span> to <span class="arithmatex">\(2\phi_F\)</span> in surface potential, well before the inversion layer becomes the dominant surface charge at strong inversion.</p>
+</div>
+<p><a href="../../sims/mos-surface-regime-explorer/">Full MicroSim documentation →</a></p>
+<div class="admonition question">
+<p class="admonition-title">Concept Check</p>
+<p>A p-type MOS capacitor has <span class="arithmatex">\(\phi_F=0.35\ \text{V}\)</span>. At <span class="arithmatex">\(\psi_s=0.5\ \text{V}\)</span>, which regime is the surface in?</p>
+</div>
+<details class="question">
+<summary>Concept Check — click to reveal answer</summary>
+<p>Weak inversion. Since <span class="arithmatex">\(\phi_F=0.35\ \text{V}&lt;\psi_s=0.5\ \text{V}&lt;2\phi_F=0.70\ \text{V}\)</span>, the surface potential falls in the weak inversion range — past depletion, but not yet at the strong-inversion threshold condition <span class="arithmatex">\(\psi_s=2\phi_F\)</span>.</p>
+</details>
+<h3 id="threshold-voltage-and-oxide-capacitance">Threshold Voltage and Oxide Capacitance</h3>
+<h4 id="the-gate-voltage-that-switches-on-the-channel">The Gate Voltage That Switches On the Channel</h4>
+<p>At the threshold condition <span class="arithmatex">\(\psi_s=2\phi_F\)</span>, the depletion region has grown to its maximum extent — once strong inversion sets in, the inversion layer itself screens the semiconductor from further depletion, so the depletion charge saturates at:</p>
+<div class="arithmatex">\[
+Q_{dep,max} = \sqrt{4\varepsilon_sqN_A\phi_F}
+\]</div>
+<p>The gate voltage needed to reach this condition must supply three things: the flat-band correction <span class="arithmatex">\(V_{FB}\)</span>, the surface potential itself <span class="arithmatex">\(2\phi_F\)</span>, and enough additional voltage across the oxide to support the maximum depletion charge, <span class="arithmatex">\(Q_{dep,max}/C_{ox}\)</span> (by the same <span class="arithmatex">\(Q=CV\)</span> logic as any capacitor). This gives the <strong>threshold voltage</strong>:</p>
+<div class="arithmatex">\[
+V_T = V_{FB} + 2\phi_F + \frac{Q_{dep,max}}{C_{ox}} = V_{FB}+2\phi_F+\frac{\sqrt{4\varepsilon_sqN_A\phi_F}}{C_{ox}}
+\]</div>
+<p>Every term is controllable by device design: <span class="arithmatex">\(V_{FB}\)</span> by gate material choice, <span class="arithmatex">\(\phi_F\)</span> by substrate doping, and <span class="arithmatex">\(Q_{dep,max}/C_{ox}\)</span> by both substrate doping and oxide thickness — which is why real fabrication processes tune all three deliberately (including, in practice, a dedicated shallow "threshold-adjustment" ion implant not captured in this ideal formula) to land <span class="arithmatex">\(V_T\)</span> at a specific target value, typically a few tenths of a volt in modern technology.</p>
+<h4 id="diagram-threshold-voltage-calculator">Diagram: Threshold Voltage Calculator</h4>
+<iframe height="640px" scrolling="auto" src="../../sims/threshold-voltage-calculator/main.html" width="100%"></iframe>
+<div class="admonition tip">
+<p class="admonition-title">How to use this MicroSim</p>
+<p><strong>Instructions:</strong> Adjust substrate doping, oxide thickness, and gate material; watch <span class="arithmatex">\(V_{FB}\)</span>, <span class="arithmatex">\(2\phi_F\)</span>, <span class="arithmatex">\(Q_{dep,max}/C_{ox}\)</span>, and the total <span class="arithmatex">\(V_T\)</span> update, stacked as a labeled bar.</p>
+<p><strong>Learning objective:</strong> Derive and apply the threshold voltage equation from flat-band voltage, bulk potential, and maximum depletion charge.</p>
+<p><strong>What to observe:</strong> Making the oxide thinner increases <span class="arithmatex">\(C_{ox}\)</span>, which shrinks the <span class="arithmatex">\(Q_{dep,max}/C_{ox}\)</span> term — thinner oxides make <span class="arithmatex">\(V_T\)</span> less sensitive to depletion charge, one of the key benefits of oxide scaling in transistor technology.</p>
+</div>
+<p><a href="../../sims/threshold-voltage-calculator/">Full MicroSim documentation →</a></p>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 3 — Threshold Voltage of a P-Substrate MOS Capacitor</p>
+<p>A MOS capacitor has an aluminum gate (<span class="arithmatex">\(\Phi_M=4.1\ \text{V}\)</span>), p-type substrate with <span class="arithmatex">\(N_A=1\times10^{16}\ \text{cm}^{-3}\)</span>, and oxide thickness <span class="arithmatex">\(t_{ox}=20\ \text{nm}\)</span>. Using <span class="arithmatex">\(\chi=4.05\ \text{V}\)</span>, <span class="arithmatex">\(N_V=1.04\times10^{19}\ \text{cm}^{-3}\)</span>, <span class="arithmatex">\(E_g=1.12\ \text{eV}\)</span>, find <span class="arithmatex">\(V_T\)</span>.</p>
+<p><strong>Solution:</strong> <span class="arithmatex">\(E_F-E_V=kT\ln(N_V/N_A)=0.0259\ln(1.04\times10^{19}/1\times10^{16})\approx0.180\ \text{eV}\)</span>, so <span class="arithmatex">\(\Phi_S=\chi+(E_g-(E_F-E_V))/q\approx4.05+0.940=4.990\ \text{V}\)</span>, giving <span class="arithmatex">\(V_{FB}=\Phi_M-\Phi_S\approx-0.890\ \text{V}\)</span>.</p>
+<p><span class="arithmatex">\(\phi_F=kT\ln(N_A/n_i)=0.0259\ln(1\times10^{16}/1.5\times10^{10})\approx0.347\ \text{V}\)</span>, so <span class="arithmatex">\(2\phi_F\approx0.695\ \text{V}\)</span>.</p>
+<p><span class="arithmatex">\(C_{ox}=\varepsilon_{ox}/t_{ox}=(3.9)(8.85\times10^{-14})/(2\times10^{-6})\approx1.73\times10^{-7}\ \text{F/cm}^2\)</span>. <span class="arithmatex">\(Q_{dep,max}=\sqrt{4\varepsilon_sqN_A\phi_F}\approx4.80\times10^{-8}\ \text{C/cm}^2\)</span>, so <span class="arithmatex">\(Q_{dep,max}/C_{ox}\approx0.278\ \text{V}\)</span>.</p>
+<div class="arithmatex">\[
+V_T \approx -0.890+0.695+0.278 \approx 0.083\ \text{V}
+\]</div>
+<p>This low value is realistic for an aluminum-gate process with this doping — historically, aluminum-gate NMOS processes often gave low or even marginal threshold voltages for exactly this reason, one of the practical motivations for the industry's shift to polysilicon gates and dedicated threshold-adjustment implants, which add an extra controlled charge term not included in this ideal formula.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Concept Check</p>
+<p>Two otherwise-identical MOS capacitors differ only in oxide thickness: one has <span class="arithmatex">\(t_{ox}=20\ \text{nm}\)</span>, the other <span class="arithmatex">\(t_{ox}=5\ \text{nm}\)</span>. Which has the smaller <span class="arithmatex">\(Q_{dep,max}/C_{ox}\)</span> term in its threshold voltage?</p>
+</div>
+<details class="question">
+<summary>Concept Check — click to reveal answer</summary>
+<p>The thinner-oxide capacitor (5 nm). Thinner oxide gives a larger <span class="arithmatex">\(C_{ox}=\varepsilon_{ox}/t_{ox}\)</span>, and since <span class="arithmatex">\(Q_{dep,max}\)</span> does not depend on oxide thickness at all, a larger <span class="arithmatex">\(C_{ox}\)</span> directly shrinks the ratio <span class="arithmatex">\(Q_{dep,max}/C_{ox}\)</span>.</p>
+</details>
+<h2 id="summary">Summary</h2>
+<p>This chapter extended junction physics beyond the p-n junction in two directions. A <strong>metal-semiconductor junction</strong>'s behavior is set by comparing the metal's <strong>work function</strong> to the semiconductor's <strong>electron affinity</strong>-derived work function: a large enough mismatch (in the right direction for the doping type) produces a rectifying <strong>Schottky barrier</strong> with a computable <strong>barrier height</strong>, the basis of the fast, low-turn-on-voltage <strong>Schottky diode</strong>; the opposite alignment, or sufficiently heavy doping, produces a low-resistance <strong>ohmic contact</strong> instead of a <strong>rectifying contact</strong>. The <strong>MOS capacitor</strong> then layered an insulating <strong>gate oxide</strong> between a gate and a semiconductor, with <strong>oxide capacitance</strong> <span class="arithmatex">\(C_{ox}=\varepsilon_{ox}/t_{ox}\)</span> linking stored charge to voltage. Starting from the <strong>flat-band voltage</strong>, sweeping gate voltage moves the <strong>semiconductor surface</strong> through <strong>accumulation</strong>, <strong>depletion mode</strong>, <strong>weak inversion</strong>, and finally <strong>strong inversion</strong>, when the surface <strong>surface potential</strong> reaches <span class="arithmatex">\(2\phi_F\)</span> and an <strong>inversion layer</strong> of minority carriers forms — the condition defining the <strong>threshold voltage</strong> <span class="arithmatex">\(V_T\)</span> that switches a MOSFET on, the direct foundation for the device chapter ahead.</p>
+<h2 id="key-equations">Key Equations</h2>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Equation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Semiconductor work function</td>
+<td><span class="arithmatex">\(q\Phi_S = q\chi + (E_C-E_F)\)</span></td>
+</tr>
+<tr>
+<td>Schottky barrier height (n-type)</td>
+<td><span class="arithmatex">\(q\Phi_B = q(\Phi_M-\chi)\)</span></td>
+</tr>
+<tr>
+<td>Schottky built-in potential</td>
+<td><span class="arithmatex">\(qV_{bi} = q(\Phi_M-\Phi_S)\)</span></td>
+</tr>
+<tr>
+<td>Schottky diode current</td>
+<td><span class="arithmatex">\(J = A^*T^2e^{-q\Phi_B/kT}\left(e^{V/V_T}-1\right)\)</span></td>
+</tr>
+<tr>
+<td>Oxide capacitance</td>
+<td><span class="arithmatex">\(C_{ox} = \varepsilon_{ox}/t_{ox}\)</span></td>
+</tr>
+<tr>
+<td>Flat-band voltage</td>
+<td><span class="arithmatex">\(V_{FB} = \Phi_M-\Phi_S\)</span></td>
+</tr>
+<tr>
+<td>Maximum depletion charge (threshold)</td>
+<td><span class="arithmatex">\(Q_{dep,max} = \sqrt{4\varepsilon_sqN_A\phi_F}\)</span></td>
+</tr>
+<tr>
+<td>Threshold voltage</td>
+<td><span class="arithmatex">\(V_T = V_{FB}+2\phi_F+Q_{dep,max}/C_{ox}\)</span></td>
+</tr>
+</tbody>
+</table>
+<h2 id="glossary">Glossary</h2>
+<p>See the <a href="glossary/">Chapter 16 Glossary</a> for full definitions of every term introduced in this chapter.</p>
+<h2 id="further-reading">Further Reading</h2>
+<ul>
+<li>Sze and Ng, <em>Physics of Semiconductor Devices</em> — the standard reference on Schottky barriers and MOS capacitor electrostatics</li>
+<li>Neamen, <em>Semiconductor Physics and Devices</em> — clear derivation of threshold voltage from surface potential</li>
+<li>Schottky, "Halbleitertheorie der Sperrschicht," <em>Naturwissenschaften</em> (1938) — the original theoretical treatment of the metal-semiconductor barrier</li>
+<li>Pierret, <em>Field Effect Devices</em> — detailed treatment of MOS electrostatics and the accumulation/depletion/inversion sequence</li>
+</ul>
+<h2 id="worked-examples">Worked Examples</h2>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 4 — Ohmic vs. Rectifying on P-Type Silicon</p>
+<p>Aluminum (<span class="arithmatex">\(\Phi_M=4.1\ \text{V}\)</span>) is deposited on p-type silicon with <span class="arithmatex">\(N_A=1\times10^{16}\ \text{cm}^{-3}\)</span> (<span class="arithmatex">\(\Phi_S\approx4.99\ \text{V}\)</span>, from Worked Example 3). Classify the contact.</p>
+<p><strong>Solution:</strong> For p-type material, a rectifying contact forms when <span class="arithmatex">\(\Phi_M&lt;\Phi_S\)</span>. Here <span class="arithmatex">\(4.1&lt;4.99\)</span>, so this is a rectifying (Schottky) contact — the same aluminum that forms an ohmic contact on n-Si (Concept Check, Part 1) forms a rectifying contact on p-Si, since the classification rule itself flips with doping type.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 5 — Depletion Charge and Width Before Threshold</p>
+<p>For the MOS capacitor of Worked Example 3 (<span class="arithmatex">\(N_A=1\times10^{16}\ \text{cm}^{-3}\)</span>), find the depletion charge and depletion width at <span class="arithmatex">\(\psi_s=0.4\ \text{V}\)</span> (in the weak-inversion range, since <span class="arithmatex">\(\phi_F=0.347\ \text{V}&lt;0.4&lt;2\phi_F=0.695\ \text{V}\)</span>).</p>
+<p><strong>Solution:</strong></p>
+<div class="arithmatex">\[
+Q_{dep}=\sqrt{2\varepsilon_sqN_A\psi_s}=\sqrt{2(1.035\times10^{-12})(1.6\times10^{-19})(1\times10^{16})(0.4)}\approx3.63\times10^{-8}\ \text{C/cm}^2
+\]</div>
+<div class="arithmatex">\[
+W_{dep}=\frac{Q_{dep}}{qN_A}=\frac{3.63\times10^{-8}}{(1.6\times10^{-19})(1\times10^{16})}\approx2.27\times10^{-5}\ \text{cm}=227\ \text{nm}
+\]</div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 6 — Threshold Voltage with a Thinner Oxide</p>
+<p>Repeat Worked Example 3's threshold voltage calculation, but with <span class="arithmatex">\(t_{ox}=8\ \text{nm}\)</span> instead of 20 nm (all other parameters unchanged).</p>
+<p><strong>Solution:</strong> <span class="arithmatex">\(V_{FB}\)</span> and <span class="arithmatex">\(2\phi_F\)</span> are unchanged (<span class="arithmatex">\(-0.890\ \text{V}\)</span> and <span class="arithmatex">\(0.695\ \text{V}\)</span>), since neither depends on oxide thickness. Only <span class="arithmatex">\(C_{ox}\)</span> changes: <span class="arithmatex">\(C_{ox}=(3.9)(8.85\times10^{-14})/(8\times10^{-7})\approx4.32\times10^{-7}\ \text{F/cm}^2\)</span>, giving <span class="arithmatex">\(Q_{dep,max}/C_{ox}\approx(4.80\times10^{-8})/(4.32\times10^{-7})\approx0.111\ \text{V}\)</span>.</p>
+<div class="arithmatex">\[
+V_T\approx-0.890+0.695+0.111\approx-0.084\ \text{V}
+\]</div>
+<p>The thinner oxide pulled <span class="arithmatex">\(V_T\)</span> even lower (now slightly negative) — reinforcing why real processes cannot rely on oxide thickness and doping alone and require a dedicated threshold-adjustment implant to reach a usable, positive <span class="arithmatex">\(V_T\)</span>.</p>
+</div>
+<h2 id="interactive-chapter-walkthrough">Interactive Chapter Walkthrough</h2>
+<p>Use the MicroSim below as a capstone review: a guided, step-through tour of this entire chapter's storyline in order — from work function and electron affinity, through barrier height, Schottky barriers, ohmic and rectifying contacts, and the Schottky diode, into the MOS capacitor, flat-band voltage, the accumulation/depletion/inversion sequence, and finally threshold voltage.</p>
+<h4 id="diagram-metal-semiconductor-and-mos-junctions-interactive-walkthrough">Diagram: Metal-Semiconductor and MOS Junctions Interactive Walkthrough</h4>
+<iframe height="670px" scrolling="auto" src="../../sims/metal-semiconductor-mos-interactive-walkthrough/main.html" width="100%"></iframe>
+<div class="admonition tip">
+<p class="admonition-title">How to use this MicroSim</p>
+<p><strong>Instructions:</strong> Click "Next ▶" through all steps in order, then use the step dots to jump back to any concept before the chapter quiz.</p>
+<p><strong>Learning objective:</strong> Recall and summarize the full chain of concepts connecting work function to MOSFET threshold voltage.</p>
+<p><strong>What to observe:</strong> Each step's small illustration mirrors a MicroSim used earlier in the chapter, tying the whole two-part narrative together in one place.</p>
+</div>
+<p><a href="../../sims/metal-semiconductor-mos-interactive-walkthrough/">Full MicroSim documentation →</a></p>
+</div>
 
 
 
 
 
 
+
+  
+  
 
 
 
@@ -7063,13 +8161,13 @@
         
         
           
-          <a href="../17-optical-thermal-properties/" class="md-footer__link md-footer__link--next" aria-label="Next: 17. Optical and Thermal Properties of Semiconductors">
+          <a href="quiz/" class="md-footer__link md-footer__link--next" aria-label="Next: Quiz">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                17. Optical and Thermal Properties of Semiconductors
+                Quiz
               </div>
             </div>
             <div class="md-footer__button md-icon">

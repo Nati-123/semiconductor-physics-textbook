@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="An interactive university-level semiconductor physics textbook with AI explanations, quizzes, simulations, and practice problems.">
+        <meta name="description" content="Excess carriers, optical and thermal generation, direct, indirect, trap-assisted (SRH), and Auger recombination, minority carrier lifetime, low- and high-level injection, the continuity equation, diffusion length, steady-state carrier profiles, and quasi-Fermi levels">
       
       
         <meta name="author" content="Natol Dinka">
@@ -18,7 +18,7 @@
         <link rel="prev" href="../12-diffusion-transport-phenomena/glossary/">
       
       
-        <link rel="next" href="../14-pn-junction-equilibrium/">
+        <link rel="next" href="quiz/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>13. Non-Equilibrium Carriers and Recombination - Semiconductor Physics</title>
+        <title>Non-Equilibrium Carriers and Recombination - Semiconductor Physics</title>
       
     
     
@@ -84,7 +84,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#non-equilibrium-carriers-and-recombination" class="md-skip">
+        <a href="#chapter-13-non-equilibrium-carriers-and-recombination" class="md-skip">
           Skip to content
         </a>
       
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              13. Non-Equilibrium Carriers and Recombination
+              Non-Equilibrium Carriers and Recombination
             
           </span>
         </div>
@@ -2822,6 +2822,63 @@
   
   
   
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_14" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6_14" id="__nav_6_14_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Non-Equilibrium Carriers and Recombination
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_14_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6_14">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    13. Non-Equilibrium Carriers and Recombination
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
     <li class="md-nav__item md-nav__item--active">
       
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
@@ -2837,7 +2894,7 @@
   <span class="md-ellipsis">
     
   
-    13. Non-Equilibrium Carriers and Recombination
+    Content
   
 
     
@@ -2855,7 +2912,7 @@
   <span class="md-ellipsis">
     
   
-    13. Non-Equilibrium Carriers and Recombination
+    Content
   
 
     
@@ -2881,10 +2938,21 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
+  <a href="#learning-objectives" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Summary
+        Learning Objectives
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
       
     </span>
   </a>
@@ -2913,9 +2981,431 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#excess-carriers-and-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Excess Carriers and Generation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Excess Carriers and Generation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#departing-from-equilibrium" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Departing from Equilibrium
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recombination-mechanisms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recombination Mechanisms
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Recombination Mechanisms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#direct-and-indirect-recombination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Direct and Indirect Recombination
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trap-assisted-and-shockley-read-hall-recombination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trap-Assisted and Shockley-Read-Hall Recombination
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auger-recombination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auger Recombination
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Auger Recombination">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-recombination-mechanism-comparison-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Recombination Mechanism Comparison Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#minority-carrier-lifetime-and-recombination-rate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Minority Carrier Lifetime and Recombination Rate
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Minority Carrier Lifetime and Recombination Rate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#characterizing-how-fast-equilibrium-is-restored" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Characterizing How Fast Equilibrium Is Restored
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Characterizing How Fast Equilibrium Is Restored">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-excess-carrier-generation-and-recombination-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Excess Carrier Generation and Recombination Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#low-level-and-high-level-injection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Low-Level and High-Level Injection
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Low-Level and High-Level Injection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#classifying-the-size-of-the-disturbance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classifying the Size of the Disturbance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Classifying the Size of the Disturbance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-injection-level-classifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Injection Level Classifier
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-continuity-equation-diffusion-length-and-steady-state-carrier-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Continuity Equation, Diffusion Length, and Steady-State Carrier Profile
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Continuity Equation, Diffusion Length, and Steady-State Carrier Profile">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tracking-excess-carriers-in-space-and-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tracking Excess Carriers in Space and Time
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tracking Excess Carriers in Space and Time">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-continuity-equation-and-diffusion-length-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Continuity Equation and Diffusion Length Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quasi-fermi-levels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quasi-Fermi Levels
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quasi-Fermi Levels">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#describing-carrier-statistics-away-from-equilibrium" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Describing Carrier Statistics Away from Equilibrium
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Describing Carrier Statistics Away from Equilibrium">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-quasi-fermi-level-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Quasi-Fermi Level Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-equations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Equations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Glossary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Further Reading
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked Examples
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="problems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Problems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
       
     </li>
   
@@ -5491,6 +5981,208 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_14" id="__nav_7_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 13
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_14">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 13
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/excess-carrier-generation-recombination-explorer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Excess Carrier Generation and Recombination Explorer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/recombination-mechanism-comparison-explorer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recombination Mechanism Comparison Explorer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/injection-level-classifier/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Injection Level Classifier
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/continuity-equation-diffusion-length-explorer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Continuity Equation and Diffusion Length Explorer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/quasi-fermi-level-explorer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quasi-Fermi Level Explorer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -5889,9 +6581,40 @@
   
 
 
-<h1 id="non-equilibrium-carriers-and-recombination">Non-Equilibrium Carriers and Recombination</h1>
-<h2 id="summary">Summary</h2>
-<p>This chapter moves beyond thermal equilibrium to describe excess carriers created by optical or thermal generation, and the recombination mechanisms — direct, indirect, trap-assisted (Shockley-Read-Hall), and Auger — that return a semiconductor to equilibrium. Students learn minority carrier lifetime, low- and high-level injection, and the continuity equation, arriving at the quasi-Fermi levels and steady-state carrier profiles used to analyze biased devices.</p>
+<h1 id="chapter-13-non-equilibrium-carriers-and-recombination">Chapter 13: Non-Equilibrium Carriers and Recombination</h1>
+<div class="unit1-styled">
+<details class="video-overview">
+<summary><strong>Chapter Overview</strong> (click to expand)</summary>
+<p>Every chapter so far has described semiconductors at, or drifting/diffusing gently around, thermal equilibrium. This chapter breaks that assumption deliberately. Shining light on a semiconductor, or forward-biasing a p-n junction (Chapter 15), pushes carrier concentrations away from their equilibrium values, creating <strong>excess carriers</strong>. These excess carriers do not persist — <strong>carrier recombination</strong>, through several distinct physical mechanisms, works to restore equilibrium, and the <em>rate</em> at which it does so, set by the <strong>minority carrier lifetime</strong>, turns out to be one of the single most important numbers characterizing a real semiconductor sample or device. This chapter builds the full framework: how excess carriers are created (<strong>carrier generation</strong>, optical or thermal), how they disappear (<strong>direct</strong>, <strong>indirect</strong>, <strong>trap-assisted (Shockley-Read-Hall)</strong>, and <strong>Auger recombination</strong>), how to classify the disturbance (<strong>low-level</strong> vs. <strong>high-level injection</strong>), how to track excess carriers in space and time (the <strong>continuity equation</strong>, <strong>diffusion length</strong>, <strong>steady-state carrier profile</strong>), and how to describe carrier statistics once equilibrium no longer applies (<strong>quasi-Fermi levels</strong>). Every device chapter from here forward — the p-n junction, the transistor, the solar cell — is fundamentally a story about non-equilibrium carriers finding their way back to equilibrium.</p>
+<p><strong>Key Takeaways:</strong></p>
+<ol>
+<li><strong>Excess carriers</strong>, <span class="arithmatex">\(\Delta n\)</span> and <span class="arithmatex">\(\Delta p\)</span>, are carrier concentrations above their equilibrium values, created by <strong>carrier generation</strong> — either <strong>optical generation</strong> (photon absorption) or <strong>thermal generation</strong> (background thermal fluctuations).</li>
+<li><strong>Carrier recombination</strong> returns excess carriers to equilibrium through several mechanisms: <strong>direct recombination</strong> (efficient in direct-gap materials), <strong>indirect recombination</strong> (requiring a momentum-conserving assist in indirect-gap materials), <strong>trap-assisted recombination</strong> via defect levels, formalized as <strong>Shockley-Read-Hall (SRH) recombination</strong>, and <strong>Auger recombination</strong>, which scales as <span class="arithmatex">\(\Delta n^3\)</span> and only matters at very high injection.</li>
+<li>The <strong>minority carrier lifetime</strong> <span class="arithmatex">\(\tau\)</span> sets the exponential decay timescale of excess carriers, and the <strong>recombination rate</strong> at any instant is simply <span class="arithmatex">\(R=\Delta n/\tau\)</span> for a single dominant mechanism.</li>
+<li><strong>Low-level injection</strong> (<span class="arithmatex">\(\Delta n\ll N\)</span>) leaves the majority carrier concentration essentially unperturbed; <strong>high-level injection</strong> (<span class="arithmatex">\(\Delta n\)</span> comparable to or exceeding <span class="arithmatex">\(N\)</span>) perturbs both carrier populations significantly — both are forms of <strong>carrier injection</strong>.</li>
+<li>The <strong>continuity equation</strong> governs how excess carrier concentration evolves in space and time; its steady-state solution for carriers diffusing from an injection point is a decaying exponential characterized by the <strong>diffusion length</strong> <span class="arithmatex">\(L=\sqrt{D\tau}\)</span>, producing the <strong>steady-state carrier profile</strong> used throughout the device chapters ahead.</li>
+<li>Under non-equilibrium conditions, a single Fermi level can no longer describe both carrier populations; instead, separate <strong>quasi-Fermi levels</strong> <span class="arithmatex">\(E_{Fn}\)</span> and <span class="arithmatex">\(E_{Fp}\)</span> describe electron and hole occupation statistics independently, splitting apart by an amount that grows with injection level.</li>
+</ol>
+</details>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<p>By the end of this chapter, you will be able to:</p>
+<ul>
+<li>Define excess carriers and distinguish optical from thermal generation</li>
+<li>Compare direct, indirect, trap-assisted (SRH), and Auger recombination mechanisms and identify which dominates in a given material and injection regime</li>
+<li>Compute recombination rate from excess carrier concentration and minority carrier lifetime</li>
+<li>Classify a given injection scenario as low-level or high-level</li>
+<li>State and apply the continuity equation's steady-state solution to compute a diffusion length and carrier profile</li>
+<li>Compute quasi-Fermi level splitting under carrier injection</li>
+<li>Solve worked and practice problems combining these ideas, in preparation for the p-n junction chapters ahead</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">How to read this chapter</p>
+<p>This is the longest concept list of any chapter so far (19 concepts), but the ideas build in a single, linear chain: carriers are created (generation) → carriers disappear (recombination, several mechanisms) → the rate of disappearance is characterized (lifetime, recombination rate) → the disturbance is classified (injection level) → the disturbance is tracked in space (continuity equation, diffusion length, steady-state profile) → and finally, the disturbed carrier statistics are described (quasi-Fermi levels). Read it in order; each section leans on the one before it.</p>
+</div>
+<h2 id="introduction">Introduction</h2>
+<p>Every previous chapter analyzed a semiconductor either exactly at thermal equilibrium (Chapters 9-10) or in a steady drift/diffusion state that still assumed equilibrium carrier statistics locally (Chapters 11-12). Real devices are rarely so calm. Shine light on a solar cell, forward-bias a diode, or simply let a semiconductor sit under room lighting, and carrier concentrations depart from their equilibrium values <span class="arithmatex">\(n_0\)</span> and <span class="arithmatex">\(p_0\)</span>. The departure, <span class="arithmatex">\(\Delta n = n - n_0\)</span> and <span class="arithmatex">\(\Delta p = p - p_0\)</span>, defines the <strong>excess carriers</strong> this chapter is about.</p>
+<p>Excess carriers are created by <strong>carrier generation</strong> — a photon with energy exceeding the band gap can be absorbed, promoting an electron across the gap (<strong>optical generation</strong>), or thermal fluctuations alone can occasionally do the same (<strong>thermal generation</strong>, already responsible for the equilibrium <span class="arithmatex">\(n_0\)</span>, <span class="arithmatex">\(p_0\)</span> computed in Chapters 9-10). Left alone, excess carriers do not persist indefinitely: <strong>carrier recombination</strong> removes them, restoring equilibrium. This chapter surveys the physical mechanisms behind recombination — <strong>direct</strong>, <strong>indirect</strong>, <strong>trap-assisted</strong>, and <strong>Auger</strong> — before introducing the single number that most compactly summarizes how fast a given sample recombines: the <strong>minority carrier lifetime</strong> <span class="arithmatex">\(\tau\)</span>.</p>
+<p>With generation, recombination, and lifetime established, this chapter classifies <em>how large</em> a disturbance is (<strong>low-level</strong> vs. <strong>high-level injection</strong>), introduces the <strong>continuity equation</strong> that tracks excess carriers in space and time, solves it for the common case of carriers injected at a boundary (yielding the <strong>diffusion length</strong> and an exponential <strong>steady-state carrier profile</strong>), and closes with <strong>quasi-Fermi levels</strong> — the proper way to describe carrier occupation statistics once a single equilibrium Fermi level no longer applies. Every concept here is a direct prerequisite for the p-n junction chapters (14-15) that follow.</p>
 <h2 id="concepts-covered">Concepts Covered</h2>
 <p>This chapter covers the following 19 concepts from the learning graph:</p>
 <ol>
@@ -5916,23 +6639,271 @@
 <li>Carrier Injection</li>
 </ol>
 <h2 id="prerequisites">Prerequisites</h2>
-<p>This chapter builds on concepts from:</p>
+<p>This chapter builds on <a href="../01-physics-math-foundations/">Chapter 1: Physics and Math Foundations</a>, <a href="../04-chemical-bonding-crystals/">Chapter 4: Chemical Bonding in Semiconductor Crystals</a>, <a href="../06-band-structure-fermi-level/">Chapter 6: Band Structure and the Fermi Level</a>, <a href="../09-carrier-concentration-statistics/">Chapter 9: Carrier Concentration Statistics</a>, <a href="../10-fermi-level-carrier-equations/">Chapter 10: Fermi Level Position and Carrier Equations</a>, and <a href="../12-diffusion-transport-phenomena/">Chapter 12: Diffusion and Advanced Transport Phenomena</a>.</p>
+<h2 id="excess-carriers-and-generation">Excess Carriers and Generation</h2>
+<h3 id="departing-from-equilibrium">Departing from Equilibrium</h3>
+<p>At thermal equilibrium, carrier concentrations <span class="arithmatex">\(n_0\)</span> and <span class="arithmatex">\(p_0\)</span> satisfy the mass action law and charge neutrality condition worked out in Chapters 9-10. <strong>Excess carriers</strong> are the <em>additional</em> concentration above these equilibrium values:</p>
+<div class="arithmatex">\[
+\Delta n = n - n_0, \qquad \Delta p = p - p_0
+\]</div>
+<p>Excess electrons and excess holes are always created in equal numbers (each generation event promotes one electron across the gap, leaving behind one hole), so <span class="arithmatex">\(\Delta n = \Delta p\)</span> whenever generation is the sole disturbance — a fact used repeatedly throughout this chapter.</p>
+<p><strong>Carrier generation</strong> creates these excess carriers. Two physical processes contribute:</p>
 <ul>
-<li><a href="../01-physics-math-foundations/">Chapter 1: Physics and Math Foundations</a></li>
-<li><a href="../04-chemical-bonding-crystals/">Chapter 4: Chemical Bonding in Semiconductor Crystals</a></li>
-<li><a href="../06-band-structure-fermi-level/">Chapter 6: Band Structure and the Fermi Level</a></li>
-<li><a href="../09-carrier-concentration-statistics/">Chapter 9: Carrier Concentration Statistics</a></li>
-<li><a href="../10-fermi-level-carrier-equations/">Chapter 10: Fermi Level Position and Carrier Equations</a></li>
-<li><a href="../12-diffusion-transport-phenomena/">Chapter 12: Diffusion and Advanced Transport Phenomena</a></li>
+<li><strong>Optical generation</strong>: a photon with energy <span class="arithmatex">\(h\nu \geq E_g\)</span> is absorbed, exciting an electron from the valence band to the conduction band and leaving a hole behind. This is the mechanism behind solar cells and photodetectors.</li>
+<li><strong>Thermal generation</strong>: random thermal energy alone occasionally promotes an electron across the gap, exactly the process already responsible for equilibrium <span class="arithmatex">\(n_0\)</span>, <span class="arithmatex">\(p_0\)</span> — but under illumination or bias, optical or electrical generation typically dwarfs the thermal contribution, driving concentrations well above equilibrium.</li>
 </ul>
-<hr />
-<p>TODO: Generate Chapter Content</p>
+<div class="admonition question">
+<p class="admonition-title">Concept Check</p>
+<p>If a beam of light generates electron-hole pairs uniformly through a sample, is the resulting excess electron concentration always equal to the excess hole concentration?</p>
+</div>
+<details class="question">
+<summary>Concept Check — click to reveal answer</summary>
+<p>Yes. Each absorbed photon creates exactly one electron-hole pair, so generation alone always produces <span class="arithmatex">\(\Delta n=\Delta p\)</span>, regardless of the sample's doping type or concentration.</p>
+</details>
+<h2 id="recombination-mechanisms">Recombination Mechanisms</h2>
+<h3 id="direct-and-indirect-recombination">Direct and Indirect Recombination</h3>
+<p><strong>Carrier recombination</strong> is the reverse process: an electron in the conduction band drops back into a hole in the valence band, releasing energy (as a photon, for radiative recombination, or as heat/lattice vibrations otherwise). The efficiency of this process depends critically on band structure, as introduced in Chapter 6.</p>
+<p><strong>Direct recombination</strong> occurs when the conduction band minimum and valence band maximum sit at the same crystal momentum <span class="arithmatex">\(k\)</span> (a direct-gap material like GaAs, Chapter 6). An electron can drop straight down in energy without needing a momentum change, making direct recombination fast and efficient — the basis of LEDs and laser diodes.</p>
+<p><strong>Indirect recombination</strong> occurs in indirect-gap materials like silicon, where the conduction band minimum and valence band maximum sit at <em>different</em> <span class="arithmatex">\(k\)</span> values. Recombination requires a simultaneous momentum-conserving event (typically a phonon, a lattice vibration quantum), making the process inherently much less probable — silicon is a famously poor light emitter for exactly this reason.</p>
+<h3 id="trap-assisted-and-shockley-read-hall-recombination">Trap-Assisted and Shockley-Read-Hall Recombination</h3>
+<p>Because band-to-band recombination is so inefficient in indirect-gap materials, another pathway usually dominates in practice: <strong>trap-assisted recombination</strong>, mediated by defect or impurity energy levels ("traps") located within the forbidden gap. A trap can capture an electron from the conduction band, then later capture a hole from the valence band, completing recombination in two smaller steps instead of one large direct jump.</p>
+<p>The quantitative theory of trap-assisted recombination is <strong>Shockley-Read-Hall (SRH) recombination</strong>, which shows that traps located near midgap are by far the most effective recombination centers (traps near the band edges tend to re-emit a captured carrier before capturing the opposite type, rather than completing recombination). SRH theory is the standard model for recombination in silicon devices, and its rate is well-approximated at low injection by the simple form used throughout this chapter, <span class="arithmatex">\(R_{SRH}\approx\Delta n/\tau_{SRH}\)</span>.</p>
+<h3 id="auger-recombination">Auger Recombination</h3>
+<p><strong>Auger recombination</strong> is a three-carrier process: an electron and hole recombine, but instead of releasing a photon or phonon, the released energy is transferred to a third carrier (another electron or hole), which is excited to a higher energy state and then relaxes by giving up that energy as heat. Because it requires three carriers to interact simultaneously, its rate scales as <span class="arithmatex">\(\Delta n^3\)</span> (compared to SRH's linear <span class="arithmatex">\(\Delta n\)</span> dependence), making Auger recombination negligible at low injection but dominant at very high injection — a key limiting factor in high-intensity solar cells and high-current laser diodes.</p>
+<h4 id="diagram-recombination-mechanism-comparison-explorer">Diagram: Recombination Mechanism Comparison Explorer</h4>
+<iframe height="660px" scrolling="auto" src="../../sims/recombination-mechanism-comparison-explorer/main.html" width="100%"></iframe>
+<div class="admonition tip">
+<p class="admonition-title">How to use this MicroSim</p>
+<p><strong>Instructions:</strong> Compare the three recombination-rate bars as you raise Δn, then switch material from silicon to GaAs.</p>
+<p><strong>Learning objective:</strong> Compare SRH, Auger, and direct recombination rates across injection levels and materials, and justify why direct recombination matters far more in direct-gap materials.</p>
+<p><strong>What to observe:</strong> SRH dominates across most of the silicon range; Auger only overtakes it at the highest injection levels; switching to GaAs makes direct recombination jump by many orders of magnitude.</p>
+</div>
+<p><a href="../../sims/recombination-mechanism-comparison-explorer/">Full MicroSim documentation →</a></p>
+<pre class="mermaid"><code>flowchart TD
+    A["Carrier Generation&lt;br/&gt;(optical or thermal)"] --&gt; B["Excess Carriers&lt;br/&gt;Δn, Δp"]
+    B --&gt; C{"Recombination&lt;br/&gt;Mechanism"}
+    C --&gt; D["Direct&lt;br/&gt;(efficient, direct-gap only)"]
+    C --&gt; E["Indirect&lt;br/&gt;(needs phonon assist)"]
+    C --&gt; F["Trap-Assisted / SRH&lt;br/&gt;(dominant in Si at low-moderate injection)"]
+    C --&gt; G["Auger&lt;br/&gt;(∝Δn³, dominant at high injection)"]
+    D --&gt; H["Equilibrium restored"]
+    E --&gt; H
+    F --&gt; H
+    G --&gt; H</code></pre>
+<h2 id="minority-carrier-lifetime-and-recombination-rate">Minority Carrier Lifetime and Recombination Rate</h2>
+<h3 id="characterizing-how-fast-equilibrium-is-restored">Characterizing How Fast Equilibrium Is Restored</h3>
+<p>For a single dominant recombination mechanism at low-to-moderate injection, the excess carrier concentration decays exponentially once generation stops, with time constant <span class="arithmatex">\(\tau\)</span>, the <strong>minority carrier lifetime</strong>:</p>
+<div class="arithmatex">\[
+\Delta n(t) = \Delta n(0)\,e^{-t/\tau}
+\]</div>
+<p>The instantaneous <strong>recombination rate</strong> — the number of carriers recombining per unit volume per unit time — is directly proportional to the excess concentration present:</p>
+<div class="arithmatex">\[
+R = \frac{\Delta n}{\tau}
+\]</div>
+<p>This single equation is deceptively powerful: at steady state (constant generation rate <span class="arithmatex">\(G\)</span>), generation and recombination balance, <span class="arithmatex">\(G=R=\Delta n_{ss}/\tau\)</span>, immediately giving the steady-state excess concentration <span class="arithmatex">\(\Delta n_{ss}=G\tau\)</span> — the relationship that governs, for example, the photoconductivity of an illuminated semiconductor.</p>
+<h4 id="diagram-excess-carrier-generation-and-recombination-explorer">Diagram: Excess Carrier Generation and Recombination Explorer</h4>
+<iframe height="690px" scrolling="auto" src="../../sims/excess-carrier-generation-recombination-explorer/main.html" width="100%"></iframe>
+<div class="admonition tip">
+<p class="admonition-title">How to use this MicroSim</p>
+<p><strong>Instructions:</strong> Scrub the time marker across both the rise (generation) and decay (recombination) phases, then vary τ.</p>
+<p><strong>Learning objective:</strong> Explain how excess carriers rise under generation and decay under recombination, and compute recombination rate from excess concentration and minority carrier lifetime.</p>
+<p><strong>What to observe:</strong> A longer lifetime τ makes both phases slower and more gradual, since τ sets the natural timescale for both buildup and decay.</p>
+</div>
+<p><a href="../../sims/excess-carrier-generation-recombination-explorer/">Full MicroSim documentation →</a></p>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 1 — Steady-State Excess Concentration</p>
+<p>A silicon sample is illuminated with a generation rate <span class="arithmatex">\(G=1\times10^{20}\ \text{cm}^{-3}\text{s}^{-1}\)</span> and has minority carrier lifetime <span class="arithmatex">\(\tau=2\ \mu\text{s}\)</span>. Find the steady-state excess carrier concentration.</p>
+<p><strong>Solution:</strong></p>
+<div class="arithmatex">\[
+\Delta n_{ss} = G\tau = (1\times10^{20})(2\times10^{-6}) = 2\times10^{14}\ \text{cm}^{-3}
+\]</div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 2 — Decay After Generation Stops</p>
+<p>Using the steady-state value from Worked Example 1 (<span class="arithmatex">\(\Delta n_{ss}=2\times10^{14}\ \text{cm}^{-3}\)</span>, <span class="arithmatex">\(\tau=2\ \mu\text{s}\)</span>), find the excess concentration <span class="arithmatex">\(3\ \mu\text{s}\)</span> after the light is switched off.</p>
+<p><strong>Solution:</strong></p>
+<div class="arithmatex">\[
+\Delta n(3\ \mu\text{s}) = \Delta n_{ss}\,e^{-t/\tau} = (2\times10^{14})e^{-3/2} \approx 4.46\times10^{13}\ \text{cm}^{-3}
+\]</div>
+</div>
+<h2 id="low-level-and-high-level-injection">Low-Level and High-Level Injection</h2>
+<h3 id="classifying-the-size-of-the-disturbance">Classifying the Size of the Disturbance</h3>
+<p>Not every disturbance is the same size relative to the sample's doping. <strong>Carrier injection</strong> is the general term for adding excess carriers to a semiconductor (by light, by an applied bias, or otherwise); the two regimes commonly distinguished are:</p>
+<ul>
+<li><strong>Low-level injection</strong>: <span class="arithmatex">\(\Delta n \ll N\)</span> (excess carriers are small compared to the majority carrier/doping concentration). Here the majority carrier concentration is essentially unchanged, while the minority carrier population — starting from a much smaller base — is significantly perturbed. Nearly all of the simple device equations used in later chapters assume low-level injection.</li>
+<li><strong>High-level injection</strong>: <span class="arithmatex">\(\Delta n\)</span> comparable to or exceeding <span class="arithmatex">\(N\)</span>. Both carrier populations are now significantly perturbed, and the simplifying assumptions of low-level injection (like using <span class="arithmatex">\(\tau\)</span> as a fixed constant) can break down — high-level injection requires more careful treatment, relevant in heavily-illuminated solar cells or high-current devices.</li>
+</ul>
+<h4 id="diagram-injection-level-classifier">Diagram: Injection Level Classifier</h4>
+<iframe height="620px" scrolling="auto" src="../../sims/injection-level-classifier/main.html" width="100%"></iframe>
+<div class="admonition tip">
+<p class="admonition-title">How to use this MicroSim</p>
+<p><strong>Instructions:</strong> Raise Δn relative to a fixed doping level N and watch the classification flip.</p>
+<p><strong>Learning objective:</strong> Classify a given injection scenario as low-level or high-level, and explain which carrier population is perturbed in each regime.</p>
+<p><strong>What to observe:</strong> Raising doping N pushes the classification back toward low-level injection for the same Δn, since the ratio Δn/N shrinks.</p>
+</div>
+<p><a href="../../sims/injection-level-classifier/">Full MicroSim documentation →</a></p>
+<div class="admonition question">
+<p class="admonition-title">Concept Check</p>
+<p>A silicon sample doped at <span class="arithmatex">\(N_D=1\times10^{16}\ \text{cm}^{-3}\)</span> is illuminated, producing <span class="arithmatex">\(\Delta n=5\times10^{14}\ \text{cm}^{-3}\)</span>. Is this low-level or high-level injection?</p>
+</div>
+<details class="question">
+<summary>Concept Check — click to reveal answer</summary>
+<p>Low-level injection. The ratio <span class="arithmatex">\(\Delta n/N_D=5\times10^{14}/1\times10^{16}=0.05\)</span>, well below the roughly 0.1 (10%) threshold commonly used to distinguish the two regimes, so the majority electron concentration is essentially unperturbed.</p>
+</details>
+<h2 id="the-continuity-equation-diffusion-length-and-steady-state-carrier-profile">The Continuity Equation, Diffusion Length, and Steady-State Carrier Profile</h2>
+<h3 id="tracking-excess-carriers-in-space-and-time">Tracking Excess Carriers in Space and Time</h3>
+<p>The <strong>continuity equation</strong> is the master equation governing how excess carrier concentration evolves in space and time, combining everything from Chapters 12-13: diffusion (Fick's law), drift, generation, and recombination. For excess holes in one dimension:</p>
+<div class="arithmatex">\[
+\frac{\partial \Delta p}{\partial t} = D_p\frac{\partial^2 \Delta p}{\partial x^2} - \mu_p E\frac{\partial \Delta p}{\partial x} + G - \frac{\Delta p}{\tau_p}
+\]</div>
+<p>The first term on the right is diffusion spreading carriers out, the second is drift sweeping them along a field, and the last two are generation and recombination. This equation looks intimidating, but its most important special case is simple and used constantly: a long, field-free region with a constant supply of carriers injected at one boundary (<span class="arithmatex">\(x=0\)</span>), and no time dependence (steady state, <span class="arithmatex">\(\partial \Delta p/\partial t = 0\)</span>). With <span class="arithmatex">\(E=0\)</span> and <span class="arithmatex">\(G=0\)</span> away from the injection point, the continuity equation reduces to:</p>
+<div class="arithmatex">\[
+D_p\frac{d^2\Delta p}{dx^2} = \frac{\Delta p}{\tau_p}
+\]</div>
+<p>whose solution is a decaying exponential:</p>
+<div class="arithmatex">\[
+\Delta p(x) = \Delta p(0)\,e^{-x/L_p}, \qquad L_p = \sqrt{D_p\tau_p}
+\]</div>
+<p>This is the <strong>steady-state carrier profile</strong>, and <span class="arithmatex">\(L_p\)</span>, the <strong>diffusion length</strong>, is the characteristic distance a minority carrier diffuses, on average, before recombining. Diffusion length is one of the most-quoted numbers in device design: it sets, for example, how thick a solar cell's absorber layer needs to be to collect most photogenerated carriers before they recombine.</p>
+<h4 id="diagram-continuity-equation-and-diffusion-length-explorer">Diagram: Continuity Equation and Diffusion Length Explorer</h4>
+<iframe height="660px" scrolling="auto" src="../../sims/continuity-equation-diffusion-length-explorer/main.html" width="100%"></iframe>
+<div class="admonition tip">
+<p class="admonition-title">How to use this MicroSim</p>
+<p><strong>Instructions:</strong> Drag the position marker along the curve and vary Dp and τp to see how the diffusion length changes.</p>
+<p><strong>Learning objective:</strong> Apply the continuity equation's steady-state solution to compute a diffusion length and interpret the resulting carrier profile.</p>
+<p><strong>What to observe:</strong> The dashed Lp line always sits where the curve has fallen to about 37% (1/e) of its peak value, regardless of the specific Dp and τp chosen.</p>
+</div>
+<p><a href="../../sims/continuity-equation-diffusion-length-explorer/">Full MicroSim documentation →</a></p>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 3 — Computing Diffusion Length</p>
+<p>A hole has <span class="arithmatex">\(D_p=12\ \text{cm}^2/\text{s}\)</span> and <span class="arithmatex">\(\tau_p=4\ \mu\text{s}\)</span>. Find the diffusion length.</p>
+<p><strong>Solution:</strong></p>
+<div class="arithmatex">\[
+L_p = \sqrt{D_p\tau_p} = \sqrt{(12)(4\times10^{-6})} = \sqrt{4.8\times10^{-5}} \approx 6.93\times10^{-3}\ \text{cm} = 69.3\ \mu\text{m}
+\]</div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 4 — Carrier Profile at a Given Depth</p>
+<p>Using <span class="arithmatex">\(L_p=69.3\ \mu\text{m}\)</span> from Worked Example 3 and <span class="arithmatex">\(\Delta p(0)=1\times10^{15}\ \text{cm}^{-3}\)</span>, find <span class="arithmatex">\(\Delta p\)</span> at <span class="arithmatex">\(x=100\ \mu\text{m}\)</span>.</p>
+<p><strong>Solution:</strong></p>
+<div class="arithmatex">\[
+\Delta p(100\ \mu\text{m}) = (1\times10^{15})e^{-100/69.3} \approx (1\times10^{15})(0.236) \approx 2.36\times10^{14}\ \text{cm}^{-3}
+\]</div>
+</div>
+<h2 id="quasi-fermi-levels">Quasi-Fermi Levels</h2>
+<h3 id="describing-carrier-statistics-away-from-equilibrium">Describing Carrier Statistics Away from Equilibrium</h3>
+<p>Every occupation-statistics formula in Chapters 9-10 relies on a single Fermi level <span class="arithmatex">\(E_F\)</span> describing both electrons and holes simultaneously — a fact that is only true at thermal equilibrium. Under carrier injection, electrons and holes are no longer in mutual equilibrium with each other (though each carrier type individually is usually still well-described by Fermi-Dirac-like statistics, just referenced to a different level). The fix is to introduce two separate <strong>quasi-Fermi levels</strong>, <span class="arithmatex">\(E_{Fn}\)</span> for electrons and <span class="arithmatex">\(E_{Fp}\)</span> for holes:</p>
+<div class="arithmatex">\[
+n = n_i\,e^{(E_{Fn}-E_i)/k_BT}, \qquad p = n_i\,e^{(E_i-E_{Fp})/k_BT}
+\]</div>
+<p>At equilibrium (<span class="arithmatex">\(\Delta n=0\)</span>), both reduce to the same single <span class="arithmatex">\(E_F\)</span>. As injection increases, <span class="arithmatex">\(E_{Fn}\)</span> rises toward the conduction band and <span class="arithmatex">\(E_{Fp}\)</span> drops toward the valence band, splitting apart — and the size of that split, <span class="arithmatex">\(E_{Fn}-E_{Fp}\)</span>, turns out to be exactly the quantity that sets the open-circuit voltage of an illuminated solar cell, previewing a direct application in the device chapters ahead.</p>
+<h4 id="diagram-quasi-fermi-level-explorer">Diagram: Quasi-Fermi Level Explorer</h4>
+<iframe height="660px" scrolling="auto" src="../../sims/quasi-fermi-level-explorer/main.html" width="100%"></iframe>
+<div class="admonition tip">
+<p class="admonition-title">How to use this MicroSim</p>
+<p><strong>Instructions:</strong> Start at Δn = 0 to confirm both quasi-Fermi levels coincide, then raise Δn and compare how much each level moves.</p>
+<p><strong>Learning objective:</strong> Interpret quasi-Fermi level splitting as a signature of non-equilibrium carrier injection, and justify why the minority carrier's quasi-Fermi level moves more than the majority carrier's.</p>
+<p><strong>What to observe:</strong> In n-type material, E_Fn barely moves (n is already large) while E_Fp swings dramatically toward midgap, since p is the minority carrier and is most strongly perturbed by injection.</p>
+</div>
+<p><a href="../../sims/quasi-fermi-level-explorer/">Full MicroSim documentation →</a></p>
+<div class="admonition question">
+<p class="admonition-title">Concept Check</p>
+<p>Why does a single equilibrium Fermi level fail to describe carrier concentrations once a semiconductor is illuminated?</p>
+</div>
+<details class="question">
+<summary>Concept Check — click to reveal answer</summary>
+<p>Because illumination pushes electron and hole concentrations away from their mutual equilibrium relationship (the mass action law <span class="arithmatex">\(np=n_i^2\)</span> no longer holds), so no single energy level can correctly reproduce both the electron and hole populations simultaneously — separate quasi-Fermi levels are needed instead.</p>
+</details>
+<h2 id="summary">Summary</h2>
+<p>This chapter moved beyond equilibrium to describe <strong>excess carriers</strong>, created by <strong>carrier generation</strong> (<strong>optical</strong> or <strong>thermal</strong>) and removed by <strong>carrier recombination</strong> through several mechanisms: <strong>direct recombination</strong> (efficient in direct-gap materials), <strong>indirect recombination</strong> (requiring a phonon assist in indirect-gap materials), <strong>trap-assisted</strong> / <strong>Shockley-Read-Hall recombination</strong> (dominant in silicon at low-to-moderate injection), and <strong>Auger recombination</strong> (scaling as <span class="arithmatex">\(\Delta n^3\)</span>, dominant only at very high injection). The <strong>minority carrier lifetime</strong> <span class="arithmatex">\(\tau\)</span> sets the exponential decay timescale, with <strong>recombination rate</strong> <span class="arithmatex">\(R=\Delta n/\tau\)</span>. Disturbances were classified as <strong>low-level</strong> or <strong>high-level injection</strong> depending on <span class="arithmatex">\(\Delta n\)</span> relative to doping, both instances of <strong>carrier injection</strong>. The <strong>continuity equation</strong> tracks excess carriers in space and time, with its steady-state solution giving an exponential <strong>steady-state carrier profile</strong> characterized by the <strong>diffusion length</strong> <span class="arithmatex">\(L=\sqrt{D\tau}\)</span>. Finally, <strong>quasi-Fermi levels</strong> <span class="arithmatex">\(E_{Fn}\)</span> and <span class="arithmatex">\(E_{Fp}\)</span> replaced the single equilibrium Fermi level, splitting apart under injection. Chapter 14 now applies all of these ideas directly to the p-n junction at equilibrium, where a built-in depletion region and its associated fields are shaped by exactly this drift-diffusion-recombination balance.</p>
+<h2 id="key-equations">Key Equations</h2>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Equation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Excess carriers</td>
+<td><span class="arithmatex">\(\Delta n = n - n_0\)</span>, <span class="arithmatex">\(\Delta p = p - p_0\)</span></td>
+</tr>
+<tr>
+<td>Recombination rate (single mechanism)</td>
+<td><span class="arithmatex">\(R = \Delta n/\tau\)</span></td>
+</tr>
+<tr>
+<td>Auger recombination rate</td>
+<td><span class="arithmatex">\(R_{Auger} = C\Delta n^3\)</span></td>
+</tr>
+<tr>
+<td>Steady-state excess concentration</td>
+<td><span class="arithmatex">\(\Delta n_{ss} = G\tau\)</span></td>
+</tr>
+<tr>
+<td>Excess carrier decay</td>
+<td><span class="arithmatex">\(\Delta n(t) = \Delta n(0)e^{-t/\tau}\)</span></td>
+</tr>
+<tr>
+<td>Diffusion length</td>
+<td><span class="arithmatex">\(L_p = \sqrt{D_p\tau_p}\)</span></td>
+</tr>
+<tr>
+<td>Steady-state carrier profile</td>
+<td><span class="arithmatex">\(\Delta p(x) = \Delta p(0)e^{-x/L_p}\)</span></td>
+</tr>
+<tr>
+<td>Quasi-Fermi levels</td>
+<td><span class="arithmatex">\(n=n_ie^{(E_{Fn}-E_i)/k_BT}\)</span>, <span class="arithmatex">\(p=n_ie^{(E_i-E_{Fp})/k_BT}\)</span></td>
+</tr>
+</tbody>
+</table>
+<h2 id="glossary">Glossary</h2>
+<p>See the <a href="glossary/">Chapter 13 Glossary</a> for full definitions of every term introduced in this chapter.</p>
+<h2 id="further-reading">Further Reading</h2>
+<ul>
+<li>Sze and Ng, <em>Physics of Semiconductor Devices</em> — the standard reference on recombination mechanisms and the continuity equation</li>
+<li>Neamen, <em>Semiconductor Physics and Devices</em> — clear derivation of quasi-Fermi levels and diffusion length</li>
+<li>Shockley and Read, "Statistics of the Recombinations of Holes and Electrons," <em>Physical Review</em> (1952) — the original SRH paper</li>
+<li>Pierret, <em>Semiconductor Device Fundamentals</em> — careful treatment of low- vs. high-level injection</li>
+</ul>
+<h2 id="worked-examples">Worked Examples</h2>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 5 — Comparing SRH and Auger at a Given Injection Level</p>
+<p>In silicon at <span class="arithmatex">\(\Delta n=1\times10^{17}\ \text{cm}^{-3}\)</span>, with <span class="arithmatex">\(\tau_{SRH}=1\ \mu\text{s}\)</span> and Auger coefficient <span class="arithmatex">\(C=2.8\times10^{-31}\ \text{cm}^6/\text{s}\)</span>, compare <span class="arithmatex">\(R_{SRH}\)</span> and <span class="arithmatex">\(R_{Auger}\)</span>.</p>
+<p><strong>Solution:</strong> <span class="arithmatex">\(R_{SRH}=\Delta n/\tau_{SRH}=(1\times10^{17})/(1\times10^{-6})=1\times10^{23}\ \text{cm}^{-3}\text{s}^{-1}\)</span>. <span class="arithmatex">\(R_{Auger}=C\Delta n^3=(2.8\times10^{-31})(1\times10^{17})^3=2.8\times10^{20}\ \text{cm}^{-3}\text{s}^{-1}\)</span>. SRH still dominates by roughly three orders of magnitude at this injection level.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 6 — Finding the Injection Level Where Auger Takes Over</p>
+<p>Using the same <span class="arithmatex">\(\tau_{SRH}\)</span> and <span class="arithmatex">\(C\)</span> as Worked Example 5, estimate the excess concentration at which <span class="arithmatex">\(R_{SRH}\approx R_{Auger}\)</span>.</p>
+<p><strong>Solution:</strong> Setting <span class="arithmatex">\(\Delta n/\tau_{SRH}=C\Delta n^3\)</span> gives <span class="arithmatex">\(\Delta n^2 = 1/(C\tau_{SRH}) = 1/[(2.8\times10^{-31})(1\times10^{-6})] \approx 3.57\times10^{36}\)</span>, so <span class="arithmatex">\(\Delta n\approx1.89\times10^{18}\ \text{cm}^{-3}\)</span> — Auger only overtakes SRH at very high injection, consistent with its cubic dependence.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 7 — Steady-State Profile Near the Injection Point</p>
+<p>Using <span class="arithmatex">\(\Delta p(0)=5\times10^{14}\ \text{cm}^{-3}\)</span> and <span class="arithmatex">\(L_p=50\ \mu\text{m}\)</span>, find <span class="arithmatex">\(\Delta p\)</span> at <span class="arithmatex">\(x=L_p\)</span> and at <span class="arithmatex">\(x=2L_p\)</span>.</p>
+<p><strong>Solution:</strong> At <span class="arithmatex">\(x=L_p\)</span>: <span class="arithmatex">\(\Delta p=\Delta p(0)e^{-1}\approx(5\times10^{14})(0.368)\approx1.84\times10^{14}\ \text{cm}^{-3}\)</span>. At <span class="arithmatex">\(x=2L_p\)</span>: <span class="arithmatex">\(\Delta p=\Delta p(0)e^{-2}\approx(5\times10^{14})(0.135)\approx6.77\times10^{13}\ \text{cm}^{-3}\)</span>.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 8 — Quasi-Fermi Level Splitting</p>
+<p>An n-type silicon sample (<span class="arithmatex">\(n_0=1\times10^{16}\ \text{cm}^{-3}\)</span>, <span class="arithmatex">\(n_i=1.5\times10^{10}\ \text{cm}^{-3}\)</span>, <span class="arithmatex">\(k_BT=0.0259\)</span> eV) is illuminated with <span class="arithmatex">\(\Delta n=1\times10^{15}\ \text{cm}^{-3}\)</span>. Find <span class="arithmatex">\(E_{Fn}-E_{Fp}\)</span>.</p>
+<p><strong>Solution:</strong> <span class="arithmatex">\(n=n_0+\Delta n=1.1\times10^{16}\)</span>, <span class="arithmatex">\(p_0=n_i^2/n_0=(1.5\times10^{10})^2/(1\times10^{16})=2.25\times10^4\)</span>, <span class="arithmatex">\(p=p_0+\Delta n\approx1\times10^{15}\)</span> (since <span class="arithmatex">\(\Delta n\gg p_0\)</span>). <span class="arithmatex">\(E_{Fn}-E_i=k_BT\ln(n/n_i)=(0.0259)\ln(1.1\times10^{16}/1.5\times10^{10})\approx(0.0259)(13.5)\approx0.350\)</span> eV. <span class="arithmatex">\(E_i-E_{Fp}=(0.0259)\ln(1\times10^{15}/1.5\times10^{10})\approx(0.0259)(11.1)\approx0.288\)</span> eV. Splitting: <span class="arithmatex">\(E_{Fn}-E_{Fp}\approx0.350+0.288=0.638\)</span> eV.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 9 — Low- vs. High-Level Injection Check</p>
+<p>A sample doped at <span class="arithmatex">\(N_A=5\times10^{15}\ \text{cm}^{-3}\)</span> is injected with <span class="arithmatex">\(\Delta n=8\times10^{15}\ \text{cm}^{-3}\)</span>. Classify the injection level.</p>
+<p><strong>Solution:</strong> <span class="arithmatex">\(\Delta n/N_A = 8\times10^{15}/5\times10^{15}=1.6\)</span>, far above the 0.1 threshold — this is high-level injection, since the excess concentration actually exceeds the doping concentration.</p>
+</div>
+</div>
 
 
 
 
 
 
+
+  
+  
 
 
 
@@ -5981,13 +6952,13 @@
         
         
           
-          <a href="../14-pn-junction-equilibrium/" class="md-footer__link md-footer__link--next" aria-label="Next: 14. The P-N Junction at Equilibrium">
+          <a href="quiz/" class="md-footer__link md-footer__link--next" aria-label="Next: Quiz">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                14. The P-N Junction at Equilibrium
+                Quiz
               </div>
             </div>
             <div class="md-footer__button md-icon">

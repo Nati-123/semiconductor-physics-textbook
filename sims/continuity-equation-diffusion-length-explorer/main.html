@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Continuity Equation &amp; Diffusion Length Explorer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="../semiconductor-materials-lib.js"></script>
+    <script src="continuity-equation-diffusion-length-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Drag the position marker along the curve and watch Δp(x) fall off exponentially as you move away from the injection point at x=0.</li>
+            <li><strong>Predict:</strong> Before increasing τp, predict whether the diffusion length Lp will grow or shrink.</li>
+            <li><strong>Observe:</strong> Increasing either Dp or τp stretches the curve outward and moves the dashed Lp line to the right, since \(L_p=\sqrt{D_p\tau_p}\).</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 13:</strong> The <strong>continuity equation</strong> governs how excess carrier concentration evolves in space and time under diffusion, drift, generation, and recombination. Its steady-state solution for carriers injected at one point and diffusing into a long field-free region is a decaying exponential, characterized by the <strong>diffusion length</strong> \(L_p=\sqrt{D_p\tau_p}\) — the average distance a minority carrier diffuses before recombining, and this exponential curve is exactly the <strong>steady-state carrier profile</strong> referenced throughout later device chapters.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>Dp (diffusion coefficient)</dt>
+            <dd>Sets how quickly holes spread by diffusion, stretching the profile and Lp.</dd>
+            <dt>τp (lifetime)</dt>
+            <dd>Sets how long holes survive before recombining, also stretching the profile and Lp.</dd>
+            <dt>Position marker</dt>
+            <dd>Reads off the excess hole concentration at a chosen distance from the injection point.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">1. What does the diffusion length Lp represent physically?</p>
+            <label><input type="radio" name="cedle-q1" value="a"> The total width of the semiconductor sample</label>
+            <label><input type="radio" name="cedle-q1" value="b"> The average distance a minority carrier diffuses before recombining</label>
+            <label><input type="radio" name="cedle-q1" value="c"> The doping concentration</label>
+            <label><input type="radio" name="cedle-q1" value="d"> The applied electric field strength</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Lp=√(Dpτp) is the characteristic length scale over which excess carriers diffuse before recombining, marking where the profile falls to 1/e of its peak.</p>
+            <p class="explain-incorrect" hidden>Look at where the dashed Lp line falls on the curve — what fraction of the peak value has the curve dropped to there?</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

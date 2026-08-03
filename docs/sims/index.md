@@ -157,4 +157,15 @@ Interactive educational simulations that accompany this textbook.
 | [Reverse Breakdown Mechanism Explorer](reverse-breakdown-mechanism-explorer/index.md) | L4-L5 Analyze/Evaluate | Log-log breakdown-voltage-vs-doping chart with schematic comparison of avalanche and Zener breakdown |
 | [P-N Junction Under Bias Interactive Walkthrough](pn-junction-under-bias-interactive-walkthrough/index.md) | L1-L2 Remember/Understand | An 8-step guided-tour capstone review retracing the chapter's full storyline from applied bias through the complete I-V characteristic |
 
+## Chapter 16: Metal-Semiconductor and MOS Junctions
+
+| MicroSim | Bloom Level | Description |
+|----------|-------------|-------------|
+| [Work Function and Barrier Height Explorer](work-function-barrier-height-explorer/index.md) | L3 Apply | Computes Schottky barrier height and built-in potential from a chosen metal and semiconductor doping, with a band diagram |
+| [Metal-Semiconductor Contact Classifier](metal-semiconductor-contact-classifier/index.md) | L4-L5 Analyze/Evaluate | Classifies a contact as ohmic or rectifying and compares a Schottky diode I-V curve to a p-n diode reference |
+| [MOS Capacitor Band Bending Explorer](mos-capacitor-band-bending-explorer/index.md) | L2 Understand | Shows a gate-oxide-semiconductor band diagram bending at the surface as a function of surface potential |
+| [MOS Surface Regime Explorer](mos-surface-regime-explorer/index.md) | L3-L4 Apply/Analyze | Plots surface electron concentration versus surface potential with color-coded accumulation, depletion, and inversion regimes |
+| [Threshold Voltage Calculator](threshold-voltage-calculator/index.md) | L3 Apply | Computes MOS threshold voltage with a labeled waterfall bar showing each term's contribution |
+| [Metal-Semiconductor and MOS Junctions Interactive Walkthrough](metal-semiconductor-mos-interactive-walkthrough/index.md) | L1-L2 Remember/Understand | A 10-step guided-tour capstone review retracing the chapter's full two-part storyline from work function through threshold voltage |
+
 </div>

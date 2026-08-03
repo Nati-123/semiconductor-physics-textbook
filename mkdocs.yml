@@ -155,7 +155,11 @@ nav:
           - Quiz: chapters/15-pn-junction-under-bias/quiz.md
           - Problems: chapters/15-pn-junction-under-bias/problems.md
           - Glossary: chapters/15-pn-junction-under-bias/glossary.md
-      - 16. Metal-Semiconductor and MOS Junctions: chapters/16-metal-semiconductor-mos-junctions/index.md
+      - 16. Metal-Semiconductor and MOS Junctions:
+          - Content: chapters/16-metal-semiconductor-mos-junctions/index.md
+          - Quiz: chapters/16-metal-semiconductor-mos-junctions/quiz.md
+          - Problems: chapters/16-metal-semiconductor-mos-junctions/problems.md
+          - Glossary: chapters/16-metal-semiconductor-mos-junctions/glossary.md
       - 17. Optical and Thermal Properties of Semiconductors: chapters/17-optical-thermal-properties/index.md
       - 18. Semiconductor Devices and Applications: chapters/18-semiconductor-devices-applications/index.md
   - MicroSims:
@@ -248,6 +252,13 @@ nav:
           - Ideal Diode I-V Curve Explorer: sims/ideal-diode-iv-curve-explorer/index.md
           - Reverse Breakdown Mechanism Explorer: sims/reverse-breakdown-mechanism-explorer/index.md
           - P-N Junction Under Bias Interactive Walkthrough: sims/pn-junction-under-bias-interactive-walkthrough/index.md
+      - Chapter 16:
+          - Work Function and Barrier Height Explorer: sims/work-function-barrier-height-explorer/index.md
+          - Metal-Semiconductor Contact Classifier: sims/metal-semiconductor-contact-classifier/index.md
+          - MOS Capacitor Band Bending Explorer: sims/mos-capacitor-band-bending-explorer/index.md
+          - MOS Surface Regime Explorer: sims/mos-surface-regime-explorer/index.md
+          - Threshold Voltage Calculator: sims/threshold-voltage-calculator/index.md
+          - Metal-Semiconductor and MOS Junctions Interactive Walkthrough: sims/metal-semiconductor-mos-interactive-walkthrough/index.md
   - Learning Graph:
       - Introduction: learning-graph/index.md
       - Course Description Assessment: learning-graph/course-description-assessment.md

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Threshold Voltage Calculator MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="../semiconductor-materials-lib.js"></script>
+    <script src="threshold-voltage-calculator.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Drag the oxide-thickness slider from 40 nm down to 2 nm and watch the Qdep/Cox bar shrink dramatically.</li>
+            <li><strong>Predict:</strong> Before switching gate material from Aluminum to p+ Polysilicon, predict whether VFB will become more positive or more negative.</li>
+            <li><strong>Observe:</strong> VFB can be negative, which is why the waterfall's first segment sometimes points downward before the remaining two (always positive) segments bring the total back up toward VT.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 16:</strong> The <strong>threshold voltage</strong> \(V_T=V_{FB}+2\phi_F+Q_{dep,max}/C_{ox}\) is the gate voltage at which strong inversion begins, combining the <strong>flat-band voltage</strong>, the bulk potential doubled, and the maximum depletion charge converted to a voltage via the <strong>oxide capacitance</strong>.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>Gate material</dt>
+            <dd>Sets the gate work function, which sets VFB.</dd>
+            <dt>NA</dt>
+            <dd>Substrate doping, affecting both φF and Qdep,max.</dd>
+            <dt>tox</dt>
+            <dd>Oxide thickness, setting Cox = εox/tox.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">1. Making the oxide thinner (increasing Cox) has what effect on the Qdep,max/Cox term?</p>
+            <label><input type="radio" name="tvc-q1" value="a"> It increases</label>
+            <label><input type="radio" name="tvc-q1" value="b"> It decreases</label>
+            <label><input type="radio" name="tvc-q1" value="c"> It stays exactly the same</label>
+            <label><input type="radio" name="tvc-q1" value="d"> It becomes negative</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Correct. Since Qdep,max does not depend on oxide thickness, a larger Cox (thinner oxide) directly shrinks the ratio Qdep,max/Cox.</p>
+            <p class="explain-incorrect" hidden>Recall that Cox appears in the denominator of this term — what happens to a fraction when its denominator grows?</p>
+        </div>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">2. Which term in the threshold voltage formula depends on the gate material?</p>
+            <label><input type="radio" name="tvc-q2" value="a"> 2φF only</label>
+            <label><input type="radio" name="tvc-q2" value="b"> Qdep,max/Cox only</label>
+            <label><input type="radio" name="tvc-q2" value="c"> VFB only</label>
+            <label><input type="radio" name="tvc-q2" value="d"> All three terms equally</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Correct. VFB = ΦM − ΦS is the only term containing the gate's work function ΦM; 2φF and Qdep,max/Cox depend only on substrate doping and oxide thickness.</p>
+            <p class="explain-incorrect" hidden>Look at which formula explicitly contains ΦM (the gate material's work function).</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

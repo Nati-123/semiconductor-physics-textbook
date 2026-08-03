@@ -2,7 +2,7 @@
 
 # Glossary of Terms
 
-This glossary currently covers the concepts introduced in [Chapter 1: Physics and Math Foundations](chapters/01-physics-math-foundations/index.md), [Chapter 2: Quantum Mechanics Foundations](chapters/02-quantum-mechanics-foundations/index.md), [Chapter 3: Crystal Lattices and Structures](chapters/03-crystal-lattices-structures/index.md), [Chapter 4: Chemical Bonding in Semiconductor Crystals](chapters/04-chemical-bonding-crystals/index.md), [Chapter 5: Quantum Mechanics of Periodic Crystals](chapters/05-quantum-mechanics-periodic-crystals/index.md), [Chapter 6: Band Structure and the Fermi Level](chapters/06-band-structure-fermi-level/index.md), [Chapter 7: Intrinsic and Extrinsic Semiconductors](chapters/07-intrinsic-extrinsic-semiconductors/index.md), [Chapter 8: Doping, Ionization, and Temperature Regimes](chapters/08-doping-ionization-temperature/index.md), [Chapter 9: Carrier Concentration Statistics](chapters/09-carrier-concentration-statistics/index.md), [Chapter 10: Fermi Level Position and Carrier Equations](chapters/10-fermi-level-carrier-equations/index.md), [Chapter 11: Drift Current and Carrier Mobility](chapters/11-drift-current-mobility/index.md), [Chapter 12: Diffusion and Advanced Transport Phenomena](chapters/12-diffusion-transport-phenomena/index.md), [Chapter 13: Non-Equilibrium Carriers and Recombination](chapters/13-non-equilibrium-carriers-recombination/index.md), [Chapter 14: The P-N Junction at Equilibrium](chapters/14-pn-junction-equilibrium/index.md), and [Chapter 15: The P-N Junction Under Bias](chapters/15-pn-junction-under-bias/index.md). Entries for later chapters will be added as those chapters are written.
+This glossary currently covers the concepts introduced in [Chapter 1: Physics and Math Foundations](chapters/01-physics-math-foundations/index.md), [Chapter 2: Quantum Mechanics Foundations](chapters/02-quantum-mechanics-foundations/index.md), [Chapter 3: Crystal Lattices and Structures](chapters/03-crystal-lattices-structures/index.md), [Chapter 4: Chemical Bonding in Semiconductor Crystals](chapters/04-chemical-bonding-crystals/index.md), [Chapter 5: Quantum Mechanics of Periodic Crystals](chapters/05-quantum-mechanics-periodic-crystals/index.md), [Chapter 6: Band Structure and the Fermi Level](chapters/06-band-structure-fermi-level/index.md), [Chapter 7: Intrinsic and Extrinsic Semiconductors](chapters/07-intrinsic-extrinsic-semiconductors/index.md), [Chapter 8: Doping, Ionization, and Temperature Regimes](chapters/08-doping-ionization-temperature/index.md), [Chapter 9: Carrier Concentration Statistics](chapters/09-carrier-concentration-statistics/index.md), [Chapter 10: Fermi Level Position and Carrier Equations](chapters/10-fermi-level-carrier-equations/index.md), [Chapter 11: Drift Current and Carrier Mobility](chapters/11-drift-current-mobility/index.md), [Chapter 12: Diffusion and Advanced Transport Phenomena](chapters/12-diffusion-transport-phenomena/index.md), [Chapter 13: Non-Equilibrium Carriers and Recombination](chapters/13-non-equilibrium-carriers-recombination/index.md), [Chapter 14: The P-N Junction at Equilibrium](chapters/14-pn-junction-equilibrium/index.md), [Chapter 15: The P-N Junction Under Bias](chapters/15-pn-junction-under-bias/index.md), and [Chapter 16: Metal-Semiconductor and MOS Junctions](chapters/16-metal-semiconductor-mos-junctions/index.md). Entries for later chapters will be added as those chapters are written.
 
 #### Acceptor Atom
 
@@ -11,6 +11,14 @@ A Group III element substituted into a Group IV semiconductor lattice, completin
 **Example:** Boron, aluminum, gallium, and indium are common acceptor dopants in silicon; boron's measured ionization energy in silicon is about 45 meV.
 
 See also: [Donor Atom](#donor-atom), [Extrinsic Semiconductor](#extrinsic-semiconductor).
+
+#### Accumulation Region
+
+The MOS surface regime, occurring when \(\psi_s<0\) (\(V_G<V_{FB}\) for a p-type substrate), in which majority carriers are attracted to and pile up at the semiconductor surface.
+
+**Example:** In accumulation, the surface becomes even more strongly p-type than the bulk, and the MOS capacitor behaves electrically much like a simple parallel-plate capacitor with the oxide as its dielectric.
+
+See also: [Flat-Band Voltage](#flat-band-voltage), [Depletion Mode](#depletion-mode).
 
 #### Algebra
 
@@ -65,6 +73,14 @@ A range of energy, also called a forbidden energy gap, containing no allowed ele
 **Example:** In the Kronig-Penney model, band gaps occur wherever \(P\sin(\alpha a)/(\alpha a)+\cos(\alpha a)\) falls outside \([-1,1]\), and these gaps are centered on the Brillouin zone boundaries \(k=\pm n\pi/a\).
 
 See also: [Forbidden Energy Gap](#forbidden-energy-gap), [Energy Band](#energy-band), [Brillouin Zone](#brillouin-zone).
+
+#### Barrier Height
+
+The energy barrier \(q\Phi_B=q(\Phi_M-\chi)\) that carriers must overcome to cross a metal-semiconductor junction, set by the metal's work function and the semiconductor's electron affinity.
+
+**Example:** Electron and hole barrier heights on the same junction always sum to the band gap, \(\Phi_{Bn}+\Phi_{Bp}=E_g/q\), since together they span the full distance from \(E_C\) to \(E_V\) at the interface.
+
+See also: [Work Function](#work-function), [Electron Affinity](#electron-affinity).
 
 #### Basis
 
@@ -344,6 +360,14 @@ The net charge density \(\rho(x)\) within the depletion region under the depleti
 
 See also: [Poisson's Equation](#poissons-equation), [Junction Electric Field](#junction-electric-field).
 
+#### Depletion Mode
+
+The MOS surface regime, occurring when \(0<\psi_s<\phi_F\), in which majority carriers are repelled from the surface, exposing a region of fixed ionized dopant charge analogous to a p-n junction's depletion region.
+
+**Example:** In depletion mode, \(Q_{dep}(\psi_s)=\sqrt{2\varepsilon_sqN_A\psi_s}\), a formula with exactly the same functional form as the one-sided p-n junction depletion charge from Chapter 14.
+
+See also: [Accumulation Region](#accumulation-region), [Weak Inversion](#weak-inversion).
+
 #### Depletion Region
 
 The region on either side of a metallurgical junction that has been swept nearly clean of mobile carriers by diffusion and recombination, exposing fixed ionized dopant charge.
@@ -542,6 +566,14 @@ The electrostatic potential energy per unit charge at a point in space, commonly
 
 See also: [Electrostatic Potential Energy](#electrostatic-potential-energy), [Gradient](#gradient).
 
+#### Electron Affinity
+
+The energy \(q\chi\) from the vacuum level down to a semiconductor's conduction band edge \(E_C\), a fixed material property independent of doping.
+
+**Example:** Silicon's electron affinity is about 4.05 eV; combined with doping-dependent Fermi level position, it sets the semiconductor's own work function \(\Phi_S\).
+
+See also: [Work Function](#work-function), [Barrier Height](#barrier-height).
+
 #### Electron Concentration
 
 The exact equilibrium electron concentration, \(n_0=\big[(N_D-N_A)+\sqrt{(N_D-N_A)^2+4n_i^2}\big]/2\), obtained by solving the mass action law and charge neutrality condition together.
@@ -676,6 +708,14 @@ The law stating that diffusion current density is directly proportional to the c
 
 See also: [Concentration Gradient](#concentration-gradient), [Diffusion Coefficient](#diffusion-coefficient).
 
+#### Flat-Band Voltage
+
+The gate voltage \(V_{FB}=\Phi_M-\Phi_S\) at which a MOS capacitor's semiconductor bands show no bending at all, the zero-reference point for surface potential.
+
+**Example:** Because \(\Phi_M\) and \(\Phi_S\) rarely match exactly, most MOS capacitors have a nonzero (often negative) flat-band voltage even before accounting for any fixed oxide charge.
+
+See also: [Surface Potential](#surface-potential), [MOS Capacitor](#mos-capacitor).
+
 #### Forbidden Energy Gap
 
 An alternate name for a band gap, emphasizing that no electron states exist within this energy range.
@@ -727,6 +767,14 @@ A III-V compound semiconductor (GaAs) with a direct band gap of about 1.42 eV at
 **Example:** GaAs's direct band gap allows efficient photon-only light emission, unlike silicon's indirect gap.
 
 See also: [Compound Semiconductor](#compound-semiconductor), [Direct Bandgap](#direct-bandgap).
+
+#### Gate Oxide
+
+The thin insulating layer, typically silicon dioxide, separating a MOS capacitor's gate from its semiconductor substrate.
+
+**Example:** The gate oxide blocks essentially all DC current between gate and substrate while still transmitting the electric field, letting the gate control the surface electrostatically.
+
+See also: [MOS Capacitor](#mos-capacitor), [Oxide Capacitance](#oxide-capacitance).
 
 #### Gauss's Law
 
@@ -898,6 +946,14 @@ The high-temperature range in which thermally-generated intrinsic carriers excee
 
 See also: [Extrinsic Temperature Region](#extrinsic-temperature-region), [Intrinsic Semiconductor](#intrinsic-semiconductor).
 
+#### Inversion Layer
+
+The thin layer of minority carriers that forms at a MOS capacitor's semiconductor surface once strong inversion is reached, serving as the conducting channel of a MOSFET.
+
+**Example:** In an n-channel MOSFET, the inversion layer consists of mobile electrons at the surface of a p-type substrate, formed once \(\psi_s\) reaches \(2\phi_F\).
+
+See also: [Strong Inversion](#strong-inversion), [Threshold Voltage](#threshold-voltage).
+
 #### Ionic Bond
 
 A chemical bond formed when one atom transfers one or more valence electrons completely to another, producing oppositely charged ions held together by Coulomb attraction; non-directional.
@@ -1010,6 +1066,14 @@ A band structure in which the Fermi level lies inside a partially-filled band, o
 
 See also: [Insulator Band Structure](#insulator-band-structure), [Semimetal](#semimetal).
 
+#### Metal-Semiconductor Junction
+
+A junction formed wherever a metal is brought into intimate contact with a semiconductor, behaving as either a rectifying Schottky barrier or a low-resistance ohmic contact.
+
+**Example:** Every bond pad, gate electrode, and wire contact in a real semiconductor device is a metal-semiconductor junction.
+
+See also: [Schottky Barrier](#schottky-barrier), [Ohmic Contact](#ohmic-contact).
+
 #### Metallic Bond
 
 A chemical bond in which the valence electrons of every atom in a crystal delocalize into a shared, mobile "electron sea" surrounding fixed positive ion cores; non-directional and responsible for metals' electrical conductivity and malleability.
@@ -1060,6 +1124,14 @@ The variation of mobility with temperature via Matthiessen's rule, combining lat
 
 See also: [Lattice Scattering](#lattice-scattering), [Impurity Scattering](#impurity-scattering), [Einstein Relation](#einstein-relation).
 
+#### MOS Capacitor
+
+A layered structure stacking a conductive gate, an insulating gate oxide, and a semiconductor substrate, used to electrostatically control the semiconductor surface.
+
+**Example:** The MOS capacitor is the structure at the heart of every MOSFET, with its gate voltage determining whether the channel underneath is off, partially on, or fully on.
+
+See also: [Gate Oxide](#gate-oxide), [Semiconductor Surface](#semiconductor-surface).
+
 #### N-Type Doping
 
 Doping a semiconductor predominantly with donor atoms, making free electrons the majority carrier and holes the minority carrier.
@@ -1084,6 +1156,14 @@ The requirement that the total probability of finding a particle somewhere in sp
 
 See also: [Probability Density](#probability-density), [Wavefunction](#wavefunction).
 
+#### Ohmic Contact
+
+A low-resistance metal-semiconductor connection with essentially symmetric, linear current-voltage behavior, engineered to avoid rectification.
+
+**Example:** Ohmic contacts are most reliably achieved in practice by doping the semiconductor extremely heavily right at the contact, so carriers can tunnel through the thin barrier regardless of the metal used.
+
+See also: [Rectifying Contact](#rectifying-contact), [Metal-Semiconductor Junction](#metal-semiconductor-junction).
+
 #### Optical Generation
 
 Carrier generation by photon absorption, in which a photon with energy at or above the band gap excites an electron across the gap.
@@ -1091,6 +1171,14 @@ Carrier generation by photon absorption, in which a photon with energy at or abo
 **Example:** Optical generation is the mechanism behind solar cells and photodetectors.
 
 See also: [Carrier Generation](#carrier-generation), [Thermal Generation](#thermal-generation).
+
+#### Oxide Capacitance
+
+The gate oxide's capacitance per unit area, \(C_{ox}=\varepsilon_{ox}/t_{ox}\), converting charge stored at the semiconductor surface into a voltage across the oxide.
+
+**Example:** Thinner gate oxides give larger \(C_{ox}\), which reduces the depletion-charge contribution to threshold voltage — a key driver of decades of transistor oxide scaling.
+
+See also: [Gate Oxide](#gate-oxide), [Threshold Voltage](#threshold-voltage).
 
 #### P-N Junction
 
@@ -1228,6 +1316,14 @@ The number of carriers recombining per unit volume per unit time, \(R=\Delta n/\
 
 See also: [Minority Carrier Lifetime](#minority-carrier-lifetime), [Carrier Recombination](#carrier-recombination).
 
+#### Rectifying Contact
+
+A metal-semiconductor junction that impedes current flow in one direction, behaving like a diode, formed when a Schottky barrier is present.
+
+**Example:** Whether a given metal-semiconductor pairing forms a rectifying or ohmic contact depends on comparing work functions, and the deciding rule flips between n-type and p-type material.
+
+See also: [Ohmic Contact](#ohmic-contact), [Schottky Barrier](#schottky-barrier).
+
 #### Resistivity
 
 The reciprocal of conductivity, \(\rho=1/\sigma\), with units of \(\Omega\cdot\text{cm}\), commonly measured directly on a doped wafer using a four-point probe.
@@ -1268,6 +1364,22 @@ Any collision process that randomizes a carrier's direction of motion, ultimatel
 
 See also: [Lattice Scattering](#lattice-scattering), [Impurity Scattering](#impurity-scattering).
 
+#### Schottky Barrier
+
+The rectifying depletion region that forms at a metal-semiconductor junction when the work-function alignment (for the given doping type) produces a barrier to carrier flow.
+
+**Example:** A Schottky barrier's depletion width and peak field follow the same one-sided-junction formulas as a p-n junction, treating the metal as an infinitely-doped "other side."
+
+See also: [Barrier Height](#barrier-height), [Schottky Diode](#schottky-diode).
+
+#### Schottky Diode
+
+A two-terminal rectifying device built from a Schottky barrier, conducting via thermionic emission of majority carriers over the barrier rather than minority-carrier diffusion.
+
+**Example:** Schottky diodes typically turn on at a much lower forward voltage (0.2-0.3 V) than silicon p-n diodes (0.6-0.7 V), and switch faster since there is no minority-carrier storage to remove.
+
+See also: [Schottky Barrier](#schottky-barrier), [Barrier Height](#barrier-height).
+
 #### Schrodinger Equation
 
 The fundamental equation of motion of non-relativistic quantum mechanics; in its time-independent form, \(-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2}+V(x)\psi=E\psi\), it determines the allowed wavefunctions and energies of a particle in a given potential.
@@ -1283,6 +1395,14 @@ A band structure identical in kind to an insulator's — a completely full valen
 **Example:** Silicon (\(E_g\approx1.12\) eV) and GaAs (\(E_g\approx1.42\) eV) are both classified as semiconductors under this definition.
 
 See also: [Insulator Band Structure](#insulator-band-structure), [Fermi Level](#fermi-level).
+
+#### Semiconductor Surface
+
+The region of a semiconductor directly beneath a MOS capacitor's gate oxide, whose electrostatic state (accumulation, depletion, or inversion) is controlled by gate voltage.
+
+**Example:** Because no current flows through the gate oxide, the semiconductor surface's condition is set entirely by electrostatics, exactly like the plates of a capacitor.
+
+See also: [MOS Capacitor](#mos-capacitor), [Surface Potential](#surface-potential).
 
 #### Semimetal
 
@@ -1362,6 +1482,22 @@ The spatial distribution of excess carrier concentration once transients have di
 
 See also: [Diffusion Length](#diffusion-length), [Continuity Equation](#continuity-equation).
 
+#### Strong Inversion
+
+The MOS surface regime, occurring when \(\psi_s\geq2\phi_F\), in which the surface minority-carrier concentration reaches the bulk majority-carrier concentration, forming a conducting inversion layer.
+
+**Example:** Strong inversion, \(\psi_s=2\phi_F\), is the defining condition used to derive the threshold voltage.
+
+See also: [Weak Inversion](#weak-inversion), [Inversion Layer](#inversion-layer).
+
+#### Surface Potential
+
+The band bending \(\psi_s\) at a MOS capacitor's semiconductor surface, measured relative to the bulk, with \(\psi_s=0\) defined at flat-band.
+
+**Example:** Surface potential increases (for a p-type substrate) as gate voltage sweeps positive, moving the surface through depletion and eventually inversion.
+
+See also: [Flat-Band Voltage](#flat-band-voltage), [Depletion Mode](#depletion-mode).
+
 #### Tetrahedral Bonding
 
 The bonding geometry in which an atom's four covalent bonds point toward the corners of a regular tetrahedron, at a bond angle of \(109.5°\), produced by sp3 hybridization.
@@ -1385,6 +1521,14 @@ Carrier generation by random thermal fluctuations alone, the same process respon
 **Example:** Under illumination or bias, optical or electrical generation typically dwarfs the thermal contribution, driving concentrations well above equilibrium.
 
 See also: [Carrier Generation](#carrier-generation), [Optical Generation](#optical-generation).
+
+#### Threshold Voltage
+
+The gate voltage \(V_T=V_{FB}+2\phi_F+Q_{dep,max}/C_{ox}\) at which a MOS capacitor's surface reaches strong inversion, defining a MOSFET's on/off switching point.
+
+**Example:** Real fabrication processes tune gate material, substrate doping, and oxide thickness — plus a dedicated threshold-adjustment implant — to land \(V_T\) at a specific target value.
+
+See also: [Strong Inversion](#strong-inversion), [Oxide Capacitance](#oxide-capacitance).
 
 #### Total Current Density
 
@@ -1479,6 +1623,22 @@ The complex-valued function \(\psi(x)\) that describes a particle's quantum stat
 **Example:** A free particle's wavefunction is often written \(\psi(x)=Ae^{ikx}\), with wavevector \(k=2\pi/\lambda\) tied to the particle's de Broglie wavelength.
 
 See also: [Probability Density](#probability-density), [Schrodinger Equation](#schrodinger-equation).
+
+#### Weak Inversion
+
+The MOS surface regime, occurring when \(\phi_F<\psi_s<2\phi_F\), in which minority-carrier concentration at the surface is growing rapidly but has not yet reached the bulk majority concentration.
+
+**Example:** Weak inversion is responsible for subthreshold conduction in real MOSFETs, where the device is not yet fully "on" but is not perfectly off either.
+
+See also: [Depletion Mode](#depletion-mode), [Strong Inversion](#strong-inversion).
+
+#### Work Function
+
+The energy \(q\Phi\) required to remove an electron from a material's Fermi level to the vacuum level just outside its surface.
+
+**Example:** Metal work functions vary widely by material (aluminum about 4.1 eV, gold about 5.1 eV), while a semiconductor's work function additionally depends on its doping.
+
+See also: [Electron Affinity](#electron-affinity), [Barrier Height](#barrier-height).
 
 #### Zener Breakdown
 

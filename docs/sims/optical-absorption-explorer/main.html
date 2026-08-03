@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Optical Absorption &amp; Beer-Lambert Explorer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="../semiconductor-materials-lib.js"></script>
+    <script src="optical-absorption-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Switch between the GaAs and Si-near-band-edge presets and compare the penetration depths.</li>
+            <li><strong>Predict:</strong> Before dragging the α slider to its minimum, predict whether the curve will fall off faster or slower.</li>
+            <li><strong>Observe:</strong> The curve always falls to about 37% (1/e) of its starting value exactly at x = 1/α, regardless of the α value chosen.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 17:</strong> <strong>Optical absorption</strong> follows the Beer-Lambert law, \(I(x)=I_0e^{-\alpha x}\), where the <strong>absorption coefficient</strong> \(\alpha\) sets how quickly light is absorbed with depth. Direct-gap materials have a much larger \(\alpha\) near their band edge than indirect-gap materials, since no phonon assist (Chapter 13) is needed for the underlying <strong>photon absorption</strong> event.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>Material</dt>
+            <dd>Selects a representative α value for GaAs (direct) or Si (indirect, near or above the band edge).</dd>
+            <dt>α</dt>
+            <dd>Absorption coefficient (log scale), directly setting the penetration depth 1/α.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">1. What does the penetration depth 1/α represent?</p>
+            <label><input type="radio" name="oae-q1" value="a"> The total sample thickness</label>
+            <label><input type="radio" name="oae-q1" value="b"> The depth at which intensity falls to about 37% of its starting value</label>
+            <label><input type="radio" name="oae-q1" value="c"> The wavelength of the light</label>
+            <label><input type="radio" name="oae-q1" value="d"> The band gap energy</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Correct. At x=1/α, I(x)/I0 = e^(-1) ≈ 0.37, the standard 1/e definition of penetration depth.</p>
+            <p class="explain-incorrect" hidden>Look at where the dashed line falls on the curve — what fraction of the starting intensity remains there?</p>
+        </div>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">2. Why does GaAs typically have a much larger α near its band edge than silicon?</p>
+            <label><input type="radio" name="oae-q2" value="a"> GaAs has a smaller band gap</label>
+            <label><input type="radio" name="oae-q2" value="b"> GaAs absorbs less light overall</label>
+            <label><input type="radio" name="oae-q2" value="c"> GaAs is direct-gap, so no phonon assist is needed for absorption</label>
+            <label><input type="radio" name="oae-q2" value="d"> Silicon has no absorption coefficient</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Correct. Direct-gap absorption is a much more probable process than indirect-gap absorption, which requires a momentum-conserving phonon, exactly as with indirect recombination in Chapter 13.</p>
+            <p class="explain-incorrect" hidden>Recall the direct vs. indirect gap distinction from Chapter 6 and its effect on recombination efficiency in Chapter 13 — the same logic applies to absorption.</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

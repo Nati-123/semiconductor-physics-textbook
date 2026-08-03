@@ -2,7 +2,15 @@
 
 # Glossary of Terms
 
-This glossary currently covers the concepts introduced in [Chapter 1: Physics and Math Foundations](chapters/01-physics-math-foundations/index.md), [Chapter 2: Quantum Mechanics Foundations](chapters/02-quantum-mechanics-foundations/index.md), [Chapter 3: Crystal Lattices and Structures](chapters/03-crystal-lattices-structures/index.md), [Chapter 4: Chemical Bonding in Semiconductor Crystals](chapters/04-chemical-bonding-crystals/index.md), [Chapter 5: Quantum Mechanics of Periodic Crystals](chapters/05-quantum-mechanics-periodic-crystals/index.md), [Chapter 6: Band Structure and the Fermi Level](chapters/06-band-structure-fermi-level/index.md), [Chapter 7: Intrinsic and Extrinsic Semiconductors](chapters/07-intrinsic-extrinsic-semiconductors/index.md), [Chapter 8: Doping, Ionization, and Temperature Regimes](chapters/08-doping-ionization-temperature/index.md), [Chapter 9: Carrier Concentration Statistics](chapters/09-carrier-concentration-statistics/index.md), [Chapter 10: Fermi Level Position and Carrier Equations](chapters/10-fermi-level-carrier-equations/index.md), [Chapter 11: Drift Current and Carrier Mobility](chapters/11-drift-current-mobility/index.md), [Chapter 12: Diffusion and Advanced Transport Phenomena](chapters/12-diffusion-transport-phenomena/index.md), [Chapter 13: Non-Equilibrium Carriers and Recombination](chapters/13-non-equilibrium-carriers-recombination/index.md), [Chapter 14: The P-N Junction at Equilibrium](chapters/14-pn-junction-equilibrium/index.md), [Chapter 15: The P-N Junction Under Bias](chapters/15-pn-junction-under-bias/index.md), and [Chapter 16: Metal-Semiconductor and MOS Junctions](chapters/16-metal-semiconductor-mos-junctions/index.md). Entries for later chapters will be added as those chapters are written.
+This glossary currently covers the concepts introduced in [Chapter 1: Physics and Math Foundations](chapters/01-physics-math-foundations/index.md), [Chapter 2: Quantum Mechanics Foundations](chapters/02-quantum-mechanics-foundations/index.md), [Chapter 3: Crystal Lattices and Structures](chapters/03-crystal-lattices-structures/index.md), [Chapter 4: Chemical Bonding in Semiconductor Crystals](chapters/04-chemical-bonding-crystals/index.md), [Chapter 5: Quantum Mechanics of Periodic Crystals](chapters/05-quantum-mechanics-periodic-crystals/index.md), [Chapter 6: Band Structure and the Fermi Level](chapters/06-band-structure-fermi-level/index.md), [Chapter 7: Intrinsic and Extrinsic Semiconductors](chapters/07-intrinsic-extrinsic-semiconductors/index.md), [Chapter 8: Doping, Ionization, and Temperature Regimes](chapters/08-doping-ionization-temperature/index.md), [Chapter 9: Carrier Concentration Statistics](chapters/09-carrier-concentration-statistics/index.md), [Chapter 10: Fermi Level Position and Carrier Equations](chapters/10-fermi-level-carrier-equations/index.md), [Chapter 11: Drift Current and Carrier Mobility](chapters/11-drift-current-mobility/index.md), [Chapter 12: Diffusion and Advanced Transport Phenomena](chapters/12-diffusion-transport-phenomena/index.md), [Chapter 13: Non-Equilibrium Carriers and Recombination](chapters/13-non-equilibrium-carriers-recombination/index.md), [Chapter 14: The P-N Junction at Equilibrium](chapters/14-pn-junction-equilibrium/index.md), [Chapter 15: The P-N Junction Under Bias](chapters/15-pn-junction-under-bias/index.md), [Chapter 16: Metal-Semiconductor and MOS Junctions](chapters/16-metal-semiconductor-mos-junctions/index.md), and [Chapter 17: Optical and Thermal Properties of Semiconductors](chapters/17-optical-thermal-properties/index.md). Entries for later chapters will be added as those chapters are written.
+
+#### Absorption Coefficient
+
+The material- and wavelength-dependent parameter \(\alpha\), in \(\text{cm}^{-1}\), governing the exponential decay rate of light intensity with depth in the Beer-Lambert law.
+
+**Example:** Direct-gap materials like GaAs have a much larger \(\alpha\) near the band edge than indirect-gap materials like silicon, since no phonon assist is needed for absorption.
+
+See also: [Optical Absorption](#optical-absorption), [Photon Absorption](#photon-absorption).
 
 #### Acceptor Atom
 
@@ -1028,6 +1036,14 @@ Scattering of a carrier by the thermally-vibrating atoms of the crystal lattice,
 
 See also: [Impurity Scattering](#impurity-scattering), [Scattering Mechanism](#scattering-mechanism).
 
+#### Light-Emitting Diode
+
+A forward-biased p-n junction, built from a direct-gap material, that converts injected current into emitted light via radiative recombination.
+
+**Example:** An LED's emission wavelength is set by its material's band gap, \(\lambda\approx1240/E_g(\text{eV})\ \text{nm}\), which is why different compound semiconductors are chosen to produce different colors.
+
+See also: [Radiative Recombination](#radiative-recombination), [Photodiode](#photodiode).
+
 #### Long-Base Diode
 
 A diode geometry in which the quasi-neutral region is much longer than the minority carrier diffusion length, giving an exponentially-decaying injected carrier profile.
@@ -1164,6 +1180,14 @@ A low-resistance metal-semiconductor connection with essentially symmetric, line
 
 See also: [Rectifying Contact](#rectifying-contact), [Metal-Semiconductor Junction](#metal-semiconductor-junction).
 
+#### Optical Absorption
+
+The macroscopic decay of light intensity with depth into a semiconductor, resulting from many individual photon absorption events, described by the Beer-Lambert law \(I(x)=I_0e^{-\alpha x}\).
+
+**Example:** A material's optical absorption strength, and hence how thick a solar cell absorber layer must be, is set entirely by its absorption coefficient.
+
+See also: [Absorption Coefficient](#absorption-coefficient), [Photon Absorption](#photon-absorption).
+
 #### Optical Generation
 
 Carrier generation by photon absorption, in which a photon with energy at or above the band gap excites an electron across the gap.
@@ -1227,6 +1251,30 @@ A potential energy function that repeats with the same spatial period as the cry
 **Example:** The electrostatic potential an electron experiences from every atomic core in a crystal is periodic because the crystal lattice itself is periodic.
 
 See also: [Bloch Theorem](#bloch-theorem), [Crystal Lattice](#crystal-lattice).
+
+#### Photoconductivity
+
+The increase in a semiconductor's conductivity under illumination, \(\Delta\sigma=q(\Delta n\mu_n+\Delta p\mu_p)\), resulting from photogenerated excess carriers.
+
+**Example:** A photoconductor is simply a semiconductor slab with ohmic contacts; its resistance change under illumination directly measures light intensity.
+
+See also: [Photon Absorption](#photon-absorption), [Carrier Mobility](#carrier-mobility).
+
+#### Photodiode
+
+A p-n junction used to sense light, in which absorbed photons create carriers that are swept apart by the junction field to produce a photocurrent.
+
+**Example:** A photodiode is typically operated under reverse bias to widen the depletion region and improve collection efficiency and response speed.
+
+See also: [Solar Cell](#solar-cell), [Photon Absorption](#photon-absorption).
+
+#### Photon Absorption
+
+The microscopic event in which a photon with energy \(h\nu\geq E_g\) excites an electron from the valence band to the conduction band, creating an electron-hole pair.
+
+**Example:** Photon absorption is the same fundamental process introduced as "optical generation" in Chapter 13, now examined as the source of the macroscopic optical absorption and photoconductivity effects.
+
+See also: [Optical Absorption](#optical-absorption), [Absorption Coefficient](#absorption-coefficient).
 
 #### Photon Energy
 
@@ -1299,6 +1347,14 @@ One of two separate energy levels, \(E_{Fn}\) for electrons and \(E_{Fp}\) for h
 **Example:** The splitting \(E_{Fn}-E_{Fp}\) between the two quasi-Fermi levels under illumination sets the open-circuit voltage of a solar cell.
 
 See also: [Excess Carriers](#excess-carriers), [Carrier Injection](#carrier-injection).
+
+#### Radiative Recombination
+
+Recombination in which the released energy is emitted as a photon rather than heat, efficient in direct-gap materials.
+
+**Example:** Radiative recombination is the same process as Chapter 13's direct recombination, viewed here as a useful light-emission mechanism rather than a loss channel.
+
+See also: [Light-Emitting Diode](#light-emitting-diode), [Direct Recombination](#direct-recombination).
 
 #### Reciprocal Lattice
 
@@ -1466,6 +1522,14 @@ A cubic crystal structure with atoms only at the 8 corners of the conventional c
 
 See also: [Body-Centered Cubic](#body-centered-cubic), [Face-Centered Cubic](#face-centered-cubic), [Packing Fraction](#packing-fraction).
 
+#### Solar Cell
+
+A p-n junction operated near zero or forward bias, without an external power source, to convert absorbed light directly into electrical power.
+
+**Example:** A solar cell's performance is summarized by its short-circuit current \(I_{sc}=I_L\) and open-circuit voltage \(V_{oc}=V_T\ln(I_L/I_0+1)\).
+
+See also: [Photodiode](#photodiode), [Photon Absorption](#photon-absorption).
+
 #### sp3 Hybridization
 
 The quantum-mechanical combination of one \(s\) orbital and three \(p\) orbitals into four new, equivalent hybrid orbitals that point toward the corners of a regular tetrahedron.
@@ -1506,6 +1570,14 @@ The bonding geometry in which an atom's four covalent bonds point toward the cor
 
 See also: [sp3 Hybridization](#sp3-hybridization), [Diamond Lattice Structure](#diamond-lattice-structure).
 
+#### Thermal Conductivity
+
+The material property \(\kappa\) governing how efficiently heat is conducted through a semiconductor, dominated by phonon transport rather than free carriers.
+
+**Example:** Silicon's thermal conductivity of about \(150\ \text{W/(m·K)}\) makes it a reasonably good heat spreader, though power devices still require careful thermal design.
+
+See also: [Thermal Generation Rate](#thermal-generation-rate).
+
 #### Thermal Equilibrium
 
 A state in which a system has a single, well-defined temperature throughout and experiences no net exchange of energy with its surroundings.
@@ -1521,6 +1593,14 @@ Carrier generation by random thermal fluctuations alone, the same process respon
 **Example:** Under illumination or bias, optical or electrical generation typically dwarfs the thermal contribution, driving concentrations well above equilibrium.
 
 See also: [Carrier Generation](#carrier-generation), [Optical Generation](#optical-generation).
+
+#### Thermal Generation Rate
+
+The rate per unit volume, \(G_{th}=n_i/\tau_0\), at which thermal fluctuations alone create electron-hole pairs.
+
+**Example:** Inside a depletion region, thermal generation rate produces a real leakage current \(I_{gen}=qG_{th}WA\) in addition to the ideal diffusion-based saturation current of Chapter 15.
+
+See also: [Thermal Generation](#thermal-generation), [Thermal Conductivity](#thermal-conductivity).
 
 #### Threshold Voltage
 

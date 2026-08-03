@@ -160,7 +160,11 @@ nav:
           - Quiz: chapters/16-metal-semiconductor-mos-junctions/quiz.md
           - Problems: chapters/16-metal-semiconductor-mos-junctions/problems.md
           - Glossary: chapters/16-metal-semiconductor-mos-junctions/glossary.md
-      - 17. Optical and Thermal Properties of Semiconductors: chapters/17-optical-thermal-properties/index.md
+      - 17. Optical and Thermal Properties of Semiconductors:
+          - Content: chapters/17-optical-thermal-properties/index.md
+          - Quiz: chapters/17-optical-thermal-properties/quiz.md
+          - Problems: chapters/17-optical-thermal-properties/problems.md
+          - Glossary: chapters/17-optical-thermal-properties/glossary.md
       - 18. Semiconductor Devices and Applications: chapters/18-semiconductor-devices-applications/index.md
   - MicroSims:
       - Overview: sims/index.md
@@ -259,6 +263,13 @@ nav:
           - MOS Surface Regime Explorer: sims/mos-surface-regime-explorer/index.md
           - Threshold Voltage Calculator: sims/threshold-voltage-calculator/index.md
           - Metal-Semiconductor and MOS Junctions Interactive Walkthrough: sims/metal-semiconductor-mos-interactive-walkthrough/index.md
+      - Chapter 17:
+          - Optical Absorption and Beer-Lambert Explorer: sims/optical-absorption-explorer/index.md
+          - Photoconductivity Explorer: sims/photoconductivity-explorer/index.md
+          - Photodiode and Solar Cell I-V Explorer: sims/photodiode-solar-cell-iv-explorer/index.md
+          - LED Emission Wavelength Explorer: sims/led-emission-explorer/index.md
+          - Thermal Conductivity and Generation Rate Explorer: sims/thermal-properties-explorer/index.md
+          - Optical and Thermal Properties Interactive Walkthrough: sims/optical-thermal-properties-interactive-walkthrough/index.md
   - Learning Graph:
       - Introduction: learning-graph/index.md
       - Course Description Assessment: learning-graph/course-description-assessment.md

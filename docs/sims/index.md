@@ -168,4 +168,15 @@ Interactive educational simulations that accompany this textbook.
 | [Threshold Voltage Calculator](threshold-voltage-calculator/index.md) | L3 Apply | Computes MOS threshold voltage with a labeled waterfall bar showing each term's contribution |
 | [Metal-Semiconductor and MOS Junctions Interactive Walkthrough](metal-semiconductor-mos-interactive-walkthrough/index.md) | L1-L2 Remember/Understand | A 10-step guided-tour capstone review retracing the chapter's full two-part storyline from work function through threshold voltage |
 
+## Chapter 17: Optical and Thermal Properties of Semiconductors
+
+| MicroSim | Bloom Level | Description |
+|----------|-------------|-------------|
+| [Optical Absorption and Beer-Lambert Explorer](optical-absorption-explorer/index.md) | L3 Apply | Plots light intensity versus depth from the Beer-Lambert law, with penetration depth and direct/indirect material presets |
+| [Photoconductivity Explorer](photoconductivity-explorer/index.md) | L3 Apply | Computes photoconductivity increase from generation rate and lifetime, with a log-log chart and illuminated photoresistor schematic |
+| [Photodiode and Solar Cell I-V Explorer](photodiode-solar-cell-iv-explorer/index.md) | L2-L3 Understand/Apply | Plots the diode equation shifted by photocurrent, with Voc, Isc, and the power-generating region marked |
+| [LED Emission Wavelength Explorer](led-emission-explorer/index.md) | L3 Apply | Computes LED emission wavelength from band gap, marked on a visible-spectrum bar with a color swatch |
+| [Thermal Conductivity and Generation Rate Explorer](thermal-properties-explorer/index.md) | L3-L4 Apply/Analyze | Computes slab temperature rise and compares thermal generation current to a reference diffusion current |
+| [Optical and Thermal Properties Interactive Walkthrough](optical-thermal-properties-interactive-walkthrough/index.md) | L1-L2 Remember/Understand | An 8-step guided-tour capstone review retracing the chapter's full storyline from photon absorption through thermal generation rate |
+
 </div>

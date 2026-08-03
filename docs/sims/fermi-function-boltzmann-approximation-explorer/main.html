@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Fermi Function and Boltzmann Approximation Explorer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="../semiconductor-materials-lib.js"></script>
+    <script src="fermi-function-boltzmann-approximation-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Look at where the purple (exact Fermi-Dirac) and gold (Boltzmann approximation) curves overlap almost perfectly, versus where they diverge.</li>
+            <li><strong>Predict:</strong> Before dragging the temperature slider up, predict whether the "good approximation" shaded zone will widen or narrow in energy.</li>
+            <li><strong>Observe:</strong> Drag the marker slider (E − E_F) to find the boundary of the shaded zone — the point where the Boltzmann approximation starts to disagree with the exact function by more than 5%.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 9:</strong> The exact Fermi function, \(f(E)=1/[1+e^{(E-E_F)/k_BT}]\), is difficult to integrate analytically against the density of states. Whenever \(E-E_F\gg k_BT\) (conduction-band states in a non-degenerate semiconductor), the exact function is very well approximated by the much simpler <strong>Boltzmann approximation</strong>, \(f(E)\approx e^{-(E-E_F)/k_BT}\) — this is exactly the substitution used to derive the effective-density-of-states formula for \(n_0\) later in this chapter, and it is only valid outside a heavily-doped, degenerate regime like the one Chapter 8 warned about.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>Temperature slider</dt>
+            <dd>Sets k_BT, which rescales both curves and the width of the good-approximation zone in energy.</dd>
+            <dt>Marker slider (E − E_F)</dt>
+            <dd>Reads off both f(E) values and their percent difference at a chosen energy.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">1. Where does the Boltzmann approximation most closely match the exact Fermi function?</p>
+            <label><input type="radio" name="fbe-q1" value="a"> Only exactly at E = E_F</label>
+            <label><input type="radio" name="fbe-q1" value="b"> For E well above E_F, where E − E_F ≫ k_BT</label>
+            <label><input type="radio" name="fbe-q1" value="c"> Only for E below E_F</label>
+            <label><input type="radio" name="fbe-q1" value="d"> It never matches</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>When E−E_F is a few times k_BT or more, the "+1" in the Fermi function's denominator becomes negligible compared to the exponential, and the Boltzmann approximation becomes excellent.</p>
+            <p class="explain-incorrect" hidden>Compare the two curves at large positive E−E_F versus near E−E_F=0.</p>
+        </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">2. What happens to the shaded good-approximation zone's width (in eV) as temperature increases?</p>
+            <label><input type="radio" name="fbe-q2" value="a"> It widens, since k_BT itself grows</label>
+            <label><input type="radio" name="fbe-q2" value="b"> It shrinks to zero</label>
+            <label><input type="radio" name="fbe-q2" value="c"> It stays exactly the same width in eV</label>
+            <label><input type="radio" name="fbe-q2" value="d"> Temperature has no effect</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>The approximation's validity boundary sits at a fixed multiple of k_BT, so as temperature (and therefore k_BT) increases, that boundary moves to a larger energy in eV, widening the shaded zone.</p>
+            <p class="explain-incorrect" hidden>Drag the temperature slider from low to high and watch the shaded zone's right edge.</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

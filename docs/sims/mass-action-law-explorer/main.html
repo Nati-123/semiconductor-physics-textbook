@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Mass Action Law Explorer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="../semiconductor-materials-lib.js"></script>
+    <script src="mass-action-law-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Start with the n₀ slider at the intrinsic point, where both n₀ and p₀ equal nᵢ, and confirm the marker sits exactly on the diagonal.</li>
+            <li><strong>Predict:</strong> Before dragging n₀ up by several orders of magnitude, predict what will happen to p₀.</li>
+            <li><strong>Observe:</strong> Drag n₀ across its full range and watch p₀ shrink correspondingly, always keeping the marker on the same hyperbola.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 9:</strong> Multiplying the non-degenerate electron and hole concentration formulas together, \(n_0p_0=N_Ce^{-(E_C-E_F)/k_BT}\times N_Ve^{-(E_F-E_V)/k_BT}=N_CN_Ve^{-E_g/k_BT}\), the Fermi level \(E_F\) cancels out completely — the product depends only on temperature and material, not on doping. Since this product equals \(n_i^2\) by definition, the result is the <strong>mass action law</strong>, \(n_0p_0=n_i^2\), true in any non-degenerate semiconductor at thermal equilibrium regardless of doping level.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>n₀ slider (log scale)</dt>
+            <dd>Sets the electron concentration; the hole concentration p₀ is computed automatically to keep n₀p₀ = nᵢ² fixed.</dd>
+            <dt>Material/temperature dropdown</dt>
+            <dd>Selects the intrinsic carrier concentration nᵢ used to fix the hyperbola.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">1. If doping raises n₀ far above nᵢ, what happens to p₀ according to the mass action law?</p>
+            <label><input type="radio" name="mal-q1" value="a"> p₀ also rises</label>
+            <label><input type="radio" name="mal-q1" value="b"> p₀ falls far below nᵢ, keeping n₀p₀ = nᵢ² fixed</label>
+            <label><input type="radio" name="mal-q1" value="c"> p₀ stays exactly equal to nᵢ</label>
+            <label><input type="radio" name="mal-q1" value="d"> p₀ becomes negative</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Since n₀p₀ = nᵢ² is a fixed product at a given temperature, raising n₀ (majority carrier, via donor doping) forces p₀ (minority carrier) to fall proportionally — this is exactly how doping suppresses the minority carrier concentration.</p>
+            <p class="explain-incorrect" hidden>Drag n₀ up and watch how p₀ changes to keep the product constant.</p>
+        </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">2. Where in the mass action law derivation does the Fermi level E_F go?</p>
+            <label><input type="radio" name="mal-q2" value="a"> It cancels out completely when n₀ and p₀ are multiplied together</label>
+            <label><input type="radio" name="mal-q2" value="b"> It doubles</label>
+            <label><input type="radio" name="mal-q2" value="c"> It becomes the band gap</label>
+            <label><input type="radio" name="mal-q2" value="d"> E_F never appears in n₀ or p₀ in the first place</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>n₀ contains e^(-(Ec-EF)/kT) and p₀ contains e^(-(EF-Ev)/kT); multiplying combines these exponents into e^(-(Ec-Ev)/kT) = e^(-Eg/kT), with E_F cancelling exactly — which is why the mass action law holds regardless of doping (which sets E_F).</p>
+            <p class="explain-incorrect" hidden>Look at the exponents in n₀ and p₀'s formulas and add them together algebraically.</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

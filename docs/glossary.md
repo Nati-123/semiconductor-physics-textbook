@@ -2,7 +2,7 @@
 
 # Glossary of Terms
 
-This glossary currently covers the concepts introduced in [Chapter 1: Physics and Math Foundations](chapters/01-physics-math-foundations/index.md), [Chapter 2: Quantum Mechanics Foundations](chapters/02-quantum-mechanics-foundations/index.md), [Chapter 3: Crystal Lattices and Structures](chapters/03-crystal-lattices-structures/index.md), [Chapter 4: Chemical Bonding in Semiconductor Crystals](chapters/04-chemical-bonding-crystals/index.md), [Chapter 5: Quantum Mechanics of Periodic Crystals](chapters/05-quantum-mechanics-periodic-crystals/index.md), [Chapter 6: Band Structure and the Fermi Level](chapters/06-band-structure-fermi-level/index.md), [Chapter 7: Intrinsic and Extrinsic Semiconductors](chapters/07-intrinsic-extrinsic-semiconductors/index.md), and [Chapter 8: Doping, Ionization, and Temperature Regimes](chapters/08-doping-ionization-temperature/index.md). Entries for later chapters will be added as those chapters are written.
+This glossary currently covers the concepts introduced in [Chapter 1: Physics and Math Foundations](chapters/01-physics-math-foundations/index.md), [Chapter 2: Quantum Mechanics Foundations](chapters/02-quantum-mechanics-foundations/index.md), [Chapter 3: Crystal Lattices and Structures](chapters/03-crystal-lattices-structures/index.md), [Chapter 4: Chemical Bonding in Semiconductor Crystals](chapters/04-chemical-bonding-crystals/index.md), [Chapter 5: Quantum Mechanics of Periodic Crystals](chapters/05-quantum-mechanics-periodic-crystals/index.md), [Chapter 6: Band Structure and the Fermi Level](chapters/06-band-structure-fermi-level/index.md), [Chapter 7: Intrinsic and Extrinsic Semiconductors](chapters/07-intrinsic-extrinsic-semiconductors/index.md), [Chapter 8: Doping, Ionization, and Temperature Regimes](chapters/08-doping-ionization-temperature/index.md), and [Chapter 9: Carrier Concentration Statistics](chapters/09-carrier-concentration-statistics/index.md). Entries for later chapters will be added as those chapters are written.
 
 #### Acceptor Atom
 
@@ -95,6 +95,14 @@ The primitive cell of the reciprocal lattice, constructed by the Wigner-Seitz pr
 **Example:** The Kronig-Penney model's band gaps open precisely at the first, second, and higher Brillouin zone boundaries, \(k=\pm n\pi/a\).
 
 See also: [Reciprocal Lattice](#reciprocal-lattice), [Band Gap](#band-gap).
+
+#### Charge Neutrality Condition
+
+The requirement that a semiconductor crystal carry no net charge overall, expressed as \(n_0+N_A^-=p_0+N_D^+\), combined with the mass action law to solve exactly for carrier concentrations.
+
+**Example:** In an n-type sample with negligible \(p_0\) and no acceptors, charge neutrality reduces to the familiar approximation \(n_0\approx N_D\).
+
+See also: [Mass Action Law](#mass-action-law).
 
 #### Compensated Semiconductor
 
@@ -208,6 +216,14 @@ The function \(g(E)\), defined so that \(g(E)\,dE\) is the number of allowed ele
 
 See also: [Effective Mass](#effective-mass), [Energy Band](#energy-band).
 
+#### Density of States Function
+
+The function \(g(E)\) counting allowed electron states per unit volume per unit energy, combined with the Fermi function and integrated to compute carrier concentration.
+
+**Example:** The conduction-band density of states, \(g_c(E)\propto\sqrt{E-E_C}\), is the starting point for deriving the effective density of states \(N_C\).
+
+See also: [Effective Density of States](#effective-density-of-states), [Fermi Function](#fermi-function).
+
 #### Diamond Lattice Structure
 
 A crystal structure formed from two interpenetrating face-centered cubic lattices offset by \((1/4,1/4,1/4)a\) along the body diagonal, giving 8 atoms per conventional cell and tetrahedral (4-fold) coordination.
@@ -274,6 +290,14 @@ A plot of allowed electron energy \(E\) versus crystal momentum (Bloch wavevecto
 
 See also: [Direct Bandgap](#direct-bandgap), [Indirect Bandgap](#indirect-bandgap), [Bloch Theorem](#bloch-theorem).
 
+#### Effective Density of States
+
+A single constant, \(N_C\) (or \(N_V\)), that collapses the entire conduction- (or valence-) band density-of-states integral into one number, letting non-degenerate carrier concentration be written as \(n_0=N_Ce^{-(E_C-E_F)/k_BT}\).
+
+**Example:** Silicon's \(N_C\approx2.8\times10^{19}\ \text{cm}^{-3}\) at 300 K, the same value used to define the degenerate-semiconductor criterion in Chapter 8.
+
+See also: [Density of States Function](#density-of-states-function), [Intrinsic Carrier Concentration](#intrinsic-carrier-concentration).
+
 #### Effective Mass
 
 A quantity \(m^* = \hbar^2/(d^2E/dk^2)\), defined from the curvature of a band at an extremum, that lets an electron or hole there be treated with ordinary Newtonian mechanics.
@@ -325,6 +349,14 @@ The electrostatic potential energy per unit charge at a point in space, commonly
 **Example:** The 0.7 V forward-bias voltage across a silicon diode is a difference in electric potential.
 
 See also: [Electrostatic Potential Energy](#electrostatic-potential-energy), [Gradient](#gradient).
+
+#### Electron-Hole Pair
+
+The free electron and hole created together by a single carrier-generation event, such as thermal bond-breaking or photon absorption.
+
+**Example:** Every thermally-broken covalent bond in an intrinsic semiconductor produces exactly one electron-hole pair.
+
+See also: [Free Electron](#free-electron), [Hole](#hole).
 
 #### Electronegativity
 
@@ -396,6 +428,14 @@ The zero-temperature value of the Fermi level, equal to the energy of the highes
 
 See also: [Fermi Level](#fermi-level).
 
+#### Fermi Function
+
+The specific mathematical formula \(f(E)=1/[1+e^{(E-E_F)/k_BT}]\) giving the probability that a state of energy \(E\) is occupied, used computationally to derive carrier concentration.
+
+**Example:** Substituting the Boltzmann approximation for the Fermi function in the conduction-band integral produces the effective-density-of-states result for \(n_0\).
+
+See also: [Fermi-Dirac Distribution](#fermi-dirac-distribution).
+
 #### Fermi Level
 
 The parameter \(E_F\) in the Fermi-Dirac distribution \(f(E)=1/[1+\exp((E-E_F)/k_BT)]\) at any temperature, equal to the energy at which the occupation probability is exactly \(1/2\).
@@ -403,6 +443,14 @@ The parameter \(E_F\) in the Fermi-Dirac distribution \(f(E)=1/[1+\exp((E-E_F)/k
 **Example:** In an intrinsic semiconductor, the Fermi level sits inside the band gap — where the density of states is zero — even though no electron actually has that exact energy.
 
 See also: [Fermi Energy](#fermi-energy), [Density of States](#density-of-states).
+
+#### Fermi-Dirac Distribution
+
+The general statistical law governing how fermions (including electrons, which obey the Pauli exclusion principle) populate available energy states in thermal equilibrium.
+
+**Example:** The Fermi-Dirac distribution's specific formula, the Fermi function, was introduced graphically in Chapter 6 and used quantitatively in Chapter 9.
+
+See also: [Fermi Function](#fermi-function).
 
 #### Forbidden Energy Gap
 
@@ -417,6 +465,14 @@ See also: [Band Gap](#band-gap).
 A push or pull that, if unopposed, changes an object's velocity; related to mass and acceleration by Newton's second law, \(\vec{F}=m\vec{a}\).
 
 **Example:** An electric field exerts a force on a charged carrier equal to the charge times the field, \(\vec{F}=q\vec{E}\).
+
+#### Free Electron
+
+A conduction-band electron free to move through the crystal and contribute to current.
+
+**Example:** A donor atom's ionized fifth electron becomes a free electron in the conduction band.
+
+See also: [Hole](#hole), [Electron-Hole Pair](#electron-hole-pair).
 
 #### Freeze-Out Regime
 
@@ -482,6 +538,14 @@ See also: [Wavefunction](#wavefunction).
 
 Contrast with: [de Broglie Wavelength](#de-broglie-wavelength), which assigns a definite wavelength to a particle rather than describing a fundamental limit on simultaneous knowledge.
 
+#### Hole
+
+The vacancy left behind in the valence band by a missing electron, behaving as a mobile positive charge carrier with its own effective mass.
+
+**Example:** An acceptor atom's incomplete bond creates a hole in the valence band once ionized.
+
+See also: [Free Electron](#free-electron), [Electron-Hole Pair](#electron-hole-pair).
+
 #### Indirect Bandgap
 
 A band structure in which the conduction-band minimum and valence-band maximum occur at different crystal momenta \(k\).
@@ -505,6 +569,14 @@ The mathematical operation, inverse to differentiation, that computes the accumu
 **Example:** Integrating the electric field along a path from infinity to a point gives the electric potential at that point.
 
 See also: [Differentiation](#differentiation).
+
+#### Intrinsic Carrier Concentration
+
+The carrier concentration \(n_i=\sqrt{N_CN_V}\,e^{-E_g/2k_BT}\) in a pure semiconductor, where \(n_0=p_0=n_i\), and the anchor value for the mass action law.
+
+**Example:** Silicon's \(n_i\approx9.65\times10^9\ \text{cm}^{-3}\) at 300 K; GaAs's much larger band gap gives it an \(n_i\) roughly four orders of magnitude smaller.
+
+See also: [Mass Action Law](#mass-action-law), [Effective Density of States](#effective-density-of-states).
 
 #### Intrinsic Semiconductor
 
@@ -563,6 +635,14 @@ The edge length \(a\) of the conventional cubic unit cell, setting the fundament
 **Example:** Silicon has lattice constant \(a=0.543\) nm; gallium arsenide has \(a=0.565\) nm.
 
 See also: [Unit Cell](#unit-cell), [Crystal Lattice](#crystal-lattice).
+
+#### Mass Action Law
+
+The relationship \(n_0p_0=n_i^2\), true at thermal equilibrium in any non-degenerate semiconductor regardless of doping, since the Fermi level cancels when the electron and hole concentration formulas are multiplied together.
+
+**Example:** Heavy n-type doping that raises \(n_0\) far above \(n_i\) forces the minority hole concentration \(p_0\) correspondingly far below \(n_i\), keeping the product fixed.
+
+See also: [Intrinsic Carrier Concentration](#intrinsic-carrier-concentration), [Charge Neutrality Condition](#charge-neutrality-condition).
 
 #### Mechanical Energy
 

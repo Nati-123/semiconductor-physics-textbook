@@ -94,4 +94,12 @@ Interactive educational simulations that accompany this textbook.
 | [Compensated Semiconductor Explorer](compensated-semiconductor-explorer/index.md) | L3-L4 Apply/Analyze | Independent N_D/N_A sliders with a net-doping majority-carrier-type readout |
 | [Degenerate Semiconductor Explorer](degenerate-semiconductor-explorer/index.md) | L4-L5 Analyze/Evaluate | Computes Fermi level position from doping concentration, warning when the material becomes degenerate |
 
+## Chapter 9: Carrier Concentration Statistics
+
+| MicroSim | Bloom Level | Description |
+|----------|-------------|-------------|
+| [Fermi Function and Boltzmann Approximation Explorer](fermi-function-boltzmann-approximation-explorer/index.md) | L2-L4 Understand/Analyze | Overlays the exact Fermi-Dirac function with its Boltzmann approximation, shading the valid-approximation zone |
+| [Effective Density of States Calculator](effective-density-of-states-calculator/index.md) | L3 Apply | Computes N_C, N_V, band gap, and intrinsic carrier concentration from first principles for Si, Ge, and GaAs |
+| [Mass Action Law Explorer](mass-action-law-explorer/index.md) | L2-L3 Understand/Apply | Plots the n0·p0=ni² hyperbola on log-log axes with a slider-driven marker |
+
 </div>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>LED Emission Wavelength Explorer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="../semiconductor-materials-lib.js"></script>
+    <script src="led-emission-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Sweep Eg from 0.7 eV up to 3.2 eV and watch the marker sweep across (and off both ends of) the visible spectrum bar.</li>
+            <li><strong>Predict:</strong> Before setting Eg to silicon's 1.12 eV, predict whether the emission would be visible.</li>
+            <li><strong>Observe:</strong> Only a fairly narrow band-gap window (roughly 1.65-3.26 eV) produces a wavelength inside the 380-750 nm visible range at all.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 17:</strong> A <strong>light-emitting diode</strong> emits photons via <strong>radiative recombination</strong> with energy close to the material's band gap, giving emission wavelength \(\lambda=hc/E_g\approx1240/E_g(\text{eV})\ \text{nm}\). Practical visible LEDs require direct-gap materials with band gaps specifically chosen to land in the visible range.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>Eg</dt>
+            <dd>LED material band gap; sets emission wavelength via λ = 1240/Eg.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">1. Setting Eg to silicon's band gap (1.12 eV), where does the computed emission wavelength fall?</p>
+            <label><input type="radio" name="lee-q1" value="a"> Visible blue</label>
+            <label><input type="radio" name="lee-q1" value="b"> Visible red</label>
+            <label><input type="radio" name="lee-q1" value="c"> Infrared, invisible</label>
+            <label><input type="radio" name="lee-q1" value="d"> Ultraviolet, invisible</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Correct. 1240/1.12 ≈ 1107 nm, well into the infrared — invisible to the human eye (and silicon is a poor emitter regardless, being indirect-gap).</p>
+            <p class="explain-incorrect" hidden>Compute 1240/1.12 and check whether the result falls inside the 380-750 nm visible range.</p>
+        </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">2. As Eg increases from red-emitting toward blue-emitting values, what happens to the emission wavelength?</p>
+            <label><input type="radio" name="lee-q2" value="a"> It increases</label>
+            <label><input type="radio" name="lee-q2" value="b"> It decreases</label>
+            <label><input type="radio" name="lee-q2" value="c"> It stays constant</label>
+            <label><input type="radio" name="lee-q2" value="d"> It becomes negative</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Correct. Since λ = 1240/Eg, wavelength and band gap are inversely related — larger Eg means shorter (bluer) wavelength.</p>
+            <p class="explain-incorrect" hidden>Look at the formula λ = 1240/Eg — as the denominator grows, what happens to the fraction?</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

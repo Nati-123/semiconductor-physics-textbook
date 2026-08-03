@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Photoconductivity Explorer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="../semiconductor-materials-lib.js"></script>
+    <script src="photoconductivity-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Double the lifetime τ and confirm Δσ exactly doubles, then double G instead and confirm the same doubling.</li>
+            <li><strong>Predict:</strong> Before raising G by a factor of 100 (two decades on the slider), predict how many decades Δσ will move on the log-log chart.</li>
+            <li><strong>Observe:</strong> The photoresistor bar's glow brightens smoothly as Δσ increases, giving a visual sense of scale alongside the numeric readout.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 17:</strong> <strong>Photoconductivity</strong> is the conductivity increase \(\Delta\sigma=q(\Delta n\mu_n+\Delta p\mu_p)\) produced by illumination, using the same steady-state excess carrier relation \(\Delta n=\Delta p=G\tau\) from Chapter 13. A photoconductor uses this effect directly as a light sensor.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>G</dt>
+            <dd>Generation rate (illumination intensity), directly proportional to Δn.</dd>
+            <dt>τ</dt>
+            <dd>Minority carrier lifetime, also directly proportional to Δn.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">1. If both G and τ are doubled simultaneously, what happens to Δσ?</p>
+            <label><input type="radio" name="pce-q1" value="a"> It stays the same</label>
+            <label><input type="radio" name="pce-q1" value="b"> It quadruples</label>
+            <label><input type="radio" name="pce-q1" value="c"> It doubles</label>
+            <label><input type="radio" name="pce-q1" value="d"> It is cut in half</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Correct. Δn = Gτ, so doubling both G and τ quadruples Δn, and Δσ is directly proportional to Δn.</p>
+            <p class="explain-incorrect" hidden>Write out Δn = G·τ — what happens to a product when both factors double?</p>
+        </div>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">2. What physical quantity does a photoconductor (light sensor) actually measure to infer light intensity?</p>
+            <label><input type="radio" name="pce-q2" value="a"> Temperature</label>
+            <label><input type="radio" name="pce-q2" value="b"> Band gap</label>
+            <label><input type="radio" name="pce-q2" value="c"> A resistance (or conductivity) change</label>
+            <label><input type="radio" name="pce-q2" value="d"> Photon wavelength directly</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Correct. A photoconductor is just a semiconductor slab with ohmic contacts; illumination changes its resistance, which is measured to infer light intensity.</p>
+            <p class="explain-incorrect" hidden>Recall that a photoconductor is described as "simply a slab of semiconductor with two ohmic contacts" — what electrical property changes under illumination?</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

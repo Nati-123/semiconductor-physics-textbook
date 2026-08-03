@@ -102,4 +102,11 @@ Interactive educational simulations that accompany this textbook.
 | [Effective Density of States Calculator](effective-density-of-states-calculator/index.md) | L3 Apply | Computes N_C, N_V, band gap, and intrinsic carrier concentration from first principles for Si, Ge, and GaAs |
 | [Mass Action Law Explorer](mass-action-law-explorer/index.md) | L2-L3 Understand/Apply | Plots the n0·p0=ni² hyperbola on log-log axes with a slider-driven marker |
 
+## Chapter 10: Fermi Level Position and Carrier Equations
+
+| MicroSim | Bloom Level | Description |
+|----------|-------------|-------------|
+| [Exact Carrier Concentration Calculator](exact-carrier-concentration-calculator/index.md) | L3-L4 Apply/Analyze | Solves the mass action law and charge neutrality condition together for n0 and p0 at any doping level |
+| [Fermi Level Position vs. Doping Explorer](fermi-level-position-explorer/index.md) | L4-L5 Analyze/Evaluate | Computes the exact Fermi level position from doping, with the intrinsic Fermi level marked as reference |
+
 </div>

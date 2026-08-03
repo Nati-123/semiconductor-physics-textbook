@@ -125,7 +125,11 @@ nav:
           - Quiz: chapters/09-carrier-concentration-statistics/quiz.md
           - Problems: chapters/09-carrier-concentration-statistics/problems.md
           - Glossary: chapters/09-carrier-concentration-statistics/glossary.md
-      - 10. Fermi Level Position and Carrier Equations: chapters/10-fermi-level-carrier-equations/index.md
+      - 10. Fermi Level Position and Carrier Equations:
+          - Content: chapters/10-fermi-level-carrier-equations/index.md
+          - Quiz: chapters/10-fermi-level-carrier-equations/quiz.md
+          - Problems: chapters/10-fermi-level-carrier-equations/problems.md
+          - Glossary: chapters/10-fermi-level-carrier-equations/glossary.md
       - 11. Drift Current and Carrier Mobility: chapters/11-drift-current-mobility/index.md
       - 12. Diffusion and Advanced Transport Phenomena: chapters/12-diffusion-transport-phenomena/index.md
       - 13. Non-Equilibrium Carriers and Recombination: chapters/13-non-equilibrium-carriers-recombination/index.md
@@ -193,6 +197,9 @@ nav:
           - Fermi Function and Boltzmann Approximation Explorer: sims/fermi-function-boltzmann-approximation-explorer/index.md
           - Effective Density of States Calculator: sims/effective-density-of-states-calculator/index.md
           - Mass Action Law Explorer: sims/mass-action-law-explorer/index.md
+      - Chapter 10:
+          - Exact Carrier Concentration Calculator: sims/exact-carrier-concentration-calculator/index.md
+          - Fermi Level Position vs. Doping Explorer: sims/fermi-level-position-explorer/index.md
   - Learning Graph:
       - Introduction: learning-graph/index.md
       - Course Description Assessment: learning-graph/course-description-assessment.md

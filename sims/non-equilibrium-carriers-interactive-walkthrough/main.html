@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Non-Equilibrium Carriers Interactive Walkthrough MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="../semiconductor-materials-lib.js"></script>
+    <script src="non-equilibrium-carriers-interactive-walkthrough.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Click "Next ▶" through all 8 steps in order, from equilibrium to the chapter summary, before jumping around.</li>
+            <li><strong>Recall:</strong> After each step, try restating the idea in your own words before reading the explanation box again.</li>
+            <li><strong>Review:</strong> Use the step dots at the bottom to jump back to any concept you want to revisit before the chapter quiz.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 13:</strong> This walkthrough retraces the entire chapter's storyline in one place — <strong>excess carriers</strong> and <strong>carrier generation</strong>, the four <strong>recombination</strong> mechanisms, <strong>minority carrier lifetime</strong> and <strong>recombination rate</strong>, <strong>low-level</strong> vs. <strong>high-level injection</strong>, the <strong>continuity equation</strong> and <strong>diffusion length</strong>, and <strong>quasi-Fermi levels</strong> — ending with a preview of how this chain sets up the p-n junction in Chapter 14.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>Prev / Next buttons</dt>
+            <dd>Step backward or forward through the 8-step guided tour.</dd>
+            <dt>Step dots</dt>
+            <dd>Show your current position in the sequence at a glance.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">1. In the summary step's chain diagram, what comes immediately after "Recombination (4 types)"?</p>
+            <label><input type="radio" name="necw-q1" value="a"> Quasi-Fermi Levels</label>
+            <label><input type="radio" name="necw-q1" value="b"> Generation</label>
+            <label><input type="radio" name="necw-q1" value="c"> Lifetime τ / Rate R</label>
+            <label><input type="radio" name="necw-q1" value="d"> Injection Level</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Recombination is characterized by how fast it happens — the lifetime τ and recombination rate R — which comes right after in the chain.</p>
+            <p class="explain-incorrect" hidden>Navigate to the final summary step and read the boxes left to right.</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

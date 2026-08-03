@@ -2,7 +2,7 @@
 
 # Glossary of Terms
 
-This glossary currently covers the concepts introduced in [Chapter 1: Physics and Math Foundations](chapters/01-physics-math-foundations/index.md), [Chapter 2: Quantum Mechanics Foundations](chapters/02-quantum-mechanics-foundations/index.md), [Chapter 3: Crystal Lattices and Structures](chapters/03-crystal-lattices-structures/index.md), [Chapter 4: Chemical Bonding in Semiconductor Crystals](chapters/04-chemical-bonding-crystals/index.md), [Chapter 5: Quantum Mechanics of Periodic Crystals](chapters/05-quantum-mechanics-periodic-crystals/index.md), [Chapter 6: Band Structure and the Fermi Level](chapters/06-band-structure-fermi-level/index.md), and [Chapter 7: Intrinsic and Extrinsic Semiconductors](chapters/07-intrinsic-extrinsic-semiconductors/index.md). Entries for later chapters will be added as those chapters are written.
+This glossary currently covers the concepts introduced in [Chapter 1: Physics and Math Foundations](chapters/01-physics-math-foundations/index.md), [Chapter 2: Quantum Mechanics Foundations](chapters/02-quantum-mechanics-foundations/index.md), [Chapter 3: Crystal Lattices and Structures](chapters/03-crystal-lattices-structures/index.md), [Chapter 4: Chemical Bonding in Semiconductor Crystals](chapters/04-chemical-bonding-crystals/index.md), [Chapter 5: Quantum Mechanics of Periodic Crystals](chapters/05-quantum-mechanics-periodic-crystals/index.md), [Chapter 6: Band Structure and the Fermi Level](chapters/06-band-structure-fermi-level/index.md), [Chapter 7: Intrinsic and Extrinsic Semiconductors](chapters/07-intrinsic-extrinsic-semiconductors/index.md), and [Chapter 8: Doping, Ionization, and Temperature Regimes](chapters/08-doping-ionization-temperature/index.md). Entries for later chapters will be added as those chapters are written.
 
 #### Acceptor Atom
 
@@ -96,6 +96,14 @@ The primitive cell of the reciprocal lattice, constructed by the Wigner-Seitz pr
 
 See also: [Reciprocal Lattice](#reciprocal-lattice), [Band Gap](#band-gap).
 
+#### Compensated Semiconductor
+
+A semiconductor containing both donor and acceptor atoms simultaneously, whose majority carrier type and concentration are set by the net doping, \(N_D-N_A\) or \(N_A-N_D\), rather than either concentration alone.
+
+**Example:** A sample with \(N_D=8\times10^{15}\ \text{cm}^{-3}\) and \(N_A=5\times10^{15}\ \text{cm}^{-3}\) is net n-type, with majority electron concentration approximately \(3\times10^{15}\ \text{cm}^{-3}\).
+
+See also: [N-Type Doping](#n-type-doping), [P-Type Doping](#p-type-doping).
+
 #### Complex Numbers
 
 Numbers of the form \(a+bi\), with real part \(a\) and imaginary part \(b\) where \(i=\sqrt{-1}\), used to represent oscillations, phase, and quantum-mechanical wavefunctions.
@@ -184,6 +192,14 @@ The wavelength associated with any particle of momentum \(p\), given by \(\lambd
 
 See also: [Wave-Particle Duality](#wave-particle-duality), [Wavefunction](#wavefunction).
 
+#### Degenerate Semiconductor
+
+A semiconductor doped so heavily that the Fermi level is pushed to or past a band edge, invalidating the non-degenerate (Boltzmann) approximation used in standard carrier-statistics equations.
+
+**Example:** Silicon doped above \(N_D\approx2.8\times10^{19}\ \text{cm}^{-3}\) (its effective conduction-band density of states) becomes degenerate, as used deliberately in low-resistance transistor contacts.
+
+See also: [Doping Concentration](#doping-concentration).
+
 #### Density of States
 
 The function \(g(E)\), defined so that \(g(E)\,dE\) is the number of allowed electron states per unit volume with energy between \(E\) and \(E+dE\).
@@ -233,6 +249,22 @@ A Group V element substituted into a Group IV semiconductor lattice, completing 
 **Example:** Phosphorus, arsenic, and antimony are common donor dopants in silicon; phosphorus's measured ionization energy in silicon is about 45 meV.
 
 See also: [Acceptor Atom](#acceptor-atom), [Extrinsic Semiconductor](#extrinsic-semiconductor).
+
+#### Dopant Ionization
+
+The temperature-dependent process by which a donor releases its weakly-bound electron, or an acceptor captures a neighboring electron and releases a hole, becoming a fixed charged ion.
+
+**Example:** At liquid nitrogen temperature (77 K), phosphorus donors in silicon are only partially ionized, since \(k_BT\approx6.6\) meV is much smaller than phosphorus's 45 meV ionization energy.
+
+See also: [Ionization Energy](#ionization-energy), [Freeze-Out Regime](#freeze-out-regime).
+
+#### Doping Concentration
+
+The number density of donor (\(N_D\)) or acceptor (\(N_A\)) atoms introduced into a semiconductor, typically expressed in atoms per cm\(^3\), which sets majority carrier concentration once dopants are fully ionized.
+
+**Example:** In the extrinsic temperature region, an n-type sample doped at \(N_D=2\times10^{16}\ \text{cm}^{-3}\) has majority electron concentration \(n_0\approx2\times10^{16}\ \text{cm}^{-3}\).
+
+See also: [Extrinsic Temperature Region](#extrinsic-temperature-region), [Dopant Ionization](#dopant-ionization).
 
 #### E-K Diagram
 
@@ -340,6 +372,14 @@ A semiconductor deliberately doped with donor or acceptor atoms, whose carrier p
 
 See also: [Intrinsic Semiconductor](#intrinsic-semiconductor), [Donor Atom](#donor-atom), [Acceptor Atom](#acceptor-atom).
 
+#### Extrinsic Temperature Region
+
+The moderate-temperature range in which dopant atoms are essentially fully ionized but intrinsic thermal generation is still negligible, so carrier concentration levels off at approximately the doping concentration.
+
+**Example:** Most semiconductor devices are designed to operate within the extrinsic temperature region, where carrier concentration is stable and set by design rather than by small temperature fluctuations.
+
+See also: [Freeze-Out Regime](#freeze-out-regime), [Intrinsic Temperature Region](#intrinsic-temperature-region).
+
 #### Face-Centered Cubic
 
 A cubic crystal structure with atoms at the 8 corners and at the center of each of the 6 faces of the conventional cell, giving 4 atoms per cell, coordination number 12, and packing fraction \(\sqrt2\pi/6\approx0.740\), the highest of the three cubic Bravais lattices.
@@ -377,6 +417,14 @@ See also: [Band Gap](#band-gap).
 A push or pull that, if unopposed, changes an object's velocity; related to mass and acceleration by Newton's second law, \(\vec{F}=m\vec{a}\).
 
 **Example:** An electric field exerts a force on a charged carrier equal to the charge times the field, \(\vec{F}=q\vec{E}\).
+
+#### Freeze-Out Regime
+
+The low-temperature range in which most dopant atoms have not yet ionized, so carrier concentration is well below the doping concentration and rises steeply as temperature increases.
+
+**Example:** A donor-doped silicon sample cooled to 77 K shows significant freeze-out if the donor's ionization energy is much larger than \(k_BT\) at that temperature.
+
+See also: [Dopant Ionization](#dopant-ionization), [Extrinsic Temperature Region](#extrinsic-temperature-region).
 
 #### Fundamental Physical Constants
 
@@ -434,14 +482,6 @@ See also: [Wavefunction](#wavefunction).
 
 Contrast with: [de Broglie Wavelength](#de-broglie-wavelength), which assigns a definite wavelength to a particle rather than describing a fundamental limit on simultaneous knowledge.
 
-#### Integration
-
-The mathematical operation, inverse to differentiation, that computes the accumulated total of a continuously varying quantity or the area under a curve.
-
-**Example:** Integrating the electric field along a path from infinity to a point gives the electric potential at that point.
-
-See also: [Differentiation](#differentiation).
-
 #### Indirect Bandgap
 
 A band structure in which the conduction-band minimum and valence-band maximum occur at different crystal momenta \(k\).
@@ -458,6 +498,14 @@ A band structure with a completely full valence band and completely empty conduc
 
 See also: [Semiconductor Band Structure](#semiconductor-band-structure), [Metal Band Structure](#metal-band-structure).
 
+#### Integration
+
+The mathematical operation, inverse to differentiation, that computes the accumulated total of a continuously varying quantity or the area under a curve.
+
+**Example:** Integrating the electric field along a path from infinity to a point gives the electric potential at that point.
+
+See also: [Differentiation](#differentiation).
+
 #### Intrinsic Semiconductor
 
 A chemically pure semiconductor whose only carriers come from thermally-broken covalent bonds, each producing one free electron and one hole together.
@@ -465,6 +513,14 @@ A chemically pure semiconductor whose only carriers come from thermally-broken c
 **Example:** Pure silicon's intrinsic carrier concentration at room temperature is only about \(n_i\approx10^{10}\ \text{cm}^{-3}\), tiny compared to its atomic density of \(5\times10^{22}\ \text{cm}^{-3}\).
 
 See also: [Extrinsic Semiconductor](#extrinsic-semiconductor).
+
+#### Intrinsic Temperature Region
+
+The high-temperature range in which thermally-generated intrinsic carriers exceed the fixed doping concentration, so the material behaves as if intrinsic regardless of its doping.
+
+**Example:** Because intrinsic carrier concentration grows exponentially with temperature, every doped semiconductor eventually enters the intrinsic temperature region if heated enough.
+
+See also: [Extrinsic Temperature Region](#extrinsic-temperature-region), [Intrinsic Semiconductor](#intrinsic-semiconductor).
 
 #### Ionic Bond
 
@@ -475,6 +531,14 @@ A chemical bond formed when one atom transfers one or more valence electrons com
 See also: [Valence Electron](#valence-electron), [Electronegativity](#electronegativity).
 
 Contrast with: [Covalent Bond](#covalent-bond), which shares electrons rather than transferring them.
+
+#### Ionization Energy
+
+The energy required to ionize a donor or acceptor atom, well modeled by the hydrogenic model and typically tens of meV in silicon and germanium.
+
+**Example:** A dopant with a larger ionization energy requires a higher temperature before its ionization fraction becomes significant.
+
+See also: [Dopant Ionization](#dopant-ionization).
 
 #### Kinetic Theory of Gases
 
@@ -532,6 +596,14 @@ A set of three integers \((hkl)\), used to label a crystal plane, found by takin
 
 See also: [Crystal Plane](#crystal-plane).
 
+#### N-Type Doping
+
+Doping a semiconductor predominantly with donor atoms, making free electrons the majority carrier and holes the minority carrier.
+
+**Example:** Silicon doped with phosphorus is n-type, with majority electron concentration approximately equal to the phosphorus concentration in the extrinsic region.
+
+See also: [P-Type Doping](#p-type-doping), [Donor Atom](#donor-atom).
+
 #### Normalization
 
 The requirement that the total probability of finding a particle somewhere in space equals exactly 1, expressed as \(\int_{-\infty}^{\infty}|\psi(x)|^2\,dx = 1\).
@@ -539,6 +611,14 @@ The requirement that the total probability of finding a particle somewhere in sp
 **Example:** Normalizing \(\psi(x)=A\sin(\pi x/L)\) on \(0<x<L\) determines the constant \(A=\sqrt{2/L}\).
 
 See also: [Probability Density](#probability-density), [Wavefunction](#wavefunction).
+
+#### P-Type Doping
+
+Doping a semiconductor predominantly with acceptor atoms, making holes the majority carrier and free electrons the minority carrier.
+
+**Example:** Silicon doped with boron is p-type, with majority hole concentration approximately equal to the boron concentration in the extrinsic region.
+
+See also: [N-Type Doping](#n-type-doping), [Acceptor Atom](#acceptor-atom).
 
 #### Packing Fraction
 

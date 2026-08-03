@@ -85,4 +85,13 @@ Interactive educational simulations that accompany this textbook.
 | [N-Type vs. P-Type Majority Carrier Comparison](ntype-ptype-majority-carrier-comparison/index.md) | L2 Understand | Side-by-side donor-doped and acceptor-doped lattices previewing majority carriers |
 | [Semiconductor Material Selector for Applications](semiconductor-material-selector/index.md) | L5 Evaluate | Clickable application-to-material recommendation tool with engineering reasoning |
 
+## Chapter 8: Doping, Ionization, and Temperature Regimes
+
+| MicroSim | Bloom Level | Description |
+|----------|-------------|-------------|
+| [Carrier Concentration vs. Temperature (Three Regions) Explorer](carrier-concentration-temperature-regions-explorer/index.md) | L4 Analyze | Shaded freeze-out, extrinsic, and intrinsic regions on a log carrier concentration vs. temperature chart |
+| [Dopant Ionization Fraction vs. Temperature Explorer](dopant-ionization-fraction-explorer/index.md) | L2-L3 Understand/Apply | Ionization-fraction sigmoid curve with adjustable ionization energy and a temperature marker |
+| [Compensated Semiconductor Explorer](compensated-semiconductor-explorer/index.md) | L3-L4 Apply/Analyze | Independent N_D/N_A sliders with a net-doping majority-carrier-type readout |
+| [Degenerate Semiconductor Explorer](degenerate-semiconductor-explorer/index.md) | L4-L5 Analyze/Evaluate | Computes Fermi level position from doping concentration, warning when the material becomes degenerate |
+
 </div>

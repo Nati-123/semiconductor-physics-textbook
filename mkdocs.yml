@@ -115,7 +115,11 @@ nav:
           - Quiz: chapters/07-intrinsic-extrinsic-semiconductors/quiz.md
           - Problems: chapters/07-intrinsic-extrinsic-semiconductors/problems.md
           - Glossary: chapters/07-intrinsic-extrinsic-semiconductors/glossary.md
-      - 8. Doping, Ionization, and Temperature Regimes: chapters/08-doping-ionization-temperature/index.md
+      - 8. Doping, Ionization, and Temperature Regimes:
+          - Content: chapters/08-doping-ionization-temperature/index.md
+          - Quiz: chapters/08-doping-ionization-temperature/quiz.md
+          - Problems: chapters/08-doping-ionization-temperature/problems.md
+          - Glossary: chapters/08-doping-ionization-temperature/glossary.md
       - 9. Carrier Concentration Statistics: chapters/09-carrier-concentration-statistics/index.md
       - 10. Fermi Level Position and Carrier Equations: chapters/10-fermi-level-carrier-equations/index.md
       - 11. Drift Current and Carrier Mobility: chapters/11-drift-current-mobility/index.md
@@ -176,6 +180,11 @@ nav:
           - Compound Semiconductor Stoichiometry Explorer: sims/compound-semiconductor-stoichiometry-explorer/index.md
           - N-Type vs. P-Type Majority Carrier Comparison: sims/ntype-ptype-majority-carrier-comparison/index.md
           - Semiconductor Material Selector for Applications: sims/semiconductor-material-selector/index.md
+      - Chapter 8:
+          - Carrier Concentration vs. Temperature (Three Regions) Explorer: sims/carrier-concentration-temperature-regions-explorer/index.md
+          - Dopant Ionization Fraction vs. Temperature Explorer: sims/dopant-ionization-fraction-explorer/index.md
+          - Compensated Semiconductor Explorer: sims/compensated-semiconductor-explorer/index.md
+          - Degenerate Semiconductor Explorer: sims/degenerate-semiconductor-explorer/index.md
   - Learning Graph:
       - Introduction: learning-graph/index.md
       - Course Description Assessment: learning-graph/course-description-assessment.md

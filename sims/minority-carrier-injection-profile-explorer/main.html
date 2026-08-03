@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Minority Carrier Injection Profile Explorer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="../semiconductor-materials-lib.js"></script>
+    <script src="minority-carrier-injection-profile-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Compare the long-base (purple) and short-base (orange) curves side by side, then drag W' down toward 0 and watch the short-base curve get steeper right at the injection edge.</li>
+            <li><strong>Predict:</strong> Before raising the applied voltage V, predict whether the shape of either curve will change, or only the peak value Δp(0).</li>
+            <li><strong>Observe:</strong> When W' is set much larger than Lp, the short-base line and long-base curve nearly overlap near the injection edge — the short-base approximation breaks down once W' is not actually short.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 15:</strong> <strong>Minority carrier injection</strong> at the depletion edge is set by the law of the junction. The injected carriers then diffuse according to the continuity equation, giving an exponential decay in the <strong>long-base diode</strong> limit (quasi-neutral region much longer than the diffusion length) or a linear profile in the <strong>short-base diode</strong> limit (quasi-neutral region much shorter than the diffusion length, forced to zero at the nearby ohmic contact).</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>V</dt>
+            <dd>Sets the applied forward bias, which sets the peak injected concentration Δp(0) via the law of the junction.</dd>
+            <dt>Lp</dt>
+            <dd>Sets the minority carrier diffusion length used in the long-base exponential curve.</dd>
+            <dt>W'</dt>
+            <dd>Sets the quasi-neutral region width used in the short-base linear curve.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">1. What shape does the short-base diode's excess carrier profile take?</p>
+            <label><input type="radio" name="mcipe-q1" value="a"> Exponential decay</label>
+            <label><input type="radio" name="mcipe-q1" value="b"> A straight line to zero at the contact</label>
+            <label><input type="radio" name="mcipe-q1" value="c"> A sine wave</label>
+            <label><input type="radio" name="mcipe-q1" value="d"> Constant everywhere</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Correct. The nearby ohmic contact forces the excess concentration to zero, and with negligible recombination in the short region, the steady-state solution is linear.</p>
+            <p class="explain-incorrect" hidden>Think about what boundary condition the nearby ohmic contact imposes, and what continuity-equation solution satisfies it with negligible recombination.</p>
+        </div>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">2. Which regime, short-base or long-base, gives a steeper concentration gradient (and therefore a larger saturation current) for the same peak concentration?</p>
+            <label><input type="radio" name="mcipe-q2" value="a"> Long-base always</label>
+            <label><input type="radio" name="mcipe-q2" value="b"> Neither — the gradient is identical in both</label>
+            <label><input type="radio" name="mcipe-q2" value="c"> Short-base, when W' is smaller than Lp</label>
+            <label><input type="radio" name="mcipe-q2" value="d"> It depends only on the applied voltage</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Correct. The same concentration drop happens over the shorter distance W' rather than Lp, producing a steeper gradient and a larger saturation current, exactly as seen when W' is dragged well below Lp.</p>
+            <p class="explain-incorrect" hidden>Compare the two curves when W' is set much smaller than Lp — which one falls off faster near the injection edge?</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="An interactive university-level semiconductor physics textbook with AI explanations, quizzes, simulations, and practice problems.">
+        <meta name="description" content="Forward and reverse bias, minority carrier injection, the short-base and long-base diode approximations, saturation current, the ideal diode equation, avalanche and Zener breakdown, and the complete junction I-V characteristic">
       
       
         <meta name="author" content="Natol Dinka">
@@ -18,7 +18,7 @@
         <link rel="prev" href="../14-pn-junction-equilibrium/glossary/">
       
       
-        <link rel="next" href="../16-metal-semiconductor-mos-junctions/">
+        <link rel="next" href="quiz/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>15. The P-N Junction Under Bias - Semiconductor Physics</title>
+        <title>The P-N Junction Under Bias - Semiconductor Physics</title>
       
     
     
@@ -84,7 +84,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#the-p-n-junction-under-bias" class="md-skip">
+        <a href="#chapter-15-the-p-n-junction-under-bias" class="md-skip">
           Skip to content
         </a>
       
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              15. The P-N Junction Under Bias
+              The P-N Junction Under Bias
             
           </span>
         </div>
@@ -3176,6 +3176,63 @@
   
   
   
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_16" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6_16" id="__nav_6_16_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. The P-N Junction Under Bias
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_16_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6_16">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    15. The P-N Junction Under Bias
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
     <li class="md-nav__item md-nav__item--active">
       
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
@@ -3191,7 +3248,7 @@
   <span class="md-ellipsis">
     
   
-    15. The P-N Junction Under Bias
+    Content
   
 
     
@@ -3209,7 +3266,7 @@
   <span class="md-ellipsis">
     
   
-    15. The P-N Junction Under Bias
+    Content
   
 
     
@@ -3235,10 +3292,21 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
+  <a href="#learning-objectives" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Summary
+        Learning Objectives
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
       
     </span>
   </a>
@@ -3267,9 +3335,448 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#forward-and-reverse-bias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Forward and Reverse Bias
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Forward and Reverse Bias">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#disturbing-the-equilibrium-barrier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Disturbing the Equilibrium Barrier
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Disturbing the Equilibrium Barrier">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-forward-and-reverse-bias-band-diagram-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Forward and Reverse Bias Band Diagram Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#minority-carrier-injection-the-law-of-the-junction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Minority Carrier Injection: The Law of the Junction
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Minority Carrier Injection: The Law of the Junction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#connecting-applied-voltage-to-injected-carrier-concentration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connecting Applied Voltage to Injected Carrier Concentration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#short-base-and-long-base-diodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Short-Base and Long-Base Diodes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Short-Base and Long-Base Diodes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#solving-the-continuity-equation-for-injected-carriers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solving the Continuity Equation for Injected Carriers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Solving the Continuity Equation for Injected Carriers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-minority-carrier-injection-profile-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Minority Carrier Injection Profile Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#saturation-current" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Saturation Current
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Saturation Current">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#from-carrier-gradient-to-current-density" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From Carrier Gradient to Current Density
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-ideal-diode-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Ideal Diode Equation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Ideal Diode Equation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-chapters-central-result" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Chapter's Central Result
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Chapter&#39;s Central Result">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-ideal-diode-i-v-curve-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Ideal Diode I-V Curve Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reverse-breakdown-avalanche-and-zener-mechanisms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reverse Breakdown: Avalanche and Zener Mechanisms
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reverse Breakdown: Avalanche and Zener Mechanisms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-reverse-bias-goes-too-far" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When Reverse Bias Goes Too Far
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="When Reverse Bias Goes Too Far">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-reverse-breakdown-mechanism-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Reverse Breakdown Mechanism Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-complete-junction-i-v-characteristic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Complete Junction I-V Characteristic
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Complete Junction I-V Characteristic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#putting-forward-conduction-saturation-and-breakdown-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Putting Forward Conduction, Saturation, and Breakdown Together
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-equations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Equations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Glossary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Further Reading
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked Examples
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interactive-chapter-walkthrough" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interactive Chapter Walkthrough
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Interactive Chapter Walkthrough">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-p-n-junction-under-bias-interactive-walkthrough" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: P-N Junction Under Bias Interactive Walkthrough
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="problems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Problems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
       
     </li>
   
@@ -6221,6 +6728,208 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_16" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_16" id="__nav_7_16_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 15
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_16_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_16">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 15
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/forward-reverse-bias-band-diagram-explorer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Forward and Reverse Bias Band Diagram Explorer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/minority-carrier-injection-profile-explorer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Minority Carrier Injection Profile Explorer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/ideal-diode-iv-curve-explorer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ideal Diode I-V Curve Explorer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/reverse-breakdown-mechanism-explorer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reverse Breakdown Mechanism Explorer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/pn-junction-under-bias-interactive-walkthrough/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    P-N Junction Under Bias Interactive Walkthrough
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -6619,9 +7328,37 @@
   
 
 
-<h1 id="the-p-n-junction-under-bias">The P-N Junction Under Bias</h1>
-<h2 id="summary">Summary</h2>
-<p>This chapter analyzes the p-n junction away from equilibrium, covering forward and reverse bias, minority carrier injection, and the short-base and long-base diode approximations. Students derive the saturation current and the ideal diode equation, then study reverse breakdown, including avalanche and Zener mechanisms, and summarize the complete junction I-V characteristic.</p>
+<h1 id="chapter-15-the-p-n-junction-under-bias">Chapter 15: The P-N Junction Under Bias</h1>
+<div class="unit1-styled">
+<details class="video-overview">
+<summary><strong>Chapter Overview</strong> (click to expand)</summary>
+<p>Chapter 14 built the p-n junction at equilibrium — zero applied voltage, zero net current, drift exactly balancing diffusion. This chapter disturbs that equilibrium with an external voltage and derives, from first principles, the diode current-voltage relationship that makes the p-n junction the single most important circuit element in electronics. <strong>Forward bias</strong> lowers the junction's potential barrier and floods the neutral regions with injected minority carriers; <strong>reverse bias</strong> raises the barrier and nearly shuts diffusion off. The boundary condition connecting the applied voltage to the injected carrier concentration is <strong>minority carrier injection</strong>, and solving the continuity equation for those injected carriers — differently in the <strong>short-base diode</strong> and <strong>long-base diode</strong> limits — yields the <strong>saturation current</strong> and, from it, the <strong>ideal diode equation</strong>. At sufficiently large reverse bias, two distinct mechanisms — <strong>avalanche breakdown</strong> and <strong>Zener breakdown</strong> — cause <strong>reverse breakdown</strong>, completing the full <strong>junction I-V characteristic</strong> that governs every diode circuit application ahead.</p>
+<p><strong>Key Takeaways:</strong></p>
+<ol>
+<li><strong>Forward bias</strong> lowers the junction's potential barrier from <span class="arithmatex">\(V_{bi}\)</span> to <span class="arithmatex">\(V_{bi}-V\)</span>, sharply increasing diffusion; <strong>reverse bias</strong> raises it to <span class="arithmatex">\(V_{bi}+V\)</span>, suppressing diffusion to a tiny drift-driven current.</li>
+<li><strong>Minority carrier injection</strong> at the depletion edges is set by the law of the junction, <span class="arithmatex">\(p_n(x_n)=p_{n0}e^{V/V_T}\)</span>, directly linking the applied voltage to the injected minority carrier concentration.</li>
+<li>Solving the continuity equation for the injected carriers gives two limiting solutions: the <strong>long-base diode</strong> (exponential decay, quasi-neutral region much longer than the diffusion length) and the <strong>short-base diode</strong> (linear profile, quasi-neutral region much shorter than the diffusion length).</li>
+<li>The gradient of the injected carrier profile at the depletion edge sets the <strong>saturation current</strong> <span class="arithmatex">\(J_0\)</span>, which combines with the law of the junction to give the <strong>ideal diode equation</strong>, <span class="arithmatex">\(J=J_0(e^{V/V_T}-1)\)</span>.</li>
+<li>At large reverse bias, <strong>reverse breakdown</strong> occurs via two distinct mechanisms: <strong>avalanche breakdown</strong> (impact-ionization chain reaction, dominant in lightly-doped junctions) and <strong>Zener breakdown</strong> (quantum tunneling across a thin barrier, dominant in heavily-doped junctions).</li>
+<li>Combining the forward exponential rise, the small reverse saturation current, and the sharp reverse breakdown gives the complete <strong>junction I-V characteristic</strong> — the defining behavior of the diode used throughout the device chapters ahead.</li>
+</ol>
+</details>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<p>By the end of this chapter, you will be able to:</p>
+<ul>
+<li>Explain how forward and reverse bias modify the equilibrium band diagram, potential barrier, and depletion width</li>
+<li>State and apply the law of the junction to compute injected minority carrier concentration from applied voltage</li>
+<li>Distinguish the short-base and long-base diode approximations and identify which applies to a given device geometry</li>
+<li>Derive the saturation current from the injected minority carrier profile's gradient at the depletion edge</li>
+<li>State and apply the ideal diode equation to compute diode current at a given forward or reverse voltage</li>
+<li>Compare avalanche and Zener breakdown, and predict which mechanism dominates for a given doping level</li>
+<li>Sketch and interpret the complete junction I-V characteristic across forward bias, reverse bias, and breakdown</li>
+<li>Solve worked and practice problems combining these ideas, extending the equilibrium analysis of Chapter 14 to a working diode</li>
+</ul>
+<h2 id="introduction">Introduction</h2>
+<p>Chapter 14 analyzed the p-n junction at thermal equilibrium: a fixed built-in potential, a static depletion region, and zero net current, with drift current from the built-in field exactly canceling diffusion current everywhere. That balance is delicate, and an external voltage applied across the junction upsets it immediately. Connect the p-side to a higher potential than the n-side — <strong>forward bias</strong> — and the applied voltage subtracts from the built-in potential, lowering the barrier that has been holding diffusion in check. Connect the p-side to a lower potential — <strong>reverse bias</strong> — and the applied voltage adds to the built-in potential, raising the barrier and suppressing diffusion almost entirely.</p>
+<p>This chapter follows the consequences of that imbalance all the way to a working equation for diode current. Lowering the barrier under forward bias lets majority carriers cross the junction in large numbers, becoming injected minority carriers in the neutral region on the far side — a process quantified by the <strong>law of the junction</strong>, the boundary condition connecting applied voltage to injected carrier concentration. Once carriers are injected, the continuity equation machinery from Chapters 12-13 takes over, with two different limiting solutions depending on whether the neutral region is long compared to the minority carrier diffusion length (the <strong>long-base diode</strong>) or short compared to it (the <strong>short-base diode</strong>). Either solution's carrier gradient at the injection edge sets the <strong>saturation current</strong>, and combining the saturation current with the law of the junction gives the chapter's central result: the <strong>ideal diode equation</strong>.</p>
+<p>The chapter closes by pushing reverse bias to its breaking point. Beyond a critical reverse voltage, current increases dramatically through one of two distinct mechanisms — <strong>avalanche breakdown</strong>, an impact-ionization chain reaction that dominates in lightly-doped junctions, or <strong>Zener breakdown</strong>, quantum-mechanical tunneling that dominates in heavily-doped junctions with very thin depletion regions. Combining forward conduction, reverse saturation current, and reverse breakdown produces the complete <strong>junction I-V characteristic</strong> — the defining electrical behavior of the diode, and the direct foundation for every transistor and device covered in the chapters that follow.</p>
 <h2 id="concepts-covered">Concepts Covered</h2>
 <p>This chapter covers the following 11 concepts from the learning graph:</p>
 <ol>
@@ -6648,13 +7385,306 @@
 <li><a href="../14-pn-junction-equilibrium/">Chapter 14: The P-N Junction at Equilibrium</a></li>
 </ul>
 <hr />
-<p>TODO: Generate Chapter Content</p>
+<h2 id="forward-and-reverse-bias">Forward and Reverse Bias</h2>
+<h3 id="disturbing-the-equilibrium-barrier">Disturbing the Equilibrium Barrier</h3>
+<p>Applying an external voltage <span class="arithmatex">\(V\)</span> across a p-n junction — positive on the p-side relative to the n-side — is called <strong>forward bias</strong>. Because the applied voltage opposes the built-in potential, the net barrier height across the junction drops from <span class="arithmatex">\(V_{bi}\)</span> to <span class="arithmatex">\(V_{bi}-V\)</span>. Reusing the depletion-width formula derived in Chapter 14 with this reduced barrier:</p>
+<div class="arithmatex">\[
+W(V) = \sqrt{\frac{2\varepsilon (V_{bi}-V)}{q}\left(\frac{1}{N_A}+\frac{1}{N_D}\right)}
+\]</div>
+<p>A smaller barrier means a narrower depletion region and a weaker peak field — and, far more importantly, it means the energy barrier that was holding back the vast majority-carrier populations on each side is now small enough that a significant fraction of carriers have enough thermal energy to cross it. Diffusion current, suppressed almost completely at equilibrium, turns back on with a vengeance.</p>
+<p><strong>Reverse bias</strong> is the opposite polarity — negative on the p-side relative to the n-side — which adds to the built-in potential, raising the barrier to <span class="arithmatex">\(V_{bi}+V\)</span> (using <span class="arithmatex">\(V\)</span> as the magnitude of the reverse voltage) and <em>widening</em> the depletion region:</p>
+<div class="arithmatex">\[
+W(V) = \sqrt{\frac{2\varepsilon (V_{bi}+V)}{q}\left(\frac{1}{N_A}+\frac{1}{N_D}\right)}
+\]</div>
+<p>A taller barrier makes diffusion current across the junction exponentially smaller still, leaving only a tiny drift-driven current — the small population of minority carriers generated within a diffusion length of the depletion edge, which the field sweeps across regardless of barrier height (drift current, unlike diffusion current, does not depend exponentially on barrier height, since it is limited by the <em>supply</em> of minority carriers, not by how many carriers have enough energy to climb the barrier).</p>
+<pre class="mermaid"><code>flowchart TD
+    A["Equilibrium: barrier = V_bi&lt;br/&gt;drift = diffusion, net I = 0"] --&gt; B{"Applied Bias V"}
+    B --&gt;|"Forward Bias&lt;br/&gt;p-side higher"| C["Barrier lowered to V_bi − V&lt;br/&gt;diffusion current dominates"]
+    B --&gt;|"Reverse Bias&lt;br/&gt;p-side lower"| D["Barrier raised to V_bi + V&lt;br/&gt;diffusion nearly shut off"]
+    C --&gt; E["Large injected minority&lt;br/&gt;carrier population"]
+    D --&gt; F["Tiny drift-limited&lt;br/&gt;reverse current"]
+    E --&gt; G["Minority Carrier Injection&lt;br/&gt;at depletion edges"]
+    F --&gt; G</code></pre>
+<h4 id="diagram-forward-and-reverse-bias-band-diagram-explorer">Diagram: Forward and Reverse Bias Band Diagram Explorer</h4>
+<iframe height="620px" scrolling="auto" src="../../sims/forward-reverse-bias-band-diagram-explorer/main.html" width="100%"></iframe>
+<div class="admonition tip">
+<p class="admonition-title">How to use this MicroSim</p>
+<p><strong>Instructions:</strong> Drag the bias slider from reverse through zero into forward bias and watch the band diagram, barrier height, and depletion width all update together.</p>
+<p><strong>Learning objective:</strong> Explain how forward and reverse bias modify the equilibrium band diagram, potential barrier, and depletion width.</p>
+<p><strong>What to observe:</strong> Forward bias visibly flattens the band bending and shrinks <span class="arithmatex">\(W\)</span>; reverse bias steepens the bending and stretches <span class="arithmatex">\(W\)</span> — the barrier height readout tracks <span class="arithmatex">\(V_{bi}-V\)</span> exactly, becoming small (but never negative in this idealized model) as <span class="arithmatex">\(V\)</span> approaches <span class="arithmatex">\(V_{bi}\)</span>.</p>
+</div>
+<p><a href="../../sims/forward-reverse-bias-band-diagram-explorer/">Full MicroSim documentation →</a></p>
+<div class="admonition question">
+<p class="admonition-title">Concept Check</p>
+<p>A silicon junction has <span class="arithmatex">\(V_{bi}=0.75\ \text{V}\)</span>. Under a forward bias of <span class="arithmatex">\(V=0.6\ \text{V}\)</span>, what is the net barrier height, and is the depletion region wider or narrower than at equilibrium?</p>
+</div>
+<details class="question">
+<summary>Concept Check — click to reveal answer</summary>
+<p>The net barrier drops to <span class="arithmatex">\(V_{bi}-V=0.75-0.6=0.15\ \text{V}\)</span>, and since <span class="arithmatex">\(W\propto\sqrt{V_{bi}-V}\)</span>, a smaller effective voltage means the depletion region is <em>narrower</em> than at equilibrium — consistent with forward bias pulling the bands back toward flat-band alignment.</p>
+</details>
+<h2 id="minority-carrier-injection-the-law-of-the-junction">Minority Carrier Injection: The Law of the Junction</h2>
+<h3 id="connecting-applied-voltage-to-injected-carrier-concentration">Connecting Applied Voltage to Injected Carrier Concentration</h3>
+<p>Under forward bias, the reduced barrier lets far more majority carriers cross the junction than at equilibrium. A hole that crosses from the p-side into the n-side becomes, the instant it crosses, an injected minority carrier in a sea of majority electrons — precisely the excess-carrier scenario analyzed in Chapter 13, except now the "generation" is carriers crossing the junction rather than photon absorption. The concentration of these injected minority carriers right at the edge of the depletion region is set by the <strong>law of the junction</strong>:</p>
+<div class="arithmatex">\[
+p_n(x_n) = p_{n0}\,e^{V/V_T}, \qquad n_p(-x_p) = n_{p0}\,e^{V/V_T}
+\]</div>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(p_n(x_n)\)</span> is the total hole concentration at the n-side edge of the depletion region (<span class="arithmatex">\(x=x_n\)</span>)</li>
+<li><span class="arithmatex">\(p_{n0}=n_i^2/N_D\)</span> is the equilibrium minority hole concentration deep in the neutral n-side (Chapter 9)</li>
+<li><span class="arithmatex">\(n_p(-x_p)\)</span> and <span class="arithmatex">\(n_{p0}=n_i^2/N_A\)</span> are the corresponding quantities for injected electrons at the p-side edge</li>
+<li><span class="arithmatex">\(V_T=kT/q\)</span> is the thermal voltage, <span class="arithmatex">\(0.0259\ \text{V}\)</span> at 300 K</li>
+<li><span class="arithmatex">\(V\)</span> is the applied bias (positive for forward, negative for reverse)</li>
+</ul>
+<p>At <span class="arithmatex">\(V=0\)</span>, both expressions correctly reduce to their equilibrium values. Under forward bias, <span class="arithmatex">\(e^{V/V_T}\)</span> grows enormously for even modest <span class="arithmatex">\(V\)</span> (since <span class="arithmatex">\(V_T\)</span> is only 25.9 mV), so the injected minority concentration at the edge can exceed its equilibrium value by many orders of magnitude — precisely the kind of high-level excess-carrier disturbance introduced in Chapter 13, just created here by carrier injection across a junction rather than by illumination. Under reverse bias, <span class="arithmatex">\(V\)</span> is negative and <span class="arithmatex">\(e^{V/V_T}\to0\)</span>, so the boundary concentration is pulled <em>below</em> its equilibrium value — the depletion edge is nearly stripped of minority carriers, which is exactly why reverse current is so small.</p>
+<p>The <strong>excess</strong> minority concentration injected at the edge, relative to equilibrium, is therefore:</p>
+<div class="arithmatex">\[
+\Delta p_n(x_n) = p_{n0}\left(e^{V/V_T}-1\right)
+\]</div>
+<p>This excess concentration is the boundary condition that launches the continuity-equation solution in the next section.</p>
+<div class="admonition question">
+<p class="admonition-title">Concept Check</p>
+<p>A forward-biased junction has <span class="arithmatex">\(V=0.3\ \text{V}\)</span> at 300 K (<span class="arithmatex">\(V_T=0.0259\ \text{V}\)</span>). Is the injected minority carrier concentration at the depletion edge larger or smaller than its equilibrium value, and by roughly what factor?</p>
+</div>
+<details class="question">
+<summary>Concept Check — click to reveal answer</summary>
+<p>Larger, by a factor of <span class="arithmatex">\(e^{V/V_T}=e^{0.3/0.0259}=e^{11.58}\approx1.07\times10^5\)</span> — the injected concentration is about 100,000 times its equilibrium value, illustrating how even a fraction of a volt of forward bias produces enormous minority carrier injection.</p>
+</details>
+<h2 id="short-base-and-long-base-diodes">Short-Base and Long-Base Diodes</h2>
+<h3 id="solving-the-continuity-equation-for-injected-carriers">Solving the Continuity Equation for Injected Carriers</h3>
+<p>Once holes are injected at <span class="arithmatex">\(x_n\)</span>, they diffuse into the quasi-neutral n-side exactly as in Chapter 13's continuity-equation analysis, recombining with a characteristic minority carrier lifetime <span class="arithmatex">\(\tau_p\)</span> and diffusion length <span class="arithmatex">\(L_p=\sqrt{D_p\tau_p}\)</span>. The solution depends critically on how the length of the quasi-neutral region, <span class="arithmatex">\(W'\)</span> (the distance from the depletion edge to the ohmic contact), compares to <span class="arithmatex">\(L_p\)</span>:</p>
+<ul>
+<li><strong>Long-base diode</strong>: <span class="arithmatex">\(W'\gg L_p\)</span>. The contact is effectively infinitely far away, so the solution is the same decaying exponential derived in Chapter 13:</li>
+</ul>
+<div class="arithmatex">\[
+\Delta p_n(x') = p_{n0}\left(e^{V/V_T}-1\right)e^{-x'/L_p}, \qquad x'=x-x_n
+\]</div>
+<ul>
+<li><strong>Short-base diode</strong>: <span class="arithmatex">\(W'\ll L_p\)</span>. The ohmic contact is so close that essentially no injected carriers recombine before reaching it; the contact instead forces <span class="arithmatex">\(\Delta p_n\to0\)</span> there (an ohmic contact maintains equilibrium carrier concentration), giving a <strong>linear</strong> profile instead of an exponential one:</li>
+</ul>
+<div class="arithmatex">\[
+\Delta p_n(x') = p_{n0}\left(e^{V/V_T}-1\right)\left(1-\frac{x'}{W'}\right)
+\]</div>
+<p>Both are limiting cases of the same general continuity-equation solution; real devices are engineered deliberately into one regime or the other. Short-base diodes are common in integrated circuits, where the quasi-neutral region is fabricated deliberately thin, while long-base behavior is typical of discrete diodes with thick substrates.</p>
+<h4 id="diagram-minority-carrier-injection-profile-explorer">Diagram: Minority Carrier Injection Profile Explorer</h4>
+<iframe height="660px" scrolling="auto" src="../../sims/minority-carrier-injection-profile-explorer/main.html" width="100%"></iframe>
+<div class="admonition tip">
+<p class="admonition-title">How to use this MicroSim</p>
+<p><strong>Instructions:</strong> Toggle between long-base and short-base regimes and compare the resulting carrier profiles; vary the applied voltage and the base width <span class="arithmatex">\(W'\)</span> relative to <span class="arithmatex">\(L_p\)</span>.</p>
+<p><strong>Learning objective:</strong> Distinguish the short-base and long-base diode approximations, and identify which applies to a given ratio of base width to diffusion length.</p>
+<p><strong>What to observe:</strong> The long-base profile always curves and flattens toward zero; the short-base profile is a straight line to zero at the contact. As <span class="arithmatex">\(W'\)</span> is increased past several <span class="arithmatex">\(L_p\)</span>, the short-base line increasingly resembles the long-base exponential near the injection edge.</p>
+</div>
+<p><a href="../../sims/minority-carrier-injection-profile-explorer/">Full MicroSim documentation →</a></p>
+<h2 id="saturation-current">Saturation Current</h2>
+<h3 id="from-carrier-gradient-to-current-density">From Carrier Gradient to Current Density</h3>
+<p>Diffusion current density is proportional to the concentration gradient (Fick's law, Chapter 12), so the hole current density at the injection edge is found by differentiating the appropriate profile from the previous section and evaluating at <span class="arithmatex">\(x'=0\)</span>. For the long-base diode:</p>
+<div class="arithmatex">\[
+J_p = qD_p\left.\frac{d(\Delta p_n)}{dx'}\right|_{x'=0} = \frac{qD_pp_{n0}}{L_p}\left(e^{V/V_T}-1\right)
+\]</div>
+<p>For the short-base diode, the same differentiation of the linear profile gives a steeper gradient (since the same total concentration change happens over a much shorter distance <span class="arithmatex">\(W'\ll L_p\)</span>):</p>
+<div class="arithmatex">\[
+J_p = \frac{qD_pp_{n0}}{W'}\left(e^{V/V_T}-1\right)
+\]</div>
+<p>Both expressions have the same form, <span class="arithmatex">\(J_p=J_{0,p}(e^{V/V_T}-1)\)</span>, differing only in whether <span class="arithmatex">\(L_p\)</span> or <span class="arithmatex">\(W'\)</span> appears in the denominator of <span class="arithmatex">\(J_{0,p}\)</span>. Including the symmetric electron-injection current into the p-side (from <span class="arithmatex">\(n_p(-x_p)\)</span>) gives the total <strong>saturation current density</strong>:</p>
+<div class="arithmatex">\[
+J_0 = qn_i^2\left(\frac{D_p}{L_pN_D}+\frac{D_n}{L_nN_A}\right) \quad\text{(long-base)}
+\]</div>
+<p>with <span class="arithmatex">\(L_p\)</span>, <span class="arithmatex">\(L_n\)</span> replaced by the appropriate base widths <span class="arithmatex">\(W'\)</span> in the short-base limit. <span class="arithmatex">\(J_0\)</span> is called the <em>saturation</em> current because, under reverse bias, <span class="arithmatex">\(e^{V/V_T}\to0\)</span> and <span class="arithmatex">\(J\to-J_0\)</span>: the reverse current saturates at this small, fixed value rather than growing with reverse voltage (until breakdown, covered later in this chapter). Because <span class="arithmatex">\(J_0\propto n_i^2\)</span>, and <span class="arithmatex">\(n_i^2\)</span> depends exponentially on temperature and band gap (Chapter 7), <span class="arithmatex">\(J_0\)</span> — and hence the entire forward I-V curve — is extremely temperature-sensitive.</p>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 1 — Saturation Current Density of a One-Sided Silicon Diode</p>
+<p>A silicon diode has <span class="arithmatex">\(N_A=1\times10^{18}\ \text{cm}^{-3}\)</span>, <span class="arithmatex">\(N_D=1\times10^{16}\ \text{cm}^{-3}\)</span>, <span class="arithmatex">\(n_i=1.5\times10^{10}\ \text{cm}^{-3}\)</span>, <span class="arithmatex">\(D_p=12.4\ \text{cm}^2/\text{s}\)</span>, <span class="arithmatex">\(\tau_p=1\ \mu\text{s}\)</span>, <span class="arithmatex">\(D_n=35\ \text{cm}^2/\text{s}\)</span>, <span class="arithmatex">\(\tau_n=0.1\ \mu\text{s}\)</span>, and is long-base on both sides. Find <span class="arithmatex">\(J_0\)</span>.</p>
+<p><strong>Solution:</strong> <span class="arithmatex">\(p_{n0}=n_i^2/N_D=(1.5\times10^{10})^2/(1\times10^{16})=2.25\times10^{4}\ \text{cm}^{-3}\)</span>. <span class="arithmatex">\(n_{p0}=n_i^2/N_A=2.25\times10^{2}\ \text{cm}^{-3}\)</span>. <span class="arithmatex">\(L_p=\sqrt{D_p\tau_p}=\sqrt{(12.4)(1\times10^{-6})}\approx3.52\times10^{-3}\ \text{cm}=35.2\ \mu\text{m}\)</span>. <span class="arithmatex">\(L_n=\sqrt{(35)(1\times10^{-7})}\approx1.87\times10^{-3}\ \text{cm}=18.7\ \mu\text{m}\)</span>.</p>
+<div class="arithmatex">\[
+J_{0,p}=\frac{qD_pp_{n0}}{L_p}=\frac{(1.6\times10^{-19})(12.4)(2.25\times10^{4})}{3.52\times10^{-3}}\approx1.27\times10^{-11}\ \text{A/cm}^2
+\]</div>
+<div class="arithmatex">\[
+J_{0,n}=\frac{qD_nn_{p0}}{L_n}=\frac{(1.6\times10^{-19})(35)(2.25\times10^{2})}{1.87\times10^{-3}}\approx6.74\times10^{-13}\ \text{A/cm}^2
+\]</div>
+<p><span class="arithmatex">\(J_0=J_{0,p}+J_{0,n}\approx1.34\times10^{-11}\ \text{A/cm}^2\)</span>. Hole injection into the lightly-doped n-side supplies about 95% of the total, since <span class="arithmatex">\(N_A\)</span> is 100 times larger than <span class="arithmatex">\(N_D\)</span> even though the shorter electron diffusion length partially compensates.</p>
+</div>
+<h2 id="the-ideal-diode-equation">The Ideal Diode Equation</h2>
+<h3 id="the-chapters-central-result">The Chapter's Central Result</h3>
+<p>Combining the law of the junction with the saturation-current expression (both share the same <span class="arithmatex">\(e^{V/V_T}-1\)</span> factor, since both trace back to the same injected boundary concentration) gives the <strong>ideal diode equation</strong>:</p>
+<div class="arithmatex">\[
+J = J_0\left(e^{V/V_T}-1\right), \qquad I = I_0\left(e^{V/V_T}-1\right)
+\]</div>
+<p>where <span class="arithmatex">\(I_0=J_0A\)</span> for a junction of area <span class="arithmatex">\(A\)</span>. This single equation captures the diode's entire equilibrium-to-bias story:</p>
+<ul>
+<li>At <span class="arithmatex">\(V=0\)</span>: <span class="arithmatex">\(J=0\)</span>, recovering the equilibrium result of Chapter 14 (zero net current).</li>
+<li>Under forward bias (<span class="arithmatex">\(V\gg V_T\)</span>): <span class="arithmatex">\(J\approx J_0e^{V/V_T}\)</span>, current rises exponentially — a few tenths of a volt changes current by orders of magnitude.</li>
+<li>Under reverse bias (<span class="arithmatex">\(V\ll-V_T\)</span>, magnitude a few <span class="arithmatex">\(V_T\)</span> or more): <span class="arithmatex">\(J\approx-J_0\)</span>, current saturates at the small, nearly voltage-independent value <span class="arithmatex">\(-J_0\)</span>.</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 2 — Forward Current Density at Several Voltages</p>
+<p>Using <span class="arithmatex">\(J_0=1.34\times10^{-11}\ \text{A/cm}^2\)</span> from Worked Example 1 and <span class="arithmatex">\(V_T=0.0259\ \text{V}\)</span>, find <span class="arithmatex">\(J\)</span> at <span class="arithmatex">\(V=0.4\)</span>, <span class="arithmatex">\(0.5\)</span>, <span class="arithmatex">\(0.6\)</span>, and <span class="arithmatex">\(0.7\ \text{V}\)</span>.</p>
+<p><strong>Solution:</strong> <span class="arithmatex">\(J=J_0(e^{V/V_T}-1)\)</span> gives <span class="arithmatex">\(J(0.4\ \text{V})\approx6.5\times10^{-5}\ \text{A/cm}^2\)</span>, <span class="arithmatex">\(J(0.5\ \text{V})\approx3.1\times10^{-3}\ \text{A/cm}^2\)</span>, <span class="arithmatex">\(J(0.6\ \text{V})\approx0.146\ \text{A/cm}^2\)</span>, and <span class="arithmatex">\(J(0.7\ \text{V})\approx6.94\ \text{A/cm}^2\)</span>. Each additional 0.1 V multiplies the current by roughly <span class="arithmatex">\(e^{0.1/0.0259}\approx47\times\)</span> — the signature exponential steepness of diode conduction.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 3 — Short-Base Saturation Current and Total Forward Current</p>
+<p>Suppose the n-side of the diode in Worked Example 1 is instead fabricated short-base, with quasi-neutral width <span class="arithmatex">\(W'=5\ \mu\text{m}\)</span> (much less than <span class="arithmatex">\(L_p=35.2\ \mu\text{m}\)</span>). Find the new <span class="arithmatex">\(J_{0,p}\)</span>, and the total forward current at <span class="arithmatex">\(V=0.55\ \text{V}\)</span> for a junction area <span class="arithmatex">\(A=2\times10^{-3}\ \text{cm}^2\)</span> (using the long-base <span class="arithmatex">\(J_0\)</span> from Worked Example 1 for simplicity).</p>
+<p><strong>Solution:</strong> <span class="arithmatex">\(J_{0,p}^{short}=\dfrac{qD_pp_{n0}}{W'}=\dfrac{(1.6\times10^{-19})(12.4)(2.25\times10^{4})}{5\times10^{-4}}\approx8.94\times10^{-11}\ \text{A/cm}^2\)</span> — about <span class="arithmatex">\(L_p/W'\approx7.0\times\)</span> larger than the long-base value, since the same concentration drop now occurs over a much shorter distance. Using the long-base <span class="arithmatex">\(J_0=1.34\times10^{-11}\ \text{A/cm}^2\)</span> at <span class="arithmatex">\(V=0.55\ \text{V}\)</span>: <span class="arithmatex">\(J\approx J_0e^{V/V_T}=(1.34\times10^{-11})e^{0.55/0.0259}\approx2.23\times10^{-2}\ \text{A/cm}^2\)</span>, so <span class="arithmatex">\(I=JA\approx(2.23\times10^{-2})(2\times10^{-3})\approx4.46\times10^{-5}\ \text{A}\approx0.045\ \text{mA}\)</span>.</p>
+</div>
+<h4 id="diagram-ideal-diode-i-v-curve-explorer">Diagram: Ideal Diode I-V Curve Explorer</h4>
+<iframe height="660px" scrolling="auto" src="../../sims/ideal-diode-iv-curve-explorer/main.html" width="100%"></iframe>
+<div class="admonition tip">
+<p class="admonition-title">How to use this MicroSim</p>
+<p><strong>Instructions:</strong> Vary <span class="arithmatex">\(J_0\)</span> and temperature, and switch between linear and semi-log views of the I-V curve; drag the voltage marker across forward and reverse bias.</p>
+<p><strong>Learning objective:</strong> Apply the ideal diode equation to compute current at a given voltage, and interpret the exponential forward rise and reverse saturation regions of the I-V curve.</p>
+<p><strong>What to observe:</strong> On the semi-log view, the forward region becomes a straight line — a direct visual signature of the exponential ideal diode equation; the reverse region flattens to <span class="arithmatex">\(-J_0\)</span> regardless of how negative <span class="arithmatex">\(V\)</span> becomes (until breakdown, not yet shown in this sim).</p>
+</div>
+<p><a href="../../sims/ideal-diode-iv-curve-explorer/">Full MicroSim documentation →</a></p>
+<h2 id="reverse-breakdown-avalanche-and-zener-mechanisms">Reverse Breakdown: Avalanche and Zener Mechanisms</h2>
+<h3 id="when-reverse-bias-goes-too-far">When Reverse Bias Goes Too Far</h3>
+<p>The ideal diode equation predicts reverse current saturating at <span class="arithmatex">\(-J_0\)</span> forever as reverse voltage increases — but real junctions cannot sustain arbitrarily large reverse voltage. Beyond a critical <strong>breakdown voltage</strong> <span class="arithmatex">\(V_{BR}\)</span>, reverse current increases dramatically through one of two distinct physical mechanisms, together called <strong>reverse breakdown</strong>.</p>
+<p><strong>Avalanche breakdown</strong> is an impact-ionization chain reaction. As reverse bias increases, the peak junction electric field (Chapter 14) grows, accelerating the small population of carriers that do cross the depletion region to increasingly high kinetic energy. Beyond a critical field <span class="arithmatex">\(E_{crit}\)</span>, an accelerated carrier can gain enough energy between collisions to knock a valence electron across the band gap on impact, generating a new electron-hole pair — which is itself accelerated and can generate further pairs, multiplying rapidly into a runaway current. Avalanche breakdown dominates in <strong>lightly-doped</strong> junctions, where the depletion region is wide enough for carriers to accelerate over a long distance before colliding.</p>
+<p><strong>Zener breakdown</strong> is a purely quantum-mechanical process: <strong>quantum tunneling</strong> (Chapter 2) of valence electrons directly through the thin depletion-region barrier into the conduction band on the other side, with no collision or energy exchange involved at all. Because tunneling probability depends critically on barrier <em>width</em>, Zener breakdown dominates in <strong>heavily-doped</strong> junctions, where the depletion region (Chapter 14) is narrow enough for direct tunneling to become significant — typically at doping levels above roughly <span class="arithmatex">\(10^{17}-10^{18}\ \text{cm}^{-3}\)</span> in silicon.</p>
+<p>The two mechanisms can be distinguished experimentally by their opposite temperature dependence: avalanche breakdown voltage <em>increases</em> with temperature (lattice vibrations increase scattering, so carriers need a higher field to reach the same energy between collisions), while Zener breakdown voltage <em>decreases</em> with temperature (the band gap itself narrows slightly with temperature, easing tunneling). Diodes designed to exploit breakdown deliberately (voltage-reference "Zener diodes," which may use either mechanism depending on their rated voltage) are chosen partly by which temperature coefficient a given application needs.</p>
+<p>For a one-sided abrupt junction, avalanche breakdown voltage can be estimated by requiring the peak field (Chapter 14) to reach <span class="arithmatex">\(E_{crit}\)</span> (about <span class="arithmatex">\(3\times10^5\ \text{V/cm}\)</span> in silicon, though the true critical field itself rises somewhat with doping):</p>
+<div class="arithmatex">\[
+V_{BR}\approx\frac{\varepsilon E_{crit}^2}{2qN_B}
+\]</div>
+<p>where <span class="arithmatex">\(N_B\)</span> is the doping concentration of the lightly-doped side, which controls the depletion width and hence how quickly the field builds up.</p>
+<pre class="mermaid"><code>flowchart TD
+    A["Increasing Reverse Bias"] --&gt; B{"Doping Level"}
+    B --&gt;|"Lightly doped&lt;br/&gt;wide depletion region"| C["Avalanche Breakdown&lt;br/&gt;impact-ionization chain reaction"]
+    B --&gt;|"Heavily doped&lt;br/&gt;narrow depletion region"| D["Zener Breakdown&lt;br/&gt;quantum tunneling through barrier"]
+    C --&gt; E["Reverse Breakdown&lt;br/&gt;current rises sharply at V_BR"]
+    D --&gt; E
+    C --&gt; F["V_BR increases with T"]
+    D --&gt; G["V_BR decreases with T"]</code></pre>
+<h4 id="diagram-reverse-breakdown-mechanism-explorer">Diagram: Reverse Breakdown Mechanism Explorer</h4>
+<iframe height="640px" scrolling="auto" src="../../sims/reverse-breakdown-mechanism-explorer/main.html" width="100%"></iframe>
+<div class="admonition tip">
+<p class="admonition-title">How to use this MicroSim</p>
+<p><strong>Instructions:</strong> Sweep the lightly-doped-side concentration slider and watch the estimated avalanche breakdown voltage fall; observe the crossover region where Zener tunneling would take over in a real device.</p>
+<p><strong>Learning objective:</strong> Compare avalanche and Zener breakdown mechanisms and predict which one dominates for a given doping level.</p>
+<p><strong>What to observe:</strong> Breakdown voltage falls steeply as doping increases (roughly <span class="arithmatex">\(V_{BR}\propto1/N_B\)</span>); at the highest doping levels shown, the estimate drops to just a few volts, exactly the regime where real Zener tunneling — not modeled by the avalanche formula — takes over.</p>
+</div>
+<p><a href="../../sims/reverse-breakdown-mechanism-explorer/">Full MicroSim documentation →</a></p>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 4 — Estimating Avalanche Breakdown Voltage</p>
+<p>A silicon diode has a lightly-doped n-side with <span class="arithmatex">\(N_D=1\times10^{16}\ \text{cm}^{-3}\)</span> and <span class="arithmatex">\(E_{crit}\approx3\times10^{5}\ \text{V/cm}\)</span>. Estimate the avalanche breakdown voltage.</p>
+<p><strong>Solution:</strong></p>
+<div class="arithmatex">\[
+V_{BR}\approx\frac{(1.035\times10^{-12})(3\times10^{5})^2}{2(1.6\times10^{-19})(1\times10^{16})}\approx29.1\ \text{V}
+\]</div>
+<p>This is a typical breakdown voltage for a moderately-doped silicon diode. Raising <span class="arithmatex">\(N_D\)</span> to <span class="arithmatex">\(1\times10^{17}\ \text{cm}^{-3}\)</span> (ten times heavier doping) drops the estimate to about 2.9 V — deep into the regime where real devices break down via Zener tunneling instead, since the avalanche formula itself becomes unreliable at such narrow depletion widths.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Concept Check</p>
+<p>Two silicon diodes have breakdown voltages of about 200 V and about 4 V, respectively. Which one most likely breaks down primarily by avalanche, and which by Zener tunneling?</p>
+</div>
+<details class="question">
+<summary>Concept Check — click to reveal answer</summary>
+<p>The 200 V diode is almost certainly avalanche (it must be lightly doped, since <span class="arithmatex">\(V_{BR}\propto1/N_B\)</span>, giving a wide depletion region well-suited to an impact-ionization chain reaction). The 4 V diode is almost certainly Zener (such a low breakdown voltage requires very heavy doping and a correspondingly thin depletion barrier for direct tunneling).</p>
+</details>
+<h2 id="the-complete-junction-i-v-characteristic">The Complete Junction I-V Characteristic</h2>
+<h3 id="putting-forward-conduction-saturation-and-breakdown-together">Putting Forward Conduction, Saturation, and Breakdown Together</h3>
+<p>Combining every result of this chapter into a single current-voltage relationship gives the complete <strong>junction I-V characteristic</strong>:</p>
+<div class="arithmatex">\[
+I(V) \approx \begin{cases} I_0\left(e^{V/V_T}-1\right) &amp; V&gt;-V_{BR} \\ \text{rapid breakdown current increase} &amp; V\le-V_{BR} \end{cases}
+\]</div>
+<p>Across most of the forward region, current rises exponentially — doubling roughly every <span class="arithmatex">\(V_T\ln2\approx18\ \text{mV}\)</span> — so real diodes appear to conduct almost negligible current below roughly 0.5-0.6 V (for silicon) and then rise so steeply that the forward voltage across a conducting diode is nearly constant regardless of current, the basis of the familiar "0.7 V diode drop" approximation used throughout circuit analysis. Across the reverse region, current is pinned at the tiny, nearly voltage-independent <span class="arithmatex">\(-I_0\)</span> until breakdown, at which point current increases so steeply that external circuitry (a series resistor, in most practical circuits) must limit it to protect the device. This single curve — exponential forward rise, flat reverse saturation, sharp reverse breakdown — is the defining electrical signature of the p-n junction diode, and every transistor covered in later chapters is built from one or more junctions obeying exactly this relationship.</p>
+<div class="admonition question">
+<p class="admonition-title">Concept Check</p>
+<p>Why does the forward voltage across a conducting silicon diode change so little (roughly 0.6-0.8 V) even as the current through it varies by several orders of magnitude?</p>
+</div>
+<details class="question">
+<summary>Concept Check — click to reveal answer</summary>
+<p>Because current depends <em>exponentially</em> on voltage in the ideal diode equation, a huge change in current corresponds to only a small change in voltage: since <span class="arithmatex">\(V=V_T\ln(I/I_0+1)\)</span>, and <span class="arithmatex">\(\ln\)</span> compresses large ratios into small differences, increasing current by a factor of 1000 only raises <span class="arithmatex">\(V\)</span> by <span class="arithmatex">\(V_T\ln(1000)\approx0.18\ \text{V}\)</span>.</p>
+</details>
+<h2 id="summary">Summary</h2>
+<p>This chapter disturbed the equilibrium p-n junction of Chapter 14 with an applied voltage and derived the diode's complete current-voltage behavior. <strong>Forward bias</strong> lowers the junction barrier to <span class="arithmatex">\(V_{bi}-V\)</span>, sharply increasing diffusion current; <strong>reverse bias</strong> raises it to <span class="arithmatex">\(V_{bi}+V\)</span>, nearly shutting diffusion off. The law of the junction sets <strong>minority carrier injection</strong> at the depletion edges, <span class="arithmatex">\(p_n(x_n)=p_{n0}e^{V/V_T}\)</span>, which launches a continuity-equation solution taking one of two limiting forms: the exponentially-decaying <strong>long-base diode</strong> profile, or the linear <strong>short-base diode</strong> profile, depending on the quasi-neutral region's length relative to the diffusion length. Either profile's gradient at the injection edge sets the <strong>saturation current</strong> <span class="arithmatex">\(J_0\)</span>, which combines with the law of the junction to give the chapter's central result, the <strong>ideal diode equation</strong>, <span class="arithmatex">\(J=J_0(e^{V/V_T}-1)\)</span>. At sufficiently large reverse bias, <strong>reverse breakdown</strong> occurs via <strong>avalanche breakdown</strong> (impact ionization, dominant in lightly-doped junctions) or <strong>Zener breakdown</strong> (quantum tunneling, dominant in heavily-doped junctions), completing the full <strong>junction I-V characteristic</strong> that defines diode behavior throughout the device chapters ahead.</p>
+<h2 id="key-equations">Key Equations</h2>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Equation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Depletion width under bias</td>
+<td><span class="arithmatex">\(W(V) = \sqrt{\dfrac{2\varepsilon (V_{bi}\mp V)}{q}\left(\dfrac{1}{N_A}+\dfrac{1}{N_D}\right)}\)</span></td>
+</tr>
+<tr>
+<td>Law of the junction</td>
+<td><span class="arithmatex">\(p_n(x_n) = p_{n0}\,e^{V/V_T}\)</span></td>
+</tr>
+<tr>
+<td>Long-base excess carrier profile</td>
+<td><span class="arithmatex">\(\Delta p_n(x') = p_{n0}(e^{V/V_T}-1)e^{-x'/L_p}\)</span></td>
+</tr>
+<tr>
+<td>Short-base excess carrier profile</td>
+<td><span class="arithmatex">\(\Delta p_n(x') = p_{n0}(e^{V/V_T}-1)(1-x'/W')\)</span></td>
+</tr>
+<tr>
+<td>Saturation current density</td>
+<td><span class="arithmatex">\(J_0 = qn_i^2\left(\dfrac{D_p}{L_pN_D}+\dfrac{D_n}{L_nN_A}\right)\)</span></td>
+</tr>
+<tr>
+<td>Ideal diode equation</td>
+<td><span class="arithmatex">\(I = I_0\left(e^{V/V_T}-1\right)\)</span></td>
+</tr>
+<tr>
+<td>Avalanche breakdown voltage estimate</td>
+<td><span class="arithmatex">\(V_{BR}\approx\dfrac{\varepsilon E_{crit}^2}{2qN_B}\)</span></td>
+</tr>
+</tbody>
+</table>
+<h2 id="glossary">Glossary</h2>
+<p>See the <a href="glossary/">Chapter 15 Glossary</a> for full definitions of every term introduced in this chapter.</p>
+<h2 id="further-reading">Further Reading</h2>
+<ul>
+<li>Sze and Ng, <em>Physics of Semiconductor Devices</em> — the standard reference on the ideal diode equation and breakdown mechanisms</li>
+<li>Neamen, <em>Semiconductor Physics and Devices</em> — clear derivation of the short-base and long-base diode limits</li>
+<li>Shockley, "The Theory of P-N Junctions in Semiconductors and P-N Junction Transistors," <em>Bell System Technical Journal</em> (1949) — the original derivation of the ideal diode equation</li>
+<li>Pierret, <em>Semiconductor Device Fundamentals</em> — detailed treatment of avalanche multiplication and Zener tunneling</li>
+</ul>
+<h2 id="worked-examples">Worked Examples</h2>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 5 — Injected Minority Carrier Concentration</p>
+<p>For the diode of Worked Example 1 (<span class="arithmatex">\(p_{n0}=2.25\times10^{4}\ \text{cm}^{-3}\)</span>), find the excess hole concentration injected at the depletion edge under <span class="arithmatex">\(V=0.5\ \text{V}\)</span> forward bias, and compare it to the equilibrium value.</p>
+<p><strong>Solution:</strong> <span class="arithmatex">\(\Delta p_n(x_n)=p_{n0}(e^{V/V_T}-1)=(2.25\times10^{4})(e^{0.5/0.0259}-1)\approx5.45\times10^{12}\ \text{cm}^{-3}\)</span>. This is about <span class="arithmatex">\(2.4\times10^8\)</span> times the equilibrium value <span class="arithmatex">\(p_{n0}=2.25\times10^{4}\ \text{cm}^{-3}\)</span> — the injected concentration completely dominates, exactly the high-level-injection regime introduced in Chapter 13.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 6 — Breakdown Voltage vs. Doping</p>
+<p>Estimate the avalanche breakdown voltage for silicon diodes with lightly-doped-side concentrations <span class="arithmatex">\(N_B=1\times10^{15}\ \text{cm}^{-3}\)</span> and <span class="arithmatex">\(N_B=5\times10^{17}\ \text{cm}^{-3}\)</span>, using <span class="arithmatex">\(E_{crit}=3\times10^{5}\ \text{V/cm}\)</span>.</p>
+<p><strong>Solution:</strong> At <span class="arithmatex">\(N_B=1\times10^{15}\ \text{cm}^{-3}\)</span>: <span class="arithmatex">\(V_{BR}\approx\dfrac{(1.035\times10^{-12})(3\times10^5)^2}{2(1.6\times10^{-19})(1\times10^{15})}\approx291\ \text{V}\)</span>. At <span class="arithmatex">\(N_B=5\times10^{17}\ \text{cm}^{-3}\)</span>: <span class="arithmatex">\(V_{BR}\approx0.58\ \text{V}\)</span>. The thousand-fold increase in doping drops the avalanche estimate by roughly the same thousand-fold factor (<span class="arithmatex">\(V_{BR}\propto1/N_B\)</span>); at the higher doping, the formula has left the avalanche regime entirely, and any real device at that doping level would break down via Zener tunneling at a similarly small voltage.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 7 — Reverse Current Near Saturation</p>
+<p>Using <span class="arithmatex">\(J_0=1.34\times10^{-11}\ \text{A/cm}^2\)</span> from Worked Example 1, find <span class="arithmatex">\(J\)</span> at <span class="arithmatex">\(V=-0.3\ \text{V}\)</span> and at <span class="arithmatex">\(V=-1\ \text{V}\)</span> reverse bias (well below breakdown), and comment on the result.</p>
+<p><strong>Solution:</strong> At <span class="arithmatex">\(V=-0.3\ \text{V}\)</span>: <span class="arithmatex">\(J=J_0(e^{-0.3/0.0259}-1)\approx J_0(-0.99999)\approx-1.34\times10^{-11}\ \text{A/cm}^2\)</span>. At <span class="arithmatex">\(V=-1\ \text{V}\)</span>: <span class="arithmatex">\(J\approx-J_0=-1.34\times10^{-11}\ \text{A/cm}^2\)</span> to extremely high precision. Both results are essentially identical to <span class="arithmatex">\(-J_0\)</span>, confirming that once reverse bias exceeds a few <span class="arithmatex">\(V_T\)</span> (about 0.1 V), the exact reverse voltage barely matters — current has already saturated.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 8 — Forward Voltage for a Target Current</p>
+<p>Using <span class="arithmatex">\(I_0=J_0A=(1.34\times10^{-11})(1\times10^{-2})\approx1.34\times10^{-13}\ \text{A}\)</span> for a <span class="arithmatex">\(1\times10^{-2}\ \text{cm}^2\)</span> diode, find the forward voltage needed to reach <span class="arithmatex">\(I=10\ \text{mA}\)</span>.</p>
+<p><strong>Solution:</strong> Solving the ideal diode equation for <span class="arithmatex">\(V\)</span>, and neglecting the <span class="arithmatex">\(-1\)</span> (valid whenever <span class="arithmatex">\(I\gg I_0\)</span>): <span class="arithmatex">\(V=V_T\ln(I/I_0)=(0.0259)\ln\!\left(\dfrac{1\times10^{-2}}{1.34\times10^{-13}}\right)=(0.0259)\ln(7.46\times10^{10})\approx(0.0259)(25.04)\approx0.649\ \text{V}\)</span> — consistent with the familiar "0.6-0.7 V" forward drop used throughout circuit analysis.</p>
+</div>
+<h2 id="interactive-chapter-walkthrough">Interactive Chapter Walkthrough</h2>
+<p>Use the MicroSim below as a capstone review: a guided, step-through tour of this entire chapter's storyline in order — from applying forward and reverse bias, through minority carrier injection, the short-base and long-base limits, saturation current, the ideal diode equation, avalanche and Zener breakdown, and finally the complete junction I-V characteristic.</p>
+<h4 id="diagram-p-n-junction-under-bias-interactive-walkthrough">Diagram: P-N Junction Under Bias Interactive Walkthrough</h4>
+<iframe height="670px" scrolling="auto" src="../../sims/pn-junction-under-bias-interactive-walkthrough/main.html" width="100%"></iframe>
+<div class="admonition tip">
+<p class="admonition-title">How to use this MicroSim</p>
+<p><strong>Instructions:</strong> Click "Next ▶" through all steps in order, then use the step dots to jump back to any concept before the chapter quiz.</p>
+<p><strong>Learning objective:</strong> Recall and summarize the full chain of concepts connecting applied bias to the complete junction I-V characteristic.</p>
+<p><strong>What to observe:</strong> Each step's small illustration mirrors a MicroSim used earlier in the chapter, tying the whole narrative together in one place.</p>
+</div>
+<p><a href="../../sims/pn-junction-under-bias-interactive-walkthrough/">Full MicroSim documentation →</a></p>
+</div>
 
 
 
 
 
 
+
+  
+  
 
 
 
@@ -6703,13 +7733,13 @@
         
         
           
-          <a href="../16-metal-semiconductor-mos-junctions/" class="md-footer__link md-footer__link--next" aria-label="Next: 16. Metal-Semiconductor and MOS Junctions">
+          <a href="quiz/" class="md-footer__link md-footer__link--next" aria-label="Next: Quiz">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                16. Metal-Semiconductor and MOS Junctions
+                Quiz
               </div>
             </div>
             <div class="md-footer__button md-icon">

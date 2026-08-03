@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="An interactive university-level semiconductor physics textbook with AI explanations, quizzes, simulations, and practice problems.">
+        <meta name="description" content="The Boltzmann approximation and nondegenerate semiconductors, the exact electron and hole concentration equations, carrier temperature dependence, Fermi level position, the intrinsic Fermi level, and the general carrier concentration equations">
       
       
         <meta name="author" content="Natol Dinka">
@@ -18,7 +18,7 @@
         <link rel="prev" href="../09-carrier-concentration-statistics/glossary/">
       
       
-        <link rel="next" href="../11-drift-current-mobility/">
+        <link rel="next" href="quiz/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>10. Fermi Level Position and Carrier Equations - Semiconductor Physics</title>
+        <title>Fermi Level Position and Carrier Equations - Semiconductor Physics</title>
       
     
     
@@ -84,7 +84,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#fermi-level-position-and-carrier-equations" class="md-skip">
+        <a href="#chapter-10-fermi-level-position-and-carrier-equations" class="md-skip">
           Skip to content
         </a>
       
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              10. Fermi Level Position and Carrier Equations
+              Fermi Level Position and Carrier Equations
             
           </span>
         </div>
@@ -2291,6 +2291,63 @@
   
   
   
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_11" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6_11" id="__nav_6_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Fermi Level Position and Carrier Equations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_11_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    10. Fermi Level Position and Carrier Equations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
     <li class="md-nav__item md-nav__item--active">
       
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
@@ -2306,7 +2363,7 @@
   <span class="md-ellipsis">
     
   
-    10. Fermi Level Position and Carrier Equations
+    Content
   
 
     
@@ -2324,7 +2381,7 @@
   <span class="md-ellipsis">
     
   
-    10. Fermi Level Position and Carrier Equations
+    Content
   
 
     
@@ -2350,10 +2407,21 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
+  <a href="#learning-objectives" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Summary
+        Learning Objectives
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
       
     </span>
   </a>
@@ -2382,9 +2450,358 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#the-boltzmann-approximation-and-nondegenerate-semiconductors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Boltzmann Approximation and Nondegenerate Semiconductors
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Boltzmann Approximation and Nondegenerate Semiconductors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-assumption-everything-else-rests-on" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Assumption Everything Else Rests On
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#electron-and-hole-concentration-the-exact-equations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Electron and Hole Concentration: The Exact Equations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Electron and Hole Concentration: The Exact Equations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#solving-two-equations-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solving Two Equations Together
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Solving Two Equations Together">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-exact-carrier-concentration-calculator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Exact Carrier Concentration Calculator
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#carrier-temperature-dependence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Carrier Temperature Dependence
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Carrier Temperature Dependence">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#one-formula-three-regions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        One Formula, Three Regions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fermi-level-position" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fermi Level Position
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fermi Level Position">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#locating-e_f-exactly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Locating E_F Exactly
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-intrinsic-fermi-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Intrinsic Fermi Level
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Intrinsic Fermi Level">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-natural-reference-point-near-midgap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A Natural Reference Point Near Midgap
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="A Natural Reference Point Near Midgap">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-fermi-level-position-vs-doping-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Fermi Level Position vs. Doping Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-general-carrier-concentration-equations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The General Carrier Concentration Equations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The General Carrier Concentration Equations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rewriting-n0-and-p0-relative-to-e_i" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rewriting n₀ and p₀ Relative to E_i
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-equations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Equations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Glossary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Further Reading
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked Examples
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="problems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Problems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
       
     </li>
   
@@ -4606,6 +5023,124 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_11" id="__nav_7_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 10
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 10
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/exact-carrier-concentration-calculator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exact Carrier Concentration Calculator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/fermi-level-position-explorer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fermi Level Position vs. Doping Explorer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -5004,9 +5539,41 @@
   
 
 
-<h1 id="fermi-level-position-and-carrier-equations">Fermi Level Position and Carrier Equations</h1>
-<h2 id="summary">Summary</h2>
-<p>This chapter uses the Boltzmann approximation to simplify carrier statistics in nondegenerate semiconductors, deriving working equations for electron and hole concentration. Students learn how the Fermi level position shifts with doping and temperature, and locate the intrinsic Fermi level as a reference point, arriving at the general carrier concentration equations used throughout the rest of the course.</p>
+<h1 id="chapter-10-fermi-level-position-and-carrier-equations">Chapter 10: Fermi Level Position and Carrier Equations</h1>
+<div class="unit1-styled">
+<details class="video-overview">
+<summary><strong>Chapter Overview</strong> (click to expand)</summary>
+<p>Chapter 9 derived two equations — the mass action law and the charge neutrality condition — and deliberately stopped short of solving them together. This chapter finishes the job. Solving that system exactly, for any doping level and temperature, produces one closed-form <strong>electron concentration</strong> equation (and its <strong>hole concentration</strong> counterpart) that smoothly reproduces every limiting case Chapters 7-9 treated separately: the intrinsic limit, the extrinsic (fully-ionized) approximation, and everything in between. From there, the exact <strong>Fermi level position</strong> follows directly, the <strong>intrinsic Fermi level</strong> <span class="arithmatex">\(E_i\)</span> emerges as a natural reference point near midgap, and the whole chapter culminates in the single most-used equation pair in the rest of this course: <span class="arithmatex">\(n_0=n_ie^{(E_F-E_i)/k_BT}\)</span> and <span class="arithmatex">\(p_0=n_ie^{(E_i-E_F)/k_BT}\)</span>.</p>
+<p><strong>Key Takeaways:</strong></p>
+<ol>
+<li>The <strong>Boltzmann approximation</strong> and the resulting <strong>nondegenerate semiconductor</strong> assumption (Chapters 8-9) are the foundation this entire chapter's algebra rests on.</li>
+<li>Solving the mass action law and charge neutrality condition together gives the exact <strong>electron concentration equation</strong>, <span class="arithmatex">\(n_0=\big[(N_D-N_A)+\sqrt{(N_D-N_A)^2+4n_i^2}\big]/2\)</span>, and the analogous <strong>hole concentration</strong> result — one formula valid at <em>any</em> doping level.</li>
+<li>This exact formula directly explains <strong>carrier temperature dependence</strong>: as temperature rises and <span class="arithmatex">\(n_i(T)\)</span> grows, the same equation smoothly sweeps from the extrinsic plateau (<span class="arithmatex">\(n_0\approx N_D-N_A\)</span>) into the intrinsic region (<span class="arithmatex">\(n_0\to n_i\)</span>), unifying Chapter 8's separate regimes.</li>
+<li>Once <span class="arithmatex">\(n_0\)</span> is known, the <strong>Fermi level position</strong> follows directly from <span class="arithmatex">\(E_C-E_F=k_BT\ln(N_C/n_0)\)</span>; doping shifts <span class="arithmatex">\(E_F\)</span> toward whichever band edge corresponds to the majority carrier.</li>
+<li>The <strong>intrinsic Fermi level</strong>, <span class="arithmatex">\(E_i\)</span>, is the special <span class="arithmatex">\(E_F\)</span> value where <span class="arithmatex">\(n_0=p_0=n_i\)</span>; it sits close to — but not exactly at — the middle of the band gap, offset by a small term depending on <span class="arithmatex">\(N_C\)</span> and <span class="arithmatex">\(N_V\)</span>.</li>
+<li>Rewriting <span class="arithmatex">\(n_0\)</span> and <span class="arithmatex">\(p_0\)</span> relative to <span class="arithmatex">\(E_i\)</span> instead of the band edges gives the <strong>carrier concentration equations</strong> <span class="arithmatex">\(n_0=n_ie^{(E_F-E_i)/k_BT}\)</span> and <span class="arithmatex">\(p_0=n_ie^{(E_i-E_F)/k_BT}\)</span> — the standard, most-frequently-used form of these equations for the rest of this course, especially the p-n junction chapters ahead.</li>
+</ol>
+</details>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<p>By the end of this chapter, you will be able to:</p>
+<ul>
+<li>State the Boltzmann approximation and the nondegenerate semiconductor assumption it depends on</li>
+<li>Derive the exact electron and hole concentration equations by solving the mass action law and charge neutrality condition together</li>
+<li>Explain carrier temperature dependence as a single smooth curve produced by the exact concentration equation, unifying the freeze-out, extrinsic, and intrinsic regions</li>
+<li>Compute Fermi level position from a known doping level and temperature</li>
+<li>Define the intrinsic Fermi level and compute its offset from exact midgap</li>
+<li>State and apply the general carrier concentration equations, <span class="arithmatex">\(n_0=n_ie^{(E_F-E_i)/k_BT}\)</span> and <span class="arithmatex">\(p_0=n_ie^{(E_i-E_F)/k_BT}\)</span></li>
+<li>Solve worked and practice problems combining these ideas, in preparation for the transport and junction physics of Chapters 11-15</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">How to read this chapter</p>
+<p>This chapter is largely algebra applied to results Chapter 9 already derived — the physics does not change, only the bookkeeping. The single most important result is the exact electron concentration equation in the first section; nearly everything else in this chapter (Fermi level position, the intrinsic Fermi level, the final <span class="arithmatex">\(n_0=n_ie^{(E_F-E_i)/k_BT}\)</span> form) is a direct algebraic consequence of that one equation. If you can explain why that equation correctly reduces to both the intrinsic and extrinsic limits, you understand this chapter's core idea.</p>
+</div>
+<h2 id="introduction">Introduction</h2>
+<p>Chapter 9 assembled two equations describing any non-degenerate semiconductor at thermal equilibrium: the mass action law, <span class="arithmatex">\(n_0p_0=n_i^2\)</span>, and the charge neutrality condition, <span class="arithmatex">\(n_0+N_A^-=p_0+N_D^+\)</span>. Two equations in two unknowns (<span class="arithmatex">\(n_0\)</span> and <span class="arithmatex">\(p_0\)</span>) can, in principle, always be solved — Chapter 9 deliberately stopped before doing so. This chapter completes that algebra.</p>
+<p>Assuming complete ionization (Chapter 8's extrinsic-region assumption, <span class="arithmatex">\(N_D^+\approx N_D\)</span>, <span class="arithmatex">\(N_A^-\approx N_A\)</span>), substituting <span class="arithmatex">\(p_0=n_i^2/n_0\)</span> from the mass action law into the charge neutrality condition produces a single quadratic equation in <span class="arithmatex">\(n_0\)</span> alone. Solving that quadratic gives a closed-form result that looks, at first glance, more complicated than anything Chapters 7-9 used — but it is exactly the equation that quietly justifies every approximation those chapters made. When doping dominates (<span class="arithmatex">\(N_D-N_A\gg n_i\)</span>), it reduces to the familiar <span class="arithmatex">\(n_0\approx N_D-N_A\)</span>; when doping vanishes entirely, it reduces to <span class="arithmatex">\(n_0=n_i\)</span>, the purely intrinsic case. Chapters 7-9 always described these as two separate cases; this chapter shows they are the same formula, evaluated at different doping levels.</p>
+<p>With <span class="arithmatex">\(n_0\)</span> known exactly, the Fermi level's position follows immediately from the effective-density-of-states relationship Chapter 9 already derived, <span class="arithmatex">\(n_0=N_Ce^{-(E_C-E_F)/k_BT}\)</span>, solved for <span class="arithmatex">\(E_F\)</span>. This lets this chapter answer, precisely, a question every earlier chapter asked only qualitatively: exactly how far does doping push the Fermi level, and toward which band edge? A special case of this same result — the Fermi level's position when the material is purely intrinsic — defines the <strong>intrinsic Fermi level</strong>, <span class="arithmatex">\(E_i\)</span>, a reference energy that turns out to sit almost exactly at the middle of the band gap, with a small, calculable correction.</p>
+<p>Finally, this chapter reframes the electron and hole concentration equations one more time, replacing the band-edge references <span class="arithmatex">\(E_C\)</span> and <span class="arithmatex">\(E_V\)</span> with the intrinsic Fermi level <span class="arithmatex">\(E_i\)</span> instead. This produces the <strong>carrier concentration equations</strong> in the specific form used constantly throughout the rest of this course — the p-n junction chapters ahead compute built-in potential, depletion width, and diode current almost entirely in terms of how far <span class="arithmatex">\(E_F\)</span> sits from <span class="arithmatex">\(E_i\)</span> on the n-type and p-type sides of a junction.</p>
 <h2 id="concepts-covered">Concepts Covered</h2>
 <p>This chapter covers the following 8 concepts from the learning graph:</p>
 <ol>
@@ -5020,20 +5587,242 @@
 <li>Carrier Concentration Equation</li>
 </ol>
 <h2 id="prerequisites">Prerequisites</h2>
-<p>This chapter builds on concepts from:</p>
+<p>This chapter builds directly on <a href="../06-band-structure-fermi-level/">Chapter 6: Band Structure and the Fermi Level</a> (the Fermi-Dirac distribution and band diagram), <a href="../08-doping-ionization-temperature/">Chapter 8: Doping, Ionization, and Temperature Regimes</a> (complete ionization and temperature regions), and <a href="../09-carrier-concentration-statistics/">Chapter 9: Carrier Concentration Statistics</a> (the mass action law and charge neutrality condition, solved explicitly in this chapter).</p>
+<h2 id="the-boltzmann-approximation-and-nondegenerate-semiconductors">The Boltzmann Approximation and Nondegenerate Semiconductors</h2>
+<h3 id="the-assumption-everything-else-rests-on">The Assumption Everything Else Rests On</h3>
+<p>Every result in this chapter depends on one assumption, already introduced in Chapters 8 and 9: the <strong>Boltzmann approximation</strong>, <span class="arithmatex">\(f(E)\approx e^{-(E-E_F)/k_BT}\)</span>, valid whenever <span class="arithmatex">\(E-E_F\gg k_BT\)</span> for every conduction-band state under consideration. A semiconductor satisfying this condition throughout its band of interest is called a <strong>nondegenerate semiconductor</strong> — the Fermi level sits safely inside the band gap, away from either band edge. Chapter 8's degenerate-semiconductor discussion showed what happens when this assumption fails (very heavy doping); this entire chapter, like Chapter 9, assumes it holds.</p>
+<p>It is worth restating why this matters so much: without the Boltzmann approximation, the carrier-concentration integral from Chapter 9 has no simple closed form at all, and every equation this chapter derives — the exact <span class="arithmatex">\(n_0\)</span>, the Fermi level position formula, the intrinsic Fermi level — would require numerical integration instead of algebra. The nondegenerate assumption is what turns semiconductor carrier statistics from a numerical problem into an algebraic one.</p>
+<h2 id="electron-and-hole-concentration-the-exact-equations">Electron and Hole Concentration: The Exact Equations</h2>
+<h3 id="solving-two-equations-together">Solving Two Equations Together</h3>
+<p>Starting from the mass action law, <span class="arithmatex">\(p_0=n_i^2/n_0\)</span>, and substituting into the charge neutrality condition, <span class="arithmatex">\(n_0+N_A=p_0+N_D\)</span> (assuming complete ionization, so <span class="arithmatex">\(N_A^-\approx N_A\)</span> and <span class="arithmatex">\(N_D^+\approx N_D\)</span>):</p>
+<div class="arithmatex">\[
+n_0 + N_A = \frac{n_i^2}{n_0} + N_D
+\]</div>
+<p>Multiplying through by <span class="arithmatex">\(n_0\)</span> and rearranging gives a quadratic equation in <span class="arithmatex">\(n_0\)</span>:</p>
+<div class="arithmatex">\[
+n_0^2 - (N_D-N_A)n_0 - n_i^2 = 0
+\]</div>
+<p>Applying the quadratic formula (keeping only the physically meaningful positive root, since concentration cannot be negative) gives the exact <strong>electron concentration</strong> equation:</p>
+<div class="arithmatex">\[
+n_0 = \frac{(N_D-N_A) + \sqrt{(N_D-N_A)^2 + 4n_i^2}}{2}
+\]</div>
+<p>with the exactly analogous <strong>hole concentration</strong> result obtained either directly (solving for <span class="arithmatex">\(p_0\)</span> instead) or simply via <span class="arithmatex">\(p_0=n_i^2/n_0\)</span>:</p>
+<div class="arithmatex">\[
+p_0 = \frac{(N_A-N_D) + \sqrt{(N_A-N_D)^2 + 4n_i^2}}{2}
+\]</div>
+<h4 id="diagram-exact-carrier-concentration-calculator">Diagram: Exact Carrier Concentration Calculator</h4>
+<iframe height="660px" scrolling="auto" src="../../sims/exact-carrier-concentration-calculator/main.html" width="100%"></iframe>
+<div class="admonition tip">
+<p class="admonition-title">How to use this MicroSim</p>
+<p><strong>Instructions:</strong> Set <span class="arithmatex">\(N_D\)</span> and <span class="arithmatex">\(N_A\)</span> equal (both at their minimum) and confirm <span class="arithmatex">\(n_0\approx n_i\)</span>; then raise <span class="arithmatex">\(N_D\)</span> far above <span class="arithmatex">\(N_A\)</span> and confirm <span class="arithmatex">\(n_0\)</span> approaches <span class="arithmatex">\(N_D-N_A\)</span>.</p>
+<p><strong>Learning objective:</strong> Apply the exact carrier concentration equation, and verify that both the intrinsic and extrinsic approximations are limiting cases of the same formula.</p>
+<p><strong>What to observe:</strong> The self-consistency check, <span class="arithmatex">\(n_0p_0\)</span>, always equals <span class="arithmatex">\(n_i^2\)</span> exactly — by construction, since the formula was derived directly from the mass action law.</p>
+</div>
+<p><a href="../../sims/exact-carrier-concentration-calculator/">Full MicroSim documentation →</a></p>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 1 — Verifying the Extrinsic Limit</p>
+<p>A silicon sample has <span class="arithmatex">\(N_D=10^{16}\ \text{cm}^{-3}\)</span>, <span class="arithmatex">\(N_A=0\)</span>, and <span class="arithmatex">\(n_i\approx9.65\times10^9\ \text{cm}^{-3}\)</span> at 300 K. Use the exact formula to confirm <span class="arithmatex">\(n_0\approx N_D\)</span>.</p>
+<p><strong>Solution:</strong></p>
+<div class="arithmatex">\[
+n_0 = \frac{10^{16}+\sqrt{(10^{16})^2+4(9.65\times10^9)^2}}{2} = \frac{10^{16}+\sqrt{10^{32}+3.73\times10^{20}}}{2}
+\]</div>
+<p>Since <span class="arithmatex">\(10^{32}\gg3.73\times10^{20}\)</span>, the square root is extremely close to <span class="arithmatex">\(10^{16}\)</span> itself, giving <span class="arithmatex">\(n_0\approx(10^{16}+10^{16})/2=10^{16}\ \text{cm}^{-3}\)</span> — confirming the extrinsic approximation Chapter 8 used throughout, now derived rather than assumed.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Concept Check</p>
+<p>What does the exact electron concentration equation give for <span class="arithmatex">\(n_0\)</span> when <span class="arithmatex">\(N_D=N_A\)</span> exactly (a perfectly compensated sample, Chapter 8)?</p>
+</div>
+<details class="question">
+<summary>Concept Check — click to reveal answer</summary>
+<p>With <span class="arithmatex">\(N_D-N_A=0\)</span>, the equation reduces to <span class="arithmatex">\(n_0=\sqrt{4n_i^2}/2=n_i\)</span> — a perfectly compensated sample behaves exactly as if intrinsic, confirming Chapter 8's qualitative claim with an exact formula.</p>
+</details>
+<h2 id="carrier-temperature-dependence">Carrier Temperature Dependence</h2>
+<h3 id="one-formula-three-regions">One Formula, Three Regions</h3>
+<p>Chapter 8 described three separate temperature regions — freeze-out, extrinsic, and intrinsic — using qualitative reasoning and an illustrative model. The exact electron concentration equation from the previous section, evaluated as a function of temperature (through <span class="arithmatex">\(n_i(T)\)</span>, which grows exponentially per Chapter 9), reproduces the extrinsic and intrinsic regions as two limiting cases of a single smooth curve:</p>
 <ul>
-<li><a href="../06-band-structure-fermi-level/">Chapter 6: Band Structure and the Fermi Level</a></li>
-<li><a href="../08-doping-ionization-temperature/">Chapter 8: Doping, Ionization, and Temperature Regimes</a></li>
-<li><a href="../09-carrier-concentration-statistics/">Chapter 9: Carrier Concentration Statistics</a></li>
+<li><strong>At low-to-moderate temperature</strong>, <span class="arithmatex">\(n_i(T)\ll N_D-N_A\)</span>, and the equation reduces to <span class="arithmatex">\(n_0\approx N_D-N_A\)</span> — the extrinsic plateau.</li>
+<li><strong>At high temperature</strong>, <span class="arithmatex">\(n_i(T)\gg N_D-N_A\)</span>, and the equation reduces to <span class="arithmatex">\(n_0\approx n_i(T)\)</span> — the intrinsic region, since the square root term dominates completely.</li>
+<li><strong>The transition between these two limits</strong> is smooth and continuous, governed entirely by how <span class="arithmatex">\(n_i(T)\)</span> compares to the fixed net doping <span class="arithmatex">\(N_D-N_A\)</span>.</li>
 </ul>
-<hr />
-<p>TODO: Generate Chapter Content</p>
+<p>This chapter's exact formula does <em>not</em>, however, capture the freeze-out region from Chapter 8, since it assumes complete ionization (<span class="arithmatex">\(N_D^+\approx N_D\)</span>) throughout — an assumption Chapter 8 showed fails at low temperature. Capturing freeze-out rigorously requires combining this chapter's charge neutrality algebra with Chapter 8's temperature-dependent ionization fraction, a more advanced calculation beyond this course's scope.</p>
+<pre class="mermaid"><code>flowchart LR
+    A["n0 = [(ND-NA) + sqrt((ND-NA)^2 + 4ni(T)^2)] / 2"] --&gt; B{"ni(T) vs (ND-NA)?"}
+    B -- "ni(T) &lt;&lt; ND-NA" --&gt; C["Extrinsic plateau:&lt;br/&gt;n0 ≈ ND-NA"]
+    B -- "ni(T) &gt;&gt; ND-NA" --&gt; D["Intrinsic region:&lt;br/&gt;n0 ≈ ni(T)"]</code></pre>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 2 — Confirming the Intrinsic Limit at High Temperature</p>
+<p>A silicon sample has <span class="arithmatex">\(N_D-N_A=10^{15}\ \text{cm}^{-3}\)</span>. At some high temperature, <span class="arithmatex">\(n_i(T)=5\times10^{16}\ \text{cm}^{-3}\)</span> (far exceeding the doping). Estimate <span class="arithmatex">\(n_0\)</span>.</p>
+<p><strong>Solution:</strong> Since <span class="arithmatex">\(n_i\gg N_D-N_A\)</span>, the square root term dominates: <span class="arithmatex">\(n_0\approx\big[10^{15}+\sqrt{(10^{15})^2+4(5\times10^{16})^2}\big]/2\approx\big[10^{15}+2(5\times10^{16})\big]/2\approx5\times10^{16}\ \text{cm}^{-3}\approx n_i\)</span> — the sample has entered the intrinsic temperature region, exactly as the exact formula predicts.</p>
+</div>
+<h2 id="fermi-level-position">Fermi Level Position</h2>
+<h3 id="locating-e_f-exactly">Locating E_F Exactly</h3>
+<p>Chapter 9 derived <span class="arithmatex">\(n_0=N_Ce^{-(E_C-E_F)/k_BT}\)</span>; solving this for <span class="arithmatex">\(E_F\)</span> gives the exact <strong>Fermi level position</strong> once <span class="arithmatex">\(n_0\)</span> is known from the previous section:</p>
+<div class="arithmatex">\[
+E_C - E_F = k_BT\ln\!\left(\frac{N_C}{n_0}\right)
+\]</div>
+<p>This is precisely the formula Chapter 8 previewed when discussing degenerate semiconductors, now fully justified: <span class="arithmatex">\(n_0\)</span> is no longer an assumed value but the <em>exact</em> result from the electron concentration equation above. As doping increases <span class="arithmatex">\(n_0\)</span> toward (and potentially past) <span class="arithmatex">\(N_C\)</span>, <span class="arithmatex">\(E_C-E_F\)</span> shrinks toward zero (and, in the degenerate limit, would formally go negative — the signal, as Chapter 8 explained, that the whole non-degenerate framework has broken down).</p>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 3 — Computing Fermi Level Position</p>
+<p>Using the result of Worked Example 1 (<span class="arithmatex">\(n_0\approx10^{16}\ \text{cm}^{-3}\)</span>) and silicon's <span class="arithmatex">\(N_C\approx2.8\times10^{19}\ \text{cm}^{-3}\)</span> at 300 K (<span class="arithmatex">\(k_BT\approx0.0259\)</span> eV), find <span class="arithmatex">\(E_C-E_F\)</span>.</p>
+<p><strong>Solution:</strong></p>
+<div class="arithmatex">\[
+E_C-E_F = (0.0259)\ln\!\left(\frac{2.8\times10^{19}}{10^{16}}\right) = (0.0259)\ln(2800) \approx (0.0259)(7.94) \approx 0.206\ \text{eV}
+\]</div>
+</div>
+<h2 id="the-intrinsic-fermi-level">The Intrinsic Fermi Level</h2>
+<h3 id="a-natural-reference-point-near-midgap">A Natural Reference Point Near Midgap</h3>
+<p>The <strong>intrinsic Fermi level</strong>, <span class="arithmatex">\(E_i\)</span>, is defined as the special value of <span class="arithmatex">\(E_F\)</span> that results when the material is purely intrinsic — that is, when <span class="arithmatex">\(n_0=p_0=n_i\)</span>. Substituting <span class="arithmatex">\(n_0=n_i\)</span> into the Fermi level position formula, and using <span class="arithmatex">\(n_i=\sqrt{N_CN_V}\,e^{-E_g/2k_BT}\)</span> from Chapter 9, gives (after algebraic simplification):</p>
+<div class="arithmatex">\[
+E_i = \frac{E_C+E_V}{2} + \frac{k_BT}{2}\ln\!\left(\frac{N_V}{N_C}\right)
+\]</div>
+<p>The first term, <span class="arithmatex">\((E_C+E_V)/2\)</span>, is exactly the middle of the band gap ("midgap"). The second term is a small correction, typically only tens of meV, arising because <span class="arithmatex">\(N_C\)</span> and <span class="arithmatex">\(N_V\)</span> are generally unequal (different effective masses for electrons and holes). For silicon, where <span class="arithmatex">\(N_C&gt;N_V\)</span> (electrons have more available conduction-band states than holes have valence-band states), this correction is negative, meaning <span class="arithmatex">\(E_i\)</span> sits slightly <em>below</em> exact midgap.</p>
+<h4 id="diagram-fermi-level-position-vs-doping-explorer">Diagram: Fermi Level Position vs. Doping Explorer</h4>
+<iframe height="660px" scrolling="auto" src="../../sims/fermi-level-position-explorer/main.html" width="100%"></iframe>
+<div class="admonition tip">
+<p class="admonition-title">How to use this MicroSim</p>
+<p><strong>Instructions:</strong> With <span class="arithmatex">\(N_D=N_A\)</span> (intrinsic limit), confirm <span class="arithmatex">\(E_F\)</span> sits exactly on the dashed <span class="arithmatex">\(E_i\)</span> line; then increase <span class="arithmatex">\(N_D\)</span> or <span class="arithmatex">\(N_A\)</span> independently and watch <span class="arithmatex">\(E_F\)</span> move away from <span class="arithmatex">\(E_i\)</span>.</p>
+<p><strong>Learning objective:</strong> Predict how doping shifts <span class="arithmatex">\(E_F\)</span> relative to <span class="arithmatex">\(E_i\)</span>, and explain why <span class="arithmatex">\(E_i\)</span> is not exactly at midgap.</p>
+<p><strong>What to observe:</strong> The <span class="arithmatex">\(E_i\)</span> reference line's offset from exact midgap is small (tens of meV) and depends on material, through <span class="arithmatex">\(N_C\)</span> and <span class="arithmatex">\(N_V\)</span>'s dependence on effective mass.</p>
+</div>
+<p><a href="../../sims/fermi-level-position-explorer/">Full MicroSim documentation →</a></p>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 4 — Computing E_i's Offset from Midgap</p>
+<p>Using silicon's <span class="arithmatex">\(N_C\approx2.8\times10^{19}\ \text{cm}^{-3}\)</span>, <span class="arithmatex">\(N_V\approx1.04\times10^{19}\ \text{cm}^{-3}\)</span>, and <span class="arithmatex">\(k_BT\approx0.0259\)</span> eV at 300 K, find <span class="arithmatex">\(E_i\)</span>'s offset from exact midgap.</p>
+<p><strong>Solution:</strong></p>
+<div class="arithmatex">\[
+\Delta E_i = \frac{k_BT}{2}\ln\!\left(\frac{N_V}{N_C}\right) = \frac{0.0259}{2}\ln\!\left(\frac{1.04\times10^{19}}{2.8\times10^{19}}\right) = (0.01295)\ln(0.371)
+\]</div>
+<div class="arithmatex">\[
+\Delta E_i = (0.01295)(-0.991) \approx -0.0128\ \text{eV} = -12.8\ \text{meV}
+\]</div>
+<p>Silicon's intrinsic Fermi level sits about 13 meV below exact midgap — a small but nonzero correction, consistent with the common textbook shorthand that <span class="arithmatex">\(E_i\)</span> is "very close to, but not exactly at, midgap."</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Concept Check</p>
+<p>A hypothetical semiconductor has <span class="arithmatex">\(N_V&gt;N_C\)</span> (holes have more available valence-band states than electrons have conduction-band states). Would you expect its <span class="arithmatex">\(E_i\)</span> to sit above or below exact midgap?</p>
+</div>
+<details class="question">
+<summary>Concept Check — click to reveal answer</summary>
+<p>Above midgap. Since <span class="arithmatex">\(\Delta E_i=(k_BT/2)\ln(N_V/N_C)\)</span>, having <span class="arithmatex">\(N_V&gt;N_C\)</span> makes <span class="arithmatex">\(\ln(N_V/N_C)\)</span> positive, pushing <span class="arithmatex">\(E_i\)</span> above exact midgap — the opposite correction from silicon's case.</p>
+</details>
+<h2 id="the-general-carrier-concentration-equations">The General Carrier Concentration Equations</h2>
+<h3 id="rewriting-n0-and-p0-relative-to-e_i">Rewriting n₀ and p₀ Relative to E_i</h3>
+<p>With the intrinsic Fermi level defined, <span class="arithmatex">\(n_0\)</span> and <span class="arithmatex">\(p_0\)</span> can be rewritten one more time, replacing the band-edge references <span class="arithmatex">\(E_C\)</span> and <span class="arithmatex">\(E_V\)</span> with <span class="arithmatex">\(E_i\)</span> instead. Starting from <span class="arithmatex">\(n_0=N_Ce^{-(E_C-E_F)/k_BT}\)</span> and <span class="arithmatex">\(n_i=N_Ce^{-(E_C-E_i)/k_BT}\)</span>, dividing the first by the second cancels <span class="arithmatex">\(N_C\)</span> and <span class="arithmatex">\(E_C\)</span> completely:</p>
+<div class="arithmatex">\[
+\frac{n_0}{n_i} = e^{-(E_C-E_F)/k_BT+(E_C-E_i)/k_BT} = e^{(E_F-E_i)/k_BT}
+\]</div>
+<p>giving the <strong>carrier concentration equations</strong> in their final, most-used form:</p>
+<div class="arithmatex">\[
+n_0 = n_ie^{(E_F-E_i)/k_BT}, \qquad p_0 = n_ie^{(E_i-E_F)/k_BT}
+\]</div>
+<p>These equations are, in a real sense, this course's payoff for everything built up since Chapter 6: they require knowing only <span class="arithmatex">\(n_i\)</span> (Chapter 9) and how far <span class="arithmatex">\(E_F\)</span> sits from <span class="arithmatex">\(E_i\)</span> (this chapter) — no explicit reference to <span class="arithmatex">\(N_C\)</span>, <span class="arithmatex">\(N_V\)</span>, or the band edges is needed at all. This is exactly the form the p-n junction chapters ahead (14-15) use to compute built-in potential and carrier concentrations on each side of a junction, since a junction is fundamentally a difference in <span class="arithmatex">\(E_F-E_i\)</span> between its n-type and p-type sides.</p>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 5 — Applying the Final Carrier Concentration Equation</p>
+<p>A silicon sample at 300 K has <span class="arithmatex">\(E_F-E_i=0.30\)</span> eV. Using <span class="arithmatex">\(n_i\approx9.65\times10^9\ \text{cm}^{-3}\)</span> and <span class="arithmatex">\(k_BT\approx0.0259\)</span> eV, find <span class="arithmatex">\(n_0\)</span>.</p>
+<p><strong>Solution:</strong></p>
+<div class="arithmatex">\[
+n_0 = n_ie^{(E_F-E_i)/k_BT} = (9.65\times10^9)e^{0.30/0.0259} = (9.65\times10^9)e^{11.6}
+\]</div>
+<div class="arithmatex">\[
+n_0 \approx (9.65\times10^9)(1.09\times10^5) \approx 1.05\times10^{15}\ \text{cm}^{-3}
+\]</div>
+</div>
+<h2 id="summary">Summary</h2>
+<p>This chapter solved the mass action law and charge neutrality condition (Chapter 9) together exactly, resting entirely on the <strong>Boltzmann approximation</strong> and the resulting <strong>nondegenerate semiconductor</strong> assumption from Chapters 8-9. The result is the exact <strong>electron concentration</strong> equation, <span class="arithmatex">\(n_0=\big[(N_D-N_A)+\sqrt{(N_D-N_A)^2+4n_i^2}\big]/2\)</span> (and the analogous <strong>hole concentration</strong> result), which explains <strong>carrier temperature dependence</strong> as one smooth curve unifying Chapter 8's extrinsic and intrinsic regions. From <span class="arithmatex">\(n_0\)</span>, the exact <strong>Fermi level position</strong> follows from <span class="arithmatex">\(E_C-E_F=k_BT\ln(N_C/n_0)\)</span>, and the special case where the material is intrinsic defines the <strong>intrinsic Fermi level</strong> <span class="arithmatex">\(E_i\)</span>, sitting close to but not exactly at midgap. Finally, rewriting the carrier concentrations relative to <span class="arithmatex">\(E_i\)</span> gives the <strong>carrier concentration equations</strong>, <span class="arithmatex">\(n_0=n_ie^{(E_F-E_i)/k_BT}\)</span> and <span class="arithmatex">\(p_0=n_ie^{(E_i-E_F)/k_BT}\)</span> — the standard form used throughout the transport and junction physics chapters ahead.</p>
+<h2 id="key-equations">Key Equations</h2>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Equation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Boltzmann approximation</td>
+<td><span class="arithmatex">\(f(E)\approx e^{-(E-E_F)/k_BT}\)</span>, valid for <span class="arithmatex">\(E-E_F\gg k_BT\)</span></td>
+</tr>
+<tr>
+<td>Exact electron concentration</td>
+<td><span class="arithmatex">\(n_0 = \dfrac{(N_D-N_A)+\sqrt{(N_D-N_A)^2+4n_i^2}}{2}\)</span></td>
+</tr>
+<tr>
+<td>Exact hole concentration</td>
+<td><span class="arithmatex">\(p_0 = \dfrac{(N_A-N_D)+\sqrt{(N_A-N_D)^2+4n_i^2}}{2}\)</span></td>
+</tr>
+<tr>
+<td>Fermi level position</td>
+<td><span class="arithmatex">\(E_C-E_F = k_BT\ln(N_C/n_0)\)</span></td>
+</tr>
+<tr>
+<td>Intrinsic Fermi level</td>
+<td><span class="arithmatex">\(E_i = \dfrac{E_C+E_V}{2}+\dfrac{k_BT}{2}\ln\!\left(\dfrac{N_V}{N_C}\right)\)</span></td>
+</tr>
+<tr>
+<td>Carrier concentration equations</td>
+<td><span class="arithmatex">\(n_0=n_ie^{(E_F-E_i)/k_BT}\)</span>, <span class="arithmatex">\(p_0=n_ie^{(E_i-E_F)/k_BT}\)</span></td>
+</tr>
+</tbody>
+</table>
+<h2 id="glossary">Glossary</h2>
+<p>See the <a href="glossary/">Chapter 10 Glossary</a> for full definitions of every term introduced in this chapter.</p>
+<h2 id="further-reading">Further Reading</h2>
+<ul>
+<li>Neamen, <em>Semiconductor Physics and Devices</em> — the standard derivation of the exact carrier concentration equations and intrinsic Fermi level</li>
+<li>Sze and Ng, <em>Physics of Semiconductor Devices</em> — extensive worked device examples using the <span class="arithmatex">\(n_0=n_ie^{(E_F-E_i)/k_BT}\)</span> form</li>
+<li>Pierret, <em>Semiconductor Device Fundamentals</em> — a careful step-by-step derivation of the quadratic solution for <span class="arithmatex">\(n_0\)</span></li>
+<li>Streetman and Banerjee, <em>Solid State Electronic Devices</em> — clear treatment of Fermi level position as a function of doping</li>
+</ul>
+<h2 id="worked-examples">Worked Examples</h2>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 6 — p-type Exact Concentration</p>
+<p>A silicon sample has <span class="arithmatex">\(N_A=5\times10^{15}\ \text{cm}^{-3}\)</span>, <span class="arithmatex">\(N_D=0\)</span>, at 300 K (<span class="arithmatex">\(n_i\approx9.65\times10^9\ \text{cm}^{-3}\)</span>). Find <span class="arithmatex">\(p_0\)</span> using the exact formula, and verify it matches the extrinsic approximation.</p>
+<p><strong>Solution:</strong></p>
+<div class="arithmatex">\[
+p_0 = \frac{5\times10^{15}+\sqrt{(5\times10^{15})^2+4(9.65\times10^9)^2}}{2} \approx \frac{5\times10^{15}+5\times10^{15}}{2} = 5\times10^{15}\ \text{cm}^{-3}
+\]</div>
+<p>This matches <span class="arithmatex">\(p_0\approx N_A\)</span>, confirming the extrinsic approximation for this heavily-doped-relative-to-<span class="arithmatex">\(n_i\)</span> sample.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 7 — Fermi Level Position for p-type Material</p>
+<p>A silicon sample has <span class="arithmatex">\(p_0=5\times10^{15}\ \text{cm}^{-3}\)</span> at 300 K, with <span class="arithmatex">\(N_V\approx1.04\times10^{19}\ \text{cm}^{-3}\)</span>. Find <span class="arithmatex">\(E_F-E_V\)</span>.</p>
+<p><strong>Solution:</strong> Using the hole analog of the Fermi level position formula, <span class="arithmatex">\(E_F-E_V=k_BT\ln(N_V/p_0)\)</span>:</p>
+<div class="arithmatex">\[
+E_F-E_V = (0.0259)\ln\!\left(\frac{1.04\times10^{19}}{5\times10^{15}}\right) = (0.0259)\ln(2080) \approx (0.0259)(7.64) \approx 0.198\ \text{eV}
+\]</div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 8 — Near-Intrinsic Sample</p>
+<p>A silicon sample has <span class="arithmatex">\(N_D-N_A=2\times10^{10}\ \text{cm}^{-3}\)</span>, comparable to <span class="arithmatex">\(n_i\approx9.65\times10^9\ \text{cm}^{-3}\)</span> at 300 K. Estimate <span class="arithmatex">\(n_0\)</span>, and comment on whether the simple approximation <span class="arithmatex">\(n_0\approx N_D-N_A\)</span> would be accurate here.</p>
+<p><strong>Solution:</strong></p>
+<div class="arithmatex">\[
+n_0 = \frac{2\times10^{10}+\sqrt{(2\times10^{10})^2+4(9.65\times10^9)^2}}{2} = \frac{2\times10^{10}+\sqrt{4\times10^{20}+3.73\times10^{20}}}{2}
+\]</div>
+<div class="arithmatex">\[
+n_0 = \frac{2\times10^{10}+2.78\times10^{10}}{2} \approx 2.39\times10^{10}\ \text{cm}^{-3}
+\]</div>
+<p>The simple approximation would give <span class="arithmatex">\(n_0\approx2\times10^{10}\ \text{cm}^{-3}\)</span> — off by about 16% from the exact result, since the doping here is only about twice <span class="arithmatex">\(n_i\)</span>, not the many-orders-of-magnitude excess needed for the extrinsic approximation to be highly accurate. This is exactly the near-intrinsic regime where the exact formula matters most.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 9 — Temperature at Which a Sample Becomes Intrinsic-Dominated</p>
+<p>A silicon sample has <span class="arithmatex">\(N_D-N_A=10^{14}\ \text{cm}^{-3}\)</span>. Roughly, using the effective-density-of-states calculator's trend from Chapter 9, at what order of magnitude of temperature would you expect <span class="arithmatex">\(n_i(T)\)</span> to first become comparable to this doping level, given <span class="arithmatex">\(n_i(300\text{ K})\approx9.65\times10^9\ \text{cm}^{-3}\)</span> and <span class="arithmatex">\(n_i\)</span> growing roughly by an order of magnitude every 20-25 K increase near room temperature?</p>
+<p><strong>Solution:</strong> <span class="arithmatex">\(n_i\)</span> must grow from about <span class="arithmatex">\(10^{10}\)</span> to about <span class="arithmatex">\(10^{14}\)</span>, roughly 4 orders of magnitude, requiring an increase of very roughly <span class="arithmatex">\(4\times(20\text{ to }25\text{ K})\approx80\text{-}100\)</span> K above 300 K — placing the transition to intrinsic-dominated behavior somewhere around 400 K for this lightly-doped sample. (This is only a rough estimate; the effective density of states calculator from Chapter 9 gives the precise value.)</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 10 — Symmetric Doping Check</p>
+<p>Using the carrier concentration equations, show that if <span class="arithmatex">\(E_F=E_i\)</span> exactly, then <span class="arithmatex">\(n_0=p_0=n_i\)</span>.</p>
+<p><strong>Solution:</strong> Substituting <span class="arithmatex">\(E_F=E_i\)</span> into <span class="arithmatex">\(n_0=n_ie^{(E_F-E_i)/k_BT}\)</span> gives <span class="arithmatex">\(n_0=n_ie^{0}=n_i\)</span>. Substituting into <span class="arithmatex">\(p_0=n_ie^{(E_i-E_F)/k_BT}\)</span> gives <span class="arithmatex">\(p_0=n_ie^{0}=n_i\)</span> as well — confirming that <span class="arithmatex">\(E_F=E_i\)</span> is precisely the intrinsic condition, consistent with how <span class="arithmatex">\(E_i\)</span> was defined earlier in this chapter.</p>
+</div>
+</div>
 
 
 
 
 
 
+
+  
+  
 
 
 
@@ -5082,13 +5871,13 @@
         
         
           
-          <a href="../11-drift-current-mobility/" class="md-footer__link md-footer__link--next" aria-label="Next: 11. Drift Current and Carrier Mobility">
+          <a href="quiz/" class="md-footer__link md-footer__link--next" aria-label="Next: Quiz">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                11. Drift Current and Carrier Mobility
+                Quiz
               </div>
             </div>
             <div class="md-footer__button md-icon">

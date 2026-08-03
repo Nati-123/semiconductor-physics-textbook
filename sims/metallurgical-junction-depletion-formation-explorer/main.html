@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Metallurgical Junction &amp; Depletion Formation Explorer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="../semiconductor-materials-lib.js"></script>
+    <script src="metallurgical-junction-depletion-formation-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Click "Next ▶" through all five steps in order to watch the depletion region form from first contact to equilibrium.</li>
+            <li><strong>Predict:</strong> Before advancing from Step 3 to Step 4, predict what will be left behind near the junction once the crossing carriers recombine.</li>
+            <li><strong>Observe:</strong> The fixed ionized dopant symbols (− and +) never move across any step — only the mobile carrier dots (holes and electrons) disappear near the junction.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 14:</strong> Joining a p-type and n-type region at a <strong>metallurgical junction</strong> forms a <strong>p-n junction</strong>. Diffusion across the junction, followed by recombination, sweeps mobile carriers out of a thin region on either side, creating the <strong>depletion region</strong>. The <strong>depletion approximation</strong> idealizes this region as fully depleted with abrupt edges — the starting point for every equation derived later in the chapter.</p>
+
+        <h3>What Each Step Shows</h3>
+        <dl class="control-captions">
+            <dt>Steps 1-2</dt>
+            <dd>Separate p-type and n-type regions are joined at the metallurgical junction, each still individually neutral.</dd>
+            <dt>Step 3</dt>
+            <dd>Carriers diffuse across the junction and recombine near the interface.</dd>
+            <dt>Steps 4-5</dt>
+            <dd>The depletion region forms, exposing fixed ionized dopants and a built-in field that balances diffusion at equilibrium.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">1. What is left behind inside the depletion region after mobile carriers are swept out?</p>
+            <label><input type="radio" name="mjdfe-q1" value="a"> Extra mobile electrons and holes</label>
+            <label><input type="radio" name="mjdfe-q1" value="b"> Nothing — the region is completely empty of charge</label>
+            <label><input type="radio" name="mjdfe-q1" value="c"> Fixed, ionized dopant atoms with no mobile carriers to neutralize them</label>
+            <label><input type="radio" name="mjdfe-q1" value="d"> Free-floating photons</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Correct. The ionized acceptors and donors are fixed in the crystal lattice and cannot diffuse away — only the mobile carriers that once neutralized them are gone.</p>
+            <p class="explain-incorrect" hidden>Think about which particles in the crystal can move (diffuse and recombine) and which are locked in place.</p>
+        </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">2. Why does the built-in electric field eventually stop further diffusion, bringing the junction to equilibrium?</p>
+            <label><input type="radio" name="mjdfe-q2" value="a"> It physically blocks the junction like a wall</label>
+            <label><input type="radio" name="mjdfe-q2" value="b"> It drives a drift current that exactly opposes and balances the diffusion current</label>
+            <label><input type="radio" name="mjdfe-q2" value="c"> It cools the crystal, freezing the carriers in place</label>
+            <label><input type="radio" name="mjdfe-q2" value="d"> It has no effect on diffusion</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Correct. Equilibrium is reached precisely when drift current equals diffusion current everywhere, so the net current is zero — this is the same drift-diffusion balance from Chapters 11-12, now applied at a junction.</p>
+            <p class="explain-incorrect" hidden>Recall how drift and diffusion current were shown to combine in Chapters 11-12 — what condition defines equilibrium?</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

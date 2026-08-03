@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Mobility vs. Temperature and Doping (Matthiessen's Rule) Explorer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="../semiconductor-materials-lib.js"></script>
+    <script src="mobility-temperature-doping-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Set doping to its lowest value and observe that the total mobility curve nearly follows the lattice-scattering curve alone.</li>
+            <li><strong>Predict:</strong> Before raising the doping concentration, predict which curve (lattice or impurity) will start to dominate at low temperature.</li>
+            <li><strong>Observe:</strong> Raise doping and watch the impurity-scattering curve drop and pull the total mobility curve down with it, especially at low temperature.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 11:</strong> Two independent scattering mechanisms limit carrier mobility: <strong>lattice scattering</strong> off thermal vibrations of the crystal (which gets worse — mobility drops — as temperature rises, roughly \(\mu_L\propto T^{-3/2}\)), and <strong>impurity scattering</strong> off ionized dopant atoms (which gets worse at low temperature, where carriers move slowly enough to be deflected by the impurities' Coulomb field, roughly \(\mu_I\propto T^{3/2}/N\)). Matthiessen's rule combines the two independently-acting scattering rates: \(1/\mu_{total}=1/\mu_L+1/\mu_I\), so whichever mechanism gives the *smaller* individual mobility dominates the total.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>Carrier type dropdown</dt>
+            <dd>Switches between electron and hole mobility parameters.</dd>
+            <dt>Doping concentration slider</dt>
+            <dd>Sets the ionized impurity concentration, controlling the impurity-scattering curve.</dd>
+            <dt>Temperature marker slider</dt>
+            <dd>Reads off all three mobility values at a chosen temperature.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">1. According to Matthiessen's rule, if impurity scattering gives a much smaller mobility than lattice scattering, what dominates the total mobility?</p>
+            <label><input type="radio" name="mtd-q1" value="a"> Impurity scattering — the smaller individual mobility dominates the total</label>
+            <label><input type="radio" name="mtd-q1" value="b"> Lattice scattering always dominates regardless</label>
+            <label><input type="radio" name="mtd-q1" value="c"> Neither — they cancel out</label>
+            <label><input type="radio" name="mtd-q1" value="d"> The total mobility is unrelated to either</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Because Matthiessen's rule adds reciprocal mobilities (like resistors in parallel), the mechanism with the smaller individual mobility — the more effective scatterer — dominates the total.</p>
+            <p class="explain-incorrect" hidden>Try setting doping very high and low temperature, then compare the impurity curve to the total curve.</p>
+        </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">2. Why does lattice-scattering-limited mobility decrease as temperature increases?</p>
+            <label><input type="radio" name="mtd-q2" value="a"> The band gap closes at high temperature</label>
+            <label><input type="radio" name="mtd-q2" value="b"> Increased thermal vibration of the lattice atoms scatters carriers more frequently</label>
+            <label><input type="radio" name="mtd-q2" value="c"> Doping atoms multiply at high temperature</label>
+            <label><input type="radio" name="mtd-q2" value="d"> It does not decrease with temperature</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Higher temperature means more vigorous lattice vibrations (phonons), which scatter carriers more often, reducing lattice-limited mobility.</p>
+            <p class="explain-incorrect" hidden>Look at the lattice-scattering curve's slope as the temperature marker moves right.</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="An interactive university-level semiconductor physics textbook with AI explanations, quizzes, simulations, and practice problems.">
+        <meta name="description" content="Drift current, an introduction to diffusion current, carrier mobility and drift velocity, lattice and impurity scattering mechanisms, and conductivity, resistivity, and sheet resistance">
       
       
         <meta name="author" content="Natol Dinka">
@@ -18,7 +18,7 @@
         <link rel="prev" href="../10-fermi-level-carrier-equations/glossary/">
       
       
-        <link rel="next" href="../12-diffusion-transport-phenomena/">
+        <link rel="next" href="quiz/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>11. Drift Current and Carrier Mobility - Semiconductor Physics</title>
+        <title>Drift Current and Carrier Mobility - Semiconductor Physics</title>
       
     
     
@@ -84,7 +84,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#drift-current-and-carrier-mobility" class="md-skip">
+        <a href="#chapter-11-drift-current-and-carrier-mobility" class="md-skip">
           Skip to content
         </a>
       
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              11. Drift Current and Carrier Mobility
+              Drift Current and Carrier Mobility
             
           </span>
         </div>
@@ -2468,6 +2468,63 @@
   
   
   
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_12" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6_12" id="__nav_6_12_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Drift Current and Carrier Mobility
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_12_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    11. Drift Current and Carrier Mobility
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
     <li class="md-nav__item md-nav__item--active">
       
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
@@ -2483,7 +2540,7 @@
   <span class="md-ellipsis">
     
   
-    11. Drift Current and Carrier Mobility
+    Content
   
 
     
@@ -2501,7 +2558,7 @@
   <span class="md-ellipsis">
     
   
-    11. Drift Current and Carrier Mobility
+    Content
   
 
     
@@ -2527,10 +2584,21 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
+  <a href="#learning-objectives" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Summary
+        Learning Objectives
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
       
     </span>
   </a>
@@ -2559,9 +2627,330 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#drift-velocity-scattering-and-carrier-mobility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Drift Velocity, Scattering, and Carrier Mobility
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Drift Velocity, Scattering, and Carrier Mobility">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#random-motion-biased-by-a-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Random Motion Biased by a Field
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Random Motion Biased by a Field">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-drift-velocity-and-carrier-scattering-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Drift Velocity and Carrier Scattering Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#drift-current" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Drift Current
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diffusion-current-a-brief-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diffusion Current: A Brief Introduction
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Diffusion Current: A Brief Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-second-fundamental-current-mechanism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Second Fundamental Current Mechanism
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scattering-mechanisms-lattice-and-impurity-scattering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scattering Mechanisms: Lattice and Impurity Scattering
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scattering Mechanisms: Lattice and Impurity Scattering">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#two-mechanisms-opposite-temperature-trends" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Two Mechanisms, Opposite Temperature Trends
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Two Mechanisms, Opposite Temperature Trends">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-mobility-vs-temperature-and-doping-matthiessens-rule-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Mobility vs. Temperature and Doping (Matthiessen's Rule) Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conductivity-resistivity-and-sheet-resistance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conductivity, Resistivity, and Sheet Resistance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conductivity, Resistivity, and Sheet Resistance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#from-mobility-to-practical-transport-quantities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From Mobility to Practical Transport Quantities
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="From Mobility to Practical Transport Quantities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-conductivity-resistivity-and-sheet-resistance-calculator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Conductivity, Resistivity, and Sheet Resistance Calculator
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-equations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Equations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Glossary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Further Reading
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked Examples
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="problems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Problems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
       
     </li>
   
@@ -4873,6 +5262,152 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_12" id="__nav_7_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 11
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 11
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/drift-velocity-scattering-explorer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Drift Velocity and Carrier Scattering Explorer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/mobility-temperature-doping-explorer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mobility vs. Temperature and Doping (Matthiessen's Rule) Explorer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/conductivity-resistivity-sheet-resistance-calculator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conductivity, Resistivity, and Sheet Resistance Calculator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -5271,9 +5806,42 @@
   
 
 
-<h1 id="drift-current-and-carrier-mobility">Drift Current and Carrier Mobility</h1>
-<h2 id="summary">Summary</h2>
-<p>This chapter introduces drift current — the current caused by an applied electric field — and diffusion current — the current caused by a carrier concentration gradient — along with carrier mobility, drift velocity, and the scattering mechanisms (lattice and impurity scattering) that limit mobility. Students use these ideas to derive conductivity, resistivity, and sheet resistance, the practical transport quantities used to characterize a doped semiconductor.</p>
+<h1 id="chapter-11-drift-current-and-carrier-mobility">Chapter 11: Drift Current and Carrier Mobility</h1>
+<div class="unit1-styled">
+<details class="video-overview">
+<summary><strong>Chapter Overview</strong> (click to expand)</summary>
+<p>Chapters 6 through 10 described semiconductors sitting quietly in thermal equilibrium, with no current flowing at all. This chapter sets carriers in motion. Applying an electric field superimposes a small, steady <strong>drift velocity</strong> on top of each carrier's much larger random thermal motion, producing <strong>drift current</strong> — this course's first genuinely device-relevant transport quantity. The ratio of drift velocity to field strength defines <strong>carrier mobility</strong>, a single number that hides all the messy detail of <strong>scattering mechanisms</strong> — collisions with vibrating lattice atoms (<strong>lattice scattering</strong>) and with ionized dopant atoms (<strong>impurity scattering</strong>) — that limit how fast carriers can actually drift. From mobility, this chapter derives <strong>conductivity</strong>, <strong>resistivity</strong>, and <strong>sheet resistance</strong>, the practical quantities used to characterize any doped semiconductor sample or IC resistor. A brief introduction to <strong>diffusion current</strong> — driven by a concentration gradient rather than a field — completes the chapter, setting up Chapter 12's deeper treatment.</p>
+<p><strong>Key Takeaways:</strong></p>
+<ol>
+<li><strong>Drift current</strong> is the current produced when an applied electric field superimposes a net <strong>drift velocity</strong>, <span class="arithmatex">\(v_d=\mu E\)</span>, on top of each carrier's random thermal motion.</li>
+<li><strong>Carrier mobility</strong>, <span class="arithmatex">\(\mu\)</span>, is the proportionality constant between drift velocity and field strength, and is limited by <strong>scattering mechanisms</strong> — collisions that randomize a carrier's direction of motion.</li>
+<li><strong>Lattice scattering</strong> (off thermally-vibrating lattice atoms) grows worse with temperature, <span class="arithmatex">\(\mu_L\propto T^{-3/2}\)</span>; <strong>impurity scattering</strong> (off ionized dopant atoms) grows worse at low temperature and high doping, <span class="arithmatex">\(\mu_I\propto T^{3/2}/N\)</span>.</li>
+<li><strong>Matthiessen's rule</strong>, <span class="arithmatex">\(1/\mu=1/\mu_L+1/\mu_I\)</span>, combines independently-acting scattering mechanisms, with the weaker individual mobility dominating the total.</li>
+<li><strong>Conductivity</strong>, <span class="arithmatex">\(\sigma=q(n\mu_n+p\mu_p)\)</span>, and its reciprocal <strong>resistivity</strong>, <span class="arithmatex">\(\rho=1/\sigma\)</span>, summarize how easily a doped sample conducts current, combining Chapter 10's carrier concentrations with this chapter's mobility.</li>
+<li><strong>Sheet resistance</strong>, <span class="arithmatex">\(R_s=\rho/t\)</span>, lets a thin film's resistance be computed as <span class="arithmatex">\(R=R_s\times(L/W)\)</span> — the number of "squares" the film forms — independent of its absolute size, the standard IC resistor design tool.</li>
+<li><strong>Diffusion current</strong>, introduced here and developed fully in Chapter 12, is the second fundamental current mechanism: current driven by a concentration gradient rather than an electric field.</li>
+</ol>
+</details>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<p>By the end of this chapter, you will be able to:</p>
+<ul>
+<li>Define drift velocity and drift current, and relate them through carrier mobility</li>
+<li>Explain, qualitatively, what diffusion current is and how it differs from drift current</li>
+<li>Explain how lattice scattering and impurity scattering each limit carrier mobility, and in what temperature/doping regimes each dominates</li>
+<li>Apply Matthiessen's rule to combine multiple scattering mechanisms into a single mobility</li>
+<li>Compute conductivity and resistivity from carrier concentration and mobility</li>
+<li>Apply the sheet-resistance "number of squares" method to compute a thin-film resistor's resistance</li>
+<li>Solve worked and practice problems combining these ideas, in preparation for Chapter 12's diffusion current, the Einstein relation, and the Hall effect</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">How to read this chapter</p>
+<p>This chapter is more concrete and device-oriented than Chapters 6-10: nearly every quantity here (mobility, conductivity, resistivity, sheet resistance) is something you could look up on a datasheet or measure directly in a lab. The underlying physics — carriers randomly scattering, biased slightly by an applied field — is simpler than the statistical mechanics of Chapters 9-10, so use this chapter to build physical intuition through the MicroSims before leaning on the equations.</p>
+</div>
+<h2 id="introduction">Introduction</h2>
+<p>Every chapter since Chapter 6 described a semiconductor in thermal equilibrium — no applied voltage, no net current, just carriers distributed according to Chapter 10's exact equations. This chapter breaks that equilibrium the simplest possible way: apply a uniform electric field and ask what happens.</p>
+<p>The answer builds directly on a picture already familiar from Chapter 9's carrier statistics: even in equilibrium, every free carrier is in constant, random thermal motion, colliding — scattering — off lattice vibrations and impurity atoms many times per second, with no preferred direction. An applied electric field does not stop this chaotic motion; it simply superimposes a small, steady bias on top of it, called the <strong>drift velocity</strong>. Averaged over many carriers and many collisions, this tiny bias adds up to a net, measurable current: <strong>drift current</strong>, the first of two fundamental current mechanisms this course studies (the second, <strong>diffusion current</strong>, driven by a concentration gradient rather than a field, is introduced briefly here and developed fully in Chapter 12).</p>
+<p>The proportionality constant relating drift velocity to field strength — how efficiently an applied field converts into net carrier motion — is <strong>carrier mobility</strong>, <span class="arithmatex">\(\mu\)</span>. Mobility is not a fundamental constant of nature; it is set entirely by how frequently a carrier scatters, and off of what. This chapter examines the two dominant <strong>scattering mechanisms</strong> in a doped semiconductor: <strong>lattice scattering</strong>, collisions with the thermally-vibrating crystal lattice itself, and <strong>impurity scattering</strong>, collisions with the ionized donor or acceptor atoms Chapters 7-8 introduced. These two mechanisms respond to temperature in opposite ways — lattice scattering worsens as temperature rises, impurity scattering worsens as temperature falls — and <strong>Matthiessen's rule</strong> shows how to combine them into a single, overall mobility.</p>
+<p>With mobility in hand, this chapter derives the practical transport quantities used throughout device engineering: <strong>conductivity</strong>, combining Chapter 10's carrier concentration with mobility into a single number describing how well a sample conducts; <strong>resistivity</strong>, conductivity's reciprocal; and <strong>sheet resistance</strong>, the thin-film version of resistivity used to design IC resistors using nothing more than a simple "number of squares" rule.</p>
 <h2 id="concepts-covered">Concepts Covered</h2>
 <p>This chapter covers the following 10 concepts from the learning graph:</p>
 <ol>
@@ -5289,21 +5857,251 @@
 <li>Sheet Resistance</li>
 </ol>
 <h2 id="prerequisites">Prerequisites</h2>
-<p>This chapter builds on concepts from:</p>
+<p>This chapter builds on <a href="../01-physics-math-foundations/">Chapter 1: Physics and Math Foundations</a> (force and electric field), and <a href="../08-doping-ionization-temperature/">Chapter 8: Doping, Ionization, and Temperature Regimes</a>, <a href="../09-carrier-concentration-statistics/">Chapter 9: Carrier Concentration Statistics</a>, and <a href="../10-fermi-level-carrier-equations/">Chapter 10: Fermi Level Position and Carrier Equations</a> (equilibrium carrier concentration, which this chapter's conductivity formula depends on directly).</p>
+<h2 id="drift-velocity-scattering-and-carrier-mobility">Drift Velocity, Scattering, and Carrier Mobility</h2>
+<h3 id="random-motion-biased-by-a-field">Random Motion Biased by a Field</h3>
+<p>Even with no applied field, a free carrier in a semiconductor is never truly at rest: thermal energy keeps it in constant, random motion, its direction randomized by frequent collisions — <strong>scattering events</strong> — with the crystal lattice and any impurity atoms present. Averaged over time and over many carriers, this random motion produces no net displacement at all, exactly as Chapter 9's statistical treatment assumed.</p>
+<p>Applying a uniform electric field <span class="arithmatex">\(\vec{E}\)</span> changes this picture only slightly: between collisions, the field accelerates the carrier (Chapter 1's <span class="arithmatex">\(\vec{F}=q\vec{E}\)</span>, using the carrier's effective mass from Chapter 6), giving it a small additional velocity component in the field direction before the next collision randomizes its direction again. Averaged over many collisions, this produces a small, steady net velocity — the <strong>drift velocity</strong>, <span class="arithmatex">\(v_d\)</span> — superimposed on the much larger random thermal motion. For most practical field strengths, drift velocity is directly proportional to field strength:</p>
+<div class="arithmatex">\[
+v_d = \mu E
+\]</div>
+<p>where <span class="arithmatex">\(\mu\)</span>, the <strong>carrier mobility</strong>, is the proportionality constant — with units of <span class="arithmatex">\(\text{cm}^2/(\text{V}\cdot\text{s})\)</span> — capturing how efficiently an applied field converts into net drift, given the carrier's scattering environment.</p>
+<h4 id="diagram-drift-velocity-and-carrier-scattering-explorer">Diagram: Drift Velocity and Carrier Scattering Explorer</h4>
+<iframe height="640px" scrolling="auto" src="../../sims/drift-velocity-scattering-explorer/main.html" width="100%"></iframe>
+<div class="admonition tip">
+<p class="admonition-title">How to use this MicroSim</p>
+<p><strong>Instructions:</strong> With the field at zero, click Start and watch the electron's random path; then raise the field and observe the path develop a rightward bias.</p>
+<p><strong>Learning objective:</strong> Explain drift velocity as a small net bias superimposed on much larger random thermal motion, and connect the drift velocity/field ratio to mobility.</p>
+<p><strong>What to observe:</strong> The zig-zag scattering pattern never disappears, even at high field — it is always present. The field only adds a small, steady rightward component to otherwise-random motion.</p>
+</div>
+<p><a href="../../sims/drift-velocity-scattering-explorer/">Full MicroSim documentation →</a></p>
+<h3 id="drift-current">Drift Current</h3>
+<p>Once drift velocity is known, computing the resulting current density is a matter of counting: each carrier of charge <span class="arithmatex">\(q\)</span>, moving at velocity <span class="arithmatex">\(v_d\)</span>, through a concentration <span class="arithmatex">\(n\)</span> of carriers per unit volume, produces a current density <span class="arithmatex">\(J=qnv_d\)</span>. Combining this with <span class="arithmatex">\(v_d=\mu E\)</span> gives the <strong>drift current</strong> density directly in terms of field:</p>
+<div class="arithmatex">\[
+J_{n,\text{drift}} = qn\mu_nE, \qquad J_{p,\text{drift}} = qp\mu_pE
+\]</div>
+<p>Since electrons and holes drift in <em>opposite</em> directions in the same field (opposite charge) but this also reverses the current direction, both contributions to total current add rather than cancel:</p>
+<div class="arithmatex">\[
+J_{\text{drift}} = q(n\mu_n+p\mu_p)E
+\]</div>
+<div class="admonition question">
+<p class="admonition-title">Concept Check</p>
+<p>An electron and a hole sit in the same applied electric field. Do they drift in the same direction or opposite directions? Do their contributions to current add or cancel?</p>
+</div>
+<details class="question">
+<summary>Concept Check — click to reveal answer</summary>
+<p>They drift in <em>opposite</em> directions (the field pushes positive charge one way and negative charge the other), but because current direction is defined by the direction of <em>positive</em> charge flow, both contributions to current point the same way and add together — exactly as <span class="arithmatex">\(J_{\text{drift}}=q(n\mu_n+p\mu_p)E\)</span> shows.</p>
+</details>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 1 — Computing Drift Current Density</p>
+<p>A silicon sample has <span class="arithmatex">\(n_0=10^{16}\ \text{cm}^{-3}\)</span>, electron mobility <span class="arithmatex">\(\mu_n=1200\ \text{cm}^2/\text{V·s}\)</span>, and is placed in a field <span class="arithmatex">\(E=100\)</span> V/cm. Estimate the electron drift current density (neglecting the hole contribution, since <span class="arithmatex">\(p_0\)</span> is tiny by the mass action law).</p>
+<p><strong>Solution:</strong></p>
+<div class="arithmatex">\[
+J_{n,\text{drift}} = qn\mu_nE = (1.602\times10^{-19})(10^{16})(1200)(100) \approx 192\ \text{A/cm}^2
+\]</div>
+</div>
+<h2 id="diffusion-current-a-brief-introduction">Diffusion Current: A Brief Introduction</h2>
+<h3 id="the-second-fundamental-current-mechanism">The Second Fundamental Current Mechanism</h3>
+<p>Drift current requires an electric field. There is a second, entirely independent way to produce current: <strong>diffusion current</strong>, driven not by a field but by a <em>concentration gradient</em> — a carrier concentration that varies with position. Just as a drop of ink spreads out from a region of high concentration to low concentration in still water, carriers in a semiconductor tend to spread from regions of high concentration toward regions of low concentration, even with no applied field at all, simply due to their random thermal motion combined with the concentration imbalance.</p>
+<p>Diffusion current density is proportional to how steeply concentration varies with position (its spatial gradient):</p>
+<div class="arithmatex">\[
+J_{n,\text{diff}} = qD_n\frac{dn}{dx}, \qquad J_{p,\text{diff}} = -qD_p\frac{dp}{dx}
+\]</div>
+<p>where <span class="arithmatex">\(D_n\)</span> and <span class="arithmatex">\(D_p\)</span> are the electron and hole <strong>diffusion coefficients</strong>. This chapter introduces diffusion current only at this qualitative level; Chapter 12 develops it fully, including the <strong>Einstein relation</strong> connecting <span class="arithmatex">\(D\)</span> to mobility <span class="arithmatex">\(\mu\)</span> — the same scattering physics this chapter studies for drift turns out to set the diffusion coefficient as well, since both describe how easily a carrier moves through the same scattering environment.</p>
+<pre class="mermaid"><code>flowchart LR
+    A["Applied electric field E"] --&gt; B["Drift current&lt;br/&gt;J = qnμE"]
+    C["Carrier concentration&lt;br/&gt;gradient dn/dx"] --&gt; D["Diffusion current&lt;br/&gt;J = qD(dn/dx)"]
+    B --&gt; E["Total current&lt;br/&gt;(Chapter 12 combines both)"]
+    D --&gt; E</code></pre>
+<h2 id="scattering-mechanisms-lattice-and-impurity-scattering">Scattering Mechanisms: Lattice and Impurity Scattering</h2>
+<h3 id="two-mechanisms-opposite-temperature-trends">Two Mechanisms, Opposite Temperature Trends</h3>
+<p>Mobility is not a single fixed number for a given material — it depends on temperature and doping level, because it is entirely set by how frequently and how strongly carriers scatter. Two mechanisms dominate in a typical doped semiconductor.</p>
+<p><strong>Lattice scattering</strong> (also called phonon scattering) is collision with the thermally-vibrating atoms of the crystal lattice itself. Higher temperature means more vigorous lattice vibrations, and therefore more frequent, more effective scattering — so lattice-limited mobility <em>decreases</em> with temperature, following approximately:</p>
+<div class="arithmatex">\[
+\mu_L \propto T^{-3/2}
+\]</div>
+<p><strong>Impurity scattering</strong> is collision with the Coulomb field of ionized donor or acceptor atoms (Chapter 7-8). A fast-moving carrier is deflected only slightly by passing near a charged impurity, but a slow-moving carrier spends more time near the impurity and is deflected more strongly — so impurity scattering is <em>worse</em> at low temperature (where carriers move more slowly) and worse at higher doping concentration <span class="arithmatex">\(N\)</span> (more impurities to scatter off of):</p>
+<div class="arithmatex">\[
+\mu_I \propto \frac{T^{3/2}}{N}
+\]</div>
+<p>These two mechanisms act independently and simultaneously, and <strong>Matthiessen's rule</strong> combines their scattering <em>rates</em> (not the mobilities directly) by adding reciprocals — exactly like resistors in parallel:</p>
+<div class="arithmatex">\[
+\frac{1}{\mu} = \frac{1}{\mu_L} + \frac{1}{\mu_I}
+\]</div>
+<p>The consequence of adding reciprocals is that the <em>smaller</em> individual mobility — the more effective scattering mechanism — dominates the combined result.</p>
+<h4 id="diagram-mobility-vs-temperature-and-doping-matthiessens-rule-explorer">Diagram: Mobility vs. Temperature and Doping (Matthiessen's Rule) Explorer</h4>
+<iframe height="640px" scrolling="auto" src="../../sims/mobility-temperature-doping-explorer/main.html" width="100%"></iframe>
+<div class="admonition tip">
+<p class="admonition-title">How to use this MicroSim</p>
+<p><strong>Instructions:</strong> Compare the three curves at low doping, then raise the doping slider and observe how the impurity-scattering curve pulls down the total mobility curve, especially at low temperature.</p>
+<p><strong>Learning objective:</strong> Apply Matthiessen's rule to combine lattice and impurity scattering, and identify which mechanism dominates in a given temperature/doping regime.</p>
+<p><strong>What to observe:</strong> At low doping, the total mobility curve nearly tracks the lattice-scattering curve at all temperatures shown; at heavy doping, impurity scattering visibly pulls the total curve down, especially at low temperature where impurity scattering is strongest.</p>
+</div>
+<p><a href="../../sims/mobility-temperature-doping-explorer/">Full MicroSim documentation →</a></p>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 2 — Applying Matthiessen's Rule</p>
+<p>A sample has lattice-limited mobility <span class="arithmatex">\(\mu_L=1350\ \text{cm}^2/\text{V·s}\)</span> and impurity-limited mobility <span class="arithmatex">\(\mu_I=450\ \text{cm}^2/\text{V·s}\)</span>. Find the combined mobility.</p>
+<p><strong>Solution:</strong></p>
+<div class="arithmatex">\[
+\frac{1}{\mu} = \frac{1}{1350}+\frac{1}{450} = 7.41\times10^{-4}+2.22\times10^{-3} = 2.96\times10^{-3}
+\]</div>
+<div class="arithmatex">\[
+\mu = \frac{1}{2.96\times10^{-3}} \approx 338\ \text{cm}^2/\text{V·s}
+\]</div>
+<p>Note that the combined mobility (338) is smaller than <em>either</em> individual mobility, and closer to the smaller value (450) — exactly the behavior expected from adding reciprocals.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Concept Check</p>
+<p>At very low temperature and heavy doping, which scattering mechanism would you expect to dominate mobility, and why?</p>
+</div>
+<details class="question">
+<summary>Concept Check — click to reveal answer</summary>
+<p>Impurity scattering. Low temperature means slow-moving carriers, which are more strongly deflected by charged impurities, and heavy doping means many impurities to scatter off of — both factors make impurity scattering severe, while lattice scattering is actually at its weakest at low temperature (fewer, gentler lattice vibrations).</p>
+</details>
+<h2 id="conductivity-resistivity-and-sheet-resistance">Conductivity, Resistivity, and Sheet Resistance</h2>
+<h3 id="from-mobility-to-practical-transport-quantities">From Mobility to Practical Transport Quantities</h3>
+<p>Combining Chapter 10's equilibrium carrier concentrations with this chapter's mobility gives <strong>conductivity</strong>, <span class="arithmatex">\(\sigma\)</span>, the single number summarizing how easily a doped sample conducts current:</p>
+<div class="arithmatex">\[
+\sigma = q(n\mu_n+p\mu_p)
+\]</div>
+<p><strong>Resistivity</strong>, <span class="arithmatex">\(\rho\)</span>, is simply conductivity's reciprocal, <span class="arithmatex">\(\rho=1/\sigma\)</span>, with units of <span class="arithmatex">\(\Omega\cdot\text{cm}\)</span> — the quantity most often reported on a doped-wafer datasheet, since it can be measured directly (via a four-point probe) without separately knowing carrier concentration or mobility.</p>
+<p>For a thin film — the geometry of an actual IC resistor, or a doped semiconductor layer of thickness <span class="arithmatex">\(t\)</span> — resistivity converts into <strong>sheet resistance</strong>:</p>
+<div class="arithmatex">\[
+R_s = \frac{\rho}{t}
+\]</div>
+<p>with units of <span class="arithmatex">\(\Omega/\square\)</span> ("ohms per square"), a slightly unusual but extremely practical unit: for a rectangular film of length <span class="arithmatex">\(L\)</span> and width <span class="arithmatex">\(W\)</span>, the total resistance is simply</p>
+<div class="arithmatex">\[
+R = R_s\times\frac{L}{W}
+\]</div>
+<p>where <span class="arithmatex">\(L/W\)</span> is literally the number of unit squares the film can be divided into end-to-end — independent of the film's absolute size, only its aspect ratio. This is why IC designers routinely lay out resistors purely by counting squares, without needing to recompute resistivity or thickness for every new resistor shape.</p>
+<h4 id="diagram-conductivity-resistivity-and-sheet-resistance-calculator">Diagram: Conductivity, Resistivity, and Sheet Resistance Calculator</h4>
+<iframe height="660px" scrolling="auto" src="../../sims/conductivity-resistivity-sheet-resistance-calculator/main.html" width="100%"></iframe>
+<div class="admonition tip">
+<p class="admonition-title">How to use this MicroSim</p>
+<p><strong>Instructions:</strong> Adjust doping and observe resistivity fall; then adjust the number-of-squares slider and watch resistance scale directly with it.</p>
+<p><strong>Learning objective:</strong> Compute conductivity and resistivity from doping and mobility, and apply the sheet-resistance "number of squares" method.</p>
+<p><strong>What to observe:</strong> Resistance depends only on the number of squares (L/W), not on the film's absolute length or width — doubling both L and W leaves resistance unchanged.</p>
+</div>
+<p><a href="../../sims/conductivity-resistivity-sheet-resistance-calculator/">Full MicroSim documentation →</a></p>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 3 — Computing Sheet Resistance and Resistor Value</p>
+<p>A doped silicon film has resistivity <span class="arithmatex">\(\rho=0.02\ \Omega\cdot\text{cm}\)</span> and thickness <span class="arithmatex">\(t=1\ \mu\text{m}=10^{-4}\)</span> cm. Find its sheet resistance, and the resistance of a resistor with <span class="arithmatex">\(L=50\ \mu\text{m}\)</span>, <span class="arithmatex">\(W=10\ \mu\text{m}\)</span>.</p>
+<p><strong>Solution:</strong></p>
+<div class="arithmatex">\[
+R_s = \frac{\rho}{t} = \frac{0.02}{10^{-4}} = 200\ \Omega/\square
+\]</div>
+<div class="arithmatex">\[
+R = R_s\times\frac{L}{W} = 200\times\frac{50}{10} = 200\times5 = 1000\ \Omega
+\]</div>
+</div>
+<h2 id="summary">Summary</h2>
+<p>This chapter set carriers in motion for the first time in this course. An applied electric field superimposes a small <strong>drift velocity</strong>, <span class="arithmatex">\(v_d=\mu E\)</span>, on each carrier's random thermal motion, producing <strong>drift current</strong>, <span class="arithmatex">\(J=q(n\mu_n+p\mu_p)E\)</span>. <strong>Carrier mobility</strong> is limited by <strong>scattering mechanisms</strong> — <strong>lattice scattering</strong> (worse at high temperature, <span class="arithmatex">\(\mu_L\propto T^{-3/2}\)</span>) and <strong>impurity scattering</strong> (worse at low temperature and high doping, <span class="arithmatex">\(\mu_I\propto T^{3/2}/N\)</span>) — combined via <strong>Matthiessen's rule</strong>, <span class="arithmatex">\(1/\mu=1/\mu_L+1/\mu_I\)</span>. Combining Chapter 10's carrier concentrations with mobility gives <strong>conductivity</strong>, <span class="arithmatex">\(\sigma=q(n\mu_n+p\mu_p)\)</span>, and <strong>resistivity</strong>, <span class="arithmatex">\(\rho=1/\sigma\)</span>; for thin films, <strong>sheet resistance</strong>, <span class="arithmatex">\(R_s=\rho/t\)</span>, lets resistance be computed by simply counting unit squares, <span class="arithmatex">\(R=R_s\times(L/W)\)</span>. A brief introduction to <strong>diffusion current</strong>, driven by a concentration gradient rather than a field, sets up Chapter 12's full treatment, including the Einstein relation connecting diffusion to this chapter's mobility.</p>
+<h2 id="key-equations">Key Equations</h2>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Equation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Drift velocity</td>
+<td><span class="arithmatex">\(v_d = \mu E\)</span></td>
+</tr>
+<tr>
+<td>Drift current density</td>
+<td><span class="arithmatex">\(J_{\text{drift}} = q(n\mu_n+p\mu_p)E\)</span></td>
+</tr>
+<tr>
+<td>Diffusion current density (preview)</td>
+<td><span class="arithmatex">\(J_{n,\text{diff}} = qD_n\dfrac{dn}{dx}\)</span></td>
+</tr>
+<tr>
+<td>Lattice-limited mobility (temperature trend)</td>
+<td><span class="arithmatex">\(\mu_L \propto T^{-3/2}\)</span></td>
+</tr>
+<tr>
+<td>Impurity-limited mobility (temperature/doping trend)</td>
+<td><span class="arithmatex">\(\mu_I \propto T^{3/2}/N\)</span></td>
+</tr>
+<tr>
+<td>Matthiessen's rule</td>
+<td><span class="arithmatex">\(\dfrac{1}{\mu} = \dfrac{1}{\mu_L}+\dfrac{1}{\mu_I}\)</span></td>
+</tr>
+<tr>
+<td>Conductivity</td>
+<td><span class="arithmatex">\(\sigma = q(n\mu_n+p\mu_p)\)</span></td>
+</tr>
+<tr>
+<td>Resistivity</td>
+<td><span class="arithmatex">\(\rho = 1/\sigma\)</span></td>
+</tr>
+<tr>
+<td>Sheet resistance</td>
+<td><span class="arithmatex">\(R_s = \rho/t\)</span>, <span class="arithmatex">\(R = R_s\times(L/W)\)</span></td>
+</tr>
+</tbody>
+</table>
+<h2 id="glossary">Glossary</h2>
+<p>See the <a href="glossary/">Chapter 11 Glossary</a> for full definitions of every term introduced in this chapter.</p>
+<h2 id="further-reading">Further Reading</h2>
 <ul>
-<li><a href="../01-physics-math-foundations/">Chapter 1: Physics and Math Foundations</a></li>
-<li><a href="../08-doping-ionization-temperature/">Chapter 8: Doping, Ionization, and Temperature Regimes</a></li>
-<li><a href="../09-carrier-concentration-statistics/">Chapter 9: Carrier Concentration Statistics</a></li>
-<li><a href="../10-fermi-level-carrier-equations/">Chapter 10: Fermi Level Position and Carrier Equations</a></li>
+<li>Neamen, <em>Semiconductor Physics and Devices</em> — the standard derivation of drift current, mobility, and Matthiessen's rule</li>
+<li>Sze and Ng, <em>Physics of Semiconductor Devices</em> — extensive mobility and resistivity data for real materials</li>
+<li>Pierret, <em>Semiconductor Device Fundamentals</em> — careful treatment of scattering mechanisms and sheet resistance</li>
+<li>Streetman and Banerjee, <em>Solid State Electronic Devices</em> — clear introduction to diffusion current as a preview for transport chapters</li>
 </ul>
-<hr />
-<p>TODO: Generate Chapter Content</p>
+<h2 id="worked-examples">Worked Examples</h2>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 4 — Drift Velocity from Mobility</p>
+<p>An electron with mobility <span class="arithmatex">\(\mu_n=1350\ \text{cm}^2/\text{V·s}\)</span> is placed in a field <span class="arithmatex">\(E=500\)</span> V/cm. Find its drift velocity.</p>
+<p><strong>Solution:</strong> <span class="arithmatex">\(v_d=\mu_nE=(1350)(500)=6.75\times10^5\ \text{cm/s}\)</span>.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 5 — Comparing Lattice and Impurity Scattering</p>
+<p>At <span class="arithmatex">\(T=100\)</span> K, a sample's lattice-limited mobility is <span class="arithmatex">\(\mu_L=8000\ \text{cm}^2/\text{V·s}\)</span> and impurity-limited mobility is <span class="arithmatex">\(\mu_I=600\ \text{cm}^2/\text{V·s}\)</span>. Which mechanism dominates, and what is the combined mobility?</p>
+<p><strong>Solution:</strong> Since <span class="arithmatex">\(\mu_I\ll\mu_L\)</span>, impurity scattering dominates. Combined: <span class="arithmatex">\(1/\mu=1/8000+1/600\approx1.25\times10^{-4}+1.67\times10^{-3}=1.79\times10^{-3}\)</span>, so <span class="arithmatex">\(\mu\approx559\ \text{cm}^2/\text{V·s}\)</span> — close to <span class="arithmatex">\(\mu_I\)</span> alone, confirming impurity scattering dominates.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 6 — Total Conductivity with Both Carriers</p>
+<p>A silicon sample has <span class="arithmatex">\(n_0=2\times10^{15}\ \text{cm}^{-3}\)</span>, <span class="arithmatex">\(p_0=4.7\times10^4\ \text{cm}^{-3}\)</span> (from the mass action law), <span class="arithmatex">\(\mu_n=1350\ \text{cm}^2/\text{V·s}\)</span>, <span class="arithmatex">\(\mu_p=480\ \text{cm}^2/\text{V·s}\)</span>. Find the conductivity, and comment on the hole contribution.</p>
+<p><strong>Solution:</strong></p>
+<div class="arithmatex">\[
+\sigma = q(n\mu_n+p\mu_p) = (1.602\times10^{-19})\big[(2\times10^{15})(1350)+(4.7\times10^{4})(480)\big]
+\]</div>
+<p>The electron term, <span class="arithmatex">\(2.7\times10^{18}\)</span>, completely dominates the hole term, <span class="arithmatex">\(2.26\times10^{7}\)</span> — over 10 orders of magnitude smaller. <span class="arithmatex">\(\sigma\approx(1.602\times10^{-19})(2.7\times10^{18})\approx0.433\ \text{S/cm}\)</span>. In an extrinsic sample, the minority carrier's contribution to conductivity is always negligible.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 7 — Resistivity from Conductivity</p>
+<p>Using the conductivity from Worked Example 6 (<span class="arithmatex">\(\sigma\approx0.433\)</span> S/cm), find the resistivity.</p>
+<p><strong>Solution:</strong> <span class="arithmatex">\(\rho=1/\sigma=1/0.433\approx2.31\ \Omega\cdot\text{cm}\)</span>.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 8 — Sheet Resistance from a Different Thickness</p>
+<p>Using the same resistivity as Worked Example 3 (<span class="arithmatex">\(\rho=0.02\ \Omega\cdot\text{cm}\)</span>), but a thinner film, <span class="arithmatex">\(t=0.2\ \mu\text{m}\)</span>, find the new sheet resistance.</p>
+<p><strong>Solution:</strong> <span class="arithmatex">\(R_s=\rho/t=0.02/(0.2\times10^{-4})=0.02/(2\times10^{-5})=1000\ \Omega/\square\)</span> — five times larger than Worked Example 3's result, since the film is five times thinner.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 9 — Number of Squares for a Long, Narrow Resistor</p>
+<p>A resistor is laid out as a long, narrow strip: <span class="arithmatex">\(L=200\ \mu\text{m}\)</span>, <span class="arithmatex">\(W=5\ \mu\text{m}\)</span>, on a film with <span class="arithmatex">\(R_s=150\ \Omega/\square\)</span>. Find its resistance.</p>
+<p><strong>Solution:</strong> Number of squares <span class="arithmatex">\(=L/W=200/5=40\)</span>. <span class="arithmatex">\(R=R_s\times40=150\times40=6000\ \Omega=6\ \text{k}\Omega\)</span>.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 10 — Effect of Doping on Mobility and Resistivity Together</p>
+<p>Two silicon samples at 300 K have donor concentrations <span class="arithmatex">\(N_{D,1}=10^{15}\ \text{cm}^{-3}\)</span> (giving <span class="arithmatex">\(\mu_{n,1}\approx1350\ \text{cm}^2/\text{V·s}\)</span>) and <span class="arithmatex">\(N_{D,2}=10^{18}\ \text{cm}^{-3}\)</span> (giving <span class="arithmatex">\(\mu_{n,2}\approx250\ \text{cm}^2/\text{V·s}\)</span>, reduced by impurity scattering). Compare their conductivities and explain the trend.</p>
+<p><strong>Solution:</strong> <span class="arithmatex">\(\sigma_1=q\,n_1\mu_{n,1}\approx(1.602\times10^{-19})(10^{15})(1350)\approx0.216\ \text{S/cm}\)</span>. <span class="arithmatex">\(\sigma_2\approx(1.602\times10^{-19})(10^{18})(250)\approx40.1\ \text{S/cm}\)</span> — nearly 200 times larger, even though mobility dropped by a factor of about 5.4. The 1000-fold increase in carrier concentration overwhelms the mobility reduction, confirming that heavier doping always increases conductivity in this regime, despite impurity scattering working against it.</p>
+</div>
+</div>
 
 
 
 
 
 
+
+  
+  
 
 
 
@@ -5352,13 +6150,13 @@
         
         
           
-          <a href="../12-diffusion-transport-phenomena/" class="md-footer__link md-footer__link--next" aria-label="Next: 12. Diffusion and Advanced Transport Phenomena">
+          <a href="quiz/" class="md-footer__link md-footer__link--next" aria-label="Next: Quiz">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                12. Diffusion and Advanced Transport Phenomena
+                Quiz
               </div>
             </div>
             <div class="md-footer__button md-icon">

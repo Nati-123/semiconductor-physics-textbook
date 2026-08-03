@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Carrier Concentration vs. Temperature (Three Regions) Explorer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="../semiconductor-materials-lib.js"></script>
+    <script src="carrier-concentration-temperature-regions-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> With the default donor concentration and ionization energy, trace the curve from left (low T) to right (high T) and identify all three regions by their shaded color.</li>
+            <li><strong>Predict:</strong> Before increasing the ionization energy slider, predict whether the freeze-out region will stretch to higher or lower temperature.</li>
+            <li><strong>Observe:</strong> Increase the donor concentration slider and watch the extrinsic plateau rise, and the intrinsic region's onset temperature shift higher.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 8:</strong> This MicroSim combines a simplified dopant-ionization-fraction model with the Chapter 7 intrinsic-carrier trend to sketch the three characteristic temperature regions: freeze-out (few dopants ionized), extrinsic/saturation (essentially all dopants ionized, carrier concentration ≈ N_D), and intrinsic (thermally-generated carriers overwhelm the doping). The exact charge-neutrality equations behind this curve are developed quantitatively in Chapters 9-10; here, the combination \(n(T)\approx N_D f_{ion}(T) + n_i(T)\) is used only to sketch the qualitative shape.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>Donor concentration slider (N_D)</dt>
+            <dd>Sets the doping concentration, which sets the height of the extrinsic plateau.</dd>
+            <dt>Ionization energy slider (E_D)</dt>
+            <dd>Sets the dopant's ionization energy, which controls how far the freeze-out region extends.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">1. In the extrinsic (saturation) region, what does the carrier concentration approximately equal?</p>
+            <label><input type="radio" name="cct-q1" value="a"> The intrinsic carrier concentration n_i</label>
+            <label><input type="radio" name="cct-q1" value="b"> The donor concentration N_D</label>
+            <label><input type="radio" name="cct-q1" value="c"> Zero</label>
+            <label><input type="radio" name="cct-q1" value="d"> The silicon atomic density</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>In the extrinsic region, essentially all donors are ionized and intrinsic generation is still negligible, so carrier concentration levels off at approximately N_D — the flat plateau in the middle of the curve.</p>
+            <p class="explain-incorrect" hidden>Look at the flat, middle portion of the curve and compare its height to the N_D slider value.</p>
+        </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">2. Why does the curve eventually rise steeply again at very high temperature, regardless of doping level?</p>
+            <label><input type="radio" name="cct-q2" value="a"> Thermally-generated intrinsic carriers eventually exceed the fixed donor concentration</label>
+            <label><input type="radio" name="cct-q2" value="b"> The donor atoms multiply at high temperature</label>
+            <label><input type="radio" name="cct-q2" value="c"> The band gap becomes infinite</label>
+            <label><input type="radio" name="cct-q2" value="d"> It does not rise again</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>At high enough temperature, intrinsic thermal generation (which grows exponentially with T) eventually produces more carriers than the fixed donor concentration can supply, and the material behaves as if intrinsic.</p>
+            <p class="explain-incorrect" hidden>Compare the rightmost part of the curve (high T) to the intrinsic carrier trend from Chapter 7.</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

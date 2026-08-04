@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Fabrication Process Timeline Explorer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="../semiconductor-materials-lib.js"></script>
+    <script src="fabrication-process-timeline-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Click "Next ▶" through all nine steps in order to review the entire chapter's storyline.</li>
+            <li><strong>Predict:</strong> Before reaching step 9, predict how larger die area will affect yield.</li>
+            <li><strong>Observe:</strong> Every step's small illustration mirrors a MicroSim used earlier in the chapter, tying the whole fabrication sequence together.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 19:</strong> This capstone review retraces the chapter's full storyline — crystal growth and wafer preparation, oxidation, photolithography, deposition, doping, etching, metallization, CMOS process integration, and yield.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>Prev / Next</dt>
+            <dd>Step backward or forward through the nine-step chapter review.</dd>
+            <dt>Step dots</dt>
+            <dd>Show current position; click Prev/Next repeatedly to reach any step.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">1. According to step 9, what happens to yield as die area increases at fixed defect density?</p>
+            <label><input type="radio" name="fpte-q1" value="a"> Yield falls off exponentially</label>
+            <label><input type="radio" name="fpte-q1" value="b"> Yield rises</label>
+            <label><input type="radio" name="fpte-q1" value="c"> Yield is unaffected by die area</label>
+            <label><input type="radio" name="fpte-q1" value="d"> Yield becomes negative</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Correct. Y = e^(−D0·A) falls off exponentially as die area A increases.</p>
+            <p class="explain-incorrect" hidden>Look at the shape of the yield-vs-area curve in step 9.</p>
+        </div>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">2. Which two steps in this timeline are both patterning-and-selective-modification steps applied to a freshly formed layer?</p>
+            <label><input type="radio" name="fpte-q2" value="a"> Steps 1 and 9</label>
+            <label><input type="radio" name="fpte-q2" value="b"> Steps 2 and 7</label>
+            <label><input type="radio" name="fpte-q2" value="c"> Steps 3 and 6 (photolithography and etching)</label>
+            <label><input type="radio" name="fpte-q2" value="d"> Steps 4 and 8</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Correct. Photolithography patterns a layer, and etching then selectively removes material through that pattern — the two halves of the manufacturing overview's repeating cycle.</p>
+            <p class="explain-incorrect" hidden>Recall the manufacturing overview's repeating cycle from earlier in the chapter.</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

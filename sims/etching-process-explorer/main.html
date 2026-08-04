@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Etching Process Explorer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="../semiconductor-materials-lib.js"></script>
+    <script src="etching-process-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Select Wet Etching and note how far the cavity extends sideways under the resist mask.</li>
+            <li><strong>Predict:</strong> Before switching to Plasma Etching, predict whether the anisotropy factor will rise or fall.</li>
+            <li><strong>Observe:</strong> Plasma etching's near-vertical sidewalls reproduce the mask opening almost exactly, unlike wet etching's rounded undercut.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 19:</strong> <strong>Wet etching</strong> is isotropic; <strong>dry</strong> and especially <strong>plasma etching</strong> use directional ion bombardment to achieve strong anisotropy, \(A_f=1-R_{lateral}/R_{vertical}\).</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>Etch type</dt>
+            <dd>Selects wet, dry, or plasma etching, each with a preset vertical and lateral etch rate.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">1. Which etch type has the largest lateral undercut relative to its vertical rate?</p>
+            <label><input type="radio" name="epe-q1" value="a"> Wet etching</label>
+            <label><input type="radio" name="epe-q1" value="b"> Dry etching</label>
+            <label><input type="radio" name="epe-q1" value="c"> Plasma etching</label>
+            <label><input type="radio" name="epe-q1" value="d"> All three are identical</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Correct. Wet etching's isotropic chemical attack removes material sideways almost as fast as downward.</p>
+            <p class="explain-incorrect" hidden>Compare the cavity width under the mask for each preset.</p>
+        </div>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">2. An etch with vertical rate 200 nm/min and lateral rate 20 nm/min has an anisotropy factor of:</p>
+            <label><input type="radio" name="epe-q2" value="a"> 0.1</label>
+            <label><input type="radio" name="epe-q2" value="b"> 10</label>
+            <label><input type="radio" name="epe-q2" value="c"> 0.9</label>
+            <label><input type="radio" name="epe-q2" value="d"> 1.0</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Correct. Af = 1 − 20/200 = 1 − 0.1 = 0.9.</p>
+            <p class="explain-incorrect" hidden>Use Af = 1 − Rlateral/Rvertical.</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

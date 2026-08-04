@@ -1,10 +1,10 @@
 {
   "metadata": {
     "title": "Semiconductor Physics",
-    "description": "An undergraduate junior-level course covering the quantum-mechanical and statistical foundations of semiconductor materials and devices, from crystal structure through the p-n junction and MOS capacitor.",
+    "description": "An undergraduate junior-level course covering the quantum-mechanical and statistical foundations of semiconductor materials and devices, from crystal structure through the p-n junction, MOS capacitor, and device fabrication.",
     "creator": "Natol Dinka",
     "date": "2026-07-22",
-    "version": "1.0",
+    "version": "1.1",
     "format": "Learning Graph JSON v1.0",
     "schema": "https://raw.githubusercontent.com/dmccreary/learning-graphs/refs/heads/main/src/schema/learning-graph-schema.json",
     "license": "CC BY-NC-SA 4.0 DEED"
@@ -90,6 +90,13 @@
     "DEV": {
       "classifierName": "Devices & Applications",
       "color": "Honeydew",
+      "font": {
+        "color": "black"
+      }
+    },
+    "FAB": {
+      "classifierName": "Semiconductor Device Fabrication",
+      "color": "Khaki",
       "font": {
         "color": "black"
       }
@@ -1192,6 +1199,106 @@
       "id": 218,
       "label": "Fundamental Physical Constants",
       "group": "FOUND"
+    },
+    {
+      "id": 219,
+      "label": "Semiconductor Manufacturing Overview",
+      "group": "FAB"
+    },
+    {
+      "id": 220,
+      "label": "Czochralski Crystal Growth",
+      "group": "FAB"
+    },
+    {
+      "id": 221,
+      "label": "Float-Zone Refining",
+      "group": "FAB"
+    },
+    {
+      "id": 222,
+      "label": "Wafer Slicing and Polishing",
+      "group": "FAB"
+    },
+    {
+      "id": 223,
+      "label": "Thermal Oxidation",
+      "group": "FAB"
+    },
+    {
+      "id": 224,
+      "label": "Photolithography",
+      "group": "FAB"
+    },
+    {
+      "id": 225,
+      "label": "Photoresist",
+      "group": "FAB"
+    },
+    {
+      "id": 226,
+      "label": "UV Exposure and Resolution",
+      "group": "FAB"
+    },
+    {
+      "id": 227,
+      "label": "Mask Alignment",
+      "group": "FAB"
+    },
+    {
+      "id": 228,
+      "label": "Thin-Film Deposition",
+      "group": "FAB"
+    },
+    {
+      "id": 229,
+      "label": "Diffusion Doping",
+      "group": "FAB"
+    },
+    {
+      "id": 230,
+      "label": "Ion Implantation",
+      "group": "FAB"
+    },
+    {
+      "id": 231,
+      "label": "Annealing",
+      "group": "FAB"
+    },
+    {
+      "id": 232,
+      "label": "Wet Etching",
+      "group": "FAB"
+    },
+    {
+      "id": 233,
+      "label": "Dry Etching",
+      "group": "FAB"
+    },
+    {
+      "id": 234,
+      "label": "Plasma Etching",
+      "group": "FAB"
+    },
+    {
+      "id": 235,
+      "label": "Metallization and Interconnects",
+      "group": "FAB"
+    },
+    {
+      "id": 236,
+      "label": "CMOS Process Integration",
+      "group": "FAB"
+    },
+    {
+      "id": 237,
+      "label": "Manufacturing Defects",
+      "group": "FAB"
+    },
+    {
+      "id": 238,
+      "label": "Yield and Reliability",
+      "group": "FAB"
     }
   ],
   "edges": [
@@ -2622,6 +2729,154 @@
     {
       "from": 218,
       "to": 217
+    },
+    {
+      "from": 219,
+      "to": 68
+    },
+    {
+      "from": 220,
+      "to": 219
+    },
+    {
+      "from": 220,
+      "to": 21
+    },
+    {
+      "from": 220,
+      "to": 68
+    },
+    {
+      "from": 221,
+      "to": 220
+    },
+    {
+      "from": 222,
+      "to": 220
+    },
+    {
+      "from": 222,
+      "to": 221
+    },
+    {
+      "from": 223,
+      "to": 222
+    },
+    {
+      "from": 223,
+      "to": 68
+    },
+    {
+      "from": 224,
+      "to": 223
+    },
+    {
+      "from": 224,
+      "to": 219
+    },
+    {
+      "from": 225,
+      "to": 224
+    },
+    {
+      "from": 226,
+      "to": 225
+    },
+    {
+      "from": 226,
+      "to": 224
+    },
+    {
+      "from": 227,
+      "to": 226
+    },
+    {
+      "from": 228,
+      "to": 223
+    },
+    {
+      "from": 228,
+      "to": 219
+    },
+    {
+      "from": 229,
+      "to": 71
+    },
+    {
+      "from": 229,
+      "to": 72
+    },
+    {
+      "from": 229,
+      "to": 227
+    },
+    {
+      "from": 230,
+      "to": 229
+    },
+    {
+      "from": 230,
+      "to": 227
+    },
+    {
+      "from": 231,
+      "to": 230
+    },
+    {
+      "from": 231,
+      "to": 229
+    },
+    {
+      "from": 232,
+      "to": 227
+    },
+    {
+      "from": 232,
+      "to": 228
+    },
+    {
+      "from": 233,
+      "to": 227
+    },
+    {
+      "from": 233,
+      "to": 228
+    },
+    {
+      "from": 234,
+      "to": 233
+    },
+    {
+      "from": 235,
+      "to": 234
+    },
+    {
+      "from": 235,
+      "to": 167
+    },
+    {
+      "from": 235,
+      "to": 228
+    },
+    {
+      "from": 236,
+      "to": 235
+    },
+    {
+      "from": 236,
+      "to": 231
+    },
+    {
+      "from": 236,
+      "to": 195
+    },
+    {
+      "from": 237,
+      "to": 236
+    },
+    {
+      "from": 238,
+      "to": 237
     }
   ]
 }

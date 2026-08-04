@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Technology Scaling Explorer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="../semiconductor-materials-lib.js"></script>
+    <script src="technology-scaling-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Drag process year from 2000 to 2030 and watch transistor count climb on the log-scale chart.</li>
+            <li><strong>Predict:</strong> Before reaching 2028, predict whether the short-channel-effect indicator will be high or low.</li>
+            <li><strong>Observe:</strong> Gate length keeps shrinking as transistor count rises — the short-channel-effect indicator climbs sharply once gate length drops below roughly 20-30 nm.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 20:</strong> <strong>Technology scaling and Moore's Law</strong> describe transistor count doubling roughly every two years, driven by shrinking gate length — which eventually produces the <strong>short-channel effects</strong> covered next in the chapter.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>Process year</dt>
+            <dd>Moves along the technology scaling timeline, updating transistor count, gate length, and short-channel effect severity.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">1. According to this chart, what happens to transistor count as process year advances?</p>
+            <label><input type="radio" name="tse-q1" value="a"> It decreases</label>
+            <label><input type="radio" name="tse-q1" value="b"> It grows exponentially (doubling roughly every 2 years)</label>
+            <label><input type="radio" name="tse-q1" value="c"> It stays constant</label>
+            <label><input type="radio" name="tse-q1" value="d"> It grows linearly</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Correct. Moore's Law describes exponential transistor-count growth, doubling roughly every two years.</p>
+            <p class="explain-incorrect" hidden>Notice the chart uses a log-scale y-axis — a straight line there corresponds to exponential growth.</p>
+        </div>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">2. What happens to the short-channel-effect indicator as gate length shrinks below about 20-30 nm?</p>
+            <label><input type="radio" name="tse-q2" value="a"> It disappears entirely</label>
+            <label><input type="radio" name="tse-q2" value="b"> It decreases slowly</label>
+            <label><input type="radio" name="tse-q2" value="c"> It rises sharply</label>
+            <label><input type="radio" name="tse-q2" value="d"> It has no relationship to gate length</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Correct. Short-channel effects become severe once gate length becomes comparable to source/drain depletion widths.</p>
+            <p class="explain-incorrect" hidden>Drag the year slider toward 2028-2030 and watch the severity readout.</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

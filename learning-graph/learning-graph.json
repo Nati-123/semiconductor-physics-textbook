@@ -1,10 +1,10 @@
 {
   "metadata": {
     "title": "Semiconductor Physics",
-    "description": "An undergraduate junior-level course covering the quantum-mechanical and statistical foundations of semiconductor materials and devices, from crystal structure through the p-n junction, MOS capacitor, and device fabrication.",
+    "description": "An undergraduate junior-level course covering the quantum-mechanical and statistical foundations of semiconductor materials and devices, from crystal structure through the p-n junction, MOS capacitor, device fabrication, and advanced/emerging device technologies.",
     "creator": "Natol Dinka",
     "date": "2026-07-22",
-    "version": "1.1",
+    "version": "1.2",
     "format": "Learning Graph JSON v1.0",
     "schema": "https://raw.githubusercontent.com/dmccreary/learning-graphs/refs/heads/main/src/schema/learning-graph-schema.json",
     "license": "CC BY-NC-SA 4.0 DEED"
@@ -97,6 +97,13 @@
     "FAB": {
       "classifierName": "Semiconductor Device Fabrication",
       "color": "Khaki",
+      "font": {
+        "color": "black"
+      }
+    },
+    "ADV": {
+      "classifierName": "Advanced & Emerging Devices",
+      "color": "LightSalmon",
       "font": {
         "color": "black"
       }
@@ -1299,6 +1306,96 @@
       "id": 238,
       "label": "Yield and Reliability",
       "group": "FAB"
+    },
+    {
+      "id": 239,
+      "label": "Technology Scaling and Moore's Law",
+      "group": "ADV"
+    },
+    {
+      "id": 240,
+      "label": "Short-Channel Effects",
+      "group": "ADV"
+    },
+    {
+      "id": 241,
+      "label": "FinFET Technology",
+      "group": "ADV"
+    },
+    {
+      "id": 242,
+      "label": "Gate-All-Around Transistors",
+      "group": "ADV"
+    },
+    {
+      "id": 243,
+      "label": "Silicon-on-Insulator Technology",
+      "group": "ADV"
+    },
+    {
+      "id": 244,
+      "label": "Wide-Bandgap Semiconductors",
+      "group": "ADV"
+    },
+    {
+      "id": 245,
+      "label": "Silicon Carbide Devices",
+      "group": "ADV"
+    },
+    {
+      "id": 246,
+      "label": "Gallium Nitride Devices",
+      "group": "ADV"
+    },
+    {
+      "id": 247,
+      "label": "Compound Semiconductor Devices",
+      "group": "ADV"
+    },
+    {
+      "id": 248,
+      "label": "Indium Phosphide",
+      "group": "ADV"
+    },
+    {
+      "id": 249,
+      "label": "Optoelectronic Device Integration",
+      "group": "ADV"
+    },
+    {
+      "id": 250,
+      "label": "Laser Diode",
+      "group": "ADV"
+    },
+    {
+      "id": 251,
+      "label": "MEMS and NEMS",
+      "group": "ADV"
+    },
+    {
+      "id": 252,
+      "label": "Quantum Dots and Quantum Devices",
+      "group": "ADV"
+    },
+    {
+      "id": 253,
+      "label": "Semiconductor Applications in AI and Computing",
+      "group": "ADV"
+    },
+    {
+      "id": 254,
+      "label": "Semiconductor Applications in Power Electronics and Communications",
+      "group": "ADV"
+    },
+    {
+      "id": 255,
+      "label": "Future Semiconductor Technologies",
+      "group": "ADV"
+    },
+    {
+      "id": 256,
+      "label": "Semiconductor Physics Capstone Synthesis",
+      "group": "ADV"
     }
   ],
   "edges": [
@@ -2877,6 +2974,162 @@
     {
       "from": 238,
       "to": 237
+    },
+    {
+      "from": 239,
+      "to": 236
+    },
+    {
+      "from": 239,
+      "to": 195
+    },
+    {
+      "from": 240,
+      "to": 239
+    },
+    {
+      "from": 240,
+      "to": 175
+    },
+    {
+      "from": 241,
+      "to": 240
+    },
+    {
+      "from": 241,
+      "to": 174
+    },
+    {
+      "from": 241,
+      "to": 195
+    },
+    {
+      "from": 242,
+      "to": 241
+    },
+    {
+      "from": 243,
+      "to": 239
+    },
+    {
+      "from": 243,
+      "to": 223
+    },
+    {
+      "from": 244,
+      "to": 47
+    },
+    {
+      "from": 244,
+      "to": 191
+    },
+    {
+      "from": 245,
+      "to": 244
+    },
+    {
+      "from": 245,
+      "to": 158
+    },
+    {
+      "from": 246,
+      "to": 244
+    },
+    {
+      "from": 246,
+      "to": 67
+    },
+    {
+      "from": 247,
+      "to": 67
+    },
+    {
+      "from": 247,
+      "to": 70
+    },
+    {
+      "from": 248,
+      "to": 247
+    },
+    {
+      "from": 249,
+      "to": 187
+    },
+    {
+      "from": 249,
+      "to": 185
+    },
+    {
+      "from": 249,
+      "to": 247
+    },
+    {
+      "from": 250,
+      "to": 249
+    },
+    {
+      "from": 250,
+      "to": 188
+    },
+    {
+      "from": 251,
+      "to": 234
+    },
+    {
+      "from": 251,
+      "to": 228
+    },
+    {
+      "from": 252,
+      "to": 17
+    },
+    {
+      "from": 252,
+      "to": 18
+    },
+    {
+      "from": 252,
+      "to": 247
+    },
+    {
+      "from": 253,
+      "to": 241
+    },
+    {
+      "from": 253,
+      "to": 242
+    },
+    {
+      "from": 254,
+      "to": 245
+    },
+    {
+      "from": 254,
+      "to": 246
+    },
+    {
+      "from": 255,
+      "to": 252
+    },
+    {
+      "from": 255,
+      "to": 253
+    },
+    {
+      "from": 255,
+      "to": 254
+    },
+    {
+      "from": 256,
+      "to": 255
+    },
+    {
+      "from": 256,
+      "to": 200
+    },
+    {
+      "from": 256,
+      "to": 238
     }
   ]
 }

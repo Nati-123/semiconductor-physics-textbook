@@ -2,10 +2,10 @@
 
 ## Overview
 
-- **Total Concepts**: 238
+- **Total Concepts**: 256
 - **Foundational Concepts** (no dependencies): 7
-- **Concepts with Dependencies**: 231
-- **Average Dependencies per Concept**: 1.71
+- **Concepts with Dependencies**: 249
+- **Average Dependencies per Concept**: 1.74
 
 ## Graph Structure Validation
 
@@ -27,7 +27,7 @@ These concepts have no prerequisites:
 
 ## Dependency Chain Analysis
 
-- **Maximum Dependency Chain Length**: 32
+- **Maximum Dependency Chain Length**: 37
 
 ### Longest Learning Path:
 
@@ -43,26 +43,31 @@ These concepts have no prerequisites:
 10. **Kronig-Penney Model** (ID: 43)
 11. **Energy Band** (ID: 46)
 12. **Valence Band** (ID: 49)
-13. **Effective Mass** (ID: 55)
-14. **Density of States** (ID: 57)
-15. **Fermi Level** (ID: 58)
-16. **Fermi-Dirac Distribution** (ID: 86)
-17. **Fermi Function** (ID: 87)
-18. **Density of States Function** (ID: 88)
-19. **Effective Density of States** (ID: 89)
-20. **Intrinsic Carrier Concentration** (ID: 90)
-21. **Mass Action Law** (ID: 91)
-22. **Carrier Concentration Equation** (ID: 100)
-23. **Excess Carriers** (ID: 121)
-24. **Low-Level Injection** (ID: 133)
-25. **Carrier Injection** (ID: 139)
-26. **Minority Carrier Injection** (ID: 152)
-27. **Short-Base Diode** (ID: 153)
-28. **Saturation Current** (ID: 155)
-29. **Ideal Diode Equation** (ID: 156)
-30. **Semiconductor Device Modeling** (ID: 196)
-31. **Device Design Trade-Offs** (ID: 199)
-32. **Capstone Device Project** (ID: 200)
+13. **Metal Band Structure** (ID: 60)
+14. **Semiconductor Band Structure** (ID: 62)
+15. **Intrinsic Semiconductor** (ID: 64)
+16. **Elemental Semiconductor** (ID: 66)
+17. **Silicon** (ID: 68)
+18. **Semiconductor Manufacturing Overview** (ID: 219)
+19. **Czochralski Crystal Growth** (ID: 220)
+20. **Float-Zone Refining** (ID: 221)
+21. **Wafer Slicing and Polishing** (ID: 222)
+22. **Thermal Oxidation** (ID: 223)
+23. **Photolithography** (ID: 224)
+24. **Photoresist** (ID: 225)
+25. **UV Exposure and Resolution** (ID: 226)
+26. **Mask Alignment** (ID: 227)
+27. **Dry Etching** (ID: 233)
+28. **Plasma Etching** (ID: 234)
+29. **Metallization and Interconnects** (ID: 235)
+30. **CMOS Process Integration** (ID: 236)
+31. **Technology Scaling and Moore's Law** (ID: 239)
+32. **Short-Channel Effects** (ID: 240)
+33. **FinFET Technology** (ID: 241)
+34. **Gate-All-Around Transistors** (ID: 242)
+35. **Semiconductor Applications in AI and Computing** (ID: 253)
+36. **Future Semiconductor Technologies** (ID: 255)
+37. **Semiconductor Physics Capstone Synthesis** (ID: 256)
 
 ## Orphaned Nodes Analysis
 
@@ -111,25 +116,25 @@ Top 10 concepts that are prerequisites for the most other concepts:
 | 4 | 64 | Intrinsic Semiconductor | 7 |
 | 5 | 169 | MOS Capacitor | 7 |
 | 6 | 46 | Energy Band | 6 |
-| 7 | 103 | Carrier Mobility | 6 |
-| 8 | 123 | Carrier Recombination | 6 |
-| 9 | 8 | Photon Energy | 5 |
-| 10 | 47 | Band Gap | 5 |
+| 7 | 47 | Band Gap | 6 |
+| 8 | 103 | Carrier Mobility | 6 |
+| 9 | 123 | Carrier Recombination | 6 |
+| 10 | 8 | Photon Energy | 5 |
 
 ## Outdegree Distribution
 
 | Dependencies | Number of Concepts |
 |--------------|--------------------|
 | 0 | 7 |
-| 1 | 96 |
-| 2 | 110 |
-| 3 | 22 |
+| 1 | 98 |
+| 2 | 121 |
+| 3 | 27 |
 | 4 | 3 |
 
 ## Recommendations
 
 - ⚠️ **Many orphaned nodes** (57): Consider if these should be prerequisites for advanced concepts
-- ℹ️ **Long dependency chains** (32): Ensure students can follow extended learning paths
+- ℹ️ **Long dependency chains** (37): Ensure students can follow extended learning paths
 
 ---
 

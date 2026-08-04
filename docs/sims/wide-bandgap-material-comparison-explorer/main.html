@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Wide-Bandgap Material Comparison Explorer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="../semiconductor-materials-lib.js"></script>
+    <script src="wide-bandgap-material-comparison-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Switch from Silicon to SiC at a fixed breakdown voltage and watch specific on-resistance drop by orders of magnitude.</li>
+            <li><strong>Predict:</strong> Before selecting GaN, predict whether its on-resistance will be lower or higher than SiC's.</li>
+            <li><strong>Observe:</strong> Even a modest increase in critical field produces a huge drop in on-resistance, since Ecrit enters the formula cubed.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 20:</strong> <strong>Wide-bandgap semiconductors</strong> extend Chapter 18's specific on-resistance formula \(R_{on,sp}\approx4V_{BR}^2/(\mu_n\varepsilon_sE_{crit}^3)\) to materials with much higher critical field.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>Material</dt>
+            <dd>Selects silicon, SiC, or GaN, each with its own band gap, critical field, mobility, and permittivity.</dd>
+            <dt>V_BR</dt>
+            <dd>Target breakdown voltage rating for the specific on-resistance calculation.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">1. Which material has the lowest specific on-resistance at a fixed high breakdown voltage?</p>
+            <label><input type="radio" name="wbmce-q1" value="a"> Silicon</label>
+            <label><input type="radio" name="wbmce-q1" value="b"> They are all equal</label>
+            <label><input type="radio" name="wbmce-q1" value="c"> GaN (highest critical field)</label>
+            <label><input type="radio" name="wbmce-q1" value="d"> The result does not depend on material</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Correct. GaN's highest critical field among the three drives the lowest specific on-resistance at a given breakdown voltage.</p>
+            <p class="explain-incorrect" hidden>Compare the R_on,sp readout across all three materials at the same V_BR.</p>
+        </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">2. Why does critical field matter more than mobility in this formula?</p>
+            <label><input type="radio" name="wbmce-q2" value="a"> Mobility does not appear in the formula</label>
+            <label><input type="radio" name="wbmce-q2" value="b"> Critical field is cubed while mobility appears only linearly</label>
+            <label><input type="radio" name="wbmce-q2" value="c"> They matter equally</label>
+            <label><input type="radio" name="wbmce-q2" value="d"> Critical field only matters for silicon</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Correct. R_on,sp ∝ 1/(μn·Ecrit³) — the cubed critical-field term dominates over the linear mobility term.</p>
+            <p class="explain-incorrect" hidden>Look at the exponent on Ecrit versus the exponent on μn in the formula shown below the chart.</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

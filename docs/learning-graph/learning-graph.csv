@@ -237,3 +237,21 @@ ConceptID,ConceptLabel,Dependencies,TaxonomyID
 236,CMOS Process Integration,235|231|195,FAB
 237,Manufacturing Defects,236,FAB
 238,Yield and Reliability,237,FAB
+239,Technology Scaling and Moore's Law,236|195,ADV
+240,Short-Channel Effects,239|175,ADV
+241,FinFET Technology,240|174|195,ADV
+242,Gate-All-Around Transistors,241,ADV
+243,Silicon-on-Insulator Technology,239|223,ADV
+244,Wide-Bandgap Semiconductors,47|191,ADV
+245,Silicon Carbide Devices,244|158,ADV
+246,Gallium Nitride Devices,244|67,ADV
+247,Compound Semiconductor Devices,67|70,ADV
+248,Indium Phosphide,247,ADV
+249,Optoelectronic Device Integration,187|185|247,ADV
+250,Laser Diode,249|188,ADV
+251,MEMS and NEMS,234|228,ADV
+252,Quantum Dots and Quantum Devices,17|18|247,ADV
+253,Semiconductor Applications in AI and Computing,241|242,ADV
+254,Semiconductor Applications in Power Electronics and Communications,245|246,ADV
+255,Future Semiconductor Technologies,252|253|254,ADV
+256,Semiconductor Physics Capstone Synthesis,255|200|238,ADV

@@ -2,7 +2,7 @@
 
 # Chapters
 
-This textbook is organized into 19 chapters covering 238 concepts.
+This textbook is organized into 20 chapters covering 256 concepts.
 
 ## Chapter Overview
 
@@ -25,6 +25,7 @@ This textbook is organized into 19 chapters covering 238 concepts.
 17. [Optical and Thermal Properties of Semiconductors](17-optical-thermal-properties/index.md) - Covers light absorption and optoelectronic devices.
 18. [Semiconductor Devices and Applications](18-semiconductor-devices-applications/index.md) - Synthesizes applied devices and the capstone device project.
 19. [Semiconductor Device Fabrication](19-semiconductor-device-fabrication/index.md) - Covers crystal growth, wafer preparation, oxidation, photolithography, deposition, doping, etching, metallization, CMOS process integration, and yield.
+20. [Advanced Semiconductor Devices and Emerging Technologies](20-advanced-devices-emerging-technologies/index.md) - The capstone chapter: technology scaling, FinFET/GAA transistors, SOI, wide-bandgap and compound semiconductors, optoelectronic devices, MEMS/NEMS, quantum devices, and applications in AI, power electronics, and communications.
 
 ## How to Use This Textbook
 

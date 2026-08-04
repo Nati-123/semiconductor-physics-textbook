@@ -2,44 +2,46 @@
 
 ## Overview
 
-- **Total Concepts**: 238
-- **Number of Taxonomies**: 13
+- **Total Concepts**: 256
+- **Number of Taxonomies**: 14
 - **Average Concepts per Taxonomy**: 18.3
 
 ## Distribution Summary
 
 | Category | TaxonomyID | Count | Percentage | Status |
 |----------|-----------|-------|------------|--------|
-| Foundation Concepts - Prerequisites | FOUND | 38 | 16.0% | ✅ |
-| QMBT | QMBT | 23 | 9.7% | ✅ |
-| PNJ | PNJ | 21 | 8.8% | ✅ |
-| CRYS | CRYS | 20 | 8.4% | ✅ |
-| TRAN | TRAN | 20 | 8.4% | ✅ |
-| FAB | FAB | 20 | 8.4% | ✅ |
-| MATL | MATL | 19 | 8.0% | ✅ |
-| NEQ | NEQ | 19 | 8.0% | ✅ |
-| STAT | STAT | 18 | 7.6% | ✅ |
-| MOS | MOS | 12 | 5.0% | ✅ |
-| OPT | OPT | 10 | 4.2% | ✅ |
-| DEV | DEV | 10 | 4.2% | ✅ |
-| MSJ | MSJ | 8 | 3.4% | ✅ |
+| Foundation Concepts - Prerequisites | FOUND | 38 | 14.8% | ✅ |
+| QMBT | QMBT | 23 | 9.0% | ✅ |
+| PNJ | PNJ | 21 | 8.2% | ✅ |
+| CRYS | CRYS | 20 | 7.8% | ✅ |
+| TRAN | TRAN | 20 | 7.8% | ✅ |
+| FAB | FAB | 20 | 7.8% | ✅ |
+| MATL | MATL | 19 | 7.4% | ✅ |
+| NEQ | NEQ | 19 | 7.4% | ✅ |
+| STAT | STAT | 18 | 7.0% | ✅ |
+| Advanced Topics | ADV | 18 | 7.0% | ✅ |
+| MOS | MOS | 12 | 4.7% | ✅ |
+| OPT | OPT | 10 | 3.9% | ✅ |
+| DEV | DEV | 10 | 3.9% | ✅ |
+| MSJ | MSJ | 8 | 3.1% | ✅ |
 
 ## Visual Distribution
 
 ```
-FOUND  ███████  38 ( 16.0%)
-QMBT   ████  23 (  9.7%)
-PNJ    ████  21 (  8.8%)
-CRYS   ████  20 (  8.4%)
-TRAN   ████  20 (  8.4%)
-FAB    ████  20 (  8.4%)
-MATL   ███  19 (  8.0%)
-NEQ    ███  19 (  8.0%)
-STAT   ███  18 (  7.6%)
-MOS    ██  12 (  5.0%)
-OPT    ██  10 (  4.2%)
-DEV    ██  10 (  4.2%)
-MSJ    █   8 (  3.4%)
+FOUND  ███████  38 ( 14.8%)
+QMBT   ████  23 (  9.0%)
+PNJ    ████  21 (  8.2%)
+CRYS   ███  20 (  7.8%)
+TRAN   ███  20 (  7.8%)
+FAB    ███  20 (  7.8%)
+MATL   ███  19 (  7.4%)
+NEQ    ███  19 (  7.4%)
+STAT   ███  18 (  7.0%)
+ADV    ███  18 (  7.0%)
+MOS    ██  12 (  4.7%)
+OPT    █  10 (  3.9%)
+DEV    █  10 (  3.9%)
+MSJ    █   8 (  3.1%)
 ```
 
 ## Balance Analysis
@@ -52,7 +54,7 @@ All categories are under the 30% threshold. Good balance!
 
 ### Foundation Concepts - Prerequisites (FOUND)
 
-**Count**: 38 concepts (16.0%)
+**Count**: 38 concepts (14.8%)
 
 **Concepts**:
 
@@ -75,7 +77,7 @@ All categories are under the 30% threshold. Good balance!
 
 ### QMBT (QMBT)
 
-**Count**: 23 concepts (9.7%)
+**Count**: 23 concepts (9.0%)
 
 **Concepts**:
 
@@ -98,7 +100,7 @@ All categories are under the 30% threshold. Good balance!
 
 ### PNJ (PNJ)
 
-**Count**: 21 concepts (8.8%)
+**Count**: 21 concepts (8.2%)
 
 **Concepts**:
 
@@ -121,7 +123,7 @@ All categories are under the 30% threshold. Good balance!
 
 ### CRYS (CRYS)
 
-**Count**: 20 concepts (8.4%)
+**Count**: 20 concepts (7.8%)
 
 **Concepts**:
 
@@ -144,7 +146,7 @@ All categories are under the 30% threshold. Good balance!
 
 ### TRAN (TRAN)
 
-**Count**: 20 concepts (8.4%)
+**Count**: 20 concepts (7.8%)
 
 **Concepts**:
 
@@ -167,7 +169,7 @@ All categories are under the 30% threshold. Good balance!
 
 ### FAB (FAB)
 
-**Count**: 20 concepts (8.4%)
+**Count**: 20 concepts (7.8%)
 
 **Concepts**:
 
@@ -190,7 +192,7 @@ All categories are under the 30% threshold. Good balance!
 
 ### MATL (MATL)
 
-**Count**: 19 concepts (8.0%)
+**Count**: 19 concepts (7.4%)
 
 **Concepts**:
 
@@ -213,7 +215,7 @@ All categories are under the 30% threshold. Good balance!
 
 ### NEQ (NEQ)
 
-**Count**: 19 concepts (8.0%)
+**Count**: 19 concepts (7.4%)
 
 **Concepts**:
 
@@ -236,7 +238,7 @@ All categories are under the 30% threshold. Good balance!
 
 ### STAT (STAT)
 
-**Count**: 18 concepts (7.6%)
+**Count**: 18 concepts (7.0%)
 
 **Concepts**:
 
@@ -257,9 +259,32 @@ All categories are under the 30% threshold. Good balance!
 - 97. Carrier Temperature Dependence
 - *...and 3 more*
 
+### Advanced Topics (ADV)
+
+**Count**: 18 concepts (7.0%)
+
+**Concepts**:
+
+- 239. Technology Scaling and Moore's Law
+- 240. Short-Channel Effects
+- 241. FinFET Technology
+- 242. Gate-All-Around Transistors
+- 243. Silicon-on-Insulator Technology
+- 244. Wide-Bandgap Semiconductors
+- 245. Silicon Carbide Devices
+- 246. Gallium Nitride Devices
+- 247. Compound Semiconductor Devices
+- 248. Indium Phosphide
+- 249. Optoelectronic Device Integration
+- 250. Laser Diode
+- 251. MEMS and NEMS
+- 252. Quantum Dots and Quantum Devices
+- 253. Semiconductor Applications in AI and Computing
+- *...and 3 more*
+
 ### MOS (MOS)
 
-**Count**: 12 concepts (5.0%)
+**Count**: 12 concepts (4.7%)
 
 **Concepts**:
 
@@ -278,7 +303,7 @@ All categories are under the 30% threshold. Good balance!
 
 ### OPT (OPT)
 
-**Count**: 10 concepts (4.2%)
+**Count**: 10 concepts (3.9%)
 
 **Concepts**:
 
@@ -295,7 +320,7 @@ All categories are under the 30% threshold. Good balance!
 
 ### DEV (DEV)
 
-**Count**: 10 concepts (4.2%)
+**Count**: 10 concepts (3.9%)
 
 **Concepts**:
 
@@ -312,7 +337,7 @@ All categories are under the 30% threshold. Good balance!
 
 ### MSJ (MSJ)
 
-**Count**: 8 concepts (3.4%)
+**Count**: 8 concepts (3.1%)
 
 **Concepts**:
 
@@ -327,7 +352,7 @@ All categories are under the 30% threshold. Good balance!
 
 ## Recommendations
 
-- ✅ **Excellent balance**: Categories are evenly distributed (spread: 12.6%)
+- ✅ **Excellent balance**: Categories are evenly distributed (spread: 11.7%)
 - ✅ **MISC category minimal**: Good categorization specificity
 
 ### Educational Use Recommendations

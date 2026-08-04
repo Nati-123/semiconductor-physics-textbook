@@ -41,13 +41,13 @@ The course emphasizes building physical intuition alongside quantitative modelin
 - The MOS capacitor and semiconductor surfaces (accumulation, depletion, inversion — the physical basis of the MOSFET)
 - Optical and thermal properties of semiconductors (absorption, photogeneration, photodiodes/solar cells as an application)
 - Semiconductor device fabrication (crystal growth and wafer preparation, thermal oxidation, photolithography, thin-film deposition, diffusion and ion-implantation doping, wet/dry/plasma etching, metallization, CMOS process integration, manufacturing defects and yield)
+- Advanced and emerging device technologies (technology scaling and short-channel effects, FinFET and gate-all-around transistors, silicon-on-insulator technology, wide-bandgap semiconductors including SiC and GaN, compound semiconductors including GaAs and InP, optoelectronic devices including laser diodes, an introductory treatment of MEMS/NEMS and quantum dots, and applications in AI hardware, power electronics, and communications)
 
 ## Topics Not Covered
 
 - Full transistor circuit design and analog/digital circuit theory (covered in a separate circuits/devices course)
-- Advanced quantum transport and mesoscopic/nanoscale device physics (ballistic transport, quantum dots, spintronics)
+- Advanced quantum transport and mesoscopic device physics beyond an introductory treatment of quantum dots (ballistic transport, spintronics)
 - TCAD and detailed numerical device simulation tools
-- Compound and exotic semiconductor material systems in depth (III-V heterostructures, wide-bandgap materials) beyond brief mention
 - Semiconductor manufacturing economics and industry/business topics
 
 ## Learning Outcomes

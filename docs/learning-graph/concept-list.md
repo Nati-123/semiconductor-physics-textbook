@@ -1,6 +1,6 @@
 # Concept List
 
-This is the enumerated list of 238 concepts for the Semiconductor Physics learning graph, generated from [course-description.md](../course-description.md). Concepts 201–218 were added after Chapter 1 was written, to represent the prerequisite mathematics and electromagnetics concepts (algebra, trigonometry, vector calculus, Gauss's Law, etc.) that Chapter 1 actually teaches but that were not part of the original 200-concept enumeration. Concepts 219–238 were added when the course was extended with Chapter 19 (Semiconductor Device Fabrication).
+This is the enumerated list of 256 concepts for the Semiconductor Physics learning graph, generated from [course-description.md](../course-description.md). Concepts 201–218 were added after Chapter 1 was written, to represent the prerequisite mathematics and electromagnetics concepts (algebra, trigonometry, vector calculus, Gauss's Law, etc.) that Chapter 1 actually teaches but that were not part of the original 200-concept enumeration. Concepts 219–238 were added when the course was extended with Chapter 19 (Semiconductor Device Fabrication). Concepts 239–256 were added when the course was extended with Chapter 20 (Advanced Semiconductor Devices and Emerging Technologies), the textbook's final chapter.
 
 1. Coulomb's Law
 2. Electric Field
@@ -220,3 +220,41 @@ This is the enumerated list of 238 concepts for the Semiconductor Physics learni
 216. Gauss's Law
 217. SI Units
 218. Fundamental Physical Constants
+219. Semiconductor Manufacturing Overview
+220. Czochralski Crystal Growth
+221. Float-Zone Refining
+222. Wafer Slicing and Polishing
+223. Thermal Oxidation
+224. Photolithography
+225. Photoresist
+226. UV Exposure and Resolution
+227. Mask Alignment
+228. Thin-Film Deposition
+229. Diffusion Doping
+230. Ion Implantation
+231. Annealing
+232. Wet Etching
+233. Dry Etching
+234. Plasma Etching
+235. Metallization and Interconnects
+236. CMOS Process Integration
+237. Manufacturing Defects
+238. Yield and Reliability
+239. Technology Scaling and Moore's Law
+240. Short-Channel Effects
+241. FinFET Technology
+242. Gate-All-Around Transistors
+243. Silicon-on-Insulator Technology
+244. Wide-Bandgap Semiconductors
+245. Silicon Carbide Devices
+246. Gallium Nitride Devices
+247. Compound Semiconductor Devices
+248. Indium Phosphide
+249. Optoelectronic Device Integration
+250. Laser Diode
+251. MEMS and NEMS
+252. Quantum Dots and Quantum Devices
+253. Semiconductor Applications in AI and Computing
+254. Semiconductor Applications in Power Electronics and Communications
+255. Future Semiconductor Technologies
+256. Semiconductor Physics Capstone Synthesis

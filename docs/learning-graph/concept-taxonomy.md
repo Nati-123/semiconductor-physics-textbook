@@ -1,6 +1,6 @@
 # Concept Taxonomy
 
-This taxonomy organizes the 238 concepts in the Semiconductor Physics learning graph into 13 categories, each evenly distributed to avoid any single category dominating the graph.
+This taxonomy organizes the 256 concepts in the Semiconductor Physics learning graph into 14 categories, each evenly distributed to avoid any single category dominating the graph.
 
 | Category | TaxonomyID | Description |
 |----------|-----------|-------------|
@@ -17,6 +17,7 @@ This taxonomy organizes the 238 concepts in the Semiconductor Physics learning g
 | Optical & Thermal Properties | OPT | Light absorption, photogeneration, and the optoelectronic and thermal properties of semiconductors. |
 | Devices & Applications | DEV | Applied device concepts (diodes, transistors, device modeling) and the capstone project connecting physics to real device performance. |
 | Semiconductor Device Fabrication | FAB | Crystal growth and wafer preparation, thermal oxidation, photolithography, thin-film deposition, diffusion and ion-implantation doping, wet/dry/plasma etching, metallization, CMOS process integration, and manufacturing defects/yield. |
+| Advanced & Emerging Devices | ADV | Technology scaling and short-channel effects, FinFET and gate-all-around transistors, SOI, wide-bandgap and compound semiconductor devices, optoelectronic integration, MEMS/NEMS, quantum devices, and emerging application areas across AI, power electronics, and communications. |
 
 ## Category Distribution
 

@@ -206,4 +206,20 @@ Interactive educational simulations that accompany this textbook.
 | [CMOS Process Flow Explorer](cmos-process-flow-explorer/index.md) | L2-L3 Understand/Apply | Steps through a simplified CMOS process flow, building a self-aligned transistor cross-section |
 | [Fabrication Process Timeline Explorer](fabrication-process-timeline-explorer/index.md) | L1-L2 Remember/Understand | A 9-step guided-tour capstone review retracing the chapter's full storyline from crystal growth through yield |
 
+## Chapter 20: Advanced Semiconductor Devices and Emerging Technologies
+
+| MicroSim | Bloom Level | Description |
+|----------|-------------|-------------|
+| [Technology Scaling Explorer](technology-scaling-explorer/index.md) | L2 Understand | Plots Moore's Law transistor count growth on a log axis as process year advances, alongside gate length shrinkage and short-channel effect severity |
+| [Planar MOSFET vs FinFET vs GAA Explorer](planar-finfet-gaa-explorer/index.md) | L2-L3 Understand/Apply | Compares planar, FinFET, and Gate-All-Around transistor cross-sections and computes relative natural length |
+| [Wide-Bandgap Material Comparison Explorer](wide-bandgap-material-comparison-explorer/index.md) | L3 Apply | Computes specific on-resistance at a chosen breakdown voltage for silicon, SiC, or GaN |
+| [Si vs SiC vs GaN Device Explorer](si-sic-gan-device-explorer/index.md) | L3 Apply | Compares silicon, SiC, and GaN side by side across band gap, mobility, critical field, thermal conductivity, and switching frequency |
+| [Compound Semiconductor Explorer](compound-semiconductor-explorer/index.md) | L2 Understand | Compares silicon, GaAs, and InP across electron mobility, band gap type, and typical application |
+| [LED Bandgap and Color Explorer](led-bandgap-color-explorer/index.md) | L2 Understand | Adjusts band gap and shows the resulting emission wavelength and approximate visible color |
+| [Laser Diode Operation Explorer](laser-diode-operation-explorer/index.md) | L2 Understand | Plots output optical power versus injection current, showing the sharp threshold kink into stimulated emission |
+| [Photodetector Explorer](photodetector-explorer/index.md) | L2 Understand | Computes photocurrent and responsivity from incident optical power, quantum efficiency, and photon energy |
+| [MEMS Structure Explorer](mems-structure-explorer/index.md) | L2 Understand | Adjusts cantilever length and thickness and computes spring constant, effective mass, and resonant frequency |
+| [AI Hardware Semiconductor Explorer](ai-hardware-semiconductor-explorer/index.md) | L3 Apply | Explores how transistor density, compute capability, and power density trade off in a simplified AI accelerator die model |
+| [Future Technology Roadmap Explorer](future-technology-roadmap-explorer/index.md) | L1-L2 Remember/Understand | A 9-step guided-tour capstone review retracing the chapter's, and the entire course's, full storyline to a closing synthesis |
+
 </div>

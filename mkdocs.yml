@@ -175,6 +175,11 @@ nav:
           - Quiz: chapters/19-semiconductor-device-fabrication/quiz.md
           - Problems: chapters/19-semiconductor-device-fabrication/problems.md
           - Glossary: chapters/19-semiconductor-device-fabrication/glossary.md
+      - 20. Advanced Semiconductor Devices and Emerging Technologies:
+          - Content: chapters/20-advanced-devices-emerging-technologies/index.md
+          - Quiz: chapters/20-advanced-devices-emerging-technologies/quiz.md
+          - Problems: chapters/20-advanced-devices-emerging-technologies/problems.md
+          - Glossary: chapters/20-advanced-devices-emerging-technologies/glossary.md
   - MicroSims:
       - Overview: sims/index.md
       - Chapter 1:
@@ -298,6 +303,18 @@ nav:
           - Etching Process Explorer: sims/etching-process-explorer/index.md
           - CMOS Process Flow Explorer: sims/cmos-process-flow-explorer/index.md
           - Fabrication Process Timeline Explorer: sims/fabrication-process-timeline-explorer/index.md
+      - Chapter 20:
+          - Technology Scaling Explorer: sims/technology-scaling-explorer/index.md
+          - Planar MOSFET vs FinFET vs GAA Explorer: sims/planar-finfet-gaa-explorer/index.md
+          - Wide-Bandgap Material Comparison Explorer: sims/wide-bandgap-material-comparison-explorer/index.md
+          - Si vs SiC vs GaN Device Explorer: sims/si-sic-gan-device-explorer/index.md
+          - Compound Semiconductor Explorer: sims/compound-semiconductor-explorer/index.md
+          - LED Bandgap and Color Explorer: sims/led-bandgap-color-explorer/index.md
+          - Laser Diode Operation Explorer: sims/laser-diode-operation-explorer/index.md
+          - Photodetector Explorer: sims/photodetector-explorer/index.md
+          - MEMS Structure Explorer: sims/mems-structure-explorer/index.md
+          - AI Hardware Semiconductor Explorer: sims/ai-hardware-semiconductor-explorer/index.md
+          - Future Technology Roadmap Explorer: sims/future-technology-roadmap-explorer/index.md
   - Learning Graph:
       - Introduction: learning-graph/index.md
       - Course Description Assessment: learning-graph/course-description-assessment.md

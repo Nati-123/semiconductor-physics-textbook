@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Future Technology Roadmap Explorer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="../semiconductor-materials-lib.js"></script>
+    <script src="future-technology-roadmap-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Click "Next ▶" through all nine steps to review Chapter 20 — and the entire course — in order.</li>
+            <li><strong>Predict:</strong> Before reaching step 9, predict how the capstone step will summarize the whole book.</li>
+            <li><strong>Observe:</strong> Each step's small illustration mirrors a MicroSim used earlier in the chapter, tying the whole book's twenty-chapter narrative together.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 20:</strong> This capstone review retraces the chapter's — and the entire course's — full storyline, from technology scaling through advanced devices to the physics synthesis that closes the book.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>Prev / Next</dt>
+            <dd>Step backward or forward through the nine-step chapter and course review.</dd>
+            <dt>Step dots</dt>
+            <dd>Show current position; click Prev/Next repeatedly to reach any step.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">1. According to the capstone step, what connects all twenty chapters of this course?</p>
+            <label><input type="radio" name="ftre-q1" value="a"> Nothing — each chapter is independent</label>
+            <label><input type="radio" name="ftre-q1" value="b"> Only the mathematics, not the physics</label>
+            <label><input type="radio" name="ftre-q1" value="c"> One continuous chain of physical reasoning from crystal structure to advanced devices</label>
+            <label><input type="radio" name="ftre-q1" value="d"> Only the fabrication chapters</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Correct. Every advanced device in this chapter is an engineered application of physics derived in earlier chapters, forming one connected chain.</p>
+            <p class="explain-incorrect" hidden>Revisit the capstone synthesis section of the chapter text.</p>
+        </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">2. Which step in this walkthrough directly connects to Chapter 2's particle-in-a-box physics?</p>
+            <label><input type="radio" name="ftre-q2" value="a"> Step 3 (SOI)</label>
+            <label><input type="radio" name="ftre-q2" value="b"> Step 7 (MEMS, NEMS & Quantum Devices)</label>
+            <label><input type="radio" name="ftre-q2" value="c"> Step 4 (Wide-Bandgap)</label>
+            <label><input type="radio" name="ftre-q2" value="d"> Step 1 (Technology Scaling)</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Correct. Quantum dots apply Chapter 2's confined-particle energy quantization at the nanoscale.</p>
+            <p class="explain-incorrect" hidden>Recall which step introduces the E ∝ 1/L² confinement energy formula.</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

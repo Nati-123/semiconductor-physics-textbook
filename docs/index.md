@@ -73,18 +73,18 @@ hide:
 
 ## An Intelligent Interactive Textbook
 
-**Quantum Foundations to the P-N Junction**
+**Quantum Foundations to Advanced Devices**
 
 ---
 
 <p class="cover-institution">An AI-Assisted Interactive Textbook</p>
 
-<p class="cover-description">An AI-assisted interactive textbook with 19 chapters, interactive MicroSims,<br>and practice problems covering semiconductor physics from quantum foundations through devices and fabrication.</p>
+<p class="cover-description">An AI-assisted interactive textbook with 20 chapters, interactive MicroSims,<br>and practice problems covering semiconductor physics from quantum foundations through devices, fabrication, and emerging technologies.</p>
 
 <div class="cover-stats" markdown>
 
 <div class="stat-item">
-<div class="stat-number">19</div>
+<div class="stat-number">20</div>
 <div class="stat-label">Chapters</div>
 </div>
 

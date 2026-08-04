@@ -79,12 +79,12 @@ hide:
 
 <p class="cover-institution">An AI-Assisted Interactive Textbook</p>
 
-<p class="cover-description">An AI-assisted interactive textbook with 18 chapters, interactive MicroSims,<br>and practice problems covering semiconductor physics from quantum foundations through devices.</p>
+<p class="cover-description">An AI-assisted interactive textbook with 19 chapters, interactive MicroSims,<br>and practice problems covering semiconductor physics from quantum foundations through devices and fabrication.</p>
 
 <div class="cover-stats" markdown>
 
 <div class="stat-item">
-<div class="stat-number">18</div>
+<div class="stat-number">19</div>
 <div class="stat-label">Chapters</div>
 </div>
 

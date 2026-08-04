@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Diffusion vs Ion Implantation Explorer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="../semiconductor-materials-lib.js"></script>
+    <script src="diffusion-vs-ion-implantation-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Switch between Diffusion and Ion Implantation and compare where each curve peaks.</li>
+            <li><strong>Predict:</strong> Before raising Dt for diffusion, predict whether the profile will spread deeper or stay narrower.</li>
+            <li><strong>Observe:</strong> The implantation profile can be placed well below the surface by adjusting projected range, something the diffusion profile can never do.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 19:</strong> <strong>Diffusion doping</strong> always peaks at the surface (Gaussian, \(N(x,t)=(Q/\sqrt{\pi Dt})\exp(-x^2/4Dt)\)); <strong>ion implantation</strong> peaks at a buried projected range \(R_p\) set by ion energy, \(N(x)=(\text{Dose}/\sqrt{2\pi}\Delta R_p)\exp(-(x-R_p)^2/2\Delta R_p^2)\).</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>Method</dt>
+            <dd>Selects diffusion or ion implantation doping.</dd>
+            <dt>First parameter</dt>
+            <dd>For diffusion: the thermal budget Dt. For implantation: projected range Rp.</dd>
+            <dt>Second parameter (implantation only)</dt>
+            <dd>Implantation straggle ΔRp, controlling profile width.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">1. Where does the diffusion doping profile always peak?</p>
+            <label><input type="radio" name="dvie-q1" value="a"> At a depth set by ion energy</label>
+            <label><input type="radio" name="dvie-q1" value="b"> At the wafer surface (x = 0)</label>
+            <label><input type="radio" name="dvie-q1" value="c"> At the junction depth</label>
+            <label><input type="radio" name="dvie-q1" value="d"> It has no peak</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Correct. The Gaussian diffusion profile N(x,t) always has its maximum at x = 0, decaying monotonically with depth.</p>
+            <p class="explain-incorrect" hidden>Look at where the diffusion curve reaches its highest point on the chart.</p>
+        </div>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">2. Why can ion implantation place a profile deep below the surface, but diffusion cannot?</p>
+            <label><input type="radio" name="dvie-q2" value="a"> Implantation uses a different dopant atom</label>
+            <label><input type="radio" name="dvie-q2" value="b"> Diffusion is always faster</label>
+            <label><input type="radio" name="dvie-q2" value="c"> Implantation's depth is set by ion energy, not by a surface-driven thermal process</label>
+            <label><input type="radio" name="dvie-q2" value="d"> Diffusion cannot dope silicon</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Correct. Momentum-driven ion implantation places dopants directly at a depth controlled by accelerating voltage, independent of any surface source.</p>
+            <p class="explain-incorrect" hidden>Recall the physical placement mechanism described for each doping technique.</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

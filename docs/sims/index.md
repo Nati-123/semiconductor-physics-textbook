@@ -191,4 +191,19 @@ Interactive educational simulations that accompany this textbook.
 | [Capstone Device Project Walkthrough](capstone-device-project-walkthrough/index.md) | L6 Create | Cascading power diode design calculator chaining drift doping, width, on-resistance, forward drop, power dissipation, and temperature rise from a single specification |
 | [Semiconductor Devices and Applications Interactive Walkthrough](semiconductor-devices-applications-interactive-walkthrough/index.md) | L1-L2 Remember/Understand | A 9-step guided-tour capstone review retracing the chapter's, and the course's, full storyline from the power diode to the capstone device project |
 
+## Chapter 19: Semiconductor Device Fabrication
+
+| MicroSim | Bloom Level | Description |
+|----------|-------------|-------------|
+| [Czochralski Crystal Growth Explorer](czochralski-crystal-growth-explorer/index.md) | L2 Understand | Animates a rotating seed crystal pulled from a molten silicon crucible, showing how pull rate trades off ingot uniformity against defect density |
+| [Wafer Fabrication Explorer](wafer-fabrication-explorer/index.md) | L2 Understand | Steps through ingot slicing, lapping, and chemical-mechanical polishing to a finished, polished wafer |
+| [Thermal Oxidation Simulator](thermal-oxidation-simulator/index.md) | L3 Apply | Plots oxide thickness versus time from the Deal-Grove growth law, showing the linear-to-parabolic regime transition |
+| [Photolithography Process Explorer](photolithography-process-explorer/index.md) | L3 Apply | Computes minimum resolvable feature size and depth of focus from the Rayleigh criterion |
+| [Photoresist Exposure Simulator](photoresist-exposure-simulator/index.md) | L2 Understand | Shows how a fixed mask pattern, UV dose, and resist type combine to determine the developed resist pattern |
+| [Thin-Film Deposition Explorer](thin-film-deposition-explorer/index.md) | L2 Understand | Animates CVD, PVD, and ALD each filling a trench feature, comparing conformality |
+| [Diffusion vs Ion Implantation Explorer](diffusion-vs-ion-implantation-explorer/index.md) | L3-L4 Apply/Analyze | Compares the surface-peaked diffusion profile to the buried, projected-range implantation profile |
+| [Etching Process Explorer](etching-process-explorer/index.md) | L3 Apply | Visualizes the etched cross-section for wet, dry, and plasma etching and computes the anisotropy factor |
+| [CMOS Process Flow Explorer](cmos-process-flow-explorer/index.md) | L2-L3 Understand/Apply | Steps through a simplified CMOS process flow, building a self-aligned transistor cross-section |
+| [Fabrication Process Timeline Explorer](fabrication-process-timeline-explorer/index.md) | L1-L2 Remember/Understand | A 9-step guided-tour capstone review retracing the chapter's full storyline from crystal growth through yield |
+
 </div>

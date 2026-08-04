@@ -26,11 +26,12 @@ The course description uses the 2001 Bloom taxonomy to order learning objectives
 
 We use generative AI to convert the course description into a [Concept List](./concept-list.md).
 Each concept is in the form of a short Title Case label with most labels under 32 characters long.
-This course has 218 concepts spanning prerequisite mathematics and electromagnetics, crystal structure, quantum mechanics and band theory,
-carrier statistics and transport, the p-n junction, and semiconductor devices. Concepts 201–218 (algebra, trigonometry, complex numbers,
-differentiation, integration, partial derivatives, vectors, gradient, divergence, curl, electric flux, Gauss's Law, SI units, and
-fundamental constants) were added after Chapter 1 was written, to represent the prerequisite mathematics and electromagnetics it
-actually teaches. They were appended with new IDs rather than inserted at the front, so that every original concept ID (1–200) is preserved.
+This course has 238 concepts spanning prerequisite mathematics and electromagnetics, crystal structure, quantum mechanics and band theory,
+carrier statistics and transport, the p-n junction, semiconductor devices, and device fabrication. Concepts 201–218 (algebra, trigonometry,
+complex numbers, differentiation, integration, partial derivatives, vectors, gradient, divergence, curl, electric flux, Gauss's Law, SI units,
+and fundamental constants) were added after Chapter 1 was written, to represent the prerequisite mathematics and electromagnetics it actually
+teaches. Concepts 219–238 were added when the course was extended with Chapter 19 (Semiconductor Device Fabrication). All additions were
+appended with new IDs rather than inserted earlier in the sequence, so that every original concept ID (1–200) is preserved.
 
 ## Concept Dependency List
 
@@ -59,11 +60,12 @@ This report rates the overall quality of the course description for the purpose 
 This report gives you an overall assessment of the quality of the learning graph.
 It uses graph algorithms to look for specific quality patterns in the graph.
 
-- Graph structure validation - all 218 concepts are connected in a single component
-- DAG validation (0 cycles detected). Dependencies normally reference a strictly earlier concept ID; the one documented exception
-  is the 18 prerequisite math/EM concepts appended at IDs 201-218, which a handful of early electrostatics concepts
+- Graph structure validation - all 238 concepts are connected in a single component
+- DAG validation (0 cycles detected). Dependencies normally reference a strictly earlier concept ID; the documented exceptions
+  are the 18 prerequisite math/EM concepts appended at IDs 201-218, which a handful of early electrostatics concepts
   (Coulomb's Law, Electric Field, Electric Potential, Electrostatic Potential Energy, Poisson's Equation) now correctly
-  reference even though those IDs are numerically higher, since the concepts themselves are taught earlier in Chapter 1
+  reference even though those IDs are numerically higher, and the 20 fabrication concepts appended at IDs 219-238, which form
+  their own self-contained process-flow chain within Chapter 19
 - Foundational concepts: 7 entry points (Kinetic Theory of Gases, Photon Energy, Crystal Lattice, Force, Electric Charge, Algebra, SI Units)
 - Indegree distribution analysis
 - Longest dependency chain: 32 concepts, from Photon Energy through to the Capstone Device Project
@@ -78,9 +80,9 @@ to each concept based on the concept type.  We use generative AI to
 create about a dozen categories for our concepts and then place each concept
 into a single primary classifier.
 
-- A concept classifier taxonomy with 12 categories
+- A concept classifier taxonomy with 13 categories
 - Category organization - foundational elements first, course capstone project ideas last
-- Balanced categories (3.7% - 17.4% each); Physics & Math Foundations (FOUND) is now the largest category after the Chapter 1 math/EM concepts were appended, but remains well under the over-representation threshold
+- Balanced categories (3.4% - 16.0% each); Physics & Math Foundations (FOUND) is now the largest category after the Chapter 1 math/EM concepts were appended, but remains well under the over-representation threshold
 - All categories under the 30% threshold
 - Pedagogical flow recommendations
 - Clear 3-5 letter abbreviations for use in the CSV file

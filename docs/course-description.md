@@ -40,10 +40,10 @@ The course emphasizes building physical intuition alongside quantitative modelin
 - Metal-semiconductor junctions (Schottky barriers vs. ohmic contacts)
 - The MOS capacitor and semiconductor surfaces (accumulation, depletion, inversion — the physical basis of the MOSFET)
 - Optical and thermal properties of semiconductors (absorption, photogeneration, photodiodes/solar cells as an application)
+- Semiconductor device fabrication (crystal growth and wafer preparation, thermal oxidation, photolithography, thin-film deposition, diffusion and ion-implantation doping, wet/dry/plasma etching, metallization, CMOS process integration, manufacturing defects and yield)
 
 ## Topics Not Covered
 
-- Semiconductor device fabrication and process technology (photolithography, ion implantation, etch/deposition processes)
 - Full transistor circuit design and analog/digital circuit theory (covered in a separate circuits/devices course)
 - Advanced quantum transport and mesoscopic/nanoscale device physics (ballistic transport, quantum dots, spintronics)
 - TCAD and detailed numerical device simulation tools

@@ -2,10 +2,10 @@
 
 ## Overview
 
-- **Total Concepts**: 218
+- **Total Concepts**: 238
 - **Foundational Concepts** (no dependencies): 7
-- **Concepts with Dependencies**: 211
-- **Average Dependencies per Concept**: 1.69
+- **Concepts with Dependencies**: 231
+- **Average Dependencies per Concept**: 1.71
 
 ## Graph Structure Validation
 
@@ -66,7 +66,7 @@ These concepts have no prerequisites:
 
 ## Orphaned Nodes Analysis
 
-- **Total Orphaned Nodes**: 55
+- **Total Orphaned Nodes**: 57
 
 Concepts that are not prerequisites for any other concept:
 
@@ -91,7 +91,7 @@ Concepts that are not prerequisites for any other concept:
 - **94**: Nondegenerate Semiconductor
 - **97**: Carrier Temperature Dependence
 
-*...and 35 more*
+*...and 37 more*
 
 ## Connected Components
 
@@ -107,9 +107,9 @@ Top 10 concepts that are prerequisites for the most other concepts:
 |------|-----------|---------------|----------|
 | 1 | 2 | Electric Field | 9 |
 | 2 | 156 | Ideal Diode Equation | 8 |
-| 3 | 64 | Intrinsic Semiconductor | 7 |
-| 4 | 169 | MOS Capacitor | 7 |
-| 5 | 21 | Crystal Lattice | 6 |
+| 3 | 21 | Crystal Lattice | 7 |
+| 4 | 64 | Intrinsic Semiconductor | 7 |
+| 5 | 169 | MOS Capacitor | 7 |
 | 6 | 46 | Energy Band | 6 |
 | 7 | 103 | Carrier Mobility | 6 |
 | 8 | 123 | Carrier Recombination | 6 |
@@ -121,14 +121,14 @@ Top 10 concepts that are prerequisites for the most other concepts:
 | Dependencies | Number of Concepts |
 |--------------|--------------------|
 | 0 | 7 |
-| 1 | 89 |
-| 2 | 101 |
-| 3 | 18 |
+| 1 | 96 |
+| 2 | 110 |
+| 3 | 22 |
 | 4 | 3 |
 
 ## Recommendations
 
-- ⚠️ **Many orphaned nodes** (55): Consider if these should be prerequisites for advanced concepts
+- ⚠️ **Many orphaned nodes** (57): Consider if these should be prerequisites for advanced concepts
 - ℹ️ **Long dependency chains** (32): Ensure students can follow extended learning paths
 
 ---

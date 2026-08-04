@@ -2,7 +2,7 @@
 
 # Chapters
 
-This textbook is organized into 18 chapters covering 218 concepts.
+This textbook is organized into 19 chapters covering 238 concepts.
 
 ## Chapter Overview
 
@@ -24,6 +24,7 @@ This textbook is organized into 18 chapters covering 218 concepts.
 16. [Metal-Semiconductor and MOS Junctions](16-metal-semiconductor-mos-junctions/index.md) - Covers Schottky barriers, ohmic contacts, and the MOS capacitor.
 17. [Optical and Thermal Properties of Semiconductors](17-optical-thermal-properties/index.md) - Covers light absorption and optoelectronic devices.
 18. [Semiconductor Devices and Applications](18-semiconductor-devices-applications/index.md) - Synthesizes applied devices and the capstone device project.
+19. [Semiconductor Device Fabrication](19-semiconductor-device-fabrication/index.md) - Covers crystal growth, wafer preparation, oxidation, photolithography, deposition, doping, etching, metallization, CMOS process integration, and yield.
 
 ## How to Use This Textbook
 

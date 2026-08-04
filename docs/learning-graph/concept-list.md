@@ -1,6 +1,6 @@
 # Concept List
 
-This is the enumerated list of 218 concepts for the Semiconductor Physics learning graph, generated from [course-description.md](../course-description.md). Concepts 201–218 were added after Chapter 1 was written, to represent the prerequisite mathematics and electromagnetics concepts (algebra, trigonometry, vector calculus, Gauss's Law, etc.) that Chapter 1 actually teaches but that were not part of the original 200-concept enumeration.
+This is the enumerated list of 238 concepts for the Semiconductor Physics learning graph, generated from [course-description.md](../course-description.md). Concepts 201–218 were added after Chapter 1 was written, to represent the prerequisite mathematics and electromagnetics concepts (algebra, trigonometry, vector calculus, Gauss's Law, etc.) that Chapter 1 actually teaches but that were not part of the original 200-concept enumeration. Concepts 219–238 were added when the course was extended with Chapter 19 (Semiconductor Device Fabrication).
 
 1. Coulomb's Law
 2. Electric Field

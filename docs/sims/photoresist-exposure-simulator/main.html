@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Photoresist Exposure Simulator MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="../semiconductor-materials-lib.js"></script>
+    <script src="photoresist-exposure-simulator.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> With Positive Resist selected and dose above 50%, compare the Developed row to the Mask row.</li>
+            <li><strong>Predict:</strong> Before switching to Negative Resist, predict which cells will flip in the Developed row.</li>
+            <li><strong>Observe:</strong> Dropping UV dose below the threshold leaves the resist entirely unaffected, regardless of the mask pattern.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 19:</strong> A <strong>photoresist</strong> chemically changes solubility where <strong>UV exposure</strong> reaches it through the mask; positive resist dissolves where exposed, negative resist dissolves where unexposed.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>Resist type</dt>
+            <dd>Positive resist dissolves where exposed; negative resist dissolves where unexposed.</dd>
+            <dt>UV dose</dt>
+            <dd>Exposure intensity; below a fixed threshold, the resist does not chemically change at all.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">1. With positive resist and sufficient dose, what remains after development where the mask was open?</p>
+            <label><input type="radio" name="pes-q1" value="a"> Resist remains</label>
+            <label><input type="radio" name="pes-q1" value="b"> Resist is removed</label>
+            <label><input type="radio" name="pes-q1" value="c"> The mask itself is removed</label>
+            <label><input type="radio" name="pes-q1" value="d"> Nothing changes</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Correct. Positive resist becomes soluble where exposed, so it dissolves away during development.</p>
+            <p class="explain-incorrect" hidden>Recall the definition of positive resist given in this chapter.</p>
+        </div>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">2. What happens if UV dose is set below the exposure threshold?</p>
+            <label><input type="radio" name="pes-q2" value="a"> The entire resist layer dissolves</label>
+            <label><input type="radio" name="pes-q2" value="b"> The mask pattern inverts</label>
+            <label><input type="radio" name="pes-q2" value="c"> The resist is unaffected regardless of the mask pattern</label>
+            <label><input type="radio" name="pes-q2" value="d"> Negative resist behaves like positive resist</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Correct. Below the threshold dose, no chemical change occurs in the resist, so no pattern is transferred.</p>
+            <p class="explain-incorrect" hidden>Try setting dose to 0 and observe the Developed row.</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

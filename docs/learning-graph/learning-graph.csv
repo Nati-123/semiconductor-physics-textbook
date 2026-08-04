@@ -217,3 +217,23 @@ ConceptID,ConceptLabel,Dependencies,TaxonomyID
 216,Gauss's Law,215|213,FOUND
 217,SI Units,,FOUND
 218,Fundamental Physical Constants,217,FOUND
+219,Semiconductor Manufacturing Overview,68,FAB
+220,Czochralski Crystal Growth,219|21|68,FAB
+221,Float-Zone Refining,220,FAB
+222,Wafer Slicing and Polishing,220|221,FAB
+223,Thermal Oxidation,222|68,FAB
+224,Photolithography,223|219,FAB
+225,Photoresist,224,FAB
+226,UV Exposure and Resolution,225|224,FAB
+227,Mask Alignment,226,FAB
+228,Thin-Film Deposition,223|219,FAB
+229,Diffusion Doping,71|72|227,FAB
+230,Ion Implantation,229|227,FAB
+231,Annealing,230|229,FAB
+232,Wet Etching,227|228,FAB
+233,Dry Etching,227|228,FAB
+234,Plasma Etching,233,FAB
+235,Metallization and Interconnects,234|167|228,FAB
+236,CMOS Process Integration,235|231|195,FAB
+237,Manufacturing Defects,236,FAB
+238,Yield and Reliability,237,FAB

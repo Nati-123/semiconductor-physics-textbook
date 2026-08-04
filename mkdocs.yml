@@ -170,6 +170,11 @@ nav:
           - Quiz: chapters/18-semiconductor-devices-applications/quiz.md
           - Problems: chapters/18-semiconductor-devices-applications/problems.md
           - Glossary: chapters/18-semiconductor-devices-applications/glossary.md
+      - 19. Semiconductor Device Fabrication:
+          - Content: chapters/19-semiconductor-device-fabrication/index.md
+          - Quiz: chapters/19-semiconductor-device-fabrication/quiz.md
+          - Problems: chapters/19-semiconductor-device-fabrication/problems.md
+          - Glossary: chapters/19-semiconductor-device-fabrication/glossary.md
   - MicroSims:
       - Overview: sims/index.md
       - Chapter 1:
@@ -282,6 +287,17 @@ nav:
           - Device Design Trade-Off Explorer: sims/device-design-tradeoff-explorer/index.md
           - Capstone Device Project Walkthrough: sims/capstone-device-project-walkthrough/index.md
           - Semiconductor Devices and Applications Interactive Walkthrough: sims/semiconductor-devices-applications-interactive-walkthrough/index.md
+      - Chapter 19:
+          - Czochralski Crystal Growth Explorer: sims/czochralski-crystal-growth-explorer/index.md
+          - Wafer Fabrication Explorer: sims/wafer-fabrication-explorer/index.md
+          - Thermal Oxidation Simulator: sims/thermal-oxidation-simulator/index.md
+          - Photolithography Process Explorer: sims/photolithography-process-explorer/index.md
+          - Photoresist Exposure Simulator: sims/photoresist-exposure-simulator/index.md
+          - Thin-Film Deposition Explorer: sims/thin-film-deposition-explorer/index.md
+          - Diffusion vs Ion Implantation Explorer: sims/diffusion-vs-ion-implantation-explorer/index.md
+          - Etching Process Explorer: sims/etching-process-explorer/index.md
+          - CMOS Process Flow Explorer: sims/cmos-process-flow-explorer/index.md
+          - Fabrication Process Timeline Explorer: sims/fabrication-process-timeline-explorer/index.md
   - Learning Graph:
       - Introduction: learning-graph/index.md
       - Course Description Assessment: learning-graph/course-description-assessment.md

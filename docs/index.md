@@ -89,17 +89,18 @@ hide:
 </div>
 
 <div class="stat-item">
-<div class="stat-number">8</div>
+<div class="stat-item">
+<div class="stat-number">114</div>
 <div class="stat-label">MicroSims</div>
 </div>
 
 <div class="stat-item">
-<div class="stat-number">20</div>
+<div class="stat-number">414</div>
 <div class="stat-label">Quiz Questions</div>
 </div>
 
 <div class="stat-item">
-<div class="stat-number">26</div>
+<div class="stat-number">266</div>
 <div class="stat-label">Glossary Terms</div>
 </div>
 

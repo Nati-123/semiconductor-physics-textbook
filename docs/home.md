@@ -7,7 +7,7 @@ description: An interactive university-level semiconductor physics textbook with
 
 ## Welcome to Semiconductor Physics
 
-This is an **AI-assisted intelligent interactive textbook** for junior-level Electrical Engineering and Applied Physics undergraduates. Built using MkDocs Material and Claude Code, it covers the quantum-mechanical and statistical foundations of semiconductor materials and devices, from crystal structure through the p-n junction and MOS capacitor.
+This is an **AI-assisted intelligent interactive textbook** for junior-level Electrical Engineering and Applied Physics undergraduates. Built using MkDocs Material and Claude Code, it covers the quantum-mechanical and statistical foundations of semiconductor materials and devices, from crystal structure through the p-n junction and MOS capacitor to device fabrication and advanced/emerging device technologies.
 
 !!! tip "Quick Navigation"
     - **New to the course?** Start with [Chapter 1 — Physics and Math Foundations](chapters/01-physics-math-foundations/index.md)
@@ -78,6 +78,17 @@ This is an **AI-assisted intelligent interactive textbook** for junior-level Ele
 | 16 | [Metal-Semiconductor and MOS Junctions](chapters/16-metal-semiconductor-mos-junctions/index.md) |
 | 17 | [Optical and Thermal Properties of Semiconductors](chapters/17-optical-thermal-properties/index.md) |
 | 18 | [Semiconductor Devices and Applications](chapters/18-semiconductor-devices-applications/index.md) |
+
+</div>
+
+<div class="unit-section" markdown>
+
+### Part VI: Fabrication and Emerging Technologies
+
+| Chapter | Topic |
+|:----:|-------|
+| 19 | [Semiconductor Device Fabrication](chapters/19-semiconductor-device-fabrication/index.md) |
+| 20 | [Advanced Semiconductor Devices and Emerging Technologies](chapters/20-advanced-devices-emerging-technologies/index.md) |
 
 </div>
 

@@ -4,7 +4,7 @@
 
 ## About This Book
 
-Semiconductor Physics is an intelligent textbook designed for junior-level Electrical Engineering and Applied Physics undergraduates. It covers the quantum-mechanical and statistical foundations of semiconductor materials and devices, from crystal structure through the p-n junction and MOS capacitor.
+Semiconductor Physics is an intelligent textbook designed for junior-level Electrical Engineering and Applied Physics undergraduates. It covers the quantum-mechanical and statistical foundations of semiconductor materials and devices, from crystal structure through the p-n junction and MOS capacitor to device fabrication and advanced/emerging device technologies, across 20 chapters and 256 concepts.
 
 ## Author
 

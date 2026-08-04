@@ -33,7 +33,7 @@ Before beginning this course, you should have:
 
 ### How is this textbook organized?
 
-The textbook is organized into eighteen chapters that build progressively from mathematical/physical foundations, through quantum mechanics and crystal structure, to band theory, carrier statistics and transport, and finally the p-n junction and semiconductor devices. Each chapter includes content, worked examples, diagrams, a quiz, and practice problems.
+The textbook is organized into twenty chapters that build progressively from mathematical/physical foundations, through quantum mechanics and crystal structure, to band theory, carrier statistics and transport, the p-n junction and semiconductor devices, device fabrication, and advanced/emerging device technologies. Each chapter includes content, worked examples, diagrams, a quiz, and practice problems.
 
 ### What learning resources are available?
 

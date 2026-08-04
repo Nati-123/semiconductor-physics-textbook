@@ -179,4 +179,16 @@ Interactive educational simulations that accompany this textbook.
 | [Thermal Conductivity and Generation Rate Explorer](thermal-properties-explorer/index.md) | L3-L4 Apply/Analyze | Computes slab temperature rise and compares thermal generation current to a reference diffusion current |
 | [Optical and Thermal Properties Interactive Walkthrough](optical-thermal-properties-interactive-walkthrough/index.md) | L1-L2 Remember/Understand | An 8-step guided-tour capstone review retracing the chapter's full storyline from photon absorption through thermal generation rate |
 
+## Chapter 18: Semiconductor Devices and Applications
+
+| MicroSim | Bloom Level | Description |
+|----------|-------------|-------------|
+| [Rectifier Circuit Explorer](rectifier-circuit-explorer/index.md) | L3 Apply | Plots AC input and half-wave or full-wave rectified output waveforms, computing average DC voltage from diode forward drop |
+| [Bipolar Transistor and MOSFET Comparison Explorer](bjt-mosfet-comparison-explorer/index.md) | L2-L3 Understand/Apply | Contrasts BJT collector current (linear in base current) with MOSFET drain current (quadratic in gate overdrive voltage) |
+| [Device Modeling and Simulation Hierarchy Explorer](device-modeling-simulation-explorer/index.md) | L2 Understand | Compares analytic, compact, and numerical device modeling levels by accuracy, computational cost, and typical use case |
+| [Band Diagram Builder](band-diagram-builder/index.md) | L3/L6 Apply/Create | Constructs equilibrium and biased band diagrams for a p-n junction, Schottky junction, or MOS capacitor using a single general procedure |
+| [Device Design Trade-Off Explorer](device-design-tradeoff-explorer/index.md) | L4 Analyze | Plots the power diode trade-off between breakdown voltage and specific on-resistance, with required drift doping and width |
+| [Capstone Device Project Walkthrough](capstone-device-project-walkthrough/index.md) | L6 Create | Cascading power diode design calculator chaining drift doping, width, on-resistance, forward drop, power dissipation, and temperature rise from a single specification |
+| [Semiconductor Devices and Applications Interactive Walkthrough](semiconductor-devices-applications-interactive-walkthrough/index.md) | L1-L2 Remember/Understand | A 9-step guided-tour capstone review retracing the chapter's, and the course's, full storyline from the power diode to the capstone device project |
+
 </div>

@@ -165,7 +165,11 @@ nav:
           - Quiz: chapters/17-optical-thermal-properties/quiz.md
           - Problems: chapters/17-optical-thermal-properties/problems.md
           - Glossary: chapters/17-optical-thermal-properties/glossary.md
-      - 18. Semiconductor Devices and Applications: chapters/18-semiconductor-devices-applications/index.md
+      - 18. Semiconductor Devices and Applications:
+          - Content: chapters/18-semiconductor-devices-applications/index.md
+          - Quiz: chapters/18-semiconductor-devices-applications/quiz.md
+          - Problems: chapters/18-semiconductor-devices-applications/problems.md
+          - Glossary: chapters/18-semiconductor-devices-applications/glossary.md
   - MicroSims:
       - Overview: sims/index.md
       - Chapter 1:
@@ -270,6 +274,14 @@ nav:
           - LED Emission Wavelength Explorer: sims/led-emission-explorer/index.md
           - Thermal Conductivity and Generation Rate Explorer: sims/thermal-properties-explorer/index.md
           - Optical and Thermal Properties Interactive Walkthrough: sims/optical-thermal-properties-interactive-walkthrough/index.md
+      - Chapter 18:
+          - Rectifier Circuit Explorer: sims/rectifier-circuit-explorer/index.md
+          - Bipolar Transistor and MOSFET Comparison Explorer: sims/bjt-mosfet-comparison-explorer/index.md
+          - Device Modeling and Simulation Hierarchy Explorer: sims/device-modeling-simulation-explorer/index.md
+          - Band Diagram Builder: sims/band-diagram-builder/index.md
+          - Device Design Trade-Off Explorer: sims/device-design-tradeoff-explorer/index.md
+          - Capstone Device Project Walkthrough: sims/capstone-device-project-walkthrough/index.md
+          - Semiconductor Devices and Applications Interactive Walkthrough: sims/semiconductor-devices-applications-interactive-walkthrough/index.md
   - Learning Graph:
       - Introduction: learning-graph/index.md
       - Course Description Assessment: learning-graph/course-description-assessment.md

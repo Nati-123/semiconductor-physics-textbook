@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Rectifier Circuit Explorer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="../semiconductor-materials-lib.js"></script>
+    <script src="rectifier-circuit-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Switch from full-wave to half-wave and watch the negative half-cycles of the output disappear entirely, along with roughly half the average DC output.</li>
+            <li><strong>Predict:</strong> Before raising VF, predict whether V_DC will increase or decrease.</li>
+            <li><strong>Observe:</strong> The full-wave output never touches zero except at brief instants, while the half-wave output sits at zero for half of every cycle — a much "choppier" waveform.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 18:</strong> A <strong>power diode</strong> is a p-n junction engineered for high voltage and current handling; a <strong>rectifier circuit</strong> arranges one or more power diodes to convert AC to DC, with full-wave bridge rectification giving roughly twice the average output of half-wave rectification for the same input.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>Type</dt>
+            <dd>Half-wave (one diode, passes one polarity) or full-wave bridge (four diodes, uses both polarities).</dd>
+            <dt>Vpeak</dt>
+            <dd>Peak AC input voltage.</dd>
+            <dt>VF</dt>
+            <dd>Forward voltage drop per diode, subtracted from the output.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">1. Roughly how does full-wave V_DC compare to half-wave V_DC for the same input?</p>
+            <label><input type="radio" name="rce-q1" value="a"> About the same</label>
+            <label><input type="radio" name="rce-q1" value="b"> Roughly double</label>
+            <label><input type="radio" name="rce-q1" value="c"> Roughly half</label>
+            <label><input type="radio" name="rce-q1" value="d"> Roughly four times larger</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Correct. Full-wave rectification uses both half-cycles of the AC input instead of discarding one, roughly doubling the average output.</p>
+            <p class="explain-incorrect" hidden>Compare the VDC formulas for each type — one has an extra factor of 2 in the numerator.</p>
+        </div>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">2. Why does a full-wave bridge rectifier subtract 2×VF instead of 1×VF from the peak voltage?</p>
+            <label><input type="radio" name="rce-q2" value="a"> It doesn't — it only subtracts VF once</label>
+            <label><input type="radio" name="rce-q2" value="b"> Bridge rectifiers use twice the forward voltage rating</label>
+            <label><input type="radio" name="rce-q2" value="c"> Current flows through two diodes in series at any instant in a bridge configuration</label>
+            <label><input type="radio" name="rce-q2" value="d"> VF doubles at high current</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Correct. In a four-diode bridge, current always passes through two diodes in series (one on each side of the load), so two forward drops are subtracted.</p>
+            <p class="explain-incorrect" hidden>Think about the current path through a four-diode bridge rectifier — how many diodes does current pass through in series at any instant?</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

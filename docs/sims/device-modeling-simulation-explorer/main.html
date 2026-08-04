@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Device Modeling &amp; Simulation Hierarchy Explorer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="../semiconductor-materials-lib.js"></script>
+    <script src="device-modeling-simulation-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Step through all three modeling levels and compare their accuracy and cost bars.</li>
+            <li><strong>Predict:</strong> Before selecting numerical simulation, predict whether its computational cost will be higher or lower than the analytic level.</li>
+            <li><strong>Observe:</strong> Accuracy and computational cost rise together across all three levels — there is no modeling level that is both cheapest and most accurate.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 18:</strong> Every equation in this course is an example of <strong>semiconductor device modeling</strong> — a simplified, closed-form description built from physical first principles. The <strong>device simulation concept</strong> extends this to numerically solving the same underlying equations without simplifying assumptions, with compact models occupying a middle ground used directly in circuit simulators.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>Modeling level</dt>
+            <dd>Selects among analytic, compact model, and numerical simulation, updating the comparison chart and description.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">1. Which modeling level does this entire course primarily use?</p>
+            <label><input type="radio" name="dmse-q1" value="a"> Numerical device simulation</label>
+            <label><input type="radio" name="dmse-q1" value="b"> Compact SPICE models</label>
+            <label><input type="radio" name="dmse-q1" value="c"> Analytic, closed-form physics</label>
+            <label><input type="radio" name="dmse-q1" value="d"> None of these — the course uses no models</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Correct. Every equation derived across this course — the ideal diode equation, threshold voltage, the Beer-Lambert law, and so on — is an analytic model.</p>
+            <p class="explain-incorrect" hidden>Think about the equations used throughout this course — are they closed-form, or numerically solved on a mesh?</p>
+        </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">2. Why don't engineers always use full numerical device simulation, if it is the most accurate option?</p>
+            <label><input type="radio" name="dmse-q2" value="a"> Numerical simulation is actually the least accurate</label>
+            <label><input type="radio" name="dmse-q2" value="b"> It comes with a much higher computational cost, often unnecessary for the design question at hand</label>
+            <label><input type="radio" name="dmse-q2" value="c"> Numerical simulation cannot be used for any real device</label>
+            <label><input type="radio" name="dmse-q2" value="d"> It requires no assumptions and no software</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Correct. Engineers use the simplest model adequate for a given question, reserving expensive numerical simulation for cases that truly need it.</p>
+            <p class="explain-incorrect" hidden>Compare the computational cost bars across all three levels — what trend do you see?</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

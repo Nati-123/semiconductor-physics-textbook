@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="An interactive university-level semiconductor physics textbook with AI explanations, quizzes, simulations, and practice problems.">
+        <meta name="description" content="Power diodes, rectifier circuits, varactor diodes, bipolar transistor and MOSFET basics, semiconductor device modeling and simulation, band diagram construction, device design trade-offs, and a capstone device project">
       
       
         <meta name="author" content="Natol Dinka">
@@ -18,7 +18,7 @@
         <link rel="prev" href="../17-optical-thermal-properties/glossary/">
       
       
-        <link rel="next" href="../../sims/">
+        <link rel="next" href="quiz/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>18. Semiconductor Devices and Applications - Semiconductor Physics</title>
+        <title>Semiconductor Devices and Applications - Semiconductor Physics</title>
       
     
     
@@ -84,7 +84,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#semiconductor-devices-and-applications" class="md-skip">
+        <a href="#chapter-18-semiconductor-devices-and-applications" class="md-skip">
           Skip to content
         </a>
       
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              18. Semiconductor Devices and Applications
+              Semiconductor Devices and Applications
             
           </span>
         </div>
@@ -3707,6 +3707,63 @@
   
   
   
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_19" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6_19" id="__nav_6_19_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Semiconductor Devices and Applications
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_19_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6_19">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    18. Semiconductor Devices and Applications
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
     <li class="md-nav__item md-nav__item--active">
       
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
@@ -3722,7 +3779,7 @@
   <span class="md-ellipsis">
     
   
-    18. Semiconductor Devices and Applications
+    Content
   
 
     
@@ -3740,7 +3797,7 @@
   <span class="md-ellipsis">
     
   
-    18. Semiconductor Devices and Applications
+    Content
   
 
     
@@ -3766,10 +3823,21 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
+  <a href="#learning-objectives" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Summary
+        Learning Objectives
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
       
     </span>
   </a>
@@ -3798,9 +3866,482 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#power-diodes-and-rectifier-circuits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Power Diodes and Rectifier Circuits
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Power Diodes and Rectifier Circuits">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#engineering-a-junction-to-block-high-voltage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Engineering a Junction to Block High Voltage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Engineering a Junction to Block High Voltage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-rectifier-circuit-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Rectifier Circuit Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-varactor-diode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Varactor Diode
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Varactor Diode">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#junction-capacitance-as-a-deliberate-circuit-element" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Junction Capacitance as a Deliberate Circuit Element
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bipolar-transistor-and-mosfet-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bipolar Transistor and MOSFET Basics
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bipolar Transistor and MOSFET Basics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-two-foundational-three-terminal-devices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Two Foundational Three-Terminal Devices
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Two Foundational Three-Terminal Devices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-bipolar-transistor-and-mosfet-comparison-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Bipolar Transistor and MOSFET Comparison Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#semiconductor-device-modeling-and-the-device-simulation-concept" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semiconductor Device Modeling and the Device Simulation Concept
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Semiconductor Device Modeling and the Device Simulation Concept">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#from-closed-form-equations-to-numerical-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From Closed-Form Equations to Numerical Simulation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="From Closed-Form Equations to Numerical Simulation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-device-modeling-and-simulation-hierarchy-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Device Modeling and Simulation Hierarchy Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#band-diagram-construction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Band Diagram Construction
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Band Diagram Construction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#consolidating-the-courses-most-used-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Consolidating the Course's Most-Used Skill
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Consolidating the Course&#39;s Most-Used Skill">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-band-diagram-builder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Band Diagram Builder
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#device-design-trade-offs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Device Design Trade-Offs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Device Design Trade-Offs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#engineering-is-balancing-competing-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Engineering Is Balancing Competing Requirements
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Engineering Is Balancing Competing Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-device-design-trade-off-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Device Design Trade-Off Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capstone-device-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capstone Device Project
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Capstone Device Project">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#synthesizing-the-course-designing-a-power-rectifier-diode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Synthesizing the Course: Designing a Power Rectifier Diode
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Synthesizing the Course: Designing a Power Rectifier Diode">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-capstone-device-project-walkthrough" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Capstone Device Project Walkthrough
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-equations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Equations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Glossary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Further Reading
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked Examples
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interactive-chapter-walkthrough" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interactive Chapter Walkthrough
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Interactive Chapter Walkthrough">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-semiconductor-devices-and-applications-interactive-walkthrough" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Semiconductor Devices and Applications Interactive Walkthrough
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="problems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Problems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
       
     </li>
   
@@ -7330,6 +7871,264 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_19" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_19" id="__nav_7_19_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 18
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_19_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_19">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 18
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/rectifier-circuit-explorer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rectifier Circuit Explorer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/bjt-mosfet-comparison-explorer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bipolar Transistor and MOSFET Comparison Explorer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/device-modeling-simulation-explorer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Device Modeling and Simulation Hierarchy Explorer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/band-diagram-builder/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Band Diagram Builder
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/device-design-tradeoff-explorer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Device Design Trade-Off Explorer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/capstone-device-project-walkthrough/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Capstone Device Project Walkthrough
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/semiconductor-devices-applications-interactive-walkthrough/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semiconductor Devices and Applications Interactive Walkthrough
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -7728,9 +8527,36 @@
   
 
 
-<h1 id="semiconductor-devices-and-applications">Semiconductor Devices and Applications</h1>
-<h2 id="summary">Summary</h2>
-<p>This capstone chapter connects the course's physics to applied devices: power diodes, rectifier circuits, and varactor diodes, along with an introduction to bipolar transistor and MOSFET basics. Students consider semiconductor device modeling and simulation at a conceptual level, practice constructing band diagrams, and weigh device design trade-offs before completing a capstone project that models the physics of a real semiconductor device.</p>
+<h1 id="chapter-18-semiconductor-devices-and-applications">Chapter 18: Semiconductor Devices and Applications</h1>
+<div class="unit1-styled">
+<details class="video-overview">
+<summary><strong>Chapter Overview</strong> (click to expand)</summary>
+<p>This capstone chapter connects every physical idea developed across the course to the real devices built from it. A <strong>power diode</strong> is nothing more than the p-n junction of Chapters 14-15, engineered specifically to block high voltage and conduct high current, and a <strong>rectifier circuit</strong> puts that diode to work converting AC power to DC. A <strong>varactor diode</strong> revisits Chapter 14's junction capacitance as a deliberately-exploited, voltage-tunable component. <strong>Bipolar transistor basics</strong> and <strong>MOSFET basics</strong> show how two junctions (Chapter 15) or a MOS capacitor's inversion channel (Chapter 16) become current-amplifying and voltage-controlled switching devices — the two workhorses of modern electronics. The chapter then steps back to the engineering process itself: <strong>semiconductor device modeling</strong> and the <strong>device simulation concept</strong> describe how the analytic equations derived throughout this course relate to the compact and numerical models used in real industrial design, <strong>band diagram construction</strong> consolidates the single most useful visualization skill from the entire course, and <strong>device design trade-offs</strong> shows how real engineering decisions balance competing physical requirements. The course closes with a worked <strong>capstone device project</strong> that deliberately reuses formulas from Chapters 11, 14, 15, and 17 together to design a complete, realistic power device from first principles.</p>
+<p><strong>Key Takeaways:</strong></p>
+<ol>
+<li>A <strong>power diode</strong> is a p-n junction engineered for high blocking voltage and current, typically using a lightly-doped drift region; a <strong>rectifier circuit</strong> arranges one or more power diodes to convert AC to DC.</li>
+<li>A <strong>varactor diode</strong> deliberately exploits the voltage-dependent junction capacitance derived in Chapter 14, used as a tunable component in RF circuits such as voltage-controlled oscillators.</li>
+<li><strong>Bipolar transistor basics</strong> (current amplification via two adjacent junctions) and <strong>MOSFET basics</strong> (voltage-controlled channel conduction via the MOS capacitor of Chapter 16) are the two foundational three-terminal devices built directly from this course's junction and MOS physics.</li>
+<li><strong>Semiconductor device modeling</strong> and the <strong>device simulation concept</strong> place the analytic, closed-form equations of this course within a larger hierarchy that includes compact circuit-simulator models and full numerical device simulation.</li>
+<li><strong>Band diagram construction</strong> consolidates the single most-used visualization tool of the entire course, while <strong>device design trade-offs</strong> — such as breakdown voltage against on-resistance — show how real devices are engineered by balancing competing physical constraints, culminating in a <strong>capstone device project</strong> that synthesizes physics from across the whole course into one complete device design.</li>
+</ol>
+</details>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<p>By the end of this chapter, you will be able to:</p>
+<ul>
+<li>Explain how a power diode's structure differs from an ordinary p-n junction, and compute basic rectifier circuit output from diode forward drop</li>
+<li>Explain how a varactor diode exploits junction capacitance as a tunable circuit element</li>
+<li>Describe the basic operation of a bipolar transistor and compute current gain from base, collector, and emitter currents</li>
+<li>Describe the basic operation of a MOSFET and compute drain current from the square-law model</li>
+<li>Explain the relationship between analytic equations, compact models, and numerical device simulation</li>
+<li>Construct a complete equilibrium band diagram for a p-n junction, Schottky junction, or MOS capacitor from first principles</li>
+<li>Analyze a device design trade-off (such as breakdown voltage versus on-resistance) using equations derived across multiple chapters</li>
+<li>Synthesize physics from at least three earlier chapters to model a complete, realistic semiconductor device</li>
+</ul>
+<h2 id="introduction">Introduction</h2>
+<p>Every chapter of this course has derived the physics of an idealized structure: a uniformly-doped bulk semiconductor, a single p-n junction, a single metal-semiconductor contact, a single MOS capacitor. Real devices are built from these building blocks, often several at once, engineered deliberately around specific performance targets. This chapter closes the course by making those connections explicit.</p>
+<p>The first half surveys five real devices built directly from this course's physics. A <strong>power diode</strong> takes the ordinary p-n junction of Chapters 14-15 and adds a lightly-doped drift region specifically to survive high reverse voltage, exactly the avalanche breakdown physics derived in Chapter 15; a <strong>rectifier circuit</strong> arranges such diodes to convert alternating current into direct current. A <strong>varactor diode</strong> takes Chapter 14's junction capacitance — originally derived simply as a consequence of the depletion region's geometry — and uses it deliberately as a voltage-tunable capacitor. <strong>Bipolar transistor basics</strong> and <strong>MOSFET basics</strong> introduce the two three-terminal devices at the heart of essentially all modern electronics: a bipolar transistor amplifies current using two adjacent junctions and Chapter 15's minority carrier injection, while a MOSFET uses Chapter 16's MOS capacitor and inversion layer as a voltage-controlled switch.</p>
+<p>The second half of the chapter turns from physics to engineering practice. <strong>Semiconductor device modeling</strong> and the <strong>device simulation concept</strong> place this course's closed-form equations within the larger toolkit real engineers use, from hand calculations through circuit-simulator compact models to full numerical device simulation. <strong>Band diagram construction</strong> consolidates the single most-repeated visualization skill of the entire course into an explicit, general procedure. <strong>Device design trade-offs</strong> shows how real devices are the result of balancing competing physical requirements — more of one desirable property almost always costs another. The chapter, and the course, close with a worked <strong>capstone device project</strong> that deliberately reuses equations from Chapters 11, 14, 15, and 17 together, modeling a complete, realistic power diode from doping choice through thermal budget — exactly the kind of synthesis the course description's capstone learning outcome calls for.</p>
 <h2 id="concepts-covered">Concepts Covered</h2>
 <p>This chapter covers the following 10 concepts from the learning graph:</p>
 <ol>
@@ -7757,13 +8583,312 @@
 <li><a href="../17-optical-thermal-properties/">Chapter 17: Optical and Thermal Properties of Semiconductors</a></li>
 </ul>
 <hr />
-<p>TODO: Generate Chapter Content</p>
+<h2 id="power-diodes-and-rectifier-circuits">Power Diodes and Rectifier Circuits</h2>
+<h3 id="engineering-a-junction-to-block-high-voltage">Engineering a Junction to Block High Voltage</h3>
+<p>A <strong>power diode</strong> is an ordinary p-n junction (Chapter 14) engineered specifically to handle large reverse blocking voltage and large forward current. The key design choice is doping the lightly-doped side (the <strong>drift region</strong>) light enough that avalanche breakdown (Chapter 15) does not occur below the device's rated voltage:</p>
+<div class="arithmatex">\[
+N_D \approx \frac{\varepsilon_sE_{crit}^2}{2qV_{BR}}, \qquad W \approx \frac{2V_{BR}}{E_{crit}}
+\]</div>
+<p>Lighter doping supports higher breakdown voltage but also makes the drift region more resistive when the diode is conducting forward current — the central trade-off explored later in this chapter. A <strong>rectifier circuit</strong> arranges one or more diodes to convert alternating current into direct current: a half-wave rectifier passes only one polarity of the AC waveform, while a full-wave bridge rectifier (four diodes) conducts on both half-cycles, giving a higher average output voltage for the same peak input:</p>
+<div class="arithmatex">\[
+V_{DC,full} \approx \frac{2(V_{peak}-2V_F)}{\pi}
+\]</div>
+<p>where <span class="arithmatex">\(V_F\)</span> is each diode's forward voltage drop (Chapter 15) and the factor of 2 accounts for two diode drops in series through a bridge rectifier at any instant.</p>
+<h4 id="diagram-rectifier-circuit-explorer">Diagram: Rectifier Circuit Explorer</h4>
+<iframe height="640px" scrolling="auto" src="../../sims/rectifier-circuit-explorer/main.html" width="100%"></iframe>
+<div class="admonition tip">
+<p class="admonition-title">How to use this MicroSim</p>
+<p><strong>Instructions:</strong> Toggle between half-wave and full-wave rectification and watch the output waveform and computed <span class="arithmatex">\(V_{DC}\)</span> update.</p>
+<p><strong>Learning objective:</strong> Explain how a power diode's structure differs from an ordinary p-n junction, and compute basic rectifier circuit output from diode forward drop.</p>
+<p><strong>What to observe:</strong> Full-wave rectification fills in the "missing" negative half-cycles that half-wave rectification simply discards, nearly doubling the average DC output for the same input amplitude.</p>
+</div>
+<p><a href="../../sims/rectifier-circuit-explorer/">Full MicroSim documentation →</a></p>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 1 — Full-Wave Bridge Rectifier Output</p>
+<p>A full-wave bridge rectifier is driven by a 120 V<span class="arithmatex">\(_{rms}\)</span> AC source (<span class="arithmatex">\(V_{peak}=120\sqrt{2}\approx169.7\ \text{V}\)</span>), using diodes with <span class="arithmatex">\(V_F=0.7\ \text{V}\)</span> each. Find the average DC output voltage.</p>
+<p><strong>Solution:</strong></p>
+<div class="arithmatex">\[
+V_{DC} = \frac{2(169.7-2(0.7))}{\pi} = \frac{2(168.3)}{\pi} \approx 107.2\ \text{V}
+\]</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Concept Check</p>
+<p>Why does a power diode use a lightly-doped drift region instead of the moderately-doped one-sided junctions used in earlier chapters' examples?</p>
+</div>
+<details class="question">
+<summary>Concept Check — click to reveal answer</summary>
+<p>Because avalanche breakdown voltage is inversely proportional to doping (Chapter 15), a power diode rated for hundreds of volts requires much lighter doping on the blocking side than a typical low-voltage signal diode, trading away some forward-conduction efficiency for the ability to block high reverse voltage.</p>
+</details>
+<h2 id="the-varactor-diode">The Varactor Diode</h2>
+<h3 id="junction-capacitance-as-a-deliberate-circuit-element">Junction Capacitance as a Deliberate Circuit Element</h3>
+<p>Chapter 14 derived junction capacitance, <span class="arithmatex">\(C_j=\varepsilon A/W\)</span>, purely as a consequence of the depletion region's geometry. A <strong>varactor diode</strong> is a p-n junction deliberately operated under reverse bias specifically <em>for</em> this voltage-tunable capacitance, used as the tuning element in voltage-controlled oscillators and RF filters. Combined with a fixed inductor <span class="arithmatex">\(L\)</span> in a resonant tank, the tunable capacitance directly tunes resonant frequency:</p>
+<div class="arithmatex">\[
+f = \frac{1}{2\pi\sqrt{LC_j}}
+\]</div>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 2 — Varactor Tuning Range</p>
+<p>A varactor-tuned LC tank has <span class="arithmatex">\(L=10\ \mu\text{H}\)</span>, and the varactor's capacitance ranges from <span class="arithmatex">\(5\ \text{pF}\)</span> (large reverse bias) to <span class="arithmatex">\(20\ \text{pF}\)</span> (small reverse bias). Find the resulting tuning range.</p>
+<p><strong>Solution:</strong> At <span class="arithmatex">\(C=5\ \text{pF}\)</span>: <span class="arithmatex">\(f=1/(2\pi\sqrt{(10\times10^{-6})(5\times10^{-12})})\approx22.5\ \text{MHz}\)</span>. At <span class="arithmatex">\(C=20\ \text{pF}\)</span>: <span class="arithmatex">\(f\approx11.3\ \text{MHz}\)</span> — a roughly 2:1 tuning range from a 4:1 capacitance range, since <span class="arithmatex">\(f\propto1/\sqrt{C}\)</span>.</p>
+</div>
+<h2 id="bipolar-transistor-and-mosfet-basics">Bipolar Transistor and MOSFET Basics</h2>
+<h3 id="the-two-foundational-three-terminal-devices">The Two Foundational Three-Terminal Devices</h3>
+<p>A <strong>bipolar junction transistor (BJT)</strong> stacks two back-to-back junctions (emitter-base and base-collector) sharing a thin common region. Forward-biasing the emitter-base junction injects minority carriers (Chapter 15) into the thin base; most of them survive the trip across the base without recombining and are collected by the reverse-biased base-collector junction, giving current <em>amplification</em>: a small base current controls a much larger collector current, characterized by the common-emitter current gain <span class="arithmatex">\(\beta\)</span>:</p>
+<div class="arithmatex">\[
+I_C = \beta I_B, \qquad I_E = I_C + I_B = (\beta+1)I_B
+\]</div>
+<p>A <strong>MOSFET</strong>, by contrast, is a voltage-controlled device built directly from Chapter 16's MOS capacitor. Once gate voltage exceeds the threshold voltage <span class="arithmatex">\(V_T\)</span>, an inversion layer connects source and drain, and current flows through this channel; in the simplest square-law model (valid in saturation, <span class="arithmatex">\(V_{GS}-V_T&lt;V_{DS}\)</span>):</p>
+<div class="arithmatex">\[
+I_D = \frac{\mu_nC_{ox}}{2}\frac{W}{L}(V_{GS}-V_T)^2
+\]</div>
+<p>reusing the oxide capacitance <span class="arithmatex">\(C_{ox}\)</span> derived in Chapter 16 directly. Unlike a BJT, a MOSFET draws essentially no steady-state gate current — it is controlled by voltage, not current, and dissipates far less static power in its control terminal, a major reason MOSFETs dominate modern digital logic.</p>
+<pre class="mermaid"><code>flowchart LR
+    A["P-N Junction&lt;br/&gt;(Ch. 14-15)"] --&gt; B["Bipolar Transistor&lt;br/&gt;two adjacent junctions,&lt;br/&gt;current-controlled"]
+    C["MOS Capacitor&lt;br/&gt;(Ch. 16)"] --&gt; D["MOSFET&lt;br/&gt;inversion channel,&lt;br/&gt;voltage-controlled"]
+    B --&gt; E["Current Amplification&lt;br/&gt;IC = β·IB"]
+    D --&gt; F["Channel Conduction&lt;br/&gt;ID = (μnCox/2)(W/L)(VGS−VT)²"]</code></pre>
+<h4 id="diagram-bipolar-transistor-and-mosfet-comparison-explorer">Diagram: Bipolar Transistor and MOSFET Comparison Explorer</h4>
+<p><iframe src="../../sims/bjt-mosfet-comparison-explorer/main.html" width="100%" height="640px" scrolling="auto"></iframe></p>
+<div class="admonition tip">
+<p class="admonition-title">How to use this MicroSim</p>
+<p><strong>Instructions:</strong> Adjust base current to see BJT collector current and gain, and adjust gate overdrive voltage to see MOSFET drain current, side by side.</p>
+<p><strong>Learning objective:</strong> Describe the basic operation of a bipolar transistor and a MOSFET, and compute their respective output currents.</p>
+<p><strong>What to observe:</strong> BJT collector current scales linearly with base current (fixed <span class="arithmatex">\(\beta\)</span>), while MOSFET drain current scales with the <em>square</em> of gate overdrive — two fundamentally different control relationships.</p>
+</div>
+<p><a href="../../sims/bjt-mosfet-comparison-explorer/">Full MicroSim documentation →</a></p>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 3 — BJT Current Gain</p>
+<p>A BJT has <span class="arithmatex">\(\beta=100\)</span> and <span class="arithmatex">\(I_B=10\ \mu\text{A}\)</span>. Find <span class="arithmatex">\(I_C\)</span>, <span class="arithmatex">\(I_E\)</span>, and the common-base current gain <span class="arithmatex">\(\alpha=I_C/I_E\)</span>.</p>
+<p><strong>Solution:</strong> <span class="arithmatex">\(I_C=\beta I_B=(100)(10\ \mu\text{A})=1\ \text{mA}\)</span>. <span class="arithmatex">\(I_E=I_C+I_B=1.01\ \text{mA}\)</span>. <span class="arithmatex">\(\alpha=1/1.01\approx0.9901\)</span> — always slightly less than 1, since some base current is always required.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 4 — MOSFET Drain Current</p>
+<p>A MOSFET has <span class="arithmatex">\(C_{ox}=1.73\times10^{-7}\ \text{F/cm}^2\)</span> (from a Chapter 16 example), inversion-layer mobility <span class="arithmatex">\(\mu_n=600\ \text{cm}^2/\text{V}\cdot\text{s}\)</span> (lower than the bulk drift mobility used elsewhere, due to additional surface scattering at the oxide interface), <span class="arithmatex">\(W/L=10\)</span>, and overdrive voltage <span class="arithmatex">\(V_{GS}-V_T=0.5\ \text{V}\)</span>. Find <span class="arithmatex">\(I_D\)</span>.</p>
+<p><strong>Solution:</strong></p>
+<div class="arithmatex">\[
+I_D = \frac{(600)(1.73\times10^{-7})}{2}(10)(0.5)^2 \approx 1.30\times10^{-4}\ \text{A} = 0.130\ \text{mA}
+\]</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Concept Check</p>
+<p>Why does a MOSFET draw essentially no steady-state gate current, while a BJT requires a continuous base current to sustain collector current?</p>
+</div>
+<details class="question">
+<summary>Concept Check — click to reveal answer</summary>
+<p>The MOSFET's gate is separated from the channel by an insulating oxide (Chapter 16), which blocks DC current entirely — the gate only needs to <em>charge</em> to a voltage, not sustain a current. The BJT's base-emitter junction is a directly forward-biased p-n junction (Chapter 15), which by definition conducts current continuously as long as it stays forward-biased.</p>
+</details>
+<h2 id="semiconductor-device-modeling-and-the-device-simulation-concept">Semiconductor Device Modeling and the Device Simulation Concept</h2>
+<h3 id="from-closed-form-equations-to-numerical-simulation">From Closed-Form Equations to Numerical Simulation</h3>
+<p>Every equation derived in this course is an example of <strong>semiconductor device modeling</strong>: a simplified, closed-form mathematical description of device behavior, built from physical first principles under a specific set of idealizing assumptions (the depletion approximation, the long-base or short-base limit, the square-law MOSFET model, and so on). Real engineering uses this course's analytic models constantly, particularly for quick hand calculations and initial design intuition — exactly the role every worked example in this course has played.</p>
+<p>For situations where the idealizing assumptions break down, or where multiple effects interact in ways too complex for a closed-form solution, engineers turn to the <strong>device simulation concept</strong>: numerically solving the same underlying physical equations (Poisson's equation, the continuity equations, and the drift-diffusion current relations from Chapters 12-15) on a discretized mesh representing the device's actual geometry and doping profile, without the simplifying assumptions this course relied on throughout. Between these two extremes sit <strong>compact models</strong> — semi-empirical equations (more detailed than this course's idealized formulas, but still closed-form) fitted to match real measured or simulated device behavior, used directly inside circuit simulators like SPICE.</p>
+<table>
+<thead>
+<tr>
+<th>Modeling Level</th>
+<th>Basis</th>
+<th>Typical Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Analytic (this course)</td>
+<td>Closed-form physics, idealized assumptions</td>
+<td>Hand calculation, design intuition</td>
+</tr>
+<tr>
+<td>Compact model</td>
+<td>Semi-empirical equations fit to data</td>
+<td>Circuit simulation (SPICE)</td>
+</tr>
+<tr>
+<td>Numerical device simulation</td>
+<td>Discretized Poisson + continuity equations</td>
+<td>Detailed design verification, non-ideal geometries</td>
+</tr>
+</tbody>
+</table>
+<h4 id="diagram-device-modeling-and-simulation-hierarchy-explorer">Diagram: Device Modeling and Simulation Hierarchy Explorer</h4>
+<iframe height="600px" scrolling="auto" src="../../sims/device-modeling-simulation-explorer/main.html" width="100%"></iframe>
+<div class="admonition tip">
+<p class="admonition-title">How to use this MicroSim</p>
+<p><strong>Instructions:</strong> Select a modeling level and see its typical accuracy, computational cost, and example use case compared side by side.</p>
+<p><strong>Learning objective:</strong> Explain the relationship between analytic equations, compact models, and numerical device simulation.</p>
+<p><strong>What to observe:</strong> Accuracy and computational cost both increase together moving from analytic models toward full numerical simulation — there is no free lunch, which is why engineers use the simplest model adequate for a given design question rather than always reaching for full simulation.</p>
+</div>
+<p><a href="../../sims/device-modeling-simulation-explorer/">Full MicroSim documentation →</a></p>
+<h2 id="band-diagram-construction">Band Diagram Construction</h2>
+<h3 id="consolidating-the-courses-most-used-skill">Consolidating the Course's Most-Used Skill</h3>
+<p>Nearly every chapter of this course has relied on a band diagram — a plot of <span class="arithmatex">\(E_C\)</span>, <span class="arithmatex">\(E_V\)</span>, and <span class="arithmatex">\(E_F\)</span> (or the quasi-Fermi levels, under bias) versus position — to visualize what is happening inside a device. <strong>Band diagram construction</strong> is the general procedure underlying all of them:</p>
+<ol>
+<li>Identify each material region (p-type, n-type, metal, oxide) and its equilibrium Fermi level position relative to <span class="arithmatex">\(E_C\)</span> and <span class="arithmatex">\(E_V\)</span> (Chapters 9-10), or its work function (Chapter 16) for a metal.</li>
+<li>Away from any junction, draw each region's bands flat, at the correct relative height set by that region's work function or electron affinity.</li>
+<li>At each junction, require a single, continuous, flat Fermi level (at equilibrium) or well-defined quasi-Fermi levels (under bias, Chapter 15), and bend the bands smoothly to connect the flat regions on either side, consistent with the depletion approximation (Chapter 14).</li>
+<li>Add any applied bias by shifting one side's Fermi level relative to the other by <span class="arithmatex">\(qV\)</span> (Chapter 15), and re-bend accordingly.</li>
+</ol>
+<p>This single procedure, applied consistently, produces every band diagram used throughout the course: the p-n junction (Chapters 14-15), the Schottky barrier (Chapter 16), and the MOS capacitor (Chapter 16).</p>
+<h4 id="diagram-band-diagram-builder">Diagram: Band Diagram Builder</h4>
+<iframe height="620px" scrolling="auto" src="../../sims/band-diagram-builder/main.html" width="100%"></iframe>
+<div class="admonition tip">
+<p class="admonition-title">How to use this MicroSim</p>
+<p><strong>Instructions:</strong> Select a device type (p-n junction, Schottky junction, or MOS capacitor) and bias condition, and watch the band diagram construct itself step by step.</p>
+<p><strong>Learning objective:</strong> Construct a complete equilibrium band diagram for a p-n junction, Schottky junction, or MOS capacitor from first principles.</p>
+<p><strong>What to observe:</strong> Despite looking different at first glance, all three device types follow the exact same four-step construction procedure — only the material work functions and the presence or absence of an insulating oxide layer differ.</p>
+</div>
+<p><a href="../../sims/band-diagram-builder/">Full MicroSim documentation →</a></p>
+<h2 id="device-design-trade-offs">Device Design Trade-Offs</h2>
+<h3 id="engineering-is-balancing-competing-requirements">Engineering Is Balancing Competing Requirements</h3>
+<p>Real device design is rarely about maximizing a single quantity — it is about navigating <strong>device design trade-offs</strong>, where improving one performance metric costs another. The clearest example, combining results from Chapters 11, 14, and 15, is the trade-off between a power diode's breakdown voltage and its on-state resistance. Combining the breakdown voltage formula with the drift-region resistance (Chapter 11, <span class="arithmatex">\(R=W/(qN_D\mu_nA)\)</span>) gives the specific on-resistance (resistance times area, a figure of merit independent of device size):</p>
+<div class="arithmatex">\[
+R_{on,sp} \approx \frac{4V_{BR}^2}{\mu_n\varepsilon_sE_{crit}^3}
+\]</div>
+<p>Because <span class="arithmatex">\(R_{on,sp}\propto V_{BR}^2\)</span>, a diode designed to block twice the voltage needs roughly four times the specific on-resistance — real power devices cannot simultaneously have arbitrarily high breakdown voltage and arbitrarily low forward resistance, and every practical power device design lives somewhere on this trade-off curve. (This simplified derivation, holding <span class="arithmatex">\(E_{crit}\)</span> constant, captures the essential physics; the true "silicon limit" curve is slightly steeper, since <span class="arithmatex">\(E_{crit}\)</span> itself rises somewhat with doping, an effect beyond this course's idealized models.)</p>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 5 — Specific On-Resistance at Two Breakdown Voltages</p>
+<p>Estimate <span class="arithmatex">\(R_{on,sp}\)</span> for silicon power diodes rated at <span class="arithmatex">\(V_{BR}=500\ \text{V}\)</span> and <span class="arithmatex">\(V_{BR}=1000\ \text{V}\)</span> (using <span class="arithmatex">\(\mu_n=1350\ \text{cm}^2/\text{V}\cdot\text{s}\)</span>, <span class="arithmatex">\(E_{crit}=3\times10^5\ \text{V/cm}\)</span>).</p>
+<p><strong>Solution:</strong> At <span class="arithmatex">\(500\ \text{V}\)</span>: <span class="arithmatex">\(R_{on,sp}\approx\dfrac{4(500)^2}{(1350)(1.035\times10^{-12})(3\times10^5)^3}\approx0.0265\ \Omega\cdot\text{cm}^2\)</span>. At <span class="arithmatex">\(1000\ \text{V}\)</span>: <span class="arithmatex">\(R_{on,sp}\approx0.106\ \Omega\cdot\text{cm}^2\)</span> — exactly four times larger, confirming the <span class="arithmatex">\(V_{BR}^2\)</span> scaling.</p>
+</div>
+<h4 id="diagram-device-design-trade-off-explorer">Diagram: Device Design Trade-Off Explorer</h4>
+<iframe height="620px" scrolling="auto" src="../../sims/device-design-tradeoff-explorer/main.html" width="100%"></iframe>
+<div class="admonition tip">
+<p class="admonition-title">How to use this MicroSim</p>
+<p><strong>Instructions:</strong> Sweep target breakdown voltage and watch specific on-resistance rise along the trade-off curve, with the required drift doping and width shown alongside.</p>
+<p><strong>Learning objective:</strong> Analyze a device design trade-off using equations derived across multiple chapters.</p>
+<p><strong>What to observe:</strong> The curve rises steeply — doubling breakdown voltage roughly quadruples specific on-resistance — which is why high-voltage power devices are inherently larger or lossier than low-voltage ones for the same current rating.</p>
+</div>
+<p><a href="../../sims/device-design-tradeoff-explorer/">Full MicroSim documentation →</a></p>
+<div class="admonition question">
+<p class="admonition-title">Concept Check</p>
+<p>A designer needs a power diode with lower forward voltage drop than their current design, but cannot reduce the rated breakdown voltage. According to the trade-off derived above, what is the most direct way to achieve this without changing doping?</p>
+</div>
+<details class="question">
+<summary>Concept Check — click to reveal answer</summary>
+<p>Increase the device's area <span class="arithmatex">\(A\)</span>. Since <span class="arithmatex">\(R_{on}=R_{on,sp}/A\)</span>, a larger die area directly reduces resistance (and forward drop) for the same specific on-resistance, at the cost of a larger, more expensive die — itself a trade-off between forward drop and device cost/size.</p>
+</details>
+<h2 id="capstone-device-project">Capstone Device Project</h2>
+<h3 id="synthesizing-the-course-designing-a-power-rectifier-diode">Synthesizing the Course: Designing a Power Rectifier Diode</h3>
+<p>This closing section works through a complete <strong>capstone device project</strong>, deliberately combining equations from Chapters 11, 14, 15, and 17 into a single realistic design exercise — exactly the kind of synthesis the course's capstone learning outcome calls for.</p>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 6 — Complete Power Rectifier Diode Design</p>
+<p>Design a silicon power rectifier diode to block <span class="arithmatex">\(V_{BR}=500\ \text{V}\)</span> and conduct <span class="arithmatex">\(I=5\ \text{A}\)</span> forward current, with die area <span class="arithmatex">\(A=0.1\ \text{cm}^2\)</span> and thickness <span class="arithmatex">\(t=200\ \mu\text{m}\)</span>. Use <span class="arithmatex">\(\mu_n=1350\ \text{cm}^2/\text{V}\cdot\text{s}\)</span>, <span class="arithmatex">\(E_{crit}=3\times10^5\ \text{V/cm}\)</span>, <span class="arithmatex">\(\varepsilon_s=1.035\times10^{-12}\ \text{F/cm}\)</span>, <span class="arithmatex">\(\kappa=150\ \text{W/(m·K)}\)</span>, and an assumed junction forward drop of <span class="arithmatex">\(0.8\ \text{V}\)</span> at rated current. Find the required drift doping and width (Chapters 14-15), the specific on-resistance and total forward voltage drop (Chapter 11), and the resulting power dissipation and temperature rise through the die (Chapter 17).</p>
+<p><strong>Solution:</strong></p>
+<p><strong>Drift region (Chapters 14-15):</strong></p>
+<div class="arithmatex">\[
+N_D \approx \frac{\varepsilon_sE_{crit}^2}{2qV_{BR}} = \frac{(1.035\times10^{-12})(3\times10^5)^2}{2(1.6\times10^{-19})(500)} \approx 5.82\times10^{14}\ \text{cm}^{-3}
+\]</div>
+<div class="arithmatex">\[
+W \approx \frac{2V_{BR}}{E_{crit}} = \frac{2(500)}{3\times10^5} \approx 3.33\times10^{-3}\ \text{cm} = 33.3\ \mu\text{m}
+\]</div>
+<p><strong>On-resistance and forward drop (Chapter 11):</strong></p>
+<div class="arithmatex">\[
+R_{on,sp} \approx \frac{4(500)^2}{(1350)(1.035\times10^{-12})(3\times10^5)^3} \approx 0.0265\ \Omega\cdot\text{cm}^2, \qquad R_{on} = \frac{R_{on,sp}}{A} \approx 0.265\ \Omega
+\]</div>
+<div class="arithmatex">\[
+V_{drift} = IR_{on} = (5)(0.265) \approx 1.33\ \text{V}, \qquad V_F = V_{F,junction}+V_{drift} \approx 0.8+1.33 = 2.13\ \text{V}
+\]</div>
+<p><strong>Power dissipation and temperature rise (Chapter 17):</strong></p>
+<div class="arithmatex">\[
+P = IV_F = (5)(2.13) \approx 10.6\ \text{W}
+\]</div>
+<div class="arithmatex">\[
+\Delta T = \frac{Pt}{\kappa A} = \frac{(10.6)(2\times10^{-4}\ \text{m})}{(150)(1\times10^{-5}\ \text{m}^2)} \approx 1.4\ \text{K}
+\]</div>
+<p>This <span class="arithmatex">\(\Delta T\)</span> reflects only the temperature drop across the silicon die itself; a complete thermal design would also add the thermal resistance of the die-attach, package, and heat sink, each contributing further temperature rise not captured by this simplified single-slab model — a reminder that even a synthesis this broad still simplifies the full engineering picture.</p>
+</div>
+<h4 id="diagram-capstone-device-project-walkthrough">Diagram: Capstone Device Project Walkthrough</h4>
+<iframe height="670px" scrolling="auto" src="../../sims/capstone-device-project-walkthrough/main.html" width="100%"></iframe>
+<div class="admonition tip">
+<p class="admonition-title">How to use this MicroSim</p>
+<p><strong>Instructions:</strong> Adjust the target breakdown voltage, current rating, and die area, and watch every downstream quantity — doping, width, resistance, forward drop, power, and temperature rise — recompute together.</p>
+<p><strong>Learning objective:</strong> Synthesize physics from at least three earlier chapters to model a complete, realistic semiconductor device.</p>
+<p><strong>What to observe:</strong> Every design choice ripples forward: raising the breakdown voltage target increases drift width and resistance, which raises forward drop and power dissipation, which raises temperature rise — a single connected chain from a single design requirement.</p>
+</div>
+<p><a href="../../sims/capstone-device-project-walkthrough/">Full MicroSim documentation →</a></p>
+<h2 id="summary">Summary</h2>
+<p>This capstone chapter connected the course's physics to real devices and to engineering practice. A <strong>power diode</strong> engineers the p-n junction of Chapters 14-15 with a lightly-doped drift region to block high voltage, put to work in a <strong>rectifier circuit</strong>; a <strong>varactor diode</strong> exploits Chapter 14's junction capacitance deliberately as a tunable component. <strong>Bipolar transistor basics</strong> and <strong>MOSFET basics</strong> showed how two junctions or a MOS capacitor's inversion channel become current-amplifying or voltage-controlled three-terminal devices. <strong>Semiconductor device modeling</strong> and the <strong>device simulation concept</strong> placed this course's analytic equations within the larger hierarchy of compact and numerical models used in real design, <strong>band diagram construction</strong> consolidated the course's most-repeated visualization skill into one general procedure, and <strong>device design trade-offs</strong> showed how breakdown voltage and on-resistance cannot both be optimized simultaneously. The <strong>capstone device project</strong> closed the course by combining equations from four separate chapters into a single, complete power diode design — the physical reasoning developed across this entire course, applied together.</p>
+<h2 id="key-equations">Key Equations</h2>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Equation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Power diode drift doping and width</td>
+<td><span class="arithmatex">\(N_D\approx\varepsilon_sE_{crit}^2/(2qV_{BR})\)</span>, <span class="arithmatex">\(W\approx2V_{BR}/E_{crit}\)</span></td>
+</tr>
+<tr>
+<td>Full-wave rectifier DC output</td>
+<td><span class="arithmatex">\(V_{DC}\approx2(V_{peak}-2V_F)/\pi\)</span></td>
+</tr>
+<tr>
+<td>LC tank resonant frequency</td>
+<td><span class="arithmatex">\(f=1/(2\pi\sqrt{LC_j})\)</span></td>
+</tr>
+<tr>
+<td>BJT current gain</td>
+<td><span class="arithmatex">\(I_C=\beta I_B\)</span>, <span class="arithmatex">\(I_E=(\beta+1)I_B\)</span></td>
+</tr>
+<tr>
+<td>MOSFET drain current (saturation)</td>
+<td><span class="arithmatex">\(I_D=(\mu_nC_{ox}/2)(W/L)(V_{GS}-V_T)^2\)</span></td>
+</tr>
+<tr>
+<td>Specific on-resistance (silicon limit, simplified)</td>
+<td><span class="arithmatex">\(R_{on,sp}\approx4V_{BR}^2/(\mu_n\varepsilon_sE_{crit}^3)\)</span></td>
+</tr>
+<tr>
+<td>Device temperature rise</td>
+<td><span class="arithmatex">\(\Delta T=Pt/(\kappa A)\)</span></td>
+</tr>
+</tbody>
+</table>
+<h2 id="glossary">Glossary</h2>
+<p>See the <a href="glossary/">Chapter 18 Glossary</a> for full definitions of every term introduced in this chapter.</p>
+<h2 id="further-reading">Further Reading</h2>
+<ul>
+<li>Sze and Ng, <em>Physics of Semiconductor Devices</em> — the standard comprehensive reference on power devices, BJTs, and MOSFETs</li>
+<li>Neamen, <em>Semiconductor Physics and Devices</em> — clear introductory treatment of bipolar and MOSFET device physics</li>
+<li>Baliga, <em>Fundamentals of Power Semiconductor Devices</em> — the definitive reference on power device design trade-offs and the silicon limit</li>
+<li>Pierret, <em>Semiconductor Device Fundamentals</em> — accessible treatment connecting analytic device physics to compact modeling</li>
+</ul>
+<h2 id="worked-examples">Worked Examples</h2>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 7 — Half-Wave vs. Full-Wave Rectifier Comparison</p>
+<p>Compare the average DC output of a half-wave rectifier (<span class="arithmatex">\(V_{DC}\approx(V_{peak}-V_F)/\pi\)</span>) to the full-wave bridge result of Worked Example 1, using the same <span class="arithmatex">\(120\ \text{V}_{rms}\)</span> source and <span class="arithmatex">\(V_F=0.7\ \text{V}\)</span>.</p>
+<p><strong>Solution:</strong> Half-wave: <span class="arithmatex">\(V_{DC}=(169.7-0.7)/\pi\approx53.8\ \text{V}\)</span>. Full-wave (from Worked Example 1): <span class="arithmatex">\(\approx107.2\ \text{V}\)</span> — almost exactly double, since full-wave rectification uses both half-cycles of the input instead of discarding one.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 8 — MOSFET vs. BJT Current Scaling</p>
+<p>Compare how output current scales if the MOSFET of Worked Example 4 has its overdrive voltage doubled (to <span class="arithmatex">\(1.0\ \text{V}\)</span>), versus how the BJT of Worked Example 3 scales if its base current is doubled (to <span class="arithmatex">\(20\ \mu\text{A}\)</span>).</p>
+<p><strong>Solution:</strong> MOSFET: since <span class="arithmatex">\(I_D\propto(V_{GS}-V_T)^2\)</span>, doubling overdrive quadruples <span class="arithmatex">\(I_D\)</span>, to about <span class="arithmatex">\(0.519\ \text{mA}\)</span>. BJT: since <span class="arithmatex">\(I_C=\beta I_B\)</span> is linear, doubling <span class="arithmatex">\(I_B\)</span> exactly doubles <span class="arithmatex">\(I_C\)</span>, to <span class="arithmatex">\(2\ \text{mA}\)</span> — a direct illustration of the square-law versus linear control relationships noted in this chapter's concept check.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Worked Example 9 — Trade-Off Sensitivity</p>
+<p>Using the specific on-resistance formula, find the breakdown voltage at which <span class="arithmatex">\(R_{on,sp}\)</span> reaches exactly <span class="arithmatex">\(0.01\ \Omega\cdot\text{cm}^2\)</span> for the same silicon parameters used throughout this chapter.</p>
+<p><strong>Solution:</strong> Solving <span class="arithmatex">\(R_{on,sp}=4V_{BR}^2/(\mu_n\varepsilon_sE_{crit}^3)\)</span> for <span class="arithmatex">\(V_{BR}\)</span>: <span class="arithmatex">\(V_{BR}=\sqrt{R_{on,sp}\mu_n\varepsilon_sE_{crit}^3/4}=\sqrt{(0.01)(1350)(1.035\times10^{-12})(3\times10^5)^3/4}\approx307\ \text{V}\)</span> — a device targeting <span class="arithmatex">\(R_{on,sp}=0.01\ \Omega\cdot\text{cm}^2\)</span> can support roughly 307 V of blocking voltage with this simplified model, a useful sanity check when comparing a proposed design against the fundamental trade-off curve.</p>
+</div>
+<h2 id="interactive-chapter-walkthrough">Interactive Chapter Walkthrough</h2>
+<p>Use the MicroSim below as a capstone review: a guided, step-through tour of this entire chapter's storyline in order — from the power diode and rectifier circuit, through the varactor diode, bipolar transistor and MOSFET basics, device modeling and simulation, band diagram construction, device design trade-offs, and finally the capstone device project that closes the course.</p>
+<h4 id="diagram-semiconductor-devices-and-applications-interactive-walkthrough">Diagram: Semiconductor Devices and Applications Interactive Walkthrough</h4>
+<iframe height="670px" scrolling="auto" src="../../sims/semiconductor-devices-applications-interactive-walkthrough/main.html" width="100%"></iframe>
+<div class="admonition tip">
+<p class="admonition-title">How to use this MicroSim</p>
+<p><strong>Instructions:</strong> Click "Next ▶" through all steps in order, then use the step dots to jump back to any concept before the chapter quiz.</p>
+<p><strong>Learning objective:</strong> Recall and summarize the full chain of concepts connecting real devices to the physics developed across this entire course.</p>
+<p><strong>What to observe:</strong> Each step's small illustration mirrors a MicroSim used earlier in the chapter, tying the whole course's narrative together in one final review.</p>
+</div>
+<p><a href="../../sims/semiconductor-devices-applications-interactive-walkthrough/">Full MicroSim documentation →</a></p>
+</div>
 
 
 
 
 
 
+
+  
+  
 
 
 
@@ -7812,13 +8937,13 @@
         
         
           
-          <a href="../../sims/" class="md-footer__link md-footer__link--next" aria-label="Next: Overview">
+          <a href="quiz/" class="md-footer__link md-footer__link--next" aria-label="Next: Quiz">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Overview
+                Quiz
               </div>
             </div>
             <div class="md-footer__button md-icon">

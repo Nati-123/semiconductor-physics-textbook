@@ -67,6 +67,7 @@ extra_javascript:
   - javascripts/quiz-ui.js?v=1
   - javascripts/problems-ui.js?v=1
   - javascripts/diagram-wrap.js?v=1
+  - javascripts/nav-toc-toggle.js?v=1
 
 # URI Scheme for intelligent textbook discoverability
 extra:

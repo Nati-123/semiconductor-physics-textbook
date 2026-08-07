@@ -1,9 +1,12 @@
 {#-
   Vendored from mkdocs-material (partials/nav-item.html) via theme.custom_dir.
-  Only change from upstream: the "__toc" checkbox below is pre-checked so a
+  Changes from upstream: the "__toc" checkbox below is pre-checked so a
   chapter's integrated section outline is expanded by default under "Content"
-  instead of requiring an extra click. Re-diff against the installed
-  mkdocs-material package after upgrading to keep this in sync.
+  instead of requiring an extra click, and autocomplete is disabled so
+  browsers don't silently restore a stale checked/unchecked state from a
+  prior visit to the same URL (see javascripts/nav-toc-toggle.js, which owns
+  the actual click-to-toggle behavior for this control). Re-diff against the
+  installed mkdocs-material package after upgrading to keep this in sync.
 -#}
 {% macro render_status(nav_item, type) %}
   {% set class = "md-status md-status--" ~ type %}
@@ -146,7 +149,7 @@
   {% elif nav_item == page %}
     <li class="{{ class }}">
       {% set toc = page.toc %}
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc" checked>
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc" checked autocomplete="off">
       {% set first = toc | first %}
       {% if first and first.level == 1 %}
         {% set toc = first.children %}

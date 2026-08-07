@@ -12,24 +12,15 @@
   //  No markdown files need modification.
   // =========================================================================
 
-  // Detect which type of page this is
+  // Detect which type of page this is by URL, not by content: chapter
+  // Content pages legitimately contain "**Solution:**" inside worked
+  // examples, so sniffing for that text anywhere in .md-content misclassified
+  // every chapter's Content page as a problems page (which, via the
+  // body.problems-page CSS rule, hid the sidebar's chapter outline entirely).
   function getPageType() {
-    var content = document.querySelector('.md-content');
-    if (!content) return null;
-    // Skip quiz pages — they have .upper-alpha choice lists and **Answer:**
-    if (content.querySelector('.upper-alpha')) return null;
-    var strongs = content.querySelectorAll('strong');
-    var hasSolution = false;
-    var hasAnswer = false;
-    for (var i = 0; i < strongs.length; i++) {
-      var text = strongs[i].textContent.trim();
-      if (/^Solution:?/i.test(text)) hasSolution = true;
-      if (/^Answer:?/i.test(text)) hasAnswer = true;
-    }
-    // Challenge pages use **Answer:**, problems use **Solution:**
-    // If both exist, treat as problems page
-    if (hasSolution) return 'problems';
-    if (hasAnswer) return 'challenge';
+    var path = location.pathname;
+    if (/\/problems\/?(?:index\.html)?$/.test(path)) return 'problems';
+    if (/\/challenge\/?(?:index\.html)?$/.test(path)) return 'challenge';
     return null;
   }
 

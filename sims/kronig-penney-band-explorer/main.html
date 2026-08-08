@@ -13,6 +13,22 @@
         html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
         main { display: flex; flex-direction: column; }
         main canvas { display: block; }
+        /* p5's describe(..., LABEL) renders a visible accessibility caption
+           after the canvas; make it screen-reader-only instead, since a
+           visible text blob that wraps to many lines at narrow widths would
+           otherwise make the sim's total height width-dependent and force
+           an iframe scrollbar on mobile. */
+        .p5Label {
+            position: absolute !important;
+            width: 1px !important;
+            height: 1px !important;
+            padding: 0 !important;
+            margin: -1px !important;
+            overflow: hidden !important;
+            clip: rect(0, 0, 0, 0) !important;
+            white-space: nowrap !important;
+            border: 0 !important;
+        }
     </style>
     <script src="kronig-penney-band-explorer.js"></script>
     <script src="../sim-accessibility.js"></script>
@@ -28,11 +44,13 @@
 
         <h3>Try This</h3>
         <ul class="explore-list">
+            <li><strong>Try this:</strong> Start with "Periodic Potential" to see the physical square-barrier array this model solves, and drag P to see the barriers change height.</li>
             <li><strong>Try this:</strong> In "Transcendental Equation" view, drag the barrier strength P slider down to 0 and observe that all the red shaded (forbidden) regions disappear.</li>
             <li><strong>Predict:</strong> Before increasing P from 0 to 4, predict whether the allowed bands (unshaded regions) will widen or narrow.</li>
             <li><strong>Observe:</strong> Increase P and watch the red forbidden regions widen around each dashed Brillouin-zone-boundary line, while the allowed (unshaded) bands narrow.</li>
-            <li><strong>Switch views:</strong> Select "E-k Diagram" and confirm that every gap in the plotted band curve lines up exactly with a dashed Brillouin zone boundary line.</li>
-            <li><strong>Explain:</strong> Explain, using both views together, why "band gaps open at the Brillouin zone boundary" is the same physical statement seen two different ways.</li>
+            <li><strong>Switch views:</strong> Select "Allowed/Forbidden Bands" and read the numeric width of each labeled band and gap directly.</li>
+            <li><strong>Switch views:</strong> Select "E-k Diagram," click or drag on a band, and read off its exact energy and k value from the live readout.</li>
+            <li><strong>Explain:</strong> Explain, using multiple views together, why "band gaps open at the Brillouin zone boundary" is the same physical statement seen several different ways.</li>
         </ul>
 
         <p class="connects-to"><strong>Connects to Chapter 5:</strong> This MicroSim plots the Kronig-Penney transcendental equation, <span class="arithmatex">\(P\sin(\alpha a)/(\alpha a) + \cos(\alpha a) = \cos(ka)\)</span>, directly. Because <span class="arithmatex">\(\cos(ka)\)</span> can only take values in <span class="arithmatex">\([-1,1]\)</span>, any energy where the left-hand side exceeds that range has no real-<span class="arithmatex">\(k\)</span> solution — a band gap — and the E-k Diagram view shows these same gaps appearing exactly at the Brillouin zone boundaries, <span class="arithmatex">\(k=\pm n\pi/a\)</span>.</p>
@@ -40,9 +58,9 @@
         <h3>What Each Control Does</h3>
         <dl class="control-captions">
             <dt>View dropdown</dt>
-            <dd>Switches between "Transcendental Equation" (the raw equation and shaded forbidden regions) and "E-k Diagram" (the resulting energy bands plotted against the Bloch wavevector).</dd>
+            <dd>Switches between "Periodic Potential" (the physical barrier array), "Transcendental Equation" (the raw equation and shaded forbidden regions), "Allowed/Forbidden Bands" (a labeled energy-axis ladder), and "E-k Diagram" (the resulting energy bands plotted against the Bloch wavevector, with a draggable readout).</dd>
             <dt>Barrier strength P slider</dt>
-            <dd>Sets the Kronig-Penney barrier strength; P=0 is the free-electron limit (no gaps), and larger P widens the forbidden gaps.</dd>
+            <dd>Sets the Kronig-Penney barrier strength; P=0 is the free-electron limit (no gaps), and larger P widens the forbidden gaps in every view.</dd>
         </dl>
 
         <h3>Challenge Questions</h3>
@@ -81,6 +99,18 @@
             <span class="feedback" role="status" aria-live="polite"></span>
             <p class="explain-correct" hidden>The plotted band structure always has gaps precisely at the dashed Brillouin zone boundary lines — this is the chapter's key geometric result connecting band formation to the reciprocal lattice.</p>
             <p class="explain-incorrect" hidden>Zoom in (mentally) on where a dashed vertical line crosses the band curve and see whether dots are missing right at that k value.</p>
+        </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">4. In "Allowed/Forbidden Bands" view, what does a red strip in the band ladder represent?</p>
+            <label><input type="radio" name="kpb-q4" value="a"> An allowed energy band</label>
+            <label><input type="radio" name="kpb-q4" value="b"> A forbidden band gap — the same energies shaded red in "Transcendental Equation" view</label>
+            <label><input type="radio" name="kpb-q4" value="c"> The Brillouin zone</label>
+            <label><input type="radio" name="kpb-q4" value="d"> The barrier strength P</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>The band ladder is the same physics as the other views, re-drawn on a single energy axis: green strips are allowed bands, red strips are forbidden gaps — exactly the same energies shaded red in "Transcendental Equation" view.</p>
+            <p class="explain-incorrect" hidden>Compare the ladder's labels directly: green strips say "(allowed)" and red strips say "(forbidden)".</p>
         </div>
 
     </div>

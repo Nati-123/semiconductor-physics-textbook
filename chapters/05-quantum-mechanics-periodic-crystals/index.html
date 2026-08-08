@@ -1789,6 +1789,34 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#where-bands-actually-come-from-isolated-atoms-to-a-crystal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where Bands Actually Come From: Isolated Atoms to a Crystal
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Where Bands Actually Come From: Isolated Atoms to a Crystal">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-energy-band-formation-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Energy Band Formation Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5711,6 +5739,34 @@
     
   
     Kronig-Penney Band Formation Explorer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/energy-band-formation-explorer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Energy Band Formation Explorer
   
 
     
@@ -9728,10 +9784,10 @@ P\,\frac{\sin(\alpha a)}{\alpha a} + \cos(\alpha a) = \cos(ka)
 <p>As <span class="arithmatex">\(P\to0\)</span>, the barriers vanish and the periodic potential becomes flat — the electron is simply a free particle. In this limit, every energy <span class="arithmatex">\(E=\hbar^2\alpha^2/2m\)</span> is achievable for some real <span class="arithmatex">\(k\)</span>, so there are no forbidden gaps at all: the allowed energies form one continuous band, exactly like a free particle's continuous energy spectrum. Band gaps only appear once <span class="arithmatex">\(P&gt;0\)</span>, confirming that the periodic potential itself — not some separate effect — is the direct cause of band formation.</p>
 </details>
 <h4 id="diagram-kronig-penney-band-formation-explorer">Diagram: Kronig-Penney Band Formation Explorer</h4>
-<iframe height="660px" scrolling="auto" src="../../sims/kronig-penney-band-explorer/main.html" width="100%"></iframe>
+<iframe height="665px" scrolling="auto" src="../../sims/kronig-penney-band-explorer/main.html" width="100%"></iframe>
 <div class="admonition tip">
 <p class="admonition-title">How to use this MicroSim</p>
-<p><strong>Instructions:</strong> Drag the barrier-strength slider <span class="arithmatex">\(P\)</span> from 0 upward and watch the left-hand-side curve of the transcendental equation develop regions that exceed <span class="arithmatex">\(\pm1\)</span> — these shaded regions are the forbidden band gaps. Switch to the "E-k Diagram" view to see the corresponding allowed bands and gaps plotted directly against the Bloch wavevector <span class="arithmatex">\(k\)</span>, with the first few Brillouin zone boundaries marked.</p>
+<p><strong>Instructions:</strong> Start with the "Periodic Potential" view to see the physical square-barrier array. Drag the barrier-strength slider <span class="arithmatex">\(P\)</span> from 0 upward and watch the "Transcendental Equation" view's left-hand-side curve develop regions that exceed <span class="arithmatex">\(\pm1\)</span> — these shaded regions are the forbidden band gaps. Switch to "Allowed/Forbidden Bands" for a labeled energy-axis view of the same result, or "E-k Diagram" to see the allowed bands and gaps plotted against the Bloch wavevector <span class="arithmatex">\(k\)</span>, with Brillouin zone boundaries labeled at <span class="arithmatex">\(k=\pm n\pi/a,\pm2n\pi/a,\ldots\)</span> — click or drag on a band there to read off its exact energy and <span class="arithmatex">\(k\)</span> value.</p>
 <p><strong>Learning objective:</strong> Connect the algebraic restriction <span class="arithmatex">\(|\cos(ka)|\leq1\)</span> directly to the physical appearance of band gaps, and see those gaps appear at the Brillouin zone boundaries <span class="arithmatex">\(k=\pm n\pi/a\)</span>.</p>
 <p><strong>What to observe:</strong> At <span class="arithmatex">\(P=0\)</span> there are no shaded forbidden regions at all (the free-electron limit from the Concept Check above); as <span class="arithmatex">\(P\)</span> increases, the gaps widen and the allowed bands narrow, and every gap is centered exactly on a Brillouin zone boundary.</p>
 </div>
@@ -9787,12 +9843,12 @@ P\,\frac{\sin(\alpha a)}{\alpha a} + \cos(\alpha a) = \cos(ka)
     B --&gt; C["1st BZ boundary:&lt;br/&gt;k = +/- pi/a"]
     C --&gt; D["Kronig-Penney band gaps&lt;br/&gt;open exactly at these k values"]</code></pre>
 <h4 id="diagram-reciprocal-lattice-and-brillouin-zone-explorer">Diagram: Reciprocal Lattice and Brillouin Zone Explorer</h4>
-<iframe height="660px" scrolling="auto" src="../../sims/reciprocal-lattice-brillouin-zone-explorer/main.html" width="100%"></iframe>
+<iframe height="815px" scrolling="auto" src="../../sims/reciprocal-lattice-brillouin-zone-explorer/main.html" width="100%"></iframe>
 <div class="admonition tip">
 <p class="admonition-title">How to use this MicroSim</p>
-<p><strong>Instructions:</strong> Use the "View" dropdown to switch between "Real vs. Reciprocal Lattice" (compare a real-space lattice to its reciprocal lattice side by side, for SC, BCC, and FCC) and "Brillouin Zone" (see the first Brillouin zone constructed as the Wigner-Seitz cell of the 2D reciprocal lattice).</p>
+<p><strong>Instructions:</strong> Use the "View" dropdown to switch between "Real vs. Reciprocal Lattice" (a 2D real-space lattice side by side with its reciprocal lattice, each with primitive vectors drawn from a highlighted origin and the first Brillouin zone overlaid) and "Wigner-Seitz Construction" (a zoomed-in construction of the first Brillouin zone as the Wigner-Seitz cell of the reciprocal lattice, with a real-space comparison inset). Try the rotation slider to see the primitive vectors, reciprocal vectors, and Brillouin zone all rotate together.</p>
 <p><strong>Learning objective:</strong> Connect a real-space lattice (Chapter 3) to its reciprocal lattice, and see the Brillouin zone constructed directly from reciprocal lattice points using the same Wigner-Seitz procedure used for real-space primitive cells.</p>
-<p><strong>What to observe:</strong> Note that the reciprocal lattice spacing shrinks as the real lattice constant grows (an inverse relationship), and that the first Brillouin zone boundary sits exactly halfway between the origin and the nearest reciprocal lattice point.</p>
+<p><strong>What to observe:</strong> Note that the numerical reciprocal-space spacing readout shrinks as the real-space lattice constant grows (an inverse relationship, animated as you drag the slider), and that the first Brillouin zone boundary sits exactly halfway between the origin and the nearest reciprocal lattice point.</p>
 </div>
 <p><a href="../../sims/reciprocal-lattice-brillouin-zone-explorer/">Full MicroSim documentation →</a></p>
 <div class="admonition example">
@@ -9834,6 +9890,17 @@ P\,\frac{\sin(\alpha a)}{\alpha a} + \cos(\alpha a) = \cos(ka)
 </tbody>
 </table>
 <p>The valence and conduction bands are singled out for special attention because, as Chapter 7 will show in detail, essentially all of a semiconductor's electrical behavior — its conductivity, its response to doping, its behavior in a diode or transistor — is governed by electrons and holes in exactly these two bands and the size of the band gap separating them.</p>
+<h3 id="where-bands-actually-come-from-isolated-atoms-to-a-crystal">Where Bands Actually Come From: Isolated Atoms to a Crystal</h3>
+<p>The Kronig-Penney model shows band formation as a purely mathematical result of solving a periodic potential. It is worth pausing to see the same result from a more physical starting point. Every isolated atom has the same sharp, discrete energy levels — an isolated atom's electron cannot have "almost" the ground-state energy, only exactly that energy. Bringing <span class="arithmatex">\(N\)</span> identical atoms together into a crystal lets their electron wavefunctions begin to overlap, and quantum mechanics forbids <span class="arithmatex">\(N\)</span> coupled identical atoms from sharing <span class="arithmatex">\(N\)</span> exactly-degenerate levels: each atomic level must split into <span class="arithmatex">\(N\)</span> distinct, closely-spaced states. For a real crystal, <span class="arithmatex">\(N\sim10^{23}\)</span>, so these <span class="arithmatex">\(N\)</span> split states are spaced so closely that they form what looks like a perfectly continuous energy band — exactly the energy bands the Kronig-Penney model produces directly.</p>
+<h4 id="diagram-energy-band-formation-explorer">Diagram: Energy Band Formation Explorer</h4>
+<iframe height="770px" scrolling="auto" src="../../sims/energy-band-formation-explorer/main.html" width="100%"></iframe>
+<div class="admonition tip">
+<p class="admonition-title">How to use this MicroSim</p>
+<p><strong>Instructions:</strong> Set the number of atoms N to a small value like 3 and drag the interatomic-spacing slider from large (isolated atoms) down to small (equilibrium spacing), counting the individual levels each atomic level splits into. Then increase N to 40 and confirm the same splitting now looks like two continuous shaded bands rather than countable lines.</p>
+<p><strong>Learning objective:</strong> Connect the discrete-level splitting of a finite number of coupled atoms to the continuous energy bands the Kronig-Penney model produces in the large-N limit, and see the valence/conduction band terminology apply directly at equilibrium spacing.</p>
+<p><strong>What to observe:</strong> The split-level bandwidth grows as spacing shrinks (stronger wavefunction overlap), while the total number of atoms N controls only how finely that bandwidth is subdivided — not its size. This is why a real crystal's ~10²³ atoms produce a genuinely continuous-looking band from the same underlying discrete physics.</p>
+</div>
+<p><a href="../../sims/energy-band-formation-explorer/">Full MicroSim documentation →</a></p>
 <div class="admonition question">
 <p class="admonition-title">Concept Check</p>
 <p>Explain why the valence band is, by definition, always the band immediately <em>below</em> the band gap that separates it from the conduction band, rather than some lower-lying, already fully-occupied band.</p>
@@ -9846,6 +9913,10 @@ P\,\frac{\sin(\alpha a)}{\alpha a} + \cos(\alpha a) = \cos(ka)
 <p class="admonition-title">Worked Example 3 — Identifying Bands from a Filling Description</p>
 <p>A hypothetical 1D crystal's Kronig-Penney solution produces three energy bands, labeled I (lowest), II (middle), and III (highest). At absolute zero, bands I and II are completely full of electrons, and band III is completely empty. Identify the valence band and the conduction band.</p>
 <p><strong>Solution:</strong> The valence band is the highest <em>completely filled</em> band, which is band II. The conduction band is the next band up, band III.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Looking ahead: the detailed shape of a band</p>
+<p>This chapter establishes <em>that</em> bands form and <em>where</em> their gaps sit, but treats every band as a flat, generic strip of allowed energy. Real bands have curvature — some steep, some nearly flat — and that curvature varies with the crystal direction, which is exactly why a band's conduction-band minimum and valence-band maximum are not always at the same <span class="arithmatex">\(k\)</span>. Chapter 6 picks up precisely here, defining effective mass from band curvature and classifying materials as direct- or indirect-gap based on where these extrema sit. You can see both ideas in action now in the <a href="../../sims/direct-indirect-bandgap-explorer/">Direct vs. Indirect Bandgap E-k Explorer</a>, Chapter 6's MicroSim comparing GaAs, Si, and Ge on a real E-k diagram.</p>
 </div>
 <h2 id="summary">Summary</h2>
 <p>This chapter solved the Schrödinger equation for the periodic potential created by a real crystal lattice (Chapter 3) and its chemical bonding (Chapter 4). Bloch's theorem showed that every solution must take the form <span class="arithmatex">\(\psi_k(x)=e^{ikx}u_k(x)\)</span>, a traveling wave modulated by a lattice-periodic function, introducing the Bloch wavevector <span class="arithmatex">\(k\)</span> and crystal momentum <span class="arithmatex">\(\hbar k\)</span>. The Kronig-Penney model, an exactly solvable periodic array of rectangular barriers, produced a transcendental equation, <span class="arithmatex">\(P\sin(\alpha a)/(\alpha a)+\cos(\alpha a)=\cos(ka)\)</span>, whose right-hand side's restriction to <span class="arithmatex">\([-1,1]\)</span> directly explained band formation: energies where the equation has no real solution become forbidden band gaps, and energies where it does become continuous allowed energy bands. The reciprocal lattice and Brillouin zone provided the natural k-space language for this result, and the chapter's key geometric finding was that band gaps open precisely at the Brillouin zone boundaries <span class="arithmatex">\(k=\pm n\pi/a\)</span>. Finally, the highest completely-filled band at absolute zero was named the valence band, and the next band up the conduction band — terminology that Chapters 6 and 7 build on directly. With band formation now established, Chapter 6 turns to the detailed shape of these bands (direct vs. indirect gaps, effective mass, density of states) and locates the Fermi level within them.</p>

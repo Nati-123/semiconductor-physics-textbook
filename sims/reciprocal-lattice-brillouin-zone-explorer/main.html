@@ -13,6 +13,22 @@
         html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
         main { display: flex; flex-direction: column; }
         main canvas { display: block; }
+        /* p5's describe(..., LABEL) renders a visible accessibility caption
+           after the canvas; make it screen-reader-only instead, since a
+           visible text blob that wraps to many lines at narrow widths would
+           otherwise make the sim's total height width-dependent and force
+           an iframe scrollbar on mobile. */
+        .p5Label {
+            position: absolute !important;
+            width: 1px !important;
+            height: 1px !important;
+            padding: 0 !important;
+            margin: -1px !important;
+            overflow: hidden !important;
+            clip: rect(0, 0, 0, 0) !important;
+            white-space: nowrap !important;
+            border: 0 !important;
+        }
     </style>
     <script src="reciprocal-lattice-brillouin-zone-explorer.js"></script>
     <script src="../sim-accessibility.js"></script>
@@ -28,10 +44,11 @@
 
         <h3>Try This</h3>
         <ul class="explore-list">
-            <li><strong>Try this:</strong> In "Real vs. Reciprocal Lattice" view, drag the a_x slider from small to large and watch the reciprocal lattice (right panel) compress as the real lattice (left panel) expands.</li>
-            <li><strong>Predict:</strong> Before unchecking "Square lattice," predict what shape the reciprocal lattice will become if you stretch a_x much larger than a_y in real space.</li>
-            <li><strong>Observe:</strong> Uncheck "Square lattice," set a_x much larger than a_y, and confirm the reciprocal lattice points become widely spaced in the x-direction but closely spaced in y — the inverse relationship applies independently along each axis.</li>
-            <li><strong>Switch views:</strong> Select "Brillouin Zone" and watch the shaded first-zone rectangle resize as you adjust a_x and a_y — note it always extends exactly half the reciprocal spacing in each direction.</li>
+            <li><strong>Try this:</strong> In "Real vs. Reciprocal Lattice" view, drag the a_x slider from small to large and watch the reciprocal lattice (right panel) compress as the real lattice (left panel) expands, with the numerical readout updating live.</li>
+            <li><strong>Predict:</strong> Before selecting "Rectangular lattice," predict what shape the reciprocal lattice will become if you stretch a_x much larger than a_y in real space.</li>
+            <li><strong>Observe:</strong> Select "Rectangular lattice," set a_x much larger than a_y, and confirm the reciprocal lattice points become widely spaced in the x-direction but closely spaced in y — the inverse relationship applies independently along each axis.</li>
+            <li><strong>Rotate:</strong> Drag the rotation slider and confirm the primitive vectors a₁/a₂, the reciprocal vectors b₁/b₂, and the shaded Brillouin zone all rotate together, since the reciprocal lattice is built directly from the real lattice.</li>
+            <li><strong>Switch views:</strong> Select "Wigner-Seitz Construction" and watch the shaded first-zone rectangle resize as you adjust a_x and a_y — note it always extends exactly half the reciprocal spacing in each direction.</li>
             <li><strong>Explain:</strong> Explain why the dashed perpendicular-bisector lines, not the reciprocal lattice points themselves, are what actually define the Brillouin zone boundary.</li>
         </ul>
 
@@ -40,13 +57,13 @@
         <h3>What Each Control Does</h3>
         <dl class="control-captions">
             <dt>View dropdown</dt>
-            <dd>Switches between "Real vs. Reciprocal Lattice" (side-by-side comparison) and "Brillouin Zone" (Wigner-Seitz construction).</dd>
-            <dt>a_x slider</dt>
-            <dd>Sets the real-space lattice constant along x; the reciprocal lattice spacing along x updates as <span class="arithmatex">\(2\pi/a_x\)</span>.</dd>
-            <dt>a_y slider</dt>
-            <dd>Sets the real-space lattice constant along y (only active when "Square lattice" is unchecked).</dd>
-            <dt>Square lattice checkbox</dt>
-            <dd>When checked, locks a_y to always match a_x, showing a square lattice; uncheck to explore a rectangular lattice independently along each axis.</dd>
+            <dd>Switches between "Real vs. Reciprocal Lattice" (side-by-side comparison, with the first Brillouin zone overlaid) and "Wigner-Seitz Construction" (zoomed construction of the first Brillouin zone).</dd>
+            <dt>Shape dropdown</dt>
+            <dd>"Square lattice" locks a_y to always match a_x; "Rectangular lattice" allows a_x and a_y to be set independently.</dd>
+            <dt>a_x, a_y sliders</dt>
+            <dd>Set the real-space lattice constants (in nanometers); the reciprocal lattice spacing updates as <span class="arithmatex">\(2\pi/a\)</span> along each axis, shown numerically below the controls.</dd>
+            <dt>Rotation slider</dt>
+            <dd>Rotates the real lattice, its primitive vectors, and the corresponding reciprocal lattice/Brillouin zone together, by the same angle.</dd>
         </dl>
 
         <h3>Challenge Questions</h3>
@@ -64,7 +81,7 @@
         </div>
 
         <div class="challenge" data-correct="c">
-            <p class="q-text">2. What construction defines the boundary of the first Brillouin zone shown in "Brillouin Zone" view?</p>
+            <p class="q-text">2. What construction defines the boundary of the first Brillouin zone shown in "Wigner-Seitz Construction" view?</p>
             <label><input type="radio" name="rlbz-q2" value="a"> A random rectangle</label>
             <label><input type="radio" name="rlbz-q2" value="b"> The real-space unit cell, unchanged</label>
             <label><input type="radio" name="rlbz-q2" value="c"> The perpendicular bisectors to the nearest reciprocal lattice points (Wigner-Seitz construction)</label>
@@ -72,7 +89,7 @@
             <button class="check-btn" type="button">Check Answer</button>
             <span class="feedback" role="status" aria-live="polite"></span>
             <p class="explain-correct" hidden>The Brillouin zone is the Wigner-Seitz cell of the reciprocal lattice — the region enclosed by perpendicular bisector planes to the nearest reciprocal lattice points, shown as dashed lines in this MicroSim.</p>
-            <p class="explain-incorrect" hidden>Switch to "Brillouin Zone" view and look at the dashed lines connecting to the shaded rectangle.</p>
+            <p class="explain-incorrect" hidden>Switch to "Wigner-Seitz Construction" view and look at the dashed lines connecting to the shaded rectangle.</p>
         </div>
 
         <div class="challenge" data-correct="a">
@@ -84,7 +101,19 @@
             <button class="check-btn" type="button">Check Answer</button>
             <span class="feedback" role="status" aria-live="polite"></span>
             <p class="explain-correct" hidden>Because reciprocal spacing is inversely proportional to real-space spacing along each axis independently, stretching a_x (making it large) shrinks the reciprocal spacing along k_x, making the Brillouin zone narrow in k_x and, by comparison, tall in k_y.</p>
-            <p class="explain-incorrect" hidden>Uncheck "Square lattice," set a_x much larger than a_y, and switch to "Brillouin Zone" view to see the resulting rectangle's proportions.</p>
+            <p class="explain-incorrect" hidden>Select "Rectangular lattice," set a_x much larger than a_y, and switch to "Wigner-Seitz Construction" view to see the resulting rectangle's proportions.</p>
+        </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">4. When you drag the rotation slider, what happens to the reciprocal lattice and Brillouin zone?</p>
+            <label><input type="radio" name="rlbz-q4" value="a"> They stay fixed while only the real lattice rotates</label>
+            <label><input type="radio" name="rlbz-q4" value="b"> They rotate by the same angle as the real lattice, since the reciprocal lattice is built directly from it</label>
+            <label><input type="radio" name="rlbz-q4" value="c"> They rotate in the opposite direction</label>
+            <label><input type="radio" name="rlbz-q4" value="d"> They disappear</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>The reciprocal lattice vectors are defined directly from the real-space lattice vectors, so rotating the real lattice rotates the reciprocal lattice — and the Brillouin zone built from it — by exactly the same angle.</p>
+            <p class="explain-incorrect" hidden>Drag the rotation slider and watch both panels together, including the a₁/a₂ and b₁/b₂ vectors.</p>
         </div>
 
     </div>

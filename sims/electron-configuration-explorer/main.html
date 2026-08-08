@@ -13,6 +13,40 @@
         html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
         main { display: flex; flex-direction: column; }
         main canvas { display: block; }
+        .control-panel {
+            background: #f5f5f5;
+            border-top: 1px solid silver;
+            padding: 8px 16px;
+            box-sizing: border-box;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 6px 10px;
+        }
+        .control-panel .ctrl-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #555;
+            margin-right: 4px;
+        }
+        .control-panel .preset-btn {
+            font-size: 12px;
+            padding: 4px 10px;
+            background: #EEF4FF;
+            border: 1px solid #A8C8FF;
+            border-radius: 6px;
+            color: #5A3EED;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .control-panel .preset-btn:hover {
+            background: #DDE8FF;
+        }
+        .control-panel .preset-btn.active {
+            background: #5A3EED;
+            color: white;
+            border-color: #5A3EED;
+        }
     </style>
     <script src="electron-configuration-explorer.js"></script>
     <script src="../sim-accessibility.js"></script>

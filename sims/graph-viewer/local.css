@@ -102,8 +102,11 @@ body {
    ================================ */
 .sidebar-content {
     flex: 1;
-    overflow-y: auto;
+    overflow: hidden;
     padding: 15px;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
 }
 
 /* ================================
@@ -113,6 +116,7 @@ body {
 .search-container {
     margin-bottom: 20px;
     position: relative;
+    flex-shrink: 0;
 }
 
 .search-container label {
@@ -193,12 +197,21 @@ body {
    ================================ */
 .legend-container {
     margin-bottom: 20px;
+    /* flex-basis: 0 (not auto) is required here -- with "auto" this item's
+       height resolves from its own content instead of the space actually
+       available in the sidebar, which let it grow to fit all 14 categories
+       unclamped and push the stats panel below the viewport on mobile. */
+    flex: 1 1 0;
+    min-height: 140px;
+    display: flex;
+    flex-direction: column;
 }
 
 .legend-container h5 {
     font-weight: 600;
     margin-bottom: 10px;
     color: #333;
+    flex-shrink: 0;
 }
 
 /* Check All / Uncheck All buttons */
@@ -206,6 +219,7 @@ body {
     display: flex;
     gap: 8px;
     margin-bottom: 12px;
+    flex-shrink: 0;
 }
 
 .legend-btn {
@@ -224,9 +238,12 @@ body {
     border-color: #bbb;
 }
 
-/* Legend items container - scrollable for many categories */
+/* Legend items container - scrolls independently within its own flex slot,
+   so it never crowds out the search box above or the stats panel below,
+   however many categories or however short the browser window is. */
 #legend {
-    max-height: 400px;
+    flex: 1 1 auto;
+    min-height: 0;
     overflow-y: auto;
 }
 
@@ -269,6 +286,7 @@ body {
 .stats-container {
     background-color: #f9f9f9;
     padding: 12px;
+    flex-shrink: 0;
     border-radius: 6px;
 }
 
@@ -314,7 +332,9 @@ body {
     position: absolute;
     top: 12px;
     left: 12px;
+    right: 12px;
     display: flex;
+    flex-wrap: wrap;
     gap: 8px;
     z-index: 20;
 }
@@ -330,6 +350,8 @@ body {
     cursor: pointer;
     box-shadow: 0 2px 6px rgba(0,0,0,0.12);
     transition: all 0.15s;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .toolbar-btn:hover {
@@ -499,5 +521,21 @@ body {
 
     .node-detail-panel {
         width: calc(100% - 24px);
+        /* Leave clear room for the bottom toolbar (moved below) so the
+           panel's own box never extends into it, even while scrolled. */
+        max-height: calc(100% - 130px);
+    }
+
+    /* Move the toolbar to the bottom on narrow screens instead of sitting
+       behind the near-full-width detail panel and blocking its buttons.
+       Smaller/tighter buttons keep it to one row on most phones. */
+    .graph-toolbar {
+        top: auto;
+        bottom: 12px;
+    }
+
+    .toolbar-btn {
+        padding: 6px 9px;
+        font-size: 11.5px;
     }
 }

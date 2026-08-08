@@ -8,7 +8,6 @@
 let containerWidth;
 let canvasWidth = 750;
 let drawHeight = 340;
-let minDrawHeight = 340;
 let controlHeight = 130;
 let canvasHeight = drawHeight + controlHeight;
 let containerHeight = canvasHeight;
@@ -80,7 +79,7 @@ function draw() {
   fill('black');
   noStroke();
   textAlign(CENTER, TOP);
-  textSize(18);
+  textSize(canvasWidth < 500 ? 14 : 18);
   text("Coulomb's Law Force and Field Explorer", canvasWidth / 2, 10);
 
   const q1nC = q1Slider.value();
@@ -122,8 +121,8 @@ function drawDiagram(q1nC, q2nC, rNm, F) {
   textSize(12);
   text('r = ' + rNm.toFixed(1) + ' nm', cx, bracketY + 8);
 
-  drawCharge(x1, cy, q1nC, 'q₁');
-  drawCharge(x2, cy, q2nC, 'q₂');
+  drawCharge(x1, cy, q1nC, 'q₁', 'left');
+  drawCharge(x2, cy, q2nC, 'q₂', 'right');
 
   // force vectors: length scaled to log of |F| for visibility across many orders of magnitude
   const absF = abs(F);
@@ -150,7 +149,7 @@ function drawDiagram(q1nC, q2nC, rNm, F) {
   }
 }
 
-function drawCharge(x, y, qnC, label) {
+function drawCharge(x, y, qnC, label, side) {
   const isPos = qnC >= 0;
   fill(isPos ? '#E53935' : '#1E88E5');
   stroke(0);
@@ -163,7 +162,15 @@ function drawCharge(x, y, qnC, label) {
   text(isPos ? '+' : '−', x, y - 2);
   fill(0);
   textSize(12);
-  text(label + ' = ' + qnC.toFixed(1) + ' nC', x, y + 33);
+  // Anchor the label so it grows away from the other charge, so the two
+  // labels never collide even when the charges are drawn close together.
+  if (side === 'left') {
+    textAlign(RIGHT, TOP);
+    text(label + ' = ' + qnC.toFixed(1) + ' nC', x, y + 33);
+  } else {
+    textAlign(LEFT, TOP);
+    text(label + ' = ' + qnC.toFixed(1) + ' nC', x, y + 33);
+  }
 }
 
 function drawArrow(x1, y1, x2, y2) {
@@ -178,26 +185,32 @@ function drawArrow(x1, y1, x2, y2) {
 }
 
 function drawReadouts(F, E, V, U) {
-  const px = canvasWidth * 0.68;
-  let py = 55;
-  const lineH = 26;
+  // Anchor from the right edge (instead of a fixed % of canvasWidth) so the
+  // box always stays fully inside the canvas, even at mobile widths.
+  const boxW = constrain(canvasWidth * 0.34, 150, 300);
+  const px = canvasWidth - boxW - 15;
+  const fs = canvasWidth < 500 ? 11 : 14;
+  const lineH = fs * 2.3;
+  const textW = boxW - 24;
+  let py = 50;
 
   fill(245);
   stroke(200);
   strokeWeight(1);
-  rect(px - 20, py - 25, min(canvasWidth * 0.30, 280), 4 * lineH + 20, 8);
+  rect(px - 12, py - 15, boxW, 4 * lineH + 20, 8);
 
   noStroke();
   fill(20);
   textAlign(LEFT, TOP);
-  textSize(14);
-  text('Force F = ' + formatSci(F) + ' N', px, py);
+  textSize(fs);
+  textWrap(WORD);
+  text('Force F = ' + formatSci(F) + ' N', px, py, textW);
   py += lineH;
-  text('Field E (at q₂) = ' + formatSci(E) + ' V/m', px, py);
+  text('Field E (at q₂) = ' + formatSci(E) + ' V/m', px, py, textW);
   py += lineH;
-  text('Potential V (at q₂) = ' + formatSci(V) + ' V', px, py);
+  text('Potential V (at q₂) = ' + formatSci(V) + ' V', px, py, textW);
   py += lineH;
-  text('Energy U = ' + formatSci(U) + ' J', px, py);
+  text('Energy U = ' + formatSci(U) + ' J', px, py, textW);
 }
 
 function drawControlLabels(q1nC, q2nC, rNm) {
@@ -230,15 +243,6 @@ function updateCanvasSize() {
   var mainEl = document.querySelector('main');
   containerWidth = Math.floor(mainEl.getBoundingClientRect().width);
   canvasWidth = containerWidth;
-
-  var availableHeight = window.innerHeight;
-  var children = mainEl.children;
-  for (var i = 0; i < children.length; i++) {
-    if (children[i].tagName !== 'CANVAS') {
-      availableHeight -= children[i].offsetHeight;
-    }
-  }
-  drawHeight = Math.max(minDrawHeight, availableHeight - controlHeight);
   canvasHeight = drawHeight + controlHeight;
   containerHeight = canvasHeight;
 }

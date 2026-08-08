@@ -7,13 +7,15 @@
 
 let containerWidth;
 let canvasWidth = 750;
-let drawHeight = 400;
-let minDrawHeight = 400;
-let controlHeight = 90;
+let drawHeight = 360;
+let controlHeight = 105;
 let canvasHeight = drawHeight + controlHeight;
 let containerHeight = canvasHeight;
 
 let margin = 20;
+let plotTop = 40;
+let plotBottom = drawHeight - 15;
+let maxArrowLen = 26;
 let modeSelect, fieldSelect;
 
 const GRADIENT_FIELDS = [
@@ -80,11 +82,13 @@ function positionUIElements() {
 function draw() {
   updateCanvasSize();
 
+  // Drawing area
   fill('aliceblue');
   stroke('silver');
   strokeWeight(1);
   rect(0, 0, canvasWidth, drawHeight);
 
+  // Control area
   fill('white');
   noStroke();
   rect(0, drawHeight, canvasWidth, controlHeight);
@@ -92,7 +96,7 @@ function draw() {
   fill('black');
   noStroke();
   textAlign(CENTER, TOP);
-  textSize(18);
+  textSize(canvasWidth < 500 ? 13 : 18);
   text('Gradient, Divergence, and Curl Explorer', canvasWidth / 2, 10);
 
   const mode = modeSelect.value();
@@ -101,19 +105,25 @@ function draw() {
   if (!field) field = fields[0];
 
   const originX = canvasWidth / 2;
-  const originY = drawHeight / 2 + 15;
+  const originY = plotTop + (plotBottom - plotTop) / 2;
   const worldRange = 3;
-  const scalePx = min(60, (canvasWidth * 0.7) / (2 * worldRange));
 
+  // Fit the world grid (plus the longest possible arrow) inside both the
+  // horizontal and vertical plot bounds so nothing is ever clipped.
+  const scalePxW = (canvasWidth - 2 * margin - 2 * maxArrowLen) / (2 * worldRange);
+  const scalePxH = (plotBottom - plotTop - 2 * maxArrowLen) / (2 * worldRange);
+  const scalePx = constrain(min(scalePxW, scalePxH), 15, 55);
+
+  let caption;
   if (mode === 'Gradient') {
-    drawGradientMode(field, originX, originY, scalePx, worldRange);
+    caption = drawGradientMode(field, originX, originY, scalePx, worldRange);
   } else if (mode === 'Divergence') {
-    drawVectorFieldMode(field, originX, originY, scalePx, worldRange, 'div', field.div);
+    caption = drawVectorFieldMode(field, originX, originY, scalePx, worldRange, 'div', field.div);
   } else {
-    drawVectorFieldMode(field, originX, originY, scalePx, worldRange, 'curl', field.curl);
+    caption = drawVectorFieldMode(field, originX, originY, scalePx, worldRange, 'curl', field.curl);
   }
 
-  drawControlLabels(mode);
+  drawControlLabels(mode, caption);
 }
 
 function drawGradientMode(field, originX, originY, scalePx, worldRange) {
@@ -127,7 +137,7 @@ function drawGradientMode(field, originX, originY, scalePx, worldRange) {
   noStroke();
   const cell = 10;
   for (let px = margin; px < canvasWidth - margin; px += cell) {
-    for (let py = 40; py < drawHeight - 20; py += cell) {
+    for (let py = plotTop; py < plotBottom; py += cell) {
       const wx = (px - originX) / scalePx;
       const wy = -(py - originY) / scalePx;
       const v = field.V(wx, wy) / maxV; // -1..1 roughly
@@ -148,7 +158,7 @@ function drawGradientMode(field, originX, originY, scalePx, worldRange) {
       const [gxv, gyv] = field.grad(gx, gy);
       const mag = sqrt(gxv * gxv + gyv * gyv);
       if (mag < 0.05) continue;
-      const len = constrain(mag * 6, 6, 26);
+      const len = constrain(mag * 6, 6, maxArrowLen);
       const ux = gxv / mag;
       const uy = gyv / mag;
       const px = originX + gx * scalePx;
@@ -157,11 +167,7 @@ function drawGradientMode(field, originX, originY, scalePx, worldRange) {
     }
   }
 
-  noStroke();
-  fill(20);
-  textAlign(LEFT, TOP);
-  textSize(13);
-  text('Arrows show ∇V (direction of steepest increase)', margin, drawHeight - 22);
+  return 'Arrows show ∇V (direction of steepest increase)';
 }
 
 function drawVectorFieldMode(field, originX, originY, scalePx, worldRange, kind, value) {
@@ -177,7 +183,7 @@ function drawVectorFieldMode(field, originX, originY, scalePx, worldRange, kind,
       : color(126, 87, 194, 35);
     fill(col);
     noStroke();
-    rect(margin, 40, canvasWidth - 2 * margin, drawHeight - 60);
+    rect(margin, plotTop, canvasWidth - 2 * margin, plotBottom - plotTop);
   }
 
   stroke(20);
@@ -188,7 +194,7 @@ function drawVectorFieldMode(field, originX, originY, scalePx, worldRange, kind,
       const [fx, fy] = field.F(gx, gy);
       const mag = sqrt(fx * fx + fy * fy);
       if (mag < 0.05) continue;
-      const len = constrain(mag * 10, 8, 26);
+      const len = constrain(mag * 10, 8, maxArrowLen);
       const ux = fx / mag;
       const uy = fy / mag;
       const px = originX + gx * scalePx;
@@ -197,15 +203,10 @@ function drawVectorFieldMode(field, originX, originY, scalePx, worldRange, kind,
     }
   }
 
-  noStroke();
-  fill(20);
-  textAlign(LEFT, TOP);
-  textSize(13);
   if (kind === 'div') {
-    text('∇·F = ' + value + (value > 0 ? '  (source: red tint)' : value < 0 ? '  (sink: blue tint)' : '  (no source or sink)'), margin, drawHeight - 22);
-  } else {
-    text('∇×F (z-component) = ' + value + (value !== 0 ? '  (rotational: purple tint)' : '  (no rotation)'), margin, drawHeight - 22);
+    return '∇·F = ' + value + (value > 0 ? '  (source: red tint)' : value < 0 ? '  (sink: blue tint)' : '  (no source or sink)');
   }
+  return '∇×F (z-component) = ' + value + (value !== 0 ? '  (rotational: purple tint)' : '  (no rotation)');
 }
 
 function divergingColor(v) {
@@ -234,13 +235,21 @@ function drawArrow(x1, y1, x2, y2) {
   pop();
 }
 
-function drawControlLabels(mode) {
+function drawControlLabels(mode, caption) {
   fill('black');
   noStroke();
   textAlign(RIGHT, CENTER);
   textSize(13);
   text('Operator:', 100, drawHeight + 27);
   text('Field:', 100, drawHeight + 62);
+
+  // Dedicated caption/status area below the controls — never overlaps the plot.
+  fill('#555');
+  noStroke();
+  textAlign(CENTER, TOP);
+  textSize(12);
+  textWrap(WORD);
+  text(caption, margin, drawHeight + 84, canvasWidth - 2 * margin, controlHeight - 84);
 }
 
 function windowResized() {
@@ -254,15 +263,6 @@ function updateCanvasSize() {
   var mainEl = document.querySelector('main');
   containerWidth = Math.floor(mainEl.getBoundingClientRect().width);
   canvasWidth = containerWidth;
-
-  var availableHeight = window.innerHeight;
-  var children = mainEl.children;
-  for (var i = 0; i < children.length; i++) {
-    if (children[i].tagName !== 'CANVAS') {
-      availableHeight -= children[i].offsetHeight;
-    }
-  }
-  drawHeight = Math.max(minDrawHeight, availableHeight - controlHeight);
   canvasHeight = drawHeight + controlHeight;
   containerHeight = canvasHeight;
 }

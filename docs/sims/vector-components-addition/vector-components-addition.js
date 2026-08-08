@@ -7,8 +7,7 @@
 let containerWidth;
 let canvasWidth = 750;
 let drawHeight = 380;
-let minDrawHeight = 380;
-let controlHeight = 150;
+let controlHeight = 165;
 let canvasHeight = drawHeight + controlHeight;
 let containerHeight = canvasHeight;
 
@@ -53,11 +52,23 @@ function setup() {
 
 function positionUIElements() {
   let mainRect = document.querySelector('main').getBoundingClientRect();
+  const sliderW = constrain(mainRect.width - 160 - 20, 80, 180);
+  magASlider.size(sliderW);
+  angASlider.size(sliderW);
+  magBSlider.size(sliderW);
+  angBSlider.size(sliderW);
   magASlider.position(mainRect.left + 160, mainRect.top + drawHeight + 15);
   angASlider.position(mainRect.left + 160, mainRect.top + drawHeight + 45);
   magBSlider.position(mainRect.left + 160, mainRect.top + drawHeight + 75);
   angBSlider.position(mainRect.left + 160, mainRect.top + drawHeight + 105);
-  showComponentsCheckbox.position(mainRect.left + 400, mainRect.top + drawHeight + 15);
+
+  // Place the checkbox beside the sliders when there's room, otherwise below them.
+  const besideX = mainRect.left + 160 + sliderW + 40;
+  if (mainRect.width >= 620) {
+    showComponentsCheckbox.position(besideX, mainRect.top + drawHeight + 15);
+  } else {
+    showComponentsCheckbox.position(mainRect.left + 20, mainRect.top + drawHeight + 135);
+  }
 }
 
 function draw() {
@@ -75,7 +86,7 @@ function draw() {
   fill('black');
   noStroke();
   textAlign(CENTER, TOP);
-  textSize(18);
+  textSize(canvasWidth < 500 ? 14 : 18);
   text('Vector Components and Addition', canvasWidth / 2, 10);
 
   const magA = magASlider.value();
@@ -94,8 +105,10 @@ function draw() {
   const originX = canvasWidth * 0.32;
   const originY = drawHeight / 2 + 30;
   const scalePx = min(28, (canvasWidth * 0.55) / 22);
+  const boxW = readoutBoxWidth();
+  const plotRightX = min(canvasWidth * 0.62, canvasWidth - boxW - 25);
 
-  drawGrid(originX, originY, scalePx);
+  drawGrid(originX, originY, scalePx, plotRightX);
 
   // Component projections (dashed) for vector A
   if (showComp) {
@@ -151,23 +164,27 @@ function draw() {
   drawControlLabels(magA, angASlider.value(), magB, angBSlider.value());
 }
 
-function drawGrid(originX, originY, scalePx) {
+function drawGrid(originX, originY, scalePx, plotRightX) {
   stroke(210);
   strokeWeight(1);
   for (let i = -10; i <= 10; i++) {
     line(originX + i * scalePx, 40, originX + i * scalePx, drawHeight - 20);
-    line(margin, originY + i * scalePx, canvasWidth * 0.62, originY + i * scalePx);
+    line(margin, originY + i * scalePx, plotRightX, originY + i * scalePx);
   }
   stroke(90);
   strokeWeight(1.5);
-  line(margin, originY, canvasWidth * 0.62, originY);
+  line(margin, originY, plotRightX, originY);
   line(originX, 40, originX, drawHeight - 20);
   noStroke();
   fill(80);
   textSize(11);
   textAlign(LEFT, TOP);
-  text('x', canvasWidth * 0.62 - 12, originY + 4);
+  text('x', plotRightX - 12, originY + 4);
   text('y', originX + 4, 42);
+}
+
+function readoutBoxWidth() {
+  return constrain(canvasWidth * 0.34, 160, 300);
 }
 
 function drawVector(x0, y0, dx, dy) {
@@ -184,36 +201,41 @@ function drawVector(x0, y0, dx, dy) {
 }
 
 function drawReadouts(Ax, Ay, magA, angADeg, Bx, By, magB, angBDeg, Rx, Ry) {
-  const px = canvasWidth * 0.66;
-  let py = 45;
-  const lineH = 19;
+  const boxW = readoutBoxWidth();
+  const px = canvasWidth - boxW - 15;
+  const fs = canvasWidth < 500 ? 10 : 13;
+  // Generous line height so a wrapped (2-line) row never collides with the next row.
+  const lineH = fs * 2.4;
+  const textW = boxW - 22;
+  let py = 46;
 
   fill(245);
   stroke(200);
   strokeWeight(1);
-  rect(px - 15, py - 15, min(canvasWidth * 0.32, 300), 8 * lineH + 15, 8);
+  rect(px - 12, py - 12, boxW, 8 * lineH + 15, 8);
 
   noStroke();
   fill('#1565C0');
   textAlign(LEFT, TOP);
-  textSize(13);
-  text('A: |A| = ' + magA.toFixed(1) + ', θ = ' + angADeg + '°', px, py);
+  textSize(fs);
+  textWrap(WORD);
+  text('A: |A| = ' + magA.toFixed(1) + ', θ = ' + angADeg + '°', px, py, textW);
   py += lineH;
-  text('Ax = ' + Ax.toFixed(2) + ',  Ay = ' + (-Ay).toFixed(2), px, py);
+  text('Ax = ' + Ax.toFixed(2) + ',  Ay = ' + (-Ay).toFixed(2), px, py, textW);
   py += lineH * 1.3;
 
   fill('#2E7D32');
-  text('B: |B| = ' + magB.toFixed(1) + ', θ = ' + angBDeg + '°', px, py);
+  text('B: |B| = ' + magB.toFixed(1) + ', θ = ' + angBDeg + '°', px, py, textW);
   py += lineH;
-  text('Bx = ' + Bx.toFixed(2) + ',  By = ' + (-By).toFixed(2), px, py);
+  text('Bx = ' + Bx.toFixed(2) + ',  By = ' + (-By).toFixed(2), px, py, textW);
   py += lineH * 1.3;
 
   const magR = sqrt(Rx * Rx + Ry * Ry);
   const angR = (degrees(atan2(-Ry, Rx)) + 360) % 360;
   fill('#C62828');
-  text('R = A + B: |R| = ' + magR.toFixed(2) + ', θ = ' + angR.toFixed(1) + '°', px, py);
+  text('R = A + B: |R| = ' + magR.toFixed(2) + ', θ = ' + angR.toFixed(1) + '°', px, py, textW);
   py += lineH;
-  text('Rx = ' + Rx.toFixed(2) + ',  Ry = ' + (-Ry).toFixed(2), px, py);
+  text('Rx = ' + Rx.toFixed(2) + ',  Ry = ' + (-Ry).toFixed(2), px, py, textW);
 }
 
 function drawControlLabels(magA, angADeg, magB, angBDeg) {
@@ -238,15 +260,6 @@ function updateCanvasSize() {
   var mainEl = document.querySelector('main');
   containerWidth = Math.floor(mainEl.getBoundingClientRect().width);
   canvasWidth = containerWidth;
-
-  var availableHeight = window.innerHeight;
-  var children = mainEl.children;
-  for (var i = 0; i < children.length; i++) {
-    if (children[i].tagName !== 'CANVAS') {
-      availableHeight -= children[i].offsetHeight;
-    }
-  }
-  drawHeight = Math.max(minDrawHeight, availableHeight - controlHeight);
   canvasHeight = drawHeight + controlHeight;
   containerHeight = canvasHeight;
 }

@@ -9,7 +9,6 @@
 let containerWidth;
 let canvasWidth = 750;
 let drawHeight = 380;
-let minDrawHeight = 380;
 let controlHeight = 110;
 let canvasHeight = drawHeight + controlHeight;
 let containerHeight = canvasHeight;
@@ -57,9 +56,13 @@ function setup() {
 
 function positionUIElements() {
   let mainRect = document.querySelector('main').getBoundingClientRect();
+  const sliderW = constrain(mainRect.width - 190 - 20, 80, 180);
+  radiusSlider.size(sliderW);
+  chargeSlider.size(sliderW);
   radiusSlider.position(mainRect.left + 190, mainRect.top + drawHeight + 15);
   chargeSlider.position(mainRect.left + 190, mainRect.top + drawHeight + 45);
-  toggleButton.position(mainRect.left + 190, mainRect.top + drawHeight + 75);
+  const btnX = Math.min(190, mainRect.width - 180);
+  toggleButton.position(mainRect.left + btnX, mainRect.top + drawHeight + 75);
 }
 
 function draw() {
@@ -77,7 +80,7 @@ function draw() {
   fill('black');
   noStroke();
   textAlign(CENTER, TOP);
-  textSize(18);
+  textSize(canvasWidth < 500 ? 14 : 18);
   text("Gauss's Law Explorer", canvasWidth / 2, 10);
 
   const rNm = radiusSlider.value();
@@ -169,33 +172,37 @@ function drawArrow(x1, y1, x2, y2) {
 }
 
 function drawReadouts(qnC, rNm, fluxInside, E_at_surface) {
-  const px = canvasWidth * 0.66;
-  let py = 55;
-  const lineH = 24;
+  const boxW = constrain(canvasWidth * 0.34, 150, 300);
+  const px = canvasWidth - boxW - 15;
+  const fs = canvasWidth < 500 ? 10 : 13;
+  const lineH = fs * 2.1;
+  const textW = boxW - 22;
+  let py = 52;
 
   fill(245);
   stroke(200);
   strokeWeight(1);
-  rect(px - 15, py - 20, min(canvasWidth * 0.32, 300), 4 * lineH + 15, 8);
+  rect(px - 12, py - 20, boxW, 4 * lineH + 15, 8);
 
   noStroke();
   fill(20);
   textAlign(LEFT, TOP);
-  textSize(13);
-  text('Charge enclosed: ' + (chargeInside ? 'Yes' : 'No'), px, py);
+  textSize(fs);
+  textWrap(WORD);
+  text('Charge enclosed: ' + (chargeInside ? 'Yes' : 'No'), px, py, textW);
   py += lineH;
   if (chargeInside) {
-    text('E at surface = ' + formatSci(E_at_surface) + ' V/m', px, py);
+    text('E at surface = ' + formatSci(E_at_surface) + ' V/m', px, py, textW);
     py += lineH;
-    text('Φ = Q_enc / ε₀ = ' + formatSci(fluxInside) + ' V·m', px, py);
+    text('Φ = Q_enc / ε₀ = ' + formatSci(fluxInside) + ' V·m', px, py, textW);
     py += lineH;
-    text('(changes only with q, not with r)', px, py);
+    text('(changes only with q, not with r)', px, py, textW);
   } else {
-    text('Q_enc = 0 (charge outside surface)', px, py);
+    text('Q_enc = 0 (charge outside surface)', px, py, textW);
     py += lineH;
-    text('Φ = Q_enc / ε₀ = 0 V·m', px, py);
+    text('Φ = Q_enc / ε₀ = 0 V·m', px, py, textW);
     py += lineH;
-    text('(field lines that enter also exit)', px, py);
+    text('(field lines that enter also exit)', px, py, textW);
   }
 }
 
@@ -228,15 +235,6 @@ function updateCanvasSize() {
   var mainEl = document.querySelector('main');
   containerWidth = Math.floor(mainEl.getBoundingClientRect().width);
   canvasWidth = containerWidth;
-
-  var availableHeight = window.innerHeight;
-  var children = mainEl.children;
-  for (var i = 0; i < children.length; i++) {
-    if (children[i].tagName !== 'CANVAS') {
-      availableHeight -= children[i].offsetHeight;
-    }
-  }
-  drawHeight = Math.max(minDrawHeight, availableHeight - controlHeight);
   canvasHeight = drawHeight + controlHeight;
   containerHeight = canvasHeight;
 }

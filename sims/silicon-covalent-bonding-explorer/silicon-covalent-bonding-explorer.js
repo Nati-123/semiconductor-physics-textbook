@@ -95,7 +95,6 @@ function startPlay() {
   playStartMs = millis();
   bondsSlider.value(0);
   updateReadout();
-  loop();
 }
 
 function updateReadout() {
@@ -137,7 +136,6 @@ function draw() {
       partial = 1;
       bondsSlider.value(4);
       updateReadout();
-      noLoop();
     }
   }
 

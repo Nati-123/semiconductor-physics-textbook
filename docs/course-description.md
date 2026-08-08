@@ -8,18 +8,43 @@ quality_score: 100
 
 # Semiconductor Physics
 
-**Title:** Semiconductor Physics
+## Course Map
 
-**Target Audience:** College undergraduate — junior-level Electrical Engineering and Applied/Engineering Physics majors
+This interactive graph shows how all 20 chapters of this course build on one another — every arrow is a real prerequisite relationship drawn from each chapter's own text. Click a chapter to highlight its prerequisites and dependents, drag nodes to rearrange, scroll to zoom, drag empty space to pan, hover for a short description, and double-click a chapter to open it.
 
-**Prerequisites:**
+This chapter-level roadmap is intentionally separate from the [Learning Graph](learning-graph/index.md), which maps the course's 256 individual concepts in much finer detail — the Course Map is meant to be understood in a few seconds, while the Learning Graph rewards deeper study.
+
+<div style="background: #EEF4FF; border: 2px solid #A8C8FF; border-radius: 12px; padding: 18px; margin: 1.2rem 0; box-shadow: 0 2px 8px rgba(90,61,237,0.07);">
+<iframe src="../sims/course-integration-map/main.html" height="750px" width="100%" scrolling="auto" style="border:none; border-radius:8px; overflow:hidden;"></iframe>
+</div>
+
+[Full MicroSim documentation →](sims/course-integration-map/index.md)
+
+---
+
+## Course Information
+
+- **Title:** Semiconductor Physics
+- **Format:** Free, self-paced interactive online textbook
+
+---
+
+## Target Audience
+
+College undergraduate — junior-level Electrical Engineering and Applied/Engineering Physics majors.
+
+---
+
+## Prerequisites
 
 - Calculus-based general physics (mechanics and electricity & magnetism)
 - Ordinary differential equations
 - Introductory modern/quantum physics (wave-particle duality, the Schrödinger equation at an introductory level)
 - Basic linear circuit analysis (Ohm's law, Kirchhoff's laws) is helpful but not required
 
-## Course Overview
+---
+
+## Course Description
 
 Semiconductor Physics introduces the quantum-mechanical and statistical foundations that explain how semiconductor materials behave and how that behavior is engineered into the diodes, transistors, and integrated circuits that underlie modern electronics. Students move from the atomic structure of crystalline solids, through energy band theory and carrier statistics, to the transport and junction physics that govern real devices.
 
@@ -27,24 +52,91 @@ This course bridges introductory physics and device-level electrical engineering
 
 The course emphasizes building physical intuition alongside quantitative modeling: students learn to read and construct band diagrams, apply carrier statistics to predict conductivity and Fermi level position, and derive the current-voltage behavior of a p-n junction from first principles.
 
-!!! tip "See how it all connects"
-    The interactive [Course Integration Map](sims/course-integration-map/index.md) shows how all 20 chapters below build on one another — every arrow is a real prerequisite relationship drawn from each chapter's own text.
+---
 
-## Main Topics Covered
+## Topics Covered
 
-- Crystal structure and bonding in solids (unit cells, Miller indices, covalent bonding in silicon/germanium)
-- Quantum mechanics foundations for solids (Schrödinger equation, particle in a box, tunneling)
-- Energy band theory (Kronig-Penney model, formation of bands and band gaps, direct vs. indirect gap materials)
-- Semiconductors in thermal equilibrium (intrinsic vs. extrinsic material, donors and acceptors, ionization)
-- Carrier statistics (density of states, Fermi-Dirac distribution, Fermi level position, carrier concentration equations)
-- Carrier transport (drift, mobility, conductivity, diffusion, the Einstein relation)
-- Non-equilibrium excess carriers (optical/thermal generation, recombination mechanisms, minority carrier lifetime, continuity equations)
-- The p-n junction (built-in potential, depletion approximation, junction capacitance, the ideal diode equation)
-- Metal-semiconductor junctions (Schottky barriers vs. ohmic contacts)
-- The MOS capacitor and semiconductor surfaces (accumulation, depletion, inversion — the physical basis of the MOSFET)
-- Optical and thermal properties of semiconductors (absorption, photogeneration, photodiodes/solar cells as an application)
-- Semiconductor device fabrication (crystal growth and wafer preparation, thermal oxidation, photolithography, thin-film deposition, diffusion and ion-implantation doping, wet/dry/plasma etching, metallization, CMOS process integration, manufacturing defects and yield)
-- Advanced and emerging device technologies (technology scaling and short-channel effects, FinFET and gate-all-around transistors, silicon-on-insulator technology, wide-bandgap semiconductors including SiC and GaN, compound semiconductors including GaAs and InP, optoelectronic devices including laser diodes, an introductory treatment of MEMS/NEMS and quantum dots, and applications in AI hardware, power electronics, and communications)
+### [Chapter 1: Physics and Math Foundations](chapters/01-physics-math-foundations/index.md)
+
+A self-contained review of classical physics, essential mathematics, vector calculus, and basic electromagnetics needed for semiconductor physics.
+
+### [Chapter 2: Quantum Mechanics Foundations](chapters/02-quantum-mechanics-foundations/index.md)
+
+An introduction to wave-particle duality, the Heisenberg uncertainty principle, the Schrödinger equation, and solvable quantum systems including the particle in a box and quantum tunneling.
+
+### [Chapter 3: Crystal Lattices and Structures](chapters/03-crystal-lattices-structures/index.md)
+
+An introduction to crystal lattices, unit cells, primitive cells, the cubic Bravais lattices (SC, BCC, FCC), the diamond and zincblende structures, and the use of Miller indices to describe crystal planes.
+
+### [Chapter 4: Chemical Bonding in Semiconductor Crystals](chapters/04-chemical-bonding-crystals/index.md)
+
+An explanation of covalent, ionic, and metallic bonding, silicon's electronic structure and valence electrons, the sp3 tetrahedral covalent bonding that produces the diamond lattice, and the amorphous, polycrystalline, and defective forms real crystals can take.
+
+### [Chapter 5: Quantum Mechanics of Periodic Crystals](chapters/05-quantum-mechanics-periodic-crystals/index.md)
+
+Bloch's theorem, the Kronig-Penney model, the reciprocal lattice, and the Brillouin zone, showing how a periodic crystal potential splits allowed atomic energy levels into continuous energy bands separated by forbidden band gaps.
+
+### [Chapter 6: Band Structure and the Fermi Level](chapters/06-band-structure-fermi-level/index.md)
+
+Direct vs. indirect band gaps on the E-k diagram, effective mass from band curvature, the density of states, the Fermi level and Fermi energy, and the band-structure classification of metals, insulators, semiconductors, and semimetals.
+
+### [Chapter 7: Intrinsic and Extrinsic Semiconductors](chapters/07-intrinsic-extrinsic-semiconductors/index.md)
+
+Intrinsic vs. extrinsic material, elemental and compound semiconductors, silicon/germanium/GaAs in practice, and donor/acceptor atoms as the foundation of doping.
+
+### [Chapter 8: Doping, Ionization, and Temperature Regimes](chapters/08-doping-ionization-temperature/index.md)
+
+N-type and p-type doping, dopant ionization and ionization energy, compensated and degenerate semiconductors, and the freeze-out, extrinsic, and intrinsic temperature regions.
+
+### [Chapter 9: Carrier Concentration Statistics](chapters/09-carrier-concentration-statistics/index.md)
+
+Free electrons and holes, the Fermi-Dirac distribution and Fermi function, the density of states function, effective density of states, intrinsic carrier concentration, the mass action law, and the charge neutrality condition.
+
+### [Chapter 10: Fermi Level Position and Carrier Equations](chapters/10-fermi-level-carrier-equations/index.md)
+
+The Boltzmann approximation and nondegenerate semiconductors, the exact electron and hole concentration equations, carrier temperature dependence, Fermi level position, the intrinsic Fermi level, and the general carrier concentration equations.
+
+### [Chapter 11: Drift Current and Carrier Mobility](chapters/11-drift-current-mobility/index.md)
+
+Drift current, an introduction to diffusion current, carrier mobility and drift velocity, lattice and impurity scattering mechanisms, and conductivity, resistivity, and sheet resistance.
+
+### [Chapter 12: Diffusion and Advanced Transport Phenomena](chapters/12-diffusion-transport-phenomena/index.md)
+
+The Hall effect, Hall coefficient, and Hall voltage; the diffusion coefficient and Einstein relation; Fick's law and concentration gradients; total current density; velocity saturation; and mobility temperature dependence.
+
+### [Chapter 13: Non-Equilibrium Carriers and Recombination](chapters/13-non-equilibrium-carriers-recombination/index.md)
+
+Excess carriers, optical and thermal generation, direct, indirect, trap-assisted (SRH), and Auger recombination, minority carrier lifetime, low- and high-level injection, the continuity equation, diffusion length, steady-state carrier profiles, and quasi-Fermi levels.
+
+### [Chapter 14: The P-N Junction at Equilibrium](chapters/14-pn-junction-equilibrium/index.md)
+
+The metallurgical junction, diffusion and the depletion region, the depletion approximation, built-in potential, Poisson's equation, depletion charge density, junction electric field, depletion width, and junction capacitance at thermal equilibrium.
+
+### [Chapter 15: The P-N Junction Under Bias](chapters/15-pn-junction-under-bias/index.md)
+
+Forward and reverse bias, minority carrier injection, the short-base and long-base diode approximations, saturation current, the ideal diode equation, avalanche and Zener breakdown, and the complete junction I-V characteristic.
+
+### [Chapter 16: Metal-Semiconductor and MOS Junctions](chapters/16-metal-semiconductor-mos-junctions/index.md)
+
+Work function, electron affinity, and barrier height as the basis for Schottky barriers, Schottky diodes, and ohmic contacts, followed by the MOS capacitor and its accumulation, depletion, and inversion regimes culminating in threshold voltage.
+
+### [Chapter 17: Optical and Thermal Properties of Semiconductors](chapters/17-optical-thermal-properties/index.md)
+
+Optical absorption, the absorption coefficient, photon absorption, photoconductivity, radiative recombination, LEDs, photodiodes, solar cells, thermal conductivity, and thermal generation rate.
+
+### [Chapter 18: Semiconductor Devices and Applications](chapters/18-semiconductor-devices-applications/index.md)
+
+Power diodes, rectifier circuits, varactor diodes, bipolar transistor and MOSFET basics, semiconductor device modeling and simulation, band diagram construction, device design trade-offs, and a capstone device project.
+
+### [Chapter 19: Semiconductor Device Fabrication](chapters/19-semiconductor-device-fabrication/index.md)
+
+Crystal growth and wafer preparation, thermal oxidation, photolithography, thin-film deposition, diffusion and ion implantation doping, wet/dry/plasma etching, metallization, CMOS process integration, and manufacturing defects and yield.
+
+### [Chapter 20: Advanced Semiconductor Devices and Emerging Technologies](chapters/20-advanced-devices-emerging-technologies/index.md)
+
+Technology scaling, short-channel effects, FinFET and Gate-All-Around transistors, SOI, wide-bandgap and compound semiconductors, optoelectronic devices, MEMS/NEMS, quantum devices, and applications in AI, power electronics, and communications.
+
+---
 
 ## Topics Not Covered
 
@@ -52,6 +144,8 @@ The course emphasizes building physical intuition alongside quantitative modelin
 - Advanced quantum transport and mesoscopic device physics beyond an introductory treatment of quantum dots (ballistic transport, spintronics)
 - TCAD and detailed numerical device simulation tools
 - Semiconductor manufacturing economics and industry/business topics
+
+---
 
 ## Learning Outcomes
 
@@ -104,6 +198,8 @@ After completing this course, students will be able to:
 - Design a doping profile (type and concentration) to achieve a target built-in potential, depletion width, or breakdown voltage
 - Construct a complete equilibrium and non-equilibrium band diagram for a novel junction structure given its doping and bias
 - **Capstone project:** Model and report on the physics of a real semiconductor device (e.g., solar cell, LED, or power diode), including band diagrams, carrier concentration calculations, and derivation of its key I-V or efficiency characteristic, connecting the physics to a real-world performance metric
+
+---
 
 ## Course Importance
 

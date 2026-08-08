@@ -14,7 +14,20 @@ let selectedNodeId = null;
 
 const PREREQ_EDGE_COLOR = '#2196F3';   // blue: edges toward prerequisites
 const DEPENDENT_EDGE_COLOR = '#FF9800'; // orange: edges from dependents
-const DEFAULT_EDGE_COLOR = '#888';
+const DEFAULT_EDGE_COLOR = '#6b6b6b';
+const DEFAULT_EDGE_OPACITY = 0.75;
+const DEFAULT_EDGE_WIDTH = 1.7;
+
+let searchFocusTimer = null;
+
+// vis-network edges default to color.inherit: 'from' (taking the color of their
+// source node) and derive their own highlight/hover shades unless told
+// otherwise, both of which silently override an edge's plain `color` field
+// once a connected node is selected/hovered. Every edge color set in this file
+// goes through this helper so the intended color always wins in every state.
+function edgeColor(hex, opacity) {
+    return { color: hex, opacity, highlight: hex, hover: hex, inherit: false };
+}
 
 // Load the learning graph data and the enriched concept metadata
 async function loadGraph() {
@@ -61,7 +74,8 @@ function initializeNetwork() {
         from: edge.from,
         to: edge.to,
         arrows: 'to',
-        color: { color: DEFAULT_EDGE_COLOR, opacity: 0.6 }
+        color: edgeColor(DEFAULT_EDGE_COLOR, DEFAULT_EDGE_OPACITY),
+        width: DEFAULT_EDGE_WIDTH
     })));
 
     const data = { nodes, edges };
@@ -113,9 +127,9 @@ function initializeNetwork() {
         },
         nodes: {
             shape: 'box',
-            margin: 4,
+            margin: 5,
             font: {
-                size: 13,
+                size: 14,
                 face: 'Arial'
             },
             borderWidth: 2,
@@ -127,7 +141,7 @@ function initializeNetwork() {
                 forceDirection: 'horizontal',
                 roundness: 0.4
             },
-            width: 1.5
+            width: DEFAULT_EDGE_WIDTH
         },
         interaction: {
             hover: true,
@@ -173,15 +187,17 @@ function initializeNetwork() {
         }
     });
 
-    // Subtle hover emphasis (border only) that doesn't fight click-selection
+    // Hovering previews the same strong emphasis as clicking (node + prerequisites
+    // + dependents + connecting edges, everything else faded), but only when
+    // nothing is currently selected -- an active click-selection always wins.
     network.on('hoverNode', function(params) {
-        if (params.node !== selectedNodeId) {
-            network.body.data.nodes.update({ id: params.node, borderWidth: 4 });
+        if (selectedNodeId === null) {
+            applyEmphasis(params.node);
         }
     });
     network.on('blurNode', function(params) {
-        if (params.node !== selectedNodeId) {
-            network.body.data.nodes.update({ id: params.node, borderWidth: 2 });
+        if (selectedNodeId === null) {
+            clearEmphasis();
         }
     });
 
@@ -302,6 +318,7 @@ function setupSearch() {
 
         if (query.length < 2) {
             resultsContainer.style.display = 'none';
+            clearTimeout(searchFocusTimer);
             clearSearchHighlight();
             return;
         }
@@ -311,6 +328,23 @@ function setupSearch() {
         );
 
         applySearchHighlight(matches.map(n => n.id));
+
+        // Auto-zoom/focus the best match as the user types, debounced so it
+        // doesn't yank the camera on every keystroke of a fast typist. An exact
+        // label match always wins over the first substring match.
+        clearTimeout(searchFocusTimer);
+        if (matches.length > 0 && visibleGroups.has(matches[0].group)) {
+            const exact = matches.find(n => n.label.toLowerCase() === query);
+            const target = exact || matches[0];
+            if (visibleGroups.has(target.group)) {
+                searchFocusTimer = setTimeout(() => {
+                    network.focus(target.id, {
+                        scale: 1.1,
+                        animation: { duration: 400, easingFunction: 'easeInOutQuad' }
+                    });
+                }, 250);
+            }
+        }
 
         const shown = matches.slice(0, 10);
         if (shown.length === 0) {
@@ -379,12 +413,10 @@ function focusNode(nodeId) {
     selectNode(nodeId);
 }
 
-// Select a node: persistently emphasize it plus its prerequisites (blue) and
-// dependents (orange), de-emphasize everything else, and show the detail panel.
-function selectNode(nodeId) {
-    selectedNodeId = nodeId;
-    clearSearchHighlight();
-
+// Strongly emphasize a node plus its prerequisites (blue edges) and dependents
+// (orange edges), fading everything else. Shared by click-selection (persistent)
+// and hover (transient preview when nothing is selected).
+function applyEmphasis(nodeId) {
     const meta = conceptMeta[nodeId];
     const prereqIds = new Set(meta ? meta.prerequisites : []);
     const dependentIds = new Set(meta ? meta.dependents : []);
@@ -403,30 +435,40 @@ function selectNode(nodeId) {
         const edgeId = edge.id || `${edge.from}-${edge.to}`;
         if (edge.from === nodeId) {
             // this concept depends on edge.to -> prerequisite direction
-            return { id: edgeId, color: { color: PREREQ_EDGE_COLOR, opacity: 1 }, width: 3 };
+            return { id: edgeId, color: edgeColor(PREREQ_EDGE_COLOR, 1), width: 3 };
         } else if (edge.to === nodeId) {
             // edge.from depends on this concept -> dependent direction
-            return { id: edgeId, color: { color: DEPENDENT_EDGE_COLOR, opacity: 1 }, width: 3 };
+            return { id: edgeId, color: edgeColor(DEPENDENT_EDGE_COLOR, 1), width: 3 };
         }
-        return { id: edgeId, color: { color: DEFAULT_EDGE_COLOR, opacity: 0.08 }, width: 1 };
+        return { id: edgeId, color: edgeColor(DEFAULT_EDGE_COLOR, 0.06), width: 1 };
     }));
-
-    showNodeDetail(nodeId);
 }
 
-// Clear selection highlighting and hide the detail panel
-function clearSelection() {
-    selectedNodeId = null;
+// Revert all nodes/edges to their neutral, unfaded appearance
+function clearEmphasis() {
     const nodes = network.body.data.nodes;
     const edges = network.body.data.edges;
 
     nodes.update(allNodes.map(node => ({ id: node.id, opacity: 1, borderWidth: 2 })));
     edges.update(allEdges.map(edge => ({
         id: edge.id || `${edge.from}-${edge.to}`,
-        color: { color: DEFAULT_EDGE_COLOR, opacity: 0.6 },
-        width: 1.5
+        color: edgeColor(DEFAULT_EDGE_COLOR, DEFAULT_EDGE_OPACITY),
+        width: DEFAULT_EDGE_WIDTH
     })));
+}
 
+// Select a node: persistently emphasize it and show the detail panel
+function selectNode(nodeId) {
+    selectedNodeId = nodeId;
+    clearSearchHighlight();
+    applyEmphasis(nodeId);
+    showNodeDetail(nodeId);
+}
+
+// Clear selection highlighting and hide the detail panel
+function clearSelection() {
+    selectedNodeId = null;
+    clearEmphasis();
     hideNodeDetail();
 }
 
@@ -517,7 +559,7 @@ function setupControls() {
         const sidebar = document.getElementById('sidebar');
         const content = document.getElementById('sidebar-content');
         sidebar.classList.toggle('collapsed');
-        content.style.display = sidebar.classList.contains('collapsed') ? 'none' : 'block';
+        content.style.display = sidebar.classList.contains('collapsed') ? 'none' : 'flex';
     });
 
     // Auto-collapse sidebar by default on small screens
@@ -547,6 +589,16 @@ function setupControls() {
     // Fit graph to screen without disturbing selection
     document.getElementById('fit-view').addEventListener('click', function() {
         network.fit({ animation: { duration: 400, easingFunction: 'easeInOutQuad' } });
+    });
+
+    // Center the currently selected concept (no-op if nothing is selected)
+    document.getElementById('center-selected').addEventListener('click', function() {
+        if (selectedNodeId !== null) {
+            network.focus(selectedNodeId, {
+                scale: 1.2,
+                animation: { duration: 400, easingFunction: 'easeInOutQuad' }
+            });
+        }
     });
 
     // Reset view: clear selection/search highlighting and fit to screen

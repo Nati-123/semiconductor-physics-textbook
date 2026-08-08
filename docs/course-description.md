@@ -27,6 +27,9 @@ This course bridges introductory physics and device-level electrical engineering
 
 The course emphasizes building physical intuition alongside quantitative modeling: students learn to read and construct band diagrams, apply carrier statistics to predict conductivity and Fermi level position, and derive the current-voltage behavior of a p-n junction from first principles.
 
+!!! tip "See how it all connects"
+    The interactive [Course Integration Map](sims/course-integration-map/index.md) shows how all 20 chapters below build on one another — every arrow is a real prerequisite relationship drawn from each chapter's own text.
+
 ## Main Topics Covered
 
 - Crystal structure and bonding in solids (unit cells, Miller indices, covalent bonding in silicon/germanium)

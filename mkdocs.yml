@@ -316,6 +316,7 @@ nav:
           - AI Hardware Semiconductor Explorer: sims/ai-hardware-semiconductor-explorer/index.md
           - Future Technology Roadmap Explorer: sims/future-technology-roadmap-explorer/index.md
           - Course Integration Map: sims/course-integration-map/index.md
+          - Learning Graph Viewer: sims/graph-viewer/index.md
   - Learning Graph:
       - Introduction: learning-graph/index.md
       - Course Description Assessment: learning-graph/course-description-assessment.md

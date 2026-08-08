@@ -1,5 +1,7 @@
 # Learning Graph for Semiconductor Physics
 
+[View the Learning Graph](../sims/graph-viewer/main.html){ .md-button .md-button--primary }
+
 This section contains the learning graph for this textbook.  A learning graph is
 a graph of concepts used in this textbook.  Each concept is represented by a
 node in a network graph.  Concepts are connected by directed edges that indicate
@@ -14,7 +16,33 @@ understanding these foundational prerequisite concepts.  At the far right
 we have the most advanced concepts in the course.  To master these concepts you
 must understand all the concepts that they point to.
 
-Here are other files used by the learning graph.
+## Graph Statistics
+
+- **Total Concepts**: 256
+- **Foundational Concepts**: 7
+- **Dependencies (Edges)**: 433
+- **Taxonomy Categories**: 14
+- **Longest Learning Path**: 37 concepts
+
+## Interactive Learning Graph Viewer
+
+The [Learning Graph Viewer](../sims/graph-viewer/index.md) turns this data into a fully
+interactive concept map. Search for a concept, filter by category, click any node to see
+its definition, prerequisites, dependents, related MicroSims, and links directly into the
+chapter that teaches it. Selecting a concept highlights its prerequisites in blue and the
+concepts that depend on it in orange, so it doubles as a visual roadmap for the whole course.
+
+## Files
+
+Here are the files used by the learning graph.
+
+| File | Description |
+|------|-------------|
+| [learning-graph.csv](./learning-graph.csv) | CSV format with ConceptID, ConceptLabel, Dependencies, TaxonomyID |
+| [learning-graph.json](./learning-graph.json) | vis-network.js JSON format for visualization |
+| [concept-metadata.json](./concept-metadata.json) | Per-concept chapter, definition, prerequisites, dependents, MicroSims, and Bloom level used by the graph viewer |
+| [metadata.json](./metadata.json) | Dublin Core-inspired metadata |
+| [concept-list.md](./concept-list.md) | Human-readable numbered concept list |
 
 ## Course Description
 

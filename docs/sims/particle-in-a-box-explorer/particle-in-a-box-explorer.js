@@ -8,7 +8,6 @@
 let containerWidth;
 let canvasWidth = 750;
 let drawHeight = 420;
-let minDrawHeight = 420;
 let controlHeight = 100;
 let canvasHeight = drawHeight + controlHeight;
 let containerHeight = canvasHeight;
@@ -71,17 +70,22 @@ function draw() {
   noStroke();
   rect(0, drawHeight, canvasWidth, controlHeight);
 
+  const narrow = canvasWidth < 560;
+
   fill('black');
   noStroke();
   textAlign(CENTER, TOP);
-  textSize(18);
+  textSize(narrow ? 14 : 18);
   text('Particle in a Box Explorer', canvasWidth / 2, 10);
 
   const Lnm = lSlider.value();
   const L = Lnm * NM;
   const n = nSlider.value();
 
-  const plotRight = canvasWidth * 0.68;
+  // The energy ladder needs a minimum usable width for its "Eₙ = ##.# eV"
+  // labels, so it gets a larger share of a narrow canvas even though the
+  // wavefunction plot gets proportionally less.
+  const plotRight = canvasWidth * (narrow ? 0.56 : 0.68);
   drawWavefunction(L, Lnm, n, plotRight);
   drawEnergyLadder(L, n, plotRight);
   drawControlLabels(Lnm, n);
@@ -105,11 +109,7 @@ function drawWavefunction(L, Lnm, n, plotRight) {
 
   const absN = Math.abs(n);
 
-  noStroke();
-  fill(20);
-  textAlign(LEFT, TOP);
-  textSize(13);
-  text('ψ' + subscript(n) + '(x)  (blue)   and   |ψ' + subscript(n) + '(x)|² (orange, shaded)', x0, 32);
+  drawWaveLegend(x0, 32, n);
 
   if (n === 0) {
     drawNoteBox(x0, x1, 'n = 0 gives ψ = 0 everywhere: the trivial null state, not physically valid. This is why n must start at 1.');
@@ -177,6 +177,30 @@ function drawWavefunction(L, Lnm, n, plotRight) {
   text('x = L = ' + Lnm.toFixed(2) + ' nm', x1, drawHeight - 24);
 }
 
+// A real legend (color swatches, not parenthetical color names) tying the
+// curve colors directly to psi_n(x) and |psi_n(x)|^2.
+function drawWaveLegend(x, y, n) {
+  textAlign(LEFT, CENTER);
+  textSize(13);
+  let tx = x;
+
+  stroke('#1E88E5');
+  strokeWeight(2.5);
+  line(tx, y, tx + 20, y);
+  noStroke();
+  fill('#1E88E5');
+  const label1 = 'ψ' + subscript(n) + '(x)';
+  text(label1, tx + 26, y);
+  tx += 26 + textWidth(label1) + 26;
+
+  noStroke();
+  fill(255, 152, 0, 150);
+  rect(tx, y - 7, 20, 14, 2);
+  fill('#C77400');
+  const label2 = '|ψ' + subscript(n) + '(x)|²  (probability density)';
+  text(label2, tx + 26, y);
+}
+
 function drawNoteBox(x0, x1, message) {
   const boxY = 52;
   const boxH = 48;
@@ -197,7 +221,8 @@ function subscript(n) {
 }
 
 function drawEnergyLadder(L, nSelected, plotLeft) {
-  const x0 = plotLeft + 30;
+  const narrow = canvasWidth < 560;
+  const x0 = plotLeft + (narrow ? 14 : 30);
   const x1 = canvasWidth - margin;
   const topY = 72; // clears the "Energy levels En" header above (was 55, which let the E(N_MAX) rung label overlap the header)
   const bottomY = drawHeight - 40;
@@ -209,14 +234,25 @@ function drawEnergyLadder(L, nSelected, plotLeft) {
   noStroke();
   fill(20);
   textAlign(LEFT, TOP);
-  textSize(13);
-  text('Energy levels Eₙ', x0, 40);
+  textSize(narrow ? 11 : 13);
+  text(narrow ? 'Eₙ' : 'Energy levels Eₙ', x0, 40);
 
   stroke(150);
   strokeWeight(1);
   line(x0, bottomY, x0, topY);
 
   const absSelected = Math.abs(nSelected);
+
+  // Highlight band drawn first (underneath the rungs) so the selected
+  // level is unmistakable even before reading any text or color.
+  if (absSelected >= 1 && absSelected <= N_MAX) {
+    const fracSel = energies[absSelected - 1] / maxE;
+    const ySel = bottomY - fracSel * (bottomY - topY);
+    noStroke();
+    fill(229, 57, 53, 30);
+    rect(x0 - 4, ySel - 11, (x1 - x0) + 8, 22);
+  }
+
   for (let n = 1; n <= N_MAX; n++) {
     const frac = energies[n - 1] / maxE;
     const y = bottomY - frac * (bottomY - topY);
@@ -227,11 +263,18 @@ function drawEnergyLadder(L, nSelected, plotLeft) {
     strokeWeight(isSelected ? 3 : 1.5);
     line(x0, y, x1, y);
 
+    if (isSelected && !narrow) {
+      noStroke();
+      fill('#E53935');
+      triangle(x1 + 4, y - 6, x1 + 4, y + 6, x1 + 14, y);
+    }
+
     noStroke();
     fill(isSelected ? '#E53935' : 60);
     textAlign(LEFT, BOTTOM);
-    textSize(11);
-    text('E' + subscript(n) + ' = ' + (energies[n - 1] / EV).toFixed(3) + ' eV', x0 + 4, y - 2);
+    textSize(narrow ? 9.5 : 11);
+    const decimals = narrow ? 2 : 3;
+    text('E' + subscript(n) + '=' + (energies[n - 1] / EV).toFixed(decimals) + (narrow ? '' : ' eV'), x0 + 4, y - 2);
   }
 }
 
@@ -259,15 +302,6 @@ function updateCanvasSize() {
   var mainEl = document.querySelector('main');
   containerWidth = Math.floor(mainEl.getBoundingClientRect().width);
   canvasWidth = containerWidth;
-
-  var availableHeight = window.innerHeight;
-  var children = mainEl.children;
-  for (var i = 0; i < children.length; i++) {
-    if (children[i].tagName !== 'CANVAS') {
-      availableHeight -= children[i].offsetHeight;
-    }
-  }
-  drawHeight = Math.max(minDrawHeight, availableHeight - controlHeight);
   canvasHeight = drawHeight + controlHeight;
   containerHeight = canvasHeight;
 }

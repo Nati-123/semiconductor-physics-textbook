@@ -9,8 +9,7 @@
 let containerWidth;
 let canvasWidth = 750;
 let drawHeight = 400;
-let minDrawHeight = 400;
-let controlHeight = 100;
+let controlHeight = 118;
 let canvasHeight = drawHeight + controlHeight;
 let containerHeight = canvasHeight;
 
@@ -26,6 +25,9 @@ const PARTICLE_MASS = {
 
 const DX_MIN_EXP = -12; // 1 pm
 const DX_MAX_EXP = -6;  // 1 micron
+
+const COLOR_DX = '#1E88E5';
+const COLOR_DP = '#E53935';
 
 function setup() {
   updateCanvasSize();
@@ -71,11 +73,13 @@ function draw() {
   noStroke();
   rect(0, drawHeight, canvasWidth, controlHeight);
 
+  const smallText = canvasWidth < 500;
+
   fill('black');
   noStroke();
   textAlign(CENTER, TOP);
-  textSize(18);
-  text('Heisenberg Uncertainty Principle Explorer', canvasWidth / 2, 10);
+  textSize(smallText ? 14 : 18);
+  text('Heisenberg Uncertainty Principle Explorer', canvasWidth / 2, 8);
 
   const dx = Math.pow(10, dxSlider.value());
   const dp = HBAR / (2 * dx);
@@ -85,97 +89,188 @@ function draw() {
   // Normalized slider fraction 0..1 (0 = smallest dx, 1 = largest dx)
   const frac = (dxSlider.value() - DX_MIN_EXP) / (DX_MAX_EXP - DX_MIN_EXP);
 
-  drawPositionPacket(frac, dx);
-  drawMomentumSpread(frac, dp);
-  drawReadouts(dx, dp, dv);
+  const geom = computeGeometry();
+  drawPositionPacket(geom, frac, dx);
+  drawInverseConnector(geom, frac);
+  drawMomentumSpread(geom, frac, dp);
+  drawReadouts(geom, dx, dp, dv);
   drawControlLabels(dx);
 }
 
-function drawPositionPacket(frac, dx) {
-  const cx = canvasWidth / 2;
-  const cy = 110;
-  const plotW = canvasWidth - 2 * margin;
-  // width in pixels: narrow (12px) when dx is smallest, wide (plotW*0.42) when dx is largest
-  const sigmaPx = lerp(10, plotW * 0.42, frac);
+function computeGeometry() {
+  const panelTop = 34;
+  const packetCy = panelTop + 62;
+  const connectorY = packetCy + 78;
+  const spreadCy = connectorY + 78;
+  return { packetCy, connectorY, spreadCy, plotW: canvasWidth - 2 * margin };
+}
 
+function drawPositionPacket(geom, frac, dx) {
+  const cx = canvasWidth / 2;
+  const cy = geom.packetCy;
+  // width in pixels: narrow (10px) when dx is smallest, wide (plotW*0.42) when dx is largest
+  const sigmaPx = lerp(10, geom.plotW * 0.42, frac);
+
+  const smallText = canvasWidth < 500;
   noStroke();
   fill(20);
   textAlign(LEFT, TOP);
-  textSize(13);
-  text('Position wave packet  ψ(x)  —  width ∝ Δx', margin, cy - 75);
-
-  stroke('#1E88E5');
-  strokeWeight(2);
-  noFill();
-  beginShape();
-  for (let px = margin; px <= canvasWidth - margin; px += 4) {
-    const xx = px - cx;
-    const yy = 60 * Math.exp(-(xx * xx) / (2 * sigmaPx * sigmaPx));
-    vertex(px, cy - yy);
-  }
-  endShape();
+  textSize(smallText ? 11.5 : 13);
+  text(smallText ? 'Position wave packet ψ(x)' : 'Position wave packet ψ(x) — width ∝ Δx', margin, cy - 52, canvasWidth - 2 * margin);
 
   stroke(180);
   strokeWeight(1);
   line(margin, cy, canvasWidth - margin, cy);
 
-  noStroke();
-  fill('#1E88E5');
-  textAlign(CENTER, TOP);
-  textSize(12);
-  text('Δx = ' + formatMeters(dx), cx, cy + 10);
-}
-
-function drawMomentumSpread(frac, dp) {
-  const cx = canvasWidth / 2;
-  const cy = 250;
-  const plotW = canvasWidth - 2 * margin;
-  // inverse relationship: wide (plotW*0.42) when dx is smallest (frac=0), narrow (12px) when dx is largest
-  const sigmaPx = lerp(plotW * 0.42, 10, frac);
-
-  noStroke();
-  fill(20);
-  textAlign(LEFT, TOP);
-  textSize(13);
-  text('Momentum spread  φ(p)  —  width ∝ Δp (inverse of Δx)', margin, cy - 75);
-
-  stroke('#E53935');
-  strokeWeight(2);
+  stroke(COLOR_DX);
+  strokeWeight(2.4);
   noFill();
   beginShape();
   for (let px = margin; px <= canvasWidth - margin; px += 4) {
     const xx = px - cx;
-    const yy = 60 * Math.exp(-(xx * xx) / (2 * sigmaPx * sigmaPx));
+    const yy = 44 * Math.exp(-(xx * xx) / (2 * sigmaPx * sigmaPx));
     vertex(px, cy - yy);
   }
   endShape();
+
+  // A width bracket under the curve makes "how wide is this, in pixels"
+  // directly comparable to the momentum panel's bracket below.
+  drawWidthBracket(cx, cy + 14, sigmaPx * 1.4, COLOR_DX);
+
+  noStroke();
+  fill(COLOR_DX);
+  textAlign(CENTER, TOP);
+  textSize(13);
+  text('Δx = ' + formatMeters(dx), cx, cy + 30);
+}
+
+function drawMomentumSpread(geom, frac, dp) {
+  const cx = canvasWidth / 2;
+  const cy = geom.spreadCy;
+  // inverse relationship: wide (plotW*0.42) when dx is smallest (frac=0), narrow (10px) when dx is largest
+  const sigmaPx = lerp(geom.plotW * 0.42, 10, frac);
+
+  const smallText = canvasWidth < 500;
+  noStroke();
+  fill(20);
+  textAlign(LEFT, TOP);
+  textSize(smallText ? 11.5 : 13);
+  text(smallText ? 'Momentum spread φ(p)' : 'Momentum spread φ(p) — width ∝ Δp (inverse of Δx)', margin, cy - 52, canvasWidth - 2 * margin);
 
   stroke(180);
   strokeWeight(1);
   line(margin, cy, canvasWidth - margin, cy);
 
+  stroke(COLOR_DP);
+  strokeWeight(2.4);
+  noFill();
+  beginShape();
+  for (let px = margin; px <= canvasWidth - margin; px += 4) {
+    const xx = px - cx;
+    const yy = 44 * Math.exp(-(xx * xx) / (2 * sigmaPx * sigmaPx));
+    vertex(px, cy - yy);
+  }
+  endShape();
+
+  drawWidthBracket(cx, cy + 14, sigmaPx * 1.4, COLOR_DP);
+
   noStroke();
-  fill('#E53935');
+  fill(COLOR_DP);
   textAlign(CENTER, TOP);
-  textSize(12);
-  text('Δp(min) = ' + formatSci(dp) + ' kg·m/s', cx, cy + 10);
+  textSize(13);
+  text('Δp(min) = ' + formatSci(dp) + ' kg·m/s', cx, cy + 30);
 }
 
-function drawReadouts(dx, dp, dv) {
+// A small "I-beam" bracket showing the curve's width at a glance, so the
+// two panels can be visually compared even before reading the numbers.
+function drawWidthBracket(cx, y, halfWidth, col) {
+  const hw = constrain(halfWidth, 8, canvasWidth / 2 - margin - 4);
+  stroke(col);
+  strokeWeight(1.5);
+  line(cx - hw, y - 4, cx - hw, y + 4);
+  line(cx + hw, y - 4, cx + hw, y + 4);
+  line(cx - hw, y, cx + hw, y);
+}
+
+// A visual reminder, between the two panels, that they move in opposite
+// directions -- immediately reinforces "narrower here means wider there."
+function drawInverseConnector(geom, frac) {
+  const cx = canvasWidth / 2;
+  const y = geom.connectorY;
+  noStroke();
+  fill('#5A3EED');
+  textAlign(CENTER, CENTER);
+  textSize(13);
+  text('narrower Δx  ⇕  broader Δp', cx, y);
+
+  const arrowLen = 26;
+  stroke('#5A3EED');
+  strokeWeight(2);
+  drawArrowV(cx - 90, y, -arrowLen);
+  drawArrowV(cx + 90, y, arrowLen);
+}
+
+function drawArrowV(x, yCenter, dy) {
+  const y1 = yCenter - dy / 2;
+  const y2 = yCenter + dy / 2;
+  line(x, y1, x, y2);
+  push();
+  translate(x, y2);
+  rotate(dy > 0 ? HALF_PI : -HALF_PI);
+  noStroke();
+  fill('#5A3EED');
+  triangle(0, 0, -5, -9, 5, -9);
+  pop();
+}
+
+function drawReadouts(geom, dx, dp, dv) {
+  const smallText = canvasWidth < 500;
   const px = margin;
-  const py = drawHeight - 45;
+  const boxH = smallText ? 70 : 44;
+  const py = drawHeight - boxH - 8;
+  const boxW = canvasWidth - 2 * margin;
   fill(245);
-  stroke(200);
-  strokeWeight(1);
-  rect(px - 10, py - 10, canvasWidth - 2 * margin + 20, 40, 8);
+  stroke('#5A3EED');
+  strokeWeight(1.5);
+  rect(px, py, boxW, boxH, 8);
+
   noStroke();
-  fill(20);
   textAlign(LEFT, CENTER);
-  textSize(13);
-  text('Δx·Δp(min) = ħ/2 = ' + formatSci(HBAR / 2) + ' J·s   |   Δv(min) = ' + formatSci(dv) + ' m/s (' + particleSelect.value() + ')', px, py + 10);
+  textSize(smallText ? 12 : 15);
+
+  if (smallText) {
+    // Stacked: the flowing single-line layout used on wide screens would
+    // overflow the canvas edge here, so each part gets its own line.
+    fill(COLOR_DX);
+    text('Δx = ' + formatMeters(dx), px + 14, py + 18);
+    fill(20);
+    text('×', px + 14 + textWidth('Δx = ' + formatMeters(dx)) + 8, py + 18);
+    fill(COLOR_DP);
+    text('Δp = ' + formatSci(dp), px + 14 + textWidth('Δx = ' + formatMeters(dx)) + 24, py + 18);
+    fill(20);
+    text('= ħ/2 = ' + formatSci(HBAR / 2) + ' J·s', px + 14, py + 46);
+    return;
+  }
+
+  fill(COLOR_DX);
+  let tx = px + 14;
+  text('Δx = ' + formatMeters(dx), tx, py + 22);
+  tx += textWidth('Δx = ' + formatMeters(dx)) + 18;
+
+  fill(20);
+  text('×', tx, py + 22);
+  tx += 16;
+
+  fill(COLOR_DP);
+  text('Δp = ' + formatSci(dp), tx, py + 22);
+  tx += textWidth('Δp = ' + formatSci(dp)) + 18;
+
+  fill(20);
+  text('= ħ/2 = ' + formatSci(HBAR / 2) + ' J·s', tx, py + 22);
 }
 
 function drawControlLabels(dx) {
+  const stacked = canvasWidth < 650; // not enough room for the Δv note beside the dropdown
   fill('black');
   noStroke();
   textAlign(RIGHT, CENTER);
@@ -185,6 +280,16 @@ function drawControlLabels(dx) {
 
   textAlign(LEFT, CENTER);
   text(formatMeters(dx), 360, drawHeight + 27);
+
+  const m = PARTICLE_MASS[particleSelect.value()];
+  const dv = (HBAR / (2 * dx)) / m;
+  fill('#666');
+  textSize(11);
+  if (stacked) {
+    text('Δv(min) = ' + formatSci(dv) + ' m/s for the selected particle', 20, drawHeight + 90, canvasWidth - 40);
+  } else {
+    text('Δv(min) = ' + formatSci(dv) + ' m/s for the selected particle', 360, drawHeight + 62, canvasWidth - 380);
+  }
 }
 
 function formatMeters(x) {
@@ -195,13 +300,18 @@ function formatMeters(x) {
   return formatSci(x) + ' m';
 }
 
+const SUPERSCRIPT_DIGITS = { '-': '⁻', '0': '⁰', '1': '¹', '2': '²', '3': '³', '4': '⁴', '5': '⁵', '6': '⁶', '7': '⁷', '8': '⁸', '9': '⁹' };
+function superscript(n) {
+  return String(n).split('').map((ch) => SUPERSCRIPT_DIGITS[ch] || ch).join('');
+}
+
 function formatSci(x) {
   if (x === 0) return '0';
   const sign = x < 0 ? '-' : '';
   const ax = abs(x);
   const exp = Math.floor(Math.log10(ax));
   const mantissa = ax / Math.pow(10, exp);
-  return sign + mantissa.toFixed(3) + ' x 10^' + exp;
+  return sign + mantissa.toFixed(3) + ' × 10' + superscript(exp);
 }
 
 function windowResized() {
@@ -215,15 +325,6 @@ function updateCanvasSize() {
   var mainEl = document.querySelector('main');
   containerWidth = Math.floor(mainEl.getBoundingClientRect().width);
   canvasWidth = containerWidth;
-
-  var availableHeight = window.innerHeight;
-  var children = mainEl.children;
-  for (var i = 0; i < children.length; i++) {
-    if (children[i].tagName !== 'CANVAS') {
-      availableHeight -= children[i].offsetHeight;
-    }
-  }
-  drawHeight = Math.max(minDrawHeight, availableHeight - controlHeight);
   canvasHeight = drawHeight + controlHeight;
   containerHeight = canvasHeight;
 }

@@ -21,6 +21,7 @@ let structureSelect;
 let labelsToggle, edgesToggle, bondsToggle, primitiveToggle, overlayToggle;
 let atomSizeSlider;
 let hInput, kInput, lInput, uInput, vInput, wInput;
+let row4;
 let resetCamBtn;
 let readoutDiv;
 let cam;
@@ -290,6 +291,7 @@ function setup() {
   bondsToggle = makeCheckbox(row2, 'Nearest-neighbor bonds', true);
   primitiveToggle = makeCheckbox(row2, 'Primitive cell (instead of conventional)', false);
   overlayToggle = makeCheckbox(row2, 'Show plane / direction overlay', false);
+  overlayToggle.changed(onOverlayToggleChanged);
 
   // --- Row 3: atom size slider ---
   const row3 = createDiv(''); row3.class('control-panel'); row3.parent(mainElement);
@@ -303,8 +305,10 @@ function setup() {
   resetCamBtn.parent(row3);
   resetCamBtn.mousePressed(resetCamera);
 
-  // --- Row 4: Miller plane (h k l) + direction [u v w] ---
-  const row4 = createDiv(''); row4.class('control-panel'); row4.parent(mainElement);
+  // --- Row 4: Miller plane (h k l) + direction [u v w] -- hidden until the
+  // "Show plane / direction overlay" checkbox is checked, per its own
+  // documented behavior (previously always visible regardless of state).
+  row4 = createDiv(''); row4.class('control-panel'); row4.parent(mainElement);
   const planeLabel = createSpan('Plane (h k l):'); planeLabel.class('ctrl-label'); planeLabel.parent(row4);
   hInput = makeSmallNumberInput(row4, 'h', 1);
   kInput = makeSmallNumberInput(row4, 'k', 1);
@@ -316,6 +320,7 @@ function setup() {
 
   readoutDiv = createDiv(''); readoutDiv.class('readout-panel'); readoutDiv.parent(mainElement);
 
+  updateOverlayRowVisibility();
   updateReadout();
 
   describe('Rotatable 3D crystal structure viewer covering nine major crystal structures (SC, BCC, FCC, HCP, Diamond Cubic, Zinc Blende, Rock Salt, Cesium Chloride, Wurtzite) with atom labels, unit-cell edges, nearest-neighbor bonds, primitive-cell overlay, Miller-index plane shading, and a live readout of crystallographic properties', LABEL);
@@ -344,7 +349,26 @@ function makeSmallNumberInput(parent, name, def) {
 }
 
 function onStructureChanged() {
+  updateOverlayRowVisibility();
   updateReadout();
+}
+
+function onOverlayToggleChanged() {
+  updateOverlayRowVisibility();
+  updateReadout();
+}
+
+// The plane/direction row is only meaningful (and only rendered) when the
+// overlay checkbox is on AND the current structure is cubic -- hexagonal
+// structures use 4-index Miller-Bravais notation, not the 3-index (hkl)
+// controls here.
+function updateOverlayRowVisibility() {
+  const s = currentStructure();
+  if (overlayToggle.checked() && !isHexStructure(s)) {
+    row4.show();
+  } else {
+    row4.hide();
+  }
 }
 
 function resetCamera() {

@@ -13,6 +13,12 @@
         html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
         main { display: flex; flex-direction: column; }
         main canvas { display: block; }
+        /* p5's describe(..., LABEL) inserts a visible caption paragraph
+           immediately after the canvas in the DOM, which here would land
+           between the 3D view and the control rows, interrupting the flow.
+           Push it to the end of the flex column instead, after the
+           readout panel, where it reads as a closing summary. */
+        main .p5Label { order: 99; padding: 6px 16px 2px 16px; font-size: 12px; color: #555; }
         .control-panel {
             background: #f5f5f5;
             border-top: 1px solid silver;

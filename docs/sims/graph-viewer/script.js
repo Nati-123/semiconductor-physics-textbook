@@ -185,15 +185,18 @@ function initializeNetwork() {
         }
     });
 
-    // Tooltip title (native vis-network hover tooltip) with category + definition
-    allNodes.forEach(node => {
+    // Tooltip title (native vis-network hover tooltip) with category + definition.
+    // Batched into a single DataSet.update() call (array form) instead of one
+    // call per node -- calling update() 256 times individually fires 256
+    // separate redraws and is the main source of UI jank on this graph.
+    nodes.update(allNodes.map(node => {
         const meta = conceptMeta[node.id];
         const groupInfo = groups[node.group] || {};
         const title = meta
             ? `${node.label} (${groupInfo.classifierName || node.group})\n${meta.definition || ''}`
             : node.label;
-        nodes.update({ id: node.id, title });
-    });
+        return { id: node.id, title };
+    }));
 }
 
 // Build the category legend, preserving the order categories appear in the
@@ -248,15 +251,15 @@ function updateVisibility() {
     const nodes = network.body.data.nodes;
     const edges = network.body.data.edges;
 
-    allNodes.forEach(node => {
-        const isVisible = visibleGroups.has(node.group);
-        nodes.update({ id: node.id, hidden: !isVisible });
-    });
+    nodes.update(allNodes.map(node => ({
+        id: node.id,
+        hidden: !visibleGroups.has(node.group)
+    })));
 
-    allEdges.forEach(edge => {
-        const isVisible = visibleNodeIds.has(edge.from) && visibleNodeIds.has(edge.to);
-        edges.update({ id: edge.id || `${edge.from}-${edge.to}`, hidden: !isVisible });
-    });
+    edges.update(allEdges.map(edge => ({
+        id: edge.id || `${edge.from}-${edge.to}`,
+        hidden: !(visibleNodeIds.has(edge.from) && visibleNodeIds.has(edge.to))
+    })));
 
     // If the selected node was just hidden, clear the detail panel/highlight
     if (selectedNodeId !== null && !visibleNodeIds.has(selectedNodeId)) {
@@ -353,21 +356,17 @@ function applySearchHighlight(matchIds) {
     if (selectedNodeId !== null) return; // don't fight an active node selection
     const matchSet = new Set(matchIds);
     const nodes = network.body.data.nodes;
-    allNodes.forEach(node => {
-        nodes.update({
-            id: node.id,
-            opacity: matchSet.has(node.id) ? 1 : 0.2,
-            borderWidth: matchSet.has(node.id) ? 4 : 2
-        });
-    });
+    nodes.update(allNodes.map(node => ({
+        id: node.id,
+        opacity: matchSet.has(node.id) ? 1 : 0.2,
+        borderWidth: matchSet.has(node.id) ? 4 : 2
+    })));
 }
 
 function clearSearchHighlight() {
     if (selectedNodeId !== null) return;
     const nodes = network.body.data.nodes;
-    allNodes.forEach(node => {
-        nodes.update({ id: node.id, opacity: 1, borderWidth: 2 });
-    });
+    nodes.update(allNodes.map(node => ({ id: node.id, opacity: 1, borderWidth: 2 })));
 }
 
 // Focus the camera on a node and select it
@@ -394,26 +393,23 @@ function selectNode(nodeId) {
     const nodes = network.body.data.nodes;
     const edges = network.body.data.edges;
 
-    allNodes.forEach(node => {
-        nodes.update({
-            id: node.id,
-            opacity: relatedIds.has(node.id) ? 1 : 0.15,
-            borderWidth: node.id === nodeId ? 4 : 2
-        });
-    });
+    nodes.update(allNodes.map(node => ({
+        id: node.id,
+        opacity: relatedIds.has(node.id) ? 1 : 0.15,
+        borderWidth: node.id === nodeId ? 4 : 2
+    })));
 
-    allEdges.forEach(edge => {
+    edges.update(allEdges.map(edge => {
         const edgeId = edge.id || `${edge.from}-${edge.to}`;
         if (edge.from === nodeId) {
             // this concept depends on edge.to -> prerequisite direction
-            edges.update({ id: edgeId, color: { color: PREREQ_EDGE_COLOR, opacity: 1 }, width: 3 });
+            return { id: edgeId, color: { color: PREREQ_EDGE_COLOR, opacity: 1 }, width: 3 };
         } else if (edge.to === nodeId) {
             // edge.from depends on this concept -> dependent direction
-            edges.update({ id: edgeId, color: { color: DEPENDENT_EDGE_COLOR, opacity: 1 }, width: 3 });
-        } else {
-            edges.update({ id: edgeId, color: { color: DEFAULT_EDGE_COLOR, opacity: 0.08 }, width: 1 });
+            return { id: edgeId, color: { color: DEPENDENT_EDGE_COLOR, opacity: 1 }, width: 3 };
         }
-    });
+        return { id: edgeId, color: { color: DEFAULT_EDGE_COLOR, opacity: 0.08 }, width: 1 };
+    }));
 
     showNodeDetail(nodeId);
 }
@@ -424,13 +420,12 @@ function clearSelection() {
     const nodes = network.body.data.nodes;
     const edges = network.body.data.edges;
 
-    allNodes.forEach(node => {
-        nodes.update({ id: node.id, opacity: 1, borderWidth: 2 });
-    });
-    allEdges.forEach(edge => {
-        const edgeId = edge.id || `${edge.from}-${edge.to}`;
-        edges.update({ id: edgeId, color: { color: DEFAULT_EDGE_COLOR, opacity: 0.6 }, width: 1.5 });
-    });
+    nodes.update(allNodes.map(node => ({ id: node.id, opacity: 1, borderWidth: 2 })));
+    edges.update(allEdges.map(edge => ({
+        id: edge.id || `${edge.from}-${edge.to}`,
+        color: { color: DEFAULT_EDGE_COLOR, opacity: 0.6 },
+        width: 1.5
+    })));
 
     hideNodeDetail();
 }

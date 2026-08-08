@@ -57,8 +57,9 @@ Interactive educational simulations that accompany this textbook.
 
 | MicroSim | Bloom Level | Description |
 |----------|-------------|-------------|
-| [Reciprocal Lattice and Brillouin Zone Explorer](reciprocal-lattice-brillouin-zone-explorer/index.md) | L2-L3 Understand/Apply | Compare a real-space lattice to its reciprocal lattice with adjustable a_x/a_y, and construct the first Brillouin zone via the Wigner-Seitz procedure |
-| [Kronig-Penney Band Formation Explorer](kronig-penney-band-explorer/index.md) | L2-L4 Understand/Analyze | Plot the Kronig-Penney transcendental equation with shaded forbidden band gaps, and the resulting E-k band diagram with Brillouin zone boundaries marked |
+| [Reciprocal Lattice and Brillouin Zone Explorer](reciprocal-lattice-brillouin-zone-explorer/index.md) | L2-L3 Understand/Apply | Compare a real-space lattice to its reciprocal lattice, with primitive vectors, an overlaid first Brillouin zone, optional rotation, and a Wigner-Seitz construction |
+| [Kronig-Penney Band Formation Explorer](kronig-penney-band-explorer/index.md) | L2-L4 Understand/Analyze | Four linked views — periodic potential, transcendental equation, allowed/forbidden band ladder, and a draggable E-k band diagram with labeled Brillouin zone boundaries |
+| [Energy Band Formation Explorer](energy-band-formation-explorer/index.md) | L2-L3 Understand/Apply | Watch N isolated-atom discrete energy levels split into closely-spaced states as interatomic spacing decreases, forming continuous-looking valence and conduction bands |
 
 ## Chapter 6: Band Structure and the Fermi Level
 

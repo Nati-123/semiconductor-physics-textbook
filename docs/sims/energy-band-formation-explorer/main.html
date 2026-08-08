@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Energy Band Formation Explorer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+        /* p5's describe(..., LABEL) renders a visible accessibility caption
+           after the canvas; make it screen-reader-only instead, since a
+           visible text blob that wraps to many lines at narrow widths would
+           otherwise make the sim's total height width-dependent and force
+           an iframe scrollbar on mobile. */
+        .p5Label {
+            position: absolute !important;
+            width: 1px !important;
+            height: 1px !important;
+            padding: 0 !important;
+            margin: -1px !important;
+            overflow: hidden !important;
+            clip: rect(0, 0, 0, 0) !important;
+            white-space: nowrap !important;
+            border: 0 !important;
+        }
+    </style>
+    <script src="energy-band-formation-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Set N (number of atoms) to a small value like 3, then drag the spacing slider from large (isolated) down to small (equilibrium). Count the individual discrete levels each atomic level splits into.</li>
+            <li><strong>Predict:</strong> Before increasing N to 40, predict what the fan of discrete levels will look like at equilibrium spacing compared to N = 3.</li>
+            <li><strong>Observe:</strong> Increase N to 40 and confirm the same splitting now looks like two continuous shaded bands rather than countable individual lines.</li>
+            <li><strong>Explore:</strong> Watch the top strip of 8 schematic atoms move together as you decrease the spacing slider, and connect that physical picture to the widening fan of split levels below.</li>
+            <li><strong>Read the numbers:</strong> At the closest spacing, compare the "Gap between bands" readout to the bandwidths of the two bands. Does the gap stay open, or do the bands overlap?</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 5:</strong> This MicroSim visualizes <strong>band formation</strong> directly: each isolated atom has the same sharp discrete energy levels, but bringing N atoms together lets their wavefunctions overlap, splitting each level into N closely-spaced states (here modeled as a simple finite tight-binding spectrum, <span class="arithmatex">\(E_j = E_0 \pm t(d)\cos\!\big(\tfrac{\pi(j+1)}{N+1}\big)\)</span>). For large N these states are so closely spaced they look like the continuous energy bands the Kronig-Penney model produces exactly, and the same valence-band / conduction-band terminology applies at the equilibrium spacing.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>Interatomic spacing d slider</dt>
+            <dd>Sets the distance between neighboring atoms; smaller d means stronger wavefunction overlap and a wider spread (bandwidth) of split states.</dd>
+            <dt>Number of atoms N slider</dt>
+            <dd>Sets how many atoms (and therefore how many split states) form each band; larger N looks more like a continuous band.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">1. At large interatomic spacing (isolated atoms), what does the fan diagram show for each atomic level?</p>
+            <label><input type="radio" name="ebf-q1" value="a"> A wide continuous band</label>
+            <label><input type="radio" name="ebf-q1" value="b"> A single sharp line — the levels have not split because the atoms don't interact</label>
+            <label><input type="radio" name="ebf-q1" value="c"> No energy levels at all</label>
+            <label><input type="radio" name="ebf-q1" value="d"> Infinite energy</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Isolated atoms don't overlap wavefunctions, so there is no coupling (t ≈ 0) and every atom's level sits at the same discrete energy — a single sharp line rather than a split band.</p>
+            <p class="explain-incorrect" hidden>Drag the spacing slider to its largest (rightmost) value and look at how narrow the fan of lines becomes.</p>
+        </div>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">2. As interatomic spacing decreases toward the equilibrium value, what happens to the split-level bandwidth?</p>
+            <label><input type="radio" name="ebf-q2" value="a"> It shrinks to zero</label>
+            <label><input type="radio" name="ebf-q2" value="b"> It stays exactly the same</label>
+            <label><input type="radio" name="ebf-q2" value="c"> It grows, because stronger wavefunction overlap increases the coupling t(d)</label>
+            <label><input type="radio" name="ebf-q2" value="d"> It becomes negative</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Smaller spacing means more wavefunction overlap, which increases the coupling strength t(d) and therefore widens the band, 2×t(d).</p>
+            <p class="explain-incorrect" hidden>Drag the spacing slider toward its smallest value and watch the fan of lines spread apart.</p>
+        </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">3. Why does a large N (many atoms) make the split levels look like a continuous band, while a small N does not?</p>
+            <label><input type="radio" name="ebf-q3" value="a"> The same total bandwidth is divided among N closely-spaced discrete states, so more states means smaller gaps between neighboring states</label>
+            <label><input type="radio" name="ebf-q3" value="b"> Larger N makes the bandwidth itself infinite</label>
+            <label><input type="radio" name="ebf-q3" value="c"> N has no effect on the diagram</label>
+            <label><input type="radio" name="ebf-q3" value="d"> Larger N removes the band gap entirely</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>The band's total width, 2t(d), does not depend strongly on N, but that width is shared among N discrete states — so more atoms means more, more closely spaced states filling the same energy range, which is exactly why a real crystal's ~10²³ atoms produce what looks like a perfectly continuous band.</p>
+            <p class="explain-incorrect" hidden>Compare the vertical tick marks at N = 3 and N = 40 at the same spacing — the total spread (top to bottom) is similar, but the number of ticks is very different.</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

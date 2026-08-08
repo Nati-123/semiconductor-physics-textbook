@@ -138,10 +138,10 @@ The right-hand side of the transcendental equation, \(\cos(ka)\), is a cosine of
 
 #### Diagram: Kronig-Penney Band Formation Explorer
 
-<iframe src="../../sims/kronig-penney-band-explorer/main.html" width="100%" height="660px" scrolling="auto"></iframe>
+<iframe src="../../sims/kronig-penney-band-explorer/main.html" width="100%" height="665px" scrolling="auto"></iframe>
 
 !!! tip "How to use this MicroSim"
-    **Instructions:** Drag the barrier-strength slider \(P\) from 0 upward and watch the left-hand-side curve of the transcendental equation develop regions that exceed \(\pm1\) — these shaded regions are the forbidden band gaps. Switch to the "E-k Diagram" view to see the corresponding allowed bands and gaps plotted directly against the Bloch wavevector \(k\), with the first few Brillouin zone boundaries marked.
+    **Instructions:** Start with the "Periodic Potential" view to see the physical square-barrier array. Drag the barrier-strength slider \(P\) from 0 upward and watch the "Transcendental Equation" view's left-hand-side curve develop regions that exceed \(\pm1\) — these shaded regions are the forbidden band gaps. Switch to "Allowed/Forbidden Bands" for a labeled energy-axis view of the same result, or "E-k Diagram" to see the allowed bands and gaps plotted against the Bloch wavevector \(k\), with Brillouin zone boundaries labeled at \(k=\pm n\pi/a,\pm2n\pi/a,\ldots\) — click or drag on a band there to read off its exact energy and \(k\) value.
 
     **Learning objective:** Connect the algebraic restriction \(|\cos(ka)|\leq1\) directly to the physical appearance of band gaps, and see those gaps appear at the Brillouin zone boundaries \(k=\pm n\pi/a\).
 
@@ -203,14 +203,14 @@ flowchart TB
 
 #### Diagram: Reciprocal Lattice and Brillouin Zone Explorer
 
-<iframe src="../../sims/reciprocal-lattice-brillouin-zone-explorer/main.html" width="100%" height="660px" scrolling="auto"></iframe>
+<iframe src="../../sims/reciprocal-lattice-brillouin-zone-explorer/main.html" width="100%" height="815px" scrolling="auto"></iframe>
 
 !!! tip "How to use this MicroSim"
-    **Instructions:** Use the "View" dropdown to switch between "Real vs. Reciprocal Lattice" (compare a real-space lattice to its reciprocal lattice side by side, for SC, BCC, and FCC) and "Brillouin Zone" (see the first Brillouin zone constructed as the Wigner-Seitz cell of the 2D reciprocal lattice).
+    **Instructions:** Use the "View" dropdown to switch between "Real vs. Reciprocal Lattice" (a 2D real-space lattice side by side with its reciprocal lattice, each with primitive vectors drawn from a highlighted origin and the first Brillouin zone overlaid) and "Wigner-Seitz Construction" (a zoomed-in construction of the first Brillouin zone as the Wigner-Seitz cell of the reciprocal lattice, with a real-space comparison inset). Try the rotation slider to see the primitive vectors, reciprocal vectors, and Brillouin zone all rotate together.
 
     **Learning objective:** Connect a real-space lattice (Chapter 3) to its reciprocal lattice, and see the Brillouin zone constructed directly from reciprocal lattice points using the same Wigner-Seitz procedure used for real-space primitive cells.
 
-    **What to observe:** Note that the reciprocal lattice spacing shrinks as the real lattice constant grows (an inverse relationship), and that the first Brillouin zone boundary sits exactly halfway between the origin and the nearest reciprocal lattice point.
+    **What to observe:** Note that the numerical reciprocal-space spacing readout shrinks as the real-space lattice constant grows (an inverse relationship, animated as you drag the slider), and that the first Brillouin zone boundary sits exactly halfway between the origin and the nearest reciprocal lattice point.
 
 [Full MicroSim documentation →](../../sims/reciprocal-lattice-brillouin-zone-explorer/index.md)
 
@@ -235,6 +235,23 @@ Once the Kronig-Penney model (or any more realistic periodic-potential calculati
 
 The valence and conduction bands are singled out for special attention because, as Chapter 7 will show in detail, essentially all of a semiconductor's electrical behavior — its conductivity, its response to doping, its behavior in a diode or transistor — is governed by electrons and holes in exactly these two bands and the size of the band gap separating them.
 
+### Where Bands Actually Come From: Isolated Atoms to a Crystal
+
+The Kronig-Penney model shows band formation as a purely mathematical result of solving a periodic potential. It is worth pausing to see the same result from a more physical starting point. Every isolated atom has the same sharp, discrete energy levels — an isolated atom's electron cannot have "almost" the ground-state energy, only exactly that energy. Bringing \(N\) identical atoms together into a crystal lets their electron wavefunctions begin to overlap, and quantum mechanics forbids \(N\) coupled identical atoms from sharing \(N\) exactly-degenerate levels: each atomic level must split into \(N\) distinct, closely-spaced states. For a real crystal, \(N\sim10^{23}\), so these \(N\) split states are spaced so closely that they form what looks like a perfectly continuous energy band — exactly the energy bands the Kronig-Penney model produces directly.
+
+#### Diagram: Energy Band Formation Explorer
+
+<iframe src="../../sims/energy-band-formation-explorer/main.html" width="100%" height="770px" scrolling="auto"></iframe>
+
+!!! tip "How to use this MicroSim"
+    **Instructions:** Set the number of atoms N to a small value like 3 and drag the interatomic-spacing slider from large (isolated atoms) down to small (equilibrium spacing), counting the individual levels each atomic level splits into. Then increase N to 40 and confirm the same splitting now looks like two continuous shaded bands rather than countable lines.
+
+    **Learning objective:** Connect the discrete-level splitting of a finite number of coupled atoms to the continuous energy bands the Kronig-Penney model produces in the large-N limit, and see the valence/conduction band terminology apply directly at equilibrium spacing.
+
+    **What to observe:** The split-level bandwidth grows as spacing shrinks (stronger wavefunction overlap), while the total number of atoms N controls only how finely that bandwidth is subdivided — not its size. This is why a real crystal's ~10²³ atoms produce a genuinely continuous-looking band from the same underlying discrete physics.
+
+[Full MicroSim documentation →](../../sims/energy-band-formation-explorer/index.md)
+
 !!! question "Concept Check"
     Explain why the valence band is, by definition, always the band immediately *below* the band gap that separates it from the conduction band, rather than some lower-lying, already fully-occupied band.
 
@@ -245,6 +262,9 @@ The valence and conduction bands are singled out for special attention because, 
     A hypothetical 1D crystal's Kronig-Penney solution produces three energy bands, labeled I (lowest), II (middle), and III (highest). At absolute zero, bands I and II are completely full of electrons, and band III is completely empty. Identify the valence band and the conduction band.
 
     **Solution:** The valence band is the highest *completely filled* band, which is band II. The conduction band is the next band up, band III.
+
+!!! note "Looking ahead: the detailed shape of a band"
+    This chapter establishes *that* bands form and *where* their gaps sit, but treats every band as a flat, generic strip of allowed energy. Real bands have curvature — some steep, some nearly flat — and that curvature varies with the crystal direction, which is exactly why a band's conduction-band minimum and valence-band maximum are not always at the same \(k\). Chapter 6 picks up precisely here, defining effective mass from band curvature and classifying materials as direct- or indirect-gap based on where these extrema sit. You can see both ideas in action now in the [Direct vs. Indirect Bandgap E-k Explorer](../../sims/direct-indirect-bandgap-explorer/index.md), Chapter 6's MicroSim comparing GaAs, Si, and Ge on a real E-k diagram.
 
 ## Summary
 

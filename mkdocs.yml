@@ -210,6 +210,7 @@ nav:
       - Chapter 5:
           - Reciprocal Lattice and Brillouin Zone Explorer: sims/reciprocal-lattice-brillouin-zone-explorer/index.md
           - Kronig-Penney Band Formation Explorer: sims/kronig-penney-band-explorer/index.md
+          - Energy Band Formation Explorer: sims/energy-band-formation-explorer/index.md
       - Chapter 6:
           - Direct vs. Indirect Bandgap E-k Explorer: sims/direct-indirect-bandgap-explorer/index.md
           - Density of States and Fermi Level Explorer: sims/density-of-states-fermi-level-explorer/index.md

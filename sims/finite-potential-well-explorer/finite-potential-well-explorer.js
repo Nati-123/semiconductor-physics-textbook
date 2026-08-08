@@ -11,8 +11,7 @@
 let containerWidth;
 let canvasWidth = 750;
 let drawHeight = 440;
-let minDrawHeight = 440;
-let controlHeight = 110;
+let controlHeight = 145;
 let canvasHeight = drawHeight + controlHeight;
 let containerHeight = canvasHeight;
 
@@ -63,13 +62,23 @@ function positionUIElements() {
   const by = mainRect.top;
 
   stateSelect.position(bx + 10, by + drawHeight + 5);
-  compareCheckbox.position(bx + 215, by + drawHeight + 8);
 
-  lSlider.position(bx + sliderLeftMargin, by + drawHeight + 40);
-  lSlider.size(canvasWidth - sliderLeftMargin - margin);
+  const selectW = stateSelect.elt.getBoundingClientRect().width;
+  const checkboxW = compareCheckbox.elt.getBoundingClientRect().width;
+  const stacked = (10 + selectW + 16 + checkboxW + 10) > canvasWidth;
+  if (stacked) {
+    compareCheckbox.position(bx + 10, by + drawHeight + 38);
+  } else {
+    compareCheckbox.position(bx + 10 + selectW + 16, by + drawHeight + 8);
+  }
 
-  v0Slider.position(bx + sliderLeftMargin, by + drawHeight + 75);
-  v0Slider.size(canvasWidth - sliderLeftMargin - margin);
+  const sliderRowY = stacked ? [70, 105] : [40, 75];
+  const sliderW = Math.max(80, canvasWidth - sliderLeftMargin - margin);
+  lSlider.position(bx + sliderLeftMargin, by + drawHeight + sliderRowY[0]);
+  lSlider.size(sliderW);
+
+  v0Slider.position(bx + sliderLeftMargin, by + drawHeight + sliderRowY[1]);
+  v0Slider.size(sliderW);
 }
 
 function onParamsChanged() {
@@ -180,17 +189,19 @@ function draw() {
   noStroke();
   rect(0, drawHeight, canvasWidth, controlHeight);
 
+  const narrow = canvasWidth < 600;
+
   fill('black');
   noStroke();
   textAlign(CENTER, TOP);
-  textSize(18);
+  textSize(narrow ? 14 : 18);
   text('Finite Potential Well Explorer', canvasWidth / 2, 10);
 
   const Lnm = lSlider.value();
   const V0eV = v0Slider.value();
   const states = solveFiniteWell(Lnm, V0eV);
 
-  const geom = computeGeometry(Lnm, V0eV);
+  const geom = computeGeometry(Lnm, V0eV, narrow);
   drawWell(geom, Lnm, V0eV);
   drawEnergyLevels(geom, states);
 
@@ -207,15 +218,17 @@ function draw() {
   drawControlLabels(Lnm, V0eV, states.length);
 }
 
-function computeGeometry(Lnm, V0eV) {
+function computeGeometry(Lnm, V0eV, narrow) {
   const x0 = margin + 10;
   const x1 = canvasWidth - margin - 10;
-  const top = 45;
+  // Extra headroom on narrow canvases: the legend wraps under the title
+  // instead of squeezing in above the plot.
+  const top = narrow ? 78 : 45;
   const bottom = drawHeight - 20;
   const eMin = -0.3 * V0eV;
   const eMax = 1.15 * V0eV;
   const xHalfRangeNm = Lnm * 1.6;
-  return { x0, x1, top, bottom, eMin, eMax, xHalfRangeNm, Lnm, V0eV };
+  return { x0, x1, top, bottom, eMin, eMax, xHalfRangeNm, Lnm, V0eV, narrow };
 }
 
 function xToPx(xNm, geom) {
@@ -232,6 +245,14 @@ function drawWell(geom, Lnm, V0eV) {
   const yFloor = eToPx(0, geom);
   const yCeil = eToPx(V0eV, geom);
 
+  // Tint the classically-forbidden region (inside the barrier, outside the
+  // well) so wavefunction penetration there reads as physically meaningful,
+  // not just an odd wiggle near the wall.
+  noStroke();
+  fill(141, 110, 99, 28);
+  rect(geom.x0, yCeil, xLeftWall - geom.x0, yFloor - yCeil);
+  rect(xRightWall, yCeil, geom.x1 - xRightWall, yFloor - yCeil);
+
   stroke('#8D6E63');
   strokeWeight(3);
   noFill();
@@ -244,10 +265,22 @@ function drawWell(geom, Lnm, V0eV) {
   noStroke();
   fill('#8D6E63');
   textAlign(LEFT, BOTTOM);
-  textSize(12);
-  text('V₀ = ' + V0eV.toFixed(2) + ' eV', geom.x0, yCeil - 4);
+  textSize(geom.narrow ? 10.5 : 12);
+  text((geom.narrow ? 'V₀ = ' : 'V(x): barrier height V₀ = ') + V0eV.toFixed(2) + ' eV', geom.x0, yCeil - 4);
   textAlign(CENTER, TOP);
   text('L = ' + Lnm.toFixed(2) + ' nm', (xLeftWall + xRightWall) / 2, yFloor + 6);
+
+  // The "classically forbidden" captions need real room to avoid colliding
+  // with each other or the energy labels -- skip them on narrow canvases,
+  // where the shaded region alone still carries the meaning.
+  if (!geom.narrow) {
+    fill(141, 110, 99, 200);
+    textAlign(LEFT, TOP);
+    textSize(10.5);
+    text('classically forbidden (V > E)', geom.x0 + 4, yCeil + 6);
+    textAlign(RIGHT, TOP);
+    text('classically forbidden (V > E)', geom.x1 - 4, yCeil + 6);
+  }
 }
 
 function drawEnergyLevels(geom, states) {
@@ -262,8 +295,12 @@ function drawEnergyLevels(geom, states) {
     noStroke();
     fill('#B8860B');
     textAlign(LEFT, BOTTOM);
-    textSize(11);
-    text('E' + s.n + ' = ' + s.E_eV.toFixed(3) + ' eV (' + s.parity + ')', geom.x1 - 190, y - 3);
+    textSize(geom.narrow ? 9.5 : 11);
+    const label = geom.narrow
+      ? 'E' + s.n + '=' + s.E_eV.toFixed(2)
+      : 'E' + s.n + ' = ' + s.E_eV.toFixed(3) + ' eV (' + s.parity + ')';
+    const labelW = textWidth(label);
+    text(label, geom.x1 - labelW - 6, y - 3);
   });
 }
 
@@ -272,6 +309,28 @@ function drawEigenfunction(geom, selected, Lnm, states) {
   const levelGapPx = estimateLevelGapPx(geom, states, selected);
   const amp = Math.min(levelGapPx * 0.42, 55);
   const L = Lnm * NM;
+  const halfL = Lnm / 2;
+  const xLeftWall = xToPx(-halfL, geom);
+  const xRightWall = xToPx(halfL, geom);
+
+  // Shade the area under the curve specifically in the penetration tails
+  // (outside the well) so the "wavefunction is nonzero here" fact is
+  // impossible to miss, not just a thin line lost against the baseline.
+  noStroke();
+  fill(30, 136, 229, 55);
+  const drawTailFill = (pxStart, pxEnd) => {
+    beginShape();
+    vertex(pxStart, baseY);
+    for (let px = pxStart; px <= pxEnd; px += 2) {
+      const xNm = map(px, geom.x0, geom.x1, -geom.xHalfRangeNm, geom.xHalfRangeNm);
+      const psi = finiteEigenfunction(xNm * NM, selected, L);
+      vertex(px, baseY - psi * amp);
+    }
+    vertex(pxEnd, baseY);
+    endShape(CLOSE);
+  };
+  drawTailFill(geom.x0, xLeftWall);
+  drawTailFill(xRightWall, geom.x1);
 
   stroke('#1E88E5');
   strokeWeight(2.4);
@@ -287,8 +346,8 @@ function drawEigenfunction(geom, selected, Lnm, states) {
   noStroke();
   fill('#1E88E5');
   textAlign(LEFT, TOP);
-  textSize(11);
-  text('ψ' + selected.n + '(x) — finite well (penetrates walls)', geom.x0, geom.top - 30);
+  textSize(geom.narrow ? 10 : 11);
+  text('ψ' + selected.n + '(x)  (shaded tail = penetration)', geom.x0, geom.narrow ? 34 : geom.top - 30);
 }
 
 function drawInfiniteOverlay(geom, selected, Lnm, states) {
@@ -313,8 +372,11 @@ function drawInfiniteOverlay(geom, selected, Lnm, states) {
   noStroke();
   fill('#E67E22');
   textAlign(LEFT, TOP);
-  textSize(11);
-  text('- - infinite-well ψ' + selected.n + '(x) (zero exactly at walls)', geom.x0, geom.top - 16);
+  textSize(geom.narrow ? 10 : 11);
+  const label = geom.narrow
+    ? '- - infinite well (zero at walls)'
+    : '- - infinite-well ψ' + selected.n + '(x) (zero exactly at walls)';
+  text(label, geom.x0, geom.narrow ? 50 : geom.top - 16);
 }
 
 function estimateLevelGapPx(geom, states, selected) {
@@ -350,12 +412,17 @@ function formatSci(x) {
 }
 
 function drawControlLabels(Lnm, V0eV, count) {
+  const selectW = stateSelect.elt.getBoundingClientRect().width;
+  const checkboxW = compareCheckbox.elt.getBoundingClientRect().width;
+  const stacked = (10 + selectW + 16 + checkboxW + 10) > canvasWidth;
+  const [row1, row2] = stacked ? [70, 105] : [40, 75];
+
   fill('black');
   noStroke();
   textAlign(LEFT, CENTER);
   textSize(13);
-  text('Well width L: ' + Lnm.toFixed(2) + ' nm', 10, drawHeight + 50);
-  text('Well depth V₀: ' + V0eV.toFixed(2) + ' eV', 10, drawHeight + 85);
+  text('Well width L: ' + Lnm.toFixed(2) + ' nm', 10, drawHeight + row1 + 10);
+  text('Well depth V₀: ' + V0eV.toFixed(2) + ' eV', 10, drawHeight + row2 + 10);
 }
 
 function windowResized() {
@@ -369,15 +436,6 @@ function updateCanvasSize() {
   var mainEl = document.querySelector('main');
   containerWidth = Math.floor(mainEl.getBoundingClientRect().width);
   canvasWidth = containerWidth;
-
-  var availableHeight = window.innerHeight;
-  var children = mainEl.children;
-  for (var i = 0; i < children.length; i++) {
-    if (children[i].tagName !== 'CANVAS') {
-      availableHeight -= children[i].offsetHeight;
-    }
-  }
-  drawHeight = Math.max(minDrawHeight, availableHeight - controlHeight);
   canvasHeight = drawHeight + controlHeight;
   containerHeight = canvasHeight;
 }

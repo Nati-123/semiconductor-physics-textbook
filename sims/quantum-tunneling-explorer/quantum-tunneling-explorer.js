@@ -9,8 +9,7 @@
 
 let containerWidth;
 let canvasWidth = 750;
-let drawHeight = 380;
-let minDrawHeight = 380;
+let drawHeight = 280;
 let controlHeight = 100;
 let canvasHeight = drawHeight + controlHeight;
 let containerHeight = canvasHeight;
@@ -68,10 +67,12 @@ function draw() {
   noStroke();
   rect(0, drawHeight, canvasWidth, controlHeight);
 
+  const narrow = canvasWidth < 560;
+
   fill('black');
   noStroke();
   textAlign(CENTER, TOP);
-  textSize(18);
+  textSize(narrow ? 14 : 18);
   text('Quantum Tunneling Probability Explorer', canvasWidth / 2, 10);
 
   const ratio = ratioSlider.value();
@@ -82,12 +83,12 @@ function draw() {
   const kappa = Math.sqrt(2 * ME * V0minusE) / HBAR; // 1/m
   const T = Math.exp(-2 * kappa * L);
 
-  drawWaveSchematic(kappa, L, Lnm, T);
-  drawReadouts(ratio, kappa, T);
-  drawControlLabels(ratio, Lnm);
+  drawWaveSchematic(kappa, L, Lnm, T, narrow);
+  drawReadouts(ratio, kappa, T, narrow);
+  drawControlLabels(ratio, Lnm, narrow);
 }
 
-function drawWaveSchematic(kappa, L, Lnm, T) {
+function drawWaveSchematic(kappa, L, Lnm, T, narrow) {
   const baseY = 130;
   const amp = 40;
   const x0 = margin + 10;
@@ -106,13 +107,19 @@ function drawWaveSchematic(kappa, L, Lnm, T) {
   noStroke();
   fill(20);
   textAlign(LEFT, TOP);
-  textSize(13);
-  text('Schematic wavefunction: incident+reflected (left) — decaying (barrier) — transmitted (right)', x0, 40);
+  textSize(narrow ? 11 : 13);
+  const caption = narrow
+    ? 'incident+reflected — decaying — transmitted'
+    : 'Schematic wavefunction: incident+reflected (left) — decaying (barrier) — transmitted (right)';
+  text(caption, x0, 40, canvasWidth - 2 * margin);
 
-  // barrier shading
+  // barrier shading -- sized to hug the wave curves instead of stretching
+  // all the way down the canvas into empty space
+  const barrierTop = 60;
+  const barrierBottom = baseY + amp + 34;
   fill(255, 193, 7, 70);
   noStroke();
-  rect(bx0, 60, barrierPx, drawHeight - 130);
+  rect(bx0, barrierTop, barrierPx, barrierBottom - barrierTop);
   fill('#8D6E63');
   textAlign(CENTER, TOP);
   textSize(12);
@@ -185,23 +192,29 @@ function drawWaveSchematic(kappa, L, Lnm, T) {
   text('transmitted', (bx1 + x1) / 2, baseY + amp + 14);
 }
 
-function drawReadouts(ratio, kappa, T) {
+function drawReadouts(ratio, kappa, T, narrow) {
+  // Top-anchored (not anchored to the bottom of a fixed drawHeight) so a
+  // 2-line wrap on narrow canvases grows the box downward into space that's
+  // always free, instead of risking a collision with fixed-offset content.
   const px = margin;
-  const py = drawHeight - 40;
+  const boxTop = 194;
+  const boxH = narrow ? 74 : 60;
+  const py = boxTop + 22;
   fill(245);
   stroke(200);
   strokeWeight(1);
-  rect(px - 10, py - 22, canvasWidth - 2 * margin + 20, 60, 8);
+  rect(px - 10, boxTop, canvasWidth - 2 * margin + 20, boxH, 8);
 
   noStroke();
   fill(20);
   textAlign(LEFT, TOP);
-  textSize(13);
-  text('κ = ' + formatSci(kappa) + ' m⁻¹   |   T ≈ e^(−2κL) = ' + formatTPercent(T), px, py - 16);
+  textSize(narrow ? 11 : 13);
+  textWrap(WORD);
+  text('κ = ' + formatSci(kappa) + ' m⁻¹   |   T ≈ e^(−2κL) = ' + formatTPercent(T), px, py - 16, canvasWidth - 2 * margin);
 
   // T gauge bar (sqrt-scaled for visibility of tiny probabilities)
   const barX = px;
-  const barY = py + 8;
+  const barY = py + (narrow ? 22 : 8);
   const barW = canvasWidth - 2 * margin;
   const barH = 14;
   const fillFrac = constrain(Math.sqrt(T), 0, 1);
@@ -225,17 +238,22 @@ function formatTPercent(T) {
   return formatSci(T) + '  (' + formatSci(pct) + ' %)';
 }
 
-function drawControlLabels(ratio, Lnm) {
+function drawControlLabels(ratio, Lnm, narrow) {
   fill('black');
   noStroke();
   textAlign(RIGHT, CENTER);
   textSize(13);
-  text('V₀ / E ratio:', 160, drawHeight + 27);
-  text('Barrier width L:', 160, drawHeight + 62);
+  // On narrow canvases there's no room beside the slider for a separate
+  // value readout without overlapping it, so the value folds into the
+  // right-aligned label itself instead.
+  text(narrow ? 'V₀/E: ' + ratio.toFixed(1) : 'V₀ / E ratio:', 160, drawHeight + 27);
+  text(narrow ? 'L: ' + Lnm.toFixed(2) + ' nm' : 'Barrier width L:', 160, drawHeight + 62);
 
-  textAlign(LEFT, CENTER);
-  text(ratio.toFixed(1) + '  (V₀ = ' + ratio.toFixed(1) + ' eV, E = 1 eV)', 360, drawHeight + 27);
-  text(Lnm.toFixed(2) + ' nm', 360, drawHeight + 62);
+  if (!narrow) {
+    textAlign(LEFT, CENTER);
+    text(ratio.toFixed(1) + '  (V₀ = ' + ratio.toFixed(1) + ' eV, E = 1 eV)', 360, drawHeight + 27);
+    text(Lnm.toFixed(2) + ' nm', 360, drawHeight + 62);
+  }
 }
 
 function formatSci(x) {
@@ -258,15 +276,6 @@ function updateCanvasSize() {
   var mainEl = document.querySelector('main');
   containerWidth = Math.floor(mainEl.getBoundingClientRect().width);
   canvasWidth = containerWidth;
-
-  var availableHeight = window.innerHeight;
-  var children = mainEl.children;
-  for (var i = 0; i < children.length; i++) {
-    if (children[i].tagName !== 'CANVAS') {
-      availableHeight -= children[i].offsetHeight;
-    }
-  }
-  drawHeight = Math.max(minDrawHeight, availableHeight - controlHeight);
   canvasHeight = drawHeight + controlHeight;
   containerHeight = canvasHeight;
 }

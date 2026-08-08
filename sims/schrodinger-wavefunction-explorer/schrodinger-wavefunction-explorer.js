@@ -23,8 +23,7 @@
 let containerWidth;
 let canvasWidth = 750;
 let drawHeight = 460;
-let minDrawHeight = 460;
-let controlHeight = 160;
+let controlHeight = 168;
 let canvasHeight = drawHeight + controlHeight;
 let containerHeight = canvasHeight;
 
@@ -35,12 +34,17 @@ let startButton, packetModeCheckbox;
 let k0Slider, sigmaKSlider, speedSlider;
 let isRunning = false;
 let simTime = 0;
+let checkboxStacked = false;
 
 // --- schematic (dimensionless) constants ---
 const X_RANGE = 6;          // plotted x spans [-X_RANGE, X_RANGE]
 const ANGULAR_UNIT = 0.01;  // reference angular-speed scale (illustrative, not real hbar/m)
 const N_COMPONENTS = 7;
 const SPACING_SCALE = 0.2;  // shrinks slider Delta k to a true k-space component spacing
+
+const COLOR_RE = '#1E88E5';
+const COLOR_IM = '#E67E22';
+const COLOR_PROB = '#5A3EED';
 
 function setup() {
   updateCanvasSize();
@@ -52,7 +56,7 @@ function setup() {
   startButton = createButton('Start');
   startButton.mousePressed(toggleRunning);
 
-  packetModeCheckbox = createCheckbox('Wave packet (uncheck for single eigenstate)', true);
+  packetModeCheckbox = createCheckbox('Wave packet (uncheck for eigenstate)', true);
   packetModeCheckbox.changed(resetTime);
 
   k0Slider = createSlider(2, 10, 5, 0.5);
@@ -78,17 +82,29 @@ function positionUIElements() {
   const bx = mainRect.left;
   const by = mainRect.top;
 
-  startButton.position(bx + 10, by + drawHeight + 5);
-  packetModeCheckbox.position(bx + 90, by + drawHeight + 8);
+  startButton.position(bx + 10, by + drawHeight + 8);
 
-  k0Slider.position(bx + sliderLeftMargin, by + drawHeight + 40);
-  k0Slider.size(canvasWidth - sliderLeftMargin - margin);
+  const startW = startButton.elt.getBoundingClientRect().width;
+  const checkboxW = packetModeCheckbox.elt.getBoundingClientRect().width;
+  const inlineX = 10 + startW + 16;
+  checkboxStacked = (inlineX + checkboxW + 10) > canvasWidth;
 
-  sigmaKSlider.position(bx + sliderLeftMargin, by + drawHeight + 75);
-  sigmaKSlider.size(canvasWidth - sliderLeftMargin - margin);
+  if (checkboxStacked) {
+    packetModeCheckbox.position(bx + 10, by + drawHeight + 38);
+  } else {
+    packetModeCheckbox.position(bx + inlineX, by + drawHeight + 11);
+  }
 
-  speedSlider.position(bx + sliderLeftMargin, by + drawHeight + 110);
-  speedSlider.size(canvasWidth - sliderLeftMargin - margin);
+  const rowY = checkboxStacked ? [66, 100, 134] : [40, 74, 108];
+  const sliderW = Math.max(80, canvasWidth - sliderLeftMargin - margin);
+  k0Slider.position(bx + sliderLeftMargin, by + drawHeight + rowY[0]);
+  k0Slider.size(sliderW);
+
+  sigmaKSlider.position(bx + sliderLeftMargin, by + drawHeight + rowY[1]);
+  sigmaKSlider.size(sliderW);
+
+  speedSlider.position(bx + sliderLeftMargin, by + drawHeight + rowY[2]);
+  speedSlider.size(sliderW);
 }
 
 function toggleRunning() {
@@ -152,17 +168,23 @@ function draw() {
   noStroke();
   rect(0, drawHeight, canvasWidth, controlHeight);
 
+  const smallText = canvasWidth < 500;
+
   fill('black');
   noStroke();
   textAlign(CENTER, TOP);
-  textSize(18);
-  text('Schrödinger Wavefunction & Eigenstates Visualizer', canvasWidth / 2, 10);
+  textSize(smallText ? 14 : 18);
+  text('Schrödinger Wavefunction & Eigenstates Visualizer', canvasWidth / 2, 8);
 
   const isPacket = packetModeCheckbox.checked();
-  fill(isPacket ? '#2E7D32' : '#5A3EED');
-  textAlign(CENTER, TOP);
-  textSize(13);
-  text(isPacket ? 'Mode: Wave Packet (superposition of 7 components)' : 'Mode: Eigenstate (single plane wave)', canvasWidth / 2, 32);
+
+  // Mode badge -- an unmissable pill, plus a live running/paused indicator,
+  // so the animation state is obvious even mid-glance.
+  const badgeLabel = isPacket ? 'Wave Packet (7-component superposition)' : 'Eigenstate (single plane wave)';
+  const badgeColor = isPacket ? '#2E7D32' : '#5A3EED';
+  drawModeBadge(badgeLabel, badgeColor, isRunning);
+
+  drawLegendRow();
 
   const comps = currentComponents();
 
@@ -176,22 +198,79 @@ function draw() {
   drawControlLabels();
 
   if (!isRunning && simTime === 0) {
-    fill(80);
+    // NOTE: text(str, x, y, w) positions the box's LEFT edge at x (even
+    // with textAlign CENTER, which only centers text *within* that box) --
+    // x must be the box's left edge, not the canvas midpoint.
+    fill(90);
     noStroke();
-    textAlign(CENTER, CENTER);
-    textSize(13);
-    text('Press Start to animate ψ(x,t)  —  time shown is illustrative, not real seconds', canvasWidth / 2, drawHeight - 12);
+    textAlign(CENTER, TOP);
+    textWrap(WORD);
+    textSize(smallText ? 10.5 : 12);
+    text('Press Start to animate (time shown is illustrative, not real seconds)',
+      20, drawHeight - 30, canvasWidth - 40);
   }
+}
+
+function drawModeBadge(label, color, running) {
+  textAlign(CENTER, TOP);
+  textSize(13);
+  const tw = textWidth(label);
+  const dotR = 5;
+  const badgeW = tw + 34;
+  const bx0 = canvasWidth / 2 - badgeW / 2;
+  const by0 = 32;
+
+  noStroke();
+  fill(red(color), green(color), blue(color), 22);
+  rect(bx0, by0, badgeW, 22, 11);
+
+  fill(running ? '#2E7D32' : '#9E9E9E');
+  circle(bx0 + 14, by0 + 11, dotR * 2);
+
+  fill(color);
+  textAlign(LEFT, TOP);
+  text(label, bx0 + 24, by0 + 4);
+}
+
+function drawLegendRow() {
+  const y = 68;
+  textAlign(LEFT, CENTER);
+  textSize(11);
+
+  const items = [
+    { label: 'Re[ψ]', style: 'line', color: COLOR_RE },
+    { label: 'Im[ψ]', style: 'dashed', color: COLOR_IM },
+    { label: '|ψ|² (probability density)', style: 'fill', color: COLOR_PROB }
+  ];
+
+  let x = margin + 10;
+  items.forEach((item) => {
+    if (item.style === 'fill') {
+      noStroke();
+      fill(red(item.color), green(item.color), blue(item.color), 90);
+      rect(x, y - 5, 18, 10, 2);
+    } else {
+      stroke(item.color);
+      strokeWeight(2.2);
+      if (item.style === 'dashed') drawingContext.setLineDash([4, 3]);
+      line(x, y, x + 18, y);
+      drawingContext.setLineDash([]);
+    }
+    noStroke();
+    fill(20);
+    text(item.label, x + 24, y);
+    x += 24 + textWidth(item.label) + 22;
+  });
 }
 
 function computeGeometry() {
   const x0 = margin + 10;
   const x1 = canvasWidth - margin - 10;
-  const waveTop = 45;
-  const waveBottom = 225;
+  const waveTop = 104;
+  const waveBottom = 252;
   const waveBaseline = (waveTop + waveBottom) / 2;
-  const densTop = 240;
-  const densBottom = 385;
+  const densTop = 278;
+  const densBottom = 412;
   return { x0, x1, waveTop, waveBottom, waveBaseline, densTop, densBottom };
 }
 
@@ -202,18 +281,18 @@ function xToPx(x, geom) {
 function drawWavePanel(geom, comps) {
   const amp = (geom.waveBottom - geom.waveTop) / 2 - 10;
 
+  noStroke();
+  fill('#333');
+  textAlign(LEFT, TOP);
+  textSize(12);
+  text('Wavefunction ψ(x, t)', geom.x0, geom.waveTop - 20);
+
   stroke(210);
   strokeWeight(1);
   line(geom.x0, geom.waveBaseline, geom.x1, geom.waveBaseline);
 
-  noStroke();
-  fill(20);
-  textAlign(LEFT, TOP);
-  textSize(12);
-  text('Re[ψ] and Im[ψ]', geom.x0, geom.waveTop - 18);
-
   // Re[psi] -- solid blue
-  stroke('#1E88E5');
+  stroke(COLOR_RE);
   strokeWeight(2.2);
   noFill();
   beginShape();
@@ -226,7 +305,7 @@ function drawWavePanel(geom, comps) {
 
   // Im[psi] -- dashed orange
   drawingContext.setLineDash([5, 4]);
-  stroke('#E67E22');
+  stroke(COLOR_IM);
   strokeWeight(2.2);
   noFill();
   beginShape();
@@ -237,22 +316,20 @@ function drawWavePanel(geom, comps) {
   }
   endShape();
   drawingContext.setLineDash([]);
-
-  noStroke();
-  fill('#1E88E5');
-  textSize(11);
-  textAlign(LEFT, TOP);
-  text('— Re[ψ]', geom.x1 - 110, geom.waveTop - 18);
-  fill('#E67E22');
-  text('- - Im[ψ]', geom.x1 - 50, geom.waveTop - 18);
 }
 
 function drawDensityPanel(geom, comps) {
+  // A tinted background band makes it visually unmistakable that this is a
+  // different quantity from the wave panel above (real/imaginary amplitude
+  // vs. a strictly non-negative probability density).
   noStroke();
-  fill(20);
+  fill(90, 62, 237, 12);
+  rect(geom.x0 - 6, geom.densTop - 26, (geom.x1 - geom.x0) + 12, (geom.densBottom - geom.densTop) + 34, 6);
+
+  fill('#333');
   textAlign(LEFT, TOP);
   textSize(12);
-  text('Probability density |ψ|²', geom.x0, geom.densTop - 18);
+  text('Probability density |ψ(x, t)|²', geom.x0, geom.densTop - 18);
 
   stroke(210);
   strokeWeight(1);
@@ -260,7 +337,7 @@ function drawDensityPanel(geom, comps) {
 
   const heightScale = geom.densBottom - geom.densTop;
 
-  fill(90, 40, 200, 70);
+  fill(90, 62, 237, 70);
   noStroke();
   beginShape();
   vertex(geom.x0, geom.densBottom);
@@ -272,7 +349,7 @@ function drawDensityPanel(geom, comps) {
   vertex(geom.x1, geom.densBottom);
   endShape(CLOSE);
 
-  stroke('#5A3EED');
+  stroke(COLOR_PROB);
   strokeWeight(2);
   noFill();
   beginShape();
@@ -285,13 +362,14 @@ function drawDensityPanel(geom, comps) {
 }
 
 function drawControlLabels() {
+  const [row1, row2, row3] = checkboxStacked ? [66, 100, 134] : [40, 74, 108];
   fill('black');
   noStroke();
   textAlign(LEFT, CENTER);
   textSize(13);
-  text('Central k₀: ' + k0Slider.value().toFixed(1), 10, drawHeight + 50);
-  text('Packet width Δk: ' + sigmaKSlider.value().toFixed(1), 10, drawHeight + 85);
-  text('Animation speed: ' + speedSlider.value().toFixed(1) + '×', 10, drawHeight + 120);
+  text('Central k₀: ' + k0Slider.value().toFixed(1), 10, drawHeight + row1 + 10);
+  text('Packet width Δk: ' + sigmaKSlider.value().toFixed(1), 10, drawHeight + row2 + 10);
+  text('Animation speed: ' + speedSlider.value().toFixed(1) + '×', 10, drawHeight + row3 + 10);
 }
 
 function windowResized() {
@@ -304,15 +382,6 @@ function updateCanvasSize() {
   var mainEl = document.querySelector('main');
   containerWidth = Math.floor(mainEl.getBoundingClientRect().width);
   canvasWidth = containerWidth;
-
-  var availableHeight = window.innerHeight;
-  var children = mainEl.children;
-  for (var i = 0; i < children.length; i++) {
-    if (children[i].tagName !== 'CANVAS') {
-      availableHeight -= children[i].offsetHeight;
-    }
-  }
-  drawHeight = Math.max(minDrawHeight, availableHeight - controlHeight);
   canvasHeight = drawHeight + controlHeight;
   containerHeight = canvasHeight;
 }

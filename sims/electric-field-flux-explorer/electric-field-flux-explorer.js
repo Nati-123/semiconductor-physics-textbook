@@ -8,7 +8,6 @@
 let containerWidth;
 let canvasWidth = 750;
 let drawHeight = 380;
-let minDrawHeight = 380;
 let controlHeight = 120;
 let canvasHeight = drawHeight + controlHeight;
 let containerHeight = canvasHeight;
@@ -52,6 +51,10 @@ function setup() {
 
 function positionUIElements() {
   let mainRect = document.querySelector('main').getBoundingClientRect();
+  const sliderW = constrain(mainRect.width - 190 - 20, 80, 180);
+  qSlider.size(sliderW);
+  dSlider.size(sliderW);
+  thetaSlider.size(sliderW);
   qSlider.position(mainRect.left + 190, mainRect.top + drawHeight + 15);
   dSlider.position(mainRect.left + 190, mainRect.top + drawHeight + 45);
   thetaSlider.position(mainRect.left + 190, mainRect.top + drawHeight + 75);
@@ -72,7 +75,7 @@ function draw() {
   fill('black');
   noStroke();
   textAlign(CENTER, TOP);
-  textSize(18);
+  textSize(canvasWidth < 500 ? 14 : 18);
   text('Electric Field and Flux Explorer', canvasWidth / 2, 10);
 
   const qnC = qSlider.value();
@@ -175,7 +178,8 @@ function drawSurface(x, y, theta) {
   fill('#2E7D32');
   textAlign(CENTER, TOP);
   textSize(12);
-  text('test surface', x, y + 30);
+  // Offset past halfLen so the label always clears the surface line, at any tilt angle.
+  text('test surface', x, y + halfLen + 8);
 }
 
 function drawArrow(x1, y1, x2, y2) {
@@ -190,28 +194,32 @@ function drawArrow(x1, y1, x2, y2) {
 }
 
 function drawReadouts(E, thetaDeg, flux) {
-  const px = canvasWidth * 0.66;
-  let py = 45;
-  const lineH = 22;
+  const boxW = constrain(canvasWidth * 0.34, 150, 300);
+  const px = canvasWidth - boxW - 15;
+  const fs = canvasWidth < 500 ? 10 : 13;
+  const lineH = fs * 2.1;
+  const textW = boxW - 22;
+  let py = 46;
 
   fill(245);
   stroke(200);
   strokeWeight(1);
-  rect(px - 15, py - 15, min(canvasWidth * 0.32, 300), 5 * lineH + 15, 8);
+  rect(px - 12, py - 12, boxW, 5 * lineH + 15, 8);
 
   noStroke();
   fill(20);
   textAlign(LEFT, TOP);
-  textSize(13);
-  text('E at surface = ' + formatSci(E) + ' V/m', px, py);
+  textSize(fs);
+  textWrap(WORD);
+  text('E at surface = ' + formatSci(E) + ' V/m', px, py, textW);
   py += lineH;
-  text('Surface area A = ' + AREA_NM2 + ' nm²', px, py);
+  text('Surface area A = ' + AREA_NM2 + ' nm²', px, py, textW);
   py += lineH;
-  text('θ (field to normal) = ' + thetaDeg + '°', px, py);
+  text('θ (field to normal) = ' + thetaDeg + '°', px, py, textW);
   py += lineH;
-  text('cos θ = ' + cos(radians(thetaDeg)).toFixed(3), px, py);
+  text('cos θ = ' + cos(radians(thetaDeg)).toFixed(3), px, py, textW);
   py += lineH;
-  text('Φ = E·A·cos θ = ' + formatSci(flux) + ' V·m', px, py);
+  text('Φ = E·A·cos θ = ' + formatSci(flux) + ' V·m', px, py, textW);
 }
 
 function drawControlLabels(qnC, dNm, thetaDeg) {
@@ -244,15 +252,6 @@ function updateCanvasSize() {
   var mainEl = document.querySelector('main');
   containerWidth = Math.floor(mainEl.getBoundingClientRect().width);
   canvasWidth = containerWidth;
-
-  var availableHeight = window.innerHeight;
-  var children = mainEl.children;
-  for (var i = 0; i < children.length; i++) {
-    if (children[i].tagName !== 'CANVAS') {
-      availableHeight -= children[i].offsetHeight;
-    }
-  }
-  drawHeight = Math.max(minDrawHeight, availableHeight - controlHeight);
   canvasHeight = drawHeight + controlHeight;
   containerHeight = canvasHeight;
 }

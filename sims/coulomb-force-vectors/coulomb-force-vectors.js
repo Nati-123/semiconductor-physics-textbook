@@ -8,7 +8,6 @@
 let containerWidth;
 let canvasWidth = 700;
 let drawHeight = 320;
-let minDrawHeight = 320;
 let controlHeight = 100;
 let canvasHeight = drawHeight + controlHeight;
 let containerHeight = canvasHeight;
@@ -70,7 +69,7 @@ function draw() {
   fill('black');
   noStroke();
   textAlign(CENTER, TOP);
-  textSize(18);
+  textSize(canvasWidth < 500 ? 14 : 18);
   text("Coulomb's Law Force Vectors", canvasWidth / 2, 10);
 
   const combo = COMBOS[comboSelect.selected() ? COMBOS.findIndex(c => c.label === comboSelect.value()) : 0];
@@ -178,15 +177,6 @@ function updateCanvasSize() {
   var mainEl = document.querySelector('main');
   containerWidth = Math.floor(mainEl.getBoundingClientRect().width);
   canvasWidth = containerWidth;
-
-  var availableHeight = window.innerHeight;
-  var children = mainEl.children;
-  for (var i = 0; i < children.length; i++) {
-    if (children[i].tagName !== 'CANVAS') {
-      availableHeight -= children[i].offsetHeight;
-    }
-  }
-  drawHeight = Math.max(minDrawHeight, availableHeight - controlHeight);
   canvasHeight = drawHeight + controlHeight;
   containerHeight = canvasHeight;
 }

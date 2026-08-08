@@ -8,8 +8,7 @@
 let containerWidth;
 let canvasWidth = 700;
 let drawHeight = 380;
-let minDrawHeight = 380;
-let controlHeight = 110;
+let controlHeight = 120;
 let canvasHeight = drawHeight + controlHeight;
 let containerHeight = canvasHeight;
 
@@ -50,9 +49,20 @@ function setup() {
 
 function positionUIElements() {
   let mainRect = document.querySelector('main').getBoundingClientRect();
+  const sliderW = constrain(mainRect.width - 150 - 20, 80, 220);
+  tempSlider.size(sliderW);
   tempSlider.position(mainRect.left + 150, mainRect.top + drawHeight + 15);
+
   roomButton.position(mainRect.left + 150, mainRect.top + drawHeight + 50);
-  ln2Button.position(mainRect.left + 340, mainRect.top + drawHeight + 50);
+  const roomW = roomButton.elt.getBoundingClientRect().width;
+  const ln2W = ln2Button.elt.getBoundingClientRect().width;
+  const sideBySideX = mainRect.left + 150 + roomW + 15;
+  // Stack the second button on its own row if there isn't room beside the first.
+  if (sideBySideX + ln2W <= mainRect.right - 10) {
+    ln2Button.position(sideBySideX, mainRect.top + drawHeight + 50);
+  } else {
+    ln2Button.position(mainRect.left + 150, mainRect.top + drawHeight + 85);
+  }
 }
 
 function speedDist(v, T) {
@@ -77,7 +87,7 @@ function draw() {
   fill('black');
   noStroke();
   textAlign(CENTER, TOP);
-  textSize(18);
+  textSize(canvasWidth < 500 ? 13 : 18);
   text('Maxwell-Boltzmann Speed Distribution', canvasWidth / 2, 10);
 
   const T = tempSlider.value();
@@ -186,15 +196,6 @@ function updateCanvasSize() {
   var mainEl = document.querySelector('main');
   containerWidth = Math.floor(mainEl.getBoundingClientRect().width);
   canvasWidth = containerWidth;
-
-  var availableHeight = window.innerHeight;
-  var children = mainEl.children;
-  for (var i = 0; i < children.length; i++) {
-    if (children[i].tagName !== 'CANVAS') {
-      availableHeight -= children[i].offsetHeight;
-    }
-  }
-  drawHeight = Math.max(minDrawHeight, availableHeight - controlHeight);
   canvasHeight = drawHeight + controlHeight;
   containerHeight = canvasHeight;
 }

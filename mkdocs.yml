@@ -203,7 +203,10 @@ nav:
           - Miller Indices Plane Visualizer: sims/miller-indices-explorer/index.md
       - Chapter 4:
           - Electron Configuration Explorer: sims/electron-configuration-explorer/index.md
+          - Bond Energy vs. Atomic Separation Explorer: sims/bond-energy-separation-explorer/index.md
+          - Silicon Covalent Bonding Explorer: sims/silicon-covalent-bonding-explorer/index.md
           - Bonding and Crystal Order Explorer: sims/bonding-crystal-order-explorer/index.md
+          - Crystal Defects Explorer: sims/crystal-defects-explorer/index.md
       - Chapter 5:
           - Reciprocal Lattice and Brillouin Zone Explorer: sims/reciprocal-lattice-brillouin-zone-explorer/index.md
           - Kronig-Penney Band Formation Explorer: sims/kronig-penney-band-explorer/index.md

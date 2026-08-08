@@ -131,6 +131,19 @@ Silicon is the semiconductor example of central interest in this course. Each si
 
     **Solution:** Silicon has 4 valence electrons of its own. Each of its 4 covalent bonds is a shared electron pair, contributed one electron from silicon and one electron from its neighbor. Silicon "counts" both electrons of each of its 4 bonds toward its own octet: \(4 \text{ bonds} \times 2 \text{ electrons per bond} = 8\) electrons in silicon's local bonding environment — a filled octet, even though silicon itself only supplied 4 of those 8 electrons.
 
+#### Diagram: Silicon Covalent Bonding Explorer
+
+<iframe src="../../sims/silicon-covalent-bonding-explorer/main.html" width="100%" height="760px" scrolling="auto"></iframe>
+
+!!! tip "How to use this MicroSim"
+    **Instructions:** Drag the "Bonds formed" slider from 0 up to 4 and watch the electron-count readout climb from 4 to 8, one shared pair at a time. Check "Show 109.5° bond angle" to see the tetrahedral angle marked directly between two bonds.
+
+    **Learning objective:** Follow the electron bookkeeping from Worked Example 1 above one bond at a time, rather than only at the final, fully-bonded state.
+
+    **What to observe:** At every intermediate step, the readout panel confirms the running total: 4 original valence electrons plus 1 more counted for each bond formed, reaching the full octet of 8 only once all 4 bonds exist.
+
+[Full MicroSim documentation →](../../sims/silicon-covalent-bonding-explorer/index.md)
+
 ### Ionic Bond
 
 An **ionic bond** forms when one atom transfers one or more valence electrons completely to another atom, rather than sharing them. The atom that loses an electron becomes a positively charged **cation**; the atom that gains an electron becomes a negatively charged **anion**. The resulting bond is simply the Coulomb attraction, from Chapter 1, between these two oppositely charged ions:
@@ -152,6 +165,21 @@ Sodium chloride is the standard example: sodium (1 valence electron, low electro
     Estimate the Coulomb potential energy, in electron-volts, between a \(\text{Na}^+\) ion and a \(\text{Cl}^-\) ion separated by \(r = 0.28\) nm (approximately their equilibrium separation in NaCl), using \(e = 1.602\times10^{-19}\) C and \(\dfrac{1}{4\pi\varepsilon_0} = 8.99\times10^9\ \text{N·m}^2/\text{C}^2\).
 
     **Solution:** \(U(r) = -\dfrac{(8.99\times10^9)(1.602\times10^{-19})^2}{0.28\times10^{-9}} = -8.24\times10^{-19}\ \text{J}\). Converting to electron-volts (\(1\ \text{eV} = 1.602\times10^{-19}\ \text{J}\)): \(U(r) \approx -5.1\ \text{eV}\). This large negative value — several electron-volts, much larger than typical thermal energies at room temperature (\(k_BT\approx0.026\ \text{eV}\)) — explains why ionic bonds are strong and why ionic crystals like NaCl have high melting points.
+
+Worked Example 3 computes a single number, the Coulomb attraction at one specific separation. But that formula, by itself, cannot explain why \(r = 0.28\) nm is special — pure Coulomb attraction only ever pulls the ions closer together, with no minimum at all. What actually sets the equilibrium separation is a second, shorter-range effect: once the ions' filled electron shells begin to overlap, a strong **repulsive** force appears and grows extremely quickly as \(r\) shrinks further. The true bond energy curve is the sum of this short-range repulsion and the longer-range attraction, and it is that sum, not the attraction alone, that has a minimum — at the equilibrium bond length \(r_0\), with depth equal to the bond energy \(E_0\).
+
+#### Diagram: Bond Energy vs. Atomic Separation Explorer
+
+<iframe src="../../sims/bond-energy-separation-explorer/main.html" width="100%" height="810px" scrolling="auto"></iframe>
+
+!!! tip "How to use this MicroSim"
+    **Instructions:** Drag the "Current separation r" slider across its full range and watch the marker trace the attractive-plus-repulsive curve. Press "Snap r to r0" to jump exactly to equilibrium, then compare the "Ionic Na–Cl" preset's r0 and E0 values to Worked Example 3 above.
+
+    **Learning objective:** Explain why a stable bond distance exists as the balance point between attraction and repulsion, rather than assuming it without justification.
+
+    **What to observe:** The "Ionic Na–Cl" preset uses r0 = 0.28 nm and E0 = 5.1 eV — the same separation and (approximately) the same energy computed by hand in Worked Example 3, now shown as the minimum of a complete attractive-plus-repulsive curve rather than a single evaluated point.
+
+[Full MicroSim documentation →](../../sims/bond-energy-separation-explorer/index.md)
 
 ### Metallic Bond
 
@@ -302,6 +330,19 @@ Crystal defects are not always undesirable. A substitutional defect, in particul
     **What to observe:** Notice that grain boundaries in the polycrystalline view are exactly the regions where two differently-oriented periodic grids meet, and that even the "defect-free" single-crystal view becomes visibly disrupted the moment a vacancy, interstitial, or substitutional defect is toggled on.
 
 [Full MicroSim documentation →](../../sims/bonding-crystal-order-explorer/index.md)
+
+#### Diagram: Crystal Defects Explorer
+
+<iframe src="../../sims/crystal-defects-explorer/main.html" width="100%" height="640px" scrolling="auto"></iframe>
+
+!!! tip "How to use this MicroSim"
+    **Instructions:** Use the "Defect type" dropdown to select Vacancy, Interstitial, or Substitutional, and read the explanation panel below the diagram for each.
+
+    **Learning objective:** Examine each of the three point defect types up close, one at a time, in preparation for classifying the defects in Worked Examples 7 and 8 below.
+
+    **What to observe:** A vacancy removes an atom, an interstitial adds one in a position no regular site occupies, and a substitutional defect keeps the same number of atoms but changes the identity of one of them — three distinct ways to disrupt the same perfect lattice.
+
+[Full MicroSim documentation →](../../sims/crystal-defects-explorer/index.md)
 
 !!! example "Worked Example 7 — Classifying a Point Defect"
     A silicon crystal has one lattice site where a phosphorus atom sits in place of a silicon atom. Classify this defect.

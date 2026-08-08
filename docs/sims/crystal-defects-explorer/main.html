@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Crystal Defects Explorer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+        .control-panel {
+            background: #f5f5f5;
+            border-top: 1px solid silver;
+            padding: 10px 16px;
+            box-sizing: border-box;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px 18px;
+        }
+        .control-panel .ctrl-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #333;
+        }
+        .control-panel .slider-field {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .readout-panel {
+            background: #ffffff;
+            border-top: 1px solid #ddd;
+            padding: 10px 16px 12px 16px;
+            font-size: 13px;
+            color: #222;
+            box-sizing: border-box;
+            line-height: 1.6;
+        }
+        .readout-panel .readout-row { margin-bottom: 4px; }
+    </style>
+    <script src="crystal-defects-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Select each of the three defect types in turn and compare exactly what changes at the center of the grid.</li>
+            <li><strong>Predict:</strong> Before selecting "Substitutional," predict whether the total number of atoms visible in the grid will increase, decrease, or stay the same compared to Vacancy.</li>
+            <li><strong>Observe:</strong> In Interstitial mode, notice that the extra atom does not sit on any grid line intersection — it is genuinely squeezed between regular sites.</li>
+            <li><strong>Compare:</strong> Compare this MicroSim's Substitutional view to Chapter 4's Worked Example 7, which classifies a phosphorus atom replacing a silicon atom.</li>
+            <li><strong>Explain:</strong> Explain why a substitutional defect does not change the total number of atoms in the lattice, while a vacancy reduces it and an interstitial increases it.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 4:</strong> This MicroSim isolates and zooms in on the three point defect types this chapter defines — vacancy, interstitial, and substitutional — matching Worked Examples 7 and 8, which ask students to classify a substitutional phosphorus atom and a vacancy respectively. The chapter singles out the substitutional type as especially important: it is exactly the mechanism Chapter 8 uses deliberately, under the name doping, to engineer a semiconductor's electrical properties.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>Defect type dropdown</dt>
+            <dd>Switches the zoomed-in grid between Vacancy, Interstitial, and Substitutional, updating the diagram and the explanation panel below it.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">1. A silicon crystal has one lattice site with no atom present, while all neighboring sites are correctly occupied. What type of defect is this?</p>
+            <label><input type="radio" name="cde-q1" value="a"> Interstitial</label>
+            <label><input type="radio" name="cde-q1" value="b"> Vacancy</label>
+            <label><input type="radio" name="cde-q1" value="c"> Substitutional</label>
+            <label><input type="radio" name="cde-q1" value="d"> Not a defect</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>A missing atom at an otherwise regular site is, by definition, a vacancy — this is exactly Chapter 4's Worked Example 8.</p>
+            <p class="explain-incorrect" hidden>Select "Vacancy" in the dropdown and compare its description to the question.</p>
+        </div>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">2. A phosphorus atom sits in a lattice site normally held by a silicon atom. What type of defect is this?</p>
+            <label><input type="radio" name="cde-q2" value="a"> Vacancy</label>
+            <label><input type="radio" name="cde-q2" value="b"> Interstitial</label>
+            <label><input type="radio" name="cde-q2" value="c"> Substitutional</label>
+            <label><input type="radio" name="cde-q2" value="d"> Frenkel</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>A foreign atom occupying a regular lattice site is a substitutional defect — this is Chapter 4's Worked Example 7, and the same mechanism used deliberately in doping.</p>
+            <p class="explain-incorrect" hidden>Select "Substitutional" in the dropdown and compare its description to the question.</p>
+        </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">3. Which defect type adds an extra atom that is not part of the regular lattice pattern at all?</p>
+            <label><input type="radio" name="cde-q3" value="a"> Interstitial</label>
+            <label><input type="radio" name="cde-q3" value="b"> Vacancy</label>
+            <label><input type="radio" name="cde-q3" value="c"> Substitutional</label>
+            <label><input type="radio" name="cde-q3" value="d"> None of these</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>An interstitial atom is squeezed into the gap between regular lattice sites — it does not occupy a normal site at all, unlike a substitutional defect.</p>
+            <p class="explain-incorrect" hidden>Select "Interstitial" and look closely at where the orange atom sits relative to the grid lines.</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

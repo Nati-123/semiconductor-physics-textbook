@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Silicon Covalent Bonding Explorer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+        main .p5Label { order: 99; padding: 6px 16px 2px 16px; font-size: 12px; color: #555; }
+        .control-panel {
+            background: #f5f5f5;
+            border-top: 1px solid silver;
+            padding: 10px 16px;
+            box-sizing: border-box;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px 18px;
+        }
+        .control-panel .ctrl-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #333;
+        }
+        .control-panel .slider-field {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .control-panel .index-slider {
+            width: 110px;
+        }
+        .control-panel .slider-value {
+            font-size: 13px;
+            font-weight: 700;
+            color: #5A3EED;
+            min-width: 18px;
+            display: inline-block;
+        }
+        .control-panel .preset-btn {
+            font-size: 12px;
+            padding: 4px 10px;
+            background: #EEF4FF;
+            border: 1px solid #A8C8FF;
+            border-radius: 6px;
+            color: #5A3EED;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .control-panel .preset-btn:hover {
+            background: #DDE8FF;
+        }
+        .control-panel .ctrl-hint {
+            font-size: 12px;
+            color: #777;
+            font-style: italic;
+            margin-left: auto;
+        }
+        .readout-panel {
+            background: #ffffff;
+            border-top: 1px solid #ddd;
+            padding: 10px 16px 12px 16px;
+            font-size: 13px;
+            color: #222;
+            box-sizing: border-box;
+            line-height: 1.6;
+        }
+        .readout-panel .readout-row { margin-bottom: 2px; }
+        .readout-panel .readout-value { font-weight: 700; color: #5A3EED; }
+    </style>
+    <script src="silicon-covalent-bonding-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Drag the "Bonds formed" slider from 0 up to 4 and watch the electron count in the readout panel climb from 4 to 8, one shared pair at a time.</li>
+            <li><strong>Predict:</strong> Before pressing "Play build animation", predict what the electron count will read once all 4 bonds exist.</li>
+            <li><strong>Observe:</strong> Check "Show 109.5° bond angle" and rotate the view to see the green arc spanning between two of the four bonds — every pair of bonds has this same angle.</li>
+            <li><strong>Compare:</strong> Set the slider to 2 and note the readout says 2 valence electrons are still unshared — this is the same silicon atom, mid-bond, not a different element.</li>
+            <li><strong>Explain:</strong> Explain why silicon needs exactly 4 bonds to complete its octet, while an element with 6 valence electrons would need only 2.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 4:</strong> Silicon's electron configuration <span class="arithmatex">\(1s^2\,2s^2\,2p^6\,3s^2\,3p^2\)</span> leaves 4 valence electrons, and each one pairs with one electron from a neighboring Si atom to form a covalent bond — this MicroSim makes that electron bookkeeping explicit and shows the resulting bonds sit at the sp3 tetrahedral angle of 109.5°, the same geometry described in this chapter's tetrahedral bonding section. For the full repeating 3D lattice this bonding pattern builds (interpenetrating FCC sublattices, 8 atoms per cell), see the Diamond/Zincblende Structure Explorer in Chapter 3.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>Bonds formed slider</dt>
+            <dd>Reveals 0 to 4 of the center atom's covalent bonds, each with its shared electron pair, and updates the electron-count readout.</dd>
+            <dt>Play build animation button</dt>
+            <dd>Automatically grows all 4 bonds in sequence from 0 to 4.</dd>
+            <dt>Show 109.5° bond angle checkbox</dt>
+            <dd>Draws a green arc between two of the formed bonds to visualize the tetrahedral angle between them.</dd>
+            <dt>Click-and-drag / scroll on the 3D view</dt>
+            <dd>Rotates and zooms the camera (uses p5.js <span class="arithmatex">\(\texttt{orbitControl()}\)</span>).</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">1. How many electrons does the center silicon atom contribute to its 4 covalent bonds in total?</p>
+            <label><input type="radio" name="scb-q1" value="a"> 8</label>
+            <label><input type="radio" name="scb-q1" value="b"> 2</label>
+            <label><input type="radio" name="scb-q1" value="c"> 4</label>
+            <label><input type="radio" name="scb-q1" value="d"> 14</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Silicon has 4 valence electrons, and it contributes exactly one to each of its 4 bonds — set the slider to 4 and read the readout panel.</p>
+            <p class="explain-incorrect" hidden>Set the slider to 4 (all bonds formed) and read how many electrons the readout says are shared in total.</p>
+        </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">2. With the slider set to 2 (only 2 of 4 bonds formed), how many electrons are counted around the center atom?</p>
+            <label><input type="radio" name="scb-q2" value="a"> 4</label>
+            <label><input type="radio" name="scb-q2" value="b"> 6</label>
+            <label><input type="radio" name="scb-q2" value="c"> 8</label>
+            <label><input type="radio" name="scb-q2" value="d"> 2</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Formula: 4 original valence electrons plus 1 more counted for each formed bond = 4 + 2 = 6, shown directly in the readout panel.</p>
+            <p class="explain-incorrect" hidden>Set the slider to 2 and read the "Electrons counted around the center Si atom" line.</p>
+        </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">3. What angle separates every pair of the four Si-Si bonds?</p>
+            <label><input type="radio" name="scb-q3" value="a"> 109.5°</label>
+            <label><input type="radio" name="scb-q3" value="b"> 90°</label>
+            <label><input type="radio" name="scb-q3" value="c"> 180°</label>
+            <label><input type="radio" name="scb-q3" value="d"> 60°</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>This is the tetrahedral (sp3) bond angle — check "Show 109.5° bond angle" to see it marked directly between two bonds.</p>
+            <p class="explain-incorrect" hidden>Check the "Show 109.5° bond angle" box and read the readout panel line about the tetrahedral angle.</p>
+        </div>
+
+        <div class="challenge" data-correct="d">
+            <p class="q-text">4. Once all 4 bonds are formed, how many electrons are counted around the center Si atom, and what does this represent?</p>
+            <label><input type="radio" name="scb-q4" value="a"> 4 — silicon's original valence electrons only</label>
+            <label><input type="radio" name="scb-q4" value="b"> 14 — silicon's total electron count</label>
+            <label><input type="radio" name="scb-q4" value="c"> 2 — one shared pair</label>
+            <label><input type="radio" name="scb-q4" value="d"> 8 — a complete octet</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>With all 4 bonds formed, 4 + 4 = 8 electrons are counted around the center atom — a complete octet, the stable configuration covalent bonding achieves.</p>
+            <p class="explain-incorrect" hidden>Set the slider to 4 and read the electron-count readout line.</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

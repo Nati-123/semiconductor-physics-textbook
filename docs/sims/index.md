@@ -48,7 +48,10 @@ Interactive educational simulations that accompany this textbook.
 | MicroSim | Bloom Level | Description |
 |----------|-------------|-------------|
 | [Electron Configuration Explorer](electron-configuration-explorer/index.md) | L2-L3 Understand/Apply | Bohr-model diagram of electron shell filling for Z=1–18, distinguishing core from valence electrons, with Na/Si/Cl presets |
+| [Bond Energy vs. Atomic Separation Explorer](bond-energy-separation-explorer/index.md) | L2-L4 Understand/Analyze | Interactive potential-energy-vs-separation graph decomposed into attractive and repulsive components, with adjustable equilibrium separation r0 and bond energy E0 |
+| [Silicon Covalent Bonding Explorer](silicon-covalent-bonding-explorer/index.md) | L2-L3 Understand/Apply | Rotatable 3D view of one silicon atom forming its four tetrahedral covalent bonds one at a time, with a live electron-count readout and the 109.5° bond angle |
 | [Bonding and Crystal Order Explorer](bonding-crystal-order-explorer/index.md) | L2-L4 Understand/Analyze | Compare covalent, ionic, and metallic bonding side by side, and compare single-crystal, polycrystalline, and amorphous order with optional vacancy, interstitial, and substitutional point defects |
+| [Crystal Defects Explorer](crystal-defects-explorer/index.md) | L2-L3 Understand/Apply | Zoomed-in, one-at-a-time view of vacancy, interstitial, and substitutional point defects, tied to Chapter 4's Worked Examples 7 and 8 |
 
 ## Chapter 5: Quantum Mechanics of Periodic Crystals
 

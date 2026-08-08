@@ -1,6 +1,10 @@
 // Bonding and Crystal Order Explorer MicroSim
 // Two linked views selected by a top-level dropdown:
-//   "Bond Types"   -- schematic covalent, ionic, and metallic bonding
+//   "Bond Types"    -- covalent, ionic, and metallic bonding, each shown as
+//                      a small multi-atom cluster (not a single isolated
+//                      pair), so students can see how the bonding pattern
+//                      extends throughout a crystal, not just between two
+//                      atoms.
 //   "Crystal Order" -- single crystal, polycrystalline, and amorphous
 //                      arrangements, with optional point defects
 // Bloom Level: Understand / Analyze (L2-L4)
@@ -9,12 +13,11 @@
 let containerWidth;
 let canvasWidth = 750;
 let drawHeight = 460;
-let minDrawHeight = 440;
-let controlHeight = 130;
+let controlHeight = 140;
 let canvasHeight = drawHeight + controlHeight;
 let containerHeight = canvasHeight;
 
-let margin = 30;
+let margin = 24;
 
 // --- DOM controls ---
 let viewSelect, bondTypeSelect, orderSelect, defectsCheckbox;
@@ -24,7 +27,7 @@ let metallicElectrons = [];
 let amorphousAtoms = [];
 let defectSites = {}; // { vacancy: {r,c}, interstitial: {r,c}, substitutional: {r,c} }
 
-const GRID_N = 6; // atoms per side for crystal-order views
+const GRID_N = 7; // atoms per side for crystal-order views (denser than before)
 
 function setup() {
   updateCanvasSize();
@@ -63,7 +66,7 @@ function setup() {
   positionUIElements();
   updateControlVisibility();
 
-  describe('Interactive comparison of covalent, ionic, and metallic bonding, and of single-crystal, polycrystalline, and amorphous atomic order, with optional point defects', LABEL);
+  describe('Interactive comparison of covalent, ionic, and metallic bonding shown as small multi-atom clusters, and of single-crystal, polycrystalline, and amorphous atomic order, with optional point defects', LABEL);
 
   setTimeout(function () { window.dispatchEvent(new Event('resize')); }, 50);
 }
@@ -95,7 +98,7 @@ function seededRandom(seed) {
 function regenerateLayouts() {
   // metallic electron sea: fixed pseudo-random positions, recomputed only on selection change
   metallicElectrons = [];
-  for (let i = 0; i < 40; i++) {
+  for (let i = 0; i < 55; i++) {
     metallicElectrons.push({
       u: seededRandom(i * 3.1 + 1),
       v: seededRandom(i * 7.7 + 2)
@@ -117,8 +120,8 @@ function regenerateLayouts() {
   // fixed defect sites (roughly centered, spaced apart)
   defectSites = {
     vacancy: { r: 2, c: 2 },
-    interstitial: { r: 2, c: 4 },
-    substitutional: { r: 4, c: 2 }
+    interstitial: { r: 2, c: 5 },
+    substitutional: { r: 5, c: 2 }
   };
 }
 
@@ -127,10 +130,22 @@ function positionUIElements() {
   const bx = mainRect.left;
   const by = mainRect.top;
 
-  viewSelect.position(bx + 10, by + drawHeight + 8);
-  bondTypeSelect.position(bx + 190, by + drawHeight + 8);
-  orderSelect.position(bx + 190, by + drawHeight + 8);
-  defectsCheckbox.position(bx + 380, by + drawHeight + 12);
+  viewSelect.position(bx + 10, by + drawHeight + 10);
+
+  const viewW = viewSelect.elt.getBoundingClientRect().width;
+  const secondX = 10 + viewW + 18;
+  bondTypeSelect.position(bx + secondX, by + drawHeight + 10);
+  orderSelect.position(bx + secondX, by + drawHeight + 10);
+
+  const secondEl = viewSelect.value() === 'Bond Types' ? bondTypeSelect : orderSelect;
+  const secondW = secondEl.elt.getBoundingClientRect().width;
+  const thirdX = secondX + secondW + 18;
+  const stacked = (bx + thirdX + 130) > (bx + canvasWidth - 10);
+  if (stacked) {
+    defectsCheckbox.position(bx + 10, by + drawHeight + 46);
+  } else {
+    defectsCheckbox.position(bx + thirdX, by + drawHeight + 13);
+  }
 }
 
 // ---------- draw ----------
@@ -157,16 +172,14 @@ function draw() {
 }
 
 function drawControlLabels(view) {
-  fill('black');
+  fill('#666');
   noStroke();
-  textAlign(LEFT, CENTER);
-  textSize(13);
-  text('View:', 10, drawHeight + 40);
-  if (view === 'Bond Types') {
-    text('Bond type:', 190, drawHeight + 40);
-  } else {
-    text('Order:', 190, drawHeight + 40);
-  }
+  textAlign(LEFT, TOP);
+  textSize(11);
+  const stacked = defectsCheckbox.position && viewSelect.value() !== 'Bond Types' &&
+    (document.querySelector('main').getBoundingClientRect().width < 560);
+  const capY = stacked ? drawHeight + 78 : drawHeight + 46;
+  text('Use the dropdowns above to switch views and compare bonding or crystal-order side by side.', 10, capY, canvasWidth - 20);
 }
 
 // ============================================================
@@ -176,111 +189,171 @@ function drawBondTypes(kind) {
   fill(20);
   noStroke();
   textAlign(CENTER, TOP);
-  textSize(18);
-  text('Bond Types: ' + kind, canvasWidth / 2, 10);
+  textSize(canvasWidth < 500 ? 14 : 18);
+  text('Bond Types: ' + kind, canvasWidth / 2, 8);
 
   if (kind === 'Covalent') drawCovalent();
   else if (kind === 'Ionic') drawIonic();
   else drawMetallic();
 }
 
+// A small silicon cluster: one central atom bonded to 4 neighbors, each
+// bond showing a shared electron pair, with short "stub" bonds hinting
+// that every neighbor keeps bonding onward through the rest of the
+// crystal -- the key improvement over a single isolated Si-Si pair.
 function drawCovalent() {
-  const cy = drawHeight / 2 + 10;
+  const smallText = canvasWidth < 500;
   const cx = canvasWidth / 2;
-  const sep = min(160, canvasWidth * 0.22);
-  const r = 32;
+  const d = min(canvasWidth * 0.16, 130); // center-to-neighbor bond length
+  const r = min(d * 0.42, 30);
+  const cy = smallText ? (36 + d + r) : drawHeight * 0.46;
 
-  // two atom nuclei
-  noStroke();
-  fill('#5A3EED');
-  circle(cx - sep, cy, r * 2);
-  circle(cx + sep, cy, r * 2);
-  fill(255);
-  textAlign(CENTER, CENTER);
-  textSize(16);
-  text('Si', cx - sep, cy);
-  text('Si', cx + sep, cy);
+  const dirs = [
+    { x: 0, y: -1 }, { x: 0, y: 1 }, { x: -1, y: 0 }, { x: 1, y: 0 }
+  ];
+  const neighborPos = dirs.map((dir) => ({ x: cx + dir.x * d, y: cy + dir.y * d, dir }));
 
-  // shared electron cloud between them
-  noFill();
-  stroke(90, 60, 220, 140);
+  // stub bonds from each neighbor, hinting the lattice continues
+  stroke(90, 60, 220, 90);
   strokeWeight(2);
-  ellipse(cx, cy, sep * 1.1, r * 1.6);
+  neighborPos.forEach((p) => {
+    const stubDirs = dirs.filter((dd) => !(dd.x === -p.dir.x && dd.y === -p.dir.y));
+    stubDirs.forEach((sd) => {
+      const sx = p.x + sd.x * d * 0.4;
+      const sy = p.y + sd.y * d * 0.4;
+      line(p.x, p.y, sx, sy);
+    });
+  });
 
-  // two shared electrons
-  noStroke();
-  fill('#E67E22');
-  circle(cx - 8, cy - 6, 10);
-  circle(cx + 8, cy + 6, 10);
+  // 4 real bonds from the center atom, each with a shared electron pair
+  neighborPos.forEach((p) => {
+    drawSharedBond(cx, cy, p.x, p.y, r);
+  });
 
-  fill(20);
-  textAlign(CENTER, TOP);
-  textSize(13);
-  text('Shared electron pair (covalent bond)', cx, cy + r + 30);
+  // atoms (draw after bonds so they sit on top)
+  drawSiAtom(cx, cy, r, true);
+  neighborPos.forEach((p) => drawSiAtom(p.x, p.y, r, false));
 
   drawInfoBox([
-    'Each atom contributes 1 valence electron to the shared pair.',
-    'The bond is directional — it points along the line',
-    'connecting the two specific bonded nuclei.',
-    'Example: every Si–Si bond in a silicon crystal.'
+    'The central Si atom shares one electron with each of its 4 neighbors —',
+    '4 bonds x 2 shared electrons = 8 electrons around each atom (octet).',
+    'Faint stub lines show every neighbor bonding onward, the same way,',
+    'throughout the rest of the crystal. Example: every Si–Si bond in silicon.'
   ]);
+}
+
+function drawSharedBond(x1, y1, x2, y2, r) {
+  const mx = (x1 + x2) / 2, my = (y1 + y2) / 2;
+  const ang = atan2(y2 - y1, x2 - x1);
+
+  noFill();
+  stroke(90, 60, 220, 150);
+  strokeWeight(2);
+  push();
+  translate(mx, my);
+  rotate(ang);
+  ellipse(0, 0, dist(x1, y1, x2, y2) * 0.5, r * 1.1);
+  pop();
+
+  noStroke();
+  fill('#E67E22');
+  const ex = 6 * cos(ang + HALF_PI), ey = 6 * sin(ang + HALF_PI);
+  circle(mx - ex * 0.6, my - ey * 0.6, 9);
+  circle(mx + ex * 0.6, my + ey * 0.6, 9);
+}
+
+function drawSiAtom(x, y, r, isCenter) {
+  noStroke();
+  fill(isCenter ? '#5A3EED' : '#7B68EE');
+  circle(x, y, r * 2);
+  fill(255);
+  textAlign(CENTER, CENTER);
+  textSize(r * 0.5);
+  text('Si', x, y);
 }
 
 function drawIonic() {
-  const cy = drawHeight / 2 + 10;
+  const smallText = canvasWidth < 500;
   const cx = canvasWidth / 2;
-  const sep = min(150, canvasWidth * 0.2);
+  const cols = 3, rows = 3;
+  const spacing = min(canvasWidth * 0.16, 110);
+  const cy = smallText ? (85 + spacing) : drawHeight * 0.44;
+  const gx0 = cx - ((cols - 1) / 2) * spacing;
+  const gy0 = cy - ((rows - 1) / 2) * spacing;
 
-  // cation (smaller, Na+)
-  noStroke();
-  fill('#2E7D32');
-  circle(cx - sep, cy, 46);
-  fill(255);
-  textAlign(CENTER, CENTER);
-  textSize(14);
-  text('Na⁺', cx - sep, cy);
+  // Coulomb attraction lines between every adjacent pair, forming the
+  // extended ionic lattice (not just one isolated pair).
+  stroke(150);
+  strokeWeight(1);
+  drawingContext.setLineDash([4, 4]);
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      const x = gx0 + c * spacing, y = gy0 + r * spacing;
+      if (c < cols - 1) line(x, y, x + spacing, y);
+      if (r < rows - 1) line(x, y, x, y + spacing);
+    }
+  }
+  drawingContext.setLineDash([]);
 
-  // anion (larger, Cl-)
-  fill('#B03A2E');
-  circle(cx + sep, cy, 70);
-  fill(255);
-  text('Cl⁻', cx + sep, cy);
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      const isNa = (r + c) % 2 === 0;
+      const x = gx0 + c * spacing, y = gy0 + r * spacing;
+      drawIon(x, y, isNa);
+    }
+  }
 
-  // transferred electron arrow
+  // Electron-transfer callout on the one representative pair at the center:
+  // the center atom (row1,col1) is Na+, its right neighbor (row1,col2) is Cl-,
+  // so the arrow must point from Na (electron donor) to Cl (electron acceptor).
+  const midC = 1;
+  const x0 = gx0 + midC * spacing;
+  // Anchored above the top row (gy0), not the center row, so the label
+  // clears the row-0 ion regardless of grid spacing.
+  const arrowY = gy0 - 36, labelY = gy0 - 40;
   stroke('#E67E22');
   strokeWeight(2);
-  drawArrow(cx - sep + 26, cy - 30, cx + sep - 40, cy - 30);
+  drawArrow(x0 + 22, arrowY, x0 + spacing - 24, arrowY);
   noStroke();
   fill('#E67E22');
   textAlign(CENTER, BOTTOM);
-  textSize(12);
-  text('electron transferred', cx, cy - 38);
-
-  // Coulomb attraction indicator
-  stroke(90);
-  strokeWeight(1);
-  drawingContext.setLineDash([4, 4]);
-  line(cx - sep + 26, cy, cx + sep - 38, cy);
-  drawingContext.setLineDash([]);
-  noStroke();
-  fill(20);
-  textAlign(CENTER, TOP);
-  textSize(13);
-  text('Coulomb attraction between ions', cx, cy + 46);
+  textSize(11);
+  text('e⁻ transferred', x0 + spacing / 2, labelY);
 
   drawInfoBox([
-    'Sodium transfers its 1 valence electron to chlorine.',
-    'Na⁺ and Cl⁻ are held together by Coulomb attraction:',
-    'U(r) = −e²/(4πε₀r) — non-directional, unlike a covalent bond.'
+    'Sodium transfers its 1 valence electron to chlorine, forming Na⁺ and Cl⁻.',
+    'Each ion then attracts every oppositely-charged neighbor around it —',
+    'U(r) = −e²/(4πε₀r) — non-directional, unlike a covalent bond, which is',
+    'why ionic crystals form extended lattices like this instead of pairs.'
   ]);
 }
 
+function drawIon(x, y, isNa) {
+  noStroke();
+  if (isNa) {
+    fill('#2E7D32');
+    circle(x, y, 40);
+    fill(255);
+    textAlign(CENTER, CENTER);
+    textSize(13);
+    text('Na⁺', x, y);
+  } else {
+    fill('#B03A2E');
+    circle(x, y, 58);
+    fill(255);
+    textAlign(CENTER, CENTER);
+    textSize(13);
+    text('Cl⁻', x, y);
+  }
+}
+
 function drawMetallic() {
-  const gx0 = canvasWidth / 2 - 150;
-  const gx1 = canvasWidth / 2 + 150;
-  const gy0 = 60;
-  const gy1 = drawHeight - 90;
-  const cols = 5, rows = 4;
+  const smallText = canvasWidth < 500;
+  const gx0 = canvasWidth / 2 - min(canvasWidth * 0.34, 200);
+  const gx1 = canvasWidth / 2 + min(canvasWidth * 0.34, 200);
+  const gy0 = smallText ? 46 : 56;
+  const gy1 = smallText ? (gy0 + 120) : drawHeight * 0.72;
+  const cols = 6, rows = smallText ? 3 : 4;
 
   // fixed positive ion cores
   for (let r = 0; r <= rows; r++) {
@@ -308,14 +381,14 @@ function drawMetallic() {
 
   fill(20);
   textAlign(CENTER, TOP);
-  textSize(13);
-  text('Fixed positive ion cores + mobile "electron sea"', canvasWidth / 2, gy1 + 30);
+  textSize(smallText ? 11 : 13);
+  text(smallText ? 'Ion cores + mobile "electron sea"' : 'Fixed positive ion cores + mobile "electron sea"', canvasWidth / 2, gy1 + (smallText ? 12 : 26));
 
   drawInfoBox([
-    'Valence electrons delocalize across the whole crystal.',
-    'Mobile electrons → electrical conductivity.',
-    'Non-directional bond → malleability (ions can slide',
-    'past each other while the electron sea redistributes).'
+    'Valence electrons delocalize across the whole crystal, belonging to no',
+    'single atom. Mobile electrons -> electrical conductivity.',
+    'Non-directional bond -> malleability (ion cores can slide past each',
+    'other while the electron sea simply redistributes around them).'
   ]);
 }
 
@@ -330,21 +403,48 @@ function drawArrow(x1, y1, x2, y2) {
   pop();
 }
 
-function drawInfoBox(lines) {
-  const boxW = min(420, canvasWidth - 2 * margin);
+// Greedily wraps a single logical sentence into multiple lines that each
+// fit within maxWidth, using the currently-set font/size for measurement.
+function wrapTextLines(str, maxWidth) {
+  const words = str.split(' ');
+  const lines = [];
+  let cur = '';
+  for (const w of words) {
+    const test = cur ? cur + ' ' + w : w;
+    if (cur && textWidth(test) > maxWidth) {
+      lines.push(cur);
+      cur = w;
+    } else {
+      cur = test;
+    }
+  }
+  if (cur) lines.push(cur);
+  return lines;
+}
+
+function drawInfoBox(rawLines) {
+  const smallText = canvasWidth < 500;
+  const boxW = smallText ? (canvasWidth - 2 * margin) : min(canvasWidth - 2 * margin, 560);
   const boxX = canvasWidth / 2 - boxW / 2;
-  const boxY = drawHeight - 12 - lines.length * 16 - 10;
+  const lineH = smallText ? 14 : 16;
+  const fs = smallText ? 10.5 : 12;
+
+  textSize(fs);
+  let lines = [];
+  rawLines.forEach((l) => { lines = lines.concat(wrapTextLines(l, boxW - 24)); });
+
+  const boxY = drawHeight - 12 - lines.length * lineH - 10;
   noStroke();
-  fill(255, 247, 221, 230);
+  fill(255, 247, 221, 235);
   stroke(240, 216, 122);
   strokeWeight(1);
-  rect(boxX, boxY, boxW, lines.length * 16 + 14, 8);
+  rect(boxX, boxY, boxW, lines.length * lineH + 14, 8);
   noStroke();
   fill('#7a5c00');
   textAlign(LEFT, TOP);
-  textSize(12);
+  textSize(fs);
   for (let i = 0; i < lines.length; i++) {
-    text(lines[i], boxX + 12, boxY + 8 + i * 16);
+    text(lines[i], boxX + 12, boxY + 8 + i * lineH);
   }
 }
 
@@ -355,13 +455,13 @@ function drawCrystalOrder(order, showDefects) {
   fill(20);
   noStroke();
   textAlign(CENTER, TOP);
-  textSize(18);
-  text('Crystal Order: ' + order, canvasWidth / 2, 10);
+  textSize(canvasWidth < 500 ? 14 : 18);
+  text('Crystal Order: ' + order, canvasWidth / 2, 8);
 
-  const gx0 = margin + 40;
-  const gx1 = canvasWidth - margin - 40;
-  const gy0 = 50;
-  const gy1 = drawHeight - 60;
+  const gx0 = margin + 20;
+  const gx1 = canvasWidth - margin - 20;
+  const gy0 = 46;
+  const gy1 = drawHeight - 54;
 
   if (order === 'Single Crystal') {
     drawSingleCrystal(gx0, gx1, gy0, gy1, showDefects);
@@ -415,35 +515,55 @@ function drawSingleCrystal(gx0, gx1, gy0, gy1, showDefects) {
     drawAtomMarker(ix, iy, 'interstitial');
 
     drawDefectLegend();
+  } else {
+    drawWrappedCaption('One continuous, uniformly-oriented pattern extends across the whole crystal', gy1 + 16, 90);
   }
+}
+
+// Centered, word-wrapped caption line(s) below a diagram; used instead of a
+// bare text() call so long captions wrap safely on narrow canvases.
+function drawWrappedCaption(str, y, col) {
+  const smallText = canvasWidth < 500;
+  const fs = smallText ? 11 : 12;
+  const maxW = canvasWidth - 2 * margin;
+  noStroke();
+  fill(col);
+  textAlign(CENTER, TOP);
+  textSize(fs);
+  const lines = wrapTextLines(str, maxW);
+  const lineH = fs + 4;
+  for (let i = 0; i < lines.length; i++) {
+    text(lines[i], canvasWidth / 2, y + i * lineH);
+  }
+  return lines.length * lineH;
 }
 
 function drawAtomMarker(x, y, kind) {
   noStroke();
   if (kind === 'normal') {
     fill('#5A3EED');
-    circle(x, y, 20);
+    circle(x, y, 18);
   } else if (kind === 'vacancy') {
     noFill();
     stroke(180, 60, 60);
     strokeWeight(2);
     drawingContext.setLineDash([3, 3]);
-    circle(x, y, 20);
+    circle(x, y, 18);
     drawingContext.setLineDash([]);
   } else if (kind === 'substitutional') {
     fill('#2E7D32');
-    circle(x, y, 20);
+    circle(x, y, 18);
   } else if (kind === 'interstitial') {
     fill('#E67E22');
-    circle(x, y, 13);
+    circle(x, y, 12);
   }
 }
 
 function drawDefectLegend() {
   const lx = canvasWidth - margin - 190;
-  const ly = 40;
+  const ly = 30;
   noStroke();
-  fill(255, 255, 255, 235);
+  fill(255);
   stroke(200);
   strokeWeight(1);
   rect(lx, ly, 190, 88, 8);
@@ -493,42 +613,54 @@ function drawPolycrystalline(gx0, gx1, gy0, gy1) {
   line(midX, gy0, midX, gy1);
   line(gx0, midY, gx1, midY);
 
-  fill(20);
-  noStroke();
-  textAlign(CENTER, TOP);
-  textSize(13);
-  text('Each grain is internally periodic; grain boundaries separate misaligned grains', canvasWidth / 2, gy1 + 20);
+  drawWrappedCaption('Each grain is internally periodic; bold lines mark grain boundaries where misaligned grains meet', gy1 + 16, 90);
 }
 
 function drawGrain(x0, y0, x1, y1, angleDeg) {
+  const ctx = drawingContext;
+  ctx.save();
+  ctx.beginPath();
+  ctx.rect(x0, y0, x1 - x0, y1 - y0);
+  ctx.clip();
+
+  // Draw an oversized rotated grid, centered on the quadrant, so that after
+  // clipping to the quadrant rectangle every corner is still filled --
+  // rotating a grid sized to exactly fit the box would leave gaps at the
+  // corners once the box is clipped to its (unrotated) rectangular bounds.
   push();
   const cx = (x0 + x1) / 2;
   const cy = (y0 + y1) / 2;
   translate(cx, cy);
   rotate(radians(angleDeg));
-  const w = (x1 - x0) * 0.95;
-  const h = (y1 - y0) * 0.95;
-  const n = 4;
+  const spacing = (x1 - x0) * 0.19; // visual density of the lattice
+  const extW = (x1 - x0) * 1.8;
+  const extH = (y1 - y0) * 1.8;
+  const nx = Math.ceil(extW / spacing);
+  const ny = Math.ceil(extH / spacing);
+  const w = nx * spacing;
+  const h = ny * spacing;
   stroke(150);
   strokeWeight(1);
-  for (let i = 0; i <= n; i++) {
-    const gx = lerp(-w / 2, w / 2, i / n);
+  for (let i = 0; i <= nx; i++) {
+    const gx = lerp(-w / 2, w / 2, i / nx);
     line(gx, -h / 2, gx, h / 2);
   }
-  for (let i = 0; i <= n; i++) {
-    const gy = lerp(-h / 2, h / 2, i / n);
+  for (let j = 0; j <= ny; j++) {
+    const gy = lerp(-h / 2, h / 2, j / ny);
     line(-w / 2, gy, w / 2, gy);
   }
   noStroke();
   fill('#5A3EED');
-  for (let i = 0; i <= n; i++) {
-    for (let j = 0; j <= n; j++) {
-      const gx = lerp(-w / 2, w / 2, i / n);
-      const gy = lerp(-h / 2, h / 2, j / n);
-      circle(gx, gy, 10);
+  for (let i = 0; i <= nx; i++) {
+    for (let j = 0; j <= ny; j++) {
+      const gx = lerp(-w / 2, w / 2, i / nx);
+      const gy = lerp(-h / 2, h / 2, j / ny);
+      circle(gx, gy, 9);
     }
   }
   pop();
+
+  ctx.restore();
 }
 
 function drawAmorphous(gx0, gx1, gy0, gy1) {
@@ -536,13 +668,10 @@ function drawAmorphous(gx0, gx1, gy0, gy1) {
   fill('#5A3EED');
   for (const a of amorphousAtoms) {
     const p = gridToXY(a.r, a.c, gx0, gx1, gy0, gy1);
-    circle(p.x, p.y, 16);
+    circle(p.x, p.y, 15);
   }
 
-  fill(20);
-  textAlign(CENTER, TOP);
-  textSize(13);
-  text('No repeating pattern beyond a few atomic spacings — no long-range order', canvasWidth / 2, gy1 + 20);
+  drawWrappedCaption('No repeating pattern beyond a few atomic spacings — no long-range order', gy1 + 16, 90);
 }
 
 // ---------- responsive sizing ----------
@@ -556,15 +685,8 @@ function updateCanvasSize() {
   var mainEl = document.querySelector('main');
   containerWidth = Math.floor(mainEl.getBoundingClientRect().width);
   canvasWidth = containerWidth;
-
-  var availableHeight = window.innerHeight;
-  var children = mainEl.children;
-  for (var i = 0; i < children.length; i++) {
-    if (children[i].tagName !== 'CANVAS') {
-      availableHeight -= children[i].offsetHeight;
-    }
-  }
-  drawHeight = Math.max(minDrawHeight, availableHeight - controlHeight);
+  drawHeight = canvasWidth < 500 ? 360 : 460;
+  controlHeight = 100;
   canvasHeight = drawHeight + controlHeight;
   containerHeight = canvasHeight;
 }

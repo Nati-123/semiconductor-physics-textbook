@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://Nati-123.github.io/semiconductor-physics-textbook/learning-graph/">
       
       
-        <link rel="prev" href="../sims/course-integration-map/">
+        <link rel="prev" href="../sims/graph-viewer/">
       
       
         <link rel="next" href="course-description-assessment/">
@@ -8764,6 +8764,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sims/graph-viewer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Graph Viewer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -8901,6 +8929,39 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#graph-statistics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Graph Statistics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interactive-learning-graph-viewer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interactive Learning Graph Viewer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Files
+      
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#course-description" class="md-nav__link">
@@ -9310,6 +9371,7 @@
 
 
 <h1 id="learning-graph-for-semiconductor-physics">Learning Graph for Semiconductor Physics</h1>
+<p><a class="md-button md-button--primary" href="../sims/graph-viewer/main.html">View the Learning Graph</a></p>
 <p>This section contains the learning graph for this textbook.  A learning graph is
 a graph of concepts used in this textbook.  Each concept is represented by a
 node in a network graph.  Concepts are connected by directed edges that indicate
@@ -9321,7 +9383,52 @@ have no outbound edges.  They only have inbound edges for other concepts that de
 understanding these foundational prerequisite concepts.  At the far right
 we have the most advanced concepts in the course.  To master these concepts you
 must understand all the concepts that they point to.</p>
-<p>Here are other files used by the learning graph.</p>
+<h2 id="graph-statistics">Graph Statistics</h2>
+<ul>
+<li><strong>Total Concepts</strong>: 256</li>
+<li><strong>Foundational Concepts</strong>: 7</li>
+<li><strong>Dependencies (Edges)</strong>: 433</li>
+<li><strong>Taxonomy Categories</strong>: 14</li>
+<li><strong>Longest Learning Path</strong>: 37 concepts</li>
+</ul>
+<h2 id="interactive-learning-graph-viewer">Interactive Learning Graph Viewer</h2>
+<p>The <a href="../sims/graph-viewer/">Learning Graph Viewer</a> turns this data into a fully
+interactive concept map. Search for a concept, filter by category, click any node to see
+its definition, prerequisites, dependents, related MicroSims, and links directly into the
+chapter that teaches it. Selecting a concept highlights its prerequisites in blue and the
+concepts that depend on it in orange, so it doubles as a visual roadmap for the whole course.</p>
+<h2 id="files">Files</h2>
+<p>Here are the files used by the learning graph.</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="learning-graph.csv">learning-graph.csv</a></td>
+<td>CSV format with ConceptID, ConceptLabel, Dependencies, TaxonomyID</td>
+</tr>
+<tr>
+<td><a href="learning-graph.json">learning-graph.json</a></td>
+<td>vis-network.js JSON format for visualization</td>
+</tr>
+<tr>
+<td><a href="concept-metadata.json">concept-metadata.json</a></td>
+<td>Per-concept chapter, definition, prerequisites, dependents, MicroSims, and Bloom level used by the graph viewer</td>
+</tr>
+<tr>
+<td><a href="metadata.json">metadata.json</a></td>
+<td>Dublin Core-inspired metadata</td>
+</tr>
+<tr>
+<td><a href="concept-list/">concept-list.md</a></td>
+<td>Human-readable numbered concept list</td>
+</tr>
+</tbody>
+</table>
 <h2 id="course-description">Course Description</h2>
 <p>We use the <a href="../course-description/">Course Description</a> as
 the source document for the concepts that are included in this course.
@@ -9428,7 +9535,7 @@ over 30% of our concepts.</p>
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../sims/course-integration-map/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Course Integration Map">
+          <a href="../sims/graph-viewer/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Learning Graph Viewer">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -9438,7 +9545,7 @@ over 30% of our concepts.</p>
                 Previous
               </span>
               <div class="md-ellipsis">
-                Course Integration Map
+                Learning Graph Viewer
               </div>
             </div>
           </a>

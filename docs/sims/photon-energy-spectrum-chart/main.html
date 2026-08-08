@@ -12,7 +12,7 @@
     <style>
         body {
             margin: 0;
-            padding: 10px;
+            padding: 8px;
             font-family: Arial, Helvetica, sans-serif;
             background-color: #f5f5f5;
             box-sizing: border-box;
@@ -20,28 +20,36 @@
         .container {
             max-width: 100%;
             margin: 0 auto;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            padding: 15px;
+            background-color: aliceblue;
+            border: 1px solid silver;
+            border-radius: 6px;
+            padding: 10px 12px;
             box-sizing: border-box;
         }
         h1 {
             text-align: center;
             color: #333;
-            font-size: 1.2em;
-            margin: 0 0 12px 0;
+            font-size: 1.15em;
+            margin: 2px 0 8px 0;
         }
         .chart-container {
             position: relative;
             width: 100%;
-            height: 420px;
+            height: 440px;
         }
         .legend-note {
             text-align: center;
-            font-size: 0.82em;
+            font-size: 0.8em;
             color: #666;
-            margin-top: 8px;
+            margin: 6px 0 0 0;
+        }
+        @media (max-width: 480px) {
+            .chart-container {
+                height: 340px;
+            }
+            h1 {
+                font-size: 0.98em;
+            }
         }
     </style>
 </head>
@@ -180,24 +188,160 @@
             { name: 'Radio', x1: 1e-1, x2: 1e3 }
         ];
 
+        const BAND_COLORS = {
+            'Gamma Ray': '#5A3EED',
+            'X-Ray': '#7A4FE0',
+            'UV': '#8E5AE0',
+            'Visible': '#333333',
+            'Infrared': '#C62828',
+            'Microwave': '#8D6E4A',
+            'Radio': '#00838F'
+        };
+
+        // Curated log-scale tick tables: readable unit labels instead of raw
+        // decimal/exponential numbers. "compact" entries are the subset shown
+        // on narrow (mobile) widths so labels never crowd together.
+        const X_TICKS = [
+            { v: 1e-12, label: '1 pm', compact: true },
+            { v: 1e-11, label: '10 pm', compact: false },
+            { v: 1e-9, label: '1 nm', compact: true },
+            { v: 1e-8, label: '10 nm', compact: false },
+            { v: 1e-7, label: '100 nm', compact: false },
+            { v: 1e-6, label: '1 μm', compact: true },
+            { v: 1e-5, label: '10 μm', compact: false },
+            { v: 1e-3, label: '1 mm', compact: true },
+            { v: 1e-2, label: '1 cm', compact: false },
+            { v: 1, label: '1 m', compact: true },
+            { v: 10, label: '10 m', compact: false },
+            { v: 100, label: '100 m', compact: false },
+            { v: 1000, label: '1 km', compact: true }
+        ];
+
+        const Y_TICKS = [
+            { v: 1e-9, label: '1 neV', compact: true },
+            { v: 1e-6, label: '1 μeV', compact: false },
+            { v: 1e-3, label: '1 meV', compact: true },
+            { v: 1, label: '1 eV', compact: true },
+            { v: 1e3, label: '1 keV', compact: false },
+            { v: 1e6, label: '1 MeV', compact: true }
+        ];
+
+        function isCompact() {
+            const el = document.querySelector('.chart-container');
+            return !!el && el.clientWidth < 480;
+        }
+
+        // Hand the full curated tick list to Chart.js and let its own
+        // autoSkip measure real rendered pixel spacing to thin them out —
+        // this adapts smoothly across desktop/tablet/mobile widths instead
+        // of jumping at one hard breakpoint.
+        function buildTicks(table) {
+            return function (axis) {
+                axis.ticks = table.map(function (t) { return { value: t.v }; });
+            };
+        }
+
+        function tickLabel(table) {
+            return function (value) {
+                const hit = table.find(function (t) { return Math.abs(Math.log10(t.v) - Math.log10(value)) < 1e-6; });
+                return hit ? hit.label : '';
+            };
+        }
+
         const bandPlugin = {
             id: 'spectrumBandPlugin',
             beforeDraw(chart) {
                 const { ctx, chartArea, scales } = chart;
                 const xScale = scales.x;
-                const yScale = scales.y;
 
-                // Shade the visible-light band
+                ctx.save();
+                ctx.beginPath();
+                ctx.rect(chartArea.left, chartArea.top, chartArea.width, chartArea.height);
+                ctx.clip();
+
+                // Alternating band tint + divider lines so each spectral region
+                // is visually distinct even before labels are considered.
+                bands.forEach(function (b, i) {
+                    const cx1 = Math.max(b.x1, 1e-12);
+                    const cx2 = Math.min(b.x2, 1e3);
+                    if (cx2 <= cx1) return;
+                    const px1 = xScale.getPixelForValue(cx1);
+                    const px2 = xScale.getPixelForValue(cx2);
+                    if (i % 2 === 0) {
+                        ctx.fillStyle = 'rgba(90, 62, 237, 0.035)';
+                        ctx.fillRect(px1, chartArea.top, px2 - px1, chartArea.height);
+                    }
+                    ctx.strokeStyle = '#e2e2e2';
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    ctx.moveTo(px1, chartArea.top);
+                    ctx.lineTo(px1, chartArea.bottom);
+                    ctx.stroke();
+                });
+
+                // Visible-light band: a rainbow gradient makes it unmistakable
                 const vx1 = xScale.getPixelForValue(380e-9);
                 const vx2 = xScale.getPixelForValue(700e-9);
-                ctx.save();
-                ctx.fillStyle = 'rgba(148, 0, 211, 0.14)';
-                ctx.fillRect(Math.min(vx1, vx2), chartArea.top, Math.abs(vx2 - vx1), chartArea.bottom - chartArea.top);
+                const grad = ctx.createLinearGradient(vx1, 0, vx2, 0);
+                grad.addColorStop(0, 'rgba(148, 0, 211, 0.55)');
+                grad.addColorStop(0.25, 'rgba(0, 70, 235, 0.45)');
+                grad.addColorStop(0.5, 'rgba(0, 170, 70, 0.4)');
+                grad.addColorStop(0.75, 'rgba(255, 210, 0, 0.45)');
+                grad.addColorStop(1, 'rgba(230, 30, 30, 0.55)');
+                ctx.fillStyle = grad;
+                ctx.fillRect(Math.min(vx1, vx2), chartArea.top, Math.abs(vx2 - vx1), chartArea.height);
+                ctx.strokeStyle = 'rgba(90, 62, 237, 0.9)';
+                ctx.lineWidth = 1.5;
+                ctx.strokeRect(Math.min(vx1, vx2), chartArea.top, Math.abs(vx2 - vx1), chartArea.height);
+
                 ctx.restore();
+            },
+            afterDatasetsDraw(chart) {
+                // Drawn after the curve so nothing (gridlines, the plotted
+                // line) ever sits on top of these annotations.
+                const { ctx, chartArea, scales } = chart;
+                const xScale = scales.x;
+                const yScale = scales.y;
+                const compact = isCompact();
+
+                ctx.save();
+                ctx.textAlign = 'center';
+                // Shrink a band's label toward a floor size, and only skip it
+                // entirely if it still collides with the previously drawn
+                // label — this keeps every band (including the narrow
+                // one-decade Gamma Ray band) labeled whenever there's any
+                // reasonable room, rather than hiding it outright.
+                const baseFont = compact ? 9 : 10.5;
+                const minFont = compact ? 7 : 8;
+                const ty = chartArea.top + 13;
+                let lastRight = chartArea.left - 999;
+                bands.forEach(function (b) {
+                    const cx1 = Math.max(b.x1, 1e-12);
+                    const cx2 = Math.min(b.x2, 1e3);
+                    if (cx2 <= cx1) return;
+                    const mid = Math.sqrt(cx1 * cx2); // geometric mean on a log scale
+                    const px = xScale.getPixelForValue(mid);
+                    if (px < chartArea.left || px > chartArea.right) return;
+
+                    let fs = baseFont;
+                    let textW;
+                    for (;;) {
+                        ctx.font = 'bold ' + fs + 'px Arial';
+                        textW = ctx.measureText(b.name).width;
+                        if (px - textW / 2 >= lastRight + 4 || fs <= minFont) break;
+                        fs -= 1;
+                    }
+                    if (px - textW / 2 < lastRight + 4) return; // still collides even at floor size
+
+                    ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+                    ctx.fillRect(px - textW / 2 - 3, ty - 10, textW + 6, 14);
+                    ctx.fillStyle = BAND_COLORS[b.name] || '#555';
+                    ctx.fillText(b.name, px, ty);
+                    lastRight = px + textW / 2 + 3;
+                });
 
                 // Dashed reference line at the silicon band gap energy
                 const gapY = yScale.getPixelForValue(SI_GAP_EV);
-                ctx.save();
                 ctx.strokeStyle = '#C62828';
                 ctx.lineWidth = 1.5;
                 ctx.setLineDash([6, 4]);
@@ -206,41 +350,36 @@
                 ctx.lineTo(chartArea.right, gapY);
                 ctx.stroke();
                 ctx.setLineDash([]);
-                ctx.fillStyle = '#C62828';
-                ctx.font = '11px Arial';
-                ctx.textAlign = 'right';
-                ctx.fillText('Silicon Band Gap (1.12 eV)', chartArea.right - 4, gapY - 4);
-                ctx.restore();
 
                 // Marker at the curve/band-gap intersection point
                 const markerX = xScale.getPixelForValue(lambdaAtGap);
-                ctx.save();
                 ctx.fillStyle = '#C62828';
                 ctx.beginPath();
                 ctx.arc(markerX, gapY, 4, 0, 2 * Math.PI);
                 ctx.fill();
-                ctx.restore();
+                ctx.strokeStyle = '#fff';
+                ctx.lineWidth = 1.5;
+                ctx.stroke();
 
-                // Spectrum band name labels along the top of the plot area
-                ctx.save();
-                ctx.fillStyle = '#555';
-                ctx.font = '10px Arial';
-                ctx.textAlign = 'center';
-                bands.forEach(function (b) {
-                    const cx1 = Math.max(b.x1, 1e-12);
-                    const cx2 = Math.min(b.x2, 1e3);
-                    if (cx2 <= cx1) return;
-                    const mid = Math.sqrt(cx1 * cx2); // geometric mean on a log scale
-                    const px = xScale.getPixelForValue(mid);
-                    if (px < chartArea.left || px > chartArea.right) return;
-                    ctx.fillText(b.name, px, chartArea.top + 12);
-                });
+                // Label, with a background chip for legibility and a position
+                // that stays inside the chart area at any width.
+                const label = 'Si band gap: 1.12 eV';
+                ctx.font = (compact ? '10px' : '11px') + ' Arial';
+                const lw = ctx.measureText(label).width;
+                ctx.textAlign = 'left';
+                const lx = Math.min(Math.max(markerX + 10, chartArea.left + 4), chartArea.right - lw - 6);
+                const ly = gapY - 8;
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.85)';
+                ctx.fillRect(lx - 4, ly - 12, lw + 8, 15);
+                ctx.fillStyle = '#C62828';
+                ctx.fillText(label, lx, ly);
+
                 ctx.restore();
             }
         };
 
         const ctx = document.getElementById('photonChart').getContext('2d');
-        new Chart(ctx, {
+        const photonChart = new Chart(ctx, {
             type: 'line',
             data: {
                 datasets: [{
@@ -258,20 +397,43 @@
                 maintainAspectRatio: false,
                 animation: false,
                 parsing: false,
+                layout: {
+                    padding: { top: 16, right: 6, left: 2, bottom: 2 }
+                },
                 scales: {
                     x: {
                         type: 'logarithmic',
                         min: 1e-12,
                         max: 1e3,
-                        title: { display: true, text: 'Wavelength (m, log scale)' }
+                        afterBuildTicks: buildTicks(X_TICKS),
+                        ticks: {
+                            callback: tickLabel(X_TICKS),
+                            autoSkip: true,
+                            autoSkipPadding: 12,
+                            maxRotation: 0,
+                            minRotation: 0,
+                            font: function (ctx) { return { size: isCompact() ? 9 : 11 }; }
+                        },
+                        grid: { color: '#e6e6e6' },
+                        title: { display: true, text: 'Wavelength (log scale)' }
                     },
                     y: {
                         type: 'logarithmic',
-                        title: { display: true, text: 'Photon Energy (eV, log scale)' }
+                        min: 1e-9,
+                        max: 1e6,
+                        afterBuildTicks: buildTicks(Y_TICKS),
+                        ticks: {
+                            callback: tickLabel(Y_TICKS),
+                            autoSkip: true,
+                            autoSkipPadding: 8,
+                            font: function (ctx) { return { size: isCompact() ? 9 : 11 }; }
+                        },
+                        grid: { color: '#e6e6e6' },
+                        title: { display: true, text: 'Photon Energy (log scale)' }
                     }
                 },
                 plugins: {
-                    legend: { display: true, position: 'top' },
+                    legend: { display: false },
                     tooltip: {
                         callbacks: {
                             label: function (context) {
@@ -283,6 +445,8 @@
             },
             plugins: [bandPlugin]
         });
+
+        window.addEventListener('resize', function () { photonChart.resize(); });
     </script>
 </body>
 </html>

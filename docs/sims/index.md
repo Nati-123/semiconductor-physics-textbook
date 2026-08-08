@@ -224,5 +224,6 @@ Interactive educational simulations that accompany this textbook.
 | [MEMS Structure Explorer](mems-structure-explorer/index.md) | L2 Understand | Adjusts cantilever length and thickness and computes spring constant, effective mass, and resonant frequency |
 | [AI Hardware Semiconductor Explorer](ai-hardware-semiconductor-explorer/index.md) | L3 Apply | Explores how transistor density, compute capability, and power density trade off in a simplified AI accelerator die model |
 | [Future Technology Roadmap Explorer](future-technology-roadmap-explorer/index.md) | L1-L2 Remember/Understand | A 9-step guided-tour capstone review retracing the chapter's, and the entire course's, full storyline to a closing synthesis |
+| [Course Integration Map](course-integration-map/index.md) | L5 Evaluate | Force-directed graph of all 20 chapters and every stated prerequisite relationship between them; drag to explore, click a chapter to highlight its connections |
 
 </div>

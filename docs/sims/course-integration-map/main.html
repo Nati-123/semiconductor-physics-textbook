@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Course Integration Map MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="course-integration-map.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Click Chapter 1 and note how many other chapters it connects to — it is a prerequisite for nearly everything, since it introduces the physics and math tools the rest of the course depends on.</li>
+            <li><strong>Predict:</strong> Before clicking Chapter 14 (The P-N Junction at Equilibrium), predict which chapters must come before it, based on what a p-n junction description needs (doping, carrier concentrations, the Fermi level).</li>
+            <li><strong>Observe:</strong> Click Chapter 20, the final chapter, and observe that it has 8 incoming prerequisite arrows — more than almost any other chapter — reflecting its role as a capstone that draws on many earlier topics.</li>
+            <li><strong>Compare:</strong> Drag a few nodes apart to reduce clutter, then compare how many prerequisites Chapter 17 (Optical and Thermal Properties) has versus Chapter 8 (Doping) — which chapter is more foundational to the rest of the course?</li>
+            <li><strong>Explain:</strong> Explain why Chapter 6 (Band Structure and the Fermi Level) has so many outgoing arrows — what does that suggest about its role in the course?</li>
+        </ul>
+
+        <p class="connects-to"><strong>How this map was built:</strong> Every arrow in this graph corresponds to a real "builds on" relationship stated in that chapter's own Prerequisites section — nothing here is invented. The five colors group chapters into rough thematic stages: foundational physics and math (Chapters 1-2), crystal structure and band theory (Chapters 3-6), carrier statistics and doping (Chapters 7-10), transport and junctions (Chapters 11-16), and devices and applications (Chapters 17-20).</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>Click a chapter node</dt>
+            <dd>Selects it, highlighting its prerequisite arrows (blue, pointing in) and dependent arrows (orange, pointing out) and showing a summary panel in the top-right corner.</dd>
+            <dt>Drag a chapter node</dt>
+            <dd>Moves that node manually; the force-directed layout keeps adjusting the rest of the graph around it.</dd>
+            <dt>Hover over an arrow</dt>
+            <dd>Shows a tooltip naming the two chapters that connection joins.</dd>
+            <dt>Reset Layout button</dt>
+            <dd>Returns every node to a fresh circular starting arrangement.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">1. According to this map, which chapter has the most outgoing connections, making it a prerequisite for the largest number of other chapters?</p>
+            <label><input type="radio" name="cim-q1" value="a"> Chapter 1: Physics and Math Foundations</label>
+            <label><input type="radio" name="cim-q1" value="b"> Chapter 20: Advanced Devices and Emerging Technologies</label>
+            <label><input type="radio" name="cim-q1" value="c"> Chapter 10: Fermi Level Position and Carrier Equations</label>
+            <label><input type="radio" name="cim-q1" value="d"> Chapter 12: Diffusion and Advanced Transport Phenomena</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Click Chapter 1's node and count its orange outgoing arrows — as the course's foundational chapter, it feeds directly or indirectly into nearly every later chapter.</p>
+            <p class="explain-incorrect" hidden>Click each candidate chapter's node and compare how many orange (outgoing) arrows appear in the info panel's "Leads to" list.</p>
+        </div>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">2. What does an arrow pointing from Chapter 9 to Chapter 10 mean?</p>
+            <label><input type="radio" name="cim-q2" value="a"> Chapter 10 is easier than Chapter 9</label>
+            <label><input type="radio" name="cim-q2" value="b"> The two chapters are unrelated</label>
+            <label><input type="radio" name="cim-q2" value="c"> Chapter 9's material is a prerequisite that Chapter 10 builds on</label>
+            <label><input type="radio" name="cim-q2" value="d"> Chapter 10 must be read before Chapter 9</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Every arrow points from a prerequisite chapter toward the chapter that depends on it — exactly the relationship each chapter's own "Prerequisites" section states.</p>
+            <p class="explain-incorrect" hidden>Click Chapter 10's node and read the "Prereqs" line in its info panel.</p>
+        </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">3. Which color category does Chapter 6 (Band Structure and the Fermi Level) belong to?</p>
+            <label><input type="radio" name="cim-q3" value="a"> Foundations (blue)</label>
+            <label><input type="radio" name="cim-q3" value="b"> Structure & Bands (green)</label>
+            <label><input type="radio" name="cim-q3" value="c"> Transport & Junctions (purple)</label>
+            <label><input type="radio" name="cim-q3" value="d"> Devices & Applications (red)</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Chapters 3-6 (crystal structure through band theory) are grouped as "Structure & Bands," shown in green — check the legend at the bottom of the canvas.</p>
+            <p class="explain-incorrect" hidden>Find Chapter 6's node color and match it against the legend at the bottom of the canvas.</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

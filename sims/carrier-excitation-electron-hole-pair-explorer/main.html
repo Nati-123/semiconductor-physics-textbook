@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Intrinsic Carrier Excitation / Electron-Hole Pair Explorer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="carrier-excitation-electron-hole-pair-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Click Start with the default T = 300 K and Eg = 1.12 eV (silicon). Watch an occasional blue electron dot rise from the green valence band, through the gap, into the purple conduction band, leaving a red hole ring behind at its old site.</li>
+            <li><strong>Predict:</strong> Before dragging the Eg slider up toward 3.0 eV, predict what will happen to how often new electron-hole pairs appear.</li>
+            <li><strong>Observe:</strong> Drag Eg up and confirm the generation-activity meter shrinks and pairs appear far less often — a wider gap means far fewer thermally excited carriers.</li>
+            <li><strong>Explore:</strong> Bring Eg back down and drag the Temperature slider from 100 K to 900 K. Confirm the opposite trend: higher T means more frequent generation events and a higher running-average pair count.</li>
+            <li><strong>Watch for teal dashed lines:</strong> these mark recombination events, where a free electron falls back into a hole. Confirm the free-electron count (n) and hole count (p) in the readout are always exactly equal.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 6:</strong> This MicroSim visualizes carrier generation directly on the energy-space band diagram this chapter builds: an electron gains enough energy to cross the band gap \(E_g\) from the valence band (\(E_v\)) to the conduction band (\(E_c\)), leaving a hole behind. Because every generation event creates <em>exactly</em> one electron and one hole together, and every recombination event removes exactly one of each, the free-electron count and hole count in this MicroSim are always equal — the defining property of an <strong>intrinsic semiconductor</strong>, \(n=p=n_i\). The rising-with-T, falling-with-Eg trend you can see in the generation-activity meter is the same qualitative behavior behind Chapter 9's precise result \(n_i\propto T^{3/2}e^{-E_g/2k_BT}\); the rates shown here are visually exaggerated for a watchable animation, not physically exact. Chapter 7's <a href="../intrinsic-semiconductor-explorer/index.md">Intrinsic Semiconductor Explorer</a> shows the same physical process from a real-space, covalent-bond-breaking point of view — this MicroSim shows the energy-space counterpart, using the Ec/Ev/Eg vocabulary this chapter introduces.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>Temperature T (K) slider</dt>
+            <dd>Sets the temperature used in the illustrative generation-rate formula; higher T means more frequent electron-hole pair generation.</dd>
+            <dt>Band gap Eg (eV) slider</dt>
+            <dd>Sets the energy gap electrons must cross; a larger Eg sharply reduces generation frequency, echoing the exponential Eg dependence of real intrinsic carrier concentration.</dd>
+            <dt>Start / Stop button</dt>
+            <dd>Starts or pauses the generation/recombination animation. The simulation begins stopped so you can inspect the initial all-bound state first.</dd>
+            <dt>Reset button</dt>
+            <dd>Stops the animation and returns every site to the bound (fully occupied valence band) state.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">1. Every time an electron is thermally excited from the valence band to the conduction band, what else happens?</p>
+            <label><input type="radio" name="ce-q1" value="a"> Nothing else — only the electron count changes</label>
+            <label><input type="radio" name="ce-q1" value="b"> Two holes are created</label>
+            <label><input type="radio" name="ce-q1" value="c"> Exactly one hole is left behind at the electron's original site</label>
+            <label><input type="radio" name="ce-q1" value="d"> A photon is destroyed</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Each generation event removes one bound valence electron and creates one free conduction-band electron, leaving exactly one hole (an empty state) at the original valence-band site — electrons and holes are always created in pairs.</p>
+            <p class="explain-incorrect" hidden>Watch a single generation event closely: count how many red hole rings appear compared to how many new blue electrons appear in the conduction band.</p>
+        </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">2. Why are the free-electron count n and hole count p always exactly equal in this MicroSim?</p>
+            <label><input type="radio" name="ce-q2" value="a"> Because every generation event creates one of each, and every recombination event removes one of each — this is what "intrinsic" means</label>
+            <label><input type="radio" name="ce-q2" value="b"> Because the simulation forces them to be equal artificially, with no physical basis</label>
+            <label><input type="radio" name="ce-q2" value="c"> Because Eg is always the same value</label>
+            <label><input type="radio" name="ce-q2" value="d"> They are not actually equal; it just looks that way</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>In an intrinsic (undoped) semiconductor, the only source of carriers is thermal bond-breaking / band-to-band excitation, which always produces one electron and one hole together, and recombination always removes one of each — so n = p = ni exactly, by the physical mechanism itself, not by an arbitrary rule.</p>
+            <p class="explain-incorrect" hidden>Trace one generation event and one recombination event and count electrons and holes gained or lost in each.</p>
+        </div>
+
+        <div class="challenge" data-correct="d">
+            <p class="q-text">3. Increasing the band gap Eg while holding T fixed does what to the generation rate?</p>
+            <label><input type="radio" name="ce-q3" value="a"> Increases it</label>
+            <label><input type="radio" name="ce-q3" value="b"> Has no effect</label>
+            <label><input type="radio" name="ce-q3" value="c"> Makes it exactly zero immediately</label>
+            <label><input type="radio" name="ce-q3" value="d"> Decreases it sharply (exponentially)</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>A larger Eg means an electron needs much more energy to cross the gap, which is exponentially less likely at a given temperature — visible here as a sharply shrinking generation-activity meter and far less frequent events.</p>
+            <p class="explain-incorrect" hidden>Drag Eg from 0.3 eV up to 3.0 eV and watch both the generation-activity meter and how often new pairs appear.</p>
+        </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">4. What does the teal dashed line represent when it appears?</p>
+            <label><input type="radio" name="ce-q4" value="a"> A new electron-hole pair being generated</label>
+            <label><input type="radio" name="ce-q4" value="b"> A free electron recombining, falling back into a hole</label>
+            <label><input type="radio" name="ce-q4" value="c"> A photon being absorbed</label>
+            <label><input type="radio" name="ce-q4" value="d"> The band gap Eg itself</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>The teal dashed line traces a recombination event: an existing free electron in the conduction band falls back down into an available hole in the valence band, removing both carriers and restoring that site to "bound."</p>
+            <p class="explain-incorrect" hidden>Compare the orange dashed lines (generation, rising) to the teal dashed lines (recombination, falling) and note which direction each one travels.</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

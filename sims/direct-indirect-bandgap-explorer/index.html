@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="A two-band E-k diagram MicroSim comparing direct-gap (GaAs) and indirect-gap (Si, Ge) materials, with a switchable photon-only vs. phonon-assisted transition arrow and an adjustable effective-mass curvature slider">
+        <meta name="description" content="A two-band E-k diagram MicroSim comparing direct-gap (GaAs) and indirect-gap (Si, Ge) materials, with a switchable photon-only vs. phonon-assisted transition path, color-distinguished photon/phonon contributions, an adjustable electron effective-mass curvature slider, and a side-by-side hole effective-mass comparison">
       
       
         <meta name="author" content="Natol Dinka">
@@ -18,7 +18,7 @@
         <link rel="prev" href="../energy-band-formation-explorer/">
       
       
-        <link rel="next" href="../density-of-states-fermi-level-explorer/">
+        <link rel="next" href="../fermi-dirac-distribution-explorer/">
       
       
         
@@ -5435,6 +5435,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../fermi-dirac-distribution-explorer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fermi-Dirac Distribution Explorer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../density-of-states-fermi-level-explorer/" class="md-nav__link">
         
   
@@ -5443,6 +5471,34 @@
     
   
     Density of States and Fermi Level Explorer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../carrier-excitation-electron-hole-pair-explorer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intrinsic Carrier Excitation / Electron-Hole Pair Explorer
   
 
     
@@ -9306,8 +9362,10 @@ This MicroSim plots simplified valence- and conduction-band parabolas on an E-k 
 <li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Three material presets</strong>: GaAs (direct), Si (indirect), Ge (indirect), with realistic band gaps</li>
 <li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Switchable transition arrow</strong>: vertical (photon only) vs. diagonal (phonon-assisted)</li>
 <li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Adjustable effective mass</strong> directly controls conduction-band curvature</li>
-<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Labeled band extrema</strong> mark the valence-band maximum and conduction-band minimum</li>
-<li style="margin-bottom: 0; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Responsive canvas</strong> that resizes with the browser window</li>
+<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Labeled band extrema</strong> mark the valence-band maximum and conduction-band minimum, with a measured Eg bracket</li>
+<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Color-coded photon (orange) vs. phonon (dashed teal)</strong> transition segments</li>
+<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Electron vs. hole effective mass readout</strong> compares conduction- and valence-band curvature side by side</li>
+<li style="margin-bottom: 0; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Responsive canvas</strong> that resizes with the browser window, with fullscreen support</li>
 </ul>
 </div>
 
@@ -9392,13 +9450,13 @@ This MicroSim plots simplified valence- and conduction-band parabolas on an E-k 
         
         
           
-          <a href="../density-of-states-fermi-level-explorer/" class="md-footer__link md-footer__link--next" aria-label="Next: Density of States and Fermi Level Explorer">
+          <a href="../fermi-dirac-distribution-explorer/" class="md-footer__link md-footer__link--next" aria-label="Next: Fermi-Dirac Distribution Explorer">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Density of States and Fermi Level Explorer
+                Fermi-Dirac Distribution Explorer
               </div>
             </div>
             <div class="md-footer__button md-icon">

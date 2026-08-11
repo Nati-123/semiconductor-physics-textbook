@@ -28,23 +28,24 @@
 
         <h3>Try This</h3>
         <ul class="explore-list">
-            <li><strong>Try this:</strong> Select the "GaAs (Direct)" preset and set Transition to "Vertical (photon only)". Observe that the vertical arrow lands exactly on the conduction-band minimum.</li>
+            <li><strong>Try this:</strong> Select the "GaAs (Direct)" preset and set Transition to "Vertical (photon only)". Observe that the orange photon arrow lands exactly on the conduction-band minimum, and that the dotted guide line shows the CB minimum sits directly above the VB maximum — the same \(k\).</li>
             <li><strong>Predict:</strong> Before switching to "Si (Indirect)", predict whether the same vertical arrow will still land on the conduction-band minimum.</li>
-            <li><strong>Observe:</strong> Switch to "Si (Indirect)" and confirm the vertical arrow now lands on the conduction band curve away from its true minimum, which sits at a different k.</li>
-            <li><strong>Switch:</strong> Change Transition to "Diagonal (phonon-assisted)" and see the path split into a vertical photon segment and a horizontal phonon segment that together reach the true conduction-band minimum.</li>
-            <li><strong>Explore:</strong> Drag the effective mass slider from small to large and watch the conduction-band parabola flatten, illustrating that a larger effective mass corresponds to a more gently-curved band.</li>
+            <li><strong>Observe:</strong> Switch to "Si (Indirect)" and confirm the photon arrow now misses the true conduction-band minimum (a red "misses true CB min!" note appears), because the CB minimum sits at a different \(k_0\) than the VB maximum.</li>
+            <li><strong>Switch:</strong> Change Transition to "Diagonal (phonon-assisted)" and see the path split into a solid orange photon segment (supplies energy \(E_g\)) and a dashed teal phonon segment (supplies the momentum offset \(\Delta k=k_0\)) that together reach the true conduction-band minimum.</li>
+            <li><strong>Explore:</strong> Drag the electron effective-mass slider \(m_e^*\) from small to large and watch the purple conduction-band parabola flatten — a direct visualization of \(1/m^*=(1/\hbar^2)\,d^2E/dk^2\): less curvature means a larger effective mass.</li>
+            <li><strong>Compare:</strong> Read the \(m_e^*\) and \(m_h^*\) values in the readout line for each material. The green valence band always curves more gently than the purple conduction band, so holes are consistently heavier than electrons in every preset.</li>
         </ul>
 
-        <p class="connects-to"><strong>Connects to Chapter 6:</strong> This MicroSim plots simplified conduction- and valence-band parabolas, \(E_c(k)=E_g+a(k-k_0)^2\) and \(E_v(k)=-B_vk^2\), where the conduction-band minimum sits at \(k=k_0\). When \(k_0=0\) (direct gap, e.g. GaAs), a photon alone can drive a vertical transition to the conduction-band minimum. When \(k_0\neq0\) (indirect gap, e.g. Si, Ge), reaching the true minimum requires a phonon to supply the crystal-momentum offset \(k_0\), in addition to a photon supplying the energy \(E_g\).</p>
+        <p class="connects-to"><strong>Connects to Chapter 6:</strong> This MicroSim plots simplified conduction- and valence-band parabolas, \(E_c(k)=E_g+\frac{\hbar^2}{2m_e^*}(k-k_0)^2\) and \(E_v(k)=-\frac{\hbar^2}{2m_h^*}k^2\) (in the scaled units used here), where the conduction-band minimum sits at \(k=k_0\). When \(k_0=0\) (direct gap, e.g. GaAs), a photon alone can drive a vertical transition to the conduction-band minimum. When \(k_0\neq0\) (indirect gap, e.g. Si, Ge), reaching the true minimum requires a phonon to supply the crystal-momentum offset \(k_0\), in addition to a photon supplying the energy \(E_g\). The band curvatures directly set the effective masses \(m_e^*\) and \(m_h^*\) via \(1/m^*=(1/\hbar^2)\,d^2E/dk^2\) — the same relationship developed in the "Effective Mass" section of the chapter.</p>
 
         <h3>What Each Control Does</h3>
         <dl class="control-captions">
             <dt>Material dropdown</dt>
-            <dd>Selects a preset band gap \(E_g\) and conduction-band-minimum offset \(k_0\): GaAs (direct, \(k_0=0\)), Si (indirect), or Ge (indirect).</dd>
+            <dd>Selects a preset band gap \(E_g\), conduction-band-minimum offset \(k_0\), and hole effective mass \(m_h^*\): GaAs (direct, \(k_0=0\)), Si (indirect), or Ge (indirect).</dd>
             <dt>Transition dropdown</dt>
-            <dd>Switches the drawn transition arrow between "Vertical (photon only)" and "Diagonal (phonon-assisted)".</dd>
-            <dt>Effective mass slider</dt>
-            <dd>Sets the conduction-band effective mass \(m^*/m_0\); smaller values give a more sharply-curved (narrower) parabola.</dd>
+            <dd>Switches the drawn transition path between "Vertical (photon only)" and "Diagonal (phonon-assisted)".</dd>
+            <dt>Electron effective mass slider (mₑ*/m₀)</dt>
+            <dd>Sets the conduction-band electron effective mass; smaller values give a more sharply-curved (narrower) parabola. The valence-band curvature (hole effective mass \(m_h^*\)) is fixed by the material preset so you can compare electron vs. hole curvature directly.</dd>
         </dl>
 
         <h3>Challenge Questions</h3>
@@ -83,6 +84,18 @@
             <span class="feedback" role="status" aria-live="polite"></span>
             <p class="explain-correct" hidden>The vertical segment represents the photon supplying energy Eg, and the horizontal segment represents a phonon supplying the momentum offset k0 needed to reach the true conduction-band minimum.</p>
             <p class="explain-incorrect" hidden>Look at which segment is vertical (energy axis) and which is horizontal (k axis).</p>
+        </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">4. Which material — GaAs or Si — makes a more efficient LED, and why?</p>
+            <label><input type="radio" name="dib-q4" value="a"> GaAs, because its direct gap lets a photon alone reach the conduction-band minimum without needing a phonon</label>
+            <label><input type="radio" name="dib-q4" value="b"> Si, because it has a smaller electron effective mass</label>
+            <label><input type="radio" name="dib-q4" value="c"> They are equally efficient, since both have a band gap</label>
+            <label><input type="radio" name="dib-q4" value="d"> GaAs, because its band gap is larger</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Light emission requires an electron to fall from the conduction-band minimum to the valence-band maximum. In GaAs (direct, k0 = 0) a photon alone conserves momentum for this transition, so it happens readily. In Si (indirect), the same transition also needs a phonon to supply Δk, which requires two particles to interact with the electron nearly simultaneously — a much rarer event — so silicon emits light far less efficiently. This is why LEDs and laser diodes are built from direct-gap materials like GaAs, not silicon.</p>
+            <p class="explain-incorrect" hidden>Switch between the GaAs and Si presets and compare how easily the "Vertical (photon only)" transition reaches the true conduction-band minimum in each case.</p>
         </div>
 
     </div>

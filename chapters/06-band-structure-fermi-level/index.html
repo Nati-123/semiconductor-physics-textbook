@@ -1864,6 +1864,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="The Fermi-Dirac Distribution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-fermi-dirac-distribution-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Fermi-Dirac Distribution Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1919,6 +1936,51 @@
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#previewing-carrier-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Previewing Carrier Generation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Previewing Carrier Generation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#from-band-structure-to-electron-hole-pairs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From Band Structure to Electron-Hole Pairs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="From Band Structure to Electron-Hole Pairs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-intrinsic-carrier-excitation-electron-hole-pair-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Intrinsic Carrier Excitation / Electron-Hole Pair Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -5805,6 +5867,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../sims/fermi-dirac-distribution-explorer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fermi-Dirac Distribution Explorer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../sims/density-of-states-fermi-level-explorer/" class="md-nav__link">
         
   
@@ -5813,6 +5903,34 @@
     
   
     Density of States and Fermi Level Explorer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/carrier-excitation-electron-hole-pair-explorer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intrinsic Carrier Excitation / Electron-Hole Pair Explorer
   
 
     
@@ -9703,9 +9821,9 @@
 <iframe height="660px" scrolling="auto" src="../../sims/direct-indirect-bandgap-explorer/main.html" width="100%"></iframe>
 <div class="admonition tip">
 <p class="admonition-title">How to use this MicroSim</p>
-<p><strong>Instructions:</strong> Use the material dropdown to switch between a direct-gap preset (like GaAs) and an indirect-gap preset (like Si), and observe how the conduction-band minimum shifts in <span class="arithmatex">\(k\)</span> relative to the valence-band maximum. Toggle the transition arrow to see a vertical (photon-only) transition versus a diagonal (phonon-assisted) transition. Use the curvature slider to see how effective mass changes the parabola's width near a band extremum.</p>
-<p><strong>Learning objective:</strong> Identify direct vs. indirect band gaps directly from an E-k diagram, and connect band curvature to effective mass.</p>
-<p><strong>What to observe:</strong> In the direct-gap preset, the vertical transition arrow lands exactly on the conduction-band minimum; in the indirect-gap preset, it does not — only the diagonal, phonon-assisted arrow reaches the true conduction-band minimum.</p>
+<p><strong>Instructions:</strong> Use the material dropdown to switch between a direct-gap preset (GaAs) and indirect-gap presets (Si, Ge), and observe how the conduction-band minimum shifts in <span class="arithmatex">\(k\)</span> relative to the valence-band maximum. Toggle the transition dropdown to see a vertical (orange, photon-only) transition versus a diagonal path split into a photon segment and a dashed teal phonon segment. Drag the electron effective-mass slider to see how <span class="arithmatex">\(m_e^*\)</span> changes the purple parabola's curvature, and compare it to the green valence band's fixed hole effective mass <span class="arithmatex">\(m_h^*\)</span> in the numeric readout.</p>
+<p><strong>Learning objective:</strong> Identify direct vs. indirect band gaps directly from an E-k diagram, connect band curvature to effective mass, and compare electron vs. hole effective mass.</p>
+<p><strong>What to observe:</strong> In the direct-gap preset, the photon-only transition lands exactly on the conduction-band minimum and a dotted guide line confirms the CB minimum and VB maximum share the same <span class="arithmatex">\(k\)</span>; in the indirect-gap presets, the photon-only transition visibly misses the true conduction-band minimum, and only the path with a phonon segment reaches it. The Eg bracket alongside the CB minimum marker reads out the exact band gap for every preset.</p>
 </div>
 <p><a href="../../sims/direct-indirect-bandgap-explorer/">Full MicroSim documentation →</a></p>
 <h2 id="effective-mass">Effective Mass</h2>
@@ -9788,6 +9906,15 @@ f(E) = \frac{1}{1+\exp\!\left(\dfrac{E-E_F}{k_BT}\right)}
 \]</div>
 <p>where <span class="arithmatex">\(k_B\)</span> is Boltzmann's constant, <span class="arithmatex">\(T\)</span> is absolute temperature, and <span class="arithmatex">\(E_F\)</span> — the <strong>Fermi level</strong> — is the single parameter that sets where this distribution is centered. Chapters 9 and 10 derive and use this distribution in full quantitative detail; here, only its qualitative shape and the meaning of <span class="arithmatex">\(E_F\)</span> are needed.</p>
 <p>At any finite temperature, <span class="arithmatex">\(f(E)\)</span> is a smooth curve that equals exactly <span class="arithmatex">\(1/2\)</span> at <span class="arithmatex">\(E=E_F\)</span>, approaches 1 for energies well below <span class="arithmatex">\(E_F\)</span> (nearly certain occupation), and approaches 0 for energies well above <span class="arithmatex">\(E_F\)</span> (nearly certain vacancy), with the transition smeared over an energy range of order <span class="arithmatex">\(k_BT\)</span> around <span class="arithmatex">\(E_F\)</span>.</p>
+<h4 id="diagram-fermi-dirac-distribution-explorer">Diagram: Fermi-Dirac Distribution Explorer</h4>
+<iframe height="640px" scrolling="auto" src="../../sims/fermi-dirac-distribution-explorer/main.html" width="100%"></iframe>
+<div class="admonition tip">
+<p class="admonition-title">How to use this MicroSim</p>
+<p><strong>Instructions:</strong> Drag the <span class="arithmatex">\(E_F\)</span> slider and watch the whole S-curve translate left and right. Independently, switch the Temperature preset between 0 K, 77 K, 300 K, and 600 K (or drag the <span class="arithmatex">\(T\)</span> slider) and watch the curve's steepness change.</p>
+<p><strong>Learning objective:</strong> Recognize that <span class="arithmatex">\(f(E)\)</span> always equals exactly <span class="arithmatex">\(0.5\)</span> at <span class="arithmatex">\(E=E_F\)</span>, and connect rising temperature to a wider, more gradual occupied-to-empty transition.</p>
+<p><strong>What to observe:</strong> The red marker always sits on the curve at <span class="arithmatex">\(f(E_F)=0.5\)</span>, regardless of where <span class="arithmatex">\(E_F\)</span> or <span class="arithmatex">\(T\)</span> is set. At the lowest temperature preset, the purple curve nearly overlaps the faint gray step-function reference; at 600 K it visibly spreads out over a much wider energy range around <span class="arithmatex">\(E_F\)</span>.</p>
+</div>
+<p><a href="../../sims/fermi-dirac-distribution-explorer/">Full MicroSim documentation →</a></p>
 <h3 id="the-zero-temperature-limit-fermi-energy">The Zero-Temperature Limit: Fermi Energy</h3>
 <p>As <span class="arithmatex">\(T\to0\)</span>, the exponential in the Fermi-Dirac distribution becomes infinitely steep, and <span class="arithmatex">\(f(E)\)</span> collapses into a sharp step function: exactly 1 for every state with <span class="arithmatex">\(E&lt;E_F\)</span>, and exactly 0 for every state with <span class="arithmatex">\(E&gt;E_F\)</span>. In this limit, <span class="arithmatex">\(E_F\)</span> has an unambiguous physical meaning — it is the energy of the highest occupied electron state — and this special, <span class="arithmatex">\(T=0\)</span> value of the Fermi level is given its own name, the <strong>Fermi energy</strong>.</p>
 <p>This distinction matters because the two terms are <em>not</em> always interchangeable at finite temperature. "Fermi energy" most precisely refers to this <span class="arithmatex">\(T=0\)</span>, highest-occupied-state value, while "Fermi level" refers to the general parameter <span class="arithmatex">\(E_F\)</span> appearing in the Fermi-Dirac distribution at <em>any</em> temperature — including situations, central to semiconductor physics, where <span class="arithmatex">\(E_F\)</span> sits inside a band gap where <em>no states exist at all</em>. That is perfectly consistent: <span class="arithmatex">\(E_F\)</span> is simply the energy at which the occupation probability <em>would</em> equal <span class="arithmatex">\(1/2\)</span> if a state existed there, not the energy of any particular occupied electron.</p>
@@ -9830,9 +9957,9 @@ f(E) \approx \exp\!\left(-\frac{0.20}{0.0259}\right) = \exp(-7.72) \approx 4.4\t
 <iframe height="660px" scrolling="auto" src="../../sims/density-of-states-fermi-level-explorer/main.html" width="100%"></iframe>
 <div class="admonition tip">
 <p class="admonition-title">How to use this MicroSim</p>
-<p><strong>Instructions:</strong> Choose a material-type preset (Metal, Insulator, Semiconductor, Semimetal) from the dropdown and observe how the band diagram, the density-of-states curve <span class="arithmatex">\(g(E)\)</span>, and the Fermi level line <span class="arithmatex">\(E_F\)</span> differ between them. Drag the temperature slider to see the Fermi-Dirac distribution's step edge smear out around <span class="arithmatex">\(E_F\)</span>.</p>
-<p><strong>Learning objective:</strong> Connect the density of states, the Fermi level, and the Fermi-Dirac distribution to the classification of a material as a metal, insulator, semiconductor, or semimetal.</p>
-<p><strong>What to observe:</strong> In the Metal preset, <span class="arithmatex">\(E_F\)</span> sits inside a region where <span class="arithmatex">\(g(E)&gt;0\)</span>; in the Insulator and Semiconductor presets, <span class="arithmatex">\(E_F\)</span> sits inside the gap where <span class="arithmatex">\(g(E)=0\)</span>, differing only in gap size; in the Semimetal preset, the bands just barely touch or overlap with very little density of states near <span class="arithmatex">\(E_F\)</span>.</p>
+<p><strong>Instructions:</strong> Choose a preset (Metal, Insulator, Semimetal, or Intrinsic/n-type/p-type Semiconductor) from the dropdown and observe how the band diagram, the density-of-states curve <span class="arithmatex">\(g(E)\)</span>, and the Fermi level line <span class="arithmatex">\(E_F\)</span> differ between them. Use the Temperature preset dropdown (0 K, 77 K, 300 K, 600 K) or the <span class="arithmatex">\(T\)</span> (K) slider to see the Fermi-Dirac distribution's step edge smear out around <span class="arithmatex">\(E_F\)</span>, and read the numeric <span class="arithmatex">\(k_BT\)</span>, <span class="arithmatex">\(E_g\)</span>, and occupation-probability readout at the bottom.</p>
+<p><strong>Learning objective:</strong> Connect the density of states, the Fermi level, and the Fermi-Dirac distribution to the classification of a material as a metal, insulator, semiconductor, or semimetal, and see how doping shifts <span class="arithmatex">\(E_F\)</span> within a semiconductor's gap.</p>
+<p><strong>What to observe:</strong> In the Metal preset, <span class="arithmatex">\(E_F\)</span> sits inside a region where <span class="arithmatex">\(g(E)&gt;0\)</span>; in the Insulator and semiconductor presets, <span class="arithmatex">\(E_F\)</span> sits inside the gap where <span class="arithmatex">\(g(E)=0\)</span>, differing only in gap size; in the Semimetal preset, the bands just barely touch or overlap with very little density of states near <span class="arithmatex">\(E_F\)</span>. Comparing the n-type and p-type presets shows <span class="arithmatex">\(E_F\)</span> shifted toward <span class="arithmatex">\(E_c\)</span> and <span class="arithmatex">\(E_v\)</span> respectively — a preview of Chapters 7-8.</p>
 </div>
 <p><a href="../../sims/density-of-states-fermi-level-explorer/">Full MicroSim documentation →</a></p>
 <h2 id="classifying-materials-by-band-structure">Classifying Materials by Band Structure</h2>
@@ -9893,6 +10020,26 @@ f(E) \approx \exp\!\left(-\frac{0.20}{0.0259}\right) = \exp(-7.72) \approx 4.4\t
 <p>A divalent metal (two valence electrons per atom) would, by simple electron counting, be expected to completely fill one band and leave the next completely empty — behaving like an insulator. Yet magnesium, a divalent metal, conducts electricity well. Explain.</p>
 <p><strong>Solution:</strong> In magnesium, the top of the lower band and the bottom of the next band actually overlap in energy (rather than being separated by a gap), so electrons partially populate both bands rather than exactly filling one. Because the resulting bands are each only partially filled, the Fermi level sits inside a band, not in a gap — exactly the metal band structure condition — despite the simple electron-counting argument suggesting otherwise.</p>
 </div>
+<h2 id="previewing-carrier-generation">Previewing Carrier Generation</h2>
+<h3 id="from-band-structure-to-electron-hole-pairs">From Band Structure to Electron-Hole Pairs</h3>
+<p>This chapter has now assembled every piece needed to answer one more question, even though answering it <em>quantitatively</em> is Chapter 7's job: where do a semiconductor's charge carriers actually come from? A semiconductor's valence band is completely full and its conduction band is completely empty only at <span class="arithmatex">\(T=0\)</span>; at any real operating temperature, some electrons gain enough thermal energy to cross the gap <span class="arithmatex">\(E_g\)</span> from the valence band into the conduction band. Every such event is forced, by simple electron bookkeeping, to leave exactly one <strong>hole</strong> — a missing electron, behaving as a positive carrier — at the electron's original valence-band site. Because generation always produces one electron and one hole together, and recombination (an electron falling back into a hole) always removes one of each, an <strong>intrinsic</strong> (undoped) semiconductor always has equal electron and hole populations, written <span class="arithmatex">\(n=p=n_i\)</span>, where <span class="arithmatex">\(n_i\)</span> is the <strong>intrinsic carrier concentration</strong>. Chapter 9 derives <span class="arithmatex">\(n_i\)</span> precisely, using exactly the density-of-states and Fermi-level machinery this chapter built; here, the goal is only to see the mechanism itself.</p>
+<h4 id="diagram-intrinsic-carrier-excitation-electron-hole-pair-explorer">Diagram: Intrinsic Carrier Excitation / Electron-Hole Pair Explorer</h4>
+<iframe height="670px" scrolling="auto" src="../../sims/carrier-excitation-electron-hole-pair-explorer/main.html" width="100%"></iframe>
+<div class="admonition tip">
+<p class="admonition-title">How to use this MicroSim</p>
+<p><strong>Instructions:</strong> Click Start and watch electrons occasionally jump from the valence band, across <span class="arithmatex">\(E_g\)</span>, into the conduction band, leaving a hole behind. Compare the Temperature and <span class="arithmatex">\(E_g\)</span> sliders' effect on how often this happens.</p>
+<p><strong>Learning objective:</strong> Explain why electron-hole pair generation always produces equal numbers of electrons and holes, and connect generation rate qualitatively to temperature and band gap.</p>
+<p><strong>What to observe:</strong> The free-electron count <span class="arithmatex">\(n\)</span> and hole count <span class="arithmatex">\(p\)</span> in the readout are always exactly equal. Raising <span class="arithmatex">\(E_g\)</span> sharply reduces the generation-activity meter and how often new pairs appear; raising Temperature does the opposite — the same qualitative trend behind Chapter 9's precise result <span class="arithmatex">\(n_i\propto T^{3/2}e^{-E_g/2k_BT}\)</span>.</p>
+</div>
+<p><a href="../../sims/carrier-excitation-electron-hole-pair-explorer/">Full MicroSim documentation →</a></p>
+<div class="admonition question">
+<p class="admonition-title">Concept Check</p>
+<p>Chapter 7's Intrinsic Semiconductor Explorer shows thermal carrier generation as a covalent bond breaking in real space, with no mention of Ec, Ev, or Eg. This chapter's MicroSim shows the same physical process on an energy-space band diagram instead. Are these two pictures in conflict?</p>
+</div>
+<details class="question">
+<summary>Concept Check — click to reveal answer</summary>
+<p>No — they are the same physical event described in two different, complementary spaces. Breaking a covalent bond in real space <em>is</em> exciting an electron from a valence-band state to a conduction-band state in energy space; the freed electron becomes a mobile conduction-band carrier, and the broken bond is a valence-band hole. Chapter 7 develops the real-space, bond-breaking language because it connects naturally to doping (Chapter 8's donor and acceptor atoms), while this chapter's energy-space, band-diagram language connects naturally to the density-of-states and Fermi-level tools Chapters 9 and 10 use to calculate <span class="arithmatex">\(n_i\)</span> exactly.</p>
+</details>
 <h2 id="summary">Summary</h2>
 <p>This chapter took Chapter 5's abstract result — that a periodic potential splits electron energy into bands and gaps — and made it concrete and quantitative. A real, three-dimensional band's extrema can occur at the same crystal momentum (a <strong>direct bandgap</strong>, as in GaAs) or at different crystal momenta (an <strong>indirect bandgap</strong>, as in Si and Ge), a distinction that governs whether a single photon can drive a band-edge transition and therefore whether a material makes an efficient light emitter. Near any band extremum, the curvature of <span class="arithmatex">\(E(k)\)</span> defines the <strong>effective mass</strong> <span class="arithmatex">\(m^*=\hbar^2/(d^2E/dk^2)\)</span>, letting electrons and holes there be treated with ordinary Newtonian mechanics. Counting allowed k-states in three dimensions and converting to energy gave the <strong>density of states</strong>, <span class="arithmatex">\(g_c(E)\propto\sqrt{E-E_c}\)</span> for a parabolic conduction band, the essential bridge to carrier-concentration calculations in Chapters 9 and 10. The <strong>Fermi-Dirac distribution</strong>, parameterized by the <strong>Fermi level</strong> <span class="arithmatex">\(E_F\)</span>, gives the occupation probability of a state at any temperature, and its zero-temperature limit — the energy of the highest occupied state — is the <strong>Fermi energy</strong>. Finally, combining band filling with the Fermi level's position classified any material as a <strong>metal</strong> (<span class="arithmatex">\(E_F\)</span> inside a band), an <strong>insulator</strong> (<span class="arithmatex">\(E_F\)</span> in a wide gap), a <strong>semiconductor</strong> (<span class="arithmatex">\(E_F\)</span> in a narrow gap), or a <strong>semimetal</strong> (bands barely touching, with very low carrier density) — the classification scheme Chapter 7 now applies in detail to real semiconductor materials.</p>
 <h2 id="key-equations">Key Equations</h2>

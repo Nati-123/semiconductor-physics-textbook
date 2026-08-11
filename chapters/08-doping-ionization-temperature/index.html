@@ -2117,6 +2117,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Naming Material by Majority Carrier">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-majority-and-minority-carrier-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Majority and Minority Carrier Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -6512,14 +6529,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sims/carrier-concentration-temperature-regions-explorer/" class="md-nav__link">
+      <a href="../../sims/majority-minority-carrier-explorer/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Carrier Concentration vs. Temperature (Three Regions) Explorer
+    Majority and Minority Carrier Explorer
   
 
     
@@ -6576,6 +6593,34 @@
     
   
     Compensated Semiconductor Explorer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/carrier-concentration-temperature-regions-explorer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Carrier Concentration vs. Temperature (Three Regions) Explorer
   
 
     
@@ -9816,17 +9861,26 @@
 <summary>Concept Check — click to reveal answer</summary>
 <p>Boron is a Group III acceptor, so the sample is p-type, and its majority carrier is holes.</p>
 </details>
+<h4 id="diagram-majority-and-minority-carrier-explorer">Diagram: Majority and Minority Carrier Explorer</h4>
+<iframe height="720px" scrolling="auto" src="../../sims/majority-minority-carrier-explorer/main.html" width="100%"></iframe>
+<div class="admonition tip">
+<p class="admonition-title">How to use this MicroSim</p>
+<p><strong>Instructions:</strong> Drag the single slider continuously from "Strongly p-type" through "Intrinsic" to "Strongly n-type" (or pick a preset), and watch the electron (n) and hole (p) bars and the schematic population panel respond together.</p>
+<p><strong>Learning objective:</strong> Predict how hole concentration changes when electron concentration changes at equilibrium, and identify majority vs. minority carriers directly from a doping level.</p>
+<p><strong>What to observe:</strong> The product <span class="arithmatex">\(n\times p\)</span> shown in the title never changes, no matter where the slider sits — increasing one carrier's concentration always decreases the other by exactly the same factor, a direct preview of Chapter 9's mass-action law <span class="arithmatex">\(np=n_i^2\)</span>.</p>
+</div>
+<p><a href="../../sims/majority-minority-carrier-explorer/">Full MicroSim documentation →</a></p>
 <h2 id="dopant-ionization-and-ionization-energy">Dopant Ionization and Ionization Energy</h2>
 <h3 id="not-all-dopants-are-always-ionized">Not All Dopants Are Always Ionized</h3>
 <p><strong>Dopant ionization</strong> is the process by which a donor releases its weakly-bound electron (or an acceptor captures a neighboring electron, releasing a hole), covered structurally in Chapter 7. What Chapter 7 left open is <em>how much</em> ionization actually occurs at a given temperature — and the answer depends directly on the dopant's <strong>ionization energy</strong>, <span class="arithmatex">\(E_D\)</span> (or <span class="arithmatex">\(E_A\)</span> for an acceptor), the same hydrogenic quantity introduced in Chapter 7's hydrogen-atom analogy.</p>
 <p>At very low temperature, thermal energy <span class="arithmatex">\(k_BT\)</span> is far smaller than <span class="arithmatex">\(E_D\)</span>, and only a small fraction of dopant atoms have enough energy to ionize — most remain <strong>frozen out</strong>, still holding their weakly-bound electron or hole. As temperature rises, <span class="arithmatex">\(k_BT\)</span> grows relative to <span class="arithmatex">\(E_D\)</span>, and the ionized fraction rises correspondingly, eventually approaching 1 (essentially complete ionization) once <span class="arithmatex">\(k_BT\)</span> comfortably exceeds <span class="arithmatex">\(E_D\)</span>.</p>
 <h4 id="diagram-dopant-ionization-fraction-vs-temperature-explorer">Diagram: Dopant Ionization Fraction vs. Temperature Explorer</h4>
-<iframe height="640px" scrolling="auto" src="../../sims/dopant-ionization-fraction-explorer/main.html" width="100%"></iframe>
+<iframe height="760px" scrolling="auto" src="../../sims/dopant-ionization-fraction-explorer/main.html" width="100%"></iframe>
 <div class="admonition tip">
 <p class="admonition-title">How to use this MicroSim</p>
-<p><strong>Instructions:</strong> Drag the temperature marker across the plotted curve, then adjust the ionization energy slider and observe how the curve shifts.</p>
-<p><strong>Learning objective:</strong> Interpret an ionization-fraction curve, and explain how ionization energy controls the temperature at which dopants become mostly ionized.</p>
-<p><strong>What to observe:</strong> A larger ionization energy shifts the entire curve toward higher temperature — a more tightly-bound dopant requires more thermal energy before it substantially ionizes.</p>
+<p><strong>Instructions:</strong> Drag the temperature marker across the plotted curve, choose a donor or acceptor dopant preset (or adjust the ionization-energy slider directly), and watch the companion energy-level diagram on the right animate carriers escaping into the band.</p>
+<p><strong>Learning objective:</strong> Interpret an ionization-fraction curve, explain how ionization energy controls the temperature at which dopants become mostly ionized, and connect the curve directly to the underlying energy-level picture.</p>
+<p><strong>What to observe:</strong> A larger ionization energy shifts the entire curve toward higher temperature — a more tightly-bound dopant requires more thermal energy before it substantially ionizes. The number of freed carriers drawn in the energy-level diagram always matches the curve's current value.</p>
 </div>
 <p><a href="../../sims/dopant-ionization-fraction-explorer/">Full MicroSim documentation →</a></p>
 <p>Recall from Chapter 7's hydrogenic ionization energy calculator and dopant ionization energy chart that measured donor/acceptor ionization energies in silicon are typically tens of meV — comparable to room-temperature thermal energy, <span class="arithmatex">\(k_BT\approx26\)</span> meV at <span class="arithmatex">\(T=300\)</span> K. This is precisely why "complete ionization" is such a good approximation at and above room temperature for ordinary doping levels, and precisely why it fails at cryogenic temperatures.</p>
@@ -9852,12 +9906,12 @@ N_{\text{net}} = N_D - N_A
 \]</div>
 <p>If <span class="arithmatex">\(N_{\text{net}}&gt;0\)</span> (more donors than acceptors), the material is net n-type with majority electron concentration approximately <span class="arithmatex">\(N_D-N_A\)</span>; if <span class="arithmatex">\(N_{\text{net}}&lt;0\)</span>, the material is net p-type with majority hole concentration approximately <span class="arithmatex">\(N_A-N_D\)</span>. If the two concentrations are exactly equal, the donor and acceptor contributions cancel completely, and the material behaves as if intrinsic despite containing large numbers of both dopant species.</p>
 <h4 id="diagram-compensated-semiconductor-explorer">Diagram: Compensated Semiconductor Explorer</h4>
-<iframe height="640px" scrolling="auto" src="../../sims/compensated-semiconductor-explorer/main.html" width="100%"></iframe>
+<iframe height="720px" scrolling="auto" src="../../sims/compensated-semiconductor-explorer/main.html" width="100%"></iframe>
 <div class="admonition tip">
 <p class="admonition-title">How to use this MicroSim</p>
-<p><strong>Instructions:</strong> Adjust the <span class="arithmatex">\(N_D\)</span> and <span class="arithmatex">\(N_A\)</span> sliders independently and watch the net-doping card update.</p>
-<p><strong>Learning objective:</strong> Compute net doping from independent donor and acceptor concentrations, and determine the resulting majority carrier type.</p>
-<p><strong>What to observe:</strong> As <span class="arithmatex">\(N_D\)</span> and <span class="arithmatex">\(N_A\)</span> approach each other, the net doping shrinks toward zero, regardless of how large either individual concentration is.</p>
+<p><strong>Instructions:</strong> Adjust the <span class="arithmatex">\(N_D\)</span> and <span class="arithmatex">\(N_A\)</span> sliders independently (or pick a preset) and watch the signed net-doping gauge, the majority-carrier badge, and the approximate Fermi-level indicator all update together.</p>
+<p><strong>Learning objective:</strong> Compute net doping from independent donor and acceptor concentrations, determine the resulting majority carrier type, and connect that result to a qualitative shift in Fermi level position.</p>
+<p><strong>What to observe:</strong> As <span class="arithmatex">\(N_D\)</span> and <span class="arithmatex">\(N_A\)</span> approach each other, the net doping shrinks toward zero, regardless of how large either individual concentration is — the badge switches from "Net n-type" through "Compensated" to "Net p-type" as the gauge marker crosses center.</p>
 </div>
 <p><a href="../../sims/compensated-semiconductor-explorer/">Full MicroSim documentation →</a></p>
 <div class="admonition example">
@@ -9900,12 +9954,12 @@ N_{\text{net}} = N_D - N_A
 </table>
 <p>At low temperature (the <strong>freeze-out regime</strong>), most dopant atoms are un-ionized, so carrier concentration is well below the doping level and rises quickly as temperature increases and ionization proceeds. Once temperature is high enough that essentially all dopants are ionized but not yet high enough for significant intrinsic generation, carrier concentration levels off at approximately <span class="arithmatex">\(N_D\)</span> — the <strong>extrinsic temperature region</strong>, the regime nearly every practical device is designed to operate in, since carrier concentration here is stable and set by design (doping level) rather than by temperature. Push temperature high enough, and Chapter 7's thermally-generated intrinsic carriers — which grow exponentially with temperature — eventually exceed the fixed doping concentration entirely, returning the material to intrinsic-like behavior in the <strong>intrinsic temperature region</strong>.</p>
 <h4 id="diagram-carrier-concentration-vs-temperature-three-regions-explorer">Diagram: Carrier Concentration vs. Temperature (Three Regions) Explorer</h4>
-<iframe height="660px" scrolling="auto" src="../../sims/carrier-concentration-temperature-regions-explorer/main.html" width="100%"></iframe>
+<iframe height="820px" scrolling="auto" src="../../sims/carrier-concentration-temperature-regions-explorer/main.html" width="100%"></iframe>
 <div class="admonition tip">
 <p class="admonition-title">How to use this MicroSim</p>
-<p><strong>Instructions:</strong> Trace the curve from low to high temperature, noting the shaded region colors, then adjust the <span class="arithmatex">\(N_D\)</span> and <span class="arithmatex">\(E_D\)</span> sliders.</p>
-<p><strong>Learning objective:</strong> Identify all three temperature regions from a carrier-concentration curve, and explain how doping concentration and ionization energy shift each region's boundaries.</p>
-<p><strong>What to observe:</strong> Increasing <span class="arithmatex">\(N_D\)</span> raises the extrinsic plateau and pushes the intrinsic region's onset to a higher temperature (a heavier-doped sample stays extrinsic longer); increasing <span class="arithmatex">\(E_D\)</span> stretches the freeze-out region to higher temperature.</p>
+<p><strong>Instructions:</strong> Drag the temperature slider (or pick a 50 K / 77 K / 300 K / 500 K / 800 K preset) and watch the region badge, the "why" explanation, and every numeric readout update together; then adjust the <span class="arithmatex">\(N_D\)</span> and <span class="arithmatex">\(E_D\)</span> sliders and notice the shaded region boundaries move with them.</p>
+<p><strong>Learning objective:</strong> Identify all three temperature regions from a carrier-concentration curve, explain — in numbers — why the sample is in a given region, and explain how doping concentration and ionization energy shift each region's boundaries.</p>
+<p><strong>What to observe:</strong> Increasing <span class="arithmatex">\(N_D\)</span> raises the extrinsic plateau and pushes the intrinsic region's onset to a higher temperature (a heavier-doped sample stays extrinsic longer); increasing <span class="arithmatex">\(E_D\)</span> stretches the freeze-out region to higher temperature. The region boundaries are computed live from your slider values, not fixed in place.</p>
 </div>
 <p><a href="../../sims/carrier-concentration-temperature-regions-explorer/">Full MicroSim documentation →</a></p>
 <div class="admonition question">
@@ -9930,12 +9984,12 @@ E_C - E_F = k_BT\ln\!\left(\frac{N_C}{N_D}\right)
 \]</div>
 <p>For silicon at room temperature, <span class="arithmatex">\(N_C\approx2.8\times10^{19}\ \text{cm}^{-3}\)</span>. As <span class="arithmatex">\(N_D\)</span> approaches this value, <span class="arithmatex">\(\ln(N_C/N_D)\)</span> shrinks toward zero, and <span class="arithmatex">\(E_F\)</span> rises to meet <span class="arithmatex">\(E_C\)</span>; push <span class="arithmatex">\(N_D\)</span> past <span class="arithmatex">\(N_C\)</span> and the formula predicts <span class="arithmatex">\(E_F\)</span> above <span class="arithmatex">\(E_C\)</span> entirely — the hallmark of degeneracy, and a regime where this formula itself is no longer strictly valid (it assumes non-degenerate, Boltzmann-like statistics in its derivation).</p>
 <h4 id="diagram-degenerate-semiconductor-explorer">Diagram: Degenerate Semiconductor Explorer</h4>
-<iframe height="600px" scrolling="auto" src="../../sims/degenerate-semiconductor-explorer/main.html" width="100%"></iframe>
+<iframe height="680px" scrolling="auto" src="../../sims/degenerate-semiconductor-explorer/main.html" width="100%"></iframe>
 <div class="admonition tip">
 <p class="admonition-title">How to use this MicroSim</p>
-<p><strong>Instructions:</strong> Drag the <span class="arithmatex">\(N_D\)</span> slider from low to very high values and watch the computed Fermi level position and the degenerate-regime warning.</p>
-<p><strong>Learning objective:</strong> Predict Fermi level position from doping concentration, and justify why very heavy doping invalidates the non-degenerate approximation.</p>
-<p><strong>What to observe:</strong> The Fermi level line stays well below <span class="arithmatex">\(E_C\)</span> at low doping, and rises to meet (and cross) <span class="arithmatex">\(E_C\)</span> as <span class="arithmatex">\(N_D\)</span> approaches and exceeds <span class="arithmatex">\(N_C\approx2.8\times10^{19}\ \text{cm}^{-3}\)</span>.</p>
+<p><strong>Instructions:</strong> Drag the <span class="arithmatex">\(N_D\)</span> (or switch to p-type and drag <span class="arithmatex">\(N_A\)</span>) slider continuously from very light to very heavy doping and watch the Fermi level line, the doping gauge, and the non-degenerate/transition/degenerate badge move together; then adjust temperature and observe the gauge boundaries shift.</p>
+<p><strong>Learning objective:</strong> Predict Fermi level position from doping concentration and temperature, justify why very heavy doping invalidates the non-degenerate approximation, and recognize when a stated result is only an estimate.</p>
+<p><strong>What to observe:</strong> The Fermi level line stays well below <span class="arithmatex">\(E_C\)</span> at low doping, and rises to meet (and cross) <span class="arithmatex">\(E_C\)</span> as <span class="arithmatex">\(N_D\)</span> approaches and exceeds <span class="arithmatex">\(N_C(T)\approx2.8\times10^{19}\ \text{cm}^{-3}\)</span> at 300 K. Once degenerate, the line switches to a dashed "estimate," since the Boltzmann formula no longer applies.</p>
 </div>
 <p><a href="../../sims/degenerate-semiconductor-explorer/">Full MicroSim documentation →</a></p>
 <p>Degenerate semiconductors are not merely a theoretical curiosity — heavily-doped regions (source/drain contacts in a MOSFET, or the emitter of a bipolar transistor) are routinely doped into the degenerate regime deliberately, since very low resistivity is often more important there than the validity of simplified carrier statistics.</p>

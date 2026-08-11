@@ -27,36 +27,75 @@
     <summary>Guided Exploration &amp; Challenge Questions</summary>
     <div class="panel-content">
 
-        <h3>Try This</h3>
+        <h3>What to Observe</h3>
         <ul class="explore-list">
-            <li><strong>Try this:</strong> With the default ionization energy, find the temperature marker position where the ionization fraction crosses 50%.</li>
-            <li><strong>Predict:</strong> Before increasing the ionization energy slider, predict whether the 50%-ionized temperature will rise or fall.</li>
-            <li><strong>Observe:</strong> Drag the temperature marker across the full range and watch the fraction rise from nearly 0 (freeze-out) to nearly 1 (fully ionized).</li>
+            <li>The left panel plots the ionized fraction f<sub>ion</sub>(T) as a smooth S-curve rising from 0% to 100%.</li>
+            <li>The right (or, on narrow screens, lower) panel shows a small energy-level diagram: E<sub>C</sub> and the donor level E<sub>D</sub> (or E<sub>V</sub> and the acceptor level E<sub>A</sub>), with a handful of representative carriers that visibly hop from "bound at the dopant level" to "free in the band" as the ionized fraction rises.</li>
+            <li>The count of freed carriers shown in the diagram always matches the curve's current f<sub>ion</sub> value.</li>
         </ul>
 
-        <p class="connects-to"><strong>Connects to Chapter 8:</strong> The fraction of dopant atoms that are actually ionized, \(f_{ion}(T)\), is not always 1 — at low temperature, many donor or acceptor atoms remain un-ionized (frozen out), simply because there is not enough thermal energy to overcome the dopant's ionization energy. This MicroSim uses a simplified sigmoid model of \(f_{ion}(T)\), calibrated so a dopant's characteristic "50% ionized" temperature scales with its ionization energy, consistent with the hydrogenic ionization energies from Chapter 7.</p>
+        <h3>Guided Exploration</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Drag the temperature slider from low to high and watch both the curve's marker point <em>and</em> the diagram's carriers move together -- a low-T freeze-out state has almost all carriers still bound at the dopant level; a high-T state has almost all of them free in the band.</li>
+            <li><strong>Predict:</strong> Before switching the ionization-energy slider to a larger value, predict whether the curve will shift toward higher or lower temperature.</li>
+            <li><strong>Observe:</strong> Increase E<sub>D</sub> (or E<sub>A</sub>) and confirm the whole S-curve shifts toward higher temperature -- a more tightly-bound dopant needs more thermal energy before it substantially ionizes.</li>
+            <li><strong>Compare dopants:</strong> Step through the donor presets (Sb, P, As) and compare how far right the curve shifts as the ionization energy grows from 39 to 54 meV.</li>
+            <li><strong>Switch type:</strong> Change Type to Acceptor and confirm the same physics applies, now with holes escaping into the valence band instead of electrons into the conduction band.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 8:</strong> This MicroSim plots the simplified ionization-fraction model <span class="arithmatex">\(f_{ion}(T) = 1/(1+B\,e^{E_D/k_BT})\)</span> introduced in this chapter's "Dopant Ionization and Ionization Energy" section, and connects it directly to the physical picture: each point on the curve corresponds to a specific fraction of dopant atoms that have released their carrier into the band. Chapter 7's hydrogenic model predicts the ionization energies used here as presets; the exact, non-simplified ionization statistics are developed in Chapters 9-10.</p>
 
         <h3>What Each Control Does</h3>
         <dl class="control-captions">
-            <dt>Ionization energy slider (E_D)</dt>
-            <dd>Sets the dopant's ionization energy, shifting the entire ionization-fraction curve along the temperature axis.</dd>
-            <dt>Temperature marker slider</dt>
-            <dd>Reads off the exact ionization fraction at a chosen temperature.</dd>
+            <dt>Type dropdown</dt>
+            <dd>Switches between Donor (n-type, electrons escape to E<sub>C</sub>) and Acceptor (p-type, holes escape to E<sub>V</sub>).</dd>
+            <dt>Dopant dropdown</dt>
+            <dd>Selects a common silicon dopant preset (or "Custom" to use the slider freely), setting the ionization energy to that species' measured value.</dd>
+            <dt>Ionization energy slider (E<sub>D</sub> / E<sub>A</sub>)</dt>
+            <dd>Sets the dopant's ionization energy directly; a larger value shifts the whole curve toward higher temperature.</dd>
+            <dt>Temperature slider</dt>
+            <dd>Moves the marker across the curve and drives the energy-level diagram's carrier count.</dd>
         </dl>
 
         <h3>Challenge Questions</h3>
 
         <div class="challenge" data-correct="c">
-            <p class="q-text">1. What does a low ionization fraction (close to 0) at low temperature represent physically?</p>
-            <label><input type="radio" name="dif-q1" value="a"> All dopant atoms have been destroyed</label>
-            <label><input type="radio" name="dif-q1" value="b"> The semiconductor has become a metal</label>
-            <label><input type="radio" name="dif-q1" value="c"> Most dopant atoms have not yet ionized — freeze-out</label>
-            <label><input type="radio" name="dif-q1" value="d"> The band gap has closed</label>
+            <p class="q-text">1. What physically happens when a donor atom becomes ionized?</p>
+            <label><input type="radio" name="dif-q1" value="a"> A covalent bond breaks, creating an electron-hole pair</label>
+            <label><input type="radio" name="dif-q1" value="b"> The donor atom disappears from the lattice</label>
+            <label><input type="radio" name="dif-q1" value="c"> The donor's weakly-bound fifth electron escapes into the conduction band, leaving a fixed positive ion</label>
+            <label><input type="radio" name="dif-q1" value="d"> The donor captures an extra electron</label>
             <button class="check-btn" type="button">Check Answer</button>
             <span class="feedback" role="status" aria-live="polite"></span>
-            <p class="explain-correct" hidden>A low ionization fraction means most dopant atoms still hold their loosely-bound electron (or hole) because there is not enough thermal energy available — the freeze-out condition.</p>
-            <p class="explain-incorrect" hidden>Recall Chapter 7's donor/acceptor ionization discussion — ionization requires thermal energy comparable to the ionization energy.</p>
+            <p class="explain-correct" hidden>Donor ionization does not break any covalent bond -- the donor's own four bonding electrons stay in place. Only the loosely-bound fifth electron gains enough thermal energy to leave, becoming a free conduction-band electron and leaving a fixed positive ion behind.</p>
+            <p class="explain-incorrect" hidden>Re-read the physical explanation paragraph below the readout line, and compare it to Chapter 7's donor-atom bonding picture.</p>
         </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">2. Comparing phosphorus (E_D = 45 meV) to arsenic (E_D = 54 meV) in silicon at the same temperature, which dopant has the higher ionized fraction?</p>
+            <label><input type="radio" name="dif-q2" value="a"> Phosphorus, since its smaller ionization energy requires less thermal energy to ionize</label>
+            <label><input type="radio" name="dif-q2" value="b"> Arsenic, since it is heavier</label>
+            <label><input type="radio" name="dif-q2" value="c"> They are always exactly equal</label>
+            <label><input type="radio" name="dif-q2" value="d"> Neither ionizes at any temperature</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>A smaller ionization energy means less thermal energy is needed to ionize the dopant, so at any fixed temperature, phosphorus (45 meV) has a higher ionized fraction than arsenic (54 meV).</p>
+            <p class="explain-incorrect" hidden>Switch between the Phosphorus and Arsenic presets at a fixed, low temperature and compare the f_ion readout.</p>
+        </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">3. At exactly the temperature where f_ion = 0.5, how many of the diagram's shown donor sites should be drawn as free electrons?</p>
+            <label><input type="radio" name="dif-q3" value="a"> 0</label>
+            <label><input type="radio" name="dif-q3" value="b"> Half of them</label>
+            <label><input type="radio" name="dif-q3" value="c"> All of them</label>
+            <label><input type="radio" name="dif-q3" value="d"> A random number each time</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>The diagram always shows round(f_ion × 6) of the 6 representative sites as free -- at f_ion = 0.5, that is 3 of 6, half of them.</p>
+            <p class="explain-incorrect" hidden>Drag the temperature marker until the curve crosses the dashed 50% reference line, and count the free electrons in the diagram at that instant.</p>
+        </div>
+
+        <p class="key-takeaway"><strong>Key Takeaway:</strong> Dopant ionization is a smooth, temperature-driven statistical process, not an all-or-nothing switch -- the ionized fraction curve and the energy-level diagram are two views of the exact same physics: at any given temperature, some fraction of dopant atoms have released their carrier into the band, and that fraction is set entirely by how the dopant's ionization energy compares to the available thermal energy k_BT.</p>
 
     </div>
     </details>

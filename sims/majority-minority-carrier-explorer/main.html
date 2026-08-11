@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Majority and Minority Carrier Explorer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="../semiconductor-materials-lib.js"></script>
+    <script src="majority-minority-carrier-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>What to Observe</h3>
+        <ul class="explore-list">
+            <li>The left bar chart shows electron concentration <em>n</em> and hole concentration <em>p</em> on the same log scale, with a dashed reference line at n<sub>i</sub>.</li>
+            <li>The right panel shows a small schematic population of electrons (blue, "−") and holes (red, "+") -- illustrative only, since real n:p ratios span far too many orders of magnitude to draw to literal scale.</li>
+            <li>A badge names the majority carrier type: n-type, p-type, or exactly intrinsic when n = p.</li>
+        </ul>
+
+        <h3>Guided Exploration</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Start at the default "Intrinsic" preset and confirm both bars are equal height, both equal to ni, and the badge reads "Intrinsic: n = p = ni."</li>
+            <li><strong>Predict:</strong> Before dragging the slider to the right (increasing n), predict what will happen to the p bar.</li>
+            <li><strong>Observe:</strong> Drag the slider toward "Strongly n-type" and confirm the n bar grows while the p bar shrinks by exactly the same factor, so their product never changes.</li>
+            <li><strong>Explore:</strong> Read the title equation's n·p value at several different slider positions -- it never changes, no matter how extreme the doping.</li>
+            <li><strong>Switch sides:</strong> Drag all the way to "Strongly p-type" and confirm the roles reverse -- now holes dominate the population panel.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 8:</strong> This MicroSim previews the <strong>mass-action relationship</strong> <span class="arithmatex">\(np = n_i^2\)</span> that Chapter 9 derives and proves; here it is used directly to parametrize doping continuously, so that as this chapter's N-type/P-type Doping section states, majority carrier concentration is set by doping while minority carrier concentration is "set by the much smaller intrinsic carrier concentration." The relationship holds only under the equilibrium, non-degenerate assumptions used throughout this chapter -- see the <a href="../../sims/mass-action-law-explorer/index.md">Mass-Action Law Explorer</a> (Chapter 9) for the exact derivation and its limits.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>Preset dropdown</dt>
+            <dd>Jumps directly to a strongly p-type, lightly p-type, intrinsic, lightly n-type, or strongly n-type configuration.</dd>
+            <dt>log₁₀(n/nᵢ) slider</dt>
+            <dd>Sets electron concentration continuously as n = ni·10^(slider value); hole concentration is always computed as p = ni²/n, so the slider alone determines both.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">1. Predict first, then check: if electron concentration n increases by a factor of 100 (equilibrium, mass-action relationship holding), what happens to hole concentration p?</p>
+            <label><input type="radio" name="mm-q1" value="a"> p also increases by a factor of 100</label>
+            <label><input type="radio" name="mm-q1" value="b"> p decreases by a factor of 100</label>
+            <label><input type="radio" name="mm-q1" value="c"> p stays exactly the same</label>
+            <label><input type="radio" name="mm-q1" value="d"> p becomes zero</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Since np = ni² is fixed, multiplying n by 100 requires dividing p by 100 to keep the product constant. Try it: move the slider 2 units to the right (10² = 100×) and read the new p value -- it will be exactly 1/100th of its previous value.</p>
+            <p class="explain-incorrect" hidden>Move the slider 2 full units to the right (a factor of 10² = 100 in n) and compare the new p reading to the old one.</p>
+        </div>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">2. In the "Strongly n-type" preset, which carrier is the minority carrier?</p>
+            <label><input type="radio" name="mm-q2" value="a"> Electrons</label>
+            <label><input type="radio" name="mm-q2" value="b"> Neither -- both are majority</label>
+            <label><input type="radio" name="mm-q2" value="c"> Holes</label>
+            <label><input type="radio" name="mm-q2" value="d"> Photons</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>In n-type material, electrons are the majority carrier (set by donor doping) and holes are the minority carrier (set by the much smaller ni²/n).</p>
+            <p class="explain-incorrect" hidden>Select the Strongly n-type preset and compare the heights of the two bars.</p>
+        </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">3. At the exact "Intrinsic" preset, what is true about n and p?</p>
+            <label><input type="radio" name="mm-q3" value="a"> n = p = ni, with neither carrier in the majority</label>
+            <label><input type="radio" name="mm-q3" value="b"> n = 0 and p = ni²</label>
+            <label><input type="radio" name="mm-q3" value="c"> n and p are unrelated at this point</label>
+            <label><input type="radio" name="mm-q3" value="d"> p = 0 and n = ni²</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>At the intrinsic point (slider = 0), n = ni·10⁰ = ni and p = ni²/ni = ni, so n = p = ni exactly -- neither carrier dominates, matching Chapter 7's intrinsic-semiconductor picture.</p>
+            <p class="explain-incorrect" hidden>Select the Intrinsic preset and read both bar values in the readout.</p>
+        </div>
+
+        <p class="key-takeaway"><strong>Key Takeaway:</strong> Electron and hole concentrations are never independent at equilibrium -- their product is fixed at ni², so doping that raises one carrier's concentration necessarily suppresses the other by the same factor, which is exactly why minority carrier concentration in a heavily-doped sample can become astronomically small.</p>
+
+    </div>
+    </details>
+</body>
+</html>

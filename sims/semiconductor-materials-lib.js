@@ -310,3 +310,61 @@ function smlDrawButton(x, y, w, h, label, active) {
 function smlPointInRect(px, py, x, y, w, h) {
   return px >= x && px <= x + w && py >= y && py <= y + h;
 }
+
+// ---------- math text formatting (Chapter 8+) ----------
+// Converts an integer (or one-decimal-place float) to Unicode superscript
+// digits, e.g. smlSuperscript(16) -> "¹⁶", smlSuperscript(-3) -> "⁻³".
+// Used so canvas text can show "10¹⁶" instead of raw "10^16" text.
+var SML_SUP_MAP = { '0': '⁰', '1': '¹', '2': '²', '3': '³', '4': '⁴', '5': '⁵', '6': '⁶', '7': '⁷', '8': '⁸', '9': '⁹', '-': '⁻', '.': '˙' };
+function smlSuperscript(n) {
+  var s = String(n);
+  var out = '';
+  for (var i = 0; i < s.length; i++) out += (SML_SUP_MAP[s[i]] !== undefined ? SML_SUP_MAP[s[i]] : s[i]);
+  return out;
+}
+
+// Formats a concentration value (cm^-3) as "1.0×10¹⁶ cm⁻³"-style text,
+// or, for a value already known as a power of ten, use smlFormatPow10.
+function smlFormatConc(value, opts) {
+  opts = opts || {};
+  if (value <= 0 || !isFinite(value)) return '0 cm⁻³';
+  var exp = Math.floor(Math.log10(value));
+  var mant = value / Math.pow(10, exp);
+  if (mant >= 9.95) { mant /= 10; exp += 1; }
+  var mantStr = mant.toFixed(opts.mantDecimals !== undefined ? opts.mantDecimals : 1);
+  return mantStr + '×10' + smlSuperscript(exp) + (opts.noUnit ? '' : ' cm⁻³');
+}
+
+// Formats a slider exponent value (e.g. 16.5) as "10¹⁶·⁵ cm⁻³", used for
+// the log-scale doping-concentration sliders common in Chapter 7/8 sims.
+function smlFormatPow10(exponent, opts) {
+  opts = opts || {};
+  var expStr = (Math.round(exponent * 10) % 10 === 0) ? exponent.toFixed(0) : exponent.toFixed(1);
+  return '10' + smlSuperscript(expStr) + (opts.noUnit ? '' : ' cm⁻³');
+}
+
+// Draws "main" immediately followed by a smaller, lower "sub" glyph run,
+// approximating a true typographic subscript on an HTML5 canvas (which has
+// no rich-text API). Honors the caller's current fill/textAlign(LEFT,*)
+// for the main text; sub is always drawn in the same fill color. Returns
+// the total pixel width consumed, so callers can continue drawing more
+// plain text immediately after (e.g. smlDrawSubLabel(...) then text(' = 1.2 eV', x+w, y)).
+function smlDrawSubLabel(x, y, main, sub, opts) {
+  opts = opts || {};
+  var mainSize = opts.size || 13;
+  var subSize = mainSize * 0.68;
+  var subDy = mainSize * 0.28;
+  push();
+  textAlign(LEFT, opts.baseline || CENTER);
+  textSize(mainSize);
+  var mainW = textWidth(main);
+  text(main, x, y);
+  var subW = 0;
+  if (sub) {
+    textSize(subSize);
+    subW = textWidth(sub);
+    text(sub, x + mainW, y + subDy);
+  }
+  pop();
+  return mainW + subW;
+}

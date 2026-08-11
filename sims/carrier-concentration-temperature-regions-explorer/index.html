@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="A MicroSim plotting a doped semiconductor's carrier concentration against temperature, shading the freeze-out, extrinsic, and intrinsic regions">
+        <meta name="description" content="A MicroSim plotting a doped semiconductor's carrier concentration against temperature (n-type or p-type), with numeric axis ticks, a movable temperature marker, live-computed freeze-out/extrinsic/intrinsic region boundaries, a region badge explaining why, and presets for 50/77/300/500/800 K">
       
       
         <meta name="author" content="Natol Dinka">
@@ -15,10 +15,10 @@
         <link rel="canonical" href="https://Nati-123.github.io/semiconductor-physics-textbook/sims/carrier-concentration-temperature-regions-explorer/">
       
       
-        <link rel="prev" href="../semiconductor-material-selector/">
+        <link rel="prev" href="../compensated-semiconductor-explorer/">
       
       
-        <link rel="next" href="../dopant-ionization-fraction-explorer/">
+        <link rel="next" href="../degenerate-semiconductor-explorer/">
       
       
         
@@ -6086,24 +6086,17 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../majority-minority-carrier-explorer/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Carrier Concentration vs. Temperature (Three Regions) Explorer
+    Majority and Minority Carrier Explorer
   
 
     
@@ -6112,7 +6105,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -6169,6 +6161,42 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Carrier Concentration vs. Temperature (Three Regions) Explorer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
     </li>
   
 
@@ -9353,16 +9381,17 @@
 <h2 style="color: #5A3EED !important; border-bottom: 2px solid #5A3EED; padding-bottom: 0.3rem; font-weight: 700; margin-top: 2rem;">Description</h2>
 
 <p style="color: #555; line-height: 1.85; font-size: 1.02rem; margin-bottom: 1.2rem;">
-This MicroSim plots a doped silicon sample's free carrier concentration against temperature using the simplified combination \(n(T)\approx N_D f_{ion}(T) + n_i(T)\), and shades the plot into the three characteristic temperature regions: freeze-out (blue), extrinsic/saturation (green), and intrinsic (red). Adjustable donor concentration and ionization energy sliders let students see directly how doping level and dopant species shift each region's boundaries.
+This MicroSim plots a doped silicon sample's free carrier concentration against temperature using the simplified combination \(n(T)\approx N_D f_{ion}(T) + n_i(T)\) (or the p-type analog), and shades the plot into three temperature regions — freeze-out, extrinsic, intrinsic — whose boundaries are computed live from the actual doping and ionization-energy sliders, not fixed in place. A movable temperature marker drives a prominent region badge and a plain-language explanation of why the sample is in that region right now, alongside numeric readouts for T, majority/minority carrier concentration, doping level, n_i, and ionized fraction.
 </p>
 
 <div style="background: #FFF7DD; border: 2px solid #F0D87A; border-radius: 10px; padding: 20px 24px; margin: 1.2rem 0;">
 <p style="color: #B8860B; font-weight: 700; font-size: 1.05rem; margin-top: 0; margin-bottom: 12px;">Key Features</p>
 <ul style="list-style: none; padding-left: 0; margin: 0;">
-<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Automatically shaded regions</strong> that update live as sliders change</li>
-<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>N_D reference line</strong> showing the extrinsic plateau height</li>
-<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Adjustable doping concentration and ionization energy</strong></li>
-<li style="margin-bottom: 0; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Responsive canvas</strong> that resizes with the browser window</li>
+<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>n-type and p-type modes</strong>, with temperature presets: 50 K, 77 K, 300 K, 500 K, 800 K</li>
+<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Live-computed region boundaries</strong> and a movable temperature marker with a point on the curve</li>
+<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Region badge with a dynamic "why" explanation</strong>, not just a label</li>
+<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Numeric readouts</strong> for T, n or p, ni, doping level, and ionized fraction</li>
+<li style="margin-bottom: 0; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Responsive canvas</strong> that resizes with the browser window, with fullscreen support</li>
 </ul>
 </div>
 
@@ -9418,7 +9447,7 @@ This MicroSim plots a doped silicon sample's free carrier concentration against 
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../semiconductor-material-selector/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Semiconductor Material Selector for Applications">
+          <a href="../compensated-semiconductor-explorer/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Compensated Semiconductor Explorer">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -9428,20 +9457,20 @@ This MicroSim plots a doped silicon sample's free carrier concentration against 
                 Previous
               </span>
               <div class="md-ellipsis">
-                Semiconductor Material Selector for Applications
+                Compensated Semiconductor Explorer
               </div>
             </div>
           </a>
         
         
           
-          <a href="../dopant-ionization-fraction-explorer/" class="md-footer__link md-footer__link--next" aria-label="Next: Dopant Ionization Fraction vs. Temperature Explorer">
+          <a href="../degenerate-semiconductor-explorer/" class="md-footer__link md-footer__link--next" aria-label="Next: Degenerate Semiconductor Explorer">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Dopant Ionization Fraction vs. Temperature Explorer
+                Degenerate Semiconductor Explorer
               </div>
             </div>
             <div class="md-footer__button md-icon">

@@ -151,6 +151,21 @@
 .feedback-incorrect { color: #C62828; }
 .feedback-warn { color: #B8860B; }
 
+.panel-content .key-takeaway {
+  font-size: 0.9em;
+  color: #1B5E20;
+  background: #E7F7E7;
+  border: 1px solid #81C784;
+  border-radius: 6px;
+  padding: 8px 12px;
+  margin: 0.6em 0 1em 0;
+  line-height: 1.55;
+}
+
+.panel-content .key-takeaway strong:first-child {
+  color: #2E7D32;
+}
+
 @media (max-width: 480px) {
   .panel-content { padding: 10px 12px 14px 12px; }
   .panel-content h3 { font-size: 0.95em; }

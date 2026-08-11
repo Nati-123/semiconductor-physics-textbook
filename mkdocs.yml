@@ -234,9 +234,10 @@ nav:
           - N-Type vs. P-Type Majority Carrier Comparison: sims/ntype-ptype-majority-carrier-comparison/index.md
           - Semiconductor Material Selector for Applications: sims/semiconductor-material-selector/index.md
       - Chapter 8:
-          - Carrier Concentration vs. Temperature (Three Regions) Explorer: sims/carrier-concentration-temperature-regions-explorer/index.md
+          - Majority and Minority Carrier Explorer: sims/majority-minority-carrier-explorer/index.md
           - Dopant Ionization Fraction vs. Temperature Explorer: sims/dopant-ionization-fraction-explorer/index.md
           - Compensated Semiconductor Explorer: sims/compensated-semiconductor-explorer/index.md
+          - Carrier Concentration vs. Temperature (Three Regions) Explorer: sims/carrier-concentration-temperature-regions-explorer/index.md
           - Degenerate Semiconductor Explorer: sims/degenerate-semiconductor-explorer/index.md
       - Chapter 9:
           - Fermi Function and Boltzmann Approximation Explorer: sims/fermi-function-boltzmann-approximation-explorer/index.md

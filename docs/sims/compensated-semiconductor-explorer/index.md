@@ -1,6 +1,6 @@
 ---
 title: Compensated Semiconductor Explorer
-description: A MicroSim showing a silicon lattice with both a donor and an acceptor present, with adjustable N_D/N_A sliders and a net-doping majority-carrier-type readout
+description: A MicroSim showing a silicon lattice (with a P/B/Si legend) with both a donor and an acceptor present, adjustable ND/NA sliders and presets, a live signed net-doping gauge showing the n-type/compensated/p-type transition, and an approximate Fermi-level indicator
 image: /sims/compensated-semiconductor-explorer/compensated-semiconductor-explorer.png
 quality_score: 85
 ---
@@ -16,15 +16,17 @@ quality_score: 85
 <h2 style="color: #5A3EED !important; border-bottom: 2px solid #5A3EED; padding-bottom: 0.3rem; font-weight: 700; margin-top: 2rem;">Description</h2>
 
 <p style="color: #555; line-height: 1.85; font-size: 1.02rem; margin-bottom: 1.2rem;">
-This MicroSim shows a lattice with one donor and one acceptor atom present simultaneously, alongside independent N_D and N_A sliders and a bar chart comparing the two concentrations. A net-doping card computes \(N_D-N_A\) (or \(N_A-N_D\)) and reports whether the compensated material is net n-type or net p-type.
+This MicroSim shows a lattice with one donor and one acceptor atom present simultaneously (with a legend explaining Si, P, and B), alongside independent N_D and N_A sliders, presets, and a bar chart comparing the two concentrations. A signed net-doping gauge slides continuously from p-type through the exact "N_D = N_A" compensation point to n-type as you adjust the sliders, and a badge reports the resulting majority carrier type (or Compensated when the two nearly cancel). A small band-diagram inset shows the approximate resulting Fermi level position at T = 300 K.
 </p>
 
 <div style="background: #FFF7DD; border: 2px solid #F0D87A; border-radius: 10px; padding: 20px 24px; margin: 1.2rem 0;">
 <p style="color: #B8860B; font-weight: 700; font-size: 1.05rem; margin-top: 0; margin-bottom: 12px;">Key Features</p>
 <ul style="list-style: none; padding-left: 0; margin: 0;">
-<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Independent N_D and N_A sliders</strong> with a live comparison bar chart</li>
-<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Net-doping card</strong> that switches between n-type and p-type styling automatically</li>
-<li style="margin-bottom: 0; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Responsive canvas</strong> that resizes with the browser window</li>
+<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Presets</strong>: n-type, p-type, exact compensation point, strongly compensated</li>
+<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Signed net-doping gauge</strong> visualizing the n-type → compensated → p-type transition</li>
+<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Lattice legend</strong> explaining the Si, P, and B symbols</li>
+<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Approximate Fermi-level indicator</strong> showing E_F moving between E_V and E_C</li>
+<li style="margin-bottom: 0; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Responsive canvas</strong> that resizes with the browser window, with fullscreen support</li>
 </ul>
 </div>
 

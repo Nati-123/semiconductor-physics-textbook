@@ -27,34 +27,73 @@
     <summary>Guided Exploration &amp; Challenge Questions</summary>
     <div class="panel-content">
 
-        <h3>Try This</h3>
+        <h3>What to Observe</h3>
         <ul class="explore-list">
-            <li><strong>Try this:</strong> Start with a low donor concentration and watch the Fermi level sit well below the conduction band edge, deep in the gap.</li>
-            <li><strong>Predict:</strong> Before increasing N_D toward 10^19-10^20 cm^-3, predict what will happen to the Fermi level's position.</li>
-            <li><strong>Observe:</strong> Drag N_D past silicon's effective density of states (N_C ≈ 2.8×10^19 cm^-3) and watch the Fermi level cross into the conduction band, triggering the degenerate warning.</li>
+            <li>The band diagram shows E<sub>C</sub>, the intrinsic level E<sub>i</sub> (dashed, midgap), and E<sub>V</sub>, with a shaded orange "near-degenerate" zone within 3k<sub>B</sub>T of the relevant band edge.</li>
+            <li>The colored E<sub>F</sub> line moves as you change doping: green when non-degenerate, orange approaching degenerate, and red-dashed ("estimate") once the simple formula predicts E<sub>F</sub> has reached or entered the band.</li>
+            <li>The doping gauge on the right shows the same three zones on a log doping-concentration scale, with live boundaries that shift when you change temperature.</li>
         </ul>
 
-        <p class="connects-to"><strong>Connects to Chapter 8:</strong> The formula \(E_C-E_F = k_BT\ln(N_C/N_D)\) (a preview of Chapter 10's carrier-concentration equations) assumes the Fermi level stays safely inside the band gap — the <strong>non-degenerate</strong> approximation used throughout Chapters 9-10. Once doping approaches or exceeds \(N_C\), the effective density of states in the conduction band, this formula predicts the Fermi level moving up to or above the conduction band edge itself — a <strong>degenerate semiconductor</strong>, where the simple Boltzmann statistics break down and the material starts to behave somewhat like a metal.</p>
+        <h3>Guided Exploration</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Start at the default N<sub>D</sub> = 10¹⁶ cm⁻³ and confirm the badge reads NON-DEGENERATE, with E<sub>F</sub> comfortably inside the gap, well below E<sub>C</sub>.</li>
+            <li><strong>Predict:</strong> Before dragging N<sub>D</sub> up past 10¹⁹ cm⁻³, predict whether E<sub>F</sub> will move toward E<sub>C</sub> or E<sub>V</sub>.</li>
+            <li><strong>Observe:</strong> Continuously increase N<sub>D</sub> from 10¹⁴ to 10²¹ cm⁻³ and watch E<sub>F</sub> rise steadily from deep in the gap, through the orange transition zone, and into the shaded conduction-band region -- read the badge and explanation text as each zone change happens.</li>
+            <li><strong>Explore:</strong> Raise the temperature slider and watch the zone boundaries on the gauge shift -- N<sub>C</sub>(T) grows with T, so a higher temperature needs slightly heavier doping to reach the same degree of degeneracy.</li>
+            <li><strong>Switch type:</strong> Change to p-type and repeat with N<sub>A</sub>, watching E<sub>F</sub> approach and enter E<sub>V</sub> instead.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 8:</strong> This MicroSim computes <span class="arithmatex">\(E_C-E_F=k_BT\ln(N_C(T)/N_D)\)</span> (n-type) or <span class="arithmatex">\(E_F-E_V=k_BT\ln(N_V(T)/N_A)\)</span> (p-type), the same relationship this chapter's "Degenerate Semiconductors" section previews. <strong>This formula assumes non-degenerate, Boltzmann-like statistics</strong> -- once doping is heavy enough that the formula itself predicts E_F at or past a band edge, the formula is no longer a valid description of the real carrier statistics, and the diagram switches to a dashed, explicitly-labeled "estimate" rather than implying false precision. The exact treatment, using the full Fermi-Dirac integral, is Chapter 9's subject.</p>
 
         <h3>What Each Control Does</h3>
         <dl class="control-captions">
-            <dt>Donor concentration slider (N_D)</dt>
-            <dd>Sets the doping concentration, which determines the Fermi level's computed position via \(E_C-E_F=k_BT\ln(N_C/N_D)\).</dd>
+            <dt>Type dropdown</dt>
+            <dd>Switches between n-type (E<sub>F</sub> approaches E<sub>C</sub>) and p-type (E<sub>F</sub> approaches E<sub>V</sub>).</dd>
+            <dt>N<sub>D</sub> / N<sub>A</sub> slider</dt>
+            <dd>Sets the doping concentration continuously from very light (10¹⁴ cm⁻³) to extremely heavy (10²¹ cm⁻³), sweeping through all three zones.</dd>
+            <dt>Temperature slider</dt>
+            <dd>Sets T, which changes both k<sub>B</sub>T and the temperature-dependent effective density of states N<sub>C</sub>(T) or N<sub>V</sub>(T) -- both zone boundaries move accordingly.</dd>
         </dl>
 
         <h3>Challenge Questions</h3>
 
         <div class="challenge" data-correct="b">
-            <p class="q-text">1. What happens to the computed Fermi level as N_D approaches or exceeds N_C?</p>
-            <label><input type="radio" name="dse-q1" value="a"> It moves deeper into the band gap</label>
-            <label><input type="radio" name="dse-q1" value="b"> It moves up to, or above, the conduction band edge — the degenerate condition</label>
-            <label><input type="radio" name="dse-q1" value="c"> It disappears entirely</label>
-            <label><input type="radio" name="dse-q1" value="d"> Nothing changes</label>
+            <p class="q-text">1. Silicon is doped at N_D = 5×10¹⁹ cm⁻³ at 300 K, where N_C ≈ 2.8×10¹⁹ cm⁻³. Is this sample degenerate?</p>
+            <label><input type="radio" name="deg-q1" value="a"> No, because N_D is a donor concentration</label>
+            <label><input type="radio" name="deg-q1" value="b"> Yes, because N_D exceeds N_C, so the formula predicts EC − EF ≤ 0</label>
+            <label><input type="radio" name="deg-q1" value="c"> No, because 5×10¹⁹ is not that large a number</label>
+            <label><input type="radio" name="deg-q1" value="d"> Cannot be determined</label>
             <button class="check-btn" type="button">Check Answer</button>
             <span class="feedback" role="status" aria-live="polite"></span>
-            <p class="explain-correct" hidden>As N_D approaches N_C, ln(N_C/N_D) shrinks toward zero (and becomes negative beyond N_C), pushing E_F up to and then above E_C — the signature of a degenerate semiconductor.</p>
-            <p class="explain-incorrect" hidden>Drag N_D to its maximum and watch the E_F marker's position relative to the dashed E_C line.</p>
+            <p class="explain-correct" hidden>Since ND (5×10¹⁹) exceeds NC (2.8×10¹⁹), ln(NC/ND) is negative, so the formula predicts EC − EF ≤ 0 -- EF has reached or moved past EC. Set the slider to 19.7 and confirm the badge reads DEGENERATE.</p>
+            <p class="explain-incorrect" hidden>Set the ND slider to 5×10¹⁹ cm⁻³ (exponent 19.7) at T = 300 K and read the badge.</p>
         </div>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">2. Once the badge reads DEGENERATE, why does the diagram switch EF to a dashed "estimate" line instead of a solid precise one?</p>
+            <label><input type="radio" name="deg-q2" value="a"> It is just a stylistic choice with no physical meaning</label>
+            <label><input type="radio" name="deg-q2" value="b"> Because EF stops existing at high doping</label>
+            <label><input type="radio" name="deg-q2" value="c"> Because the non-degenerate Boltzmann formula used to compute the line is no longer valid once EF reaches the band, so its output is only a rough indicator, not an exact position</label>
+            <label><input type="radio" name="deg-q2" value="d"> Because the temperature is too high</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>The formula EC-EF = kT ln(NC/ND) is derived assuming Boltzmann (non-degenerate) statistics. Once doping pushes the predicted EF at or past the band edge, that assumption is violated, so the computed value is only a rough estimate -- the exact position requires the full Fermi-Dirac integral, covered in Chapter 9.</p>
+            <p class="explain-incorrect" hidden>Re-read the explanation text that appears below the badge once you reach the DEGENERATE zone.</p>
+        </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">3. If you raise the temperature while keeping ND fixed in the transition zone, what happens to NC(T), and how does that affect the zone boundaries on the gauge?</p>
+            <label><input type="radio" name="deg-q3" value="a"> NC(T) increases (∝ T^1.5), so the boundaries shift toward higher doping -- more doping is now needed to reach the same degeneracy</label>
+            <label><input type="radio" name="deg-q3" value="b"> NC(T) decreases, so the boundaries shift toward lower doping</label>
+            <label><input type="radio" name="deg-q3" value="c"> NC(T) is fixed and never changes with temperature</label>
+            <label><input type="radio" name="deg-q3" value="d"> Temperature has no effect on the gauge</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>NC(T) grows as T^1.5, so raising T increases the effective density of states near EC, pushing the non-degenerate/transition and transition/degenerate boundaries on the gauge toward higher doping values.</p>
+            <p class="explain-incorrect" hidden>Drag the temperature slider up and watch the green/orange/red zone boundaries on the doping gauge shift right.</p>
+        </div>
+
+        <p class="key-takeaway"><strong>Key Takeaway:</strong> "Degenerate" is not a vague label -- it marks the specific point where the Fermi level reaches a band edge and the standard non-degenerate (Boltzmann) approximation this entire chapter relies on stops being valid, requiring the full Fermi-Dirac treatment instead. Heavy doping is used deliberately in real devices (like transistor contacts) precisely because low resistivity matters more there than the validity of simplified statistics.</p>
 
     </div>
     </details>

@@ -1,6 +1,6 @@
 ---
 title: Degenerate Semiconductor Explorer
-description: A band-diagram MicroSim computing Fermi level position from donor concentration, warning when doping pushes the material into the degenerate regime
+description: A band-diagram MicroSim (EC, Ei, EV) computing Fermi level position from n-type or p-type doping concentration and temperature, with a live non-degenerate/transition/degenerate doping gauge and an explicit warning when the non-degenerate Boltzmann approximation is no longer valid
 image: /sims/degenerate-semiconductor-explorer/degenerate-semiconductor-explorer.png
 quality_score: 85
 ---
@@ -16,15 +16,17 @@ quality_score: 85
 <h2 style="color: #5A3EED !important; border-bottom: 2px solid #5A3EED; padding-bottom: 0.3rem; font-weight: 700; margin-top: 2rem;">Description</h2>
 
 <p style="color: #555; line-height: 1.85; font-size: 1.02rem; margin-bottom: 1.2rem;">
-This MicroSim computes \(E_C-E_F=k_BT\ln(N_C/N_D)\) for silicon at 300 K and draws the resulting Fermi level position on a schematic band diagram as the donor concentration slider moves. As N_D approaches or exceeds silicon's effective conduction-band density of states \(N_C\approx2.8\times10^{19}\ \text{cm}^{-3}\), the Fermi level rises up to and above the conduction band edge, and a degenerate-regime warning appears.
+This MicroSim computes \(E_C-E_F=k_BT\ln(N_C(T)/N_D)\) (n-type) or \(E_F-E_V=k_BT\ln(N_V(T)/N_A)\) (p-type) and draws the resulting Fermi level position on a schematic band diagram (\(E_C\), \(E_i\), \(E_V\)) as the doping and temperature sliders move. A live doping gauge shows three zones — non-degenerate, transition, and degenerate — with boundaries that shift correctly as temperature changes \(N_C(T)\) or \(N_V(T)\). Once the formula predicts \(E_F\) at or past a band edge, the diagram switches to an explicitly-labeled dashed "estimate" line and the explanation text states plainly that the non-degenerate Boltzmann approximation no longer applies.
 </p>
 
 <div style="background: #FFF7DD; border: 2px solid #F0D87A; border-radius: 10px; padding: 20px 24px; margin: 1.2rem 0;">
 <p style="color: #B8860B; font-weight: 700; font-size: 1.05rem; margin-top: 0; margin-bottom: 12px;">Key Features</p>
 <ul style="list-style: none; padding-left: 0; margin: 0;">
-<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Live Fermi level position</strong> on a schematic band diagram</li>
-<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Automatic degenerate-regime warning</strong> that changes the card's styling</li>
-<li style="margin-bottom: 0; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Responsive canvas</strong> that resizes with the browser window</li>
+<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>n-type and p-type modes</strong>, each with its own band-edge and effective-density-of-states formula</li>
+<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Temperature control</strong> that correctly scales N_C(T)/N_V(T) as T^1.5</li>
+<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Live non-degenerate / transition / degenerate doping gauge</strong> with a moving marker</li>
+<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Explicit approximation-validity warning</strong> once the Boltzmann formula breaks down</li>
+<li style="margin-bottom: 0; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Responsive canvas</strong> that resizes with the browser window, with fullscreen support</li>
 </ul>
 </div>
 

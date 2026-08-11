@@ -95,10 +95,11 @@ Interactive educational simulations that accompany this textbook.
 
 | MicroSim | Bloom Level | Description |
 |----------|-------------|-------------|
-| [Carrier Concentration vs. Temperature (Three Regions) Explorer](carrier-concentration-temperature-regions-explorer/index.md) | L4 Analyze | Shaded freeze-out, extrinsic, and intrinsic regions on a log carrier concentration vs. temperature chart |
-| [Dopant Ionization Fraction vs. Temperature Explorer](dopant-ionization-fraction-explorer/index.md) | L2-L3 Understand/Apply | Ionization-fraction sigmoid curve with adjustable ionization energy and a temperature marker |
-| [Compensated Semiconductor Explorer](compensated-semiconductor-explorer/index.md) | L3-L4 Apply/Analyze | Independent N_D/N_A sliders with a net-doping majority-carrier-type readout |
-| [Degenerate Semiconductor Explorer](degenerate-semiconductor-explorer/index.md) | L4-L5 Analyze/Evaluate | Computes Fermi level position from doping concentration, warning when the material becomes degenerate |
+| [Majority and Minority Carrier Explorer](majority-minority-carrier-explorer/index.md) | L3-L4 Apply/Analyze | Single slider sweeps doping continuously from strongly p-type through intrinsic to strongly n-type, with n×p = ni² holding exactly and a predict-then-reveal challenge |
+| [Dopant Ionization Fraction vs. Temperature Explorer](dopant-ionization-fraction-explorer/index.md) | L2-L3 Understand/Apply | Ionization-fraction sigmoid curve with donor/acceptor presets, a temperature marker, and a companion energy-level diagram animating carriers escaping into the band |
+| [Compensated Semiconductor Explorer](compensated-semiconductor-explorer/index.md) | L3-L4 Apply/Analyze | Independent N_D/N_A sliders and presets with a signed net-doping gauge, a majority-carrier/compensated badge, and an approximate Fermi-level indicator |
+| [Carrier Concentration vs. Temperature (Three Regions) Explorer](carrier-concentration-temperature-regions-explorer/index.md) | L4 Analyze | Live-computed freeze-out, extrinsic, and intrinsic region boundaries on a log carrier concentration vs. temperature chart, with a movable temperature marker and a region badge that explains why |
+| [Degenerate Semiconductor Explorer](degenerate-semiconductor-explorer/index.md) | L4-L5 Analyze/Evaluate | Computes Fermi level position from n-type or p-type doping and temperature, with a live degeneracy gauge and an explicit warning when the non-degenerate approximation breaks down |
 
 ## Chapter 9: Carrier Concentration Statistics
 

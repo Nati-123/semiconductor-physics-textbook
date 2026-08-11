@@ -99,6 +99,19 @@ flowchart LR
 ??? question "Concept Check — click to reveal answer"
     Boron is a Group III acceptor, so the sample is p-type, and its majority carrier is holes.
 
+#### Diagram: Majority and Minority Carrier Explorer
+
+<iframe src="../../sims/majority-minority-carrier-explorer/main.html" width="100%" height="720px" scrolling="auto"></iframe>
+
+!!! tip "How to use this MicroSim"
+    **Instructions:** Drag the single slider continuously from "Strongly p-type" through "Intrinsic" to "Strongly n-type" (or pick a preset), and watch the electron (n) and hole (p) bars and the schematic population panel respond together.
+
+    **Learning objective:** Predict how hole concentration changes when electron concentration changes at equilibrium, and identify majority vs. minority carriers directly from a doping level.
+
+    **What to observe:** The product \(n\times p\) shown in the title never changes, no matter where the slider sits — increasing one carrier's concentration always decreases the other by exactly the same factor, a direct preview of Chapter 9's mass-action law \(np=n_i^2\).
+
+[Full MicroSim documentation →](../../sims/majority-minority-carrier-explorer/index.md)
+
 ## Dopant Ionization and Ionization Energy
 
 ### Not All Dopants Are Always Ionized
@@ -109,14 +122,14 @@ At very low temperature, thermal energy \(k_BT\) is far smaller than \(E_D\), an
 
 #### Diagram: Dopant Ionization Fraction vs. Temperature Explorer
 
-<iframe src="../../sims/dopant-ionization-fraction-explorer/main.html" width="100%" height="640px" scrolling="auto"></iframe>
+<iframe src="../../sims/dopant-ionization-fraction-explorer/main.html" width="100%" height="760px" scrolling="auto"></iframe>
 
 !!! tip "How to use this MicroSim"
-    **Instructions:** Drag the temperature marker across the plotted curve, then adjust the ionization energy slider and observe how the curve shifts.
+    **Instructions:** Drag the temperature marker across the plotted curve, choose a donor or acceptor dopant preset (or adjust the ionization-energy slider directly), and watch the companion energy-level diagram on the right animate carriers escaping into the band.
 
-    **Learning objective:** Interpret an ionization-fraction curve, and explain how ionization energy controls the temperature at which dopants become mostly ionized.
+    **Learning objective:** Interpret an ionization-fraction curve, explain how ionization energy controls the temperature at which dopants become mostly ionized, and connect the curve directly to the underlying energy-level picture.
 
-    **What to observe:** A larger ionization energy shifts the entire curve toward higher temperature — a more tightly-bound dopant requires more thermal energy before it substantially ionizes.
+    **What to observe:** A larger ionization energy shifts the entire curve toward higher temperature — a more tightly-bound dopant requires more thermal energy before it substantially ionizes. The number of freed carriers drawn in the energy-level diagram always matches the curve's current value.
 
 [Full MicroSim documentation →](../../sims/dopant-ionization-fraction-explorer/index.md)
 
@@ -154,14 +167,14 @@ If \(N_{\text{net}}>0\) (more donors than acceptors), the material is net n-type
 
 #### Diagram: Compensated Semiconductor Explorer
 
-<iframe src="../../sims/compensated-semiconductor-explorer/main.html" width="100%" height="640px" scrolling="auto"></iframe>
+<iframe src="../../sims/compensated-semiconductor-explorer/main.html" width="100%" height="720px" scrolling="auto"></iframe>
 
 !!! tip "How to use this MicroSim"
-    **Instructions:** Adjust the \(N_D\) and \(N_A\) sliders independently and watch the net-doping card update.
+    **Instructions:** Adjust the \(N_D\) and \(N_A\) sliders independently (or pick a preset) and watch the signed net-doping gauge, the majority-carrier badge, and the approximate Fermi-level indicator all update together.
 
-    **Learning objective:** Compute net doping from independent donor and acceptor concentrations, and determine the resulting majority carrier type.
+    **Learning objective:** Compute net doping from independent donor and acceptor concentrations, determine the resulting majority carrier type, and connect that result to a qualitative shift in Fermi level position.
 
-    **What to observe:** As \(N_D\) and \(N_A\) approach each other, the net doping shrinks toward zero, regardless of how large either individual concentration is.
+    **What to observe:** As \(N_D\) and \(N_A\) approach each other, the net doping shrinks toward zero, regardless of how large either individual concentration is — the badge switches from "Net n-type" through "Compensated" to "Net p-type" as the gauge marker crosses center.
 
 [Full MicroSim documentation →](../../sims/compensated-semiconductor-explorer/index.md)
 
@@ -186,14 +199,14 @@ At low temperature (the **freeze-out regime**), most dopant atoms are un-ionized
 
 #### Diagram: Carrier Concentration vs. Temperature (Three Regions) Explorer
 
-<iframe src="../../sims/carrier-concentration-temperature-regions-explorer/main.html" width="100%" height="660px" scrolling="auto"></iframe>
+<iframe src="../../sims/carrier-concentration-temperature-regions-explorer/main.html" width="100%" height="820px" scrolling="auto"></iframe>
 
 !!! tip "How to use this MicroSim"
-    **Instructions:** Trace the curve from low to high temperature, noting the shaded region colors, then adjust the \(N_D\) and \(E_D\) sliders.
+    **Instructions:** Drag the temperature slider (or pick a 50 K / 77 K / 300 K / 500 K / 800 K preset) and watch the region badge, the "why" explanation, and every numeric readout update together; then adjust the \(N_D\) and \(E_D\) sliders and notice the shaded region boundaries move with them.
 
-    **Learning objective:** Identify all three temperature regions from a carrier-concentration curve, and explain how doping concentration and ionization energy shift each region's boundaries.
+    **Learning objective:** Identify all three temperature regions from a carrier-concentration curve, explain — in numbers — why the sample is in a given region, and explain how doping concentration and ionization energy shift each region's boundaries.
 
-    **What to observe:** Increasing \(N_D\) raises the extrinsic plateau and pushes the intrinsic region's onset to a higher temperature (a heavier-doped sample stays extrinsic longer); increasing \(E_D\) stretches the freeze-out region to higher temperature.
+    **What to observe:** Increasing \(N_D\) raises the extrinsic plateau and pushes the intrinsic region's onset to a higher temperature (a heavier-doped sample stays extrinsic longer); increasing \(E_D\) stretches the freeze-out region to higher temperature. The region boundaries are computed live from your slider values, not fixed in place.
 
 [Full MicroSim documentation →](../../sims/carrier-concentration-temperature-regions-explorer/index.md)
 
@@ -224,14 +237,14 @@ For silicon at room temperature, \(N_C\approx2.8\times10^{19}\ \text{cm}^{-3}\).
 
 #### Diagram: Degenerate Semiconductor Explorer
 
-<iframe src="../../sims/degenerate-semiconductor-explorer/main.html" width="100%" height="600px" scrolling="auto"></iframe>
+<iframe src="../../sims/degenerate-semiconductor-explorer/main.html" width="100%" height="680px" scrolling="auto"></iframe>
 
 !!! tip "How to use this MicroSim"
-    **Instructions:** Drag the \(N_D\) slider from low to very high values and watch the computed Fermi level position and the degenerate-regime warning.
+    **Instructions:** Drag the \(N_D\) (or switch to p-type and drag \(N_A\)) slider continuously from very light to very heavy doping and watch the Fermi level line, the doping gauge, and the non-degenerate/transition/degenerate badge move together; then adjust temperature and observe the gauge boundaries shift.
 
-    **Learning objective:** Predict Fermi level position from doping concentration, and justify why very heavy doping invalidates the non-degenerate approximation.
+    **Learning objective:** Predict Fermi level position from doping concentration and temperature, justify why very heavy doping invalidates the non-degenerate approximation, and recognize when a stated result is only an estimate.
 
-    **What to observe:** The Fermi level line stays well below \(E_C\) at low doping, and rises to meet (and cross) \(E_C\) as \(N_D\) approaches and exceeds \(N_C\approx2.8\times10^{19}\ \text{cm}^{-3}\).
+    **What to observe:** The Fermi level line stays well below \(E_C\) at low doping, and rises to meet (and cross) \(E_C\) as \(N_D\) approaches and exceeds \(N_C(T)\approx2.8\times10^{19}\ \text{cm}^{-3}\) at 300 K. Once degenerate, the line switches to a dashed "estimate," since the Boltzmann formula no longer applies.
 
 [Full MicroSim documentation →](../../sims/degenerate-semiconductor-explorer/index.md)
 

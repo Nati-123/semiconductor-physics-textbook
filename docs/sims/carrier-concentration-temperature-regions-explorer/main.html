@@ -27,48 +27,90 @@
     <summary>Guided Exploration &amp; Challenge Questions</summary>
     <div class="panel-content">
 
-        <h3>Try This</h3>
+        <h3>What to Observe</h3>
         <ul class="explore-list">
-            <li><strong>Try this:</strong> With the default donor concentration and ionization energy, trace the curve from left (low T) to right (high T) and identify all three regions by their shaded color.</li>
-            <li><strong>Predict:</strong> Before increasing the ionization energy slider, predict whether the freeze-out region will stretch to higher or lower temperature.</li>
-            <li><strong>Observe:</strong> Increase the donor concentration slider and watch the extrinsic plateau rise, and the intrinsic region's onset temperature shift higher.</li>
+            <li>The plot shows carrier concentration (log scale) versus temperature, shaded into three <strong>live-computed</strong> regions: blue freeze-out, green extrinsic, and red intrinsic.</li>
+            <li>A black dashed vertical line marks the current operating temperature <em>T</em>, driven by the T slider; the dot shows the carrier concentration at that exact temperature.</li>
+            <li>A colored badge below the chart names the current region and explains, in numbers, why the sample is in that region right now.</li>
         </ul>
 
-        <p class="connects-to"><strong>Connects to Chapter 8:</strong> This MicroSim combines a simplified dopant-ionization-fraction model with the Chapter 7 intrinsic-carrier trend to sketch the three characteristic temperature regions: freeze-out (few dopants ionized), extrinsic/saturation (essentially all dopants ionized, carrier concentration ≈ N_D), and intrinsic (thermally-generated carriers overwhelm the doping). The exact charge-neutrality equations behind this curve are developed quantitatively in Chapters 9-10; here, the combination \(n(T)\approx N_D f_{ion}(T) + n_i(T)\) is used only to sketch the qualitative shape.</p>
+        <h3>Guided Exploration</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Start at the default 300 K (room temperature) and confirm the badge reads EXTRINSIC. Drag the T slider down toward 20 K and watch the region change to FREEZE-OUT.</li>
+            <li><strong>Predict:</strong> Before dragging T above 600 K, predict which region the sample will enter.</li>
+            <li><strong>Observe:</strong> Drag T up past 700-800 K and confirm the badge switches to INTRINSIC once n<sub>i</sub> overtakes the doping level.</li>
+            <li><strong>Explore:</strong> Increase the doping slider (N<sub>D</sub> or N<sub>A</sub>) and watch the extrinsic plateau rise <em>and</em> the intrinsic region's onset shift to a higher temperature — a heavier-doped sample stays extrinsic longer.</li>
+            <li><strong>Explore:</strong> Increase the ionization energy slider and watch the freeze-out region stretch to higher temperature — the boundary lines move because they are computed from your actual slider values, not fixed in place.</li>
+            <li><strong>Switch types:</strong> Change Type to p-type and confirm the same three-region story applies, now for holes and acceptors.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 8:</strong> This MicroSim combines a simplified dopant-ionization-fraction model with Chapter 7's intrinsic-carrier trend to sketch the three characteristic temperature regions: freeze-out (few dopants ionized), extrinsic (essentially all dopants ionized, carrier concentration ≈ N<sub>D</sub> or N<sub>A</sub>), and intrinsic (thermally-generated carriers overwhelm the doping). The exact charge-neutrality equations behind this curve are developed quantitatively in Chapters 9-10; here, the combination majority(T) ≈ N<sub>dope</sub>·f<sub>ion</sub>(T) + n<sub>i</sub>(T) is used only to sketch the qualitative shape. The minority-carrier readout uses a mass-action preview (minority ≈ n<sub>i</sub>²/majority), the same relationship Chapter 9 makes exact.</p>
 
         <h3>What Each Control Does</h3>
         <dl class="control-captions">
-            <dt>Donor concentration slider (N_D)</dt>
-            <dd>Sets the doping concentration, which sets the height of the extrinsic plateau.</dd>
-            <dt>Ionization energy slider (E_D)</dt>
-            <dd>Sets the dopant's ionization energy, which controls how far the freeze-out region extends.</dd>
+            <dt>Type dropdown</dt>
+            <dd>Switches between n-type (donor-doped, tracks electrons) and p-type (acceptor-doped, tracks holes).</dd>
+            <dt>Preset dropdown</dt>
+            <dd>Jumps the temperature slider directly to 50 K, 77 K, 300 K, 500 K, or an 800 K intrinsic example.</dd>
+            <dt>N<sub>D</sub> / N<sub>A</sub> slider</dt>
+            <dd>Sets the doping concentration; raises the extrinsic plateau and pushes the intrinsic region to higher temperature.</dd>
+            <dt>E<sub>D</sub> / E<sub>A</sub> slider</dt>
+            <dd>Sets the dopant ionization energy; a larger value stretches the freeze-out region to higher temperature.</dd>
+            <dt>Temperature (T) slider</dt>
+            <dd>Moves the vertical marker across the curve; drives every numeric readout and the region badge below.</dd>
         </dl>
 
         <h3>Challenge Questions</h3>
 
         <div class="challenge" data-correct="b">
-            <p class="q-text">1. In the extrinsic (saturation) region, what does the carrier concentration approximately equal?</p>
+            <p class="q-text">1. In the extrinsic region, what does the majority carrier concentration approximately equal?</p>
             <label><input type="radio" name="cct-q1" value="a"> The intrinsic carrier concentration n_i</label>
-            <label><input type="radio" name="cct-q1" value="b"> The donor concentration N_D</label>
+            <label><input type="radio" name="cct-q1" value="b"> The doping concentration (N_D or N_A)</label>
             <label><input type="radio" name="cct-q1" value="c"> Zero</label>
             <label><input type="radio" name="cct-q1" value="d"> The silicon atomic density</label>
             <button class="check-btn" type="button">Check Answer</button>
             <span class="feedback" role="status" aria-live="polite"></span>
-            <p class="explain-correct" hidden>In the extrinsic region, essentially all donors are ionized and intrinsic generation is still negligible, so carrier concentration levels off at approximately N_D — the flat plateau in the middle of the curve.</p>
-            <p class="explain-incorrect" hidden>Look at the flat, middle portion of the curve and compare its height to the N_D slider value.</p>
+            <p class="explain-correct" hidden>In the extrinsic region, essentially all dopants are ionized and intrinsic generation is still negligible, so carrier concentration levels off at approximately the doping concentration — the flat plateau in the middle of the curve.</p>
+            <p class="explain-incorrect" hidden>Look at the flat, green middle portion of the curve and compare its height to the N_D/N_A reference line.</p>
         </div>
 
         <div class="challenge" data-correct="a">
             <p class="q-text">2. Why does the curve eventually rise steeply again at very high temperature, regardless of doping level?</p>
-            <label><input type="radio" name="cct-q2" value="a"> Thermally-generated intrinsic carriers eventually exceed the fixed donor concentration</label>
-            <label><input type="radio" name="cct-q2" value="b"> The donor atoms multiply at high temperature</label>
+            <label><input type="radio" name="cct-q2" value="a"> Thermally-generated intrinsic carriers eventually exceed the fixed doping concentration</label>
+            <label><input type="radio" name="cct-q2" value="b"> The dopant atoms multiply at high temperature</label>
             <label><input type="radio" name="cct-q2" value="c"> The band gap becomes infinite</label>
             <label><input type="radio" name="cct-q2" value="d"> It does not rise again</label>
             <button class="check-btn" type="button">Check Answer</button>
             <span class="feedback" role="status" aria-live="polite"></span>
-            <p class="explain-correct" hidden>At high enough temperature, intrinsic thermal generation (which grows exponentially with T) eventually produces more carriers than the fixed donor concentration can supply, and the material behaves as if intrinsic.</p>
-            <p class="explain-incorrect" hidden>Compare the rightmost part of the curve (high T) to the intrinsic carrier trend from Chapter 7.</p>
+            <p class="explain-correct" hidden>At high enough temperature, intrinsic thermal generation (which grows exponentially with T) eventually produces more carriers than the fixed doping concentration can supply, and the material behaves as if intrinsic.</p>
+            <p class="explain-incorrect" hidden>Compare the rightmost (red) part of the curve to the intrinsic carrier trend from Chapter 7, and read the badge's explanation text at high T.</p>
         </div>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">3. If you increase the ionization energy E_D while keeping temperature fixed in the freeze-out region, what happens to the ionized fraction?</p>
+            <label><input type="radio" name="cct-q3" value="a"> It increases</label>
+            <label><input type="radio" name="cct-q3" value="b"> It stays exactly the same</label>
+            <label><input type="radio" name="cct-q3" value="c"> It decreases, since more thermal energy is now needed to ionize the same dopant</label>
+            <label><input type="radio" name="cct-q3" value="d"> It becomes negative</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>A larger E_D means the dopant is more tightly bound, so at the same temperature (same available k_BT), a smaller fraction can be thermally ionized — read the "ionized fraction" readout as you drag the E_D slider up.</p>
+            <p class="explain-incorrect" hidden>Watch the "ionized fraction" numeric readout as you increase the E_D slider at a fixed, low temperature.</p>
+        </div>
+
+        <div class="challenge" data-correct="d">
+            <p class="q-text">4. A device engineer wants stable, predictable carrier concentration that doesn't drift with small temperature changes. Which region should the device operate in?</p>
+            <label><input type="radio" name="cct-q4" value="a"> Freeze-out</label>
+            <label><input type="radio" name="cct-q4" value="b"> Intrinsic</label>
+            <label><input type="radio" name="cct-q4" value="c"> Exactly at the freeze-out/extrinsic boundary</label>
+            <label><input type="radio" name="cct-q4" value="d"> Extrinsic</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>The extrinsic region's flat plateau means carrier concentration is set by design (doping level) and is essentially insensitive to small temperature fluctuations -- exactly the stability a reliable device needs.</p>
+            <p class="explain-incorrect" hidden>Compare how steeply the curve rises or falls in each shaded region -- a flat region means concentration barely changes with T.</p>
+        </div>
+
+        <p class="key-takeaway"><strong>Key Takeaway:</strong> A doped semiconductor's carrier concentration tells three different physical stories depending on temperature -- dopant ionization (freeze-out), doping level (extrinsic), and intrinsic thermal generation (intrinsic) -- and exactly where each boundary falls depends on both the doping concentration and the dopant's ionization energy, not on temperature alone.</p>
 
     </div>
     </details>

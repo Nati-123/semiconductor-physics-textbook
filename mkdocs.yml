@@ -213,7 +213,9 @@ nav:
           - Energy Band Formation Explorer: sims/energy-band-formation-explorer/index.md
       - Chapter 6:
           - Direct vs. Indirect Bandgap E-k Explorer: sims/direct-indirect-bandgap-explorer/index.md
+          - Fermi-Dirac Distribution Explorer: sims/fermi-dirac-distribution-explorer/index.md
           - Density of States and Fermi Level Explorer: sims/density-of-states-fermi-level-explorer/index.md
+          - Intrinsic Carrier Excitation / Electron-Hole Pair Explorer: sims/carrier-excitation-electron-hole-pair-explorer/index.md
       - Chapter 7:
           - Intrinsic Semiconductor Explorer: sims/intrinsic-semiconductor-explorer/index.md
           - Elemental vs. Compound Structure Comparer: sims/elemental-compound-structure-comparer/index.md

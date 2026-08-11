@@ -98,11 +98,11 @@ In a direct-gap material, the conduction-band minimum lies directly above the va
 <iframe src="../../sims/direct-indirect-bandgap-explorer/main.html" width="100%" height="660px" scrolling="auto"></iframe>
 
 !!! tip "How to use this MicroSim"
-    **Instructions:** Use the material dropdown to switch between a direct-gap preset (like GaAs) and an indirect-gap preset (like Si), and observe how the conduction-band minimum shifts in \(k\) relative to the valence-band maximum. Toggle the transition arrow to see a vertical (photon-only) transition versus a diagonal (phonon-assisted) transition. Use the curvature slider to see how effective mass changes the parabola's width near a band extremum.
+    **Instructions:** Use the material dropdown to switch between a direct-gap preset (GaAs) and indirect-gap presets (Si, Ge), and observe how the conduction-band minimum shifts in \(k\) relative to the valence-band maximum. Toggle the transition dropdown to see a vertical (orange, photon-only) transition versus a diagonal path split into a photon segment and a dashed teal phonon segment. Drag the electron effective-mass slider to see how \(m_e^*\) changes the purple parabola's curvature, and compare it to the green valence band's fixed hole effective mass \(m_h^*\) in the numeric readout.
 
-    **Learning objective:** Identify direct vs. indirect band gaps directly from an E-k diagram, and connect band curvature to effective mass.
+    **Learning objective:** Identify direct vs. indirect band gaps directly from an E-k diagram, connect band curvature to effective mass, and compare electron vs. hole effective mass.
 
-    **What to observe:** In the direct-gap preset, the vertical transition arrow lands exactly on the conduction-band minimum; in the indirect-gap preset, it does not — only the diagonal, phonon-assisted arrow reaches the true conduction-band minimum.
+    **What to observe:** In the direct-gap preset, the photon-only transition lands exactly on the conduction-band minimum and a dotted guide line confirms the CB minimum and VB maximum share the same \(k\); in the indirect-gap presets, the photon-only transition visibly misses the true conduction-band minimum, and only the path with a phonon segment reaches it. The Eg bracket alongside the CB minimum marker reads out the exact band gap for every preset.
 
 [Full MicroSim documentation →](../../sims/direct-indirect-bandgap-explorer/index.md)
 
@@ -194,6 +194,19 @@ where \(k_B\) is Boltzmann's constant, \(T\) is absolute temperature, and \(E_F\
 
 At any finite temperature, \(f(E)\) is a smooth curve that equals exactly \(1/2\) at \(E=E_F\), approaches 1 for energies well below \(E_F\) (nearly certain occupation), and approaches 0 for energies well above \(E_F\) (nearly certain vacancy), with the transition smeared over an energy range of order \(k_BT\) around \(E_F\).
 
+#### Diagram: Fermi-Dirac Distribution Explorer
+
+<iframe src="../../sims/fermi-dirac-distribution-explorer/main.html" width="100%" height="640px" scrolling="auto"></iframe>
+
+!!! tip "How to use this MicroSim"
+    **Instructions:** Drag the \(E_F\) slider and watch the whole S-curve translate left and right. Independently, switch the Temperature preset between 0 K, 77 K, 300 K, and 600 K (or drag the \(T\) slider) and watch the curve's steepness change.
+
+    **Learning objective:** Recognize that \(f(E)\) always equals exactly \(0.5\) at \(E=E_F\), and connect rising temperature to a wider, more gradual occupied-to-empty transition.
+
+    **What to observe:** The red marker always sits on the curve at \(f(E_F)=0.5\), regardless of where \(E_F\) or \(T\) is set. At the lowest temperature preset, the purple curve nearly overlaps the faint gray step-function reference; at 600 K it visibly spreads out over a much wider energy range around \(E_F\).
+
+[Full MicroSim documentation →](../../sims/fermi-dirac-distribution-explorer/index.md)
+
 ### The Zero-Temperature Limit: Fermi Energy
 
 As \(T\to0\), the exponential in the Fermi-Dirac distribution becomes infinitely steep, and \(f(E)\) collapses into a sharp step function: exactly 1 for every state with \(E<E_F\), and exactly 0 for every state with \(E>E_F\). In this limit, \(E_F\) has an unambiguous physical meaning — it is the energy of the highest occupied electron state — and this special, \(T=0\) value of the Fermi level is given its own name, the **Fermi energy**.
@@ -227,11 +240,11 @@ This distinction matters because the two terms are *not* always interchangeable 
 <iframe src="../../sims/density-of-states-fermi-level-explorer/main.html" width="100%" height="660px" scrolling="auto"></iframe>
 
 !!! tip "How to use this MicroSim"
-    **Instructions:** Choose a material-type preset (Metal, Insulator, Semiconductor, Semimetal) from the dropdown and observe how the band diagram, the density-of-states curve \(g(E)\), and the Fermi level line \(E_F\) differ between them. Drag the temperature slider to see the Fermi-Dirac distribution's step edge smear out around \(E_F\).
+    **Instructions:** Choose a preset (Metal, Insulator, Semimetal, or Intrinsic/n-type/p-type Semiconductor) from the dropdown and observe how the band diagram, the density-of-states curve \(g(E)\), and the Fermi level line \(E_F\) differ between them. Use the Temperature preset dropdown (0 K, 77 K, 300 K, 600 K) or the \(T\) (K) slider to see the Fermi-Dirac distribution's step edge smear out around \(E_F\), and read the numeric \(k_BT\), \(E_g\), and occupation-probability readout at the bottom.
 
-    **Learning objective:** Connect the density of states, the Fermi level, and the Fermi-Dirac distribution to the classification of a material as a metal, insulator, semiconductor, or semimetal.
+    **Learning objective:** Connect the density of states, the Fermi level, and the Fermi-Dirac distribution to the classification of a material as a metal, insulator, semiconductor, or semimetal, and see how doping shifts \(E_F\) within a semiconductor's gap.
 
-    **What to observe:** In the Metal preset, \(E_F\) sits inside a region where \(g(E)>0\); in the Insulator and Semiconductor presets, \(E_F\) sits inside the gap where \(g(E)=0\), differing only in gap size; in the Semimetal preset, the bands just barely touch or overlap with very little density of states near \(E_F\).
+    **What to observe:** In the Metal preset, \(E_F\) sits inside a region where \(g(E)>0\); in the Insulator and semiconductor presets, \(E_F\) sits inside the gap where \(g(E)=0\), differing only in gap size; in the Semimetal preset, the bands just barely touch or overlap with very little density of states near \(E_F\). Comparing the n-type and p-type presets shows \(E_F\) shifted toward \(E_c\) and \(E_v\) respectively — a preview of Chapters 7-8.
 
 [Full MicroSim documentation →](../../sims/density-of-states-fermi-level-explorer/index.md)
 
@@ -270,6 +283,31 @@ A **metal** conducts well because its Fermi level sits inside a band that is onl
     A divalent metal (two valence electrons per atom) would, by simple electron counting, be expected to completely fill one band and leave the next completely empty — behaving like an insulator. Yet magnesium, a divalent metal, conducts electricity well. Explain.
 
     **Solution:** In magnesium, the top of the lower band and the bottom of the next band actually overlap in energy (rather than being separated by a gap), so electrons partially populate both bands rather than exactly filling one. Because the resulting bands are each only partially filled, the Fermi level sits inside a band, not in a gap — exactly the metal band structure condition — despite the simple electron-counting argument suggesting otherwise.
+
+## Previewing Carrier Generation
+
+### From Band Structure to Electron-Hole Pairs
+
+This chapter has now assembled every piece needed to answer one more question, even though answering it *quantitatively* is Chapter 7's job: where do a semiconductor's charge carriers actually come from? A semiconductor's valence band is completely full and its conduction band is completely empty only at \(T=0\); at any real operating temperature, some electrons gain enough thermal energy to cross the gap \(E_g\) from the valence band into the conduction band. Every such event is forced, by simple electron bookkeeping, to leave exactly one **hole** — a missing electron, behaving as a positive carrier — at the electron's original valence-band site. Because generation always produces one electron and one hole together, and recombination (an electron falling back into a hole) always removes one of each, an **intrinsic** (undoped) semiconductor always has equal electron and hole populations, written \(n=p=n_i\), where \(n_i\) is the **intrinsic carrier concentration**. Chapter 9 derives \(n_i\) precisely, using exactly the density-of-states and Fermi-level machinery this chapter built; here, the goal is only to see the mechanism itself.
+
+#### Diagram: Intrinsic Carrier Excitation / Electron-Hole Pair Explorer
+
+<iframe src="../../sims/carrier-excitation-electron-hole-pair-explorer/main.html" width="100%" height="670px" scrolling="auto"></iframe>
+
+!!! tip "How to use this MicroSim"
+    **Instructions:** Click Start and watch electrons occasionally jump from the valence band, across \(E_g\), into the conduction band, leaving a hole behind. Compare the Temperature and \(E_g\) sliders' effect on how often this happens.
+
+    **Learning objective:** Explain why electron-hole pair generation always produces equal numbers of electrons and holes, and connect generation rate qualitatively to temperature and band gap.
+
+    **What to observe:** The free-electron count \(n\) and hole count \(p\) in the readout are always exactly equal. Raising \(E_g\) sharply reduces the generation-activity meter and how often new pairs appear; raising Temperature does the opposite — the same qualitative trend behind Chapter 9's precise result \(n_i\propto T^{3/2}e^{-E_g/2k_BT}\).
+
+[Full MicroSim documentation →](../../sims/carrier-excitation-electron-hole-pair-explorer/index.md)
+
+!!! question "Concept Check"
+    Chapter 7's Intrinsic Semiconductor Explorer shows thermal carrier generation as a covalent bond breaking in real space, with no mention of Ec, Ev, or Eg. This chapter's MicroSim shows the same physical process on an energy-space band diagram instead. Are these two pictures in conflict?
+
+??? question "Concept Check — click to reveal answer"
+    No — they are the same physical event described in two different, complementary spaces. Breaking a covalent bond in real space *is* exciting an electron from a valence-band state to a conduction-band state in energy space; the freed electron becomes a mobile conduction-band carrier, and the broken bond is a valence-band hole. Chapter 7 develops the real-space, bond-breaking language because it connects naturally to doping (Chapter 8's donor and acceptor atoms), while this chapter's energy-space, band-diagram language connects naturally to the density-of-states and Fermi-level tools Chapters 9 and 10 use to calculate \(n_i\) exactly.
 
 ## Summary
 

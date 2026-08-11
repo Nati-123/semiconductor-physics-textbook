@@ -1,6 +1,6 @@
 ---
 title: Direct vs. Indirect Bandgap E-k Explorer
-description: A two-band E-k diagram MicroSim comparing direct-gap (GaAs) and indirect-gap (Si, Ge) materials, with a switchable photon-only vs. phonon-assisted transition arrow and an adjustable effective-mass curvature slider
+description: A two-band E-k diagram MicroSim comparing direct-gap (GaAs) and indirect-gap (Si, Ge) materials, with a switchable photon-only vs. phonon-assisted transition path, color-distinguished photon/phonon contributions, an adjustable electron effective-mass curvature slider, and a side-by-side hole effective-mass comparison
 image: /sims/direct-indirect-bandgap-explorer/direct-indirect-bandgap-explorer.png
 quality_score: 85
 ---
@@ -25,8 +25,10 @@ This MicroSim plots simplified valence- and conduction-band parabolas on an E-k 
 <li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Three material presets</strong>: GaAs (direct), Si (indirect), Ge (indirect), with realistic band gaps</li>
 <li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Switchable transition arrow</strong>: vertical (photon only) vs. diagonal (phonon-assisted)</li>
 <li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Adjustable effective mass</strong> directly controls conduction-band curvature</li>
-<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Labeled band extrema</strong> mark the valence-band maximum and conduction-band minimum</li>
-<li style="margin-bottom: 0; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Responsive canvas</strong> that resizes with the browser window</li>
+<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Labeled band extrema</strong> mark the valence-band maximum and conduction-band minimum, with a measured Eg bracket</li>
+<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Color-coded photon (orange) vs. phonon (dashed teal)</strong> transition segments</li>
+<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Electron vs. hole effective mass readout</strong> compares conduction- and valence-band curvature side by side</li>
+<li style="margin-bottom: 0; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Responsive canvas</strong> that resizes with the browser window, with fullscreen support</li>
 </ul>
 </div>
 

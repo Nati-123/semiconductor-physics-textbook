@@ -65,8 +65,10 @@ Interactive educational simulations that accompany this textbook.
 
 | MicroSim | Bloom Level | Description |
 |----------|-------------|-------------|
-| [Direct vs. Indirect Bandgap E-k Explorer](direct-indirect-bandgap-explorer/index.md) | L2-L4 Understand/Analyze | Compare direct-gap (GaAs) and indirect-gap (Si, Ge) E-k diagrams with a switchable photon-only vs. phonon-assisted transition arrow and an adjustable effective-mass curvature slider |
-| [Density of States and Fermi Level Explorer](density-of-states-fermi-level-explorer/index.md) | L2-L4 Understand/Analyze | Compare density-of-states and Fermi-level position across Metal, Insulator, Semiconductor, and Semimetal presets, with a Fermi-Dirac thermal smearing slider |
+| [Direct vs. Indirect Bandgap E-k Explorer](direct-indirect-bandgap-explorer/index.md) | L2-L4 Understand/Analyze | Compare direct-gap (GaAs) and indirect-gap (Si, Ge) E-k diagrams with a switchable photon-only vs. phonon-assisted transition path, color-coded photon/phonon segments, and an electron-vs-hole effective-mass comparison |
+| [Fermi-Dirac Distribution Explorer](fermi-dirac-distribution-explorer/index.md) | L2-L3 Understand/Apply | Plot f(E) vs. energy with independent EF and Temperature T (K) controls (0/77/300/600 K presets), always marking f(EF) = 0.5 against a T→0 step-function reference |
+| [Density of States and Fermi Level Explorer](density-of-states-fermi-level-explorer/index.md) | L2-L4 Understand/Analyze | Compare density-of-states and Fermi-level position across Metal, Insulator, Semimetal, and Intrinsic/n-type/p-type Semiconductor presets, with a Temperature T (K) control, legend, and numeric readout |
+| [Intrinsic Carrier Excitation / Electron-Hole Pair Explorer](carrier-excitation-electron-hole-pair-explorer/index.md) | L2-L3 Understand/Apply | Animated band diagram where electrons are thermally excited across Eg into the conduction band, each leaving exactly one hole behind, with live n = p = ni counts and Temperature/Eg controls |
 
 ## Chapter 7: Intrinsic and Extrinsic Semiconductors
 

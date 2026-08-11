@@ -28,22 +28,25 @@
 
         <h3>Try This</h3>
         <ul class="explore-list">
-            <li><strong>Try this:</strong> Select "Insulator" and observe the wide white (empty, g(E)=0) gap between the green valence band and blue conduction band, with the dashed E_F line sitting in the middle of that empty gap.</li>
-            <li><strong>Predict:</strong> Before switching to "Semiconductor", predict whether the gap will be wider or narrower than the insulator's.</li>
-            <li><strong>Observe:</strong> Switch to "Semiconductor" and confirm the gap is much narrower, though the qualitative picture (full valence band, empty conduction band at T=0) is otherwise identical.</li>
-            <li><strong>Switch to "Metal"</strong> and notice that E_F now sits inside a region where the density-of-states curve is nonzero on both sides — no gap at all.</li>
-            <li><strong>Switch to "Semimetal"</strong> and zoom in (visually) on how thin the density-of-states curve is right at E_F, compared to the Metal preset.</li>
-            <li><strong>Drag the thermal energy kT slider up</strong> from 0 and watch the sharp occupied/empty boundary near E_F blur into a smooth gradient in both panels.</li>
+            <li><strong>Try this:</strong> Select "Insulator" and observe the wide pale-gray (empty, g(E)=0) gap between the green valence band and purple conduction band, with the dashed red EF line sitting in the middle of that empty gap.</li>
+            <li><strong>Predict:</strong> Before switching to "Intrinsic Semiconductor", predict whether the gap will be wider or narrower than the insulator's.</li>
+            <li><strong>Observe:</strong> Switch to "Intrinsic Semiconductor" and confirm the gap is much narrower, though the qualitative picture (full valence band, empty conduction band at T=0) is otherwise identical.</li>
+            <li><strong>Compare:</strong> Switch between "n-type Semiconductor" and "p-type Semiconductor" and watch EF move — up toward Ec for n-type, down toward Ev for p-type — a preview of Chapters 7-8's doping story.</li>
+            <li><strong>Switch to "Metal"</strong> and notice that EF now sits inside a region where the density-of-states curve is nonzero on both sides — no gap at all.</li>
+            <li><strong>Switch to "Semimetal"</strong> and compare how thin the density-of-states curve is right at EF, compared to the Metal preset.</li>
+            <li><strong>Change the Temperature preset</strong> from 0 K to 77 K to 300 K to 600 K (or drag the T slider) and watch the sharp occupied/empty boundary near EF blur into a wider smooth gradient as T rises. Read the growing f(Ec) value in the numeric readout as confirmation.</li>
         </ul>
 
-        <p class="connects-to"><strong>Connects to Chapter 6:</strong> This MicroSim draws the density of states <span class="arithmatex">\(g_v(E)\propto\sqrt{E_v-E}\)</span> and <span class="arithmatex">\(g_c(E)\propto\sqrt{E-E_c}\)</span> for a valence-like and conduction-like band, shaded by the Fermi-Dirac occupation probability <span class="arithmatex">\(f(E)=1/[1+\exp((E-E_F)/k_BT)]\)</span>. Whether the two bands overlap in energy (Metal, Semimetal) or are separated by a real gap (Semiconductor, Insulator), and how large that gap or overlap is, is exactly what this chapter uses to classify a material's band structure.</p>
+        <p class="connects-to"><strong>Connects to Chapter 6:</strong> This MicroSim draws the density of states <span class="arithmatex">\(g_v(E)\propto\sqrt{E_v-E}\)</span> and <span class="arithmatex">\(g_c(E)\propto\sqrt{E-E_c}\)</span> for a valence-like and conduction-like band, shaded by the Fermi-Dirac occupation probability <span class="arithmatex">\(f(E)=1/[1+\exp((E-E_F)/k_BT)]\)</span>, with \(k_BT\) computed from the Temperature \(T\) (K) control. Whether the two bands overlap in energy (Metal, Semimetal) or are separated by a real gap (semiconductor variants, Insulator), and how large that gap or overlap is, is exactly what this chapter uses to classify a material's band structure.</p>
 
         <h3>What Each Control Does</h3>
         <dl class="control-captions">
             <dt>Material dropdown</dt>
-            <dd>Selects a preset band-edge configuration (valence-band top, conduction-band bottom, and Fermi level) representative of a metal, insulator, semiconductor, or semimetal.</dd>
-            <dt>Thermal energy kT slider</dt>
-            <dd>Sets \(k_BT\) in the Fermi-Dirac distribution; larger values smear the sharp T=0 occupied/empty boundary near E_F.</dd>
+            <dd>Selects a preset band-edge configuration (valence-band top \(E_v\), conduction-band bottom \(E_c\), and Fermi level \(E_F\)) representative of a metal, insulator, semimetal, or an intrinsic/n-type/p-type semiconductor.</dd>
+            <dt>Temperature preset dropdown</dt>
+            <dd>Jumps the temperature slider directly to 0 K, 77 K (liquid nitrogen), 300 K (room temperature), or 600 K.</dd>
+            <dt>Temperature T (K) slider</dt>
+            <dd>Sets the absolute temperature, converted internally to thermal energy \(k_BT\) for the Fermi-Dirac distribution; higher T smears the sharp T=0 occupied/empty boundary near \(E_F\) over a wider energy range.</dd>
         </dl>
 
         <h3>Challenge Questions</h3>
@@ -61,7 +64,7 @@
         </div>
 
         <div class="challenge" data-correct="b">
-            <p class="q-text">2. What distinguishes the Metal preset from the Semiconductor and Insulator presets?</p>
+            <p class="q-text">2. What distinguishes the Metal preset from the semiconductor and Insulator presets?</p>
             <label><input type="radio" name="dfl-q2" value="a"> Metals have no electrons</label>
             <label><input type="radio" name="dfl-q2" value="b"> In the Metal preset, E_F lies inside a region with nonzero density of states (no gap), rather than inside an empty gap</label>
             <label><input type="radio" name="dfl-q2" value="c"> Metals have a larger band gap</label>
@@ -69,19 +72,31 @@
             <button class="check-btn" type="button">Check Answer</button>
             <span class="feedback" role="status" aria-live="polite"></span>
             <p class="explain-correct" hidden>The Metal preset's valence-like and conduction-like bands overlap in energy, so E_F sits where g(E) > 0 — real states exist right at E_F, unlike the semiconductor and insulator cases.</p>
-            <p class="explain-incorrect" hidden>Compare where the green and blue curves are nonzero relative to E_F in the Metal preset versus the Semiconductor preset.</p>
+            <p class="explain-incorrect" hidden>Compare where the green and purple curves are nonzero relative to E_F in the Metal preset versus the Intrinsic Semiconductor preset.</p>
         </div>
 
         <div class="challenge" data-correct="a">
-            <p class="q-text">3. What happens to the sharp occupied/empty boundary near E_F as you increase the thermal energy kT slider?</p>
-            <label><input type="radio" name="dfl-q3" value="a"> It smears into a smooth gradient over an energy range of order kT</label>
+            <p class="q-text">3. What happens to the sharp occupied/empty boundary near E_F as you raise the Temperature T?</p>
+            <label><input type="radio" name="dfl-q3" value="a"> It smears into a smooth gradient over an energy range of order kT = kB·T</label>
             <label><input type="radio" name="dfl-q3" value="b"> It becomes sharper</label>
             <label><input type="radio" name="dfl-q3" value="c"> It disappears and every state becomes fully occupied</label>
             <label><input type="radio" name="dfl-q3" value="d"> Nothing changes</label>
             <button class="check-btn" type="button">Check Answer</button>
             <span class="feedback" role="status" aria-live="polite"></span>
-            <p class="explain-correct" hidden>Increasing kT smooths the Fermi-Dirac step function, smearing the occupied/empty boundary over an energy range of order kT around E_F, visible as a fading gradient rather than a hard edge.</p>
-            <p class="explain-incorrect" hidden>Drag the kT slider from its minimum to a larger value and watch the boundary near the dashed E_F line.</p>
+            <p class="explain-correct" hidden>Raising T increases kT = kB·T in the Fermi-Dirac distribution, smearing the occupied/empty boundary over a wider energy range around E_F, visible as a fading gradient rather than a hard edge. The f(Ec) readout grows accordingly.</p>
+            <p class="explain-incorrect" hidden>Step through the Temperature presets from 0 K to 600 K and watch the boundary near the dashed E_F line, and the f(Ec) readout at the bottom of the control panel.</p>
+        </div>
+
+        <div class="challenge" data-correct="d">
+            <p class="q-text">4. Compared to the Intrinsic Semiconductor preset, where does E_F move for n-type and p-type semiconductor presets?</p>
+            <label><input type="radio" name="dfl-q4" value="a"> E_F moves to exactly the same place in both cases</label>
+            <label><input type="radio" name="dfl-q4" value="b"> E_F moves toward Ev for n-type and toward Ec for p-type</label>
+            <label><input type="radio" name="dfl-q4" value="c"> E_F leaves the band gap entirely in both cases</label>
+            <label><input type="radio" name="dfl-q4" value="d"> E_F moves toward Ec for n-type (more electrons) and toward Ev for p-type (more holes)</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>An n-type semiconductor has extra electrons, which raises the occupation probability near the conduction band, pulling E_F up toward Ec; a p-type semiconductor has extra holes, which pulls E_F down toward Ev. Chapters 7-8 explain exactly how doping produces this shift.</p>
+            <p class="explain-incorrect" hidden>Switch between the n-type and p-type presets and read the E_F value in the numeric readout, comparing it to Ec and Ev.</p>
         </div>
 
     </div>

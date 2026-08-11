@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Fermi-Dirac Distribution Explorer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="fermi-dirac-distribution-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> With EF at its default 1.00 eV and T = 300 K, find where the purple curve crosses the dashed f = 0.5 line. Confirm it happens exactly at E = EF, marked by the red dot.</li>
+            <li><strong>Predict:</strong> Before dragging the EF slider to the left, predict which way the whole S-curve will shift.</li>
+            <li><strong>Observe:</strong> Drag EF left and right and confirm the curve translates with it — the crossing point f(EF) = 0.5 always follows EF, but the curve's shape never changes.</li>
+            <li><strong>Switch Temperature presets</strong> from 0 K to 77 K to 300 K to 600 K. At 0 K the purple curve should hug the faint gray step-function reference almost exactly; at 600 K it should be visibly more gradual, spread over a much wider energy range.</li>
+            <li><strong>Read the numbers:</strong> Compare kBT in the readout at 77 K versus 600 K, and connect the size of kBT to how "smeared" the curve looks around EF.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 6:</strong> This MicroSim plots the <strong>Fermi-Dirac distribution</strong> <span class="arithmatex">\(f(E) = 1/(1+\exp((E-E_F)/k_BT))\)</span> directly. By construction, \(f(E_F)=1/(1+\exp(0))=1/2\) at every temperature — the defining property of the Fermi level. As \(T\to0\), the exponential becomes infinitely steep and \(f(E)\) collapses into the sharp step function shown as a faint gray reference, recovering the \(T=0\) **Fermi energy** picture: every state below \(E_F\) full, every state above empty. This is the same distribution the <a href="../density-of-states-fermi-level-explorer/index.md">Density of States and Fermi Level Explorer</a> uses to shade occupied vs. unoccupied states on top of a real band diagram.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>Fermi level EF slider</dt>
+            <dd>Sets \(E_F\) in the Fermi-Dirac distribution; the entire S-curve translates so it always crosses \(f=0.5\) at \(E=E_F\).</dd>
+            <dt>Temperature preset dropdown</dt>
+            <dd>Jumps the temperature slider directly to 0 K, 77 K (liquid nitrogen), 300 K (room temperature), or 600 K.</dd>
+            <dt>Temperature T (K) slider</dt>
+            <dd>Sets the absolute temperature, converted internally to thermal energy \(k_BT\); higher T makes the curve's transition region wider and more gradual.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">1. At any temperature above absolute zero, what is f(E) exactly at E = EF?</p>
+            <label><input type="radio" name="fd-q1" value="a"> 0</label>
+            <label><input type="radio" name="fd-q1" value="b"> 1</label>
+            <label><input type="radio" name="fd-q1" value="c"> 0.5</label>
+            <label><input type="radio" name="fd-q1" value="d"> It depends on the material</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Substituting E = EF gives f(EF) = 1/(1+exp(0)) = 1/(1+1) = 0.5, exactly, at any temperature and for any material — this is the defining property of the Fermi level.</p>
+            <p class="explain-incorrect" hidden>Look at the red dot on the curve — it always sits on the dashed f = 0.5 line, directly above the EF label.</p>
+        </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">2. As T → 0 K, what does the Fermi-Dirac curve approach?</p>
+            <label><input type="radio" name="fd-q2" value="a"> A flat horizontal line at f = 0.5 everywhere</label>
+            <label><input type="radio" name="fd-q2" value="b"> A sharp step function: f = 1 for E &lt; EF, f = 0 for E &gt; EF</label>
+            <label><input type="radio" name="fd-q2" value="c"> A straight diagonal line</label>
+            <label><input type="radio" name="fd-q2" value="d"> f = 0 everywhere</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>As T → 0, kBT → 0 and the exponential becomes infinitely steep, collapsing f(E) into a sharp step: every state below EF is fully occupied, every state above is fully empty — the T=0 Fermi energy picture.</p>
+            <p class="explain-incorrect" hidden>Select the "0 K (approx.)" temperature preset and compare the purple curve to the faint gray step-function reference.</p>
+        </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">3. If you increase EF while keeping T fixed, what happens to f(E) at a fixed energy E just below the old EF?</p>
+            <label><input type="radio" name="fd-q3" value="a"> f(E) increases, moving closer to 1 (more likely occupied)</label>
+            <label><input type="radio" name="fd-q3" value="b"> f(E) decreases toward 0</label>
+            <label><input type="radio" name="fd-q3" value="c"> f(E) stays exactly the same</label>
+            <label><input type="radio" name="fd-q3" value="d"> f(E) becomes negative</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Raising EF shifts the whole S-curve to the right (toward higher E). A fixed energy E that used to sit close to the transition now sits further into the "below EF" region, where occupation is higher, so f(E) increases.</p>
+            <p class="explain-incorrect" hidden>Pick a fixed x-position on the plot and watch the curve's height there as you drag the EF slider up.</p>
+        </div>
+
+        <div class="challenge" data-correct="d">
+            <p class="q-text">4. Comparing T = 77 K to T = 600 K at the same EF, how does the width of the transition region (where f(E) changes from near 1 to near 0) compare?</p>
+            <label><input type="radio" name="fd-q4" value="a"> The transition is narrower at 600 K</label>
+            <label><input type="radio" name="fd-q4" value="b"> The transition width does not depend on T</label>
+            <label><input type="radio" name="fd-q4" value="c"> The transition disappears at 600 K</label>
+            <label><input type="radio" name="fd-q4" value="d"> The transition is wider at 600 K, since kBT is larger</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>The transition region has a width of order a few kBT. Since kBT is proportional to T, the 600 K curve smears its transition over a much wider energy range than the 77 K curve.</p>
+            <p class="explain-incorrect" hidden>Switch between the 77 K and 600 K presets and compare how "spread out" the S-curve looks around EF in each case.</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

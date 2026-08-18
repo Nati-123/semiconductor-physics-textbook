@@ -330,6 +330,9 @@ nav:
       - Taxonomy Distribution Report: learning-graph/taxonomy-distribution.md
       - Glossary Quality Report: learning-graph/glossary-quality-report.md
       - Quiz Generation Report: learning-graph/quiz-generation-report.md
+      - Book Metrics: learning-graph/book-metrics.md
+      - Chapter Metrics: learning-graph/chapter-metrics.md
+      - Chapter Content Audit: learning-graph/chapter-audit.md
   - About: about.md
   - Contact: contact.md
   - License: license.md

@@ -64,12 +64,15 @@ def find_orphaned_nodes(concepts: Dict[int, str],
 def verify_dag(concepts: Dict[int, str],
                dependencies: Dict[int, List[int]]) -> Tuple[bool, List[List[int]]]:
     """Verify the graph is a DAG using topological sort. Returns (is_dag, cycles_found)."""
-    indeg = {cid: 0 for cid in concepts}
+    # Edge direction: prereq -> concept_id (prereq must be learned before concept_id).
+    # Indegree of a concept = number of prerequisites it has.
+    indeg = {cid: len(dependencies.get(cid, [])) for cid in concepts}
 
-    # Calculate indegree
+    # Build adjacency: prereq -> [concepts that depend on it]
+    adjacency = defaultdict(list)
     for concept_id, prereqs in dependencies.items():
         for prereq in prereqs:
-            indeg[prereq] += 1
+            adjacency[prereq].append(concept_id)
 
     # Kahn's algorithm for topological sort
     queue = deque([cid for cid in concepts if indeg[cid] == 0])
@@ -79,12 +82,11 @@ def verify_dag(concepts: Dict[int, str],
         node = queue.popleft()
         processed.append(node)
 
-        # For each concept that depends on this node
-        for concept_id, prereqs in dependencies.items():
-            if node in prereqs:
-                indeg[concept_id] -= 1
-                if indeg[concept_id] == 0:
-                    queue.append(concept_id)
+        # Release each concept that depended on this node
+        for concept_id in adjacency[node]:
+            indeg[concept_id] -= 1
+            if indeg[concept_id] == 0:
+                queue.append(concept_id)
 
     is_dag = len(processed) == len(concepts)
     cycles = [] if is_dag else find_cycles(concepts, dependencies)

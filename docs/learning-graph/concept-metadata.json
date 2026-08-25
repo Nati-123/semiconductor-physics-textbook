@@ -2393,7 +2393,9 @@
     95,
     96
    ],
-   "microsims": [],
+   "microsims": [
+    "fermi-level-position-explorer"
+   ],
    "bloom": null
   },
   "94": {
@@ -2414,7 +2416,9 @@
     93
    ],
    "dependents": [],
-   "microsims": [],
+   "microsims": [
+    "fermi-level-position-explorer"
+   ],
    "bloom": null
   },
   "95": {
@@ -2441,7 +2445,10 @@
     102,
     108
    ],
-   "microsims": [],
+   "microsims": [
+    "exact-carrier-concentration-calculator",
+    "exact-vs-approximate-carrier-explorer"
+   ],
    "bloom": null
   },
   "96": {
@@ -2469,7 +2476,8 @@
     108
    ],
    "microsims": [
-    "exact-carrier-concentration-calculator"
+    "exact-carrier-concentration-calculator",
+    "fermi-level-equation-solver"
    ],
    "bloom": null
   },
@@ -2492,7 +2500,8 @@
    ],
    "dependents": [],
    "microsims": [
-    "exact-carrier-concentration-calculator"
+    "exact-carrier-concentration-calculator",
+    "fermi-level-temperature-explorer"
    ],
    "bloom": null
   },
@@ -2520,7 +2529,8 @@
     145
    ],
    "microsims": [
-    "fermi-level-position-explorer"
+    "fermi-level-position-explorer",
+    "fermi-level-equation-solver"
    ],
    "bloom": null
   },
@@ -2543,7 +2553,8 @@
    ],
    "dependents": [],
    "microsims": [
-    "fermi-level-position-explorer"
+    "fermi-level-position-explorer",
+    "fermi-level-temperature-explorer"
    ],
    "bloom": null
   },
@@ -2570,7 +2581,8 @@
     121
    ],
    "microsims": [
-    "exact-carrier-concentration-calculator"
+    "exact-carrier-concentration-calculator",
+    "fermi-level-equation-solver"
    ],
    "bloom": null
   },

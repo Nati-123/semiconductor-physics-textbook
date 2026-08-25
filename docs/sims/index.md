@@ -114,8 +114,11 @@ Interactive educational simulations that accompany this textbook.
 
 | MicroSim | Bloom Level | Description |
 |----------|-------------|-------------|
-| [Exact Carrier Concentration Calculator](exact-carrier-concentration-calculator/index.md) | L3-L4 Apply/Analyze | Solves the mass action law and charge neutrality condition together for n0 and p0 at any doping level |
-| [Fermi Level Position vs. Doping Explorer](fermi-level-position-explorer/index.md) | L4-L5 Analyze/Evaluate | Computes the exact Fermi level position from doping, with the intrinsic Fermi level marked as reference |
+| [Carrier Concentration and Charge Neutrality Explorer](exact-carrier-concentration-calculator/index.md) | L3-L4 Apply/Analyze | Solves the mass action law and charge neutrality condition together for n0 and p0, with a charge-balance visualization, doping presets, and an exact-vs-approximate comparison |
+| [Fermi Level Position vs. Doping Explorer](fermi-level-position-explorer/index.md) | L4-L5 Analyze/Evaluate | Computes the exact Fermi level position from doping on a full band diagram, with presets and a degeneracy warning |
+| [Exact vs. Approximate Carrier Solution Explorer](exact-vs-approximate-carrier-explorer/index.md) | L4-L5 Analyze/Evaluate | Plots the percent error of n0~ND-NA against the exact equation versus doping, with a selectable tolerance and crossover point |
+| [Fermi Level vs. Temperature Explorer](fermi-level-temperature-explorer/index.md) | L4-L5 Analyze/Evaluate | Holds doping fixed and sweeps temperature, showing E_F drift toward E_i as the sample approaches intrinsic behavior |
+| [Fermi-Level Equation Visual Solver](fermi-level-equation-solver/index.md) | L3-L4 Apply/Analyze | Step-by-step equation-practice tool solving for E_F, n0, or p0 from whichever quantity is known |
 
 ## Chapter 11: Drift Current and Carrier Mobility
 

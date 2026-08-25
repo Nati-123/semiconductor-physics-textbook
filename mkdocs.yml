@@ -245,8 +245,11 @@ nav:
           - Carrier Concentration and Fermi Level Explorer: sims/carrier-concentration-fermi-level-explorer/index.md
           - Mass Action Law Explorer: sims/mass-action-law-explorer/index.md
       - Chapter 10:
-          - Exact Carrier Concentration Calculator: sims/exact-carrier-concentration-calculator/index.md
+          - Carrier Concentration and Charge Neutrality Explorer: sims/exact-carrier-concentration-calculator/index.md
           - Fermi Level Position vs. Doping Explorer: sims/fermi-level-position-explorer/index.md
+          - Exact vs. Approximate Carrier Solution Explorer: sims/exact-vs-approximate-carrier-explorer/index.md
+          - Fermi Level vs. Temperature Explorer: sims/fermi-level-temperature-explorer/index.md
+          - Fermi-Level Equation Visual Solver: sims/fermi-level-equation-solver/index.md
       - Chapter 11:
           - Drift Velocity and Carrier Scattering Explorer: sims/drift-velocity-scattering-explorer/index.md
           - Mobility vs. Temperature and Doping (Matthiessen's Rule) Explorer: sims/mobility-temperature-doping-explorer/index.md

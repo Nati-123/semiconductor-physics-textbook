@@ -327,7 +327,7 @@ function smlSuperscript(n) {
 // or, for a value already known as a power of ten, use smlFormatPow10.
 function smlFormatConc(value, opts) {
   opts = opts || {};
-  if (value <= 0 || !isFinite(value)) return '0 cm⁻³';
+  if (value <= 0 || !isFinite(value)) return opts.noUnit ? '0' : '0 cm⁻³';
   var exp = Math.floor(Math.log10(value));
   var mant = value / Math.pow(10, exp);
   if (mant >= 9.95) { mant /= 10; exp += 1; }
@@ -371,6 +371,31 @@ function smlEgVarshni(mat, T) { return mat.Eg0 - (mat.alpha * T * T) / (T + mat.
 function smlNi(mat, T) {
   const Nc = smlEffDOS(mat.me, T), Nv = smlEffDOS(mat.mh, T);
   return Math.sqrt(Nc * Nv) * Math.exp(-smlEgVarshni(mat, T) / (2 * SML_KB_EV * T));
+}
+
+// ---------- exact carrier-concentration / Fermi-level (Chapter 10) ----------
+// Solves the mass action law (n0*p0=ni^2) and charge neutrality condition
+// (n0+NA=p0+ND, complete ionization assumed) together: n0^2-(ND-NA)n0-ni^2=0.
+// Keeps only the physically meaningful positive root.
+function smlExactN0(ND, NA, ni) {
+  const net = ND - NA;
+  return (net + Math.sqrt(net * net + 4 * ni * ni)) / 2;
+}
+function smlExactP0(ND, NA, ni) {
+  const net = NA - ND;
+  return (net + Math.sqrt(net * net + 4 * ni * ni)) / 2;
+}
+// E_C-E_F = kT*ln(NC/n0); E_F-E_V = kT*ln(NV/p0). Both valid only in the
+// non-degenerate (Boltzmann) regime -- see smlDegeneracyZone below.
+function smlEcMinusEf(Nc, n0, kT) { return kT * Math.log(Nc / n0); }
+function smlEfMinusEv(Nv, p0, kT) { return kT * Math.log(Nv / p0); }
+// Intrinsic Fermi level's offset from exact midgap: Ei = midgap + this.
+function smlEiOffsetFromMidgap(Nc, Nv, kT) { return (kT / 2) * Math.log(Nv / Nc); }
+// Shared non-degenerate/transition/degenerate classification: 'dist' is
+// whichever of E_C-E_F or E_F-E_V is smaller (distance to the nearer band
+// edge). Matches the 3*kT convention used throughout Chapters 8-10.
+function smlDegeneracyZone(dist, kT) {
+  return dist > 3 * kT ? 'non' : (dist > 0 ? 'transition' : 'degenerate');
 }
 
 // Draws "main" immediately followed by a smaller, lower "sub" glyph run,

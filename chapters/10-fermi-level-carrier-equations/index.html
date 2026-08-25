@@ -2503,10 +2503,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#diagram-exact-carrier-concentration-calculator" class="md-nav__link">
+  <a href="#diagram-carrier-concentration-and-charge-neutrality-explorer" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Diagram: Exact Carrier Concentration Calculator
+        Diagram: Carrier Concentration and Charge Neutrality Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-exact-vs-approximate-carrier-solution-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Exact vs. Approximate Carrier Solution Explorer
       
     </span>
   </a>
@@ -2543,6 +2554,23 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="One Formula, Three Regions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-fermi-level-vs-temperature-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Fermi Level vs. Temperature Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -2644,6 +2672,23 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Rewriting n₀ and p₀ Relative to E_i">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-fermi-level-equation-visual-solver" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Fermi-Level Equation Visual Solver
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -6861,7 +6906,7 @@
   <span class="md-ellipsis">
     
   
-    Exact Carrier Concentration Calculator
+    Carrier Concentration and Charge Neutrality Explorer
   
 
     
@@ -6890,6 +6935,90 @@
     
   
     Fermi Level Position vs. Doping Explorer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/exact-vs-approximate-carrier-explorer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exact vs. Approximate Carrier Solution Explorer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/fermi-level-temperature-explorer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fermi Level vs. Temperature Explorer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/fermi-level-equation-solver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fermi-Level Equation Visual Solver
   
 
     
@@ -9852,6 +9981,8 @@
 <li>Compute Fermi level position from a known doping level and temperature</li>
 <li>Define the intrinsic Fermi level and compute its offset from exact midgap</li>
 <li>State and apply the general carrier concentration equations, <span class="arithmatex">\(n_0=n_ie^{(E_F-E_i)/k_BT}\)</span> and <span class="arithmatex">\(p_0=n_ie^{(E_i-E_F)/k_BT}\)</span></li>
+<li>Judge when the extrinsic approximation <span class="arithmatex">\(n_0\approx N_D-N_A\)</span> is acceptable versus when the exact equation is required</li>
+<li>Explain how <span class="arithmatex">\(E_F\)</span> drifts toward <span class="arithmatex">\(E_i\)</span> as temperature rises at fixed doping, and connect this to <span class="arithmatex">\(n_i(T)\)</span>'s exponential growth</li>
 <li>Solve worked and practice problems combining these ideas, in preparation for the transport and junction physics of Chapters 11-15</li>
 </ul>
 <div class="admonition note">
@@ -9899,15 +10030,20 @@ n_0 = \frac{(N_D-N_A) + \sqrt{(N_D-N_A)^2 + 4n_i^2}}{2}
 <div class="arithmatex">\[
 p_0 = \frac{(N_A-N_D) + \sqrt{(N_A-N_D)^2 + 4n_i^2}}{2}
 \]</div>
-<h4 id="diagram-exact-carrier-concentration-calculator">Diagram: Exact Carrier Concentration Calculator</h4>
-<iframe height="660px" scrolling="auto" src="../../sims/exact-carrier-concentration-calculator/main.html" width="100%"></iframe>
+<p>The formula above is one equation doing the work of two — it simultaneously satisfies the mass action law and the charge neutrality condition. The MicroSim below makes that dual satisfaction visible directly, as a charge balance, rather than something to take on faith.</p>
+<h4 id="diagram-carrier-concentration-and-charge-neutrality-explorer">Diagram: Carrier Concentration and Charge Neutrality Explorer</h4>
+<iframe height="680px" scrolling="auto" src="../../sims/exact-carrier-concentration-calculator/main.html" width="100%"></iframe>
 <div class="admonition tip">
 <p class="admonition-title">How to use this MicroSim</p>
-<p><strong>Instructions:</strong> Set <span class="arithmatex">\(N_D\)</span> and <span class="arithmatex">\(N_A\)</span> equal (both at their minimum) and confirm <span class="arithmatex">\(n_0\approx n_i\)</span>; then raise <span class="arithmatex">\(N_D\)</span> far above <span class="arithmatex">\(N_A\)</span> and confirm <span class="arithmatex">\(n_0\)</span> approaches <span class="arithmatex">\(N_D-N_A\)</span>.</p>
-<p><strong>Learning objective:</strong> Apply the exact carrier concentration equation, and verify that both the intrinsic and extrinsic approximations are limiting cases of the same formula.</p>
-<p><strong>What to observe:</strong> The self-consistency check, <span class="arithmatex">\(n_0p_0\)</span>, always equals <span class="arithmatex">\(n_i^2\)</span> exactly — by construction, since the formula was derived directly from the mass action law.</p>
+<p><strong>Instructions:</strong> Try the five doping presets in turn, or set <span class="arithmatex">\(N_D\)</span> and <span class="arithmatex">\(N_A\)</span> equal (both at their minimum) and confirm <span class="arithmatex">\(n_0\approx n_i\)</span>; then raise <span class="arithmatex">\(N_D\)</span> far above <span class="arithmatex">\(N_A\)</span> and confirm <span class="arithmatex">\(n_0\)</span> approaches <span class="arithmatex">\(N_D-N_A\)</span>.</p>
+<p><strong>Learning objective:</strong> Apply the exact carrier concentration equation, verify that both the intrinsic and extrinsic approximations are limiting cases of the same formula, and identify majority/minority carriers directly from the readout.</p>
+<p><strong>What to observe:</strong> The two charge-balance towers — "positive charge" (<span class="arithmatex">\(p_0+N_D\)</span>) and "negative charge" (<span class="arithmatex">\(n_0+N_A\)</span>) — always reach exactly the same height, no matter how the sliders are set: that is charge neutrality, made visual. The info panel's colored comparison line shows exactly how close the shortcut <span class="arithmatex">\(n_0\approx N_D-N_A\)</span> comes to the exact value.</p>
 </div>
 <p><a href="../../sims/exact-carrier-concentration-calculator/">Full MicroSim documentation →</a></p>
+<div class="admonition note">
+<p class="admonition-title">Sweeping from strongly n-type through compensated to strongly p-type</p>
+<p>For a qualitative walk-through of exactly this sweep — strong n-type → weak n-type → compensated → weak p-type → strong p-type — with a net-doping gauge and an approximate Fermi-level indicator, see Chapter 8's <a href="../../sims/compensated-semiconductor-explorer/">Compensated Semiconductor Explorer</a>. This chapter's MicroSims (above, and the <a href="../../sims/fermi-level-position-explorer/">Fermi Level Position vs. Doping Explorer</a> below) cover the same sweep with the <em>exact</em> carrier-concentration and Fermi-level equations rather than the qualitative gauge, so a dedicated Chapter 10 compensation MicroSim was not added — it would have duplicated one or the other.</p>
+</div>
 <div class="admonition example">
 <p class="admonition-title">Worked Example 1 — Verifying the Extrinsic Limit</p>
 <p>A silicon sample has <span class="arithmatex">\(N_D=10^{16}\ \text{cm}^{-3}\)</span>, <span class="arithmatex">\(N_A=0\)</span>, and <span class="arithmatex">\(n_i\approx9.65\times10^9\ \text{cm}^{-3}\)</span> at 300 K. Use the exact formula to confirm <span class="arithmatex">\(n_0\approx N_D\)</span>.</p>
@@ -9917,6 +10053,16 @@ n_0 = \frac{10^{16}+\sqrt{(10^{16})^2+4(9.65\times10^9)^2}}{2} = \frac{10^{16}+\
 \]</div>
 <p>Since <span class="arithmatex">\(10^{32}\gg3.73\times10^{20}\)</span>, the square root is extremely close to <span class="arithmatex">\(10^{16}\)</span> itself, giving <span class="arithmatex">\(n_0\approx(10^{16}+10^{16})/2=10^{16}\ \text{cm}^{-3}\)</span> — confirming the extrinsic approximation Chapter 8 used throughout, now derived rather than assumed.</p>
 </div>
+<p>Worked Example 1 picked a doping level (<span class="arithmatex">\(10^{16}\ \text{cm}^{-3}\)</span>) heavy enough that the approximation was obviously safe. The natural next question — <em>how</em> heavy is heavy enough? — is exactly what the next MicroSim answers directly, rather than leaving it to intuition.</p>
+<h4 id="diagram-exact-vs-approximate-carrier-solution-explorer">Diagram: Exact vs. Approximate Carrier Solution Explorer</h4>
+<iframe height="680px" scrolling="auto" src="../../sims/exact-vs-approximate-carrier-explorer/main.html" width="100%"></iframe>
+<div class="admonition tip">
+<p class="admonition-title">How to use this MicroSim</p>
+<p><strong>Instructions:</strong> Drag <span class="arithmatex">\(N_D\)</span> from low to high and watch the approximation error fall from very large to negligible; read off the crossover doping level where the error first meets your selected tolerance.</p>
+<p><strong>Learning objective:</strong> Evaluate when the shortcut <span class="arithmatex">\(n_0\approx N_D-N_A\)</span> is acceptable for a given doping level, material, and temperature, rather than applying it unconditionally.</p>
+<p><strong>What to observe:</strong> The crossover point is not a fixed doping level — it depends on <span class="arithmatex">\(n_i\)</span>, so it shifts with material and temperature. The same <span class="arithmatex">\(N_D\)</span> that is perfectly safe for silicon at 300 K can be a poor approximation for a material or temperature with a much larger <span class="arithmatex">\(n_i\)</span>.</p>
+</div>
+<p><a href="../../sims/exact-vs-approximate-carrier-explorer/">Full MicroSim documentation →</a></p>
 <div class="admonition question">
 <p class="admonition-title">Concept Check</p>
 <p>What does the exact electron concentration equation give for <span class="arithmatex">\(n_0\)</span> when <span class="arithmatex">\(N_D=N_A\)</span> exactly (a perfectly compensated sample, Chapter 8)?</p>
@@ -9938,6 +10084,16 @@ n_0 = \frac{10^{16}+\sqrt{(10^{16})^2+4(9.65\times10^9)^2}}{2} = \frac{10^{16}+\
     A["n0 = [(ND-NA) + sqrt((ND-NA)^2 + 4ni(T)^2)] / 2"] --&gt; B{"ni(T) vs (ND-NA)?"}
     B -- "ni(T) &lt;&lt; ND-NA" --&gt; C["Extrinsic plateau:&lt;br/&gt;n0 ≈ ND-NA"]
     B -- "ni(T) &gt;&gt; ND-NA" --&gt; D["Intrinsic region:&lt;br/&gt;n0 ≈ ni(T)"]</code></pre>
+<p>This section's story is about <span class="arithmatex">\(n_0\)</span>; the identical story, told through the Fermi level instead, is the subject of the next MicroSim — holding doping fixed and sweeping temperature to watch <span class="arithmatex">\(E_F\)</span> drift toward <span class="arithmatex">\(E_i\)</span> as the sample turns intrinsic.</p>
+<h4 id="diagram-fermi-level-vs-temperature-explorer">Diagram: Fermi Level vs. Temperature Explorer</h4>
+<iframe height="700px" scrolling="auto" src="../../sims/fermi-level-temperature-explorer/main.html" width="100%"></iframe>
+<div class="admonition tip">
+<p class="admonition-title">How to use this MicroSim</p>
+<p><strong>Instructions:</strong> Fix a light doping level and sweep temperature from 150 K to 800 K, watching both the band diagram and the <span class="arithmatex">\(E_F-E_i\)</span> trend chart; then repeat with heavy doping.</p>
+<p><strong>Learning objective:</strong> Explain <span class="arithmatex">\(E_F\)</span>'s temperature dependence as a direct consequence of <span class="arithmatex">\(n_i(T)\)</span>'s exponential growth, and connect it to Chapter 8's freeze-out/extrinsic/intrinsic temperature regions.</p>
+<p><strong>What to observe:</strong> A lightly-doped sample reaches <span class="arithmatex">\(E_F\approx E_i\)</span> at a much lower temperature than a heavily-doped one — heavier doping postpones the intrinsic transition to higher temperature, it does not prevent it.</p>
+</div>
+<p><a href="../../sims/fermi-level-temperature-explorer/">Full MicroSim documentation →</a></p>
 <div class="admonition example">
 <p class="admonition-title">Worked Example 2 — Confirming the Intrinsic Limit at High Temperature</p>
 <p>A silicon sample has <span class="arithmatex">\(N_D-N_A=10^{15}\ \text{cm}^{-3}\)</span>. At some high temperature, <span class="arithmatex">\(n_i(T)=5\times10^{16}\ \text{cm}^{-3}\)</span> (far exceeding the doping). Estimate <span class="arithmatex">\(n_0\)</span>.</p>
@@ -9966,12 +10122,12 @@ E_i = \frac{E_C+E_V}{2} + \frac{k_BT}{2}\ln\!\left(\frac{N_V}{N_C}\right)
 \]</div>
 <p>The first term, <span class="arithmatex">\((E_C+E_V)/2\)</span>, is exactly the middle of the band gap ("midgap"). The second term is a small correction, typically only tens of meV, arising because <span class="arithmatex">\(N_C\)</span> and <span class="arithmatex">\(N_V\)</span> are generally unequal (different effective masses for electrons and holes). For silicon, where <span class="arithmatex">\(N_C&gt;N_V\)</span> (electrons have more available conduction-band states than holes have valence-band states), this correction is negative, meaning <span class="arithmatex">\(E_i\)</span> sits slightly <em>below</em> exact midgap.</p>
 <h4 id="diagram-fermi-level-position-vs-doping-explorer">Diagram: Fermi Level Position vs. Doping Explorer</h4>
-<iframe height="660px" scrolling="auto" src="../../sims/fermi-level-position-explorer/main.html" width="100%"></iframe>
+<iframe height="680px" scrolling="auto" src="../../sims/fermi-level-position-explorer/main.html" width="100%"></iframe>
 <div class="admonition tip">
 <p class="admonition-title">How to use this MicroSim</p>
-<p><strong>Instructions:</strong> With <span class="arithmatex">\(N_D=N_A\)</span> (intrinsic limit), confirm <span class="arithmatex">\(E_F\)</span> sits exactly on the dashed <span class="arithmatex">\(E_i\)</span> line; then increase <span class="arithmatex">\(N_D\)</span> or <span class="arithmatex">\(N_A\)</span> independently and watch <span class="arithmatex">\(E_F\)</span> move away from <span class="arithmatex">\(E_i\)</span>.</p>
-<p><strong>Learning objective:</strong> Predict how doping shifts <span class="arithmatex">\(E_F\)</span> relative to <span class="arithmatex">\(E_i\)</span>, and explain why <span class="arithmatex">\(E_i\)</span> is not exactly at midgap.</p>
-<p><strong>What to observe:</strong> The <span class="arithmatex">\(E_i\)</span> reference line's offset from exact midgap is small (tens of meV) and depends on material, through <span class="arithmatex">\(N_C\)</span> and <span class="arithmatex">\(N_V\)</span>'s dependence on effective mass.</p>
+<p><strong>Instructions:</strong> With <span class="arithmatex">\(N_D=N_A\)</span> (intrinsic limit), confirm <span class="arithmatex">\(E_F\)</span> sits exactly on the dashed <span class="arithmatex">\(E_i\)</span> line; then increase <span class="arithmatex">\(N_D\)</span> or <span class="arithmatex">\(N_A\)</span> independently and watch <span class="arithmatex">\(E_F\)</span> move away from <span class="arithmatex">\(E_i\)</span>, or jump straight to a doping regime with the preset dropdown.</p>
+<p><strong>Learning objective:</strong> Predict how doping shifts <span class="arithmatex">\(E_F\)</span> relative to <span class="arithmatex">\(E_i\)</span>, explain why <span class="arithmatex">\(E_i\)</span> is not exactly at midgap, and recognize when heavy doping pushes the sample into the degenerate regime.</p>
+<p><strong>What to observe:</strong> The <span class="arithmatex">\(E_i\)</span> reference line's offset from exact midgap is small (tens of meV) and depends on material, through <span class="arithmatex">\(N_C\)</span> and <span class="arithmatex">\(N_V\)</span>'s dependence on effective mass. The info panel reports <span class="arithmatex">\(E_F\)</span> three complementary ways at once (relative to <span class="arithmatex">\(E_C\)</span>, <span class="arithmatex">\(E_V\)</span>, and <span class="arithmatex">\(E_i\)</span>), and the badge below it turns orange, then red, once <span class="arithmatex">\(E_F\)</span> is pushed within <span class="arithmatex">\(3k_BT\)</span> of (or past) a band edge — the "Degenerate n-type" preset shows this directly.</p>
 </div>
 <p><a href="../../sims/fermi-level-position-explorer/">Full MicroSim documentation →</a></p>
 <div class="admonition example">
@@ -10016,6 +10172,16 @@ n_0 = n_ie^{(E_F-E_i)/k_BT} = (9.65\times10^9)e^{0.30/0.0259} = (9.65\times10^9)
 n_0 \approx (9.65\times10^9)(1.09\times10^5) \approx 1.05\times10^{15}\ \text{cm}^{-3}
 \]</div>
 </div>
+<p>This chapter has now presented the same handful of equations from several different starting points — given doping, given <span class="arithmatex">\(n_0\)</span>, given <span class="arithmatex">\(p_0\)</span>, given <span class="arithmatex">\(E_F\)</span> — depending on what happens to be known in a particular problem. The MicroSim below is a direct practice tool for exactly that skill: recognizing which equation applies, and in what order.</p>
+<h4 id="diagram-fermi-level-equation-visual-solver">Diagram: Fermi-Level Equation Visual Solver</h4>
+<iframe height="700px" scrolling="auto" src="../../sims/fermi-level-equation-solver/main.html" width="100%"></iframe>
+<div class="admonition tip">
+<p class="admonition-title">How to use this MicroSim</p>
+<p><strong>Instructions:</strong> Switch between the four modes and follow the numbered substitution steps in the right-hand panel for each; the band diagram updates identically regardless of which quantity was the starting point.</p>
+<p><strong>Learning objective:</strong> Select and apply the correct equation given which quantity is known, and recognize when an intermediate quantity (such as <span class="arithmatex">\(n_0\)</span> from doping) must be computed first.</p>
+<p><strong>What to observe:</strong> "Given <span class="arithmatex">\(N_D,N_A\)</span>" mode takes one extra step (compute <span class="arithmatex">\(n_0\)</span> from doping first) that "Given <span class="arithmatex">\(n_0\)</span>" mode skips entirely — both end at the same final equation, <span class="arithmatex">\(E_C-E_F=k_BT\ln(N_C/n_0)\)</span>, just starting from a different point. The fourth mode, "Given <span class="arithmatex">\(E_F\)</span>," is deliberately a single-step lookup here; for a continuously-animated, deeper exploration of that specific direction, see <a href="../../sims/carrier-concentration-fermi-level-explorer/">Chapter 9's Carrier Concentration and Fermi Level Explorer</a>.</p>
+</div>
+<p><a href="../../sims/fermi-level-equation-solver/">Full MicroSim documentation →</a></p>
 <h2 id="summary">Summary</h2>
 <p>This chapter solved the mass action law and charge neutrality condition (Chapter 9) together exactly, resting entirely on the <strong>Boltzmann approximation</strong> and the resulting <strong>nondegenerate semiconductor</strong> assumption from Chapters 8-9. The result is the exact <strong>electron concentration</strong> equation, <span class="arithmatex">\(n_0=\big[(N_D-N_A)+\sqrt{(N_D-N_A)^2+4n_i^2}\big]/2\)</span> (and the analogous <strong>hole concentration</strong> result), which explains <strong>carrier temperature dependence</strong> as one smooth curve unifying Chapter 8's extrinsic and intrinsic regions. From <span class="arithmatex">\(n_0\)</span>, the exact <strong>Fermi level position</strong> follows from <span class="arithmatex">\(E_C-E_F=k_BT\ln(N_C/n_0)\)</span>, and the special case where the material is intrinsic defines the <strong>intrinsic Fermi level</strong> <span class="arithmatex">\(E_i\)</span>, sitting close to but not exactly at midgap. Finally, rewriting the carrier concentrations relative to <span class="arithmatex">\(E_i\)</span> gives the <strong>carrier concentration equations</strong>, <span class="arithmatex">\(n_0=n_ie^{(E_F-E_i)/k_BT}\)</span> and <span class="arithmatex">\(p_0=n_ie^{(E_i-E_F)/k_BT}\)</span> — the standard form used throughout the transport and junction physics chapters ahead.</p>
 <h2 id="key-equations">Key Equations</h2>
@@ -10094,8 +10260,8 @@ n_0 = \frac{2\times10^{10}+2.78\times10^{10}}{2} \approx 2.39\times10^{10}\ \tex
 </div>
 <div class="admonition example">
 <p class="admonition-title">Worked Example 9 — Temperature at Which a Sample Becomes Intrinsic-Dominated</p>
-<p>A silicon sample has <span class="arithmatex">\(N_D-N_A=10^{14}\ \text{cm}^{-3}\)</span>. Roughly, using the effective-density-of-states calculator's trend from Chapter 9, at what order of magnitude of temperature would you expect <span class="arithmatex">\(n_i(T)\)</span> to first become comparable to this doping level, given <span class="arithmatex">\(n_i(300\text{ K})\approx9.65\times10^9\ \text{cm}^{-3}\)</span> and <span class="arithmatex">\(n_i\)</span> growing roughly by an order of magnitude every 20-25 K increase near room temperature?</p>
-<p><strong>Solution:</strong> <span class="arithmatex">\(n_i\)</span> must grow from about <span class="arithmatex">\(10^{10}\)</span> to about <span class="arithmatex">\(10^{14}\)</span>, roughly 4 orders of magnitude, requiring an increase of very roughly <span class="arithmatex">\(4\times(20\text{ to }25\text{ K})\approx80\text{-}100\)</span> K above 300 K — placing the transition to intrinsic-dominated behavior somewhere around 400 K for this lightly-doped sample. (This is only a rough estimate; the effective density of states calculator from Chapter 9 gives the precise value.)</p>
+<p>A silicon sample has <span class="arithmatex">\(N_D-N_A=10^{14}\ \text{cm}^{-3}\)</span>. Roughly, using the Effective Density of States Explorer's trend from Chapter 9, at what order of magnitude of temperature would you expect <span class="arithmatex">\(n_i(T)\)</span> to first become comparable to this doping level, given <span class="arithmatex">\(n_i(300\text{ K})\approx9.65\times10^9\ \text{cm}^{-3}\)</span> and <span class="arithmatex">\(n_i\)</span> growing roughly by an order of magnitude every 20-25 K increase near room temperature?</p>
+<p><strong>Solution:</strong> <span class="arithmatex">\(n_i\)</span> must grow from about <span class="arithmatex">\(10^{10}\)</span> to about <span class="arithmatex">\(10^{14}\)</span>, roughly 4 orders of magnitude, requiring an increase of very roughly <span class="arithmatex">\(4\times(20\text{ to }25\text{ K})\approx80\text{-}100\)</span> K above 300 K — placing the transition to intrinsic-dominated behavior somewhere around 400 K for this lightly-doped sample. (This is only a rough estimate; the Effective Density of States Explorer from Chapter 9 gives the precise value.)</p>
 </div>
 <div class="admonition example">
 <p class="admonition-title">Worked Example 10 — Symmetric Doping Check</p>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Exact vs. Approximate Carrier Solution Explorer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="../semiconductor-materials-lib.js"></script>
+    <script src="exact-vs-approximate-carrier-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>What to Observe</h3>
+        <ul class="explore-list">
+            <li>The error curve is high at low N_D (where nᵢ is comparable to net doping) and falls toward zero as N_D grows far past nᵢ — it never reaches exactly zero, but becomes negligible.</li>
+            <li>The green shaded region marks where the shortcut n₀≈N_D−N_A meets your selected tolerance; the dashed orange line is that tolerance threshold.</li>
+            <li>The crossover reading tells you the smallest N_D (at the current N_A, material, and temperature) where the approximation is trustworthy.</li>
+        </ul>
+
+        <h3>Guided Exploration</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> With N_A at its minimum, drag N_D from 10⁶ up to 10¹⁹ cm⁻³ and watch the error fall from very large to essentially zero.</li>
+            <li><strong>Predict:</strong> Before switching the tolerance dropdown from 5% to 1%, predict whether the crossover N_D will move higher or lower.</li>
+            <li><strong>Observe:</strong> Raise N_A toward N_D (making the sample nearly compensated) and watch the whole error curve shift right — a much heavier N_D is now needed before the shortcut is trustworthy.</li>
+            <li><strong>Compare:</strong> Switch material from Silicon to Germanium (much larger nᵢ) and notice the crossover point shifts to higher N_D — a bigger nᵢ demands more doping before it becomes negligible in the square root.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 10:</strong> The exact equation is \(n_0=\frac{(N_D-N_A)+\sqrt{(N_D-N_A)^2+4n_i^2}}{2}\). Whenever \((N_D-N_A)\gg n_i\), the term under the square root is dominated by \((N_D-N_A)^2\), so the square root collapses to \(|N_D-N_A|\) and \(n_0\to N_D-N_A\) — the familiar shortcut. This MicroSim makes that "≫" precise: it is not a fixed doping level, but a level relative to \(n_i\), which is why the crossover point moves with material and temperature.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>Material dropdown</dt>
+            <dd>Selects the effective masses and band gap used to compute nᵢ(T), which sets where the error curve falls.</dd>
+            <dt>Temperature slider</dt>
+            <dd>Sets T; higher T raises nᵢ, shifting the whole curve toward higher N_D.</dd>
+            <dt>N_A (fixed) slider</dt>
+            <dd>Sets a fixed acceptor concentration; raising it toward N_D shifts the curve right (worse approximation at a given N_D).</dd>
+            <dt>N_D slider</dt>
+            <dd>Moves the marker along the error curve and updates the numeric readout below.</dd>
+            <dt>Tolerance dropdown</dt>
+            <dd>Sets the acceptable error threshold (1%, 5%, or 10%) shown as the shaded region and dashed line.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">1. Predict first: as N_D increases far above nᵢ, what happens to the approximation error?</p>
+            <label><input type="radio" name="eva-q1" value="a"> It increases without bound</label>
+            <label><input type="radio" name="eva-q1" value="b"> It shrinks toward zero, since the square root increasingly collapses to |N_D−N_A|</label>
+            <label><input type="radio" name="eva-q1" value="c"> It stays constant</label>
+            <label><input type="radio" name="eva-q1" value="d"> It oscillates randomly</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>As N_D−N_A grows far past nᵢ, the 4nᵢ² term under the square root becomes negligible compared to (N_D−N_A)², so the exact formula converges to the approximation and the error shrinks toward zero.</p>
+            <p class="explain-incorrect" hidden>Drag N_D to its maximum and watch the error curve.</p>
+        </div>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">2. Why does raising N_A (toward N_D) make the approximation worse at a fixed N_D?</p>
+            <label><input type="radio" name="eva-q2" value="a"> It doesn't — N_A has no effect</label>
+            <label><input type="radio" name="eva-q2" value="b"> N_A directly increases nᵢ</label>
+            <label><input type="radio" name="eva-q2" value="c"> It shrinks the net doping N_D−N_A, making it comparable to nᵢ even though N_D itself is unchanged</label>
+            <label><input type="radio" name="eva-q2" value="d"> N_A makes the material degenerate</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>The approximation's accuracy depends on |N_D−N_A| relative to nᵢ, not on N_D alone. Raising N_A shrinks the net doping toward zero, which is exactly the near-compensated regime where the shortcut fails.</p>
+            <p class="explain-incorrect" hidden>Raise the N_A slider with N_D fixed and watch the error curve shift right.</p>
+        </div>
+
+        <p class="key-takeaway"><strong>Key Takeaway:</strong> "Sufficiently doped" is a comparison to nᵢ, not an absolute doping level — the same N_D that is a perfectly safe approximation in silicon at 300 K could be a poor approximation in a material or temperature where nᵢ is much larger. Always check net doping against nᵢ before assuming n₀≈N_D−N_A.</p>
+
+    </div>
+    </details>
+</body>
+</html>

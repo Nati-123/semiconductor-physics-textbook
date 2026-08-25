@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Fermi-Level Equation Visual Solver MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="../semiconductor-materials-lib.js"></script>
+    <script src="fermi-level-equation-solver.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>What to Observe</h3>
+        <ul class="explore-list">
+            <li>The Mode dropdown changes both which slider(s) are shown and which equation the solver panel walks through — the band diagram always reflects the result.</li>
+            <li>Each step shows the equation first, then the same equation with your current numbers substituted in, ending with the numeric result.</li>
+            <li>This is a practice tool, not just a display: try predicting the result before reading the final step.</li>
+        </ul>
+
+        <h3>Guided Exploration</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> In "Given N_D, N_A → find E_F" mode, set N_D=10¹⁶, N_A=0 and follow the three steps to see nᵢ, then n₀, then E_C−E_F computed in sequence.</li>
+            <li><strong>Predict:</strong> Before switching to "Given n₀ → find E_F" mode, predict whether entering the SAME n₀ you just computed will reproduce the same E_F.</li>
+            <li><strong>Observe:</strong> Switch to "Given p₀ → find E_F" and confirm the mirror-image equation, E_F−E_V=k_BT·ln(N_V/p₀), is used instead.</li>
+            <li><strong>Explore:</strong> Try "Given E_F → find n₀, p₀" and drag E_F toward E_C — for a deeper, continuously-animated version of this exact direction (with a full n₀/p₀ trend chart), see Chapter 9's Carrier Concentration and Fermi Level Explorer, linked below.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 10:</strong> All four modes are different views of the same two equations: \(n_0=N_Ce^{-(E_C-E_F)/k_BT}\) and \(p_0=N_Ve^{-(E_F-E_V)/k_BT}\), plus the exact carrier-concentration equation combining the mass action law and charge neutrality (Chapter 9). Given doping, solve for n₀ first, then invert the first equation for E_F. Given n₀ or p₀ directly, invert the corresponding equation immediately. Given E_F, evaluate both equations forward — the direction <a href="../carrier-concentration-fermi-level-explorer/index.md">Chapter 9's Carrier Concentration and Fermi Level Explorer</a> explores interactively with a continuous drag and trend chart.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>Mode dropdown</dt>
+            <dd>Chooses which quantity is known and which equation the solver walks through.</dd>
+            <dt>Material dropdown</dt>
+            <dd>Selects the effective masses and band gap used in every mode's equations.</dd>
+            <dt>Temperature slider</dt>
+            <dd>Sets T (and k_BT), used throughout every mode's substitution.</dd>
+            <dt>Mode-specific slider(s)</dt>
+            <dd>The known quantity for the selected mode — N_D/N_A, n₀, p₀, or E_F position.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">1. In "Given n₀ → find E_F" mode, which equation does the solver invert?</p>
+            <label><input type="radio" name="fes-q1" value="a"> n₀p₀ = nᵢ²</label>
+            <label><input type="radio" name="fes-q1" value="b"> n₀ = N_C·e^(−(E_C−E_F)/k_BT), solved for E_C−E_F</label>
+            <label><input type="radio" name="fes-q1" value="c"> The charge neutrality condition</label>
+            <label><input type="radio" name="fes-q1" value="d"> The Varshni equation</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Given n₀ directly, the solver rearranges n₀=N_C·e^(−(E_C−E_F)/k_BT) into E_C−E_F=k_BT·ln(N_C/n₀) — no doping or charge neutrality needed at all.</p>
+            <p class="explain-incorrect" hidden>Switch to that mode and read step 1 in the solver panel.</p>
+        </div>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">2. Why does "Given N_D, N_A → find E_F" mode need an extra step that the "Given n₀" mode does not?</p>
+            <label><input type="radio" name="fes-q2" value="a"> It doesn't — they use the same number of steps</label>
+            <label><input type="radio" name="fes-q2" value="b"> Doping requires a different temperature</label>
+            <label><input type="radio" name="fes-q2" value="c"> Doping is not itself n₀ — n₀ must first be computed from N_D, N_A, and nᵢ via the exact carrier concentration equation, before E_F can be found</label>
+            <label><input type="radio" name="fes-q2" value="d"> Doping mode does not use N_C at all</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Given N_D and N_A, n₀ is not yet known — it must be solved for first via the mass-action/charge-neutrality quadratic, and only then can E_C−E_F=k_BT·ln(N_C/n₀) be evaluated. Given n₀ directly skips straight to that last step.</p>
+            <p class="explain-incorrect" hidden>Compare the step lists shown in the two modes.</p>
+        </div>
+
+        <p class="key-takeaway"><strong>Key Takeaway:</strong> Every "find E_F" or "find n₀,p₀" problem in this chapter reduces to the same handful of equations, used in a different order depending on what is already known. Learning to recognize which equation applies — and in what order to apply it — matters more than memorizing four separate procedures.</p>
+
+    </div>
+    </details>
+</body>
+</html>

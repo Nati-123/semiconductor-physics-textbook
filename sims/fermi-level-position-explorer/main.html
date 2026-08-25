@@ -27,17 +27,27 @@
     <summary>Guided Exploration &amp; Challenge Questions</summary>
     <div class="panel-content">
 
-        <h3>Try This</h3>
+        <h3>What to Observe</h3>
         <ul class="explore-list">
-            <li><strong>Try this:</strong> With N_D and N_A both at their minimum (equal), confirm E_F sits almost exactly on the dashed E_i (intrinsic Fermi level) line.</li>
-            <li><strong>Predict:</strong> Before raising N_D, predict which direction E_F will move.</li>
-            <li><strong>Observe:</strong> Raise N_D and watch E_F rise toward E_C; then raise N_A instead (with N_D low) and watch E_F fall toward E_V.</li>
+            <li>The band diagram shows all four reference levels at once: E<sub>C</sub>, the dashed E<sub>i</sub> (intrinsic Fermi level), the colored E<sub>F</sub>, and E<sub>V</sub>.</li>
+            <li>The info panel reports E<sub>F</sub> three different ways simultaneously — relative to E<sub>C</sub>, to E<sub>V</sub>, and to E<sub>i</sub> — plus n₀, p₀, and nᵢ.</li>
+            <li>The orange "near-degenerate" shading within 3k<sub>B</sub>T of each band edge, and the badge below the readout, warn when the non-degenerate formulas stop being accurate.</li>
         </ul>
 
-        <p class="connects-to"><strong>Connects to Chapter 10:</strong> Once \(n_0\) is known (from the exact carrier concentration equation), the Fermi level follows directly from \(E_C-E_F=k_BT\ln(N_C/n_0)\). The <strong>intrinsic Fermi level</strong>, \(E_i\), is the special case where \(n_0=p_0=n_i\); it sits close to the middle of the band gap, offset slightly toward the band with the smaller effective density of states. Doping shifts \(E_F\) away from \(E_i\) toward whichever band edge corresponds to the majority carrier.</p>
+        <h3>Guided Exploration</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Pick the "Intrinsic" preset and confirm E_F sits almost exactly on the dashed E_i line, with E_F−E_i ≈ 0.</li>
+            <li><strong>Predict:</strong> Before switching to the "n-type" preset, predict which direction E_F will move and whether E_F−E_i will become positive or negative.</li>
+            <li><strong>Observe:</strong> Switch between "n-type" and "p-type" presets and watch E_F swing from near E_C to near E_V, passing through E_i in between.</li>
+            <li><strong>Explore:</strong> Select the "Degenerate n-type" preset and watch the badge turn red as E_F is pushed to (or past) E_C — read the warning text that appears.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 10:</strong> Once \(n_0\) is known (from the exact carrier concentration equation), the Fermi level follows directly from \(E_C-E_F=k_BT\ln(N_C/n_0)\). The <strong>intrinsic Fermi level</strong>, \(E_i\), is the special case where \(n_0=p_0=n_i\); it sits close to the middle of the band gap, offset slightly toward the band with the smaller effective density of states. Doping shifts \(E_F\) away from \(E_i\) toward whichever band edge corresponds to the majority carrier — donors push it toward \(E_C\), acceptors push it toward \(E_V\).</p>
 
         <h3>What Each Control Does</h3>
         <dl class="control-captions">
+            <dt>Preset dropdown</dt>
+            <dd>Jumps directly to intrinsic, n-type, p-type, compensated, or heavily-doped (degenerate) doping; switches to "Custom" once you move a slider.</dd>
             <dt>Material dropdown</dt>
             <dd>Selects the effective masses and band gap used to compute N_C, N_V, and E_i's offset from exact midgap.</dd>
             <dt>Temperature slider</dt>
@@ -59,6 +69,32 @@
             <p class="explain-correct" hidden>Heavy n-type doping raises n0 toward N_D, which (via E_C-E_F=k_BT ln(N_C/n_0)) shrinks E_C-E_F, moving E_F up toward E_C.</p>
             <p class="explain-incorrect" hidden>Drag N_D to its maximum with N_A at its minimum and watch the E_F line.</p>
         </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">2. What does a positive value of E_F − E_i tell you about a sample?</p>
+            <label><input type="radio" name="flp-q2" value="a"> It is n-type (E_F sits above the intrinsic level, toward E_C)</label>
+            <label><input type="radio" name="flp-q2" value="b"> It is p-type</label>
+            <label><input type="radio" name="flp-q2" value="c"> It must be degenerate</label>
+            <label><input type="radio" name="flp-q2" value="d"> It has no dopants at all</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>E_F − E_i > 0 means E_F sits above the intrinsic reference, toward E_C — exactly the n-type direction, and (Chapter 9's carrier concentration equations) means n0 > ni.</p>
+            <p class="explain-incorrect" hidden>Try the n-type and p-type presets and compare the sign of E_F − E_i in the readout for each.</p>
+        </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">3. Why does the badge turn orange or red at very heavy doping?</p>
+            <label><input type="radio" name="flp-q3" value="a"> The equations become undefined</label>
+            <label><input type="radio" name="flp-q3" value="b"> E_F is pushed within 3k_BT of (or past) a band edge, where the non-degenerate Boltzmann approximation this chapter relies on breaks down</label>
+            <label><input type="radio" name="flp-q3" value="c"> The temperature is too low</label>
+            <label><input type="radio" name="flp-q3" value="d"> It is a random display glitch</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>All of this chapter's equations assume a nondegenerate semiconductor (Chapter 8-9). Once doping is heavy enough that the computed E_F reaches or crosses a band edge, that assumption fails and the displayed position is only a rough estimate.</p>
+            <p class="explain-incorrect" hidden>Try the "Degenerate n-type" preset and read the explanation text under the badge.</p>
+        </div>
+
+        <p class="key-takeaway"><strong>Key Takeaway:</strong> E_F's position is not three unrelated numbers — E_C−E_F, E_F−E_V, and E_F−E_i are three ways of describing the exact same point, related by the fixed band gap and the intrinsic level's location. Doping moves that one point; it never changes E_C, E_V, or (to more than a small correction) E_i.</p>
 
     </div>
     </details>

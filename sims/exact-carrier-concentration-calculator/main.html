@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
-    <title>Exact Carrier Concentration Calculator MicroSim</title>
+    <title>Carrier Concentration and Charge Neutrality Explorer MicroSim</title>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
     <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
     <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
@@ -27,17 +27,27 @@
     <summary>Guided Exploration &amp; Challenge Questions</summary>
     <div class="panel-content">
 
-        <h3>Try This</h3>
+        <h3>What to Observe</h3>
         <ul class="explore-list">
-            <li><strong>Try this:</strong> Set N_D and N_A to their minimum (equal, both 10¹³ cm⁻³) and confirm n₀ ≈ p₀ ≈ nᵢ — the intrinsic limit.</li>
-            <li><strong>Predict:</strong> Before raising N_D far above N_A, predict what will happen to n₀ and p₀.</li>
-            <li><strong>Observe:</strong> Raise N_D and watch n₀ smoothly transition from ≈nᵢ toward ≈(N_D−N_A), while p₀ falls correspondingly — all from one exact formula, no separate cases needed.</li>
+            <li>The two towers always reach the same total height (dashed green line) — that is charge neutrality, \(p_0+N_D=n_0+N_A\), holding no matter how the sliders are set.</li>
+            <li>Each tower is stacked from two pieces: the fixed, fully-ionized dopant concentration on the bottom and the corresponding carrier concentration on top.</li>
+            <li>The info panel's colored line compares the exact n₀ to the common shortcut n₀≈N_D−N_A, and reports the percent difference between them.</li>
         </ul>
 
-        <p class="connects-to"><strong>Connects to Chapter 10:</strong> Solving the mass action law and charge neutrality condition together (Chapter 9) gives one exact formula for electron concentration, valid at any doping level: \(n_0=\frac{(N_D-N_A)+\sqrt{(N_D-N_A)^2+4n_i^2}}{2}\). This single equation smoothly reproduces both the near-intrinsic limit (\(n_0\to n_i\) as doping vanishes) and the familiar extrinsic approximation (\(n_0\approx N_D-N_A\) when doping dominates), unifying results that Chapters 7-9 treated as separate cases.</p>
+        <h3>Guided Exploration</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Pick the "Intrinsic" preset and confirm n₀ ≈ p₀ ≈ nᵢ, with both towers short and nearly all carrier (no dopant) height.</li>
+            <li><strong>Predict:</strong> Before switching to the "n-type" preset, predict which tower will grow taller and which carrier will become negligible.</li>
+            <li><strong>Observe:</strong> Switch between the "Compensated" and "Nearly compensated" presets and watch the approximation-error readout — it stays small when doping dominates nᵢ, but grows as N_D and N_A approach each other.</li>
+            <li><strong>Explore:</strong> Drag N_D and N_A independently (breaking out of the presets) and watch the majority/minority carrier labels swap the moment N_A crosses N_D.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 10:</strong> Solving the mass action law and charge neutrality condition together (Chapter 9) gives one exact formula for electron concentration, valid at any doping level: \(n_0=\frac{(N_D-N_A)+\sqrt{(N_D-N_A)^2+4n_i^2}}{2}\). This single equation smoothly reproduces both the near-intrinsic limit (\(n_0\to n_i\) as doping vanishes) and the familiar extrinsic approximation (\(n_0\approx N_D-N_A\) when doping dominates), unifying results that Chapters 7-9 treated as separate cases. The two charge-balance towers are simply \(p_0+N_D\) and \(n_0+N_A\) drawn side by side — the same charge neutrality condition, made visual.</p>
 
         <h3>What Each Control Does</h3>
         <dl class="control-captions">
+            <dt>Preset dropdown</dt>
+            <dd>Jumps directly to intrinsic, n-type, p-type, compensated, or nearly-compensated doping; switches to "Custom" once you move a slider.</dd>
             <dt>Material dropdown</dt>
             <dd>Selects the effective masses and band gap used to compute nᵢ(T).</dd>
             <dt>Temperature slider</dt>
@@ -49,7 +59,7 @@
         <h3>Challenge Questions</h3>
 
         <div class="challenge" data-correct="b">
-            <p class="q-text">1. When N_D and N_A are exactly equal, what does the exact formula give for n₀?</p>
+            <p class="q-text">1. Predict first: when N_D and N_A are exactly equal, what does the exact formula give for n₀?</p>
             <label><input type="radio" name="ecc-q1" value="a"> Zero</label>
             <label><input type="radio" name="ecc-q1" value="b"> Approximately nᵢ, the intrinsic carrier concentration</label>
             <label><input type="radio" name="ecc-q1" value="c"> Infinity</label>
@@ -59,6 +69,20 @@
             <p class="explain-correct" hidden>With N_D−N_A=0, the formula reduces to n0=√(4ni²)/2=ni — the fully compensated sample behaves as if intrinsic, exactly as Chapter 8 predicted qualitatively.</p>
             <p class="explain-incorrect" hidden>Set N_D and N_A to the same value and read the n₀ readout.</p>
         </div>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">2. For which doping situation is the approximation n₀≈N_D−N_A least accurate?</p>
+            <label><input type="radio" name="ecc-q2" value="a"> Strongly n-type (N_D≫N_A)</label>
+            <label><input type="radio" name="ecc-q2" value="b"> Strongly p-type</label>
+            <label><input type="radio" name="ecc-q2" value="c"> Nearly compensated (N_D≈N_A, both far above nᵢ)</label>
+            <label><input type="radio" name="ecc-q2" value="d"> The approximation is always exact</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>When N_D and N_A nearly cancel, the net doping N_D−N_A can become comparable to (or smaller than) nᵢ, and the 4nᵢ² term under the square root is no longer negligible — the approximation breaks down exactly where the "Nearly compensated" preset sits.</p>
+            <p class="explain-incorrect" hidden>Try the "Nearly compensated" preset and read the approximation-error percentage.</p>
+        </div>
+
+        <p class="key-takeaway"><strong>Key Takeaway:</strong> n₀≈N_D−N_A is not a separate rule from the exact equation — it is the same equation's limit once doping dominates nᵢ. Charge neutrality (the two towers matching) holds exactly at every doping level; only the simplified shortcut for n₀ has a validity range, and that range is exactly where the square-root term collapses to |N_D−N_A|.</p>
 
     </div>
     </details>

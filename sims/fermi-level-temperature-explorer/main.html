@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Fermi Level vs. Temperature Explorer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="../semiconductor-materials-lib.js"></script>
+    <script src="fermi-level-temperature-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>What to Observe</h3>
+        <ul class="explore-list">
+            <li>N_D and N_A are held fixed here — only temperature moves, both on the band diagram and on the trend chart below it.</li>
+            <li>The trend chart plots E_F−E_i across the whole temperature range at once, with a marker showing where the current T slider sits.</li>
+            <li>At low-to-moderate T, E_F sits far from E_i (doping dominates); as T rises, the curve bends back toward E_F−E_i=0 — the sample turning intrinsic.</li>
+        </ul>
+
+        <h3>Guided Exploration</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Set N_D to a light doping level (around 10¹⁴ cm⁻³) and slide T from 150 K to 800 K, watching E_F approach E_i well before the slider's maximum.</li>
+            <li><strong>Predict:</strong> Before raising N_D to a heavy level (around 10¹⁸ cm⁻³), predict whether the sample will reach intrinsic behavior sooner or later (at what temperature) than the lightly-doped case.</li>
+            <li><strong>Observe:</strong> Repeat with heavy doping and confirm E_F stays close to E_C much longer, only bending toward E_i at a much higher temperature.</li>
+            <li><strong>Compare:</strong> Switch material to GaAs (larger band gap, smaller nᵢ at a given T) and notice the intrinsic transition is pushed to an even higher temperature than silicon at the same doping.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 10:</strong> \(n_0\) depends on temperature only through \(n_i(T)\) (Chapter 9), which grows exponentially. At low-to-moderate T, \(n_i(T)\ll N_D-N_A\) and \(n_0\approx N_D-N_A\) is essentially temperature-independent, so \(E_F\) barely moves. Once \(n_i(T)\) grows to become comparable to (and then exceeds) the fixed net doping, \(n_0\to n_i(T)\) and \(E_F\to E_i\) — the same freeze-out/extrinsic/intrinsic story Chapter 8 introduced qualitatively, now traced exactly through \(E_C-E_F=k_BT\ln(N_C/n_0)\).</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>Material dropdown</dt>
+            <dd>Selects the effective masses, band gap, and Varshni constants used to compute N_C(T), N_V(T), and nᵢ(T).</dd>
+            <dt>N_D and N_A sliders (fixed)</dt>
+            <dd>Set the doping level held constant while temperature sweeps.</dd>
+            <dt>Temperature slider</dt>
+            <dd>Sets T; the band diagram and the trend-chart marker both update together.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">1. Predict first: as temperature keeps rising for a doped sample, what does E_F eventually approach?</p>
+            <label><input type="radio" name="flt-q1" value="a"> E_C, regardless of doping</label>
+            <label><input type="radio" name="flt-q1" value="b"> E_i, the intrinsic Fermi level</label>
+            <label><input type="radio" name="flt-q1" value="c"> E_V, regardless of doping</label>
+            <label><input type="radio" name="flt-q1" value="d"> E_F stays fixed at its low-temperature position forever</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>As T rises, nᵢ(T) eventually exceeds the fixed net doping, so n0→ni and the sample behaves as if intrinsic — which by definition means E_F→E_i.</p>
+            <p class="explain-incorrect" hidden>Drag temperature to its maximum for a lightly-doped sample and watch where E_F ends up relative to E_i.</p>
+        </div>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">2. Why does a heavily-doped sample resist the intrinsic transition longer (need higher T) than a lightly-doped one?</p>
+            <label><input type="radio" name="flt-q2" value="a"> Heavy doping directly lowers nᵢ</label>
+            <label><input type="radio" name="flt-q2" value="b"> It doesn't — doping level has no effect on the transition temperature</label>
+            <label><input type="radio" name="flt-q2" value="c"> nᵢ(T) must grow larger before it exceeds a bigger fixed net doping, which takes a higher temperature</label>
+            <label><input type="radio" name="flt-q2" value="d"> Heavy doping changes the band gap</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>The intrinsic transition happens once nᵢ(T) grows to be comparable to the fixed net doping N_D−N_A. A larger net doping simply requires nᵢ(T) to climb further (higher T) before that crossover occurs.</p>
+            <p class="explain-incorrect" hidden>Compare the trend-chart curves for a light- and heavy-doping N_D setting.</p>
+        </div>
+
+        <p class="key-takeaway"><strong>Key Takeaway:</strong> Doping sets where E_F starts (at low-to-moderate T); temperature decides how long it stays there. Every doped semiconductor eventually becomes intrinsic-dominated at a high enough temperature — heavier doping only postpones that transition to a higher temperature, it doesn't prevent it.</p>
+
+    </div>
+    </details>
+</body>
+</html>

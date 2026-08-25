@@ -27,11 +27,19 @@
     <summary>Guided Exploration &amp; Challenge Questions</summary>
     <div class="panel-content">
 
-        <h3>Try This</h3>
+        <h3>What to Observe</h3>
+        <ul class="explore-list">
+            <li>Three curves per carrier: green (lattice-limited μ_L, falling with T), orange (impurity-limited μ_I, rising with T), and a third color (total μ, always the lowest of the two — never higher than either individual mechanism).</li>
+            <li>The "Compare electrons vs. holes" checkbox overlays both carrier types at once (holes dashed), making the electron/hole mobility gap directly visible.</li>
+            <li>The 77 K / 300 K / 500 K buttons jump the temperature marker to standard reference points instantly.</li>
+        </ul>
+
+        <h3>Guided Exploration</h3>
         <ul class="explore-list">
             <li><strong>Try this:</strong> Set doping to its lowest value and observe that the total mobility curve nearly follows the lattice-scattering curve alone.</li>
             <li><strong>Predict:</strong> Before raising the doping concentration, predict which curve (lattice or impurity) will start to dominate at low temperature.</li>
             <li><strong>Observe:</strong> Raise doping and watch the impurity-scattering curve drop and pull the total mobility curve down with it, especially at low temperature.</li>
+            <li><strong>Compare:</strong> Enable "Compare electrons vs. holes" and confirm the electron curve sits above the hole curve at every temperature — electrons are consistently more mobile in silicon.</li>
         </ul>
 
         <p class="connects-to"><strong>Connects to Chapter 11:</strong> Two independent scattering mechanisms limit carrier mobility: <strong>lattice scattering</strong> off thermal vibrations of the crystal (which gets worse — mobility drops — as temperature rises, roughly \(\mu_L\propto T^{-3/2}\)), and <strong>impurity scattering</strong> off ionized dopant atoms (which gets worse at low temperature, where carriers move slowly enough to be deflected by the impurities' Coulomb field, roughly \(\mu_I\propto T^{3/2}/N\)). Matthiessen's rule combines the two independently-acting scattering rates: \(1/\mu_{total}=1/\mu_L+1/\mu_I\), so whichever mechanism gives the *smaller* individual mobility dominates the total.</p>
@@ -39,10 +47,12 @@
         <h3>What Each Control Does</h3>
         <dl class="control-captions">
             <dt>Carrier type dropdown</dt>
-            <dd>Switches between electron and hole mobility parameters.</dd>
+            <dd>Switches between electron and hole mobility parameters (ignored while comparison mode is on).</dd>
+            <dt>Compare electrons vs. holes checkbox</dt>
+            <dd>Overlays both carrier types' total-mobility curves together instead of showing one at a time.</dd>
             <dt>Doping concentration slider</dt>
             <dd>Sets the ionized impurity concentration, controlling the impurity-scattering curve.</dd>
-            <dt>Temperature marker slider</dt>
+            <dt>Temperature marker slider / 77 K, 300 K, 500 K presets</dt>
             <dd>Reads off all three mobility values at a chosen temperature.</dd>
         </dl>
 
@@ -71,6 +81,20 @@
             <p class="explain-correct" hidden>Higher temperature means more vigorous lattice vibrations (phonons), which scatter carriers more often, reducing lattice-limited mobility.</p>
             <p class="explain-incorrect" hidden>Look at the lattice-scattering curve's slope as the temperature marker moves right.</p>
         </div>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">3. In the comparison mode, why do electrons and holes have different total-mobility curves even at the same temperature and doping?</p>
+            <label><input type="radio" name="mtd-q3" value="a"> They don't — the curves are always identical</label>
+            <label><input type="radio" name="mtd-q3" value="b"> Holes are not real particles, so they have no mobility</label>
+            <label><input type="radio" name="mtd-q3" value="c"> Electrons and holes have different effective masses and scattering cross-sections, giving each its own μ_L0 and μ_I0 calibration</label>
+            <label><input type="radio" name="mtd-q3" value="d"> Only electrons experience lattice scattering</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Electrons and holes move through the same lattice and the same impurity atoms, but their different effective masses and band structures give them different scattering strengths, hence different μ_L0/μ_I0 reference values and different curves.</p>
+            <p class="explain-incorrect" hidden>Enable comparison mode and look at the two "Total μ" curves' vertical separation.</p>
+        </div>
+
+        <p class="key-takeaway"><strong>Key Takeaway:</strong> Mobility is not one fixed material constant — it is the outcome of two competing, temperature- and doping-dependent scattering mechanisms combined by Matthiessen's rule, and it differs between electrons and holes in the same crystal because each carrier's effective mass and scattering strength differ.</p>
 
     </div>
     </details>

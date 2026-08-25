@@ -27,18 +27,26 @@
     <summary>Guided Exploration &amp; Challenge Questions</summary>
     <div class="panel-content">
 
-        <h3>Try This</h3>
+        <h3>What to Observe</h3>
         <ul class="explore-list">
-            <li><strong>Try this:</strong> Set the electric field slider to 0, click Start, and watch the electron zig-zag randomly with no net direction.</li>
+            <li>The blue trail shows the electron's actual path — a zig-zag of many short random segments, not a smooth line — every time it re-scatters off the lattice.</li>
+            <li>The info box reports drift velocity and an estimated mobility (in arbitrary simulation units) computed from the electron's total displacement divided by elapsed time.</li>
+            <li>The "No field / Weak / Strong" buttons jump the field slider to representative reference points.</li>
+        </ul>
+
+        <h3>Guided Exploration</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Set the electric field slider to 0 (or click "No field"), click Start, and watch the electron zig-zag randomly with no net direction.</li>
             <li><strong>Predict:</strong> Before raising the electric field, predict whether the zig-zag pattern will disappear or just gain an overall bias.</li>
             <li><strong>Observe:</strong> Raise the electric field and watch the random zig-zag path develop a clear rightward drift, while the scattering events (direction changes) keep happening at the same rate.</li>
+            <li><strong>Compare:</strong> Click Reset, switch between "Weak" and "Strong," and compare how many frames it takes for the drift to become visually obvious in each case.</li>
         </ul>
 
         <p class="connects-to"><strong>Connects to Chapter 11:</strong> An electron in a crystal is constantly scattering off lattice vibrations and impurity atoms, changing direction randomly many times per second — with no applied field, this random motion averages to zero net displacement. An applied electric field superimposes a small, steady <strong>drift velocity</strong> on top of this much larger random thermal motion. The ratio of this drift velocity to the field strength is the carrier's <strong>mobility</strong>, \(\mu = v_d/E\) — a single number that hides all the messy scattering detail.</p>
 
         <h3>What Each Control Does</h3>
         <dl class="control-captions">
-            <dt>Electric field slider</dt>
+            <dt>Electric field slider / presets</dt>
             <dd>Sets the strength of the applied field, biasing the random walk toward the right.</dd>
             <dt>Start/Stop button</dt>
             <dd>Starts or pauses the animation. The sim loads paused so the initial (undisturbed) lattice can be inspected first.</dd>
@@ -71,6 +79,20 @@
             <p class="explain-correct" hidden>Mobility captures how much net drift velocity results from a given field strength — a high-scattering environment (frequent direction changes) gives low mobility, since the field has little time to build up drift between collisions.</p>
             <p class="explain-incorrect" hidden>Compare the drift velocity readout to the field slider value and see what their ratio represents.</p>
         </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">3. Does the scattering rate (how often the electron changes direction) depend on the electric field slider in this MicroSim?</p>
+            <label><input type="radio" name="dve-q3" value="a"> No — scattering happens on a fixed schedule; the field only adds a small biasing velocity on top of it</label>
+            <label><input type="radio" name="dve-q3" value="b"> Yes — a stronger field makes the electron scatter more often</label>
+            <label><input type="radio" name="dve-q3" value="c"> Yes — a stronger field makes the electron stop scattering entirely</label>
+            <label><input type="radio" name="dve-q3" value="d"> Scattering only happens when the field is zero</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>In this simplified model, scattering events happen at a fixed interval regardless of field strength — the field only adds a small, constant rightward nudge between scattering events, exactly matching the real physical picture of drift as a small bias on top of unchanged random thermal motion.</p>
+            <p class="explain-incorrect" hidden>Watch the trail's zig-zag frequency at "Weak" versus "Strong" field settings — count how often it changes direction in each case.</p>
+        </div>
+
+        <p class="key-takeaway"><strong>Key Takeaway:</strong> Drift is a small, steady bias superimposed on much larger random motion — it does not replace or slow down the scattering itself. Mobility is the conversion factor between field strength and that small bias, set entirely by how often and how strongly the carrier scatters.</p>
 
     </div>
     </details>

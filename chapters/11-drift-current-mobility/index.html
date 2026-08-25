@@ -2676,6 +2676,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Drift Current">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-drift-current-density-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Drift Current Density Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -7056,6 +7073,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../sims/drift-current-density-explorer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Drift Current Density Explorer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../sims/mobility-temperature-doping-explorer/" class="md-nav__link">
         
   
@@ -9904,6 +9949,7 @@
 <p>By the end of this chapter, you will be able to:</p>
 <ul>
 <li>Define drift velocity and drift current, and relate them through carrier mobility</li>
+<li>Compute real drift current density in A/cm² and compare majority vs. minority carrier contributions</li>
 <li>Explain, qualitatively, what diffusion current is and how it differs from drift current</li>
 <li>Explain how lattice scattering and impurity scattering each limit carrier mobility, and in what temperature/doping regimes each dominates</li>
 <li>Apply Matthiessen's rule to combine multiple scattering mechanisms into a single mobility</li>
@@ -9948,7 +9994,7 @@ v_d = \mu E
 <iframe height="640px" scrolling="auto" src="../../sims/drift-velocity-scattering-explorer/main.html" width="100%"></iframe>
 <div class="admonition tip">
 <p class="admonition-title">How to use this MicroSim</p>
-<p><strong>Instructions:</strong> With the field at zero, click Start and watch the electron's random path; then raise the field and observe the path develop a rightward bias.</p>
+<p><strong>Instructions:</strong> With the field at zero (or the "No field" preset), click Start and watch the electron's random path; then raise the field, or click "Weak" or "Strong," and observe the path develop a rightward bias.</p>
 <p><strong>Learning objective:</strong> Explain drift velocity as a small net bias superimposed on much larger random thermal motion, and connect the drift velocity/field ratio to mobility.</p>
 <p><strong>What to observe:</strong> The zig-zag scattering pattern never disappears, even at high field — it is always present. The field only adds a small, steady rightward component to otherwise-random motion.</p>
 </div>
@@ -9978,6 +10024,16 @@ J_{\text{drift}} = q(n\mu_n+p\mu_p)E
 J_{n,\text{drift}} = qn\mu_nE = (1.602\times10^{-19})(10^{16})(1200)(100) \approx 192\ \text{A/cm}^2
 \]</div>
 </div>
+<p>Worked Example 1 assumed the hole contribution was negligible without proving it. The MicroSim below makes that assumption checkable directly — computing both <span class="arithmatex">\(J_n\)</span> and <span class="arithmatex">\(J_p\)</span> from the exact carrier concentrations (Chapters 9-10) and this chapter's mobility model, for any doping level and material.</p>
+<h4 id="diagram-drift-current-density-explorer">Diagram: Drift Current Density Explorer</h4>
+<iframe height="700px" scrolling="auto" src="../../sims/drift-current-density-explorer/main.html" width="100%"></iframe>
+<div class="admonition tip">
+<p class="admonition-title">How to use this MicroSim</p>
+<p><strong>Instructions:</strong> Start with the "n-type" preset and compare the J_n and J_p bars; then switch to "Intrinsic" and compare again.</p>
+<p><strong>Learning objective:</strong> Compute drift current density in real units from carrier concentration, mobility, and field, and explain why the minority carrier's contribution is usually negligible.</p>
+<p><strong>What to observe:</strong> In doped material, one bar towers over the other by many orders of magnitude — direct visual confirmation of the mass action law's consequence for current, not just for carrier concentration. In the intrinsic preset, the two bars are comparable, but both are far shorter than the majority-carrier bar in the doped presets.</p>
+</div>
+<p><a href="../../sims/drift-current-density-explorer/">Full MicroSim documentation →</a></p>
 <h2 id="diffusion-current-a-brief-introduction">Diffusion Current: A Brief Introduction</h2>
 <h3 id="the-second-fundamental-current-mechanism">The Second Fundamental Current Mechanism</h3>
 <p>Drift current requires an electric field. There is a second, entirely independent way to produce current: <strong>diffusion current</strong>, driven not by a field but by a <em>concentration gradient</em> — a carrier concentration that varies with position. Just as a drop of ink spreads out from a region of high concentration to low concentration in still water, carriers in a semiconductor tend to spread from regions of high concentration toward regions of low concentration, even with no applied field at all, simply due to their random thermal motion combined with the concentration imbalance.</p>
@@ -10011,9 +10067,9 @@ J_{n,\text{diff}} = qD_n\frac{dn}{dx}, \qquad J_{p,\text{diff}} = -qD_p\frac{dp}
 <iframe height="640px" scrolling="auto" src="../../sims/mobility-temperature-doping-explorer/main.html" width="100%"></iframe>
 <div class="admonition tip">
 <p class="admonition-title">How to use this MicroSim</p>
-<p><strong>Instructions:</strong> Compare the three curves at low doping, then raise the doping slider and observe how the impurity-scattering curve pulls down the total mobility curve, especially at low temperature.</p>
-<p><strong>Learning objective:</strong> Apply Matthiessen's rule to combine lattice and impurity scattering, and identify which mechanism dominates in a given temperature/doping regime.</p>
-<p><strong>What to observe:</strong> At low doping, the total mobility curve nearly tracks the lattice-scattering curve at all temperatures shown; at heavy doping, impurity scattering visibly pulls the total curve down, especially at low temperature where impurity scattering is strongest.</p>
+<p><strong>Instructions:</strong> Compare the three curves at low doping, then raise the doping slider and observe how the impurity-scattering curve pulls down the total mobility curve, especially at low temperature; enable "Compare electrons vs. holes" to see both carrier types at once.</p>
+<p><strong>Learning objective:</strong> Apply Matthiessen's rule to combine lattice and impurity scattering, identify which mechanism dominates in a given temperature/doping regime, and compare electron vs. hole mobility directly.</p>
+<p><strong>What to observe:</strong> At low doping, the total mobility curve nearly tracks the lattice-scattering curve at all temperatures shown; at heavy doping, impurity scattering visibly pulls the total curve down, especially at low temperature where impurity scattering is strongest. In comparison mode, the electron curve sits consistently above the hole curve.</p>
 </div>
 <p><a href="../../sims/mobility-temperature-doping-explorer/">Full MicroSim documentation →</a></p>
 <div class="admonition example">
@@ -10056,7 +10112,7 @@ R = R_s\times\frac{L}{W}
 <iframe height="660px" scrolling="auto" src="../../sims/conductivity-resistivity-sheet-resistance-calculator/main.html" width="100%"></iframe>
 <div class="admonition tip">
 <p class="admonition-title">How to use this MicroSim</p>
-<p><strong>Instructions:</strong> Adjust doping and observe resistivity fall; then adjust the number-of-squares slider and watch resistance scale directly with it.</p>
+<p><strong>Instructions:</strong> Adjust doping and observe resistivity fall; then adjust the number-of-squares slider and watch resistance scale directly with it, or start from one of the design presets.</p>
 <p><strong>Learning objective:</strong> Compute conductivity and resistivity from doping and mobility, and apply the sheet-resistance "number of squares" method.</p>
 <p><strong>What to observe:</strong> Resistance depends only on the number of squares (L/W), not on the film's absolute length or width — doubling both L and W leaves resistance unchanged.</p>
 </div>

@@ -241,7 +241,8 @@ nav:
           - Degenerate Semiconductor Explorer: sims/degenerate-semiconductor-explorer/index.md
       - Chapter 9:
           - Fermi Function and Boltzmann Approximation Explorer: sims/fermi-function-boltzmann-approximation-explorer/index.md
-          - Effective Density of States Calculator: sims/effective-density-of-states-calculator/index.md
+          - Effective Density of States Explorer: sims/effective-density-of-states-calculator/index.md
+          - Carrier Concentration and Fermi Level Explorer: sims/carrier-concentration-fermi-level-explorer/index.md
           - Mass Action Law Explorer: sims/mass-action-law-explorer/index.md
       - Chapter 10:
           - Exact Carrier Concentration Calculator: sims/exact-carrier-concentration-calculator/index.md

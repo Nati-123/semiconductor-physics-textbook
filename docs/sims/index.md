@@ -105,9 +105,10 @@ Interactive educational simulations that accompany this textbook.
 
 | MicroSim | Bloom Level | Description |
 |----------|-------------|-------------|
-| [Fermi Function and Boltzmann Approximation Explorer](fermi-function-boltzmann-approximation-explorer/index.md) | L2-L4 Understand/Analyze | Overlays the exact Fermi-Dirac function with its Boltzmann approximation, shading the valid-approximation zone |
-| [Effective Density of States Calculator](effective-density-of-states-calculator/index.md) | L3 Apply | Computes N_C, N_V, band gap, and intrinsic carrier concentration from first principles for Si, Ge, and GaAs |
-| [Mass Action Law Explorer](mass-action-law-explorer/index.md) | L2-L3 Understand/Apply | Plots the n0·p0=ni² hyperbola on log-log axes with a slider-driven marker |
+| [Fermi Function and Boltzmann Approximation Explorer](fermi-function-boltzmann-approximation-explorer/index.md) | L2-L4 Understand/Analyze | Overlays the exact Fermi-Dirac function with its Boltzmann approximation, with temperature presets and a selectable-tolerance shaded validity zone |
+| [Effective Density of States Explorer](effective-density-of-states-calculator/index.md) | L3-L4 Apply/Analyze | Computes N_C, N_V, band gap, and intrinsic carrier concentration from first principles for Si, Ge, and GaAs, with single-material, N_C/N_V-vs-T, and three-material comparison views |
+| [Carrier Concentration and Fermi Level Explorer](carrier-concentration-fermi-level-explorer/index.md) | L3-L4 Apply/Analyze | Drags E_F directly through the band gap and shows n0/p0 respond via the effective-density-of-states equations, with a degeneracy warning |
+| [Mass Action Law Explorer](mass-action-law-explorer/index.md) | L2-L3 Understand/Apply | Plots the n0·p0=ni² hyperbola on log-log axes for a chosen material/temperature, with shaded n-type/p-type regions and a slider-driven marker |
 
 ## Chapter 10: Fermi Level Position and Carrier Equations
 

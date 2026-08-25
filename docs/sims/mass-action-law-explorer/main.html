@@ -27,21 +27,31 @@
     <summary>Guided Exploration &amp; Challenge Questions</summary>
     <div class="panel-content">
 
-        <h3>Try This</h3>
+        <h3>What to Observe</h3>
         <ul class="explore-list">
-            <li><strong>Try this:</strong> Start with the n₀ slider at the intrinsic point, where both n₀ and p₀ equal nᵢ, and confirm the marker sits exactly on the diagonal.</li>
-            <li><strong>Predict:</strong> Before dragging n₀ up by several orders of magnitude, predict what will happen to p₀.</li>
+            <li>The purple-shaded region (n₀ > nᵢ) is the n-type side of the hyperbola; the gold-shaded region (n₀ < nᵢ) is the p-type side — the marker always sits on the hyperbola, never inside either shaded band.</li>
+            <li>The green dot marks the intrinsic point, where n₀ = p₀ = nᵢ exactly — this is where the hyperbola crosses the dashed n₀=p₀ diagonal.</li>
+            <li>Switching material or temperature moves the entire hyperbola (a different nᵢ), but the marker's log₁₀n₀+log₁₀p₀ sum on that curve is always log₁₀(nᵢ²).</li>
+        </ul>
+
+        <h3>Guided Exploration</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Start with the n₀ slider at the intrinsic point (drag until the marker overlaps the green dot) and confirm both n₀ and p₀ read out as equal to nᵢ.</li>
+            <li><strong>Predict:</strong> Before dragging n₀ up by several orders of magnitude, predict what will happen to p₀ and whether the marker will move into the n-type or p-type shaded region.</li>
             <li><strong>Observe:</strong> Drag n₀ across its full range and watch p₀ shrink correspondingly, always keeping the marker on the same hyperbola.</li>
+            <li><strong>Compare:</strong> Switch material from Silicon to Germanium at the same temperature and notice the entire hyperbola shifts — germanium's larger nᵢ moves the intrinsic point up and to the right.</li>
         </ul>
 
         <p class="connects-to"><strong>Connects to Chapter 9:</strong> Multiplying the non-degenerate electron and hole concentration formulas together, \(n_0p_0=N_Ce^{-(E_C-E_F)/k_BT}\times N_Ve^{-(E_F-E_V)/k_BT}=N_CN_Ve^{-E_g/k_BT}\), the Fermi level \(E_F\) cancels out completely — the product depends only on temperature and material, not on doping. Since this product equals \(n_i^2\) by definition, the result is the <strong>mass action law</strong>, \(n_0p_0=n_i^2\), true in any non-degenerate semiconductor at thermal equilibrium regardless of doping level.</p>
 
         <h3>What Each Control Does</h3>
         <dl class="control-captions">
+            <dt>Material dropdown</dt>
+            <dd>Selects Si, Ge, or GaAs, which sets the band gap and effective masses used to compute nᵢ.</dd>
+            <dt>Temperature slider</dt>
+            <dd>Sets T, recomputing nᵢ (and therefore the whole hyperbola) live via the same physics as the Effective Density of States Explorer.</dd>
             <dt>n₀ slider (log scale)</dt>
             <dd>Sets the electron concentration; the hole concentration p₀ is computed automatically to keep n₀p₀ = nᵢ² fixed.</dd>
-            <dt>Material/temperature dropdown</dt>
-            <dd>Selects the intrinsic carrier concentration nᵢ used to fix the hyperbola.</dd>
         </dl>
 
         <h3>Challenge Questions</h3>
@@ -69,6 +79,20 @@
             <p class="explain-correct" hidden>n₀ contains e^(-(Ec-EF)/kT) and p₀ contains e^(-(EF-Ev)/kT); multiplying combines these exponents into e^(-(Ec-Ev)/kT) = e^(-Eg/kT), with E_F cancelling exactly — which is why the mass action law holds regardless of doping (which sets E_F).</p>
             <p class="explain-incorrect" hidden>Look at the exponents in n₀ and p₀'s formulas and add them together algebraically.</p>
         </div>
+
+        <div class="challenge" data-correct="d">
+            <p class="q-text">3. Predict first: if you switch from Silicon to GaAs at the same temperature and leave n₀ unchanged, what happens to the marker?</p>
+            <label><input type="radio" name="mal-q3" value="a"> Nothing changes</label>
+            <label><input type="radio" name="mal-q3" value="b"> The marker moves further into the n-type region only</label>
+            <label><input type="radio" name="mal-q3" value="c"> p₀ increases, since GaAs has a larger band gap</label>
+            <label><input type="radio" name="mal-q3" value="d"> The whole hyperbola shifts down (smaller nᵢ² for GaAs), so p₀ decreases even though n₀ is unchanged</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>GaAs's larger band gap gives it a much smaller nᵢ than silicon at the same T, so nᵢ² is smaller and the entire hyperbola shifts down — with n₀ held fixed, p₀ = nᵢ²/n₀ must decrease. Try it: set n₀ to a fixed value, switch material, and read the new p₀.</p>
+            <p class="explain-incorrect" hidden>Switch the material dropdown from Silicon to GaAs without touching the n₀ slider, and compare the p₀ readout before and after.</p>
+        </div>
+
+        <p class="key-takeaway"><strong>Key Takeaway:</strong> The mass action law is a hyperbola, not a line: n₀ and p₀ trade off multiplicatively, not additively. Doping moves the marker along a fixed curve (majority carrier up, minority carrier down by the same factor), while changing material or temperature moves the entire curve by changing nᵢ² itself.</p>
 
     </div>
     </details>

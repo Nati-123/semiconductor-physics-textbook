@@ -2290,7 +2290,8 @@
     96
    ],
    "microsims": [
-    "effective-density-of-states-calculator"
+    "effective-density-of-states-calculator",
+    "carrier-concentration-fermi-level-explorer"
    ],
    "bloom": null
   },

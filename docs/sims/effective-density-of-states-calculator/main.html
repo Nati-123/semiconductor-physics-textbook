@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
-    <title>Effective Density of States and Intrinsic Carrier Concentration Calculator MicroSim</title>
+    <title>Effective Density of States Explorer MicroSim</title>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
     <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
     <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
@@ -27,11 +27,20 @@
     <summary>Guided Exploration &amp; Challenge Questions</summary>
     <div class="panel-content">
 
-        <h3>Try This</h3>
+        <h3>What to Observe</h3>
+        <ul class="explore-list">
+            <li>The card on the left shows N_C and N_V computed directly from the formula shown (not a lookup table), alongside the live band gap E_g(T) and intrinsic concentration n_i.</li>
+            <li>N_C is not a literal count of electron states — it is a single number that collapses the entire conduction-band density-of-states integral into "as if all states sat exactly at E_C with degeneracy N_C."</li>
+            <li>Switch the View dropdown to see three different plots of the same underlying physics: n_i(T) for one material, N_C(T) and N_V(T) together, or an n_i(T) comparison across all three materials.</li>
+        </ul>
+
+        <h3>Guided Exploration</h3>
         <ul class="explore-list">
             <li><strong>Try this:</strong> Select "Silicon" at 300 K and compare the computed N_C and n_i to the commonly quoted textbook values (N_C≈2.8×10^19 cm^-3, n_i≈10^10 cm^-3).</li>
             <li><strong>Predict:</strong> Before switching to GaAs, predict whether N_C will be larger or smaller than silicon's, given GaAs's much smaller electron effective mass.</li>
             <li><strong>Observe:</strong> Drag the temperature slider and watch n_i change by orders of magnitude for only a modest change in T — the exponential sensitivity flagged all the way back in Chapter 1.</li>
+            <li><strong>Compare:</strong> Switch View to "N_C(T) & N_V(T) — power law" and confirm both curves rise gently (T^1.5); then switch to the n_i(T) view for the same material and notice how much more steeply that curve rises — the exponential term dominates.</li>
+            <li><strong>Explore:</strong> Switch View to "Compare nᵢ(T)" and confirm GaAs's curve sits consistently below silicon's and germanium's at every temperature.</li>
         </ul>
 
         <p class="connects-to"><strong>Connects to Chapter 9:</strong> The effective density of states, \(N_C=2(2\pi m_e^*k_BT/h^2)^{3/2}\) (and the analogous \(N_V\) for holes), collapses the entire conduction-band density-of-states integral into a single number, letting the non-degenerate carrier concentration be written simply as \(n_0=N_Ce^{-(E_C-E_F)/k_BT}\). Combining \(N_C\) and \(N_V\) with the band gap gives the intrinsic carrier concentration, \(n_i=\sqrt{N_CN_V}\,e^{-E_g/2k_BT}\) — the single number that anchors every carrier-concentration calculation in this and later chapters.</p>
@@ -42,6 +51,8 @@
             <dd>Selects the density-of-states effective masses and Varshni band-gap constants used in the calculation.</dd>
             <dt>Temperature slider</dt>
             <dd>Sets T, recomputing N_C, N_V, E_g(T), and n_i(T) live.</dd>
+            <dt>View dropdown</dt>
+            <dd>Switches the chart between a single material's n_i(T), N_C(T)/N_V(T) together, or an n_i(T) comparison across Si, Ge, and GaAs.</dd>
         </dl>
 
         <h3>Challenge Questions</h3>
@@ -57,6 +68,20 @@
             <p class="explain-correct" hidden>N_C scales as (m*)^(3/2), and GaAs's much smaller electron effective mass (0.067 m0 vs. silicon's 1.08 m0) directly produces a much smaller N_C.</p>
             <p class="explain-incorrect" hidden>Compare the electron effective mass values shown for silicon and GaAs.</p>
         </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">2. In the "N_C(T) & N_V(T)" view, why do both curves rise so much more gently than n_i(T) does in the other view?</p>
+            <label><input type="radio" name="edc-q2" value="a"> N_C and N_V do not actually depend on temperature</label>
+            <label><input type="radio" name="edc-q2" value="b"> N_C and N_V follow a T^1.5 power law, while n_i additionally carries an exponential factor e^(−Eg/2kT) that changes far more steeply with T</label>
+            <label><input type="radio" name="edc-q2" value="c"> The chart is drawn incorrectly</label>
+            <label><input type="radio" name="edc-q2" value="d"> n_i does not depend on N_C or N_V at all</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>n_i = √(N_C·N_V)·e^(−Eg/2kT) contains N_C and N_V's T^1.5 dependence AND the exponential e^(−Eg/2kT) term — and the exponential term dominates n_i's overall temperature sensitivity by far.</p>
+            <p class="explain-incorrect" hidden>Compare the two view modes at the same temperature range and look at how many orders of magnitude each curve spans.</p>
+        </div>
+
+        <p class="key-takeaway"><strong>Key Takeaway:</strong> N_C and N_V are bookkeeping constants, not physical state counts — they let a hard integral become simple algebra. Because n_i depends on N_C and N_V only through a mild T^1.5 power law but on the band gap through a steep exponential, band gap (not effective mass) is what dominates how dramatically n_i differs between materials and across temperature.</p>
 
     </div>
     </details>

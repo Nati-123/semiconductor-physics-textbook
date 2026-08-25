@@ -2,8 +2,8 @@
 title: Carrier Concentration Statistics
 description: Free electrons and holes, the Fermi-Dirac distribution and Fermi function, the density of states function, effective density of states, intrinsic carrier concentration, the mass action law, and the charge neutrality condition
 generated_by: "claude skill chapter-content-generator"
-date: 2026-08-02 00:00:00
-version: 0.03
+date: 2026-08-25 00:00:00
+version: 0.04
 ---
 
 # Chapter 9: Carrier Concentration Statistics
@@ -33,7 +33,7 @@ By the end of this chapter, you will be able to:
 - Define free electrons and holes as charge carriers, and describe how an electron-hole pair is created together
 - State the Fermi-Dirac distribution (Fermi function) and explain the role of the density of states function in computing carrier concentration
 - Derive the effective density of states \(N_C\) (and \(N_V\)) from the density-of-states integral under the Boltzmann approximation
-- Compute non-degenerate electron and hole concentrations, \(n_0=N_Ce^{-(E_C-E_F)/k_BT}\) and \(p_0=N_Ve^{-(E_F-E_V)/k_BT}\)
+- Compute non-degenerate electron and hole concentrations, \(n_0=N_Ce^{-(E_C-E_F)/k_BT}\) and \(p_0=N_Ve^{-(E_F-E_V)/k_BT}\), and explain why they move in opposite directions as \(E_F\) shifts through the gap
 - Derive and apply the intrinsic carrier concentration formula, \(n_i=\sqrt{N_CN_V}\,e^{-E_g/2k_BT}\)
 - State and apply the mass action law, \(n_0p_0=n_i^2\), and explain why it holds regardless of doping
 - State the charge neutrality condition and explain its role (together with the mass action law) in solving for exact carrier concentrations
@@ -110,6 +110,8 @@ n_0 = \int_{E_C}^{\infty} g_c(E)\,f(E)\,dE
 
 with the exactly analogous integral, using \(1-f(E)\) (the probability a state is *empty*, i.e., holds a hole) and the valence-band density of states \(g_v(E)\), giving the hole concentration \(p_0\) below \(E_V\).
 
+The Boltzmann approximation is not simply "assumed" — its accuracy is a continuous function of how far a state sits above \(E_F\) relative to \(k_BT\), and the MicroSim below lets that be checked directly rather than taken on faith.
+
 #### Diagram: Fermi Function and Boltzmann Approximation Explorer
 
 <iframe src="../../sims/fermi-function-boltzmann-approximation-explorer/main.html" width="100%" height="640px" scrolling="auto"></iframe>
@@ -147,16 +149,18 @@ p_0 = N_Ve^{-(E_F-E_V)/k_BT}, \qquad N_V = 2\left(\frac{2\pi m_h^*k_BT}{h^2}\rig
 
 For silicon at \(T=300\) K, using density-of-states effective masses \(m_e^*=1.08\,m_0\) and \(m_h^*=0.56\,m_0\) (which already include the valley-degeneracy correction flagged in Chapter 7), these formulas give \(N_C\approx2.8\times10^{19}\ \text{cm}^{-3}\) and \(N_V\approx1.04\times10^{19}\ \text{cm}^{-3}\) — precisely the values Chapter 8 used when previewing the degenerate-semiconductor criterion.
 
-#### Diagram: Effective Density of States and Intrinsic Carrier Concentration Calculator
+The formula above collapses an integral into a number — the MicroSim below makes that number concrete by computing it from real Si/Ge/GaAs constants, and lets its temperature dependence (and its much steeper cousin, \(n_i(T)\)) be compared directly across materials rather than only in a table.
 
-<iframe src="../../sims/effective-density-of-states-calculator/main.html" width="100%" height="600px" scrolling="auto"></iframe>
+#### Diagram: Effective Density of States Explorer
+
+<iframe src="../../sims/effective-density-of-states-calculator/main.html" width="100%" height="640px" scrolling="auto"></iframe>
 
 !!! tip "How to use this MicroSim"
-    **Instructions:** Select each material and drag the temperature slider, watching \(N_C\), \(N_V\), and \(n_i\) update live.
+    **Instructions:** Select each material and drag the temperature slider, watching \(N_C\), \(N_V\), and \(n_i\) update live. Use the View dropdown to switch between a single material's \(n_i(T)\) curve, \(N_C(T)\) and \(N_V(T)\) plotted together, and an \(n_i(T)\) comparison across all three materials.
 
-    **Learning objective:** Apply the effective-density-of-states formula, and observe how strongly \(n_i\) depends on both material (via band gap and effective mass) and temperature.
+    **Learning objective:** Apply the effective-density-of-states formula, observe how strongly \(n_i\) depends on both material (via band gap and effective mass) and temperature, and compare how dramatically different materials' intrinsic carrier concentrations can be at the same temperature.
 
-    **What to observe:** GaAs's tiny electron effective mass (0.067 \(m_0\)) gives it a much smaller \(N_C\) than silicon's, since \(N_C\propto(m^*)^{3/2}\).
+    **What to observe:** GaAs's tiny electron effective mass (0.067 \(m_0\)) gives it a much smaller \(N_C\) than silicon's, since \(N_C\propto(m^*)^{3/2}\) — yet in the "Compare \(n_i(T)\)" view, GaAs's much larger band gap still leaves it with the *smallest* \(n_i\) of the three materials at every temperature, since the exponential band-gap term dominates over the effective-mass prefactor.
 
 [Full MicroSim documentation →](../../sims/effective-density-of-states-calculator/index.md)
 
@@ -168,6 +172,21 @@ For silicon at \(T=300\) K, using density-of-states effective masses \(m_e^*=1.0
     \[
     n_0 = N_Ce^{-(E_C-E_F)/k_BT} = (2.8\times10^{19})e^{-0.20/0.0259} = (2.8\times10^{19})e^{-7.72} \approx (2.8\times10^{19})(4.43\times10^{-4}) \approx 1.24\times10^{16}\ \text{cm}^{-3}
     \]
+
+Worked Example 1 fixed \(E_F\) at one position and solved for \(n_0\) by hand. The MicroSim below does the same calculation continuously, letting \(E_F\) be dragged through the entire gap so the relationship between Fermi level position and carrier population becomes something to watch happen, not just something to compute once.
+
+#### Diagram: Carrier Concentration and Fermi Level Explorer
+
+<iframe src="../../sims/carrier-concentration-fermi-level-explorer/main.html" width="100%" height="660px" scrolling="auto"></iframe>
+
+!!! tip "How to use this MicroSim"
+    **Instructions:** Drag the \(E_F\) slider through the gap and watch the \(n_0\) and \(p_0\) gauges respond; drag it past \(E_C\) or below \(E_V\) to see the non-degenerate/transition/degenerate badge change.
+
+    **Learning objective:** Connect Fermi level position directly to carrier population, and recognize when the non-degenerate formulas this chapter derives are no longer a valid description.
+
+    **What to observe:** As \(E_F\) moves toward \(E_C\), \(n_0\) rises while \(p_0\) falls — and vice versa moving toward \(E_V\) — because \(E_C-E_F\) and \(E_F-E_V\) are two complementary distances describing the same single position. This MicroSim deliberately runs the effective-density-of-states equations "forward" (from \(E_F\) to \(n_0,p_0\)); Chapter 10's Fermi Level Position explorer runs the same equations "backward" (from doping to \(E_F\)).
+
+[Full MicroSim documentation →](../../sims/carrier-concentration-fermi-level-explorer/index.md)
 
 ## Intrinsic Carrier Concentration
 
@@ -214,16 +233,18 @@ n_0p_0 = n_i^2
 
 The remarkable feature of this equation is what is *missing* from it: the Fermi level \(E_F\), which appears explicitly in both the \(n_0\) and \(p_0\) formulas, cancels out completely when the two are multiplied. This means the mass action law holds at thermal equilibrium in *any* non-degenerate semiconductor — intrinsic or doped n-type or doped p-type — regardless of the doping level. Doping shifts \(E_F\) (as Chapter 10 makes precise) and therefore shifts \(n_0\) and \(p_0\) individually, but their *product* is fixed by temperature and material alone.
 
+Algebra shows the mass action law holds; the MicroSim below makes it visible as a fixed hyperbola that doping can only slide a marker along, never escape.
+
 #### Diagram: Mass Action Law Explorer
 
 <iframe src="../../sims/mass-action-law-explorer/main.html" width="100%" height="600px" scrolling="auto"></iframe>
 
 !!! tip "How to use this MicroSim"
-    **Instructions:** Drag the \(n_0\) slider across its range and watch \(p_0\) adjust automatically to keep \(n_0p_0=n_i^2\).
+    **Instructions:** Pick a material and temperature, then drag the \(n_0\) slider across its range and watch \(p_0\) adjust automatically to keep \(n_0p_0=n_i^2\) fixed on the log-log hyperbola.
 
-    **Learning objective:** Apply the mass action law to compute minority carrier concentration from majority carrier concentration, and explain why the Fermi level cancels from the product.
+    **Learning objective:** Apply the mass action law to compute minority carrier concentration from majority carrier concentration, explain why the Fermi level cancels from the product, and identify the n-type and p-type regions of the curve relative to the intrinsic point.
 
-    **What to observe:** As \(n_0\) rises far above \(n_i\) (heavy n-type doping), \(p_0\) falls correspondingly far below \(n_i\) — doping does not just add majority carriers, it actively suppresses the minority carrier population.
+    **What to observe:** As \(n_0\) rises far above \(n_i\) (heavy n-type doping), \(p_0\) falls correspondingly far below \(n_i\) — doping does not just add majority carriers, it actively suppresses the minority carrier population. Switching material or temperature changes \(n_i\) and slides the entire hyperbola, but never changes its hyperbolic shape.
 
 [Full MicroSim documentation →](../../sims/mass-action-law-explorer/index.md)
 

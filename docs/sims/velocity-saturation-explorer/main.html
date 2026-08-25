@@ -27,11 +27,19 @@
     <summary>Guided Exploration &amp; Challenge Questions</summary>
     <div class="panel-content">
 
-        <h3>Try This</h3>
+        <h3>What to Observe</h3>
         <ul class="explore-list">
-            <li><strong>Try this:</strong> At low field, confirm the actual drift velocity curve (purple) tracks the dashed linear-mobility line (v=μE) closely.</li>
-            <li><strong>Predict:</strong> Before dragging the field marker to its maximum, predict whether drift velocity will keep growing proportionally or level off.</li>
+            <li>The gray dashed line is the naive linear prediction \(v_d=\mu E\); the purple curve is the actual saturating velocity — they overlap at low field and diverge at high field.</li>
+            <li>The shaded orange-red region marks where the linear approximation exceeds your selected error tolerance — its left edge is the numeric crossover reported below the chart.</li>
+            <li>The dashed green line marks \(v_{sat}\), the value the purple curve asymptotically approaches.</li>
+        </ul>
+
+        <h3>Guided Exploration</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> At low field (or the "Low" preset), confirm the actual drift velocity curve (purple) tracks the dashed linear-mobility line (v=μE) closely.</li>
+            <li><strong>Predict:</strong> Before dragging the field marker to its maximum (or clicking "High"), predict whether drift velocity will keep growing proportionally or level off.</li>
             <li><strong>Observe:</strong> At high field, watch the actual curve bend away from the dashed line and flatten toward the saturation velocity, even though the linear line keeps climbing.</li>
+            <li><strong>Explore:</strong> Switch the tolerance dropdown from 5% to 1% and watch the shaded "approximation fails" region grow — a tighter tolerance is exceeded at a lower field.</li>
         </ul>
 
         <p class="connects-to"><strong>Connects to Chapter 12:</strong> The simple relation \(v_d=\mu E\) (Chapter 11) only holds at low-to-moderate field strength. At high field, carriers gain so much kinetic energy between collisions that scattering becomes far more frequent and effective, and drift velocity stops growing linearly, approaching a material-dependent <strong>saturation velocity</strong>, \(v_{sat}\), instead — an effect that directly limits how fast short-channel transistors can switch.</p>
@@ -40,8 +48,10 @@
         <dl class="control-captions">
             <dt>Carrier type, temperature, and doping controls</dt>
             <dd>Set the low-field mobility used to compute the linear-regime slope (via Chapter 11's Matthiessen's-rule model).</dd>
-            <dt>Electric field marker</dt>
+            <dt>Electric field marker / Low, Moderate, High presets</dt>
             <dd>Reads off drift velocity at a chosen field strength, compared to the linear-mobility prediction.</dd>
+            <dt>Tolerance dropdown</dt>
+            <dd>Sets the acceptable relative-error threshold (1%, 5%, or 10%) defining the shaded "approximation fails" zone and its numeric crossover field.</dd>
         </dl>
 
         <h3>Challenge Questions</h3>
@@ -57,6 +67,20 @@
             <p class="explain-correct" hidden>At high field, increased scattering prevents drift velocity from growing further, and it levels off near a material-dependent saturation velocity.</p>
             <p class="explain-incorrect" hidden>Drag the field marker to its maximum value and see where the purple curve flattens.</p>
         </div>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">2. Predict first: if you switch the tolerance from 5% to 1%, what happens to the field at which the linear approximation is judged to "fail"?</p>
+            <label><input type="radio" name="vse-q2" value="a"> It moves higher — a tighter tolerance is harder to exceed</label>
+            <label><input type="radio" name="vse-q2" value="b"> Nothing changes</label>
+            <label><input type="radio" name="vse-q2" value="c"> It moves lower — a tighter tolerance is exceeded sooner, at a smaller field</label>
+            <label><input type="radio" name="vse-q2" value="d"> v_sat itself changes</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>A 1% tolerance is stricter than 5%, so the approximation is judged to fail at a lower field — the shaded region and its left edge both move toward lower E.</p>
+            <p class="explain-incorrect" hidden>Switch the tolerance dropdown and watch the shaded region's left edge move.</p>
+        </div>
+
+        <p class="key-takeaway"><strong>Key Takeaway:</strong> "Low field" is not an absolute number — it is a comparison between μE and v_sat. The same field can be safely linear for a low-mobility carrier but already saturating for a high-mobility one, which is exactly why short-channel device design must check this ratio explicitly rather than assuming v=μE always holds.</p>
 
     </div>
     </details>

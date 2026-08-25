@@ -16,7 +16,7 @@ quality_score: 85
 <h2 style="color: #5A3EED !important; border-bottom: 2px solid #5A3EED; padding-bottom: 0.3rem; font-weight: 700; margin-top: 2rem;">Description</h2>
 
 <p style="color: #555; line-height: 1.85; font-size: 1.02rem; margin-bottom: 1.2rem;">
-This MicroSim plots an exponentially-decaying hole concentration profile, \(p(x)=P_0e^{-x/L}\), with a movable position marker showing the local tangent line and the resulting diffusion current via Fick's law, \(J_{\text{diff}}=-qD_p(dp/dx)\). An electric field slider adds a drift current contribution, combined into a live total current density readout.
+This MicroSim plots an exponentially-decaying hole concentration profile, \(p(x)=P_0e^{-x/L}\), with a movable position marker showing the local tangent line and the resulting diffusion current via Fick's law, \(J_{\text{diff}}=-qD_p(dp/dx)\). Rather than a fixed constant, \(D_p\) is computed live from the Einstein relation using temperature and doping sliders. An electric field slider adds a drift current contribution, combined into a live total current density readout.
 </p>
 
 <div style="background: #FFF7DD; border: 2px solid #F0D87A; border-radius: 10px; padding: 20px 24px; margin: 1.2rem 0;">
@@ -24,6 +24,7 @@ This MicroSim plots an exponentially-decaying hole concentration profile, \(p(x)
 <ul style="list-style: none; padding-left: 0; margin: 0;">
 <li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Live tangent line</strong> visualizing the local concentration gradient</li>
 <li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Combined drift + diffusion total current readout</strong></li>
+<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>D_p computed live via the Einstein relation</strong>, not a fixed constant</li>
 <li style="margin-bottom: 0; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Responsive canvas</strong> that resizes with the browser window</li>
 </ul>
 </div>

@@ -14,8 +14,18 @@ let controlHeight = 170;
 let canvasHeight = drawHeight + controlHeight;
 let containerHeight = canvasHeight;
 
-let carrierSelect, currentSlider, bSlider, ndExpSlider, thickSlider;
+let carrierSelect, currentSlider, bSlider, ndExpSlider, thickSlider, presetSelect;
 const Q = 1.602e-19;
+
+const PRESETS = {
+  'Custom': null,
+  'Typical p-type Hall sensor': { carrier: 'p-type (holes)', nd: 15, i: 1, b: 0.5, t: 100 },
+  'Typical n-type Hall sensor': { carrier: 'n-type (electrons)', nd: 15, i: 1, b: 0.5, t: 100 },
+  'Heavily doped (weak signal)': { carrier: 'n-type (electrons)', nd: 18, i: 1, b: 0.5, t: 100 },
+  'Lightly doped (strong signal)': { carrier: 'n-type (electrons)', nd: 14, i: 1, b: 0.5, t: 100 }
+};
+
+function compact() { return canvasWidth < 480; }
 
 function setup() {
   updateCanvasSize();
@@ -28,41 +38,59 @@ function setup() {
   carrierSelect.option('n-type (electrons)');
   carrierSelect.selected('p-type (holes)');
   carrierSelect.attribute('aria-label', 'Carrier type');
+  carrierSelect.changed(function () { presetSelect.selected('Custom'); redraw(); });
 
   currentSlider = createSlider(0.1, 5, 1, 0.1);
   currentSlider.attribute('aria-label', 'Current in milliamps');
+  currentSlider.input(function () { presetSelect.selected('Custom'); redraw(); });
   bSlider = createSlider(-1, 1, 0.5, 0.05);
   bSlider.attribute('aria-label', 'Magnetic field in tesla');
+  bSlider.input(function () { presetSelect.selected('Custom'); redraw(); });
   ndExpSlider = createSlider(14, 18, 15, 0.1);
   ndExpSlider.attribute('aria-label', 'Carrier concentration exponent');
+  ndExpSlider.input(function () { presetSelect.selected('Custom'); redraw(); });
   thickSlider = createSlider(10, 500, 100, 10);
   thickSlider.attribute('aria-label', 'Bar thickness in micrometers');
+  thickSlider.input(function () { presetSelect.selected('Custom'); redraw(); });
+
+  presetSelect = createSelect();
+  Object.keys(PRESETS).forEach(k => presetSelect.option(k));
+  presetSelect.selected('Custom');
+  presetSelect.attribute('aria-label', 'Design preset');
+  presetSelect.changed(function () {
+    const p = PRESETS[presetSelect.value()];
+    if (p) {
+      carrierSelect.selected(p.carrier);
+      ndExpSlider.value(p.nd); currentSlider.value(p.i); bSlider.value(p.b); thickSlider.value(p.t);
+    }
+    redraw();
+  });
 
   positionUIElements();
+  noLoop();
   describe('Hall effect explorer: a current-carrying bar in a perpendicular magnetic field, showing carrier deflection and the resulting Hall voltage, whose sign identifies carrier type', LABEL);
-  setTimeout(function () { window.dispatchEvent(new Event('resize')); }, 50);
+  setTimeout(function () { windowResized(); }, 50);
 }
 
 function positionUIElements() {
   let mainRect = document.querySelector('main').getBoundingClientRect();
   const bx = mainRect.left, by = mainRect.top;
-  carrierSelect.position(bx + 120, by + drawHeight + 12);
-  currentSlider.position(bx + 190, by + drawHeight + 50);
-  currentSlider.size(min(canvasWidth - 210 - 20, 260));
-  bSlider.position(bx + 190, by + drawHeight + 84);
-  bSlider.size(min(canvasWidth - 210 - 20, 260));
-  ndExpSlider.position(bx + 190, by + drawHeight + 118);
-  ndExpSlider.size(min(canvasWidth - 210 - 20, 260));
-  thickSlider.position(bx + 190, by + drawHeight + 152);
-  thickSlider.size(min(canvasWidth - 210 - 20, 260));
+  const lbl = compact() ? 95 : 150;
+  const sw = min(canvasWidth - lbl - 30, 300);
+  presetSelect.position(bx + lbl, by + drawHeight + 12); presetSelect.size(sw);
+  carrierSelect.position(bx + lbl, by + drawHeight + 50);
+  currentSlider.position(bx + lbl, by + drawHeight + 88); currentSlider.size(sw);
+  bSlider.position(bx + lbl, by + drawHeight + 126); bSlider.size(sw);
+  ndExpSlider.position(bx + lbl, by + drawHeight + 164); ndExpSlider.size(sw);
+  thickSlider.position(bx + lbl, by + drawHeight + 202); thickSlider.size(sw);
 }
 
 function draw() {
-  updateCanvasSize();
   fill('aliceblue'); stroke('silver'); strokeWeight(1);
   rect(0, 0, canvasWidth, drawHeight);
   fill('white'); noStroke();
   rect(0, drawHeight, canvasWidth, controlHeight);
+  stroke(225); strokeWeight(1); line(0, drawHeight, canvasWidth, drawHeight);
 
   const isHole = carrierSelect.value().indexOf('p-type') >= 0;
   const I_mA = currentSlider.value();
@@ -77,18 +105,25 @@ function draw() {
   const VH = RH * I * B / t_m;
 
   fill(20); noStroke();
-  textAlign(CENTER, TOP); textSize(16);
+  textAlign(CENTER, TOP); textSize(compact() ? 13 : 16);
   text('V_H = R_H·I·B / t   (sign reveals carrier type)', canvasWidth / 2, 8);
 
   drawBarDiagram(isHole, B, VH);
 
+  const rows = { preset: 12, carrier: 50, i: 88, b: 126, nd: 164, t: 202 };
   fill(30); noStroke();
-  textAlign(LEFT, TOP); textSize(13);
-  text('Carrier type:', 10, drawHeight + 18);
-  text('Current I = ' + I_mA.toFixed(1) + ' mA', 10, drawHeight + 56);
-  text('Field B = ' + B.toFixed(2) + ' T', 10, drawHeight + 90);
-  text('N = 10^' + ndExpSlider.value().toFixed(1) + ' cm⁻³', 10, drawHeight + 124);
-  text('t = ' + t_um.toFixed(0) + ' μm', 10, drawHeight + 158);
+  textAlign(LEFT, CENTER); textSize(compact() ? 10.5 : 13);
+  text('Preset:', 10, drawHeight + rows.preset + 11);
+  text('Carrier type:', 10, drawHeight + rows.carrier + 11);
+  text('Current I:', 10, drawHeight + rows.i + 11);
+  text('Field B:', 10, drawHeight + rows.b + 11);
+  text('N:', 10, drawHeight + rows.nd + 11);
+  text('t:', 10, drawHeight + rows.t + 11);
+  textAlign(RIGHT, CENTER);
+  text(I_mA.toFixed(1) + ' mA', canvasWidth - 10, drawHeight + rows.i + 11);
+  text(B.toFixed(2) + ' T', canvasWidth - 10, drawHeight + rows.b + 11);
+  text(smlFormatPow10(ndExpSlider.value()), canvasWidth - 10, drawHeight + rows.nd + 11);
+  text(t_um.toFixed(0) + ' μm', canvasWidth - 10, drawHeight + rows.t + 11);
 }
 
 function drawBarDiagram(isHole, B, VH) {
@@ -172,19 +207,22 @@ function drawBarDiagram(isHole, B, VH) {
   noStroke(); fill(90); textAlign(CENTER, CENTER); textSize(12);
   text('V', vmX, vmY);
 
-  noStroke(); fill(20); textAlign(LEFT, TOP); textSize(13);
+  noStroke(); fill(20); textAlign(LEFT, TOP); textSize(compact() ? 11.5 : 13);
   text('V_H = ' + (VH * 1000).toFixed(2) + ' mV  (' + (VH >= 0 ? 'positive → p-type signature' : 'negative → n-type signature') + ')',
-    canvasWidth * 0.08, barY1 + 40);
+    canvasWidth * 0.08, barY1 + 40, canvasWidth * 0.86);
 }
 
 function windowResized() {
   updateCanvasSize();
   resizeCanvas(containerWidth, containerHeight);
   positionUIElements();
+  redraw();
 }
 
 function updateCanvasSize() {
+  controlHeight = compact() ? 240 : 230;
   const sz = smlComputeCanvasSize(minDrawHeight, controlHeight);
   containerWidth = sz.width; canvasWidth = sz.width;
   drawHeight = sz.drawHeight; canvasHeight = sz.height; containerHeight = sz.height;
+  if (compact()) drawHeight = Math.max(drawHeight, 480);
 }

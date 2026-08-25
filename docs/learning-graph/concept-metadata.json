@@ -2886,7 +2886,7 @@
    ],
    "dependents": [],
    "microsims": [
-    "einstein-relation-diffusion-coefficient-calculator"
+    "hall-effect-explorer"
    ],
    "bloom": null
   },
@@ -3004,7 +3004,9 @@
     116
    ],
    "dependents": [],
-   "microsims": [],
+   "microsims": [
+    "ficks-law-total-current-density-explorer"
+   ],
    "bloom": null
   },
   "118": {

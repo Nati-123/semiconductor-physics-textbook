@@ -133,10 +133,10 @@ Interactive educational simulations that accompany this textbook.
 
 | MicroSim | Bloom Level | Description |
 |----------|-------------|-------------|
-| [Hall Effect Explorer](hall-effect-explorer/index.md) | L2-L4 Understand/Analyze | Deflected carriers and accumulated edge charge in a current-carrying bar, computing Hall voltage and its sign for holes vs. electrons |
-| [Einstein Relation and Diffusion Coefficient Calculator](einstein-relation-diffusion-coefficient-calculator/index.md) | L3 Apply | Computes the diffusion coefficient from mobility via the Einstein relation, plotted against temperature |
-| [Fick's Law and Total Current Density Explorer](ficks-law-total-current-density-explorer/index.md) | L3-L4 Apply/Analyze | Movable marker on a decaying concentration profile showing local diffusion current, combined with drift into a total current density |
-| [Velocity Saturation Explorer](velocity-saturation-explorer/index.md) | L2-L4 Understand/Analyze | Overlaid linear and saturating drift-velocity-vs-field curves showing high-field velocity saturation |
+| [Hall Effect Explorer](hall-effect-explorer/index.md) | L2-L4 Understand/Analyze | Deflected carriers and accumulated edge charge in a current-carrying bar, computing Hall voltage and its sign for holes vs. electrons, with sensor presets |
+| [Einstein Relation and Diffusion Coefficient Calculator](einstein-relation-diffusion-coefficient-calculator/index.md) | L3 Apply | Computes the diffusion coefficient from mobility via the Einstein relation, plotted against temperature, with an electron-vs-hole comparison mode |
+| [Fick's Law and Total Current Density Explorer](ficks-law-total-current-density-explorer/index.md) | L3-L4 Apply/Analyze | Movable marker on a decaying concentration profile showing local diffusion current (with D_p computed live via the Einstein relation), combined with drift into a total current density |
+| [Velocity Saturation Explorer](velocity-saturation-explorer/index.md) | L2-L5 Understand/Evaluate | Overlaid linear and saturating drift-velocity-vs-field curves, with a selectable tolerance quantifying exactly where the linear approximation fails |
 
 ## Chapter 13: Non-Equilibrium Carriers and Recombination
 

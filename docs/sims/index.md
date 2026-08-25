@@ -124,9 +124,10 @@ Interactive educational simulations that accompany this textbook.
 
 | MicroSim | Bloom Level | Description |
 |----------|-------------|-------------|
-| [Drift Velocity and Carrier Scattering Explorer](drift-velocity-scattering-explorer/index.md) | L2-L3 Understand/Apply | Animated electron random-walk motion biased into a net drift by an applied electric field |
-| [Mobility vs. Temperature and Doping (Matthiessen's Rule) Explorer](mobility-temperature-doping-explorer/index.md) | L4 Analyze | Overlaid lattice-limited, impurity-limited, and combined mobility curves |
-| [Conductivity, Resistivity, and Sheet Resistance Calculator](conductivity-resistivity-sheet-resistance-calculator/index.md) | L3-L4 Apply/Analyze | Computes conductivity, resistivity, and sheet resistance with a number-of-squares resistor diagram |
+| [Drift Velocity and Carrier Scattering Explorer](drift-velocity-scattering-explorer/index.md) | L2-L3 Understand/Apply | Animated electron random-walk motion biased into a net drift by an applied electric field, with field presets |
+| [Drift Current Density Explorer](drift-current-density-explorer/index.md) | L3-L4 Apply/Analyze | Computes J_n and J_p in real A/cm² units from doping, mobility, and field, comparing majority/minority carrier contributions |
+| [Mobility vs. Temperature and Doping (Matthiessen's Rule) Explorer](mobility-temperature-doping-explorer/index.md) | L4 Analyze | Overlaid lattice-limited, impurity-limited, and combined mobility curves, with an electron-vs-hole comparison mode |
+| [Conductivity, Resistivity, and Sheet Resistance Calculator](conductivity-resistivity-sheet-resistance-calculator/index.md) | L3-L4 Apply/Analyze | Computes conductivity, resistivity, and sheet resistance with design presets and a number-of-squares resistor diagram |
 
 ## Chapter 12: Diffusion and Advanced Transport Phenomena
 

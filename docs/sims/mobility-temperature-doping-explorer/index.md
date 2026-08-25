@@ -1,6 +1,6 @@
 ---
 title: Mobility vs. Temperature and Doping (Matthiessen's Rule) Explorer
-description: A MicroSim plotting lattice-limited, impurity-limited, and combined mobility curves via Matthiessen's rule, for adjustable carrier type, doping, and temperature
+description: A MicroSim plotting lattice-limited, impurity-limited, and combined mobility curves via Matthiessen's rule, for adjustable carrier type, doping, and temperature, with an electron-vs-hole comparison mode
 image: /sims/mobility-temperature-doping-explorer/mobility-temperature-doping-explorer.png
 quality_score: 85
 ---
@@ -23,8 +23,8 @@ This MicroSim plots three mobility curves against temperature: lattice-limited m
 <p style="color: #B8860B; font-weight: 700; font-size: 1.05rem; margin-top: 0; margin-bottom: 12px;">Key Features</p>
 <ul style="list-style: none; padding-left: 0; margin: 0;">
 <li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Three overlaid mobility curves</strong> on a log scale</li>
-<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Electron/hole toggle</strong> and adjustable doping concentration</li>
-<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Movable temperature marker</strong> with live numeric readout</li>
+<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Electron/hole toggle plus a side-by-side comparison mode</strong> and adjustable doping concentration</li>
+<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Movable temperature marker with 77 K / 300 K / 500 K presets</strong></li>
 <li style="margin-bottom: 0; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Responsive canvas</strong> that resizes with the browser window</li>
 </ul>
 </div>

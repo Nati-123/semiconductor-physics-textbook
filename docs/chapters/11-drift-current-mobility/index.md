@@ -2,8 +2,8 @@
 title: Drift Current and Carrier Mobility
 description: Drift current, an introduction to diffusion current, carrier mobility and drift velocity, lattice and impurity scattering mechanisms, and conductivity, resistivity, and sheet resistance
 generated_by: "claude skill chapter-content-generator"
-date: 2026-08-02 00:00:00
-version: 0.03
+date: 2026-08-25 00:00:00
+version: 0.04
 ---
 
 # Chapter 11: Drift Current and Carrier Mobility
@@ -32,6 +32,7 @@ Chapters 6 through 10 described semiconductors sitting quietly in thermal equili
 By the end of this chapter, you will be able to:
 
 - Define drift velocity and drift current, and relate them through carrier mobility
+- Compute real drift current density in A/cm² and compare majority vs. minority carrier contributions
 - Explain, qualitatively, what diffusion current is and how it differs from drift current
 - Explain how lattice scattering and impurity scattering each limit carrier mobility, and in what temperature/doping regimes each dominates
 - Apply Matthiessen's rule to combine multiple scattering mechanisms into a single mobility
@@ -90,7 +91,7 @@ where \(\mu\), the **carrier mobility**, is the proportionality constant — wit
 <iframe src="../../sims/drift-velocity-scattering-explorer/main.html" width="100%" height="640px" scrolling="auto"></iframe>
 
 !!! tip "How to use this MicroSim"
-    **Instructions:** With the field at zero, click Start and watch the electron's random path; then raise the field and observe the path develop a rightward bias.
+    **Instructions:** With the field at zero (or the "No field" preset), click Start and watch the electron's random path; then raise the field, or click "Weak" or "Strong," and observe the path develop a rightward bias.
 
     **Learning objective:** Explain drift velocity as a small net bias superimposed on much larger random thermal motion, and connect the drift velocity/field ratio to mobility.
 
@@ -126,6 +127,21 @@ J_{\text{drift}} = q(n\mu_n+p\mu_p)E
     \[
     J_{n,\text{drift}} = qn\mu_nE = (1.602\times10^{-19})(10^{16})(1200)(100) \approx 192\ \text{A/cm}^2
     \]
+
+Worked Example 1 assumed the hole contribution was negligible without proving it. The MicroSim below makes that assumption checkable directly — computing both \(J_n\) and \(J_p\) from the exact carrier concentrations (Chapters 9-10) and this chapter's mobility model, for any doping level and material.
+
+#### Diagram: Drift Current Density Explorer
+
+<iframe src="../../sims/drift-current-density-explorer/main.html" width="100%" height="700px" scrolling="auto"></iframe>
+
+!!! tip "How to use this MicroSim"
+    **Instructions:** Start with the "n-type" preset and compare the J_n and J_p bars; then switch to "Intrinsic" and compare again.
+
+    **Learning objective:** Compute drift current density in real units from carrier concentration, mobility, and field, and explain why the minority carrier's contribution is usually negligible.
+
+    **What to observe:** In doped material, one bar towers over the other by many orders of magnitude — direct visual confirmation of the mass action law's consequence for current, not just for carrier concentration. In the intrinsic preset, the two bars are comparable, but both are far shorter than the majority-carrier bar in the doped presets.
+
+[Full MicroSim documentation →](../../sims/drift-current-density-explorer/index.md)
 
 ## Diffusion Current: A Brief Introduction
 
@@ -180,11 +196,11 @@ The consequence of adding reciprocals is that the *smaller* individual mobility 
 <iframe src="../../sims/mobility-temperature-doping-explorer/main.html" width="100%" height="640px" scrolling="auto"></iframe>
 
 !!! tip "How to use this MicroSim"
-    **Instructions:** Compare the three curves at low doping, then raise the doping slider and observe how the impurity-scattering curve pulls down the total mobility curve, especially at low temperature.
+    **Instructions:** Compare the three curves at low doping, then raise the doping slider and observe how the impurity-scattering curve pulls down the total mobility curve, especially at low temperature; enable "Compare electrons vs. holes" to see both carrier types at once.
 
-    **Learning objective:** Apply Matthiessen's rule to combine lattice and impurity scattering, and identify which mechanism dominates in a given temperature/doping regime.
+    **Learning objective:** Apply Matthiessen's rule to combine lattice and impurity scattering, identify which mechanism dominates in a given temperature/doping regime, and compare electron vs. hole mobility directly.
 
-    **What to observe:** At low doping, the total mobility curve nearly tracks the lattice-scattering curve at all temperatures shown; at heavy doping, impurity scattering visibly pulls the total curve down, especially at low temperature where impurity scattering is strongest.
+    **What to observe:** At low doping, the total mobility curve nearly tracks the lattice-scattering curve at all temperatures shown; at heavy doping, impurity scattering visibly pulls the total curve down, especially at low temperature where impurity scattering is strongest. In comparison mode, the electron curve sits consistently above the hole curve.
 
 [Full MicroSim documentation →](../../sims/mobility-temperature-doping-explorer/index.md)
 
@@ -240,7 +256,7 @@ where \(L/W\) is literally the number of unit squares the film can be divided in
 <iframe src="../../sims/conductivity-resistivity-sheet-resistance-calculator/main.html" width="100%" height="660px" scrolling="auto"></iframe>
 
 !!! tip "How to use this MicroSim"
-    **Instructions:** Adjust doping and observe resistivity fall; then adjust the number-of-squares slider and watch resistance scale directly with it.
+    **Instructions:** Adjust doping and observe resistivity fall; then adjust the number-of-squares slider and watch resistance scale directly with it, or start from one of the design presets.
 
     **Learning objective:** Compute conductivity and resistivity from doping and mobility, and apply the sheet-resistance "number of squares" method.
 

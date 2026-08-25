@@ -27,17 +27,27 @@
     <summary>Guided Exploration &amp; Challenge Questions</summary>
     <div class="panel-content">
 
-        <h3>Try This</h3>
+        <h3>What to Observe</h3>
+        <ul class="explore-list">
+            <li>The card reports every quantity in the chain — μ, σ, ρ, R_s, R — computed live in sequence from your slider settings, not looked up from a table.</li>
+            <li>The resistor diagram is drawn purely from the "squares" count; its absolute size on screen is just for illustration and never affects the reported resistance.</li>
+            <li>Presets jump directly to representative design points, from lightly-doped material to a heavily-doped IC contact to a long, narrow resistor layout.</li>
+        </ul>
+
+        <h3>Guided Exploration</h3>
         <ul class="explore-list">
             <li><strong>Try this:</strong> Raise the doping concentration and watch resistivity fall, even though mobility itself is dropping (due to impurity scattering) — carrier concentration wins out.</li>
             <li><strong>Predict:</strong> Before changing the number-of-squares slider, predict whether resistance depends on the resistor's absolute size or only its length-to-width ratio.</li>
             <li><strong>Observe:</strong> Change the squares slider and watch total resistance scale directly with the number of squares, regardless of the film's absolute dimensions.</li>
+            <li><strong>Compare:</strong> Switch between the "Lightly doped" and "Heavily doped IC contact" presets and compare how many orders of magnitude R_s changes.</li>
         </ul>
 
         <p class="connects-to"><strong>Connects to Chapter 11:</strong> Conductivity, \(\sigma=q(n\mu_n+p\mu_p)\), combines carrier concentration and mobility into the single number that governs how well a doped semiconductor conducts. For a thin film (as in integrated circuit resistors), sheet resistance, \(R_s=\rho/t\) (ohms per square), is more useful than resistivity alone, since a rectangular resistor's total resistance is simply \(R=R_s\times(L/W)\) — the number of "squares" the film is divided into, independent of its absolute size.</p>
 
         <h3>What Each Control Does</h3>
         <dl class="control-captions">
+            <dt>Preset dropdown</dt>
+            <dd>Jumps directly to representative design points; switches to "Custom" once you move a slider.</dd>
             <dt>Carrier type dropdown</dt>
             <dd>Selects electron or hole conduction, with its own mobility model.</dd>
             <dt>Doping concentration slider</dt>
@@ -73,6 +83,20 @@
             <p class="explain-correct" hidden>Since R = Rs×(L/W), and doubling both L and W leaves the ratio L/W unchanged, the two resistors have identical resistance despite their different absolute sizes.</p>
             <p class="explain-incorrect" hidden>Compute L/W for "2L, 2W" versus "L, W" and compare.</p>
         </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">3. Why does a thinner film have a higher sheet resistance at the same doping level?</p>
+            <label><input type="radio" name="crs-q3" value="a"> R_s = ρ/t, so a smaller thickness t directly gives a larger R_s for the same ρ</label>
+            <label><input type="radio" name="crs-q3" value="b"> Thinner films have lower resistivity</label>
+            <label><input type="radio" name="crs-q3" value="c"> Thickness has no effect on sheet resistance</label>
+            <label><input type="radio" name="crs-q3" value="d"> Thinner films have more carriers</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>R_s=ρ/t is inversely proportional to thickness — halving the thickness with resistivity unchanged doubles R_s. Try the "Heavily doped IC contact" preset's thin film and compare R_s to the "Typical extrinsic" preset at the same doping trend.</p>
+            <p class="explain-incorrect" hidden>Drag the thickness slider down while holding doping fixed and watch R_s in the card.</p>
+        </div>
+
+        <p class="key-takeaway"><strong>Key Takeaway:</strong> σ, ρ, and R_s are not independent quantities to memorize separately — they are the same underlying nμ product, viewed as a conductance, its reciprocal, and its per-unit-thickness form. Once you know doping, carrier type, and film thickness, the entire chain — μ, σ, ρ, R_s, and R for any layout — follows automatically.</p>
 
     </div>
     </details>

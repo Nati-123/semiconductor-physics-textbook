@@ -398,6 +398,23 @@ function smlDegeneracyZone(dist, kT) {
   return dist > 3 * kT ? 'non' : (dist > 0 ? 'transition' : 'degenerate');
 }
 
+// ---------- Matthiessen's-rule mobility model (Chapter 11) ----------
+// Illustrative lattice/impurity scattering model, calibrated to roughly
+// match real silicon mobility at 300 K (muL0/muI0 are each carrier's
+// lattice-limited and impurity-limited mobility at T=300K, N=1e17 cm^-3
+// respectively). Shared so every Chapter 11 MicroSim computes mobility
+// from one source of truth instead of three duplicated local copies.
+const SML_MOBILITY_CARRIERS = {
+  'Electrons (n-type)': { muL0: 1350, muI0: 1965, symbol: 'n', color: [90, 62, 237] },
+  'Holes (p-type)': { muL0: 480, muI0: 800, symbol: 'p', color: [200, 90, 40] }
+};
+function smlMuLattice(muL0, T) { return muL0 * Math.pow(T / 300, -1.5); }
+function smlMuImpurity(muI0, T, N) { return muI0 * Math.pow(T / 300, 1.5) * (1e17 / N); }
+function smlMuTotal(muL, muI) { return 1 / (1 / muL + 1 / muI); }
+function smlMobility(carrier, T, N) {
+  return smlMuTotal(smlMuLattice(carrier.muL0, T), smlMuImpurity(carrier.muI0, T, N));
+}
+
 // Draws "main" immediately followed by a smaller, lower "sub" glyph run,
 // approximating a true typographic subscript on an HTML5 canvas (which has
 // no rich-text API). Honors the caller's current fill/textAlign(LEFT,*)

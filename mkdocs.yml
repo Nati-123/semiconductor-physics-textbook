@@ -252,6 +252,7 @@ nav:
           - Fermi-Level Equation Visual Solver: sims/fermi-level-equation-solver/index.md
       - Chapter 11:
           - Drift Velocity and Carrier Scattering Explorer: sims/drift-velocity-scattering-explorer/index.md
+          - Drift Current Density Explorer: sims/drift-current-density-explorer/index.md
           - Mobility vs. Temperature and Doping (Matthiessen's Rule) Explorer: sims/mobility-temperature-doping-explorer/index.md
           - Conductivity, Resistivity, and Sheet Resistance Calculator: sims/conductivity-resistivity-sheet-resistance-calculator/index.md
       - Chapter 12:

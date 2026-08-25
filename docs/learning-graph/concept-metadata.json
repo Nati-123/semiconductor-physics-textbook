@@ -2608,7 +2608,9 @@
     111,
     118
    ],
-   "microsims": [],
+   "microsims": [
+    "drift-current-density-explorer"
+   ],
    "bloom": null
   },
   "102": {

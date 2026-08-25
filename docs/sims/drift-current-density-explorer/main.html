@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Drift Current Density Explorer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="../semiconductor-materials-lib.js"></script>
+    <script src="drift-current-density-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>What to Observe</h3>
+        <ul class="explore-list">
+            <li>The bar chart compares J_n and J_p on a log scale — in extrinsic material one bar is dramatically taller, since the minority carrier's concentration (from Chapter 9's mass action law) is orders of magnitude smaller.</li>
+            <li>The info panel shows every factor in the chain — n₀, p₀, μ_n, μ_p — before combining them into J_n, J_p, and J_total, all in real A/cm² units.</li>
+            <li>The green message at the bottom states, in words, which carrier dominates and by what factor.</li>
+        </ul>
+
+        <h3>Guided Exploration</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Start with the "n-type" preset and note how many orders of magnitude larger J_n is than J_p.</li>
+            <li><strong>Predict:</strong> Before switching to the "Intrinsic" preset, predict whether J_n and J_p will become equal, and whether J_total will grow or shrink.</li>
+            <li><strong>Observe:</strong> Switch to "Intrinsic" and confirm J_n and J_p are now comparable (both set by the same nᵢ), but J_total is far smaller than in the doped presets — intrinsic material conducts poorly.</li>
+            <li><strong>Explore:</strong> Raise the electric field slider and confirm every current density scales up proportionally — E is the one factor in J=qnμE that does not depend on doping or material at all.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 11:</strong> Drift current density is \(J=qn\mu E\) for electrons (and the analogous \(qp\mu_pE\) for holes), combining Chapter 9-10's equilibrium carrier concentration with this chapter's mobility. In any extrinsic (doped) sample, the mass action law (Chapter 9) forces the minority carrier concentration far below the majority carrier's, so — even though electrons and holes can have comparably-sized mobilities — the minority carrier's contribution to total drift current is almost always negligible. This is exactly why Chapter 11's own Worked Example 1 could safely ignore the hole contribution when computing drift current for an n-type sample.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>Preset dropdown</dt>
+            <dd>Jumps directly to intrinsic, n-type, or p-type doping; switches to "Custom" once you move a doping slider.</dd>
+            <dt>Material dropdown</dt>
+            <dd>Selects the effective masses and band gap used to compute nᵢ(T).</dd>
+            <dt>Temperature slider</dt>
+            <dd>Sets T, affecting both nᵢ(T) and the Matthiessen's-rule mobility.</dd>
+            <dt>N_D and N_A sliders</dt>
+            <dd>Set donor and acceptor concentrations, determining n₀ and p₀ via the exact carrier concentration equation.</dd>
+            <dt>Field E slider</dt>
+            <dd>Sets the applied electric field strength (log scale), which multiplies every current density equally.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">1. Predict first: in an n-type sample with N_D far above N_A, which term dominates J_total?</p>
+            <label><input type="radio" name="dcd-q1" value="a"> J_p, since holes have lower mobility and therefore contribute more</label>
+            <label><input type="radio" name="dcd-q1" value="b"> J_n, since n₀ is enormously larger than p₀ under the mass action law, easily outweighing any mobility difference</label>
+            <label><input type="radio" name="dcd-q1" value="c"> They are always exactly equal</label>
+            <label><input type="radio" name="dcd-q1" value="d"> Neither contributes to current</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Even though μ_p is somewhat smaller than μ_n, the concentration difference (n₀≫p₀ in n-type material) is many more orders of magnitude than the mobility difference, so J_n dominates overwhelmingly.</p>
+            <p class="explain-incorrect" hidden>Select the "n-type" preset and compare the bar heights.</p>
+        </div>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">2. Why does J_total stay relatively small for the "Intrinsic" preset even though J_n and J_p are now comparable to each other?</p>
+            <label><input type="radio" name="dcd-q2" value="a"> Intrinsic material has no mobile carriers at all</label>
+            <label><input type="radio" name="dcd-q2" value="b"> The mobilities become zero when undoped</label>
+            <label><input type="radio" name="dcd-q2" value="c"> Both n₀ and p₀ equal nᵢ, which is itself a very small number compared to typical doping levels</label>
+            <label><input type="radio" name="dcd-q2" value="d"> The electric field automatically drops to zero</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Intrinsic carrier concentration nᵢ is typically many orders of magnitude smaller than a doped sample's majority carrier concentration, so even with both carriers contributing, the total current density is small — this is exactly why doping is used to make semiconductors useful conductors.</p>
+            <p class="explain-incorrect" hidden>Compare nᵢ's value (shown for n₀=p₀ in the Intrinsic preset) to N_D in the n-type preset.</p>
+        </div>
+
+        <p class="key-takeaway"><strong>Key Takeaway:</strong> J=qnμE has three factors, but in real doped semiconductors one of them (carrier concentration) varies over far more orders of magnitude than the other two (mobility, field) combined — which is why the majority-carrier term almost always dominates drift current, and why "doping" is the primary tool device engineers use to control conductivity.</p>
+
+    </div>
+    </details>
+</body>
+</html>

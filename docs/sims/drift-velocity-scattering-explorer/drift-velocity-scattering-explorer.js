@@ -11,7 +11,7 @@ let containerWidth;
 let canvasWidth = 750;
 let drawHeight = 460;
 let minDrawHeight = 420;
-let controlHeight = 130;
+let controlHeight = 145;
 let canvasHeight = drawHeight + controlHeight;
 let containerHeight = canvasHeight;
 
@@ -19,6 +19,9 @@ let fieldSlider;
 let isAnimating = false;
 let startStopBtn = { x: 10, y: 0, w: 90, h: 32 };
 let resetBtn = { x: 110, y: 0, w: 90, h: 32 };
+const FIELD_PRESETS = [{ label: 'No field', v: 0 }, { label: 'Weak', v: 3 }, { label: 'Strong', v: 8 }];
+
+function compact() { return canvasWidth < 480; }
 
 let ex, ey;          // electron wrapped display position
 let unwrappedX;       // unwrapped x for displacement tracking
@@ -59,10 +62,16 @@ function resetState() {
 function positionUIElements() {
   let mainRect = document.querySelector('main').getBoundingClientRect();
   const bx = mainRect.left, by = mainRect.top;
-  fieldSlider.position(bx + 190, by + drawHeight + 15);
-  fieldSlider.size(min(canvasWidth - 210 - 30, 280));
-  startStopBtn.x = 10; startStopBtn.y = drawHeight + 60;
-  resetBtn.x = 110; resetBtn.y = drawHeight + 60;
+  const lbl = compact() ? 95 : 150;
+  fieldSlider.position(bx + lbl, by + drawHeight + 15);
+  fieldSlider.size(min(canvasWidth - lbl - 30, 280));
+  startStopBtn.x = 10; startStopBtn.y = drawHeight + 98;
+  resetBtn.x = 110; resetBtn.y = drawHeight + 98;
+}
+
+function presetButtons() {
+  const bw = 62, bh = 22, gap = 8;
+  return FIELD_PRESETS.map((p, i) => ({ p: p, x: 10 + i * (bw + gap), y: drawHeight + 56, w: bw, h: bh }));
 }
 
 function draw() {
@@ -85,8 +94,8 @@ function draw() {
   const mobilityEst = E > 0 ? driftVel / E : 0;
 
   fill(20); noStroke();
-  textAlign(CENTER, TOP); textSize(16);
-  text('Electron Motion: Random Scattering + Field-Driven Drift', canvasWidth / 2, 8);
+  textAlign(CENTER, TOP); textSize(compact() ? 12.5 : 16);
+  text(compact() ? 'Electron Motion: Scattering + Drift' : 'Electron Motion: Random Scattering + Field-Driven Drift', canvasWidth / 2, 8);
 
   smlDrawInfoBox(canvasWidth, drawHeight - 58, [
     'Avg drift velocity (px/frame): ' + driftVel.toFixed(4),
@@ -152,6 +161,7 @@ function drawControls(E) {
   fill(30); noStroke();
   textAlign(LEFT, TOP); textSize(13);
   text('Electric field E: ' + E.toFixed(1), 10, drawHeight + 20);
+  for (const b of presetButtons()) smlDrawButton(b.x, b.y, b.w, b.h, b.p.label, E === b.p.v);
   smlDrawButton(startStopBtn.x, startStopBtn.y, startStopBtn.w, startStopBtn.h, isAnimating ? 'Stop' : 'Start', isAnimating);
   smlDrawButton(resetBtn.x, resetBtn.y, resetBtn.w, resetBtn.h, 'Reset', false);
 }
@@ -159,8 +169,17 @@ function drawControls(E) {
 function mousePressed() {
   if (smlPointInRect(mouseX, mouseY, startStopBtn.x, startStopBtn.y, startStopBtn.w, startStopBtn.h)) {
     isAnimating = !isAnimating;
-  } else if (smlPointInRect(mouseX, mouseY, resetBtn.x, resetBtn.y, resetBtn.w, resetBtn.h)) {
+    return;
+  }
+  if (smlPointInRect(mouseX, mouseY, resetBtn.x, resetBtn.y, resetBtn.w, resetBtn.h)) {
     resetState();
+    return;
+  }
+  for (const b of presetButtons()) {
+    if (smlPointInRect(mouseX, mouseY, b.x, b.y, b.w, b.h)) {
+      fieldSlider.value(b.p.v);
+      return;
+    }
   }
 }
 
@@ -171,6 +190,7 @@ function windowResized() {
 }
 
 function updateCanvasSize() {
+  controlHeight = compact() ? 175 : 145;
   const sz = smlComputeCanvasSize(minDrawHeight, controlHeight);
   containerWidth = sz.width; canvasWidth = sz.width;
   drawHeight = sz.drawHeight; canvasHeight = sz.height; containerHeight = sz.height;

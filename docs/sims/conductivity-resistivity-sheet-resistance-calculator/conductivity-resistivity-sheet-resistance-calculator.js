@@ -1,32 +1,34 @@
 // Conductivity, Resistivity, and Sheet Resistance Calculator MicroSim
 // Computes sigma = q*N*mu, rho = 1/sigma, sheet resistance Rs = rho/t,
 // and total resistance R = Rs*(L/W), drawing a "number of squares"
-// resistor diagram. Mobility is computed via the same Matthiessen's-rule
-// model as the mobility explorer sim, evaluated at 300 K.
+// resistor diagram. Mobility is computed via the shared Matthiessen's-
+// rule model (semiconductor-materials-lib.js), evaluated at 300 K.
+// Performance note: redraw is event-driven (noLoop + redraw-on-input).
 // Bloom Level: Apply / Analyze (L3-L4)
 // MicroSim template version 2026.02
 
 let containerWidth;
 let canvasWidth = 750;
 let drawHeight = 460;
-let minDrawHeight = 420;
-let controlHeight = 150;
+let minDrawHeight = 460;
+let controlHeight = 170;
 let canvasHeight = drawHeight + controlHeight;
 let containerHeight = canvasHeight;
 
-let carrierSelect, ndExpSlider, thicknessSlider, squaresSlider;
+let carrierSelect, ndExpSlider, thicknessSlider, squaresSlider, presetSelect;
 
 const Q = 1.602e-19; // C
-const CARRIERS = {
-  'Electrons (n-type)': { muL0: 1350, muI0: 1965 },
-  'Holes (p-type)': { muL0: 480, muI0: 800 }
+const PRESETS = {
+  'Custom': null,
+  'Lightly doped (N=10¹⁴)': { carrier: 'Electrons (n-type)', nd: 14, t: 1, sq: 3 },
+  'Typical extrinsic (N=10¹⁶)': { carrier: 'Electrons (n-type)', nd: 16, t: 1, sq: 3 },
+  'Heavily doped IC contact (N=10¹⁹)': { carrier: 'Electrons (n-type)', nd: 19, t: 0.2, sq: 3 },
+  'Long, narrow IC resistor': { carrier: 'Electrons (n-type)', nd: 16, t: 0.5, sq: 10 }
 };
 
-function mobilityAt300(carrier, N) {
-  const muL = carrier.muL0; // T=300K, (T/300)^-1.5 = 1
-  const muI = carrier.muI0 * (1e17 / N);
-  return 1 / (1 / muL + 1 / muI);
-}
+function compact() { return canvasWidth < 480; }
+
+function mobilityAt300(carrier, N) { return smlMobility(carrier, 300, N); }
 
 function setup() {
   updateCanvasSize();
@@ -35,44 +37,62 @@ function setup() {
   canvas.parent(mainElement);
 
   carrierSelect = createSelect();
-  Object.keys(CARRIERS).forEach(k => carrierSelect.option(k));
+  Object.keys(SML_MOBILITY_CARRIERS).forEach(k => carrierSelect.option(k));
   carrierSelect.selected('Electrons (n-type)');
   carrierSelect.attribute('aria-label', 'Carrier type');
+  carrierSelect.changed(function () { presetSelect.selected('Custom'); redraw(); });
 
-  ndExpSlider = createSlider(14, 19, 17, 0.1);
+  ndExpSlider = createSlider(14, 20, 17, 0.1);
   ndExpSlider.attribute('aria-label', 'Doping concentration exponent');
+  ndExpSlider.input(function () { presetSelect.selected('Custom'); redraw(); });
 
   thicknessSlider = createSlider(0.1, 10, 1, 0.1);
   thicknessSlider.attribute('aria-label', 'Film thickness in micrometers');
+  thicknessSlider.input(function () { presetSelect.selected('Custom'); redraw(); });
 
   squaresSlider = createSlider(0.5, 10, 3, 0.5);
   squaresSlider.attribute('aria-label', 'Number of squares, length over width');
+  squaresSlider.input(function () { presetSelect.selected('Custom'); redraw(); });
+
+  presetSelect = createSelect();
+  Object.keys(PRESETS).forEach(k => presetSelect.option(k));
+  presetSelect.selected('Custom');
+  presetSelect.attribute('aria-label', 'Design preset');
+  presetSelect.changed(function () {
+    const p = PRESETS[presetSelect.value()];
+    if (p) {
+      carrierSelect.selected(p.carrier);
+      ndExpSlider.value(p.nd); thicknessSlider.value(p.t); squaresSlider.value(p.sq);
+    }
+    redraw();
+  });
 
   positionUIElements();
-  describe('Conductivity, resistivity, and sheet resistance calculator: computes conductivity, resistivity, sheet resistance, and total resistance for a doped semiconductor film, with a number-of-squares resistor diagram', LABEL);
-  setTimeout(function () { window.dispatchEvent(new Event('resize')); }, 50);
+  noLoop();
+  describe('Conductivity, resistivity, and sheet resistance calculator: computes conductivity, resistivity, sheet resistance, and total resistance for a doped semiconductor film, with design presets and a number-of-squares resistor diagram', LABEL);
+  setTimeout(function () { windowResized(); }, 50);
 }
 
 function positionUIElements() {
   let mainRect = document.querySelector('main').getBoundingClientRect();
   const bx = mainRect.left, by = mainRect.top;
-  carrierSelect.position(bx + 110, by + drawHeight + 12);
-  ndExpSlider.position(bx + 220, by + drawHeight + 50);
-  ndExpSlider.size(min(canvasWidth - 240 - 30, 260));
-  thicknessSlider.position(bx + 220, by + drawHeight + 88);
-  thicknessSlider.size(min(canvasWidth - 240 - 30, 260));
-  squaresSlider.position(bx + 220, by + drawHeight + 126);
-  squaresSlider.size(min(canvasWidth - 240 - 30, 260));
+  const lbl = compact() ? 95 : 150;
+  const sw = min(canvasWidth - lbl - 30, 300);
+  presetSelect.position(bx + lbl, by + drawHeight + 12); presetSelect.size(sw);
+  carrierSelect.position(bx + lbl, by + drawHeight + 50);
+  ndExpSlider.position(bx + lbl, by + drawHeight + 88); ndExpSlider.size(sw);
+  thicknessSlider.position(bx + lbl, by + drawHeight + 126); thicknessSlider.size(sw);
+  squaresSlider.position(bx + lbl, by + drawHeight + 164); squaresSlider.size(sw);
 }
 
 function draw() {
-  updateCanvasSize();
   fill('aliceblue'); stroke('silver'); strokeWeight(1);
   rect(0, 0, canvasWidth, drawHeight);
   fill('white'); noStroke();
   rect(0, drawHeight, canvasWidth, controlHeight);
+  stroke(225); strokeWeight(1); line(0, drawHeight, canvasWidth, drawHeight);
 
-  const carrier = CARRIERS[carrierSelect.value()];
+  const carrier = SML_MOBILITY_CARRIERS[carrierSelect.value()];
   const N = Math.pow(10, ndExpSlider.value());
   const mu = mobilityAt300(carrier, N);
   const sigma = Q * N * mu; // S/cm
@@ -84,31 +104,35 @@ function draw() {
   const R = Rs * squares;
 
   fill(20); noStroke();
-  textAlign(CENTER, TOP); textSize(16);
+  textAlign(CENTER, TOP); textSize(compact() ? 13 : 16);
   text('σ = qNμ,  ρ = 1/σ,  R_s = ρ/t,  R = R_s·(L/W)', canvasWidth / 2, 8);
 
-  drawCard(N, mu, sigma, rho, Rs, R, squares);
-  drawResistorDiagram(squares);
+  const leftW = compact() ? canvasWidth : Math.round(canvasWidth * 0.46);
+  drawCard(N, mu, sigma, rho, Rs, R, squares, leftW);
+  // Diagram panelX is 0 in compact mode (stacked below the card, full
+  // width) but leftW in non-compact mode (to the right of the card) --
+  // NOT leftW in both cases, which would place it off-screen when
+  // leftW equals the full canvas width.
+  const diagPanelX = compact() ? 0 : leftW;
+  drawResistorDiagram(squares, diagPanelX, compact() ? drawHeight * 0.55 : 0, compact() ? canvasWidth : canvasWidth - leftW, compact() ? drawHeight * 0.45 : drawHeight);
 
+  const rows = { preset: 12, carrier: 50, nd: 88, thick: 126, sq: 164 };
   fill(30); noStroke();
-  textAlign(LEFT, TOP); textSize(13);
-  text('Carrier:', 10, drawHeight + 18);
-  text('N = 10^' + ndExpSlider.value().toFixed(1) + ' cm⁻³', 10, drawHeight + 56);
-  text('Thickness t = ' + tUm.toFixed(1) + ' μm', 10, drawHeight + 94);
-  text('Squares (L/W) = ' + squares.toFixed(1), 10, drawHeight + 132);
+  textAlign(LEFT, CENTER); textSize(compact() ? 10.5 : 13);
+  text('Preset:', 10, drawHeight + rows.preset + 11);
+  text('Carrier:', 10, drawHeight + rows.carrier + 11);
+  text('N:', 10, drawHeight + rows.nd + 11);
+  text('Thickness t:', 10, drawHeight + rows.thick + 11);
+  text('Squares (L/W):', 10, drawHeight + rows.sq + 11);
+  textAlign(RIGHT, CENTER);
+  text(smlFormatPow10(ndExpSlider.value()), canvasWidth - 10, drawHeight + rows.nd + 11);
+  text(tUm.toFixed(1) + ' μm', canvasWidth - 10, drawHeight + rows.thick + 11);
+  text(squares.toFixed(1), canvasWidth - 10, drawHeight + rows.sq + 11);
 }
 
-function drawCard(N, mu, sigma, rho, Rs, R, squares) {
-  const cardX = 30, cardY = 44, cardW = canvasWidth * 0.46, cardH = drawHeight - 90;
-  noStroke();
-  fill(240, 245, 255);
-  stroke(168, 200, 255);
-  strokeWeight(1.5);
-  rect(cardX, cardY, cardW, cardH, 10);
-  noStroke();
-  fill(30);
-  textAlign(LEFT, TOP);
-  textSize(12.5);
+function drawCard(N, mu, sigma, rho, Rs, R, squares, panelW) {
+  const cardX = compact() ? 20 : 30, cardY = compact() ? 32 : 44;
+  const cardW = (compact() ? canvasWidth : panelW) - cardX - 16;
   const lines = [
     'μ (Matthiessen, 300 K) = ' + mu.toFixed(0) + ' cm²/V·s',
     'σ = ' + sigma.toExponential(2) + ' S/cm',
@@ -117,13 +141,24 @@ function drawCard(N, mu, sigma, rho, Rs, R, squares) {
     'R = R_s × ' + squares.toFixed(1) + ' squares',
     '= ' + R.toExponential(2) + ' Ω'
   ];
+  const lineH = compact() ? 22 : 24;
+  const cardH = 14 + lines.length * lineH + 10;
+  noStroke();
+  fill(240, 245, 255);
+  stroke(168, 200, 255);
+  strokeWeight(1.5);
+  rect(cardX, cardY, cardW, cardH, 10);
+  noStroke();
+  fill(30);
+  textAlign(LEFT, TOP);
+  textSize(compact() ? 11.5 : 12.5);
   for (let i = 0; i < lines.length; i++) {
-    text(lines[i], cardX + 16, cardY + 14 + i * 24, cardW - 32);
+    text(lines[i], cardX + 16, cardY + 14 + i * lineH, cardW - 32);
   }
 }
 
-function drawResistorDiagram(squares) {
-  const areaX = canvasWidth * 0.54, areaY = 60, areaW = canvasWidth - areaX - 30, areaH = drawHeight - 140;
+function drawResistorDiagram(squares, panelX, panelY, panelW, panelH) {
+  const areaX = panelX + (compact() ? 20 : panelW * 0.08), areaY = panelY + 70, areaW = panelW - (areaX - panelX) - 30, areaH = panelH - 140;
   const maxSquaresWide = min(10, squares);
   const sqSize = min(areaW / maxSquaresWide, areaH);
   const totalW = sqSize * squares;
@@ -158,10 +193,13 @@ function windowResized() {
   updateCanvasSize();
   resizeCanvas(containerWidth, containerHeight);
   positionUIElements();
+  redraw();
 }
 
 function updateCanvasSize() {
+  controlHeight = compact() ? 200 : 170;
   const sz = smlComputeCanvasSize(minDrawHeight, controlHeight);
   containerWidth = sz.width; canvasWidth = sz.width;
   drawHeight = sz.drawHeight; canvasHeight = sz.height; containerHeight = sz.height;
+  if (compact()) drawHeight = Math.max(drawHeight, 620);
 }

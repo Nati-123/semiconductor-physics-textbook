@@ -343,6 +343,36 @@ function smlFormatPow10(exponent, opts) {
   return '10' + smlSuperscript(expStr) + (opts.noUnit ? '' : ' cm⁻³');
 }
 
+// ---------- carrier-statistics physics (Chapter 9+) ----------
+// Shared Si/Ge/GaAs constants and formulas so every Chapter 9-10 MicroSim
+// (effective density of states, mass action law, carrier-concentration/
+// Fermi-level, intrinsic-ni-vs-T) computes N_C, N_V, E_g(T), and n_i from
+// the same single source of truth instead of duplicating (and risking
+// drift in) four separate copies of these constants.
+// m_e*/m_h* are density-of-states effective masses (already include
+// valley-degeneracy corrections); Eg0/alpha/beta are Varshni parameters.
+const SML_KB_J = 1.381e-23, SML_H_J = 6.626e-34, SML_M0 = 9.109e-31, SML_KB_EV = 8.617e-5;
+
+const SML_MATERIALS = {
+  'Silicon': { symbol: 'Si', me: 1.08, mh: 0.56, Eg0: 1.166, alpha: 4.73e-4, beta: 636, color: [90, 62, 237] },
+  'Germanium': { symbol: 'Ge', me: 0.55, mh: 0.37, Eg0: 0.7437, alpha: 4.77e-4, beta: 235, color: [200, 100, 40] },
+  'GaAs': { symbol: 'GaAs', me: 0.067, mh: 0.48, Eg0: 1.519, alpha: 5.41e-4, beta: 204, color: [30, 150, 130] }
+};
+
+// N_C = 2(2*pi*m*kB*T/h^2)^1.5, in cm^-3. mRatio is m*/m0.
+function smlEffDOS(mRatio, T) {
+  const m = mRatio * SML_M0;
+  const val = 2 * Math.pow((2 * Math.PI * m * SML_KB_J * T) / (SML_H_J * SML_H_J), 1.5); // m^-3
+  return val / 1e6; // cm^-3
+}
+// Varshni equation: Eg(T) = Eg0 - alpha*T^2/(T+beta), in eV.
+function smlEgVarshni(mat, T) { return mat.Eg0 - (mat.alpha * T * T) / (T + mat.beta); }
+// n_i = sqrt(NC*NV) * exp(-Eg/2kT), in cm^-3.
+function smlNi(mat, T) {
+  const Nc = smlEffDOS(mat.me, T), Nv = smlEffDOS(mat.mh, T);
+  return Math.sqrt(Nc * Nv) * Math.exp(-smlEgVarshni(mat, T) / (2 * SML_KB_EV * T));
+}
+
 // Draws "main" immediately followed by a smaller, lower "sub" glyph run,
 // approximating a true typographic subscript on an HTML5 canvas (which has
 // no rich-text API). Honors the caller's current fill/textAlign(LEFT,*)

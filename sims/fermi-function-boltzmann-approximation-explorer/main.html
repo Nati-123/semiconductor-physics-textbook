@@ -27,21 +27,31 @@
     <summary>Guided Exploration &amp; Challenge Questions</summary>
     <div class="panel-content">
 
-        <h3>Try This</h3>
+        <h3>What to Observe</h3>
         <ul class="explore-list">
-            <li><strong>Try this:</strong> Look at where the purple (exact Fermi-Dirac) and gold (Boltzmann approximation) curves overlap almost perfectly, versus where they diverge.</li>
-            <li><strong>Predict:</strong> Before dragging the temperature slider up, predict whether the "good approximation" shaded zone will widen or narrow in energy.</li>
-            <li><strong>Observe:</strong> Drag the marker slider (E − E_F) to find the boundary of the shaded zone — the point where the Boltzmann approximation starts to disagree with the exact function by more than 5%.</li>
+            <li>The purple curve is the <strong>exact</strong> Fermi-Dirac function; the gold curve is its <strong>Boltzmann approximation</strong> — they overlap almost perfectly for E well above E_F, and diverge as E approaches and passes E_F.</li>
+            <li>The green shaded region is the energy range where the two curves agree to within your selected tolerance — recomputed live as you change temperature or tolerance.</li>
+            <li>f(E) is the probability that an available state at energy E is occupied by an electron — it is not itself a count of electrons, just a probability between 0 and 1.</li>
         </ul>
 
-        <p class="connects-to"><strong>Connects to Chapter 9:</strong> The exact Fermi function, \(f(E)=1/[1+e^{(E-E_F)/k_BT}]\), is difficult to integrate analytically against the density of states. Whenever \(E-E_F\gg k_BT\) (conduction-band states in a non-degenerate semiconductor), the exact function is very well approximated by the much simpler <strong>Boltzmann approximation</strong>, \(f(E)\approx e^{-(E-E_F)/k_BT}\) — this is exactly the substitution used to derive the effective-density-of-states formula for \(n_0\) later in this chapter, and it is only valid outside a heavily-doped, degenerate regime like the one Chapter 8 warned about.</p>
+        <h3>Guided Exploration</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Click each temperature preset (77 K, 300 K, 500 K) in turn and watch the shaded zone's boundary move.</li>
+            <li><strong>Predict:</strong> Before dragging the temperature slider up from 300 K, predict whether the shaded "good approximation" zone will widen or narrow in energy (eV).</li>
+            <li><strong>Observe:</strong> Drag the marker slider (E − E_F) to the shaded zone's edge and confirm the percent-difference readout crosses your selected tolerance almost exactly there.</li>
+            <li><strong>Explore:</strong> Switch the tolerance dropdown from 5% to 1% and watch the shaded zone shrink — a tighter tolerance requires being farther from E_F before the approximation is "good enough."</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 9:</strong> The exact Fermi function, \(f(E)=1/[1+e^{(E-E_F)/k_BT}]\), is difficult to integrate analytically against the density of states. Whenever \(E-E_F\gg k_BT\) (conduction-band states in a non-degenerate semiconductor), the exact function is very well approximated by the much simpler <strong>Boltzmann approximation</strong>, \(f(E)\approx e^{-(E-E_F)/k_BT}\) — this is exactly the substitution used to derive the effective-density-of-states formula for \(n_0\) later in this chapter, and it is only valid outside a heavily-doped, degenerate regime like the one Chapter 8 warned about. The relative error of the Boltzmann approximation turns out to equal \(f_{Boltzmann}(E)\) itself, so the boundary for a tolerance \(\varepsilon\) is exactly \(E-E_F=k_BT\ln(1/\varepsilon)\) — the formula this MicroSim evaluates live.</p>
 
         <h3>What Each Control Does</h3>
         <dl class="control-captions">
-            <dt>Temperature slider</dt>
+            <dt>Temperature slider / 77 K, 300 K, 500 K presets</dt>
             <dd>Sets k_BT, which rescales both curves and the width of the good-approximation zone in energy.</dd>
             <dt>Marker slider (E − E_F)</dt>
             <dd>Reads off both f(E) values and their percent difference at a chosen energy.</dd>
+            <dt>Tolerance dropdown</dt>
+            <dd>Sets the acceptable relative-error threshold (1%, 5%, or 10%) defining the shaded "good approximation" zone and its numeric boundary.</dd>
         </dl>
 
         <h3>Challenge Questions</h3>
@@ -69,6 +79,20 @@
             <p class="explain-correct" hidden>The approximation's validity boundary sits at a fixed multiple of k_BT, so as temperature (and therefore k_BT) increases, that boundary moves to a larger energy in eV, widening the shaded zone.</p>
             <p class="explain-incorrect" hidden>Drag the temperature slider from low to high and watch the shaded zone's right edge.</p>
         </div>
+
+        <div class="challenge" data-correct="d">
+            <p class="q-text">3. At T = 300 K (k_BT ≈ 0.0259 eV), roughly how far above E_F must a state be for the Boltzmann approximation to be accurate to within 1%?</p>
+            <label><input type="radio" name="fbe-q3" value="a"> Exactly at E_F</label>
+            <label><input type="radio" name="fbe-q3" value="b"> About 0.026 eV (1 k_BT)</label>
+            <label><input type="radio" name="fbe-q3" value="c"> About 0.052 eV (2 k_BT)</label>
+            <label><input type="radio" name="fbe-q3" value="d"> About 0.119 eV (≈4.6 k_BT), since k_BT·ln(1/0.01) ≈ 4.6 k_BT</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>The boundary is E−E_F = k_BT·ln(1/ε); for ε=0.01, ln(100)≈4.6, so the boundary sits at about 4.6 k_BT ≈ 0.119 eV at 300 K. Set the tolerance dropdown to 1% and read the boundary value directly off the readout to confirm.</p>
+            <p class="explain-incorrect" hidden>Set the tolerance dropdown to 1% at T=300 K and read the "Boundary for accuracy" line below the chart.</p>
+        </div>
+
+        <p class="key-takeaway"><strong>Key Takeaway:</strong> The Boltzmann approximation is not "always good" or "always bad" — its accuracy depends continuously on how far a state sits above E_F relative to k_BT, and the exact boundary for any chosen tolerance is E−E_F=k_BT·ln(1/ε). This is precisely the condition a non-degenerate semiconductor's conduction-band states satisfy, and precisely why the approximation fails once doping pushes E_F close to (or past) a band edge.</p>
 
     </div>
     </details>

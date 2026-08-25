@@ -2371,10 +2371,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#diagram-effective-density-of-states-and-intrinsic-carrier-concentration-calculator" class="md-nav__link">
+  <a href="#diagram-effective-density-of-states-explorer" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Diagram: Effective Density of States and Intrinsic Carrier Concentration Calculator
+        Diagram: Effective Density of States Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-carrier-concentration-and-fermi-level-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Carrier Concentration and Fermi Level Explorer
       
     </span>
   </a>
@@ -6732,7 +6743,35 @@
   <span class="md-ellipsis">
     
   
-    Effective Density of States Calculator
+    Effective Density of States Explorer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sims/carrier-concentration-fermi-level-explorer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Carrier Concentration and Fermi Level Explorer
   
 
     
@@ -9838,7 +9877,7 @@
 <li>Define free electrons and holes as charge carriers, and describe how an electron-hole pair is created together</li>
 <li>State the Fermi-Dirac distribution (Fermi function) and explain the role of the density of states function in computing carrier concentration</li>
 <li>Derive the effective density of states <span class="arithmatex">\(N_C\)</span> (and <span class="arithmatex">\(N_V\)</span>) from the density-of-states integral under the Boltzmann approximation</li>
-<li>Compute non-degenerate electron and hole concentrations, <span class="arithmatex">\(n_0=N_Ce^{-(E_C-E_F)/k_BT}\)</span> and <span class="arithmatex">\(p_0=N_Ve^{-(E_F-E_V)/k_BT}\)</span></li>
+<li>Compute non-degenerate electron and hole concentrations, <span class="arithmatex">\(n_0=N_Ce^{-(E_C-E_F)/k_BT}\)</span> and <span class="arithmatex">\(p_0=N_Ve^{-(E_F-E_V)/k_BT}\)</span>, and explain why they move in opposite directions as <span class="arithmatex">\(E_F\)</span> shifts through the gap</li>
 <li>Derive and apply the intrinsic carrier concentration formula, <span class="arithmatex">\(n_i=\sqrt{N_CN_V}\,e^{-E_g/2k_BT}\)</span></li>
 <li>State and apply the mass action law, <span class="arithmatex">\(n_0p_0=n_i^2\)</span>, and explain why it holds regardless of doping</li>
 <li>State the charge neutrality condition and explain its role (together with the mass action law) in solving for exact carrier concentrations</li>
@@ -9892,6 +9931,7 @@ f(E) = \frac{1}{1+e^{(E-E_F)/k_BT}}
 n_0 = \int_{E_C}^{\infty} g_c(E)\,f(E)\,dE
 \]</div>
 <p>with the exactly analogous integral, using <span class="arithmatex">\(1-f(E)\)</span> (the probability a state is <em>empty</em>, i.e., holds a hole) and the valence-band density of states <span class="arithmatex">\(g_v(E)\)</span>, giving the hole concentration <span class="arithmatex">\(p_0\)</span> below <span class="arithmatex">\(E_V\)</span>.</p>
+<p>The Boltzmann approximation is not simply "assumed" — its accuracy is a continuous function of how far a state sits above <span class="arithmatex">\(E_F\)</span> relative to <span class="arithmatex">\(k_BT\)</span>, and the MicroSim below lets that be checked directly rather than taken on faith.</p>
 <h4 id="diagram-fermi-function-and-boltzmann-approximation-explorer">Diagram: Fermi Function and Boltzmann Approximation Explorer</h4>
 <iframe height="640px" scrolling="auto" src="../../sims/fermi-function-boltzmann-approximation-explorer/main.html" width="100%"></iframe>
 <div class="admonition tip">
@@ -9920,13 +9960,14 @@ n_0 = N_Ce^{-(E_C-E_F)/k_BT}, \qquad N_C = 2\left(\frac{2\pi m_e^*k_BT}{h^2}\rig
 p_0 = N_Ve^{-(E_F-E_V)/k_BT}, \qquad N_V = 2\left(\frac{2\pi m_h^*k_BT}{h^2}\right)^{3/2}
 \]</div>
 <p>For silicon at <span class="arithmatex">\(T=300\)</span> K, using density-of-states effective masses <span class="arithmatex">\(m_e^*=1.08\,m_0\)</span> and <span class="arithmatex">\(m_h^*=0.56\,m_0\)</span> (which already include the valley-degeneracy correction flagged in Chapter 7), these formulas give <span class="arithmatex">\(N_C\approx2.8\times10^{19}\ \text{cm}^{-3}\)</span> and <span class="arithmatex">\(N_V\approx1.04\times10^{19}\ \text{cm}^{-3}\)</span> — precisely the values Chapter 8 used when previewing the degenerate-semiconductor criterion.</p>
-<h4 id="diagram-effective-density-of-states-and-intrinsic-carrier-concentration-calculator">Diagram: Effective Density of States and Intrinsic Carrier Concentration Calculator</h4>
-<iframe height="600px" scrolling="auto" src="../../sims/effective-density-of-states-calculator/main.html" width="100%"></iframe>
+<p>The formula above collapses an integral into a number — the MicroSim below makes that number concrete by computing it from real Si/Ge/GaAs constants, and lets its temperature dependence (and its much steeper cousin, <span class="arithmatex">\(n_i(T)\)</span>) be compared directly across materials rather than only in a table.</p>
+<h4 id="diagram-effective-density-of-states-explorer">Diagram: Effective Density of States Explorer</h4>
+<iframe height="640px" scrolling="auto" src="../../sims/effective-density-of-states-calculator/main.html" width="100%"></iframe>
 <div class="admonition tip">
 <p class="admonition-title">How to use this MicroSim</p>
-<p><strong>Instructions:</strong> Select each material and drag the temperature slider, watching <span class="arithmatex">\(N_C\)</span>, <span class="arithmatex">\(N_V\)</span>, and <span class="arithmatex">\(n_i\)</span> update live.</p>
-<p><strong>Learning objective:</strong> Apply the effective-density-of-states formula, and observe how strongly <span class="arithmatex">\(n_i\)</span> depends on both material (via band gap and effective mass) and temperature.</p>
-<p><strong>What to observe:</strong> GaAs's tiny electron effective mass (0.067 <span class="arithmatex">\(m_0\)</span>) gives it a much smaller <span class="arithmatex">\(N_C\)</span> than silicon's, since <span class="arithmatex">\(N_C\propto(m^*)^{3/2}\)</span>.</p>
+<p><strong>Instructions:</strong> Select each material and drag the temperature slider, watching <span class="arithmatex">\(N_C\)</span>, <span class="arithmatex">\(N_V\)</span>, and <span class="arithmatex">\(n_i\)</span> update live. Use the View dropdown to switch between a single material's <span class="arithmatex">\(n_i(T)\)</span> curve, <span class="arithmatex">\(N_C(T)\)</span> and <span class="arithmatex">\(N_V(T)\)</span> plotted together, and an <span class="arithmatex">\(n_i(T)\)</span> comparison across all three materials.</p>
+<p><strong>Learning objective:</strong> Apply the effective-density-of-states formula, observe how strongly <span class="arithmatex">\(n_i\)</span> depends on both material (via band gap and effective mass) and temperature, and compare how dramatically different materials' intrinsic carrier concentrations can be at the same temperature.</p>
+<p><strong>What to observe:</strong> GaAs's tiny electron effective mass (0.067 <span class="arithmatex">\(m_0\)</span>) gives it a much smaller <span class="arithmatex">\(N_C\)</span> than silicon's, since <span class="arithmatex">\(N_C\propto(m^*)^{3/2}\)</span> — yet in the "Compare <span class="arithmatex">\(n_i(T)\)</span>" view, GaAs's much larger band gap still leaves it with the <em>smallest</em> <span class="arithmatex">\(n_i\)</span> of the three materials at every temperature, since the exponential band-gap term dominates over the effective-mass prefactor.</p>
 </div>
 <p><a href="../../sims/effective-density-of-states-calculator/">Full MicroSim documentation →</a></p>
 <div class="admonition example">
@@ -9937,6 +9978,16 @@ p_0 = N_Ve^{-(E_F-E_V)/k_BT}, \qquad N_V = 2\left(\frac{2\pi m_h^*k_BT}{h^2}\rig
 n_0 = N_Ce^{-(E_C-E_F)/k_BT} = (2.8\times10^{19})e^{-0.20/0.0259} = (2.8\times10^{19})e^{-7.72} \approx (2.8\times10^{19})(4.43\times10^{-4}) \approx 1.24\times10^{16}\ \text{cm}^{-3}
 \]</div>
 </div>
+<p>Worked Example 1 fixed <span class="arithmatex">\(E_F\)</span> at one position and solved for <span class="arithmatex">\(n_0\)</span> by hand. The MicroSim below does the same calculation continuously, letting <span class="arithmatex">\(E_F\)</span> be dragged through the entire gap so the relationship between Fermi level position and carrier population becomes something to watch happen, not just something to compute once.</p>
+<h4 id="diagram-carrier-concentration-and-fermi-level-explorer">Diagram: Carrier Concentration and Fermi Level Explorer</h4>
+<iframe height="660px" scrolling="auto" src="../../sims/carrier-concentration-fermi-level-explorer/main.html" width="100%"></iframe>
+<div class="admonition tip">
+<p class="admonition-title">How to use this MicroSim</p>
+<p><strong>Instructions:</strong> Drag the <span class="arithmatex">\(E_F\)</span> slider through the gap and watch the <span class="arithmatex">\(n_0\)</span> and <span class="arithmatex">\(p_0\)</span> gauges respond; drag it past <span class="arithmatex">\(E_C\)</span> or below <span class="arithmatex">\(E_V\)</span> to see the non-degenerate/transition/degenerate badge change.</p>
+<p><strong>Learning objective:</strong> Connect Fermi level position directly to carrier population, and recognize when the non-degenerate formulas this chapter derives are no longer a valid description.</p>
+<p><strong>What to observe:</strong> As <span class="arithmatex">\(E_F\)</span> moves toward <span class="arithmatex">\(E_C\)</span>, <span class="arithmatex">\(n_0\)</span> rises while <span class="arithmatex">\(p_0\)</span> falls — and vice versa moving toward <span class="arithmatex">\(E_V\)</span> — because <span class="arithmatex">\(E_C-E_F\)</span> and <span class="arithmatex">\(E_F-E_V\)</span> are two complementary distances describing the same single position. This MicroSim deliberately runs the effective-density-of-states equations "forward" (from <span class="arithmatex">\(E_F\)</span> to <span class="arithmatex">\(n_0,p_0\)</span>); Chapter 10's Fermi Level Position explorer runs the same equations "backward" (from doping to <span class="arithmatex">\(E_F\)</span>).</p>
+</div>
+<p><a href="../../sims/carrier-concentration-fermi-level-explorer/">Full MicroSim documentation →</a></p>
 <h2 id="intrinsic-carrier-concentration">Intrinsic Carrier Concentration</h2>
 <h3 id="a-single-number-that-anchors-every-calculation">A Single Number That Anchors Every Calculation</h3>
 <p>Multiplying <span class="arithmatex">\(n_0\)</span> and <span class="arithmatex">\(p_0\)</span> together and simplifying <span class="arithmatex">\(E_C-E_F+E_F-E_V=E_C-E_V=E_g\)</span> gives:</p>
@@ -9967,13 +10018,14 @@ n_i \approx (1.71\times10^{19})(3.9\times10^{-10}) \approx 6.6\times10^{9}\ \tex
 n_0p_0 = n_i^2
 \]</div>
 <p>The remarkable feature of this equation is what is <em>missing</em> from it: the Fermi level <span class="arithmatex">\(E_F\)</span>, which appears explicitly in both the <span class="arithmatex">\(n_0\)</span> and <span class="arithmatex">\(p_0\)</span> formulas, cancels out completely when the two are multiplied. This means the mass action law holds at thermal equilibrium in <em>any</em> non-degenerate semiconductor — intrinsic or doped n-type or doped p-type — regardless of the doping level. Doping shifts <span class="arithmatex">\(E_F\)</span> (as Chapter 10 makes precise) and therefore shifts <span class="arithmatex">\(n_0\)</span> and <span class="arithmatex">\(p_0\)</span> individually, but their <em>product</em> is fixed by temperature and material alone.</p>
+<p>Algebra shows the mass action law holds; the MicroSim below makes it visible as a fixed hyperbola that doping can only slide a marker along, never escape.</p>
 <h4 id="diagram-mass-action-law-explorer">Diagram: Mass Action Law Explorer</h4>
 <iframe height="600px" scrolling="auto" src="../../sims/mass-action-law-explorer/main.html" width="100%"></iframe>
 <div class="admonition tip">
 <p class="admonition-title">How to use this MicroSim</p>
-<p><strong>Instructions:</strong> Drag the <span class="arithmatex">\(n_0\)</span> slider across its range and watch <span class="arithmatex">\(p_0\)</span> adjust automatically to keep <span class="arithmatex">\(n_0p_0=n_i^2\)</span>.</p>
-<p><strong>Learning objective:</strong> Apply the mass action law to compute minority carrier concentration from majority carrier concentration, and explain why the Fermi level cancels from the product.</p>
-<p><strong>What to observe:</strong> As <span class="arithmatex">\(n_0\)</span> rises far above <span class="arithmatex">\(n_i\)</span> (heavy n-type doping), <span class="arithmatex">\(p_0\)</span> falls correspondingly far below <span class="arithmatex">\(n_i\)</span> — doping does not just add majority carriers, it actively suppresses the minority carrier population.</p>
+<p><strong>Instructions:</strong> Pick a material and temperature, then drag the <span class="arithmatex">\(n_0\)</span> slider across its range and watch <span class="arithmatex">\(p_0\)</span> adjust automatically to keep <span class="arithmatex">\(n_0p_0=n_i^2\)</span> fixed on the log-log hyperbola.</p>
+<p><strong>Learning objective:</strong> Apply the mass action law to compute minority carrier concentration from majority carrier concentration, explain why the Fermi level cancels from the product, and identify the n-type and p-type regions of the curve relative to the intrinsic point.</p>
+<p><strong>What to observe:</strong> As <span class="arithmatex">\(n_0\)</span> rises far above <span class="arithmatex">\(n_i\)</span> (heavy n-type doping), <span class="arithmatex">\(p_0\)</span> falls correspondingly far below <span class="arithmatex">\(n_i\)</span> — doping does not just add majority carriers, it actively suppresses the minority carrier population. Switching material or temperature changes <span class="arithmatex">\(n_i\)</span> and slides the entire hyperbola, but never changes its hyperbolic shape.</p>
 </div>
 <p><a href="../../sims/mass-action-law-explorer/">Full MicroSim documentation →</a></p>
 <div class="admonition example">

@@ -27,15 +27,23 @@
     <summary>Guided Exploration &amp; Challenge Questions</summary>
     <div class="panel-content">
 
-        <h3>Try This</h3>
+        <h3>What to Observe</h3>
+        <ul class="explore-list">
+            <li>The gold tangent line's slope at the marker position is exactly \(dp/dx\) — steeper tangent, larger diffusion current.</li>
+            <li>D_p is not a fixed constant here — it is computed live from the Einstein relation using the temperature and doping sliders, so changing T changes J_diffusion even at a fixed gradient.</li>
+            <li>The card shows the full computation chain: μ_p → D_p → dp/dx → J_diffusion, then combined with J_drift into J_total.</li>
+        </ul>
+
+        <h3>Guided Exploration</h3>
         <ul class="explore-list">
             <li><strong>Try this:</strong> Drag the position marker along the concentration curve and watch the tangent line's steepness track the diffusion current readout.</li>
             <li><strong>Predict:</strong> Before shortening the decay length L, predict whether the diffusion current near x=0 will grow or shrink.</li>
             <li><strong>Observe:</strong> Shorten L (steeper decay) and confirm diffusion current increases near the origin, where the concentration gradient is steepest.</li>
             <li><strong>Try this:</strong> Add a nonzero electric field and watch the total current combine both drift and diffusion contributions.</li>
+            <li><strong>Explore:</strong> Raise the temperature slider without touching the gradient and confirm J_diffusion changes — a direct consequence of D_p's own temperature dependence via the Einstein relation.</li>
         </ul>
 
-        <p class="connects-to"><strong>Connects to Chapter 12:</strong> <strong>Fick's law</strong> states that diffusion current is proportional to the local <strong>concentration gradient</strong>, \(dp/dx\) — steeper gradients drive more current. Combined with Chapter 11's drift current, the <strong>total current density</strong> at any point is simply the sum, \(J=J_{\text{drift}}+J_{\text{diffusion}}\), the fundamental equation underlying carrier transport in every semiconductor device studied in the chapters ahead.</p>
+        <p class="connects-to"><strong>Connects to Chapter 12:</strong> <strong>Fick's law</strong> states that diffusion current is proportional to the local <strong>concentration gradient</strong>, \(dp/dx\) — steeper gradients drive more current. Combined with Chapter 11's drift current, the <strong>total current density</strong> at any point is simply the sum, \(J=J_{\text{drift}}+J_{\text{diffusion}}\), the fundamental equation underlying carrier transport in every semiconductor device studied in the chapters ahead. Here, \(D_p\) itself comes from the Einstein relation rather than being assumed fixed, tying this MicroSim directly to the previous section's result.</p>
 
         <h3>What Each Control Does</h3>
         <dl class="control-captions">
@@ -45,6 +53,8 @@
             <dd>Selects the position at which the local gradient and diffusion current are evaluated.</dd>
             <dt>Electric field slider</dt>
             <dd>Adds a uniform drift current contribution, combined with diffusion into the total.</dd>
+            <dt>Temperature and N_A sliders</dt>
+            <dd>Set the hole mobility (Matthiessen's rule) and therefore D_p via the Einstein relation.</dd>
         </dl>
 
         <h3>Challenge Questions</h3>
@@ -60,6 +70,20 @@
             <p class="explain-correct" hidden>Fick's law makes diffusion current proportional to the gradient dp/dx, not the concentration itself — the steepest part of the curve produces the largest diffusion current.</p>
             <p class="explain-incorrect" hidden>Drag the position marker to different points and compare the tangent line's steepness to the diffusion current readout.</p>
         </div>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">2. Predict first: if you raise the temperature slider without moving the position marker or changing L, what happens to J_diffusion?</p>
+            <label><input type="radio" name="fld-q2" value="a"> Nothing — J_diffusion depends only on the gradient</label>
+            <label><input type="radio" name="fld-q2" value="b"> It decreases, since higher temperature always reduces current</label>
+            <label><input type="radio" name="fld-q2" value="c"> It changes, because D_p itself depends on temperature through the Einstein relation and mobility's own temperature dependence</label>
+            <label><input type="radio" name="fld-q2" value="d"> The concentration profile shape changes</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>J_diffusion = -qD_p(dp/dx); even with dp/dx fixed, D_p = μ_p·k_BT/q changes with T both directly (the k_BT factor) and indirectly (mobility's own T-dependence), so J_diffusion changes too.</p>
+            <p class="explain-incorrect" hidden>Watch the "D_p = ..." readout below the title as you drag the temperature slider.</p>
+        </div>
+
+        <p class="key-takeaway"><strong>Key Takeaway:</strong> Diffusion current depends on two independent things — how steep the concentration profile is (geometry) and how easily carriers move through the material (D_p, itself set by temperature and doping through mobility). Changing either one changes J_diffusion, even if the other stays fixed.</p>
 
     </div>
     </details>

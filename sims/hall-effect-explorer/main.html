@@ -27,18 +27,28 @@
     <summary>Guided Exploration &amp; Challenge Questions</summary>
     <div class="panel-content">
 
-        <h3>Try This</h3>
+        <h3>What to Observe</h3>
+        <ul class="explore-list">
+            <li>The bar diagram shows the current direction, the magnetic field symbol (⊙ out of page / ⊗ into page), the carriers moving through the bar, and the +/− signs accumulating on each edge.</li>
+            <li>The voltmeter symbol reads out V_H directly, along with a plain-language statement of what its sign means.</li>
+            <li>Presets jump to representative sensor scenarios; switching any slider returns to "Custom."</li>
+        </ul>
+
+        <h3>Guided Exploration</h3>
         <ul class="explore-list">
             <li><strong>Try this:</strong> Select "p-type (holes)" and note the sign of the computed Hall voltage and which edge accumulates positive charge.</li>
             <li><strong>Predict:</strong> Before switching to "n-type (electrons)" with the same current and field, predict whether the Hall voltage sign will flip.</li>
             <li><strong>Observe:</strong> Switch carrier type and confirm the Hall voltage sign reverses, even though current and field directions are unchanged — this sign flip is exactly how the Hall effect identifies carrier type experimentally.</li>
             <li><strong>Try this:</strong> Reverse the magnetic field slider's sign and watch the accumulation edges swap.</li>
+            <li><strong>Compare:</strong> Switch between "Heavily doped" and "Lightly doped" presets and compare the resulting Hall voltage magnitude.</li>
         </ul>
 
         <p class="connects-to"><strong>Connects to Chapter 12:</strong> In the <strong>Hall effect</strong>, a magnetic field perpendicular to a current-carrying bar deflects moving carriers sideways via the Lorentz force, building up charge on one edge until the resulting transverse electric field balances the magnetic deflection. The resulting <strong>Hall voltage</strong> is \(V_H=R_H IB/t\), where the <strong>Hall coefficient</strong> \(R_H=1/(qp)\) for holes or \(R_H=-1/(qn)\) for electrons — its sign directly reveals whether the majority carrier is a hole or an electron, one of the few direct experimental probes of carrier type and concentration.</p>
 
         <h3>What Each Control Does</h3>
         <dl class="control-captions">
+            <dt>Preset dropdown</dt>
+            <dd>Jumps directly to representative Hall sensor scenarios; switches to "Custom" once you move a slider.</dd>
             <dt>Carrier type dropdown</dt>
             <dd>Selects hole (p-type) or electron (n-type) conduction, flipping the sign of the Hall coefficient.</dd>
             <dt>Current, field, concentration, and thickness sliders</dt>
@@ -70,6 +80,20 @@
             <p class="explain-correct" hidden>The Lorentz force pushes moving carriers toward one edge; the resulting charge buildup creates a transverse electric field that grows until it exactly cancels the magnetic deflection force, at which point a steady Hall voltage exists.</p>
             <p class="explain-incorrect" hidden>Recall the Lorentz force law, F=qv×B, and think about what happens to a moving charge in a perpendicular magnetic field.</p>
         </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">3. Predict first: does a more heavily doped sample produce a larger or smaller Hall voltage magnitude, at the same current and field?</p>
+            <label><input type="radio" name="hef-q3" value="a"> Smaller — R_H=1/(qN) shrinks as N grows, since more carriers each need to deflect less to balance the same current</label>
+            <label><input type="radio" name="hef-q3" value="b"> Larger — more carriers means a larger signal</label>
+            <label><input type="radio" name="hef-q3" value="c"> Doping has no effect on Hall voltage</label>
+            <label><input type="radio" name="hef-q3" value="d"> The sign changes with doping level</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>R_H is inversely proportional to carrier concentration, so heavier doping gives a smaller Hall coefficient and a smaller Hall voltage for the same current and field — compare the "Heavily doped" and "Lightly doped" presets to confirm.</p>
+            <p class="explain-incorrect" hidden>Switch between the "Heavily doped (weak signal)" and "Lightly doped (strong signal)" presets and compare V_H.</p>
+        </div>
+
+        <p class="key-takeaway"><strong>Key Takeaway:</strong> The Hall effect measures something equilibrium carrier-concentration equations alone cannot: the actual sign of the majority carrier's charge. It is also a practical sensitivity trade-off — lightly-doped samples give a larger, easier-to-measure Hall voltage, which is why real Hall sensors are deliberately lightly doped.</p>
 
     </div>
     </details>

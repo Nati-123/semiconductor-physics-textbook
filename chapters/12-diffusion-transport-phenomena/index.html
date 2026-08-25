@@ -10041,9 +10041,9 @@ R_H = \frac{1}{qp} \ (\text{p-type, holes}), \qquad R_H = -\frac{1}{qn} \ (\text
 <iframe height="660px" scrolling="auto" src="../../sims/hall-effect-explorer/main.html" width="100%"></iframe>
 <div class="admonition tip">
 <p class="admonition-title">How to use this MicroSim</p>
-<p><strong>Instructions:</strong> Compare the computed Hall voltage's sign for p-type vs. n-type carriers with the same current and field.</p>
-<p><strong>Learning objective:</strong> Explain how the Lorentz force produces a Hall voltage, and interpret its sign to identify majority carrier type.</p>
-<p><strong>What to observe:</strong> Switching carrier type flips the Hall voltage's sign even though nothing about the current or field direction changes — confirming that the sign is set entirely by the carrier's charge.</p>
+<p><strong>Instructions:</strong> Compare the computed Hall voltage's sign for p-type vs. n-type carriers with the same current and field, or start from one of the sensor presets.</p>
+<p><strong>Learning objective:</strong> Explain how the Lorentz force produces a Hall voltage, interpret its sign to identify majority carrier type, and explain why lightly-doped samples give a larger Hall signal.</p>
+<p><strong>What to observe:</strong> Switching carrier type flips the Hall voltage's sign even though nothing about the current or field direction changes — confirming that the sign is set entirely by the carrier's charge. Comparing the "Heavily doped" and "Lightly doped" presets shows the Hall voltage magnitude shrinking as doping increases.</p>
 </div>
 <p><a href="../../sims/hall-effect-explorer/">Full MicroSim documentation →</a></p>
 <div class="admonition question">
@@ -10077,9 +10077,9 @@ D = \frac{\mu k_BT}{q}
 <iframe height="640px" scrolling="auto" src="../../sims/einstein-relation-diffusion-coefficient-calculator/main.html" width="100%"></iframe>
 <div class="admonition tip">
 <p class="admonition-title">How to use this MicroSim</p>
-<p><strong>Instructions:</strong> Compare the computed diffusion coefficient at room temperature to silicon's commonly-cited values, then vary temperature and doping.</p>
+<p><strong>Instructions:</strong> Compare the computed diffusion coefficient at room temperature to silicon's commonly-cited values, then vary temperature and doping, or enable "Compare electrons vs. holes."</p>
 <p><strong>Learning objective:</strong> Apply the Einstein relation to compute diffusion coefficient from mobility, and explain why both are governed by the same scattering physics.</p>
-<p><strong>What to observe:</strong> D grows with both increasing mobility and increasing temperature — both act to increase how far a carrier's random thermal motion carries it before scattering.</p>
+<p><strong>What to observe:</strong> D grows with both increasing mobility and increasing temperature — both act to increase how far a carrier's random thermal motion carries it before scattering. In comparison mode, <span class="arithmatex">\(D_n\)</span> sits consistently above <span class="arithmatex">\(D_p\)</span>, directly tracking Chapter 11's electron/hole mobility gap.</p>
 </div>
 <p><a href="../../sims/einstein-relation-diffusion-coefficient-calculator/">Full MicroSim documentation →</a></p>
 <div class="admonition example">
@@ -10098,9 +10098,9 @@ J_{n,\text{diff}} = qD_n\frac{dn}{dx}, \qquad J_{p,\text{diff}} = -qD_p\frac{dp}
 <iframe height="640px" scrolling="auto" src="../../sims/ficks-law-total-current-density-explorer/main.html" width="100%"></iframe>
 <div class="admonition tip">
 <p class="admonition-title">How to use this MicroSim</p>
-<p><strong>Instructions:</strong> Drag the position marker along the concentration curve and compare the tangent line's steepness to the diffusion current readout.</p>
-<p><strong>Learning objective:</strong> Apply Fick's law to compute diffusion current from a concentration gradient.</p>
-<p><strong>What to observe:</strong> Diffusion current is largest where the curve is steepest, not where concentration itself is highest — confirming that Fick's law depends on the <em>gradient</em>, not the concentration value.</p>
+<p><strong>Instructions:</strong> Drag the position marker along the concentration curve and compare the tangent line's steepness to the diffusion current readout; then adjust temperature and watch <span class="arithmatex">\(D_p\)</span> (computed live via the Einstein relation above) change too.</p>
+<p><strong>Learning objective:</strong> Apply Fick's law to compute diffusion current from a concentration gradient, and recognize that the diffusion coefficient itself depends on temperature and doping through mobility.</p>
+<p><strong>What to observe:</strong> Diffusion current is largest where the curve is steepest, not where concentration itself is highest — confirming that Fick's law depends on the <em>gradient</em>, not the concentration value. Raising temperature changes <span class="arithmatex">\(J_{\text{diffusion}}\)</span> even at a fixed gradient, since <span class="arithmatex">\(D_p\)</span> itself is temperature-dependent.</p>
 </div>
 <p><a href="../../sims/ficks-law-total-current-density-explorer/">Full MicroSim documentation →</a></p>
 <div class="admonition example">
@@ -10147,9 +10147,9 @@ v_d(E) = \frac{\mu E}{\sqrt{1+(\mu E/v_{sat})^2}}
 <iframe height="640px" scrolling="auto" src="../../sims/velocity-saturation-explorer/main.html" width="100%"></iframe>
 <div class="admonition tip">
 <p class="admonition-title">How to use this MicroSim</p>
-<p><strong>Instructions:</strong> Compare the actual (saturating) curve to the naive linear line at both low and high field.</p>
-<p><strong>Learning objective:</strong> Identify the field range where the linear drift-velocity approximation remains accurate, and explain the physical cause of saturation.</p>
-<p><strong>What to observe:</strong> The two curves overlap closely at low field but diverge sharply at high field, where the actual curve flattens toward v_sat while the linear line keeps climbing unrealistically.</p>
+<p><strong>Instructions:</strong> Compare the actual (saturating) curve to the naive linear line at both low and high field, using the Low/Moderate/High presets or the field slider directly.</p>
+<p><strong>Learning objective:</strong> Identify the field range where the linear drift-velocity approximation remains accurate, quantify exactly where it fails for a chosen tolerance, and explain the physical cause of saturation.</p>
+<p><strong>What to observe:</strong> The two curves overlap closely at low field but diverge sharply at high field, where the actual curve flattens toward v_sat while the linear line keeps climbing unrealistically. The shaded region and its reported crossover field show precisely where the linear approximation exceeds your chosen error tolerance — directly extending Worked Example 4's "only about 1% below" observation into a general rule.</p>
 </div>
 <p><a href="../../sims/velocity-saturation-explorer/">Full MicroSim documentation →</a></p>
 <p>Velocity saturation matters directly for real devices: in a short-channel transistor, the electric field inside the channel can be high enough that carriers spend much of their transit time in the saturated-velocity regime, fundamentally limiting how fast the device can switch — a major consideration in modern IC design.</p>

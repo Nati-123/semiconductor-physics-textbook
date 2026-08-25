@@ -27,11 +27,19 @@
     <summary>Guided Exploration &amp; Challenge Questions</summary>
     <div class="panel-content">
 
-        <h3>Try This</h3>
+        <h3>What to Observe</h3>
+        <ul class="explore-list">
+            <li>The card shows the computation in sequence: mobility first (from Chapter 11's Matthiessen's rule), then k_BT, then their product D.</li>
+            <li>The curve plots D across the full temperature range at once, with a marker showing the current slider position.</li>
+            <li>Enabling "Compare electrons vs. holes" overlays both carriers' D(T) curves together.</li>
+        </ul>
+
+        <h3>Guided Exploration</h3>
         <ul class="explore-list">
             <li><strong>Try this:</strong> At room temperature (300 K) and low doping, note the computed diffusion coefficient and compare it to silicon's commonly cited \(D_n\approx35\ \text{cm}^2/\text{s}\).</li>
             <li><strong>Predict:</strong> Before raising the doping concentration, predict whether D will rise or fall, given how mobility responds to doping.</li>
             <li><strong>Observe:</strong> Raise the temperature and watch D increase — both because \(k_BT\) grows directly and because mobility itself changes with temperature.</li>
+            <li><strong>Compare:</strong> Enable "Compare electrons vs. holes" and confirm D_n sits above D_p at every temperature, tracking the same electron/hole mobility gap from Chapter 11.</li>
         </ul>
 
         <p class="connects-to"><strong>Connects to Chapter 12:</strong> The <strong>Einstein relation</strong>, \(D=\mu k_BT/q\), connects the <strong>diffusion coefficient</strong> \(D\) directly to Chapter 11's mobility \(\mu\) — both are set by exactly the same scattering physics, since a carrier that scatters less both drifts faster in a field and diffuses faster down a concentration gradient. This is why measuring mobility alone is enough to predict diffusion behavior, without a separate diffusion experiment.</p>
@@ -39,9 +47,13 @@
         <h3>What Each Control Does</h3>
         <dl class="control-captions">
             <dt>Carrier type dropdown</dt>
-            <dd>Selects electron or hole diffusion, with its own mobility model.</dd>
-            <dt>Temperature and doping sliders</dt>
-            <dd>Set T and N, which determine mobility (Matthiessen's rule, Chapter 11) and therefore D via the Einstein relation.</dd>
+            <dd>Selects electron or hole diffusion, with its own mobility model (ignored while comparison mode is on).</dd>
+            <dt>Compare electrons vs. holes checkbox</dt>
+            <dd>Overlays both carriers' D(T) curves together instead of showing one at a time.</dd>
+            <dt>Doping slider</dt>
+            <dd>Sets N, which affects mobility via impurity scattering.</dd>
+            <dt>Temperature slider / 77 K, 300 K, 500 K presets</dt>
+            <dd>Set T, which determines mobility (Matthiessen's rule, Chapter 11) and therefore D via the Einstein relation.</dd>
         </dl>
 
         <h3>Challenge Questions</h3>
@@ -57,6 +69,20 @@
             <p class="explain-correct" hidden>D = μk_BT/q shows D is directly proportional to both mobility μ and absolute temperature T (with q as a fixed constant of proportionality).</p>
             <p class="explain-incorrect" hidden>Look at the Einstein relation formula shown on screen and identify which quantities appear in the numerator.</p>
         </div>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">2. Predict first: why does D_n exceed D_p at every temperature in comparison mode?</p>
+            <label><input type="radio" name="erd-q2" value="a"> Electrons have more charge than holes</label>
+            <label><input type="radio" name="erd-q2" value="b"> k_BT is different for electrons and holes</label>
+            <label><input type="radio" name="erd-q2" value="c"> Electron mobility is higher than hole mobility in silicon, and D is directly proportional to mobility at any fixed T</label>
+            <label><input type="radio" name="erd-q2" value="d"> D_p is always exactly zero</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Since D=μk_BT/q and k_BT/q is the same for both carriers at a given T, the entire D_n vs. D_p gap comes directly from μ_n exceeding μ_p — exactly the same mobility gap from Chapter 11's Matthiessen's-rule model.</p>
+            <p class="explain-incorrect" hidden>Compare this sim's D_n/D_p gap to Chapter 11's mobility explorer's electron/hole comparison mode.</p>
+        </div>
+
+        <p class="key-takeaway"><strong>Key Takeaway:</strong> The Einstein relation means there is no independent "diffusion physics" to learn — every factor that changes mobility (temperature, doping, scattering mechanism, carrier type) changes the diffusion coefficient by exactly the same proportion, scaled by k_BT/q.</p>
 
     </div>
     </details>

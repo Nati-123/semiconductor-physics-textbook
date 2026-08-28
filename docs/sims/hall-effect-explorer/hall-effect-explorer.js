@@ -108,7 +108,7 @@ function draw() {
   textAlign(CENTER, TOP); textSize(compact() ? 13 : 16);
   text('V_H = R_H·I·B / t   (sign reveals carrier type)', canvasWidth / 2, 8);
 
-  drawBarDiagram(isHole, B, VH);
+  drawBarDiagram(isHole, B, VH, RH);
 
   const rows = { preset: 12, carrier: 50, i: 88, b: 126, nd: 164, t: 202 };
   fill(30); noStroke();
@@ -126,7 +126,15 @@ function draw() {
   text(t_um.toFixed(0) + ' μm', canvasWidth - 10, drawHeight + rows.t + 11);
 }
 
-function drawBarDiagram(isHole, B, VH) {
+function formatSci(value) {
+  const supDigits = { '-': '⁻', '0': '⁰', '1': '¹', '2': '²', '3': '³', '4': '⁴', '5': '⁵', '6': '⁶', '7': '⁷', '8': '⁸', '9': '⁹' };
+  const exp = value === 0 ? 0 : Math.floor(Math.log10(Math.abs(value)));
+  const mant = value / Math.pow(10, exp);
+  const expStr = String(exp).split('').map(c => supDigits[c] || c).join('');
+  return mant.toFixed(2) + '×10' + expStr;
+}
+
+function drawBarDiagram(isHole, B, VH, RH) {
   const barX0 = canvasWidth * 0.18, barX1 = canvasWidth * 0.68;
   const barY0 = drawHeight * 0.35, barY1 = drawHeight * 0.65;
   const barW = barX1 - barX0, barH = barY1 - barY0;
@@ -170,6 +178,7 @@ function drawBarDiagram(isHole, B, VH) {
       stroke(200, 90, 90); strokeWeight(1.5);
       line(cx + 8, cy, cx + 16, cy);
       noStroke(); fill(200, 90, 90); triangle(cx + 18, cy, cx + 13, cy - 3, cx + 13, cy + 3);
+      textAlign(CENTER, BOTTOM); textSize(10); text('v', cx + 12, cy - 4);
     } else {
       noStroke(); fill(40, 40, 220);
       circle(cx, cy, 14);
@@ -177,6 +186,26 @@ function drawBarDiagram(isHole, B, VH) {
       stroke(40, 40, 220); strokeWeight(1.5);
       line(cx - 8, cy, cx - 16, cy);
       noStroke(); fill(40, 40, 220); triangle(cx - 18, cy, cx - 13, cy - 3, cx - 13, cy + 3);
+      textAlign(CENTER, BOTTOM); textSize(10); text('v', cx - 12, cy - 4);
+    }
+
+    // Lorentz-force vector F = qv x B, drawn on one representative carrier.
+    // Deflection direction (screen y) works out to sign(B) for BOTH carrier
+    // types: holes have q>0,v=+x; electrons have q=-e,v=-x; the two minus
+    // signs cancel, so both carriers are pushed toward the same edge for a
+    // given B, matching the topSign/bottomSign accumulation logic below,
+    // which is what actually distinguishes carrier type via the CHARGE that
+    // piles up there, not the direction it is pushed.
+    if (i === 1) {
+      const forceDir = B >= 0 ? 1 : -1; // +1 = toward bottom edge (screen), -1 = toward top edge
+      const fLen = 22;
+      const fx = cx, fy0 = cy + 10 * forceDir, fy1 = fy0 + fLen * forceDir;
+      stroke(230, 140, 20); strokeWeight(2.5); fill(230, 140, 20);
+      line(fx, fy0, fx, fy1);
+      const tipSign = forceDir;
+      triangle(fx, fy1 + 6 * tipSign, fx - 5, fy1, fx + 5, fy1);
+      noStroke(); textAlign(LEFT, CENTER); textSize(11);
+      text('F', fx + 8, (fy0 + fy1) / 2);
     }
   }
 
@@ -195,6 +224,21 @@ function drawBarDiagram(isHole, B, VH) {
     text(bottomSign, xx, barY1 + 12);
   }
 
+  // Hall electric field E_H: points inside the bar from the positively
+  // accumulated edge toward the negatively accumulated edge (opposing the
+  // deflection that produced it, once equilibrium is reached).
+  {
+    const ehX = barX0 + barW * 0.9;
+    const fromY = bottomSign === '+' ? barY1 - 8 : barY0 + 8;
+    const toY = bottomSign === '+' ? barY0 + 8 : barY1 - 8;
+    stroke(20, 150, 90); strokeWeight(2.2); fill(20, 150, 90);
+    line(ehX, fromY, ehX, toY);
+    const dir = toY < fromY ? -1 : 1;
+    triangle(ehX, toY - 6 * dir, ehX - 5, toY, ehX + 5, toY);
+    noStroke(); textAlign(LEFT, CENTER); textSize(11);
+    text('E_H', ehX + 8, (fromY + toY) / 2);
+  }
+
   // voltmeter
   const vmX = barX1 + 55, vmY = (barY0 + barY1) / 2;
   stroke(90); strokeWeight(1); drawingContext.setLineDash([2, 3]);
@@ -210,6 +254,8 @@ function drawBarDiagram(isHole, B, VH) {
   noStroke(); fill(20); textAlign(LEFT, TOP); textSize(compact() ? 11.5 : 13);
   text('V_H = ' + (VH * 1000).toFixed(2) + ' mV  (' + (VH >= 0 ? 'positive → p-type signature' : 'negative → n-type signature') + ')',
     canvasWidth * 0.08, barY1 + 40, canvasWidth * 0.86);
+  text('R_H = ' + (RH >= 0 ? '+' : '−') + formatSci(Math.abs(RH)) + ' m³/C  (' + (RH >= 0 ? 'positive → p-type' : 'negative → n-type') + ')',
+    canvasWidth * 0.08, barY1 + 40 + (compact() ? 16 : 19), canvasWidth * 0.86);
 }
 
 function windowResized() {

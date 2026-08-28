@@ -29,32 +29,38 @@
 
         <h3>What to Observe</h3>
         <ul class="explore-list">
-            <li>The gold tangent line's slope at the marker position is exactly \(dp/dx\) — steeper tangent, larger diffusion current.</li>
-            <li>D_p is not a fixed constant here — it is computed live from the Einstein relation using the temperature and doping sliders, so changing T changes J_diffusion even at a fixed gradient.</li>
-            <li>The card shows the full computation chain: μ_p → D_p → dp/dx → J_diffusion, then combined with J_drift into J_total.</li>
+            <li>The gold tangent line's slope at the marker position is exactly \(dp/dx\) (or \(dn/dx\)) — steeper tangent, larger diffusion current.</li>
+            <li>D is not a fixed constant here — it is computed live from the Einstein relation using the temperature and doping sliders, so changing T changes J_diffusion even at a fixed gradient.</li>
+            <li>The second chart plots J_diffusion(x), J_drift(x), and J_total(x) together across the whole bar — watch where the total curve crosses zero.</li>
+            <li>Switching the carrier type flips the sign of J_diffusion for the same decaying profile, while J_drift keeps the same sign structure — conventional current direction depends on the carrier's charge, and diffusion current depends on it twice (once through the flux direction, once through the charge sign) while drift current only depends on it once.</li>
         </ul>
 
         <h3>Guided Exploration</h3>
         <ul class="explore-list">
-            <li><strong>Try this:</strong> Drag the position marker along the concentration curve and watch the tangent line's steepness track the diffusion current readout.</li>
+            <li><strong>Try this:</strong> Drag the position marker along the concentration curve and watch the tangent line's steepness track the diffusion current readout, and the red marker line move on the current chart below.</li>
             <li><strong>Predict:</strong> Before shortening the decay length L, predict whether the diffusion current near x=0 will grow or shrink.</li>
             <li><strong>Observe:</strong> Shorten L (steeper decay) and confirm diffusion current increases near the origin, where the concentration gradient is steepest.</li>
-            <li><strong>Try this:</strong> Add a nonzero electric field and watch the total current combine both drift and diffusion contributions.</li>
-            <li><strong>Explore:</strong> Raise the temperature slider without touching the gradient and confirm J_diffusion changes — a direct consequence of D_p's own temperature dependence via the Einstein relation.</li>
+            <li><strong>Predict:</strong> Before switching from Holes to Electrons at the same L and marker position, predict whether J_diffusion will flip sign, change magnitude, or both.</li>
+            <li><strong>Try this:</strong> Click "Snap to cancellation field" and confirm the status box turns green ("J_total ≈ 0") and the black J_total curve touches zero exactly at the red marker line.</li>
+            <li><strong>Explore:</strong> Raise the temperature slider without touching the gradient and confirm J_diffusion changes — a direct consequence of D's own temperature dependence via the Einstein relation.</li>
         </ul>
 
-        <p class="connects-to"><strong>Connects to Chapter 12:</strong> <strong>Fick's law</strong> states that diffusion current is proportional to the local <strong>concentration gradient</strong>, \(dp/dx\) — steeper gradients drive more current. Combined with Chapter 11's drift current, the <strong>total current density</strong> at any point is simply the sum, \(J=J_{\text{drift}}+J_{\text{diffusion}}\), the fundamental equation underlying carrier transport in every semiconductor device studied in the chapters ahead. Here, \(D_p\) itself comes from the Einstein relation rather than being assumed fixed, tying this MicroSim directly to the previous section's result.</p>
+        <p class="connects-to"><strong>Connects to Chapter 12:</strong> <strong>Fick's law</strong> states that diffusion current is proportional to the local <strong>concentration gradient</strong>, \(dp/dx\) or \(dn/dx\) — steeper gradients drive more current. Combined with Chapter 11's drift current, the <strong>total current density</strong> at any point is simply the sum, \(J=J_{\text{drift}}+J_{\text{diffusion}}\), the fundamental equation underlying carrier transport in every semiconductor device studied in the chapters ahead — including the exact drift-diffusion balance that sets up equilibrium at a p-n junction (Chapter 14). Here, \(D\) itself comes from the Einstein relation rather than being assumed fixed, tying this MicroSim directly to the previous section's result.</p>
 
         <h3>What Each Control Does</h3>
         <dl class="control-captions">
+            <dt>Carrier type dropdown</dt>
+            <dd>Switches between a hole (p-type) and electron (n-type) concentration profile, flipping the diffusion-current sign convention accordingly.</dd>
             <dt>Decay length L slider</dt>
-            <dd>Sets how quickly the hole concentration profile decays with position, controlling the concentration gradient's steepness.</dd>
+            <dd>Sets how quickly the concentration profile decays with position, controlling the concentration gradient's steepness.</dd>
             <dt>Position marker slider</dt>
-            <dd>Selects the position at which the local gradient and diffusion current are evaluated.</dd>
+            <dd>Selects the position at which the local gradient, diffusion current, and cancellation field are evaluated.</dd>
             <dt>Electric field slider</dt>
-            <dd>Adds a uniform drift current contribution, combined with diffusion into the total.</dd>
-            <dt>Temperature and N_A sliders</dt>
-            <dd>Set the hole mobility (Matthiessen's rule) and therefore D_p via the Einstein relation.</dd>
+            <dd>Adds a drift current contribution (proportional to the local carrier concentration), combined with diffusion into the total.</dd>
+            <dt>Temperature and doping sliders</dt>
+            <dd>Set the majority-carrier mobility (Matthiessen's rule) and therefore D via the Einstein relation.</dd>
+            <dt>"Snap to cancellation field" button</dt>
+            <dd>Sets the electric field to the value where drift current exactly cancels diffusion current at the marker position, so J_total ≈ 0 there.</dd>
         </dl>
 
         <h3>Challenge Questions</h3>
@@ -83,7 +89,31 @@
             <p class="explain-incorrect" hidden>Watch the "D_p = ..." readout below the title as you drag the temperature slider.</p>
         </div>
 
-        <p class="key-takeaway"><strong>Key Takeaway:</strong> Diffusion current depends on two independent things — how steep the concentration profile is (geometry) and how easily carriers move through the material (D_p, itself set by temperature and doping through mobility). Changing either one changes J_diffusion, even if the other stays fixed.</p>
+        <div class="challenge" data-correct="c">
+            <p class="q-text">3. Predict first: with the same decaying concentration profile, you switch the carrier type from Holes to Electrons without changing anything else. What happens to J_diffusion at the marker?</p>
+            <label><input type="radio" name="fld-q3" value="a"> Nothing changes — the profile shape is identical</label>
+            <label><input type="radio" name="fld-q3" value="b"> It only changes magnitude, keeping the same sign</label>
+            <label><input type="radio" name="fld-q3" value="c"> It flips sign (and changes magnitude, since electron and hole mobility differ), because \(J_{n,\text{diff}}=+qD_n(dn/dx)\) while \(J_{p,\text{diff}}=-qD_p(dp/dx)\)</label>
+            <label><input type="radio" name="fld-q3" value="d"> Diffusion current is undefined for electrons</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Both carriers physically diffuse from high to low concentration, but conventional current direction depends on the carrier's charge sign too — so the same decaying profile produces diffusion current in opposite conventional directions for electrons vs. holes.</p>
+            <p class="explain-incorrect" hidden>Switch the carrier dropdown at a fixed marker position and L, and compare the sign of J_diffusion in the results card before and after.</p>
+        </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">4. At the marker position, you click "Snap to cancellation field." What is now true there?</p>
+            <label><input type="radio" name="fld-q4" value="a"> J_drift and J_diffusion are both zero</label>
+            <label><input type="radio" name="fld-q4" value="b"> J_drift and J_diffusion are equal in magnitude and opposite in sign, so J_total ≈ 0</label>
+            <label><input type="radio" name="fld-q4" value="c"> The concentration gradient becomes zero</label>
+            <label><input type="radio" name="fld-q4" value="d"> The mobility becomes zero</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Drift and diffusion currents can individually be large and nonzero while exactly canceling in sum — this is precisely the condition that sets up the built-in field at a p-n junction in equilibrium (Chapter 14).</p>
+            <p class="explain-incorrect" hidden>Look at the J_diffusion and J_drift lines in the results card right after snapping — neither reads zero, but J_total does.</p>
+        </div>
+
+        <p class="key-takeaway"><strong>Key Takeaway:</strong> Diffusion current depends on two independent things — how steep the concentration profile is (geometry) and how easily carriers move through the material (D, itself set by temperature and doping through mobility). Changing either one changes J_diffusion, even if the other stays fixed. Drift and diffusion can be individually large yet exactly cancel in sum — the same balance that holds a p-n junction in equilibrium — and switching carrier type flips the diffusion current's sign for an identical concentration profile, because conventional current direction depends on both the flux direction and the carrier's charge sign.</p>
 
     </div>
     </details>

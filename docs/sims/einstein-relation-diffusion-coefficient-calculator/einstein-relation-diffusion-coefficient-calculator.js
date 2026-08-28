@@ -122,8 +122,8 @@ function drawCard(mu, D, T, panelW) {
   const cardW = (compact() ? canvasWidth : panelW) - cardX - 16;
   const lines = [
     'μ (Matthiessen, ' + T + ' K) = ' + mu.toFixed(0) + ' cm²/V·s',
-    'k_BT = ' + (KB_EV * T).toFixed(4) + ' eV (= V equivalent)',
-    'D = μ × k_BT/q',
+    'k_BT/q = ' + (KB_EV * T).toFixed(4) + ' V',
+    'D = μ × (k_BT/q)',
     'D = ' + D.toFixed(2) + ' cm²/s'
   ];
   const lineH = compact() ? 24 : 26;
@@ -140,6 +140,20 @@ function drawCard(mu, D, T, panelW) {
   for (let i = 0; i < lines.length; i++) {
     text(lines[i], cardX + 16, cardY + 14 + i * lineH, cardW - 32);
   }
+
+  // Fixed 300 K reference checkpoint, distinct from the live (slider-driven) kT/q line above.
+  const refY = cardY + cardH + 10;
+  const refH = compact() ? 34 : 30;
+  noStroke();
+  fill(255, 247, 224);
+  stroke(230, 190, 110);
+  strokeWeight(1.5);
+  rect(cardX, refY, cardW, refH, 8);
+  noStroke();
+  fill(120, 80, 10);
+  textAlign(LEFT, CENTER);
+  textSize(compact() ? 10.5 : 11.5);
+  text('Reference (300 K): k_BT/q ≈ 0.0259 V', cardX + 12, refY + refH / 2, cardW - 24);
 }
 
 function drawCurve(compareMode, N, Tmark, Dmark, panelW) {
@@ -160,10 +174,25 @@ function drawCurve(compareMode, N, Tmark, Dmark, panelW) {
     }
     series.push({ points: pts, color: color(...carrier.color) });
   }
-  smlDrawLineChart(chartX, chartY, chartW, chartH, 77, 600, 0, maxD * 1.15, series, {
+  const chartMap = smlDrawLineChart(chartX, chartY, chartW, chartH, 77, 600, 0, maxD * 1.15, series, {
     marker: { x: Tmark, y: Dmark },
     xLabel: 'Temperature (K)', yLabel: 'D (cm²/s)', yLabelOffset: 40
   });
+
+  // 300 K reference checkpoint (kT/q ≈ 0.0259 V) marked directly on the axis.
+  const ref300x = chartMap.xToPx(300);
+  push();
+  stroke(230, 170, 60);
+  strokeWeight(1.25);
+  drawingContext.setLineDash([4, 3]);
+  line(ref300x, chartY, ref300x, chartY + chartH);
+  drawingContext.setLineDash([]);
+  noStroke();
+  fill(140, 95, 10);
+  textAlign(CENTER, BOTTOM);
+  textSize(compact() ? 9.5 : 10.5);
+  text('300 K ref.', ref300x, chartY - 2);
+  pop();
 
   if (compareMode) {
     const legX = chartX + 10, legY = chartY + 8;

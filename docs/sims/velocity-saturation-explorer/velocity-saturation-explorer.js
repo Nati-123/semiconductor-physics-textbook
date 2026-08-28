@@ -134,15 +134,58 @@ function draw() {
   }
   const yMax = vsat * 1.5;
 
-  // shade the region where the linear approximation meets tolerance
+  // Zone boundaries: low-field -> transition at the tolerance crossover,
+  // transition -> saturation once v_d reaches 90% of v_sat.
   let crossE = null;
   for (let E = 500; E <= EMAX; E += 100) {
     if (pctError(mu, vsat, E) > tol * 100) { crossE = E; break; }
   }
-  if (crossE !== null) {
-    noStroke(); fill(255, 220, 210, 150);
-    const x0 = map(crossE, 0, EMAX, chartX, chartX + chartW);
-    rect(x0, chartY, chartX + chartW - x0, chartH);
+  let satE = null;
+  for (let E = 500; E <= EMAX; E += 100) {
+    if (vDrift(mu, vsat, E) >= 0.9 * vsat) { satE = E; break; }
+  }
+  if (crossE !== null && satE !== null && crossE > satE) satE = crossE;
+
+  const b1 = crossE !== null ? crossE : EMAX;
+  const b2 = satE !== null ? satE : EMAX;
+  const xAt = (E) => map(E, 0, EMAX, chartX, chartX + chartW);
+
+  noStroke();
+  fill(224, 246, 230, 130);
+  rect(chartX, chartY, xAt(b1) - chartX, chartH);
+  if (b1 < EMAX) {
+    fill(255, 232, 205, 150);
+    rect(xAt(b1), chartY, xAt(b2) - xAt(b1), chartH);
+  }
+  if (b2 < EMAX) {
+    fill(228, 214, 247, 150);
+    rect(xAt(b2), chartY, chartX + chartW - xAt(b2), chartH);
+  }
+
+  // boundary lines between zones
+  stroke(160); strokeWeight(1);
+  drawingContext.setLineDash([2, 3]);
+  if (b1 < EMAX) line(xAt(b1), chartY, xAt(b1), chartY + chartH);
+  if (b2 < EMAX && b2 !== b1) line(xAt(b2), chartY, xAt(b2), chartY + chartH);
+  drawingContext.setLineDash([]);
+
+  // zone name labels, centered within each zone's visible span (skipped
+  // when a zone is too narrow on-screen for its label to fit without
+  // crowding its neighbor)
+  noStroke(); textAlign(CENTER, TOP); textSize(compact() ? 9 : 10.5);
+  const zoneLabelY = chartY + 6;
+  const minLabelW = compact() ? 44 : 56;
+  const zoneSpanPx = (lo, hi) => xAt(min(hi, EMAX)) - xAt(min(lo, EMAX));
+  const midX = (lo, hi) => (xAt(min(lo, EMAX)) + xAt(min(hi, EMAX))) / 2;
+  fill(60, 130, 80);
+  if (zoneSpanPx(0, b1) >= minLabelW) text('Low-field', midX(0, b1), zoneLabelY);
+  if (b1 < EMAX) {
+    fill(190, 120, 30);
+    if (zoneSpanPx(b1, b2) >= minLabelW) text('Transition', midX(b1, b2), zoneLabelY);
+  }
+  if (b2 < EMAX) {
+    fill(120, 80, 170);
+    if (zoneSpanPx(b2, EMAX) >= minLabelW) text('Saturation', midX(b2, EMAX), zoneLabelY);
   }
 
   smlDrawLineChart(chartX, chartY, chartW, chartH, 0, EMAX, 0, yMax, [
@@ -160,11 +203,6 @@ function draw() {
   drawingContext.setLineDash([]);
   noStroke(); fill(90, 180, 120); textAlign(LEFT, BOTTOM); textSize(compact() ? 10 : 11);
   text('v_sat = ' + vsat.toExponential(1) + ' cm/s', chartX + 4, vsatY - 3);
-
-  if (crossE !== null) {
-    noStroke(); fill(200, 90, 30); textAlign(LEFT, TOP); textSize(compact() ? 9.5 : 10.5);
-    text('shaded: linear approx. exceeds ' + toleranceSelect.value() + ' error', chartX + 6, chartY + 4);
-  }
 
   for (const b of presetButtons()) smlDrawButton(b.x, b.y, b.w, b.h, b.p.label, Emark === b.p.v);
 
@@ -184,7 +222,8 @@ function draw() {
   const readY = drawHeight + rows.tol + (compact() ? 34 : 24);
   fill(20); noStroke(); textAlign(LEFT, TOP); textSize(compact() ? 10 : 11.5);
   text('low-field μ = ' + mu.toFixed(0) + ' cm²/V·s   |   at E=' + Emark + ' V/cm: linear error = ' + errNow.toFixed(1) + '%' +
-    (crossE !== null ? '   |   exceeds ' + toleranceSelect.value() + ' error above E ≈ ' + crossE.toFixed(0) + ' V/cm' : '   |   stays within tolerance over this whole range'),
+    (crossE !== null ? '   |   Low-field → Transition above E ≈ ' + crossE.toFixed(0) + ' V/cm' : '   |   stays within tolerance over this whole range') +
+    (satE !== null ? '   |   Transition → Saturation above E ≈ ' + satE.toFixed(0) + ' V/cm' : ''),
     10, readY, canvasWidth - 20);
 }
 

@@ -29,8 +29,9 @@
 
         <h3>What to Observe</h3>
         <ul class="explore-list">
-            <li>The bar diagram shows the current direction, the magnetic field symbol (⊙ out of page / ⊗ into page), the carriers moving through the bar, and the +/− signs accumulating on each edge.</li>
-            <li>The voltmeter symbol reads out V_H directly, along with a plain-language statement of what its sign means.</li>
+            <li>The bar diagram shows the current direction, the magnetic field symbol (⊙ out of page / ⊗ into page), the carriers moving through the bar (labeled <strong>v</strong>), and the +/− signs accumulating on each edge.</li>
+            <li>An orange arrow labeled <strong>F</strong> on one carrier shows the instantaneous Lorentz force \(F=qv\times B\) deflecting it sideways; a green arrow labeled <strong>E_H</strong> shows the resulting Hall electric field building up inside the bar, pointing from the positively accumulated edge to the negatively accumulated edge.</li>
+            <li>The voltmeter symbol reads out V_H directly, and the readout beneath the bar also reports the signed Hall coefficient R_H, both with a plain-language statement of what the sign means.</li>
             <li>Presets jump to representative sensor scenarios; switching any slider returns to "Custom."</li>
         </ul>
 
@@ -52,7 +53,7 @@
             <dt>Carrier type dropdown</dt>
             <dd>Selects hole (p-type) or electron (n-type) conduction, flipping the sign of the Hall coefficient.</dd>
             <dt>Current, field, concentration, and thickness sliders</dt>
-            <dd>Set the values used in \(V_H=R_HIB/t\).</dd>
+            <dd>Set the values used in \(V_H=R_HIB/t\); the orange F arrow and green E_H arrow update to match, and the numeric R_H readout updates with them.</dd>
         </dl>
 
         <h3>Challenge Questions</h3>
@@ -91,6 +92,18 @@
             <span class="feedback" role="status" aria-live="polite"></span>
             <p class="explain-correct" hidden>R_H is inversely proportional to carrier concentration, so heavier doping gives a smaller Hall coefficient and a smaller Hall voltage for the same current and field — compare the "Heavily doped" and "Lightly doped" presets to confirm.</p>
             <p class="explain-incorrect" hidden>Switch between the "Heavily doped (weak signal)" and "Lightly doped (strong signal)" presets and compare V_H.</p>
+        </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">4. The readout shows R_H = −6.24×10⁻³ m³/C for a sample. What does the negative sign tell you?</p>
+            <label><input type="radio" name="hef-q4" value="a"> Nothing — R_H's sign is arbitrary and carries no physical meaning</label>
+            <label><input type="radio" name="hef-q4" value="b"> The majority carriers are negatively charged electrons (n-type)</label>
+            <label><input type="radio" name="hef-q4" value="c"> The magnetic field must be pointing into the page</label>
+            <label><input type="radio" name="hef-q4" value="d"> The sample is heavily doped</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>R_H = 1/(qp) is positive for holes and R_H = −1/(qn) is negative for electrons, so a negative R_H directly identifies electron (n-type) conduction — independent of the chosen B or I direction, which is why R_H, not just V_H, is the quantity reported in materials tables.</p>
+            <p class="explain-incorrect" hidden>Compare the R_H formulas for holes and electrons in the "Connects to Chapter 12" text above, and watch how the readout's sign flips when you switch the carrier type dropdown.</p>
         </div>
 
         <p class="key-takeaway"><strong>Key Takeaway:</strong> The Hall effect measures something equilibrium carrier-concentration equations alone cannot: the actual sign of the majority carrier's charge. It is also a practical sensitivity trade-off — lightly-doped samples give a larger, easier-to-measure Hall voltage, which is why real Hall sensors are deliberately lightly doped.</p>

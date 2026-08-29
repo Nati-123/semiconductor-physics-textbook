@@ -27,23 +27,31 @@
     <summary>Guided Exploration &amp; Challenge Questions</summary>
     <div class="panel-content">
 
-        <h3>Try This</h3>
+        <h3>What to Observe</h3>
         <ul class="explore-list">
-            <li><strong>Try this:</strong> With silicon selected, slide Δn from low to high and watch which bar is tallest at each injection level.</li>
-            <li><strong>Predict:</strong> Before switching to GaAs, predict whether the direct recombination bar will grow or shrink relative to SRH.</li>
-            <li><strong>Observe:</strong> Switching from silicon to GaAs makes the direct recombination bar jump dramatically, since GaAs is a direct-gap material where band-to-band recombination is efficient.</li>
+            <li>Three curves span many orders of magnitude, so both axes are log-scaled — a straight line on this chart means a power-law relationship, not a linear one.</li>
+            <li>The SRH curve (purple) has a constant slope of 1 (linear in Δn); the Auger curve (red) has a slope of 3 (cubic in Δn) and eventually overtakes every other mechanism if Δn goes high enough.</li>
+            <li>The dashed marker line shows exactly where each curve sits at your chosen Δn, and the readout below reports which mechanism dominates there, and by how many times.</li>
         </ul>
 
-        <p class="connects-to"><strong>Connects to Chapter 13:</strong> Several distinct mechanisms return excess carriers to equilibrium. <strong>Direct recombination</strong> (efficient in direct-gap materials like GaAs) involves an electron and hole recombining straight across the gap; <strong>indirect recombination</strong> in materials like silicon requires a momentum-conserving assist, making it inherently slower. <strong>Trap-assisted recombination</strong>, formalized by <strong>Shockley-Read-Hall (SRH) theory</strong>, dominates in most indirect-gap devices via defect levels in the gap. <strong>Auger recombination</strong>, growing as \(\Delta n^3\), only becomes significant at very high injection.</p>
+        <h3>Guided Exploration</h3>
+        <ul class="explore-list">
+            <li><strong>Predict:</strong> Before switching from silicon to GaAs, predict whether the direct-recombination curve will shift up or down relative to SRH.</li>
+            <li><strong>Try this:</strong> With silicon selected, drag the Δn marker from low to high and watch which curve is highest — and how the dominance ratio in the readout changes — at each injection level.</li>
+            <li><strong>Observe:</strong> Switching from silicon to GaAs shifts the direct-recombination curve up dramatically, since GaAs is a direct-gap material where band-to-band recombination is efficient.</li>
+            <li><strong>Explore:</strong> Find the Δn value where the Auger curve crosses above SRH — that crossover marks where the high-injection Δn³ term starts to matter.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 13:</strong> Several distinct mechanisms return excess carriers to equilibrium. <strong>Direct recombination</strong> (efficient in direct-gap materials like GaAs) involves an electron and hole recombining straight across the gap; <strong>indirect recombination</strong> in materials like silicon requires a momentum-conserving assist, making it inherently slower. <strong>Trap-assisted recombination</strong>, formalized by <strong>Shockley-Read-Hall (SRH) theory</strong>, dominates in most indirect-gap devices via defect levels in the gap. <strong>Auger recombination</strong>, growing as \(\Delta n^3\), only becomes significant at very high injection — which is exactly why the low-level-injection assumption of a single, Δn-independent lifetime \(\tau\) (used elsewhere in this chapter) breaks down at high injection.</p>
 
         <h3>What Each Control Does</h3>
         <dl class="control-captions">
             <dt>Material</dt>
-            <dd>Switches between silicon (indirect gap, weak direct recombination) and GaAs (direct gap, strong direct recombination).</dd>
-            <dt>Δn exponent</dt>
-            <dd>Sets the excess carrier concentration used in all three rate formulas.</dd>
+            <dd>Switches between silicon (indirect gap, weak direct recombination) and GaAs (direct gap, strong direct recombination) — shifts all three curves.</dd>
+            <dt>Δn marker</dt>
+            <dd>Moves the vertical marker line across the fixed Δn sweep range; the dominant-mechanism readout always describes the marker's position, not the whole curve.</dd>
             <dt>Doping exponent</dt>
-            <dd>Sets the majority carrier concentration, affecting the direct recombination rate.</dd>
+            <dd>Sets the equilibrium majority carrier concentration \(N\), which shifts the direct-recombination curve (it depends on \(n_0+p_0+\Delta n\)).</dd>
         </dl>
 
         <h3>Challenge Questions</h3>
@@ -57,8 +65,22 @@
             <button class="check-btn" type="button">Check Answer</button>
             <span class="feedback" role="status" aria-live="polite"></span>
             <p class="explain-correct" hidden>Auger recombination scales as Δn³, so it grows fastest and only dominates at very high injection levels.</p>
-            <p class="explain-incorrect" hidden>Slide Δn to its maximum value and see which bar grows the most dramatically.</p>
+            <p class="explain-incorrect" hidden>Slide the Δn marker to its maximum value and see which curve is highest there.</p>
         </div>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">2. On this log-log chart, why does the SRH curve look like a straight line with a shallower slope than the Auger curve?</p>
+            <label><input type="radio" name="rmce-q2" value="a"> SRH recombination does not actually depend on Δn</label>
+            <label><input type="radio" name="rmce-q2" value="b"> The chart is drawn incorrectly for SRH</label>
+            <label><input type="radio" name="rmce-q2" value="c"> log(R_SRH) = log(Δn) − log(τ_SRH), a slope-1 line, versus log(R_Auger) = log(C) + 3·log(Δn), a slope-3 line</label>
+            <label><input type="radio" name="rmce-q2" value="d"> Silicon and GaAs always have the same SRH rate</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Taking log₁₀ of a power law Δn^k turns it into a straight line of slope k on a log-log chart — that's exactly why SRH (k=1) and Auger (k=3) have visibly different slopes here.</p>
+            <p class="explain-incorrect" hidden>Take log₁₀ of both sides of R_SRH=Δn/τ_SRH and R_Auger=C·Δn³ and compare the resulting slopes in log(Δn).</p>
+        </div>
+
+        <p class="key-takeaway"><strong>Key Takeaway:</strong> No single recombination mechanism dominates everywhere — which one controls the carrier lifetime depends on both the material (direct- vs. indirect-gap) and the injection level, because each mechanism has a different power-law dependence on Δn (SRH linear, direct roughly linear-to-quadratic, Auger cubic). At the low-level injection typically assumed elsewhere in this chapter, SRH (or direct recombination in direct-gap materials) usually dominates; Auger only takes over at very high injection, which is precisely where the constant-τ approximation used in the rest of this chapter stops being accurate.</p>
 
     </div>
     </details>

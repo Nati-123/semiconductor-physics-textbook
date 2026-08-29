@@ -495,10 +495,10 @@ Test your understanding of non-equilibrium carriers and recombination covered in
 
 <p style="color: #1565C0; font-weight: 700; font-size: 1.08rem; margin-top: 0; margin-bottom: 14px;">Question 20</p>
 
-<p style="color: #333; line-height: 1.75;">Which chapter directly applies the excess carrier, recombination, and quasi-Fermi level concepts of Chapter 13?</p>
+<p style="color: #333; line-height: 1.75;">Which chapter directly reuses Chapter 13's continuity equation and diffusion length to solve for injected minority carriers?</p>
 
 <div class="upper-alpha" markdown>
-1. Chapter 14, the p-n junction at equilibrium
+1. Chapter 15, the p-n junction under bias
 2. Chapter 1, physics and math foundations
 3. Chapter 6, band structure
 4. No later chapter uses these concepts</div>
@@ -507,7 +507,7 @@ Test your understanding of non-equilibrium carriers and recombination covered in
 <summary style="color: #5A3EED; font-weight: 700; cursor: pointer;">Show Answer</summary>
 <div style="background: #E7F7E7; border: 2px solid #81C784; border-radius: 10px; padding: 18px 22px; margin-top: 10px;">
 <p style="color: #2E7D32; font-weight: 700; margin-top: 0;">Correct Answer: A</p>
-<p style="color: #333; line-height: 1.75; margin-bottom: 0;">Chapter 14's p-n junction analysis, and Chapter 15's biased junction, depend directly on the drift-diffusion-recombination balance introduced in Chapter 13.</p>
+<p style="color: #333; line-height: 1.75; margin-bottom: 0;">Chapter 15's biased p-n junction solves the continuity equation for injected minority carriers, giving the long-base (exponential) and short-base (linear) diode profiles directly from Chapter 13's steady-state carrier profile and diffusion length. Chapter 14's equilibrium junction depends on Chapter 13's generation-recombination balance more qualitatively, and quasi-Fermi level splitting is applied later still, in Chapter 18's solar-cell open-circuit-voltage discussion.</p>
 <p style="color: #555; font-style: italic; margin-bottom: 0; margin-top: 8px;"><strong>Concept Tested:</strong> Carrier Recombination</p>
 </div>
 </details>

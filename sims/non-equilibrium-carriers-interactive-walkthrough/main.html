@@ -27,11 +27,14 @@
     <summary>Guided Exploration &amp; Challenge Questions</summary>
     <div class="panel-content">
 
+        <p class="predict-cycle"><strong>Predict → Explore → Observe → Explain:</strong> Before opening Step 8, <strong>predict</strong> the order the eight concepts should chain together, from "light hits the sample" to "quasi-Fermi levels." Then <strong>explore</strong> Step 8's flow diagram (on a narrow window, drag it narrower to see it reflow from 4 columns to 2 to a single stacked column). <strong>Observe</strong> that Next is disabled and Restart is highlighted once you reach the end. Finally, <strong>explain</strong> in one sentence why each stage depends on the one before it.</p>
+
         <h3>What to Observe</h3>
         <ul class="explore-list">
             <li>Each step's illustration is a simplified summary — the real, interactive version of that concept lives in one of the chapter's other five MicroSims, linked below each relevant step's explanation.</li>
             <li>The step dots and "Step X of N" counter always show exactly where you are in the 8-step sequence, and the Restart button always jumps back to Step 1 regardless of where you currently are.</li>
-            <li>The final "Putting It All Together" step (8) shows the full causal chain as a left-to-right diagram — Generation → Excess Carriers Δn → Recombination → Lifetime τ / Rate R → Injection Level → Continuity Eq. → L → Quasi-Fermi Levels.</li>
+            <li>The final "Putting It All Together" step (8) is a responsive concept-flow diagram — Generation → Excess Carriers → Recombination → Lifetime τ → Injection Level → Continuity Eq. → Diffusion Length L → Quasi-Fermi Levels — each box with its own icon and one-line explanation, laid out in as many columns as comfortably fit (4 on desktop, fewer on narrower screens, one stacked column on mobile).</li>
+            <li>On Step 8, the Next button is disabled (there is nowhere further to go) and the Restart button is filled in instead of outlined, since restarting the tour is the natural next action.</li>
         </ul>
 
         <h3>Guided Exploration</h3>
@@ -49,9 +52,9 @@
         <h3>What Each Control Does</h3>
         <dl class="control-captions">
             <dt>Prev / Next buttons</dt>
-            <dd>Step backward or forward through the 8-step guided tour (wraps around at either end).</dd>
+            <dd>Step backward or forward through the 8-step guided tour (Prev wraps from Step 1 to Step 8; Next is disabled — not wrapping — once you reach Step 8, since there is nowhere further to advance).</dd>
             <dt>Restart button</dt>
-            <dd>Jumps directly back to Step 1 (equilibrium) from anywhere in the sequence.</dd>
+            <dd>Jumps directly back to Step 1 (equilibrium) from anywhere in the sequence; it is highlighted (filled) on Step 8 as the natural next action.</dd>
             <dt>Step dots</dt>
             <dd>Show your current position in the sequence at a glance.</dd>
         </dl>
@@ -59,15 +62,27 @@
         <h3>Challenge Questions</h3>
 
         <div class="challenge" data-correct="c">
-            <p class="q-text">1. In the summary step's chain diagram, what comes immediately after "Recombination (4 types)"?</p>
+            <p class="q-text">1. In Step 8's concept-flow diagram, what comes immediately after "Recombination"?</p>
             <label><input type="radio" name="necw-q1" value="a"> Quasi-Fermi Levels</label>
             <label><input type="radio" name="necw-q1" value="b"> Generation</label>
-            <label><input type="radio" name="necw-q1" value="c"> Lifetime τ / Rate R</label>
+            <label><input type="radio" name="necw-q1" value="c"> Lifetime τ</label>
             <label><input type="radio" name="necw-q1" value="d"> Injection Level</label>
             <button class="check-btn" type="button">Check Answer</button>
             <span class="feedback" role="status" aria-live="polite"></span>
-            <p class="explain-correct" hidden>Recombination is characterized by how fast it happens — the lifetime τ and recombination rate R — which comes right after in the chain.</p>
-            <p class="explain-incorrect" hidden>Navigate to the final summary step and read the boxes left to right.</p>
+            <p class="explain-correct" hidden>Recombination is characterized by how fast it happens — the carrier lifetime τ (and the recombination rate R=Δn/τ it sets) — which comes right after in the chain.</p>
+            <p class="explain-incorrect" hidden>Navigate to Step 8 and read the boxes in order (left to right, top row then bottom row on desktop; top to bottom on mobile).</p>
+        </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">4. On Step 8, why is the Next button disabled instead of wrapping around to Step 1 like it does on every other step?</p>
+            <label><input type="radio" name="necw-q4" value="a"> It is a bug that will be fixed in a future version</label>
+            <label><input type="radio" name="necw-q4" value="b"> Step 8 is the end of the tour, and wrapping silently back to Step 1 would be confusing — Restart makes returning to the start an explicit choice instead</label>
+            <label><input type="radio" name="necw-q4" value="c"> Because the Prev button is also disabled on Step 8</label>
+            <label><input type="radio" name="necw-q4" value="d"> Because Step 8 has no further content to load</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Disabling Next (rather than silently wrapping) makes the end of the tour unambiguous, and the prominent, filled Restart button gives you an explicit way back to Step 1 instead.</p>
+            <p class="explain-incorrect" hidden>Try clicking Prev on Step 8 — it still works. Only Next is disabled, and only on this last step.</p>
         </div>
 
         <div class="challenge" data-correct="b">

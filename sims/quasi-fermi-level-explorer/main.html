@@ -27,11 +27,14 @@
     <summary>Guided Exploration &amp; Challenge Questions</summary>
     <div class="panel-content">
 
+        <p class="predict-cycle"><strong>Predict → Explore → Observe → Explain:</strong> Before moving the Δn slider, <strong>predict</strong> which of E_Fn or E_Fp will move more in n-type material. Then <strong>explore</strong> by dragging Δn from 0 to its maximum and watching the two lines ease apart with the ΔE_F bracket growing between them. <strong>Observe</strong> the regime label change from Equilibrium → Low-level → Transition → High-level injection in the info card. Finally, <strong>explain</strong> why the split is a direct measure of how far np has been pushed above ni².</p>
+
         <h3>What to Observe</h3>
         <ul class="explore-list">
-            <li>At Δn = 0, E_Fn and E_Fp coincide exactly at the single equilibrium Fermi level E_F — the status line below the sliders turns green and reads "Equilibrium."</li>
-            <li>As Δn increases, E_Fn moves up toward E_C and E_Fp moves down toward E_V, splitting apart — the status line turns orange and reports the split E_Fn − E_Fp in eV.</li>
+            <li>At Δn = 0, E_Fn and E_Fp coincide exactly at the single equilibrium Fermi level E_F, drawn as one combined line — the status line below the sliders turns green and reads "Equilibrium."</li>
+            <li>As Δn increases, E_Fn moves up toward E_C and E_Fp moves down toward E_V, splitting apart with a visible animated transition — the vertical ΔE_F bracket between them grows, and its labeled value matches the E_Fn − E_Fp row in the info card.</li>
             <li>In n-type material, E_Fn barely moves (n is already large) while E_Fp swings dramatically toward midgap and beyond, since p is the minority carrier and is most strongly perturbed by injection.</li>
+            <li>The info card's Regime line tracks the same low-level / transition / high-level classification used in the Injection Level Classifier MicroSim, applied here to the same Δn.</li>
         </ul>
 
         <h3>Guided Exploration</h3>
@@ -90,6 +93,18 @@
             <span class="feedback" role="status" aria-live="polite"></span>
             <p class="explain-correct" hidden>Since E_Fn−E_Fp = kT·ln(np/ni²), the split is zero exactly when np=ni² (equilibrium) and grows as np is driven further above ni² by injection — it is a direct thermodynamic measure of departure from equilibrium.</p>
             <p class="explain-incorrect" hidden>Look at the readout card: E_Fn−E_Fp is built from ln(n/ni) and ln(p/ni) together, which combine to ln(np/ni²).</p>
+        </div>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">4. The info card's "Regime" line reads "High-level injection." What does that tell you about the simplifying assumptions used elsewhere in this chapter?</p>
+            <label><input type="radio" name="qfle-q4" value="a"> Nothing — the regime label is unrelated to any other MicroSim</label>
+            <label><input type="radio" name="qfle-q4" value="b"> The minority carrier lifetime τ is now guaranteed to be Δn-independent</label>
+            <label><input type="radio" name="qfle-q4" value="c"> The low-level-injection assumption (majority carrier ≈ n0 or p0) no longer holds, matching the same Δn/N threshold used in the Injection Level Classifier</label>
+            <label><input type="radio" name="qfle-q4" value="d"> The sample has left thermal equilibrium permanently, even after Δn returns to 0</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>High-level injection (Δn comparable to or exceeding N) is exactly the regime where both carrier populations are significantly perturbed — the same Δn/N ≥ 1 threshold used by the Injection Level Classifier MicroSim earlier in the chapter.</p>
+            <p class="explain-incorrect" hidden>Raise Δn until the info card's Regime line turns red, then compare the Δn/N ratio to the thresholds used in the Injection Level Classifier MicroSim.</p>
         </div>
 
         <p class="key-takeaway"><strong>Key Takeaway:</strong> A single Fermi level only describes a semiconductor in true equilibrium. The moment carriers are injected (electrically or optically), electrons and holes must be described by separate quasi-Fermi levels E_Fn and E_Fp, and their separation, E_Fn−E_Fp = kT·ln(np/ni²), is a direct, quantitative measure of how far the carrier populations have been pushed from equilibrium — zero exactly at equilibrium, and growing steadily under stronger injection.</p>

@@ -8,7 +8,7 @@ quality_score: 85
 <h1 style="color: #5A3EED !important; border-bottom: 3px solid #5A3EED; padding-bottom: 0.4rem; font-weight: 800;">Non-Equilibrium Carriers Interactive Walkthrough</h1>
 
 <div style="background: #EEF4FF; border: 2px solid #A8C8FF; border-radius: 12px; padding: 18px; margin: 1.2rem 0; box-shadow: 0 2px 8px rgba(90,61,237,0.07);">
-<iframe src="main.html" height="700px" width="100%" scrolling="auto" style="border:none; border-radius:8px; overflow:hidden;"></iframe>
+<iframe src="main.html" height="960px" width="100%" scrolling="auto" style="border:none; border-radius:8px; overflow:hidden;"></iframe>
 </div>
 
 <a href="../../chapters/13-non-equilibrium-carriers-recombination/index.md" style="color: #5A3EED; font-weight: 600; font-size: 0.95rem;">&#8592; Back to Chapter 13: Non-Equilibrium Carriers and Recombination</a>
@@ -16,7 +16,7 @@ quality_score: 85
 <h2 style="color: #5A3EED !important; border-bottom: 2px solid #5A3EED; padding-bottom: 0.3rem; font-weight: 700; margin-top: 2rem;">Description</h2>
 
 <p style="color: #555; line-height: 1.85; font-size: 1.02rem; margin-bottom: 1.2rem;">
-This MicroSim is a capstone review tool for Chapter 13: an 8-step guided tour, navigated with Prev/Next buttons, retracing the chapter's full storyline from equilibrium to non-equilibrium, through carrier generation, the four recombination mechanisms, minority carrier lifetime and recombination rate, low- vs. high-level injection, the continuity equation and diffusion length, and quasi-Fermi levels — ending with a summary chain diagram connecting every concept.
+This MicroSim is a capstone review tool for Chapter 13: an 8-step guided tour, navigated with Prev/Next buttons, retracing the chapter's full storyline from equilibrium to non-equilibrium, through carrier generation, the four recombination mechanisms, minority carrier lifetime and recombination rate, low- vs. high-level injection, the continuity equation and diffusion length, and quasi-Fermi levels — ending with a responsive concept-flow diagram (Step 8) connecting every stage with its own icon and one-line explanation.
 </p>
 
 <div style="background: #FFF7DD; border: 2px solid #F0D87A; border-radius: 10px; padding: 20px 24px; margin: 1.2rem 0;">
@@ -24,9 +24,10 @@ This MicroSim is a capstone review tool for Chapter 13: an 8-step guided tour, n
 <ul style="list-style: none; padding-left: 0; margin: 0;">
 <li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>8-step guided tour</strong> covering all 19 chapter concepts</li>
 <li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Small custom illustration</strong> for each step (lattice, band diagram, decay curve, mechanism icons)</li>
-<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Step-dot progress indicator</strong> for quick navigation and review, plus a <strong>Restart button</strong> to jump back to Step 1</li>
+<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Responsive Step 8 concept-flow diagram</strong> — 4 columns on desktop, reflowing to 2 and then a single stacked column as the window narrows, each box with an icon, label, and one-line explanation</li>
+<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Step-dot progress indicator</strong>, a <strong>Restart button</strong> (highlighted on Step 8) to jump back to Step 1, and a <strong>disabled Next button</strong> on the final step instead of silently wrapping around</li>
 <li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Deep-dive links</strong> to each of the chapter's other five interactive MicroSims, so the walkthrough connects to them instead of repeating them</li>
-<li style="margin-bottom: 0; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Responsive canvas</strong> that resizes with the browser window</li>
+<li style="margin-bottom: 0; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Responsive canvas</strong> reviewed at desktop, tablet, and mobile widths for clipping and overflow</li>
 </ul>
 </div>
 

@@ -295,7 +295,7 @@ At equilibrium (\(\Delta n=0\)), both reduce to the same single \(E_F\). As inje
 
 #### Diagram: Quasi-Fermi Level Explorer
 
-<iframe src="../../sims/quasi-fermi-level-explorer/main.html" width="100%" height="660px" scrolling="auto"></iframe>
+<iframe src="../../sims/quasi-fermi-level-explorer/main.html" width="100%" height="820px" scrolling="auto"></iframe>
 
 !!! tip "How to use this MicroSim"
     **Instructions:** Start at Δn = 0 to confirm both quasi-Fermi levels coincide, then raise Δn and compare how much each level moves.
@@ -373,7 +373,7 @@ Use the MicroSim below as a capstone review: an 8-step guided tour, navigated wi
 
 #### Diagram: Non-Equilibrium Carriers Interactive Walkthrough
 
-<iframe src="../../sims/non-equilibrium-carriers-interactive-walkthrough/main.html" width="100%" height="670px" scrolling="auto"></iframe>
+<iframe src="../../sims/non-equilibrium-carriers-interactive-walkthrough/main.html" width="100%" height="960px" scrolling="auto"></iframe>
 
 !!! tip "How to use this MicroSim"
     **Instructions:** Click "Next ▶" through all 8 steps in order, then use the step dots to jump back to any concept before the chapter quiz.

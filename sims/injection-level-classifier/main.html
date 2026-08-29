@@ -27,21 +27,29 @@
     <summary>Guided Exploration &amp; Challenge Questions</summary>
     <div class="panel-content">
 
-        <h3>Try This</h3>
+        <h3>What to Observe</h3>
         <ul class="explore-list">
-            <li><strong>Try this:</strong> With doping fixed, slowly raise the excess carrier slider and watch the classification flip from low-level to high-level injection.</li>
-            <li><strong>Predict:</strong> Before raising doping instead, predict whether a higher doping concentration makes high-level injection easier or harder to reach at the same Δn.</li>
-            <li><strong>Observe:</strong> Raising doping N pushes the classification back toward low-level injection for the same Δn, since the ratio Δn/N shrinks.</li>
+            <li>The meter is <strong>continuous</strong>, not a switch: Δn/n₀ slides smoothly through low-level (green), transition (amber), and high-level (red) — there is no single field or doping value where the physics suddenly changes character.</li>
+            <li>The explanation box below the meter updates its wording as you cross each boundary, since the simplifying assumptions that are safe to use are different in each zone.</li>
         </ul>
 
-        <p class="connects-to"><strong>Connects to Chapter 13:</strong> <strong>Low-level injection</strong> (\(\Delta n\ll N\)) is the regime assumed by most simple device equations, where majority carrier concentration is essentially unperturbed. <strong>High-level injection</strong> (\(\Delta n\) comparable to or exceeding \(N\)) perturbs both carrier populations significantly, requiring more careful treatment — this is a form of <strong>carrier injection</strong> pushed to an extreme.</p>
+        <h3>Guided Exploration</h3>
+        <ul class="explore-list">
+            <li><strong>Predict:</strong> Before raising the excess-carrier slider, predict whether the needle will move left or right, and which zone it will enter first.</li>
+            <li><strong>Try this:</strong> With doping (n₀) fixed, slowly raise the excess carrier slider and watch the needle sweep from Low-level through Transition into High-level injection.</li>
+            <li><strong>Predict:</strong> Before raising doping instead of Δn, predict whether a higher n₀ makes high-level injection easier or harder to reach at the same Δn.</li>
+            <li><strong>Observe:</strong> Raising n₀ pushes the needle back toward low-level injection for the same Δn, since the ratio Δn/n₀ shrinks.</li>
+            <li><strong>Try this:</strong> Park the needle in the Transition band and read the explanation text — notice it explicitly says neither the low-level nor high-level shortcut is safe to use there.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 13:</strong> <strong>Low-level injection</strong> (\(\Delta n\ll n_0\)) is the regime assumed by most simple device equations, where majority carrier concentration is essentially unperturbed. <strong>High-level injection</strong> (\(\Delta n\) comparable to or exceeding \(n_0\)) perturbs both carrier populations significantly, requiring more careful treatment — this is a form of <strong>carrier injection</strong> pushed to an extreme, and it is why \(\tau\) is treated as injection-dependent in some device models.</p>
 
         <h3>What Each Control Does</h3>
         <dl class="control-captions">
-            <dt>Doping N</dt>
-            <dd>Sets the majority carrier (doping) concentration used as the injection-level reference.</dd>
+            <dt>Doping (sets n₀)</dt>
+            <dd>Sets the equilibrium majority carrier concentration n₀ used as the injection-level reference.</dd>
             <dt>Excess Δn</dt>
-            <dd>Sets the excess carrier concentration being injected, compared directly against N.</dd>
+            <dd>Sets the excess carrier concentration being injected, compared directly against n₀ via the ratio Δn/n₀.</dd>
         </dl>
 
         <h3>Challenge Questions</h3>
@@ -54,9 +62,35 @@
             <label><input type="radio" name="ilc-q1" value="d"> Neither population changes at all</label>
             <button class="check-btn" type="button">Check Answer</button>
             <span class="feedback" role="status" aria-live="polite"></span>
-            <p class="explain-correct" hidden>Since Δn≪N in low-level injection, the majority carrier concentration barely changes, while the minority carrier population (starting from a much smaller base) is significantly perturbed.</p>
-            <p class="explain-incorrect" hidden>Compare the size of Δn to N when the box reads "LOW-LEVEL INJECTION" — which population's base value is comparable to Δn?</p>
+            <p class="explain-correct" hidden>Since Δn≪n₀ in low-level injection, the majority carrier concentration barely changes, while the minority carrier population (starting from a much smaller base) is significantly perturbed.</p>
+            <p class="explain-incorrect" hidden>Compare the size of Δn to n₀ when the meter reads "LOW-LEVEL INJECTION" — which population's base value is comparable to Δn?</p>
         </div>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">2. Why does the sim show a "Transition" zone instead of just switching directly between low-level and high-level labels?</p>
+            <label><input type="radio" name="ilc-q2" value="a"> Because the transition zone is where recombination stops entirely</label>
+            <label><input type="radio" name="ilc-q2" value="b"> It is purely a visual choice with no physical meaning</label>
+            <label><input type="radio" name="ilc-q2" value="c"> Because neither the low-level (majority ≈ n₀) nor high-level (Δn ≈ Δp) simplifying assumption is safely accurate there</label>
+            <label><input type="radio" name="ilc-q2" value="d"> Because doping cannot be adjusted continuously</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Both approximations rely on Δn/n₀ being either much less than or comparable to/greater than 1 — in between, neither shortcut is trustworthy, so device equations need the full (non-approximated) treatment there.</p>
+            <p class="explain-incorrect" hidden>Read the explanation box while the needle sits between the green and red zones — what does it say about which assumptions are and are not safe?</p>
+        </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">3. Deep in high-level injection (Δn ≳ n₀), which approximation becomes useful?</p>
+            <label><input type="radio" name="ilc-q3" value="a"> Δn is always negligible compared to Δp</label>
+            <label><input type="radio" name="ilc-q3" value="b"> Δn ≈ Δp (ambipolar transport), since both populations are perturbed by comparable amounts</label>
+            <label><input type="radio" name="ilc-q3" value="c"> n₀ becomes irrelevant and can be set to zero</label>
+            <label><input type="radio" name="ilc-q3" value="d"> τ is guaranteed to stay constant</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Once the injected excess carriers dominate over the original equilibrium population, the excess electron and hole concentrations become essentially equal — this is the ambipolar approximation used throughout high-injection device analysis.</p>
+            <p class="explain-incorrect" hidden>Push the Δn slider to its maximum and re-read the "HIGH-LEVEL INJECTION" explanation text.</p>
+        </div>
+
+        <p class="key-takeaway"><strong>Key Takeaway:</strong> Low-level and high-level injection are not two switch positions — they are the two ends of a continuous spectrum in Δn/n₀, each with its own simplifying assumption (majority ≈ n₀ at low level; Δn ≈ Δp at high level). The transition band in between is exactly where both shortcuts fail and the full, unapproximated carrier equations are needed.</p>
 
     </div>
     </details>

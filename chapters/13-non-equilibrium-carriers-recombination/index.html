@@ -10131,12 +10131,12 @@
 <h3 id="auger-recombination">Auger Recombination</h3>
 <p><strong>Auger recombination</strong> is a three-carrier process: an electron and hole recombine, but instead of releasing a photon or phonon, the released energy is transferred to a third carrier (another electron or hole), which is excited to a higher energy state and then relaxes by giving up that energy as heat. Because it requires three carriers to interact simultaneously, its rate scales as <span class="arithmatex">\(\Delta n^3\)</span> (compared to SRH's linear <span class="arithmatex">\(\Delta n\)</span> dependence), making Auger recombination negligible at low injection but dominant at very high injection — a key limiting factor in high-intensity solar cells and high-current laser diodes.</p>
 <h4 id="diagram-recombination-mechanism-comparison-explorer">Diagram: Recombination Mechanism Comparison Explorer</h4>
-<iframe height="660px" scrolling="auto" src="../../sims/recombination-mechanism-comparison-explorer/main.html" width="100%"></iframe>
+<iframe height="850px" scrolling="auto" src="../../sims/recombination-mechanism-comparison-explorer/main.html" width="100%"></iframe>
 <div class="admonition tip">
 <p class="admonition-title">How to use this MicroSim</p>
-<p><strong>Instructions:</strong> Compare the three recombination-rate bars as you raise Δn, then switch material from silicon to GaAs.</p>
+<p><strong>Instructions:</strong> Drag the Δn marker along the three recombination-rate curves, then switch material from silicon to GaAs.</p>
 <p><strong>Learning objective:</strong> Compare SRH, Auger, and direct recombination rates across injection levels and materials, and justify why direct recombination matters far more in direct-gap materials.</p>
-<p><strong>What to observe:</strong> SRH dominates across most of the silicon range; Auger only overtakes it at the highest injection levels; switching to GaAs makes direct recombination jump by many orders of magnitude.</p>
+<p><strong>What to observe:</strong> SRH dominates across most of the silicon range; the Auger curve (slope 3) only overtakes the others at the highest injection levels; switching to GaAs shifts the direct-recombination curve up by many orders of magnitude.</p>
 </div>
 <p><a href="../../sims/recombination-mechanism-comparison-explorer/">Full MicroSim documentation →</a></p>
 <pre class="mermaid"><code>flowchart TD
@@ -10162,12 +10162,12 @@ R = \frac{\Delta n}{\tau}
 \]</div>
 <p>This single equation is deceptively powerful: at steady state (constant generation rate <span class="arithmatex">\(G\)</span>), generation and recombination balance, <span class="arithmatex">\(G=R=\Delta n_{ss}/\tau\)</span>, immediately giving the steady-state excess concentration <span class="arithmatex">\(\Delta n_{ss}=G\tau\)</span> — the relationship that governs, for example, the photoconductivity of an illuminated semiconductor.</p>
 <h4 id="diagram-excess-carrier-generation-and-recombination-explorer">Diagram: Excess Carrier Generation and Recombination Explorer</h4>
-<iframe height="690px" scrolling="auto" src="../../sims/excess-carrier-generation-recombination-explorer/main.html" width="100%"></iframe>
+<iframe height="820px" scrolling="auto" src="../../sims/excess-carrier-generation-recombination-explorer/main.html" width="100%"></iframe>
 <div class="admonition tip">
 <p class="admonition-title">How to use this MicroSim</p>
-<p><strong>Instructions:</strong> Scrub the time marker across both the rise (generation) and decay (recombination) phases, then vary τ.</p>
+<p><strong>Instructions:</strong> With generation ON, scrub the time marker to watch Δn approach steady state; then click "Turn Generation OFF" and scrub again to watch the exponential decay, with one lifetime τ marked directly on the curve.</p>
 <p><strong>Learning objective:</strong> Explain how excess carriers rise under generation and decay under recombination, and compute recombination rate from excess concentration and minority carrier lifetime.</p>
-<p><strong>What to observe:</strong> A longer lifetime τ makes both phases slower and more gradual, since τ sets the natural timescale for both buildup and decay.</p>
+<p><strong>What to observe:</strong> A longer lifetime τ makes both phases slower and more gradual, since τ sets the natural timescale for both buildup and decay; Δp(t) (dashed) tracks Δn(t) exactly, showing charge neutrality.</p>
 </div>
 <p><a href="../../sims/excess-carrier-generation-recombination-explorer/">Full MicroSim documentation →</a></p>
 <div class="admonition example">
@@ -10193,13 +10193,14 @@ R = \frac{\Delta n}{\tau}
 <li><strong>Low-level injection</strong>: <span class="arithmatex">\(\Delta n \ll N\)</span> (excess carriers are small compared to the majority carrier/doping concentration). Here the majority carrier concentration is essentially unchanged, while the minority carrier population — starting from a much smaller base — is significantly perturbed. Nearly all of the simple device equations used in later chapters assume low-level injection.</li>
 <li><strong>High-level injection</strong>: <span class="arithmatex">\(\Delta n\)</span> comparable to or exceeding <span class="arithmatex">\(N\)</span>. Both carrier populations are now significantly perturbed, and the simplifying assumptions of low-level injection (like using <span class="arithmatex">\(\tau\)</span> as a fixed constant) can break down — high-level injection requires more careful treatment, relevant in heavily-illuminated solar cells or high-current devices.</li>
 </ul>
+<p>These are not two switch positions but the two ends of a continuous spectrum in <span class="arithmatex">\(\Delta n/N\)</span>; the <strong>transition</strong> region in between (roughly <span class="arithmatex">\(0.1 \lesssim \Delta n/N \lesssim 1\)</span>) is where neither the low-level shortcut (majority <span class="arithmatex">\(\approx N\)</span>) nor the high-level shortcut (<span class="arithmatex">\(\Delta n\approx\Delta p\)</span>) is safely accurate.</p>
 <h4 id="diagram-injection-level-classifier">Diagram: Injection Level Classifier</h4>
-<iframe height="620px" scrolling="auto" src="../../sims/injection-level-classifier/main.html" width="100%"></iframe>
+<iframe height="700px" scrolling="auto" src="../../sims/injection-level-classifier/main.html" width="100%"></iframe>
 <div class="admonition tip">
 <p class="admonition-title">How to use this MicroSim</p>
-<p><strong>Instructions:</strong> Raise Δn relative to a fixed doping level N and watch the classification flip.</p>
-<p><strong>Learning objective:</strong> Classify a given injection scenario as low-level or high-level, and explain which carrier population is perturbed in each regime.</p>
-<p><strong>What to observe:</strong> Raising doping N pushes the classification back toward low-level injection for the same Δn, since the ratio Δn/N shrinks.</p>
+<p><strong>Instructions:</strong> Raise Δn relative to a fixed doping level N and watch the needle sweep continuously across low-level, transition, and high-level injection.</p>
+<p><strong>Learning objective:</strong> Classify a given injection scenario as low-level, transition, or high-level, and explain which carrier population is perturbed — and which assumptions are safe — in each regime.</p>
+<p><strong>What to observe:</strong> Raising doping N pushes the needle back toward low-level injection for the same Δn, since the ratio Δn/N shrinks; the explanation box updates its wording in each zone.</p>
 </div>
 <p><a href="../../sims/injection-level-classifier/">Full MicroSim documentation →</a></p>
 <div class="admonition question">
@@ -10224,14 +10225,14 @@ D_p\frac{d^2\Delta p}{dx^2} = \frac{\Delta p}{\tau_p}
 <div class="arithmatex">\[
 \Delta p(x) = \Delta p(0)\,e^{-x/L_p}, \qquad L_p = \sqrt{D_p\tau_p}
 \]</div>
-<p>This is the <strong>steady-state carrier profile</strong>, and <span class="arithmatex">\(L_p\)</span>, the <strong>diffusion length</strong>, is the characteristic distance a minority carrier diffuses, on average, before recombining. Diffusion length is one of the most-quoted numbers in device design: it sets, for example, how thick a solar cell's absorber layer needs to be to collect most photogenerated carriers before they recombine.</p>
+<p>This is the <strong>steady-state carrier profile</strong>, and <span class="arithmatex">\(L_p\)</span>, the <strong>diffusion length</strong>, is the characteristic distance a minority carrier diffuses, on average, before recombining (the analogous electron form uses <span class="arithmatex">\(D_n\)</span>, <span class="arithmatex">\(\tau_n\)</span>, and <span class="arithmatex">\(L_n=\sqrt{D_n\tau_n}\)</span>, for holes injected into n-type material versus electrons injected into p-type material). Diffusion length is one of the most-quoted numbers in device design: it sets, for example, how thick a solar cell's absorber layer needs to be to collect most photogenerated carriers before they recombine.</p>
 <h4 id="diagram-continuity-equation-and-diffusion-length-explorer">Diagram: Continuity Equation and Diffusion Length Explorer</h4>
-<iframe height="660px" scrolling="auto" src="../../sims/continuity-equation-diffusion-length-explorer/main.html" width="100%"></iframe>
+<iframe height="950px" scrolling="auto" src="../../sims/continuity-equation-diffusion-length-explorer/main.html" width="100%"></iframe>
 <div class="admonition tip">
 <p class="admonition-title">How to use this MicroSim</p>
-<p><strong>Instructions:</strong> Drag the position marker along the curve and vary Dp and τp to see how the diffusion length changes.</p>
+<p><strong>Instructions:</strong> Drag the position marker along the curve and vary Δp(0), Dp, and τp to see how the profile and diffusion length change, then click "Show continuity-equation terms" to see the diffusion and recombination terms balance.</p>
 <p><strong>Learning objective:</strong> Apply the continuity equation's steady-state solution to compute a diffusion length and interpret the resulting carrier profile.</p>
-<p><strong>What to observe:</strong> The dashed Lp line always sits where the curve has fallen to about 37% (1/e) of its peak value, regardless of the specific Dp and τp chosen.</p>
+<p><strong>What to observe:</strong> The dashed Lp line always sits where the curve has fallen to about 37% (1/e) of its peak value, regardless of the specific Dp and τp chosen; Δp(0) changes the curve's height but not its shape or Lp.</p>
 </div>
 <p><a href="../../sims/continuity-equation-diffusion-length-explorer/">Full MicroSim documentation →</a></p>
 <div class="admonition example">
@@ -10275,7 +10276,7 @@ n = n_i\,e^{(E_{Fn}-E_i)/k_BT}, \qquad p = n_i\,e^{(E_i-E_{Fp})/k_BT}
 <p>Because illumination pushes electron and hole concentrations away from their mutual equilibrium relationship (the mass action law <span class="arithmatex">\(np=n_i^2\)</span> no longer holds), so no single energy level can correctly reproduce both the electron and hole populations simultaneously — separate quasi-Fermi levels are needed instead.</p>
 </details>
 <h2 id="summary">Summary</h2>
-<p>This chapter moved beyond equilibrium to describe <strong>excess carriers</strong>, created by <strong>carrier generation</strong> (<strong>optical</strong> or <strong>thermal</strong>) and removed by <strong>carrier recombination</strong> through several mechanisms: <strong>direct recombination</strong> (efficient in direct-gap materials), <strong>indirect recombination</strong> (requiring a phonon assist in indirect-gap materials), <strong>trap-assisted</strong> / <strong>Shockley-Read-Hall recombination</strong> (dominant in silicon at low-to-moderate injection), and <strong>Auger recombination</strong> (scaling as <span class="arithmatex">\(\Delta n^3\)</span>, dominant only at very high injection). The <strong>minority carrier lifetime</strong> <span class="arithmatex">\(\tau\)</span> sets the exponential decay timescale, with <strong>recombination rate</strong> <span class="arithmatex">\(R=\Delta n/\tau\)</span>. Disturbances were classified as <strong>low-level</strong> or <strong>high-level injection</strong> depending on <span class="arithmatex">\(\Delta n\)</span> relative to doping, both instances of <strong>carrier injection</strong>. The <strong>continuity equation</strong> tracks excess carriers in space and time, with its steady-state solution giving an exponential <strong>steady-state carrier profile</strong> characterized by the <strong>diffusion length</strong> <span class="arithmatex">\(L=\sqrt{D\tau}\)</span>. Finally, <strong>quasi-Fermi levels</strong> <span class="arithmatex">\(E_{Fn}\)</span> and <span class="arithmatex">\(E_{Fp}\)</span> replaced the single equilibrium Fermi level, splitting apart under injection. Chapter 14 now applies all of these ideas directly to the p-n junction at equilibrium, where a built-in depletion region and its associated fields are shaped by exactly this drift-diffusion-recombination balance.</p>
+<p>This chapter moved beyond equilibrium to describe <strong>excess carriers</strong>, created by <strong>carrier generation</strong> (<strong>optical</strong> or <strong>thermal</strong>) and removed by <strong>carrier recombination</strong> through several mechanisms: <strong>direct recombination</strong> (efficient in direct-gap materials), <strong>indirect recombination</strong> (requiring a phonon assist in indirect-gap materials), <strong>trap-assisted</strong> / <strong>Shockley-Read-Hall recombination</strong> (dominant in silicon at low-to-moderate injection), and <strong>Auger recombination</strong> (scaling as <span class="arithmatex">\(\Delta n^3\)</span>, dominant only at very high injection). The <strong>minority carrier lifetime</strong> <span class="arithmatex">\(\tau\)</span> sets the exponential decay timescale, with <strong>recombination rate</strong> <span class="arithmatex">\(R=\Delta n/\tau\)</span>. Disturbances were classified as <strong>low-level</strong> or <strong>high-level injection</strong> depending on <span class="arithmatex">\(\Delta n\)</span> relative to doping, both instances of <strong>carrier injection</strong>. The <strong>continuity equation</strong> tracks excess carriers in space and time, with its steady-state solution giving an exponential <strong>steady-state carrier profile</strong> characterized by the <strong>diffusion length</strong> <span class="arithmatex">\(L=\sqrt{D\tau}\)</span>. Finally, <strong>quasi-Fermi levels</strong> <span class="arithmatex">\(E_{Fn}\)</span> and <span class="arithmatex">\(E_{Fp}\)</span> replaced the single equilibrium Fermi level, splitting apart under injection. Chapter 14's equilibrium p-n junction depends qualitatively on this generation-recombination balance, but it is Chapter 15's biased junction that directly reuses the continuity equation and diffusion length — solving for injected minority carriers in the long-base and short-base diode limits — while quasi-Fermi level splitting reappears explicitly in Chapter 18's solar-cell open-circuit-voltage discussion.</p>
 <h2 id="key-equations">Key Equations</h2>
 <table>
 <thead>

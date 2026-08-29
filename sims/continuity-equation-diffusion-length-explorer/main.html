@@ -27,23 +27,36 @@
     <summary>Guided Exploration &amp; Challenge Questions</summary>
     <div class="panel-content">
 
-        <h3>Try This</h3>
+        <h3>What to Observe</h3>
         <ul class="explore-list">
-            <li><strong>Try this:</strong> Drag the position marker along the curve and watch Δp(x) fall off exponentially as you move away from the injection point at x=0.</li>
-            <li><strong>Predict:</strong> Before increasing τp, predict whether the diffusion length Lp will grow or shrink.</li>
-            <li><strong>Observe:</strong> Increasing either Dp or τp stretches the curve outward and moves the dashed Lp line to the right, since \(L_p=\sqrt{D_p\tau_p}\).</li>
+            <li>The curve is a decaying exponential, Δp(x)=Δp(0)e^(−x/Lp) — steepest right at the injection point (x=0), flattening out as x grows.</li>
+            <li>The dashed Lp line always sits at exactly the point where Δp has fallen to 37% (1/e) of Δp(0), no matter what Dp, τp, or Δp(0) are set to.</li>
+            <li>Turning on "Show continuity-equation terms" reveals that the diffusion term and the recombination term are numerically equal at every position — that equality is exactly what makes the exponential profile a valid steady-state solution.</li>
         </ul>
 
-        <p class="connects-to"><strong>Connects to Chapter 13:</strong> The <strong>continuity equation</strong> governs how excess carrier concentration evolves in space and time under diffusion, drift, generation, and recombination. Its steady-state solution for carriers injected at one point and diffusing into a long field-free region is a decaying exponential, characterized by the <strong>diffusion length</strong> \(L_p=\sqrt{D_p\tau_p}\) — the average distance a minority carrier diffuses before recombining, and this exponential curve is exactly the <strong>steady-state carrier profile</strong> referenced throughout later device chapters.</p>
+        <h3>Guided Exploration</h3>
+        <ul class="explore-list">
+            <li><strong>Predict:</strong> Before increasing τp, predict whether the diffusion length Lp will grow or shrink, and by what factor if τp quadruples.</li>
+            <li><strong>Try this:</strong> Drag the position marker along the curve and watch Δp(x) fall off exponentially as you move away from the injection point at x=0.</li>
+            <li><strong>Observe:</strong> Increasing either Dp or τp stretches the curve outward and moves the dashed Lp line to the right, since \(L_p=\sqrt{D_p\tau_p}\).</li>
+            <li><strong>Try this:</strong> Raise or lower Δp(0) and confirm the curve's shape (and Lp) stays exactly the same — only its height scales, since Lp depends only on Dp and τp, not on the boundary concentration.</li>
+            <li><strong>Predict:</strong> Before opening "Show continuity-equation terms," predict whether the diffusion term will be larger, smaller, or equal to the recombination term at the marker.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 13:</strong> The <strong>continuity equation</strong> governs how excess carrier concentration evolves in space and time under diffusion, drift, generation, and recombination. Its steady-state solution for carriers injected at one point and diffusing into a long field-free region is a decaying exponential, characterized by the <strong>diffusion length</strong> \(L_p=\sqrt{D_p\tau_p}\) — the average distance a minority carrier diffuses before recombining. This exact exponential profile is the <strong>steady-state carrier profile</strong> reused directly in Chapter 15 (p-n junction under bias) to describe minority carriers injected across a forward-biased junction.</p>
 
         <h3>What Each Control Does</h3>
         <dl class="control-captions">
+            <dt>Δp(0) (boundary concentration)</dt>
+            <dd>Sets the excess hole concentration at the injection point x=0. Scales the whole curve up or down without changing its shape or Lp.</dd>
             <dt>Dp (diffusion coefficient)</dt>
             <dd>Sets how quickly holes spread by diffusion, stretching the profile and Lp.</dd>
             <dt>τp (lifetime)</dt>
             <dd>Sets how long holes survive before recombining, also stretching the profile and Lp.</dd>
             <dt>Position marker</dt>
             <dd>Reads off the excess hole concentration at a chosen distance from the injection point.</dd>
+            <dt>"Show continuity-equation terms" button</dt>
+            <dd>Reveals the diffusion and recombination terms of the steady-state continuity equation at the marker position, and confirms they are equal.</dd>
         </dl>
 
         <h3>Challenge Questions</h3>
@@ -59,6 +72,32 @@
             <p class="explain-correct" hidden>Lp=√(Dpτp) is the characteristic length scale over which excess carriers diffuse before recombining, marking where the profile falls to 1/e of its peak.</p>
             <p class="explain-incorrect" hidden>Look at where the dashed Lp line falls on the curve — what fraction of the peak value has the curve dropped to there?</p>
         </div>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">2. If you double Δp(0) without changing Dp or τp, what happens to Lp?</p>
+            <label><input type="radio" name="cedle-q2" value="a"> Lp doubles</label>
+            <label><input type="radio" name="cedle-q2" value="b"> Lp is cut in half</label>
+            <label><input type="radio" name="cedle-q2" value="c"> Lp is unchanged</label>
+            <label><input type="radio" name="cedle-q2" value="d"> Lp becomes zero</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Lp=√(Dpτp) depends only on the diffusion coefficient and lifetime — the boundary concentration only scales the curve's height, not its characteristic decay length.</p>
+            <p class="explain-incorrect" hidden>Change the Δp(0) slider and watch the dashed Lp line — does its x-position move at all?</p>
+        </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">3. With "Show continuity-equation terms" open, why are the diffusion term and the recombination term always equal at the marker?</p>
+            <label><input type="radio" name="cedle-q3" value="a"> Because the exponential profile with L=√(Dpτp) is exactly the shape that makes diffusion inflow balance recombination loss everywhere, in steady state</label>
+            <label><input type="radio" name="cedle-q3" value="b"> Because Dp always equals τp numerically</label>
+            <label><input type="radio" name="cedle-q3" value="c"> It is a coincidence that only happens at the marked Lp position</label>
+            <label><input type="radio" name="cedle-q3" value="d"> Because there is no recombination in steady state</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Substituting Δp(x)=Δp(0)e^(−x/L) into the steady-state continuity equation shows Dp·d²(Δp)/dx² = Δp/τp holds identically for every x, precisely because L was defined as √(Dpτp) — that is the whole reason the exponential is the correct steady-state solution.</p>
+            <p class="explain-incorrect" hidden>Try dragging the position marker to a different x while the panel is open — do the two terms stay equal there too?</p>
+        </div>
+
+        <p class="key-takeaway"><strong>Key Takeaway:</strong> The exponential profile Δp(x)=Δp(0)e^(−x/Lp) is the steady-state solution of the continuity equation precisely because its curvature makes the diffusion term Dp·d²(Δp)/dx² exactly cancel the recombination loss Δp/τp at every position — a balance that only holds once transients have died out (typically many lifetimes after a step change) and with no time-varying boundary condition or additional bulk generation. Lp=√(Dpτp) sets the curve's shape and decay distance; Δp(0) only sets its height.</p>
 
     </div>
     </details>

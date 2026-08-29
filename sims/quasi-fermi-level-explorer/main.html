@@ -27,14 +27,22 @@
     <summary>Guided Exploration &amp; Challenge Questions</summary>
     <div class="panel-content">
 
-        <h3>Try This</h3>
+        <h3>What to Observe</h3>
+        <ul class="explore-list">
+            <li>At Δn = 0, E_Fn and E_Fp coincide exactly at the single equilibrium Fermi level E_F — the status line below the sliders turns green and reads "Equilibrium."</li>
+            <li>As Δn increases, E_Fn moves up toward E_C and E_Fp moves down toward E_V, splitting apart — the status line turns orange and reports the split E_Fn − E_Fp in eV.</li>
+            <li>In n-type material, E_Fn barely moves (n is already large) while E_Fp swings dramatically toward midgap and beyond, since p is the minority carrier and is most strongly perturbed by injection.</li>
+        </ul>
+
+        <h3>Guided Exploration</h3>
         <ul class="explore-list">
             <li><strong>Try this:</strong> Start with Δn = 0 and confirm E_Fn and E_Fp sit at the same level (the equilibrium Fermi level). Then raise Δn and watch them split apart.</li>
             <li><strong>Predict:</strong> Before switching doping type, predict which quasi-Fermi level (E_Fn or E_Fp) will move the most as Δn increases in n-type material.</li>
-            <li><strong>Observe:</strong> In n-type material, E_Fn barely moves (n is already large) while E_Fp swings dramatically toward midgap, since p is the minority carrier and is most strongly perturbed by injection.</li>
+            <li><strong>Predict:</strong> Before raising Δn to its maximum, predict roughly how large the split E_Fn − E_Fp can get relative to the bandgap (1.12 eV for silicon) under very strong injection.</li>
+            <li><strong>Try this:</strong> Switch to p-type and repeat — confirm the roles of E_Fn and E_Fp swap: now E_Fp barely moves and E_Fn does the swinging.</li>
         </ul>
 
-        <p class="connects-to"><strong>Connects to Chapter 13:</strong> Under illumination or <strong>carrier injection</strong>, electrons and holes are no longer in mutual equilibrium, so a single Fermi level can no longer describe both populations. Instead, separate <strong>quasi-Fermi levels</strong> \(E_{Fn}\) and \(E_{Fp}\) describe each carrier population's occupation statistics, splitting apart from the equilibrium Fermi level by an amount that grows with the injection level.</p>
+        <p class="connects-to"><strong>Connects to Chapter 13:</strong> Under illumination or <strong>carrier injection</strong>, electrons and holes are no longer in mutual equilibrium, so a single Fermi level can no longer describe both populations. Instead, separate <strong>quasi-Fermi levels</strong> \(E_{Fn}\) and \(E_{Fp}\) describe each carrier population's occupation statistics, splitting apart from the equilibrium Fermi level by an amount that grows with the injection level. This same splitting reappears under applied bias in Chapter 15, where \(E_{Fn}-E_{Fp}\) across a p-n junction's depletion region sets the excess carrier concentration injected at each edge.</p>
 
         <h3>What Each Control Does</h3>
         <dl class="control-captions">
@@ -59,6 +67,32 @@
             <p class="explain-correct" hidden>At equilibrium there is only one Fermi level; the quasi-Fermi levels reduce to E_Fn=E_Fp=E_F when Δn=0.</p>
             <p class="explain-incorrect" hidden>Set the Δn slider to its minimum (no injection) and see where the blue and red lines land relative to each other.</p>
         </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">2. In n-type material under strong carrier injection, which quasi-Fermi level moves the most from its equilibrium position, and toward which band edge?</p>
+            <label><input type="radio" name="qfle-q2" value="a"> E_Fn moves the most, toward E_C</label>
+            <label><input type="radio" name="qfle-q2" value="b"> E_Fp moves the most, toward E_V</label>
+            <label><input type="radio" name="qfle-q2" value="c"> Both move equally toward midgap</label>
+            <label><input type="radio" name="qfle-q2" value="d"> Neither moves; only n and p change</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>E_Fn is already close to E_C at equilibrium because n0 is large, so it has little room left to move. E_Fp, tied to the minority carrier p, starts far from E_V and swings dramatically toward it as p grows from p0 up toward Δn.</p>
+            <p class="explain-incorrect" hidden>Compare how much each colored line moves as you raise Δn in n-type material — one line is already near its band edge and barely shifts.</p>
+        </div>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">3. The quasi-Fermi split E_Fn − E_Fp is a direct measure of:</p>
+            <label><input type="radio" name="qfle-q3" value="a"> The doping concentration N alone</label>
+            <label><input type="radio" name="qfle-q3" value="b"> The temperature of the sample</label>
+            <label><input type="radio" name="qfle-q3" value="c"> How far the np product is pushed above its equilibrium value ni², i.e. how far from equilibrium the sample is</label>
+            <label><input type="radio" name="qfle-q3" value="d"> The bandgap energy E_G</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Since E_Fn−E_Fp = kT·ln(np/ni²), the split is zero exactly when np=ni² (equilibrium) and grows as np is driven further above ni² by injection — it is a direct thermodynamic measure of departure from equilibrium.</p>
+            <p class="explain-incorrect" hidden>Look at the readout card: E_Fn−E_Fp is built from ln(n/ni) and ln(p/ni) together, which combine to ln(np/ni²).</p>
+        </div>
+
+        <p class="key-takeaway"><strong>Key Takeaway:</strong> A single Fermi level only describes a semiconductor in true equilibrium. The moment carriers are injected (electrically or optically), electrons and holes must be described by separate quasi-Fermi levels E_Fn and E_Fp, and their separation, E_Fn−E_Fp = kT·ln(np/ni²), is a direct, quantitative measure of how far the carrier populations have been pushed from equilibrium — zero exactly at equilibrium, and growing steadily under stronger injection.</p>
 
     </div>
     </details>

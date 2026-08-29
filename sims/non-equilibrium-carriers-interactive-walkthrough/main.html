@@ -27,19 +27,31 @@
     <summary>Guided Exploration &amp; Challenge Questions</summary>
     <div class="panel-content">
 
-        <h3>Try This</h3>
+        <h3>What to Observe</h3>
         <ul class="explore-list">
-            <li><strong>Try this:</strong> Click "Next ▶" through all 8 steps in order, from equilibrium to the chapter summary, before jumping around.</li>
-            <li><strong>Recall:</strong> After each step, try restating the idea in your own words before reading the explanation box again.</li>
-            <li><strong>Review:</strong> Use the step dots at the bottom to jump back to any concept you want to revisit before the chapter quiz.</li>
+            <li>Each step's illustration is a simplified summary — the real, interactive version of that concept lives in one of the chapter's other five MicroSims, linked below each relevant step's explanation.</li>
+            <li>The step dots and "Step X of N" counter always show exactly where you are in the 8-step sequence, and the Restart button always jumps back to Step 1 regardless of where you currently are.</li>
+            <li>The final "Putting It All Together" step (8) shows the full causal chain as a left-to-right diagram — Generation → Excess Carriers Δn → Recombination → Lifetime τ / Rate R → Injection Level → Continuity Eq. → L → Quasi-Fermi Levels.</li>
         </ul>
 
-        <p class="connects-to"><strong>Connects to Chapter 13:</strong> This walkthrough retraces the entire chapter's storyline in one place — <strong>excess carriers</strong> and <strong>carrier generation</strong>, the four <strong>recombination</strong> mechanisms, <strong>minority carrier lifetime</strong> and <strong>recombination rate</strong>, <strong>low-level</strong> vs. <strong>high-level injection</strong>, the <strong>continuity equation</strong> and <strong>diffusion length</strong>, and <strong>quasi-Fermi levels</strong> — ending with a preview of how this chain sets up the p-n junction in Chapter 14.</p>
+        <h3>Guided Exploration</h3>
+        <ul class="explore-list">
+            <li><strong>Predict:</strong> Before clicking "Next ▶" past Step 3 (Four Recombination Mechanisms), predict which single mechanism the chapter says dominates in silicon at ordinary injection levels — then check your prediction on Step 3 and again in the Recombination Mechanism Comparison Explorer.</li>
+            <li><strong>Try this:</strong> Click "Next ▶" through all 8 steps in order, from equilibrium to the chapter summary, before jumping around.</li>
+            <li><strong>Recall:</strong> After each step, try restating the idea in your own words before reading the explanation box again.</li>
+            <li><strong>Review:</strong> Use the step dots at the bottom to jump back to any concept you want to revisit before the chapter quiz, or click Restart to begin the tour again from Step 1.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 13:</strong> This walkthrough retraces the entire chapter's storyline in one place — <strong>excess carriers</strong> and <strong>carrier generation</strong>, the four <strong>recombination</strong> mechanisms, <strong>minority carrier lifetime</strong> and <strong>recombination rate</strong>, <strong>low-level</strong> vs. <strong>high-level injection</strong>, the <strong>continuity equation</strong> and <strong>diffusion length</strong>, and <strong>quasi-Fermi levels</strong> — ending with a preview of how this chain sets up the injected-carrier analysis in Chapter 15 (the p-n junction under bias).</p>
+
+        <p class="connects-to"><strong>Explore each concept in depth:</strong> This walkthrough summarizes — it does not replace — the chapter's five other interactive MicroSims. Step 2/4 (Generation, Lifetime): <a href="../excess-carrier-generation-recombination-explorer/index.md">Excess Carrier Generation and Recombination Explorer</a>. Step 3 (Recombination Mechanisms): <a href="../recombination-mechanism-comparison-explorer/index.md">Recombination Mechanism Comparison Explorer</a>. Step 5 (Injection Level): <a href="../injection-level-classifier/index.md">Injection Level Classifier</a>. Step 6 (Continuity Equation &amp; Diffusion Length): <a href="../continuity-equation-diffusion-length-explorer/index.md">Continuity Equation and Diffusion Length Explorer</a>. Step 7 (Quasi-Fermi Levels): <a href="../quasi-fermi-level-explorer/index.md">Quasi-Fermi Level Explorer</a>.</p>
 
         <h3>What Each Control Does</h3>
         <dl class="control-captions">
             <dt>Prev / Next buttons</dt>
-            <dd>Step backward or forward through the 8-step guided tour.</dd>
+            <dd>Step backward or forward through the 8-step guided tour (wraps around at either end).</dd>
+            <dt>Restart button</dt>
+            <dd>Jumps directly back to Step 1 (equilibrium) from anywhere in the sequence.</dd>
             <dt>Step dots</dt>
             <dd>Show your current position in the sequence at a glance.</dd>
         </dl>
@@ -57,6 +69,32 @@
             <p class="explain-correct" hidden>Recombination is characterized by how fast it happens — the lifetime τ and recombination rate R — which comes right after in the chain.</p>
             <p class="explain-incorrect" hidden>Navigate to the final summary step and read the boxes left to right.</p>
         </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">2. Which chapter does this walkthrough say directly reuses the continuity equation, diffusion length, and quasi-Fermi levels developed here?</p>
+            <label><input type="radio" name="necw-q2" value="a"> Chapter 12 (Diffusion and Advanced Transport Phenomena)</label>
+            <label><input type="radio" name="necw-q2" value="b"> Chapter 15 (the p-n junction under bias)</label>
+            <label><input type="radio" name="necw-q2" value="c"> Chapter 14 (the p-n junction at equilibrium)</label>
+            <label><input type="radio" name="necw-q2" value="d"> Chapter 9 (Carrier Concentration Statistics)</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Chapter 14 covers the p-n junction at equilibrium (built-in potential, depletion width) with no injected carriers. It's Chapter 15, once a bias is applied and carriers are actually injected across the junction, that directly reuses this chapter's continuity-equation/diffusion-length machinery.</p>
+            <p class="explain-incorrect" hidden>Re-read the final sentence of Step 8 (Putting It All Together).</p>
+        </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">3. You want to interactively compare SRH, radiative, and Auger recombination rates yourself instead of just reading Step 3's summary. Which linked MicroSim should you open?</p>
+            <label><input type="radio" name="necw-q3" value="a"> Recombination Mechanism Comparison Explorer</label>
+            <label><input type="radio" name="necw-q3" value="b"> Injection Level Classifier</label>
+            <label><input type="radio" name="necw-q3" value="c"> Quasi-Fermi Level Explorer</label>
+            <label><input type="radio" name="necw-q3" value="d"> Continuity Equation and Diffusion Length Explorer</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>The "Explore each concept in depth" links above Step 3's summary point directly to the Recombination Mechanism Comparison Explorer, which plots all three mechanisms' rates against carrier concentration.</p>
+            <p class="explain-incorrect" hidden>Look at the "Explore each concept in depth" paragraph and find the link listed next to "Step 3 (Recombination Mechanisms)."</p>
+        </div>
+
+        <p class="key-takeaway"><strong>Key Takeaway:</strong> Non-equilibrium behavior in a semiconductor is one continuous causal chain, not eight disconnected topics — generation creates excess carriers, recombination removes them at a rate set by the carrier lifetime, the size of the excess relative to doping sets the injection level, the continuity equation tracks the excess in space to give a diffusion length, and quasi-Fermi levels describe how far the carrier populations have been pushed from equilibrium. This walkthrough is the map; the other five MicroSims are where you build intuition for each leg of the journey.</p>
 
     </div>
     </details>

@@ -11,13 +11,14 @@ let containerWidth;
 let canvasWidth = 750;
 let drawHeight = 460;
 let minDrawHeight = 440;
-let controlHeight = 90;
+let controlHeight = 134;
 let canvasHeight = drawHeight + controlHeight;
 let containerHeight = canvasHeight;
 
 let currentStep = 0;
 let prevBtn = { x: 0, y: 0, w: 90, h: 36 };
 let nextBtn = { x: 0, y: 0, w: 90, h: 36 };
+let restartBtn = { x: 0, y: 0, w: 120, h: 32 };
 
 const STEPS = [
   {
@@ -57,7 +58,7 @@ const STEPS = [
   },
   {
     title: '8. Putting It All Together',
-    text: 'Generation creates excess carriers → recombination (via 4 mechanisms) removes them at rate R=Δn/τ → the size of Δn relative to doping classifies the injection level → the continuity equation tracks Δn in space, yielding diffusion length → quasi-Fermi levels describe the disturbed statistics. This full chain is the foundation for the p-n junction in Chapter 14.',
+    text: 'Generation creates excess carriers → recombination (via 4 mechanisms) removes them at rate R=Δn/τ → the size of Δn relative to doping classifies the injection level → the continuity equation tracks Δn in space, yielding diffusion length → quasi-Fermi levels describe the disturbed statistics. This full chain is the foundation for the injected-carrier analysis in Chapter 15 (the p-n junction under bias).',
     draw: drawStepSummary
   }
 ];
@@ -303,11 +304,11 @@ function drawStepSummary(x, y, w, h) {
     }
   }
   fill(60); textAlign(CENTER, TOP); textSize(11.5);
-  text('This chain is exactly what drives the p-n junction in Chapter 14.', x + w / 2, y + h - 22);
+  text('This chain is exactly what drives injected-carrier behavior in Chapter 15 (the p-n junction under bias).', x + w / 2, y + h - 22);
 }
 
 function drawControls() {
-  const cy = drawHeight + (controlHeight - prevBtn.h) / 2;
+  const cy = drawHeight + 16;
   prevBtn.x = 20; prevBtn.y = cy;
   nextBtn.x = canvasWidth - 20 - nextBtn.w; nextBtn.y = cy;
 
@@ -317,7 +318,11 @@ function drawControls() {
   noStroke(); fill(30); textAlign(CENTER, CENTER); textSize(13);
   text('Step ' + (currentStep + 1) + ' of ' + STEPS.length, canvasWidth / 2, cy + prevBtn.h / 2);
 
-  const dotsY = cy + prevBtn.h + 12;
+  const restartY = cy + prevBtn.h + 14;
+  restartBtn.x = canvasWidth / 2 - restartBtn.w / 2; restartBtn.y = restartY;
+  smlDrawButton(restartBtn.x, restartBtn.y, restartBtn.w, restartBtn.h, '⟲ Restart', false);
+
+  const dotsY = restartY + restartBtn.h + 16;
   const totalDotsW = STEPS.length * 16;
   const dotsX0 = canvasWidth / 2 - totalDotsW / 2 + 8;
   for (let i = 0; i < STEPS.length; i++) {
@@ -332,6 +337,8 @@ function mousePressed() {
     currentStep = (currentStep - 1 + STEPS.length) % STEPS.length;
   } else if (smlPointInRect(mouseX, mouseY, nextBtn.x, nextBtn.y, nextBtn.w, nextBtn.h)) {
     currentStep = (currentStep + 1) % STEPS.length;
+  } else if (smlPointInRect(mouseX, mouseY, restartBtn.x, restartBtn.y, restartBtn.w, restartBtn.h)) {
+    currentStep = 0;
   }
 }
 

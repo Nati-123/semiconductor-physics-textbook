@@ -27,40 +27,88 @@
     <summary>Guided Exploration &amp; Challenge Questions</summary>
     <div class="panel-content">
 
-        <h3>Try This</h3>
+        <h3>What to Observe</h3>
         <ul class="explore-list">
-            <li><strong>Try this:</strong> Drag the time marker slowly from left to right and watch Δn rise toward Δn_ss during generation, then decay after the dashed "generation stops" line.</li>
-            <li><strong>Predict:</strong> Before increasing τ, predict whether the decay curve will fall more quickly or more slowly.</li>
-            <li><strong>Observe:</strong> A longer minority carrier lifetime τ makes both the rise and the decay noticeably more gradual, since τ sets the natural timescale of both phases.</li>
+            <li>While generation is ON, Δn rises smoothly toward a steady-state value Δn_ss = G·τ and then flattens out — it never grows without bound.</li>
+            <li>Δp(t) (dashed, red) sits exactly on top of Δn(t) (solid, purple) at every instant — under low-level injection, charge neutrality forces the excess electron and hole populations to stay equal.</li>
+            <li>After you click "Turn Generation OFF," a green marker appears exactly one lifetime τ after the "generation off" line, showing Δn has fallen to about 37% (1/e) of its value at that moment.</li>
+            <li>The "Generation source" dropdown jumps the generation rate G to a realistic optical vs. thermal preset — notice how much larger Δn_ss is under optical generation.</li>
         </ul>
 
-        <p class="connects-to"><strong>Connects to Chapter 13:</strong> <strong>Excess carriers</strong> are carriers above the equilibrium concentration, created by <strong>carrier generation</strong> (optical or thermal) and removed by <strong>carrier recombination</strong>. Once generation stops, excess carriers decay exponentially with time constant equal to the <strong>minority carrier lifetime</strong> τ, and the instantaneous <strong>recombination rate</strong> is simply \(R=\Delta n/\tau\).</p>
+        <h3>Predict First</h3>
+        <ul class="explore-list">
+            <li><strong>Predict:</strong> Before dragging the τ slider, predict whether a longer minority carrier lifetime will make the rise and decay curves steeper or more gradual.</li>
+            <li><strong>Predict:</strong> Before clicking "Turn Generation OFF," predict roughly how many lifetimes it will take for Δn to fall below 10% of its value at that moment. (Hint: each lifetime removes a fixed fraction, not a fixed amount.)</li>
+            <li><strong>Predict:</strong> Before switching the source preset from Optical to Thermal, predict whether Δn_ss will go up or down, and by roughly how many orders of magnitude.</li>
+        </ul>
+
+        <h3>Guided Exploration</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Leave generation ON and drag the time marker across the window — confirm Δn approaches, but never exceeds, Δn_ss.</li>
+            <li><strong>Try this:</strong> Click "Turn Generation OFF," then drag the "Turns off at" slider — watch the whole decay phase shift with it, always starting from wherever Δn had reached when generation stopped.</li>
+            <li><strong>Observe:</strong> A longer minority carrier lifetime τ makes both the rise and the decay noticeably more gradual, since τ sets the natural timescale of both phases.</li>
+            <li><strong>Observe:</strong> The Δn/N readout at the bottom previews the injection-level ratio explored fully in the next MicroSim (Injection Level Classifier) — keep N fixed and increase G to see this ratio grow.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 13:</strong> <strong>Excess carriers</strong> are carriers above the equilibrium concentration, created by <strong>carrier generation</strong> (optical or thermal) and removed by <strong>carrier recombination</strong>. While generation is active, excess carriers build up toward a steady state where generation and recombination balance, \(\Delta n_{ss}=G\tau\); once generation stops, they decay exponentially with time constant equal to the <strong>minority carrier lifetime</strong> τ, and the instantaneous <strong>recombination rate</strong> is simply \(R=\Delta n/\tau\).</p>
 
         <h3>What Each Control Does</h3>
         <dl class="control-captions">
             <dt>Generation source</dt>
-            <dd>Labels whether the excess carriers pictured come from optical (light pulse) or thermal (background) generation — both feed the same Δn(t) curve physically.</dd>
-            <dt>Δn_ss exponent</dt>
-            <dd>Sets the steady-state excess carrier concentration reached while generation is active.</dd>
+            <dd>Jumps the generation rate G to a representative optical (light pulse) or thermal (background) preset — you can still fine-tune G afterward.</dd>
+            <dt>G (generation rate)</dt>
+            <dd>Sets the generation rate, in carriers created per cm³ per second; the steady-state excess concentration is derived from it as Δn_ss = G·τ.</dd>
             <dt>τ (lifetime)</dt>
             <dd>Sets the minority carrier lifetime controlling both the rise and decay timescales.</dd>
+            <dt>N (background doping, reference)</dt>
+            <dd>Sets a reference majority carrier concentration, used only to compute the Δn/N injection-level ratio shown in the readout — it does not affect the Δn(t) curve itself.</dd>
+            <dt>Turn Generation ON/OFF button</dt>
+            <dd>Toggles whether generation is currently active. ON shows pure approach to steady state; OFF adds a decay phase starting at the "Turns off at" time.</dd>
+            <dt>Turns off at</dt>
+            <dd>Only active when generation is OFF — sets, in multiples of τ, how long generation ran before it stopped.</dd>
             <dt>Time marker</dt>
-            <dd>Scrubs through the rise and decay phases, reading off Δn and the instantaneous recombination rate.</dd>
+            <dd>Scrubs through the rise and/or decay phase, reading off Δn, Δp, and the instantaneous recombination rate.</dd>
         </dl>
 
         <h3>Challenge Questions</h3>
 
         <div class="challenge" data-correct="c">
-            <p class="q-text">1. After generation stops, what does the excess carrier concentration do?</p>
+            <p class="q-text">1. After generation is turned off, what does the excess carrier concentration do?</p>
             <label><input type="radio" name="ecgre-q1" value="a"> Stays constant forever</label>
             <label><input type="radio" name="ecgre-q1" value="b"> Increases further</label>
             <label><input type="radio" name="ecgre-q1" value="c"> Decays exponentially with time constant τ</label>
             <label><input type="radio" name="ecgre-q1" value="d"> Drops to zero instantly</label>
             <button class="check-btn" type="button">Check Answer</button>
             <span class="feedback" role="status" aria-live="polite"></span>
-            <p class="explain-correct" hidden>Once generation stops, recombination alone governs the excess carriers, producing an exponential decay Δn(t)=Δn_ss·exp(-t/τ).</p>
-            <p class="explain-incorrect" hidden>Watch the red curve after the dashed "generation stops" line — it falls off smoothly, not instantly or linearly.</p>
+            <p class="explain-correct" hidden>Once generation stops, recombination alone governs the excess carriers, producing an exponential decay Δn(t)=Δn(Ton)·exp(-(t-Ton)/τ).</p>
+            <p class="explain-incorrect" hidden>Click "Turn Generation OFF" and watch the curve after the dashed "generation off" line — it falls off smoothly, not instantly or linearly.</p>
         </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">2. You double the generation rate G while keeping τ fixed. What happens to the steady-state excess concentration Δn_ss?</p>
+            <label><input type="radio" name="ecgre-q2" value="a"> It stays the same, since Δn_ss depends only on τ</label>
+            <label><input type="radio" name="ecgre-q2" value="b"> It doubles, since Δn_ss = G·τ is directly proportional to G</label>
+            <label><input type="radio" name="ecgre-q2" value="c"> It quadruples</label>
+            <label><input type="radio" name="ecgre-q2" value="d"> It is unaffected by generation rate</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Δn_ss = G·τ is a direct proportionality: doubling G with τ fixed exactly doubles the steady-state excess concentration.</p>
+            <p class="explain-incorrect" hidden>Watch the "Δn_ss = G·τ" readout at the top as you move the G slider with τ fixed.</p>
+        </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">3. At the point marked one lifetime after generation turns off, roughly what fraction of the excess concentration (at the moment generation stopped) remains?</p>
+            <label><input type="radio" name="ecgre-q3" value="a"> About 37% (1/e)</label>
+            <label><input type="radio" name="ecgre-q3" value="b"> About 50%</label>
+            <label><input type="radio" name="ecgre-q3" value="c"> About 10%</label>
+            <label><input type="radio" name="ecgre-q3" value="d"> 0% — it's fully gone</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>By definition of the exponential time constant, exactly one lifetime after generation stops, Δn has fallen to 1/e ≈ 37% of its starting value for the decay.</p>
+            <p class="explain-incorrect" hidden>Look at the green-marked point on the decay curve and compare its label to the value right where generation turned off.</p>
+        </div>
+
+        <p class="key-takeaway"><strong>Key Takeaway:</strong> Excess carrier concentration is a balance between two competing rates: generation builds it up toward a steady state Δn_ss = G·τ, and recombination tears it back down with time constant τ once generation stops. The same lifetime τ sets the timescale of both processes, and because low-level injection preserves charge neutrality, Δn and Δp rise and fall together throughout.</p>
 
     </div>
     </details>

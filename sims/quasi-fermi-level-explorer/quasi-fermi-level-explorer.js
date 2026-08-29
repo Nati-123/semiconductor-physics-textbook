@@ -88,7 +88,15 @@ function draw() {
   text('Doping type:', 10, drawHeight + 18);
   text('N = 10^' + dopingExpSlider.value().toFixed(1) + ' cm⁻³', 10, drawHeight + 56);
   text(dnRaw === 0 ? 'Δn = 0 (equilibrium, no injection)' : 'Δn = 10^' + dnExpSlider.value().toFixed(1) + ' cm⁻³', 10, drawHeight + 94);
-  text('At Δn = 0, E_Fn and E_Fp coincide at the equilibrium Fermi level E_F.', 10, drawHeight + 128);
+
+  const split = efnMinusEi + eiMinusEfp;
+  if (dnRaw === 0) {
+    fill(30, 130, 70);
+    text('✓ Equilibrium: E_Fn = E_Fp = E_F (a single, well-defined Fermi level)', 10, drawHeight + 128);
+  } else {
+    fill(190, 90, 20);
+    text('Non-equilibrium: E_Fn ≠ E_Fp — split apart by ' + split.toFixed(3) + ' eV under injection', 10, drawHeight + 128);
+  }
 }
 
 function drawBandDiagram(efnMinusEi, eiMinusEfp) {
@@ -125,7 +133,15 @@ function drawBandDiagram(efnMinusEi, eiMinusEfp) {
   textAlign(LEFT, BOTTOM); textSize(11);
   text('E_i (≈midgap)', diagX1 + 6, eToPx(midgap) + 3);
 
-  const efnPos = midgap + efnMinusEi;
+  // Display coordinate convention: eToPx() maps SMALLER "eV" values to the
+  // TOP of the diagram (toward E_C) and LARGER values toward the bottom
+  // (toward E_V) -- see EC_POS < EV_POS above. Since E_Fn - E_i = kT ln(n/ni)
+  // is positive whenever n > ni (i.e. E_Fn sits ABOVE E_i, toward E_C in true
+  // energy), its display coordinate must move DOWNWARD in value (subtract)
+  // as this quantity grows. E_Fp is the mirror case: E_i - E_Fp = kT ln(p/ni)
+  // is positive whenever p > ni (E_Fp sits BELOW E_i, toward E_V), so its
+  // display coordinate must move UPWARD in value (add) as this grows.
+  const efnPos = midgap - efnMinusEi;
   const efpPos = midgap + eiMinusEfp;
 
   stroke(40, 40, 220); strokeWeight(2.5);

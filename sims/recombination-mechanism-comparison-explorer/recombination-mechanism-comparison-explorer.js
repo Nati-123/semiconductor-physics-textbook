@@ -1,17 +1,22 @@
 // Recombination Mechanism Comparison Explorer MicroSim
 // Compares SRH (trap-assisted), Auger, and direct (band-to-band)
-// recombination rates as a function of excess carrier concentration
-// and material (direct-gap vs indirect-gap), on a log-scaled bar chart.
+// recombination rates as separate curves R(Δn) swept across a wide
+// range of excess carrier concentration, on a log-log chart, for
+// silicon (indirect gap) vs. GaAs (direct gap).
 //   R_SRH    = Δn / τ_SRH
 //   R_Auger  = C_Auger * Δn^3
 //   R_direct = B * Δn * (n0 + p0 + Δn)
+// A movable Δn marker shows the dominant mechanism at that injection
+// level. No temperature control: an honest T-dependence for τ_SRH and
+// C_Auger at this textbook's level would require inventing coefficients
+// not grounded in the text, so it is intentionally omitted.
 // Bloom Level: Analyze / Evaluate (L4-L5)
 // MicroSim template version 2026.02
 
 let containerWidth;
 let canvasWidth = 750;
-let drawHeight = 460;
-let minDrawHeight = 420;
+let drawHeight = 500;
+let minDrawHeight = 460;
 let controlHeight = 150;
 let canvasHeight = drawHeight + controlHeight;
 let containerHeight = canvasHeight;
@@ -22,6 +27,10 @@ const MATERIALS = {
   'Silicon (indirect gap)': { B: 1.0e-14, tauSRH: 1e-6, cAuger: 2.8e-31, n0: 1e10, isIndirect: true },
   'GaAs (direct gap)': { B: 1.0e-10, tauSRH: 5e-8, cAuger: 7e-30, n0: 2.1e6, isIndirect: false }
 };
+
+const SWEEP_MIN = 10, SWEEP_MAX = 20; // Δn exponent range for the curves
+
+function compact() { return canvasWidth < 480; }
 
 function computeRates(mat, dn, Ndoping) {
   const p0 = Ndoping;
@@ -42,88 +51,160 @@ function setup() {
   Object.keys(MATERIALS).forEach(k => materialSelect.option(k));
   materialSelect.selected('Silicon (indirect gap)');
   materialSelect.attribute('aria-label', 'Material');
+  materialSelect.changed(function () { redraw(); });
 
-  dnExpSlider = createSlider(12, 19, 15, 0.1);
-  dnExpSlider.attribute('aria-label', 'Excess carrier concentration exponent');
+  dnExpSlider = createSlider(SWEEP_MIN + 0.5, SWEEP_MAX - 0.5, 15, 0.1);
+  dnExpSlider.attribute('aria-label', 'Excess carrier concentration marker exponent');
+  dnExpSlider.input(function () { redraw(); });
   dopingExpSlider = createSlider(14, 18, 16, 0.1);
   dopingExpSlider.attribute('aria-label', 'Doping concentration exponent');
+  dopingExpSlider.input(function () { redraw(); });
 
   positionUIElements();
-  describe('Recombination mechanism comparison explorer: compares SRH, Auger, and direct recombination rates on a log-scaled bar chart as excess carrier concentration and material change', LABEL);
-  setTimeout(function () { window.dispatchEvent(new Event('resize')); }, 50);
+  noLoop();
+  describe('Recombination mechanism comparison explorer: plots SRH, Auger, and direct recombination rate curves against excess carrier concentration on a log-log chart, with a movable marker showing the dominant mechanism at that injection level', LABEL);
+  setTimeout(function () { windowResized(); }, 50);
 }
 
 function positionUIElements() {
   let mainRect = document.querySelector('main').getBoundingClientRect();
   const bx = mainRect.left, by = mainRect.top;
-  materialSelect.position(bx + 90, by + drawHeight + 12);
-  dnExpSlider.position(bx + 230, by + drawHeight + 52);
-  dnExpSlider.size(min(canvasWidth - 250 - 30, 320));
-  dopingExpSlider.position(bx + 230, by + drawHeight + 88);
-  dopingExpSlider.size(min(canvasWidth - 250 - 30, 320));
+  const lbl = compact() ? 95 : 150;
+  const sw = min(canvasWidth - lbl - 30, 320);
+  materialSelect.position(bx + lbl, by + drawHeight + 8); materialSelect.size(sw);
+  dnExpSlider.position(bx + lbl, by + drawHeight + 46); dnExpSlider.size(sw);
+  dopingExpSlider.position(bx + lbl, by + drawHeight + 84); dopingExpSlider.size(sw);
 }
 
 function draw() {
-  updateCanvasSize();
   fill('aliceblue'); stroke('silver'); strokeWeight(1);
   rect(0, 0, canvasWidth, drawHeight);
   fill('white'); noStroke();
   rect(0, drawHeight, canvasWidth, controlHeight);
 
   const mat = MATERIALS[materialSelect.value()];
-  const dn = Math.pow(10, dnExpSlider.value());
+  const dnMarkerExp = dnExpSlider.value();
+  const dnMarker = Math.pow(10, dnMarkerExp);
   const Ndoping = Math.pow(10, dopingExpSlider.value());
-  const rates = computeRates(mat, dn, Ndoping);
 
   fill(20); noStroke();
-  textAlign(CENTER, TOP); textSize(16);
-  text('Recombination Rate by Mechanism (log scale)', canvasWidth / 2, 8);
+  textAlign(CENTER, TOP); textSize(compact() ? 13 : 16);
+  text('Recombination Rate vs. Excess Carrier Concentration (log-log)', canvasWidth / 2, 8);
 
-  const chartX = 60, chartY = 40, chartW = canvasWidth - chartX - 40, chartH = drawHeight - 130;
-  const FLOOR = 0, CEIL = 32;
-  function logBar(R) { return constrain(Math.log10(Math.max(R, 1)), FLOOR, CEIL); }
+  // Sample the three rate curves across the sweep range.
+  const N_PTS = 80;
+  const srhPts = [], augerPts = [], directPts = [];
+  let yLo = Infinity, yHi = -Infinity;
+  for (let i = 0; i <= N_PTS; i++) {
+    const xExp = SWEEP_MIN + (SWEEP_MAX - SWEEP_MIN) * (i / N_PTS);
+    const dn = Math.pow(10, xExp);
+    const r = computeRates(mat, dn, Ndoping);
+    const ySRH = Math.log10(Math.max(r.RSRH, 1e-6));
+    const yAug = Math.log10(Math.max(r.RAuger, 1e-6));
+    const yDir = Math.log10(Math.max(r.Rdirect, 1e-6));
+    srhPts.push({ x: xExp, y: ySRH });
+    augerPts.push({ x: xExp, y: yAug });
+    directPts.push({ x: xExp, y: yDir });
+    yLo = Math.min(yLo, ySRH, yAug, yDir);
+    yHi = Math.max(yHi, ySRH, yAug, yDir);
+  }
+  yLo = Math.floor(yLo) - 0.5;
+  yHi = Math.ceil(yHi) + 0.5;
 
-  const series = [
-    { label: 'SRH (trap-assisted)', value: logBar(rates.RSRH), color: color(90, 62, 237), raw: rates.RSRH },
-    { label: 'Auger', value: logBar(rates.RAuger), color: color(230, 90, 60), raw: rates.RAuger },
-    { label: 'Direct (band-to-band)', value: logBar(rates.Rdirect), color: color(60, 160, 100), raw: rates.Rdirect }
-  ];
+  const chartX = compact() ? 46 : 58, chartY = 42;
+  const chartW = canvasWidth - chartX - 24;
+  const chartH = drawHeight - 118;
 
-  smlDrawBarChart(chartX, chartY, chartW, chartH, series, CEIL, {
-    valueFormat: function (v) {
-      const idx = series.findIndex(s => s.value === v);
-      return idx >= 0 ? series[idx].raw.toExponential(1) : v;
-    }
+  const { xToPx, yToPx } = smlDrawLineChart(chartX, chartY, chartW, chartH, SWEEP_MIN, SWEEP_MAX, yLo, yHi, [
+    { points: srhPts, color: color(90, 62, 237) },
+    { points: augerPts, color: color(230, 90, 60) },
+    { points: directPts, color: color(60, 160, 100) }
+  ], {
+    xLabel: 'Δn (cm⁻³, log scale)', yLabel: 'Recombination rate (cm⁻³s⁻¹, log scale)', yLabelOffset: compact() ? 34 : 42
   });
 
-  noStroke(); fill(60); textAlign(LEFT, TOP); textSize(11);
-  text('Bar height = log₁₀(rate); labels above bars show the actual rate in cm⁻³s⁻¹.', chartX, chartY + chartH + 34);
+  // Manual axis tick labels (log-log chart: shared lib draws no ticks).
+  noStroke(); fill(70); textAlign(CENTER, TOP); textSize(compact() ? 9 : 10);
+  for (let xe = Math.ceil(SWEEP_MIN / 2) * 2; xe <= SWEEP_MAX; xe += 2) {
+    const px = xToPx(xe);
+    stroke(225); line(px, chartY, px, chartY + chartH); noStroke();
+    text('10' + toSuperscript(xe), px, chartY + chartH + 6);
+  }
+  const yStep = Math.max(2, Math.round((yHi - yLo) / 6));
+  textAlign(RIGHT, CENTER);
+  for (let ye = Math.ceil(yLo / yStep) * yStep; ye <= yHi; ye += yStep) {
+    const py = yToPx(ye);
+    stroke(225); line(chartX, py, chartX + chartW, py); noStroke();
+    text('10' + toSuperscript(ye), chartX - 6, py);
+  }
 
-  let dominant = 'SRH';
+  // Legend
+  const legX = chartX + chartW - (compact() ? 108 : 128), legY = chartY + 8;
+  noStroke(); fill(255, 255, 255, 235); rect(legX - 4, legY - 3, 96, 54, 4);
+  drawLegendSwatch(legX, legY, color(90, 62, 237), 'SRH');
+  drawLegendSwatch(legX, legY + 16, color(230, 90, 60), 'Auger');
+  drawLegendSwatch(legX, legY + 32, color(60, 160, 100), 'Direct');
+
+  // Marker: vertical dashed line at the chosen Δn, with a dot on each curve.
+  const rates = computeRates(mat, dnMarker, Ndoping);
+  const mx = xToPx(dnMarkerExp);
+  stroke(90); strokeWeight(1); drawingContext.setLineDash([3, 3]);
+  line(mx, chartY, mx, chartY + chartH);
+  drawingContext.setLineDash([]);
+  noStroke();
+  fill(90, 62, 237); circle(mx, yToPx(Math.log10(Math.max(rates.RSRH, 1e-6))), 7);
+  fill(230, 90, 60); circle(mx, yToPx(Math.log10(Math.max(rates.RAuger, 1e-6))), 7);
+  fill(60, 160, 100); circle(mx, yToPx(Math.log10(Math.max(rates.Rdirect, 1e-6))), 7);
+
+  let dominant = 'SRH (trap-assisted)';
   let maxR = rates.RSRH;
   if (rates.RAuger > maxR) { dominant = 'Auger'; maxR = rates.RAuger; }
-  if (rates.Rdirect > maxR) { dominant = 'Direct'; maxR = rates.Rdirect; }
+  if (rates.Rdirect > maxR) { dominant = 'Direct (band-to-band)'; maxR = rates.Rdirect; }
+  const others = [
+    { label: 'SRH', v: rates.RSRH }, { label: 'Auger', v: rates.RAuger }, { label: 'Direct', v: rates.Rdirect }
+  ].filter(o => o.v !== maxR && o.v > 0);
 
   fill(30); noStroke();
-  textAlign(LEFT, TOP); textSize(13);
-  text('Material: ' + materialSelect.value() + '   Doping N = 10^' + dopingExpSlider.value().toFixed(1) + ' cm⁻³', 10, drawHeight + 18);
-  text('Δn = 10^' + dnExpSlider.value().toFixed(1) + ' cm⁻³', 10, drawHeight + 54);
+  textAlign(LEFT, TOP); textSize(compact() ? 11 : 13);
+  text('Material: ' + materialSelect.value() + '   N (doping) = 10' + toSuperscript(dopingExpSlider.value().toFixed(1)) + ' cm⁻³', 10, drawHeight + 4);
+  text('Marker: Δn = 10' + toSuperscript(dnMarkerExp.toFixed(1)) + ' cm⁻³', 10, drawHeight + 24);
   fill(90, 62, 237);
   textStyle(BOLD);
-  text('Dominant mechanism at this injection level: ' + dominant, 10, drawHeight + 90);
+  let domLine = 'Dominant mechanism at this Δn: ' + dominant;
+  if (others.length > 0) {
+    const ratios = others.map(o => o.label + ' ' + (maxR / o.v).toExponential(1) + '× weaker').join(', ');
+    domLine += '  (' + ratios + ')';
+  }
+  text(domLine, 10, drawHeight + 44, canvasWidth - 20);
   textStyle(NORMAL);
-  fill(80);
-  text('Auger grows as Δn³ and becomes dominant only at very high injection; direct recombination is far stronger in GaAs than silicon.', 10, drawHeight + 118);
+  fill(80); textSize(compact() ? 10 : 11.5);
+  text('Auger grows as Δn³ and only overtakes the others at very high injection; direct recombination is far stronger in GaAs than silicon at every Δn.', 10, drawHeight + (compact() ? 78 : 70), canvasWidth - 20);
+}
+
+function toSuperscript(exp) {
+  const supDigits = { '-': '⁻', '.': '·', '0': '⁰', '1': '¹', '2': '²', '3': '³', '4': '⁴', '5': '⁵', '6': '⁶', '7': '⁷', '8': '⁸', '9': '⁹' };
+  return String(exp).split('').map(c => supDigits[c] || c).join('');
+}
+
+function drawLegendSwatch(x, y, col, label) {
+  stroke(col); strokeWeight(2.5); line(x, y + 5, x + 16, y + 5);
+  noStroke(); fill(30); textAlign(LEFT, CENTER); textSize(10.5);
+  text(label, x + 20, y + 5);
 }
 
 function windowResized() {
   updateCanvasSize();
   resizeCanvas(containerWidth, containerHeight);
   positionUIElements();
+  redraw();
 }
 
 function updateCanvasSize() {
+  controlHeight = compact() ? 190 : 150;
+  minDrawHeight = compact() ? 620 : 460;
   const sz = smlComputeCanvasSize(minDrawHeight, controlHeight);
   containerWidth = sz.width; canvasWidth = sz.width;
   drawHeight = sz.drawHeight; canvasHeight = sz.height; containerHeight = sz.height;
+  if (compact()) drawHeight = Math.max(drawHeight, 620);
+  else drawHeight = Math.max(drawHeight, 460);
 }

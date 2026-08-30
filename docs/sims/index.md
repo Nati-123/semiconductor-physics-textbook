@@ -153,11 +153,12 @@ Interactive educational simulations that accompany this textbook.
 
 | MicroSim | Bloom Level | Description |
 |----------|-------------|-------------|
-| [Metallurgical Junction and Depletion Formation Explorer](metallurgical-junction-depletion-formation-explorer/index.md) | L2 Understand | Five-step guided tour from separate p-type and n-type materials through diffusion, recombination, and the equilibrium depletion region |
-| [Built-In Potential Calculator](built-in-potential-calculator/index.md) | L3 Apply | Computes built-in potential from doping, material, and temperature, with a live equilibrium band diagram |
-| [Junction Electric Field and Depletion Width Explorer](junction-field-and-depletion-width-explorer/index.md) | L3-L4 Apply/Analyze | Three stacked, aligned charts of depletion charge density, junction electric field, and potential, with a draggable position marker |
+| [Metallurgical Junction and Depletion Formation Explorer](metallurgical-junction-depletion-formation-explorer/index.md) | L2 Understand | Eight-step guided tour from separate p-type and n-type materials through diffusion, recombination, uncovered ions, and the equilibrium depletion region with its built-in field |
+| [Depletion Approximation Explorer](depletion-approximation-explorer/index.md) | L4-L5 Analyze/Evaluate | Compares the real, smooth carrier-concentration transition to the idealized abrupt depletion approximation, with labeled quasi-neutral and depletion regions |
+| [Built-In Potential Calculator](built-in-potential-calculator/index.md) | L3 Apply | Computes built-in potential from doping, material, and temperature, with a toggle between the separate pre-contact Fermi levels and the equilibrium post-contact band diagram |
+| [Junction Electric Field and Depletion Width Explorer](junction-field-and-depletion-width-explorer/index.md) | L3-L4 Apply/Analyze | Three stacked, aligned charts of depletion charge density, junction electric field, and potential, with doping-asymmetry presets and a full-range draggable position marker |
 | [Junction Capacitance Explorer](junction-capacitance-explorer/index.md) | L3 Apply | Computes junction capacitance from doping, area, and reverse bias, plotted against reverse bias alongside a parallel-plate schematic |
-| [P-N Junction Equilibrium Interactive Walkthrough](pn-junction-equilibrium-interactive-walkthrough/index.md) | L1-L2 Remember/Understand | An 8-step guided-tour capstone review retracing the chapter's full storyline from the metallurgical junction through junction capacitance |
+| [P-N Junction Equilibrium Interactive Walkthrough](pn-junction-equilibrium-interactive-walkthrough/index.md) | L1-L2 Remember/Understand | A 9-step guided-tour capstone review retracing the chapter's full storyline, ending with a responsive concept-flow summary diagram |
 
 ## Chapter 15: The P-N Junction Under Bias
 

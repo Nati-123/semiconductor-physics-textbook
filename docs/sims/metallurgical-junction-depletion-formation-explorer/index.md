@@ -1,6 +1,6 @@
 ---
 title: Metallurgical Junction and Depletion Formation Explorer
-description: A step-by-step MicroSim showing how joining p-type and n-type material forms a metallurgical junction and, through diffusion and recombination, an equilibrium depletion region
+description: An 8-step MicroSim showing how joining p-type and n-type material forms a metallurgical junction and, through majority-carrier diffusion, recombination, and uncovered ionized dopant charge, an equilibrium depletion region with a built-in electric field
 image: /sims/metallurgical-junction-depletion-formation-explorer/metallurgical-junction-depletion-formation-explorer.png
 quality_score: 85
 ---
@@ -8,7 +8,7 @@ quality_score: 85
 <h1 style="color: #5A3EED !important; border-bottom: 3px solid #5A3EED; padding-bottom: 0.4rem; font-weight: 800;">Metallurgical Junction and Depletion Formation Explorer</h1>
 
 <div style="background: #EEF4FF; border: 2px solid #A8C8FF; border-radius: 12px; padding: 18px; margin: 1.2rem 0; box-shadow: 0 2px 8px rgba(90,61,237,0.07);">
-<iframe src="main.html" height="640px" width="100%" scrolling="auto" style="border:none; border-radius:8px; overflow:hidden;"></iframe>
+<iframe src="main.html" height="700px" width="100%" scrolling="auto" style="border:none; border-radius:8px; overflow:hidden;"></iframe>
 </div>
 
 <a href="../../chapters/14-pn-junction-equilibrium/index.md" style="color: #5A3EED; font-weight: 600; font-size: 0.95rem;">&#8592; Back to Chapter 14: The P-N Junction at Equilibrium</a>
@@ -16,15 +16,16 @@ quality_score: 85
 <h2 style="color: #5A3EED !important; border-bottom: 2px solid #5A3EED; padding-bottom: 0.3rem; font-weight: 700; margin-top: 2rem;">Description</h2>
 
 <p style="color: #555; line-height: 1.85; font-size: 1.02rem; margin-bottom: 1.2rem;">
-This MicroSim is a five-step guided tour of how a p-n junction forms. It starts with separate, individually-neutral p-type and n-type regions, joins them at the <strong>metallurgical junction</strong>, shows carrier diffusion and recombination near the interface, and ends with the equilibrium <strong>depletion region</strong> — exposed ionized dopants and a built-in electric field that exactly balances further diffusion.
+This MicroSim is an eight-step guided tour of how a p-n junction forms: separate, individually-neutral p-type and n-type regions are joined at the <strong>metallurgical junction</strong>, majority carriers <strong>diffuse</strong> across it and <strong>recombine</strong> near the interface, leaving fixed ionized dopants <strong>uncovered</strong>, which forms the equilibrium <strong>depletion region</strong> with clearly marked boundaries \(-x_p\) and \(x_n\) and a <strong>built-in electric field</strong> that exactly balances further diffusion. Square symbols (fixed ionized donors/acceptors) and round symbols (mobile electrons/holes) stay visually distinct throughout, and the ion positions never change between steps — only the carrier layer thins out near the junction.
 </p>
 
 <div style="background: #FFF7DD; border: 2px solid #F0D87A; border-radius: 10px; padding: 20px 24px; margin: 1.2rem 0;">
 <p style="color: #B8860B; font-weight: 700; font-size: 1.05rem; margin-top: 0; margin-bottom: 12px;">Key Features</p>
 <ul style="list-style: none; padding-left: 0; margin: 0;">
-<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Five-step guided sequence</strong> from separate materials to equilibrium, navigated with Prev/Next buttons and step dots</li>
-<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Distinct mobile-carrier and fixed-ion visuals</strong> showing exactly what moves and what stays behind</li>
-<li style="margin-bottom: 0; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Responsive canvas</strong> that resizes with the browser window</li>
+<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Eight-step guided sequence</strong> from separate materials to equilibrium, navigated with Prev/Next buttons and step dots</li>
+<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Distinct mobile-carrier (round) and fixed-ion (square) symbols</strong> showing exactly what moves and what stays behind</li>
+<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Labeled depletion-region boundaries</strong> \(-x_p\), \(x_n\) and a <strong>built-in field arrow</strong> in the final steps</li>
+<li style="margin-bottom: 0; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Responsive canvas</strong> reviewed at desktop, tablet, and mobile widths</li>
 </ul>
 </div>
 

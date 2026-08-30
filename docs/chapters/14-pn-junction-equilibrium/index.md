@@ -112,10 +112,10 @@ Real depletion regions have a smooth, continuous transition rather than a knife-
 
 #### Diagram: Metallurgical Junction and Depletion Formation Explorer
 
-<iframe src="../../sims/metallurgical-junction-depletion-formation-explorer/main.html" width="100%" height="640px" scrolling="auto"></iframe>
+<iframe src="../../sims/metallurgical-junction-depletion-formation-explorer/main.html" width="100%" height="700px" scrolling="auto"></iframe>
 
 !!! tip "How to use this MicroSim"
-    **Instructions:** Step through the four stages with the Next button: (1) separate p-type and n-type blocks before contact, (2) the instant of contact, (3) diffusion and recombination stripping mobile carriers near the interface, (4) the final equilibrium depletion region with exposed ionized dopants and the resulting field.
+    **Instructions:** Step through all eight stages with the Next button: separate p-type and n-type blocks, contact, majority-carrier diffusion, recombination, uncovered fixed ions, the depletion region and its boundaries \(-x_p\), \(x_n\), the built-in electric field, and finally equilibrium.
 
     **Learning objective:** Explain how joining p-type and n-type material initiates diffusion, and describe how diffusion and recombination create the depletion region.
 
@@ -128,6 +128,21 @@ Real depletion regions have a smooth, continuous transition rather than a knife-
 
 ??? question "Concept Check — click to reveal answer"
     Diffusing holes that cross into the n-side, and diffusing electrons that cross into the p-side, are minority carriers surrounded by an abundance of the opposite carrier type, so they recombine almost immediately rather than accumulating. What is left behind near the junction is not extra mobile charge but a *shortage* of mobile carriers — the fixed ionized dopant ions that those carriers used to neutralize are now exposed, uncompensated, which is why the region is depleted rather than enriched.
+
+How good is the abrupt-edge idealization above, really? The next MicroSim answers that directly, by plotting the real, smoothly-varying carrier concentration alongside the depletion approximation's idealized step — letting you see, rather than just assert, that the approximation is a genuinely good one for realistic doping levels.
+
+#### Diagram: Depletion Approximation Explorer
+
+<iframe src="../../sims/depletion-approximation-explorer/main.html" width="100%" height="950px" scrolling="auto"></iframe>
+
+!!! tip "How to use this MicroSim"
+    **Instructions:** Compare the solid (real) and dashed (idealized) curves for \(n(x)\) and \(p(x)\) across the junction, and raise or lower \(N_A\), \(N_D\) to see the depletion edges \(-x_p\), \(x_n\) move.
+
+    **Learning objective:** Compare the real carrier-concentration transition to the depletion approximation's idealized abrupt edges, and justify why the approximation is a good one.
+
+    **What to observe:** The solid and dashed curves nearly coincide outside a thin transition zone that is narrow compared to the depletion width \(W\) — and gets relatively narrower as doping increases, which is exactly why the approximation improves at higher doping.
+
+[Full MicroSim documentation →](../../sims/depletion-approximation-explorer/index.md)
 
 ## The Built-In Potential
 
@@ -152,10 +167,10 @@ This single equation captures the essential physics: heavier doping on either si
 
 #### Diagram: Built-In Potential Calculator
 
-<iframe src="../../sims/built-in-potential-calculator/main.html" width="100%" height="600px" scrolling="auto"></iframe>
+<iframe src="../../sims/built-in-potential-calculator/main.html" width="100%" height="820px" scrolling="auto"></iframe>
 
 !!! tip "How to use this MicroSim"
-    **Instructions:** Adjust the \(N_A\) and \(N_D\) sliders (log scale, \(10^{14}\) to \(10^{19}\ \text{cm}^{-3}\)) and the material dropdown (Si, Ge, GaAs) and read off \(V_{bi}\), computed live alongside the equilibrium band diagram.
+    **Instructions:** Adjust the \(N_A\) and \(N_D\) sliders (log scale, \(10^{14}\) to \(10^{19}\ \text{cm}^{-3}\)) and the material dropdown (Si, Ge, GaAs) and read off \(V_{bi}\), computed live alongside the equilibrium band diagram. Click the toggle button to compare the separate pre-contact Fermi levels to the single post-contact equilibrium Fermi level.
 
     **Learning objective:** Calculate the built-in potential from doping concentrations and intrinsic carrier concentration, and compare how it changes across materials.
 
@@ -264,10 +279,10 @@ A useful sanity check on these formulas: the more lightly doped side always gets
 
 #### Diagram: Junction Electric Field and Depletion Width Explorer
 
-<iframe src="../../sims/junction-field-and-depletion-width-explorer/main.html" width="100%" height="680px" scrolling="auto"></iframe>
+<iframe src="../../sims/junction-field-and-depletion-width-explorer/main.html" width="100%" height="990px" scrolling="auto"></iframe>
 
 !!! tip "How to use this MicroSim"
-    **Instructions:** Set \(N_A\) and \(N_D\) with the sliders and watch three stacked, aligned plots update together: charge density \(\rho(x)\), electric field \(E(x)\), and potential \(\psi(x)\). Drag the vertical marker across \(x\) to read exact values at any point.
+    **Instructions:** Set \(N_A\) and \(N_D\) with the sliders and watch three stacked, aligned plots update together: charge density \(\rho(x)\), electric field \(E(x)\), and potential \(\psi(x)\), with \(x_p\), \(x_n\), \(W\), \(E_{max}\), and \(V_{bi}\) marked directly on the charts. Drag the position marker across the full range (including outside the depletion region) to read exact values at any point.
 
     **Learning objective:** Apply Poisson's equation to the depletion approximation to compute the depletion charge density and junction electric field, and calculate depletion widths \(x_n\), \(x_p\), and \(W\) from doping concentrations.
 
@@ -316,7 +331,7 @@ Because \(W\) itself depends on the applied voltage across the junction (Chapter
 
 #### Diagram: Junction Capacitance Explorer
 
-<iframe src="../../sims/junction-capacitance-explorer/main.html" width="100%" height="620px" scrolling="auto"></iframe>
+<iframe src="../../sims/junction-capacitance-explorer/main.html" width="100%" height="1000px" scrolling="auto"></iframe>
 
 !!! tip "How to use this MicroSim"
     **Instructions:** Set doping concentrations and junction area with the sliders, then use the reverse-bias slider (\(0\) to \(10\ \text{V}\)) to see \(W\) widen and \(C_j\) fall, plotted on a live \(C_j\) vs. \(V_R\) curve.
@@ -392,10 +407,10 @@ Use the MicroSim below as a capstone review: a guided, step-through tour of this
 
 #### Diagram: P-N Junction Equilibrium Interactive Walkthrough
 
-<iframe src="../../sims/pn-junction-equilibrium-interactive-walkthrough/main.html" width="100%" height="670px" scrolling="auto"></iframe>
+<iframe src="../../sims/pn-junction-equilibrium-interactive-walkthrough/main.html" width="100%" height="960px" scrolling="auto"></iframe>
 
 !!! tip "How to use this MicroSim"
-    **Instructions:** Click "Next ▶" through all steps in order, then use the step dots to jump back to any concept before the chapter quiz.
+    **Instructions:** Click "Next ▶" through all nine steps in order — the final step is a responsive concept-flow diagram, not a single dense paragraph — then use the step dots or Restart to review any concept before the chapter quiz.
 
     **Learning objective:** Recall and summarize the full chain of concepts connecting the metallurgical junction to junction capacitance.
 

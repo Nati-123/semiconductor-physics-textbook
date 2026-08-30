@@ -269,6 +269,7 @@ nav:
           - Non-Equilibrium Carriers Interactive Walkthrough: sims/non-equilibrium-carriers-interactive-walkthrough/index.md
       - Chapter 14:
           - Metallurgical Junction and Depletion Formation Explorer: sims/metallurgical-junction-depletion-formation-explorer/index.md
+          - Depletion Approximation Explorer: sims/depletion-approximation-explorer/index.md
           - Built-In Potential Calculator: sims/built-in-potential-calculator/index.md
           - Junction Electric Field and Depletion Width Explorer: sims/junction-field-and-depletion-width-explorer/index.md
           - Junction Capacitance Explorer: sims/junction-capacitance-explorer/index.md

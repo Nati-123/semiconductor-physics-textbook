@@ -27,22 +27,30 @@
     <summary>Guided Exploration &amp; Challenge Questions</summary>
     <div class="panel-content">
 
-        <h3>Try This</h3>
+        <p class="predict-cycle"><strong>Predict → Explore → Observe → Explain:</strong> Before touching the reverse-bias slider, <strong>predict</strong> whether raising V_R will widen or narrow the depletion region, and whether C_j will rise or fall. Then <strong>explore</strong> by dragging V_R from 0 to 10 V. <strong>Observe</strong> the capacitor schematic's plate separation growing and the C_j vs. V_R curve falling. Finally, <strong>explain</strong> why the curve is steep near V_R=0 but flattens at high V_R (hint: look at the square root in the formula).</p>
+
+        <h3>What to Observe</h3>
         <ul class="explore-list">
-            <li><strong>Try this:</strong> Raise the reverse-bias slider from 0 V and watch Cj fall while the depletion-region schematic visibly widens.</li>
-            <li><strong>Predict:</strong> Before doubling the junction area A, predict whether Cj will double, stay the same, or halve.</li>
-            <li><strong>Observe:</strong> The Cj vs. VR curve falls steeply at first, then flattens — Cj is proportional to \(1/\sqrt{V_{bi}+V_R}\), a square-root dependence, not linear.</li>
+            <li>The right-hand schematic is literally a parallel-plate capacitor: its plate separation is drawn proportional to the actual depletion width W, so you can see \(C_j=\varepsilon A/W\) growing and shrinking exactly as the plates move apart and together.</li>
+            <li>Raise the reverse-bias slider from 0 V and watch C_j fall while the depletion-region schematic visibly widens — the direct visual link between "more reverse bias" and "less capacitance."</li>
+            <li>The C_j vs. V_R curve falls steeply at first, then flattens — C_j is proportional to \(1/\sqrt{V_{bi}+V_R}\), a square-root dependence, not linear or exponential.</li>
+        </ul>
+
+        <h3>Guided Exploration</h3>
+        <ul class="explore-list">
+            <li><strong>Predict:</strong> Before doubling the junction area A, predict whether C_j will double, stay the same, or halve.</li>
+            <li><strong>Try this:</strong> With V_R fixed at a moderate value, sweep N_A and N_D together (both up, then both down) and watch V_bi, W, and C_j all respond.</li>
         </ul>
 
         <p class="connects-to"><strong>Connects to Chapter 14:</strong> The depletion region behaves electrically like a parallel-plate capacitor with plate separation \(W\), giving the <strong>junction capacitance</strong> \(C_j=\varepsilon A/W\). Because reverse bias widens \(W\), \(C_j\) falls under reverse bias — the physical basis of the varactor diode used as a voltage-tunable capacitor in RF circuits, and a direct preview of Chapter 15.</p>
 
         <h3>What Each Control Does</h3>
         <dl class="control-captions">
-            <dt>NA, ND</dt>
+            <dt>N_A, N_D</dt>
             <dd>Set doping concentrations, which set \(V_{bi}\) and the doping term in \(W\).</dd>
-            <dt>A</dt>
+            <dt>Area A</dt>
             <dd>Sets the junction cross-sectional area, which scales \(C_j\) directly.</dd>
-            <dt>VR</dt>
+            <dt>Reverse bias V_R</dt>
             <dd>Sets the reverse bias voltage, which widens \(W\) and lowers \(C_j\).</dd>
         </dl>
 
@@ -71,6 +79,20 @@
             <p class="explain-correct" hidden>Correct. Since Cj = εA/W, widening W (as reverse bias does) directly lowers Cj, just as pulling apart a parallel-plate capacitor's plates lowers its capacitance.</p>
             <p class="explain-incorrect" hidden>Think of the depletion region as a parallel-plate capacitor — what physical distance does reverse bias change?</p>
         </div>
+
+        <div class="challenge" data-correct="d">
+            <p class="q-text">3. Why does the C_j vs. V_R curve flatten out at high reverse bias instead of continuing to fall at the same rate?</p>
+            <label><input type="radio" name="jce-q3" value="a"> The depletion region stops growing above a few volts</label>
+            <label><input type="radio" name="jce-q3" value="b"> C_j becomes negative and the chart clips it</label>
+            <label><input type="radio" name="jce-q3" value="c"> The junction area shrinks at high bias</label>
+            <label><input type="radio" name="jce-q3" value="d"> C_j ∝ 1/√(V_bi+V_R) — a square-root-in-the-denominator dependence changes more slowly as V_R grows large</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Because W grows as √(V_bi+V_R), each additional volt of reverse bias adds proportionally less to W (and removes proportionally less from C_j) once V_R is already large — the classic flattening shape of a square-root/inverse-square-root curve.</p>
+            <p class="explain-incorrect" hidden>Look at the exponent inside the W formula — is V_R inside a square root, or multiplied directly?</p>
+        </div>
+
+        <p class="key-takeaway"><strong>Key Takeaway:</strong> A reverse-biased p-n junction is a real, voltage-controlled capacitor — not just an analogy. Increasing reverse bias widens the depletion region exactly like pulling apart parallel plates, which is why \(C_j=\varepsilon A/W\) falls (following a square-root law, not a linear one) as \(V_R\) increases. This voltage-tunable capacitance is deliberately exploited in varactor diodes.</p>
 
     </div>
     </details>

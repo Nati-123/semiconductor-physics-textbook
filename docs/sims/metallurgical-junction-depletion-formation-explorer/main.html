@@ -27,11 +27,20 @@
     <summary>Guided Exploration &amp; Challenge Questions</summary>
     <div class="panel-content">
 
-        <h3>Try This</h3>
+        <p class="predict-cycle"><strong>Predict → Explore → Observe → Explain:</strong> Before clicking past Step 3 (Diffusion), <strong>predict</strong> what happens to a hole the instant it crosses into the n-side. Then <strong>explore</strong> Steps 4-8 one at a time. <strong>Observe</strong> that the square ion symbols never move or disappear across any step, while the round carrier symbols vanish near the junction as the steps advance. Finally, <strong>explain</strong> in your own words why that difference in behavior is exactly what creates exposed charge.</p>
+
+        <h3>What to Observe</h3>
         <ul class="explore-list">
-            <li><strong>Try this:</strong> Click "Next ▶" through all five steps in order to watch the depletion region form from first contact to equilibrium.</li>
+            <li>Two visual layers are deliberately kept separate: <strong>square symbols</strong> are fixed ionized dopants (acceptors on the p-side, donors on the n-side) — they are drawn at the same position on every step. <strong>Round symbols</strong> are mobile carriers (holes, electrons) — these are the ones that diffuse, recombine, and disappear near the junction as the steps advance.</li>
+            <li>The fixed ions never change between Step 1 and Step 8 — only the carrier layer thins out near the junction, which is the entire physical origin of the depletion region.</li>
+            <li>Steps 6-8 mark the depletion-region boundaries \(-x_p\) and \(x_n\) directly on the diagram, and Step 7-8 add the built-in field arrow, pointing from the n-side toward the p-side.</li>
+        </ul>
+
+        <h3>Guided Exploration</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Click "Next ▶" through all eight steps in order to watch the depletion region form from separate neutral blocks to equilibrium.</li>
             <li><strong>Predict:</strong> Before advancing from Step 3 to Step 4, predict what will be left behind near the junction once the crossing carriers recombine.</li>
-            <li><strong>Observe:</strong> The fixed ionized dopant symbols (− and +) never move across any step — only the mobile carrier dots (holes and electrons) disappear near the junction.</li>
+            <li><strong>Observe:</strong> The fixed ionized dopant symbols (square, − and +) never move across any step — only the mobile carrier dots (round, holes and electrons) disappear near the junction.</li>
         </ul>
 
         <p class="connects-to"><strong>Connects to Chapter 14:</strong> Joining a p-type and n-type region at a <strong>metallurgical junction</strong> forms a <strong>p-n junction</strong>. Diffusion across the junction, followed by recombination, sweeps mobile carriers out of a thin region on either side, creating the <strong>depletion region</strong>. The <strong>depletion approximation</strong> idealizes this region as fully depleted with abrupt edges — the starting point for every equation derived later in the chapter.</p>
@@ -39,11 +48,13 @@
         <h3>What Each Step Shows</h3>
         <dl class="control-captions">
             <dt>Steps 1-2</dt>
-            <dd>Separate p-type and n-type regions are joined at the metallurgical junction, each still individually neutral.</dd>
-            <dt>Step 3</dt>
-            <dd>Carriers diffuse across the junction and recombine near the interface.</dd>
-            <dt>Steps 4-5</dt>
-            <dd>The depletion region forms, exposing fixed ionized dopants and a built-in field that balances diffusion at equilibrium.</dd>
+            <dd>Separate p-type and n-type regions, each individually neutral, are joined at the metallurgical junction.</dd>
+            <dt>Steps 3-4</dt>
+            <dd>Majority carriers diffuse across the junction (Step 3), then recombine as minority carriers near the interface (Step 4).</dd>
+            <dt>Steps 5-6</dt>
+            <dd>The fixed dopant ions left behind are now uncovered/exposed (Step 5), forming the depletion region with sharp boundaries \(-x_p\) and \(x_n\) (Step 6).</dd>
+            <dt>Steps 7-8</dt>
+            <dd>The exposed charge creates a built-in electric field (Step 7) that grows until it exactly balances diffusion, reaching equilibrium (Step 8).</dd>
         </dl>
 
         <h3>Challenge Questions</h3>
@@ -71,6 +82,20 @@
             <p class="explain-correct" hidden>Correct. Equilibrium is reached precisely when drift current equals diffusion current everywhere, so the net current is zero — this is the same drift-diffusion balance from Chapters 11-12, now applied at a junction.</p>
             <p class="explain-incorrect" hidden>Recall how drift and diffusion current were shown to combine in Chapters 11-12 — what condition defines equilibrium?</p>
         </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">3. In Step 1, why are BOTH square (ion) and round (carrier) symbols shown in each region, in roughly equal numbers?</p>
+            <label><input type="radio" name="mjdfe-q3" value="a"> To show that each region is neutral: the mobile carrier density equals the fixed ion density before anything has diffused</label>
+            <label><input type="radio" name="mjdfe-q3" value="b"> The two symbol types represent the same particle drawn two different ways</label>
+            <label><input type="radio" name="mjdfe-q3" value="c"> It is purely decorative and has no physical meaning</label>
+            <label><input type="radio" name="mjdfe-q3" value="d"> Ions and carriers always have unequal densities in any semiconductor</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Each neutral region has \(p\approx N_A\) (p-side) or \(n\approx N_D\) (n-side): one mobile carrier for every fixed ion. That 1:1 balance is exactly what gets disrupted near the junction in later steps, uncovering net charge.</p>
+            <p class="explain-incorrect" hidden>Compare a neutral region (Step 1) to the depletion region (Step 6) — what's different about the ratio of square symbols to round symbols?</p>
+        </div>
+
+        <p class="key-takeaway"><strong>Key Takeaway:</strong> The depletion region is not a new kind of matter appearing at the junction — it is an absence. Fixed ionized dopants never move; only the mobile carriers that used to neutralize them diffuse away and recombine. What's left behind is exposed, uncompensated fixed charge, and it is precisely that charge — via Poisson's equation, covered next in this chapter — that creates the built-in electric field holding the junction at equilibrium.</p>
 
     </div>
     </details>

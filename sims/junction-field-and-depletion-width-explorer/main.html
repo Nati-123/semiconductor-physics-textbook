@@ -27,48 +27,72 @@
     <summary>Guided Exploration &amp; Challenge Questions</summary>
     <div class="panel-content">
 
-        <h3>Try This</h3>
+        <p class="predict-cycle"><strong>Predict → Explore → Observe → Explain:</strong> Before moving any slider, <strong>predict</strong>: if N_A becomes 100× larger while N_D stays fixed, which side will contain most of the depletion region? Then <strong>explore</strong> by dragging the N_A slider toward its maximum. <strong>Observe</strong> x_p shrinking toward zero while x_n grows to fill almost all of W. Finally, <strong>explain</strong> why charge neutrality (\(N_Ax_p=N_Dx_n\)) forces this outcome.</p>
+
+        <h3>What to Observe</h3>
+        <ul class="explore-list">
+            <li>Three preset buttons — Symmetric, p+–n, and p–n+ — jump straight to the doping ratios that most clearly demonstrate the "more lightly doped side gets the wider depletion width" rule, without hand-tuning both sliders.</li>
+            <li>All three charts share the same x-axis and the same dashed boundary lines at \(x=-x_p\) (p-side edge), \(x=0\) (metallurgical junction), and \(x=x_n\) (n-side edge) — line up any feature vertically to compare the three quantities at the same position.</li>
+            <li>The position marker (red dot) now spans the <em>entire</em> plotted range, not just the depletion region — drag it outside \(-x_p\) or \(x_n\) and confirm \(\rho=0\), \(E=0\), and \(\psi\) is flat there, exactly as the depletion approximation assumes.</li>
+            <li>\(E_{max}\) and \(V_{bi}\) are marked directly on the \(E(x)\) and \(\psi(x)\) charts with dashed reference lines, and the \(W\) bracket at the bottom spans the full depletion width.</li>
+        </ul>
+
+        <h3>Guided Exploration</h3>
         <ul class="explore-list">
             <li><strong>Try this:</strong> Drag the position marker slider across all three stacked charts and watch how the charge, field, and potential values at that point relate to each other.</li>
-            <li><strong>Predict:</strong> Before setting NA much larger than ND, predict which side (p or n) will end up with the wider share of the depletion width.</li>
-            <li><strong>Observe:</strong> The area under the ρ(x) rectangle on each side is always equal and opposite; the area under the E(x) triangle always equals the same \(V_{bi}\) value shown in ψ(x)'s final value.</li>
+            <li><strong>Predict:</strong> Before setting N_A much larger than N_D, predict which side (p or n) will end up with the wider share of the depletion width.</li>
+            <li><strong>Observe:</strong> The area under the ρ(x) rectangle on each side is always equal and opposite; the area under the E(x) triangle always equals the same \(V_{bi}\) value marked on ψ(x)'s flat asymptote.</li>
         </ul>
 
         <p class="connects-to"><strong>Connects to Chapter 14:</strong> Applying <strong>Poisson's equation</strong> to the depletion approximation's <strong>depletion charge density</strong> \(\rho(x)\) gives the triangular <strong>junction electric field</strong> \(E(x)\). Integrating the field, together with the charge-neutrality condition \(N_Ax_p=N_Dx_n\), pins down the <strong>depletion width</strong> \(W=x_n+x_p\) and how it splits between the two sides.</p>
 
         <h3>What Each Control Does</h3>
         <dl class="control-captions">
-            <dt>NA, ND</dt>
+            <dt>N_A, N_D</dt>
             <dd>Set the acceptor and donor doping concentrations (log scale, \(10^{15}\)-\(10^{19}\ \text{cm}^{-3}\)); the more lightly doped side always gets the wider share of \(W\).</dd>
-            <dt>Position marker</dt>
-            <dd>Reads off \(\rho(x)\), \(E(x)\), and \(\psi(x)\) at a chosen point across the depletion region.</dd>
+            <dt>Position marker x</dt>
+            <dd>Reads off \(\rho(x)\), \(E(x)\), and \(\psi(x)\) at a chosen point across the full plotted range, inside or outside the depletion region.</dd>
         </dl>
 
         <h3>Challenge Questions</h3>
 
         <div class="challenge" data-correct="c">
             <p class="q-text">1. What does the final (flat) value of ψ(x) on the n-side represent?</p>
-            <label><input type="radio" name="jfdwe-q1" value="a"> The peak electric field Emax</label>
+            <label><input type="radio" name="jfdwe-q1" value="a"> The peak electric field E_max</label>
             <label><input type="radio" name="jfdwe-q1" value="b"> The depletion width W</label>
-            <label><input type="radio" name="jfdwe-q1" value="c"> The built-in potential Vbi</label>
-            <label><input type="radio" name="jfdwe-q1" value="d"> The doping concentration ND</label>
+            <label><input type="radio" name="jfdwe-q1" value="c"> The built-in potential V_bi</label>
+            <label><input type="radio" name="jfdwe-q1" value="d"> The doping concentration N_D</label>
             <button class="check-btn" type="button">Check Answer</button>
             <span class="feedback" role="status" aria-live="polite"></span>
-            <p class="explain-correct" hidden>Correct. ψ(x) is the running integral of −E(x), so its total rise from the p-side to the n-side is exactly the built-in potential Vbi.</p>
-            <p class="explain-incorrect" hidden>Recall that ψ(x) is built by integrating the electric field — what quantity does that total integral equal?</p>
+            <p class="explain-correct" hidden>Correct. ψ(x) is the running integral of −E(x), so its total rise from the p-side to the n-side is exactly the built-in potential V_bi — marked directly on the chart with a dashed line.</p>
+            <p class="explain-incorrect" hidden>Recall that ψ(x) is built by integrating the electric field — what quantity does that total integral equal? Check the dashed reference line's label.</p>
         </div>
 
         <div class="challenge" data-correct="a">
-            <p class="q-text">2. If NA is much larger than ND, where does most of the depletion width W reside?</p>
+            <p class="q-text">2. If N_A is much larger than N_D, where does most of the depletion width W reside?</p>
             <label><input type="radio" name="jfdwe-q2" value="a"> Mostly in the lightly doped n-side</label>
             <label><input type="radio" name="jfdwe-q2" value="b"> Mostly in the heavily doped p-side</label>
             <label><input type="radio" name="jfdwe-q2" value="c"> Split exactly evenly regardless of doping</label>
             <label><input type="radio" name="jfdwe-q2" value="d"> There is no depletion region in this case</label>
             <button class="check-btn" type="button">Check Answer</button>
             <span class="feedback" role="status" aria-live="polite"></span>
-            <p class="explain-correct" hidden>Correct. Charge neutrality requires NA·xp = ND·xn; if NA ≫ ND, then xn must be much larger than xp to keep the exposed charge balanced.</p>
-            <p class="explain-incorrect" hidden>Use the charge-neutrality relation NA·xp = ND·xn to see which width must grow when one doping is much larger.</p>
+            <p class="explain-correct" hidden>Correct. Charge neutrality requires N_A·x_p = N_D·x_n; if N_A ≫ N_D, then x_n must be much larger than x_p to keep the exposed charge balanced.</p>
+            <p class="explain-incorrect" hidden>Use the charge-neutrality relation N_A·x_p = N_D·x_n to see which width must grow when one doping is much larger.</p>
         </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">3. Drag the position marker to a point well outside the depletion region (past x_n or before −x_p). What do you see?</p>
+            <label><input type="radio" name="jfdwe-q3" value="a"> ρ, E, and ψ all jump to random values</label>
+            <label><input type="radio" name="jfdwe-q3" value="b"> ρ = 0, E = 0, and ψ is flat — exactly the depletion approximation's assumption of full neutrality outside the depletion edges</label>
+            <label><input type="radio" name="jfdwe-q3" value="c"> ρ, E, and ψ keep changing linearly forever</label>
+            <label><input type="radio" name="jfdwe-q3" value="d"> The marker cannot move outside the depletion region</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Outside [−x_p, x_n], the depletion approximation assumes the semiconductor is fully neutral: no net charge, no field, and a constant potential — exactly what the marker reads there.</p>
+            <p class="explain-incorrect" hidden>Slide the position marker slider all the way to one end and read the info card's values.</p>
+        </div>
+
+        <p class="key-takeaway"><strong>Key Takeaway:</strong> These three curves are not independent — they are three views of the same physics, linked by calculus. ρ(x) is the source; integrating it once (Poisson's equation) gives E(x); integrating again gives ψ(x). The total area under the E(x) triangle is always exactly V_bi, and the depletion region always splits so that the more lightly doped side carries the wider share of W — both are direct, visible consequences of charge neutrality.</p>
 
     </div>
     </details>

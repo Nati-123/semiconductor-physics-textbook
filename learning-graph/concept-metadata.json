@@ -3695,7 +3695,8 @@
    ],
    "microsims": [
     "junction-field-and-depletion-width-explorer",
-    "metallurgical-junction-depletion-formation-explorer"
+    "metallurgical-junction-depletion-formation-explorer",
+    "depletion-approximation-explorer"
    ],
    "bloom": null
   },

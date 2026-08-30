@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Depletion Approximation Explorer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="../semiconductor-materials-lib.js"></script>
+    <script src="depletion-approximation-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <p class="predict-cycle"><strong>Predict → Explore → Observe → Explain:</strong> Before moving either slider, <strong>predict</strong> whether the real (solid) carrier-concentration curves cross the depletion edges exactly where the idealized (dashed) approximation does. Then <strong>explore</strong> by raising N_A and N_D together. <strong>Observe</strong> how the transition region's width compares to W as doping increases. Finally, <strong>explain</strong> why the depletion approximation gets more accurate — not less — as doping increases.</p>
+
+        <h3>What to Observe</h3>
+        <ul class="explore-list">
+            <li>Solid curves are the real, physically smooth transition of n(x) and p(x) across the junction; dashed curves are the depletion approximation's idealized abrupt step at \(x=-x_p\) and \(x=x_n\).</li>
+            <li>The three shaded bands — quasi-neutral p-region, depletion region, quasi-neutral n-region — are exactly the three zones the depletion approximation assumes, and the fixed ion strip below the chart shows charge exposed only inside the (idealized) depletion region.</li>
+            <li>Minority carrier concentrations never actually reach zero (the info card reports their real values), but they are so many orders of magnitude below the majority concentration that "negligible" is an excellent approximation on this log scale.</li>
+        </ul>
+
+        <h3>Guided Exploration</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Raise N_A while keeping N_D fixed and watch x_p shrink — the depletion region's p-side edge moves toward the junction as that side is doped more heavily.</li>
+            <li><strong>Predict:</strong> Before comparing a lightly-doped junction (both near \(10^{15}\ \text{cm}^{-3}\)) to a heavily-doped one (both near \(10^{19}\ \text{cm}^{-3}\)), predict which one shows a bigger visual gap between the solid and dashed curves.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 14:</strong> The <strong>depletion approximation</strong> idealizes the real, smoothly-varying carrier concentrations near a p-n junction as a sharp transition between a fully depleted region and two fully neutral <strong>quasi-neutral regions</strong>. This idealization is what makes the rest of the chapter's electrostatics (Poisson's equation, the triangular field, the depletion width formula) solvable in closed form, and it is a genuinely good approximation because the real transition region is much narrower than the depletion width itself for realistic doping levels.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>N_A, N_D</dt>
+            <dd>Set the acceptor and donor doping concentrations (log scale, \(10^{15}\)-\(10^{19}\ \text{cm}^{-3}\)); both the real transition and the idealized approximation update together.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">1. Inside the depletion region, what does the depletion approximation assume about the mobile carrier concentrations n(x) and p(x)?</p>
+            <label><input type="radio" name="dae-q1" value="a"> They equal the doping concentrations N_A and N_D</label>
+            <label><input type="radio" name="dae-q1" value="b"> They oscillate rapidly</label>
+            <label><input type="radio" name="dae-q1" value="c"> They are negligibly small (idealized as zero)</label>
+            <label><input type="radio" name="dae-q1" value="d"> They equal the intrinsic concentration n_i</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Correct. The depletion approximation treats the depletion region as fully depleted of mobile carriers, leaving only the fixed ionized dopant charge — the dashed curves drop to (idealized) zero there.</p>
+            <p class="explain-incorrect" hidden>Look at the dashed curves between −x_p and x_n — what value do they take?</p>
+        </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">2. Why is the depletion approximation considered a good approximation, even though the real (solid) transition is smooth, not abrupt?</p>
+            <label><input type="radio" name="dae-q2" value="a"> Because the real transition never actually happens</label>
+            <label><input type="radio" name="dae-q2" value="b"> Because the real transition region is much narrower than the depletion width W for realistic doping</label>
+            <label><input type="radio" name="dae-q2" value="c"> Because minority carriers are always exactly zero</label>
+            <label><input type="radio" name="dae-q2" value="d"> It is not actually a good approximation</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>The solid and dashed curves nearly overlap outside a thin transition zone, and that zone shrinks relative to W as doping increases — which is exactly why the approximation improves at higher doping.</p>
+            <p class="explain-incorrect" hidden>Compare the width of the solid-vs-dashed mismatch region to the depletion width W reported in the info card.</p>
+        </div>
+
+        <p class="key-takeaway"><strong>Key Takeaway:</strong> Every equation in this chapter after this point — Poisson's equation, the triangular field, the depletion width formula — rests on the depletion approximation's idealization: an abrupt boundary between "fully depleted" and "fully neutral." This MicroSim exists to show that idealization is a genuinely good one, not just a convenient fiction: the real transition is narrow compared to W, and gets narrower (relatively) as doping increases.</p>
+
+    </div>
+    </details>
+</body>
+</html>

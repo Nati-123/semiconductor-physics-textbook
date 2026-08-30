@@ -2,9 +2,11 @@
 // Applies Poisson's equation to the depletion approximation for a silicon
 // step junction: computes depletion charge density rho(x), the triangular
 // junction electric field E(x), and the electrostatic potential psi(x) in
-// closed form, and displays all three stacked and aligned, with a
-// draggable position marker. NA and ND sliders update xp, xn, W, Emax,
-// and Vbi live.
+// closed form, and displays all three stacked and vertically aligned, with
+// a single shared, draggable position marker spanning the full plotted
+// range (so students can see rho=0, E=0 outside the depletion region, and
+// psi flattening on both sides). N_A and N_D sliders update x_p, x_n, W,
+// E_max, and V_bi live, all marked directly on the charts.
 // Bloom Level: Apply / Analyze (L3-L4)
 // MicroSim template version 2026.02
 
@@ -12,16 +14,24 @@ let containerWidth;
 let canvasWidth = 780;
 let drawHeight = 520;
 let minDrawHeight = 500;
-let controlHeight = 150;
+let controlHeight = 260;
 let canvasHeight = drawHeight + controlHeight;
 let containerHeight = canvasHeight;
 
 let naSlider, ndSlider, xMarkSlider;
+let presetBtnRects = [];
+const PRESETS = [
+  { label: 'Symmetric (N_A=N_D)', na: 17, nd: 17 },
+  { label: 'p+–n (N_A ≫ N_D)', na: 19, nd: 15 },
+  { label: 'p–n+ (N_D ≫ N_A)', na: 15, nd: 19 }
+];
 
 const Q = 1.602e-19;      // C
 const EPS = 1.035e-12;    // F/cm  (Si, er=11.7)
 const NI = 1.5e10;        // cm^-3 (Si, 300K)
 const KT_Q = 0.0259;      // V (300K)
+
+function compact() { return canvasWidth < 620; }
 
 function junctionGeometry(NA, ND) {
   const Vbi = KT_Q * Math.log((NA * ND) / (NI * NI));
@@ -62,30 +72,51 @@ function setup() {
   canvas.parent(mainElement);
 
   naSlider = createSlider(15, 19, 17, 0.1);
-  naSlider.attribute('aria-label', 'Acceptor doping concentration exponent NA');
+  naSlider.attribute('aria-label', 'Acceptor doping concentration exponent, N_A');
+  naSlider.input(function () { redraw(); });
   ndSlider = createSlider(15, 19, 16, 0.1);
-  ndSlider.attribute('aria-label', 'Donor doping concentration exponent ND');
-  xMarkSlider = createSlider(0, 1, 0.5, 0.01);
-  xMarkSlider.attribute('aria-label', 'Position marker fraction across the depletion region');
+  ndSlider.attribute('aria-label', 'Donor doping concentration exponent, N_D');
+  ndSlider.input(function () { redraw(); });
+  xMarkSlider = createSlider(0, 1, 0.5, 0.005);
+  xMarkSlider.attribute('aria-label', 'Position marker, spanning the full plotted x range');
+  xMarkSlider.input(function () { redraw(); });
 
   positionUIElements();
-  describe('Junction electric field and depletion width explorer: shows depletion charge density, junction electric field, and electrostatic potential stacked together for a silicon step junction, with a draggable position marker', LABEL);
-  setTimeout(function () { window.dispatchEvent(new Event('resize')); }, 50);
+  noLoop();
+  describe('Junction electric field and depletion width explorer: shows depletion charge density, junction electric field, and electrostatic potential stacked and aligned for a silicon step junction, with N_A and N_D sliders and a shared draggable position marker spanning the full plotted range', LABEL);
+  setTimeout(function () { windowResized(); }, 50);
+}
+
+function controlRows() {
+  const stacked = compact();
+  const rowH = stacked ? 54 : 36;
+  const topPad = 10;
+  const presetH = 34;
+  return {
+    stacked: stacked, rowH: rowH, presetH: presetH,
+    preset: topPad,
+    na: topPad + presetH + 8, nd: topPad + presetH + 8 + rowH, xmark: topPad + presetH + 8 + 2 * rowH,
+    cardTop: topPad + presetH + 8 + 3 * rowH + 8
+  };
 }
 
 function positionUIElements() {
   let mainRect = document.querySelector('main').getBoundingClientRect();
   const bx = mainRect.left, by = mainRect.top;
-  naSlider.position(bx + 150, by + drawHeight + 12);
-  naSlider.size(min(canvasWidth - 170 - 30, 340));
-  ndSlider.position(bx + 150, by + drawHeight + 50);
-  ndSlider.size(min(canvasWidth - 170 - 30, 340));
-  xMarkSlider.position(bx + 150, by + drawHeight + 88);
-  xMarkSlider.size(min(canvasWidth - 170 - 30, 340));
+  const rows = controlRows();
+  const widgetX = rows.stacked ? 16 : 150;
+  const widgetOffsetY = rows.stacked ? 20 : 8;
+  const sw = rows.stacked ? Math.min(canvasWidth - 32, 360) : Math.min(canvasWidth - 150 - 30, 360);
+
+  naSlider.position(bx + widgetX, by + drawHeight + rows.na + widgetOffsetY);
+  naSlider.size(sw);
+  ndSlider.position(bx + widgetX, by + drawHeight + rows.nd + widgetOffsetY);
+  ndSlider.size(sw);
+  xMarkSlider.position(bx + widgetX, by + drawHeight + rows.xmark + widgetOffsetY);
+  xMarkSlider.size(sw);
 }
 
 function draw() {
-  updateCanvasSize();
   fill('aliceblue'); stroke('silver'); strokeWeight(1);
   rect(0, 0, canvasWidth, drawHeight);
   fill('white'); noStroke();
@@ -95,19 +126,31 @@ function draw() {
   const ND = Math.pow(10, ndSlider.value());
   const geo = junctionGeometry(NA, ND);
   const xpUm = geo.xp * 1e4, xnUm = geo.xn * 1e4, WUm = geo.W * 1e4;
-  const xMarkUm = -xpUm + xMarkSlider.value() * WUm;
 
   fill(20); noStroke();
-  textAlign(CENTER, TOP); textSize(15.5);
-  text('Poisson’s Equation: ρ(x) → E(x) → ψ(x)   (silicon step junction)', canvasWidth / 2, 6);
+  textAlign(CENTER, TOP); textSize(compact() ? 12.5 : 15.5);
+  text(compact() ? 'Poisson: ρ(x) → E(x) → ψ(x)' : 'Poisson’s Equation: ρ(x) → E(x) → ψ(x)   (silicon step junction)', canvasWidth / 2, 6);
 
-  const chartX = 92, chartW = canvasWidth - chartX - 30;
-  const rowH = (drawHeight - 40) / 3 - 10;
-  const rowY1 = 32, rowY2 = rowY1 + rowH + 16, rowY3 = rowY2 + rowH + 16;
-  const xMin = -xpUm * 1.15 - 1e-9, xMax = xnUm * 1.15 + 1e-9;
+  const chartX = compact() ? 62 : 92, chartW = canvasWidth - chartX - 26;
+  const titleH = compact() ? 22 : 26;
+  const rowGap = compact() ? 26 : 20;
+  // Row 3 alone carries both the W bracket AND the shared x-axis
+  // caption below its boundary tick labels, so it needs extra
+  // reserved space that rows 1-2 don't -- otherwise (the original bug
+  // here) the two could land on top of each other whenever the W
+  // bracket's midpoint happened to fall near the chart's own center.
+  const row3Extra = compact() ? 36 : 34;
+  const rowH = (drawHeight - titleH - 2 * rowGap - row3Extra - 10) / 3;
+  const rowY1 = titleH + 6, rowY2 = rowY1 + rowH + rowGap, rowY3 = rowY2 + rowH + rowGap;
+
+  // Marker now spans the FULL plotted domain (not just the depletion
+  // region), so students can drag it outside the depletion edges and
+  // directly confirm rho=0, E=0, and psi flat there.
+  const xMin = -xpUm * 1.4 - 0.01, xMax = xnUm * 1.4 + 0.01;
+  const xMarkUm = xMin + xMarkSlider.value() * (xMax - xMin);
 
   const rhoPts = [], ePts = [], psiPts = [];
-  const N = 140;
+  const N = 160;
   for (let i = 0; i <= N; i++) {
     const xv = xMin + (xMax - xMin) * (i / N);
     rhoPts.push({ x: xv, y: rhoOfX(xv, NA, ND, xpUm, xnUm) });
@@ -116,43 +159,164 @@ function draw() {
   }
   const rhoMax = Math.max(NA, ND) * 1.15;
 
-  fill(30); noStroke(); textAlign(LEFT, TOP); textSize(11.5);
+  fill(30); noStroke(); textAlign(LEFT, TOP); textSize(compact() ? 10 : 11.5);
   text('ρ(x) / q  (cm⁻³)', 10, rowY1);
   const info1 = smlDrawLineChart(chartX, rowY1, chartW, rowH, xMin, xMax, -rhoMax, rhoMax,
     [{ points: rhoPts, color: color(230, 90, 60) }],
     { marker: { x: xMarkUm, y: rhoOfX(xMarkUm, NA, ND, xpUm, xnUm) } });
+  drawBoundaries(info1, rowY1, rowH, xpUm, xnUm, false, false);
+  noStroke(); fill(60); textAlign(RIGHT, TOP); textSize(compact() ? 9 : 10);
+  // Clamped so these labels never poke above/below the chart box --
+  // for near-symmetric doping (N_A ~ N_D), the unclamped positions
+  // landed right on top of the axis title (above) or the boundary
+  // tick labels (below).
+  // Clamped well below rowY1 (not just past it): the RIGHT-aligned
+  // label text extends leftward from its x-anchor, into the same
+  // horizontal territory as the "ρ(x)/q" axis title, so it must clear
+  // the title's full line height vertically, not just its top edge.
+  const rhoLabelMin = rowY1 + (compact() ? 15 : 17), rhoLabelMax = rowY1 + rowH - 12;
+  text('−N_A', info1.xToPx(xMin) + 4, constrain(info1.yToPx(-NA * 1.02), rhoLabelMin, rhoLabelMax));
+  text('+N_D', info1.xToPx(xMin) + 4, constrain(info1.yToPx(ND * 1.02) - (compact() ? 11 : 12), rhoLabelMin, rhoLabelMax));
 
   text('E(x)  (V/cm)', 10, rowY2);
-  const info2 = smlDrawLineChart(chartX, rowY2, chartW, rowH, xMin, xMax, -geo.Emax * 1.15, geo.Emax * 0.15,
+  const info2 = smlDrawLineChart(chartX, rowY2, chartW, rowH, xMin, xMax, -geo.Emax * 1.15, geo.Emax * 0.2,
     [{ points: ePts, color: color(90, 62, 237) }],
     { marker: { x: xMarkUm, y: eFieldOfX(xMarkUm, NA, ND, xpUm, xnUm) } });
+  drawBoundaries(info2, rowY2, rowH, xpUm, xnUm, false, false);
+  // E_max annotation
+  const emaxY = info2.yToPx(-geo.Emax);
+  stroke(90, 62, 237); strokeWeight(1); drawingContext.setLineDash([2, 3]);
+  line(chartX, emaxY, chartX + chartW, emaxY);
+  drawingContext.setLineDash([]);
+  noStroke(); fill(90, 62, 237); textAlign(LEFT, BOTTOM); textSize(compact() ? 9 : 10);
+  text('E_max = ' + geo.Emax.toExponential(2) + ' V/cm', chartX + 4, emaxY - 2);
 
   text('ψ(x)  (V)', 10, rowY3);
   const info3 = smlDrawLineChart(chartX, rowY3, chartW, rowH, xMin, xMax, -geo.Vbi * 0.15, geo.Vbi * 1.15,
     [{ points: psiPts, color: color(40, 140, 90) }],
-    { marker: { x: xMarkUm, y: psiOfX(xMarkUm, NA, ND, xpUm, xnUm) }, xLabel: 'Position x (μm)' });
+    { marker: { x: xMarkUm, y: psiOfX(xMarkUm, NA, ND, xpUm, xnUm) } });
+  drawBoundaries(info3, rowY3, rowH, xpUm, xnUm, true, compact());
+  // V_bi annotation
+  const vbiY = info3.yToPx(geo.Vbi);
+  stroke(40, 140, 90); strokeWeight(1); drawingContext.setLineDash([2, 3]);
+  line(chartX, vbiY, chartX + chartW, vbiY);
+  drawingContext.setLineDash([]);
+  noStroke(); fill(40, 140, 90); textAlign(LEFT, BOTTOM); textSize(compact() ? 9 : 10);
+  text('V_bi = ' + geo.Vbi.toFixed(3) + ' V', chartX + 4, vbiY - 2);
+  noStroke(); fill(40); textAlign(CENTER, TOP); textSize(compact() ? 9.5 : 11);
+  text('Position x (μm)', chartX + chartW / 2, rowY3 + rowH + (compact() ? 36 : 34));
 
-  noStroke(); fill(30); textAlign(LEFT, TOP); textSize(12);
-  text(
-    'NA = ' + NA.toExponential(1) + ' cm⁻³   ND = ' + ND.toExponential(1) + ' cm⁻³    ' +
-    'xp = ' + xpUm.toFixed(3) + ' μm   xn = ' + xnUm.toFixed(3) + ' μm   W = ' + WUm.toFixed(3) + ' μm',
-    10, drawHeight + 126, canvasWidth - 20
-  );
-  text(
-    'V_bi = ' + geo.Vbi.toFixed(3) + ' V   E_max = ' + geo.Emax.toExponential(2) + ' V/cm   at x = ' + xMarkUm.toFixed(3) + ' μm: E = ' +
-    eFieldOfX(xMarkUm, NA, ND, xpUm, xnUm).toExponential(2) + ' V/cm, ψ = ' + psiOfX(xMarkUm, NA, ND, xpUm, xnUm).toFixed(3) + ' V',
-    10, drawHeight + 144, canvasWidth - 20
-  );
+  drawPresetButtons();
+  drawControlLabels(NA, ND);
+  drawInfoCard(NA, ND, geo, xpUm, xnUm, WUm, xMarkUm);
+}
+
+// Dashed vertical lines at x=-x_p, x=0 (metallurgical junction), and
+// x=x_n, each labeled, plus a W bracket along the bottom of the psi(x)
+// chart (the last one drawn, so it doesn't collide with the other two).
+function drawBoundaries(info, rowY, rowH, xpUm, xnUm, drawWBracket, tinyLabels) {
+  const xJ = info.xToPx(0), xP = info.xToPx(-xpUm), xN = info.xToPx(xnUm);
+  stroke(140); strokeWeight(1); drawingContext.setLineDash([2, 3]);
+  line(xJ, rowY, xJ, rowY + rowH);
+  drawingContext.setLineDash([1, 2]);
+  line(xP, rowY, xP, rowY + rowH);
+  line(xN, rowY, xN, rowY + rowH);
+  drawingContext.setLineDash([]);
+  noStroke(); fill(90); textAlign(CENTER, TOP); textSize(tinyLabels ? 8.5 : 9.5);
+  text('0', xJ, rowY + rowH + 2);
+  text('−x_p', xP, rowY + rowH + 2);
+  text('x_n', xN, rowY + rowH + 2);
+
+  if (drawWBracket) {
+    const by = rowY + rowH + (tinyLabels ? 15 : 16);
+    stroke(120); strokeWeight(1);
+    line(xP, by, xN, by);
+    line(xP, by - 4, xP, by + 4);
+    line(xN, by - 4, xN, by + 4);
+    noStroke(); fill(90); textAlign(CENTER, TOP); textSize(tinyLabels ? 8.5 : 9.5);
+    text('W', (xP + xN) / 2, by + 2);
+  }
+}
+
+function drawPresetButtons() {
+  const rows = controlRows();
+  const n = PRESETS.length;
+  const gap = 8;
+  const btnW = (canvasWidth - 20 - gap * (n - 1)) / n;
+  const btnY = drawHeight + rows.preset;
+  presetBtnRects = [];
+  for (let i = 0; i < n; i++) {
+    const bx = 10 + i * (btnW + gap);
+    smlDrawButton(bx, btnY, btnW, rows.presetH, PRESETS[i].label, false);
+    presetBtnRects.push({ x: bx, y: btnY, w: btnW, h: rows.presetH });
+  }
+}
+
+function drawControlLabels(NA, ND) {
+  const rows = controlRows();
+  fill(30); noStroke(); textAlign(LEFT, TOP); textSize(compact() ? 12 : 13);
+  if (rows.stacked) {
+    text('N_A = ' + NA.toExponential(1) + ' cm⁻³', 10, drawHeight + rows.na);
+    text('N_D = ' + ND.toExponential(1) + ' cm⁻³', 10, drawHeight + rows.nd);
+    text('Position marker x', 10, drawHeight + rows.xmark);
+  } else {
+    text('N_A', 10, drawHeight + rows.na + 9);
+    text('N_D', 10, drawHeight + rows.nd + 9);
+    text('Position marker x', 10, drawHeight + rows.xmark + 9);
+    textAlign(RIGHT, TOP);
+    text(NA.toExponential(1) + ' cm⁻³', canvasWidth - 10, drawHeight + rows.na + 9);
+    text(ND.toExponential(1) + ' cm⁻³', canvasWidth - 10, drawHeight + rows.nd + 9);
+  }
+}
+
+function drawInfoCard(NA, ND, geo, xpUm, xnUm, WUm, xMarkUm) {
+  const rows = controlRows();
+  const cardY = drawHeight + rows.cardTop;
+  const cardX = 10, cardW = canvasWidth - 20;
+  const cardH = controlHeight - rows.cardTop - 8;
+
+  fill(247, 249, 255); stroke(200, 215, 245); strokeWeight(1.5);
+  rect(cardX, cardY, cardW, cardH, 10);
+
+  const NAd = Math.pow(10, naSlider.value()), NDd = Math.pow(10, ndSlider.value());
+  const Emark = eFieldOfX(xMarkUm, NA, ND, xpUm, xnUm);
+  const psiMark = psiOfX(xMarkUm, NA, ND, xpUm, xnUm);
+
+  noStroke(); fill(30); textAlign(LEFT, TOP); textSize(compact() ? 10.5 : 12);
+  const line1 = 'x_p = ' + xpUm.toFixed(3) + ' μm      x_n = ' + xnUm.toFixed(3) + ' μm      W = ' + WUm.toFixed(3) + ' μm      V_bi = ' + geo.Vbi.toFixed(3) + ' V      E_max = ' + geo.Emax.toExponential(2) + ' V/cm';
+  const line2 = 'At marker x = ' + xMarkUm.toFixed(3) + ' μm:   ρ/q = ' + rhoOfX(xMarkUm, NA, ND, xpUm, xnUm).toExponential(2) + ' cm⁻³      E = ' + Emark.toExponential(2) + ' V/cm      ψ = ' + psiMark.toFixed(3) + ' V';
+  text(line1, cardX + 12, cardY + 10, cardW - 24);
+  text(line2, cardX + 12, cardY + 10 + (compact() ? 34 : 22), cardW - 24);
+
+  fill(90); textSize(compact() ? 9.5 : 10.5);
+  const noteY = cardY + 10 + (compact() ? 68 : 44);
+  text('The more lightly doped side always gets the wider share of the depletion region (N_A·x_p = N_D·x_n).', cardX + 12, noteY, cardW - 24);
+}
+
+function mousePressed() {
+  for (let i = 0; i < presetBtnRects.length; i++) {
+    const r = presetBtnRects[i];
+    if (smlPointInRect(mouseX, mouseY, r.x, r.y, r.w, r.h)) {
+      naSlider.value(PRESETS[i].na);
+      ndSlider.value(PRESETS[i].nd);
+      redraw();
+      return;
+    }
+  }
 }
 
 function windowResized() {
   updateCanvasSize();
   resizeCanvas(containerWidth, containerHeight);
   positionUIElements();
+  redraw();
 }
 
 function updateCanvasSize() {
+  minDrawHeight = compact() ? 560 : 500;
+  controlHeight = compact() ? 380 : 300;
   const sz = smlComputeCanvasSize(minDrawHeight, controlHeight);
   containerWidth = sz.width; canvasWidth = sz.width;
   drawHeight = sz.drawHeight; canvasHeight = sz.height; containerHeight = sz.height;
+  drawHeight = Math.max(drawHeight, minDrawHeight);
 }

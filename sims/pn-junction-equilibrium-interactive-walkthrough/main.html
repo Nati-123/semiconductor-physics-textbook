@@ -27,9 +27,17 @@
     <summary>Guided Exploration &amp; Challenge Questions</summary>
     <div class="panel-content">
 
-        <h3>Try This</h3>
+        <p class="predict-cycle"><strong>Predict → Explore → Observe → Explain:</strong> Before opening Step 9, <strong>predict</strong> the order these eight ideas should chain together, from "two materials touch" to "voltage-dependent capacitor." Then <strong>explore</strong> Step 9's flow diagram (try narrowing your browser window to see it reflow from 4 columns to 2 to a single stacked column). <strong>Observe</strong> that Next is disabled and Restart is highlighted once you reach the end. Finally, <strong>explain</strong> in one sentence why each stage depends on the one before it.</p>
+
+        <h3>What to Observe</h3>
         <ul class="explore-list">
-            <li><strong>Try this:</strong> Click "Next ▶" through all eight steps in order to review the entire chapter's storyline in sequence.</li>
+            <li>Click "Next ▶" through all nine steps in order to review the entire chapter's storyline in sequence, ending with a responsive concept-flow summary diagram (Step 9) instead of a single dense paragraph.</li>
+            <li>On Step 9, the Next button is disabled (there is nowhere further to go) and the Restart button is filled in instead of outlined, since restarting the tour is the natural next action.</li>
+            <li>Step 4's band diagram shows the bands sloping downward from the p-side (higher electron energy) to the n-side (lower electron energy) — the same convention used in the Built-In Potential Calculator earlier in the chapter.</li>
+        </ul>
+
+        <h3>Guided Exploration</h3>
+        <ul class="explore-list">
             <li><strong>Predict:</strong> Before reaching Step 7, predict which side of an asymmetric junction will have the wider depletion width.</li>
             <li><strong>Observe:</strong> Each step's small illustration mirrors a MicroSim used earlier in the chapter, tying the whole narrative together in one place.</li>
         </ul>
@@ -44,6 +52,10 @@
             <dd>The full electrostatics derivation: built-in potential, Poisson's equation, electric field, and depletion width.</dd>
             <dt>Step 8</dt>
             <dd>Junction capacitance, connecting the chapter to Chapter 15's biased junction.</dd>
+            <dt>Step 9</dt>
+            <dd>A responsive concept-flow diagram connecting all eight ideas in one place.</dd>
+            <dt>Restart button</dt>
+            <dd>Jumps directly back to Step 1 from anywhere in the sequence; highlighted on Step 9.</dd>
         </dl>
 
         <h3>Challenge Questions</h3>
@@ -51,12 +63,12 @@
         <div class="challenge" data-correct="b">
             <p class="q-text">1. Which concept in this walkthrough directly explains why heavier doping narrows the depletion region on that side?</p>
             <label><input type="radio" name="pjew-q1" value="a"> The built-in potential formula</label>
-            <label><input type="radio" name="pjew-q1" value="b"> Charge neutrality, NA·xp = ND·xn</label>
+            <label><input type="radio" name="pjew-q1" value="b"> Charge neutrality, N_A·x_p = N_D·x_n</label>
             <label><input type="radio" name="pjew-q1" value="c"> Junction capacitance</label>
             <label><input type="radio" name="pjew-q1" value="d"> The depletion approximation's abrupt edges</label>
             <button class="check-btn" type="button">Check Answer</button>
             <span class="feedback" role="status" aria-live="polite"></span>
-            <p class="explain-correct" hidden>Correct. Because NA·xp = ND·xn, a larger NA forces a smaller xp to keep the exposed charge balanced with the opposite side.</p>
+            <p class="explain-correct" hidden>Correct. Because N_A·x_p = N_D·x_n, a larger NA forces a smaller xp to keep the exposed charge balanced with the opposite side.</p>
             <p class="explain-incorrect" hidden>Revisit Step 7 — which equation directly relates doping to the width split?</p>
         </div>
 
@@ -71,6 +83,20 @@
             <p class="explain-correct" hidden>Correct. Applied bias effectively replaces Vbi with Vbi minus (forward) or plus (reverse) the applied voltage inside the W formula, changing W and therefore Cj — exactly what Chapter 15 formalizes.</p>
             <p class="explain-incorrect" hidden>Revisit Step 8 — which formula explicitly depends on the depletion width, and how did the sim show VR affecting it?</p>
         </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">3. On Step 9, why is the Next button disabled instead of wrapping around to Step 1 like it does on every other step?</p>
+            <label><input type="radio" name="pjew-q3" value="a"> It is a bug that will be fixed in a future version</label>
+            <label><input type="radio" name="pjew-q3" value="b"> Step 9 is the end of the tour, and wrapping silently back to Step 1 would be confusing — Restart makes returning to the start an explicit choice instead</label>
+            <label><input type="radio" name="pjew-q3" value="c"> Because the Prev button is also disabled on Step 9</label>
+            <label><input type="radio" name="pjew-q3" value="d"> Because Step 9 has no further content to load</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Disabling Next (rather than silently wrapping) makes the end of the tour unambiguous, and the prominent, filled Restart button gives you an explicit way back to Step 1 instead.</p>
+            <p class="explain-incorrect" hidden>Try clicking Prev on Step 9 — it still works. Only Next is disabled, and only on this last step.</p>
+        </div>
+
+        <p class="key-takeaway"><strong>Key Takeaway:</strong> The equilibrium p-n junction is one continuous chain of cause and effect, not eight disconnected facts — joining the two materials forces diffusion, diffusion creates the depletion region, the depletion approximation makes its electrostatics tractable, and Poisson's equation turns the resulting charge density into a field, a potential, a width, and finally a capacitance. Every quantity in Chapter 15's biased junction is a direct modification of something derived here at equilibrium.</p>
 
     </div>
     </details>

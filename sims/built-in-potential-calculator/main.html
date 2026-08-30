@@ -27,9 +27,18 @@
     <summary>Guided Exploration &amp; Challenge Questions</summary>
     <div class="panel-content">
 
-        <h3>Try This</h3>
+        <p class="predict-cycle"><strong>Predict → Explore → Observe → Explain:</strong> Before clicking the toggle, <strong>predict</strong> which isolated Fermi level (\(E_{Fp}\) or \(E_{Fn}\)) sits closer to its band edge for the doping shown. Then <strong>explore</strong> by toggling between "Before Contact" and "After Contact." <strong>Observe</strong> that the vertical gap between \(E_{Fp}\) and \(E_{Fn}\) before contact is visually identical to the \(qV_{bi}\) bracket after contact. Finally, <strong>explain</strong> why forcing those two separate Fermi levels into one single flat level is exactly what makes the bands bend.</p>
+
+        <h3>What to Observe</h3>
         <ul class="explore-list">
-            <li><strong>Try this:</strong> Raise NA and ND together and watch how little \(V_{bi}\) changes compared to how much NA·ND changes — a direct look at the logarithm's compressing effect.</li>
+            <li>The toggle button switches between two views of the same junction: <strong>Before Contact</strong> shows the p-side and n-side as separate, isolated materials, each with its own flat Fermi level; <strong>After Contact</strong> shows the standard bent-band equilibrium diagram with a single flat \(E_F\).</li>
+            <li>The gap between \(E_{Fp}\) and \(E_{Fn}\) in the "Before Contact" view is labeled \(qV_{bi}\) — it is the exact same energy as the \(qV_{bi}\) bracket drawn between the flat \(E_C\) regions in the "After Contact" view. Forcing two different Fermi levels into one is precisely what makes the bands bend.</li>
+            <li>Bands bend downward going from the p-side (higher electron energy) to the n-side (lower electron energy) — consistent with the built-in field pointing from n to p, shown in the Metallurgical Junction Explorer earlier in this chapter.</li>
+        </ul>
+
+        <h3>Guided Exploration</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Raise N_A and N_D together and watch how little \(V_{bi}\) changes compared to how much N_A·N_D changes — a direct look at the logarithm's compressing effect.</li>
             <li><strong>Predict:</strong> Before switching material from Si to GaAs, predict whether \(V_{bi}\) will rise or fall, given that GaAs has a much smaller \(n_i\).</li>
             <li><strong>Observe:</strong> Raising temperature T increases \(n_i\) exponentially, which pulls \(V_{bi}\) back down even though \(kT/q\) itself is increasing — the two effects compete, and \(n_i\) wins.</li>
         </ul>
@@ -38,9 +47,11 @@
 
         <h3>What Each Control Does</h3>
         <dl class="control-captions">
+            <dt>Before/After Contact toggle</dt>
+            <dd>Switches between the two isolated pre-contact band diagrams and the single equilibrium post-contact diagram.</dd>
             <dt>Material</dt>
             <dd>Selects the semiconductor and its 300 K intrinsic carrier concentration and band gap, both used to compute \(n_i(T)\).</dd>
-            <dt>NA, ND</dt>
+            <dt>N_A, N_D</dt>
             <dd>Set the acceptor and donor doping concentrations (log scale, \(10^{14}\)-\(10^{19}\ \text{cm}^{-3}\)).</dd>
             <dt>T</dt>
             <dd>Sets the temperature used in both \(kT/q\) and the \(n_i(T)\) calculation.</dd>
@@ -49,28 +60,42 @@
         <h3>Challenge Questions</h3>
 
         <div class="challenge" data-correct="b">
-            <p class="q-text">1. If NA is increased by a factor of 1000, what happens to Vbi?</p>
-            <label><input type="radio" name="bipc-q1" value="a"> Vbi increases by a factor of 1000</label>
-            <label><input type="radio" name="bipc-q1" value="b"> Vbi increases by a small, fixed amount (not a factor of 1000)</label>
-            <label><input type="radio" name="bipc-q1" value="c"> Vbi is unaffected by doping</label>
-            <label><input type="radio" name="bipc-q1" value="d"> Vbi decreases</label>
+            <p class="q-text">1. If N_A is increased by a factor of 1000, what happens to V_bi?</p>
+            <label><input type="radio" name="bipc-q1" value="a"> V_bi increases by a factor of 1000</label>
+            <label><input type="radio" name="bipc-q1" value="b"> V_bi increases by a small, fixed amount (not a factor of 1000)</label>
+            <label><input type="radio" name="bipc-q1" value="c"> V_bi is unaffected by doping</label>
+            <label><input type="radio" name="bipc-q1" value="d"> V_bi decreases</label>
             <button class="check-btn" type="button">Check Answer</button>
             <span class="feedback" role="status" aria-live="polite"></span>
-            <p class="explain-correct" hidden>Correct. Because Vbi depends on the logarithm of NA·ND, multiplying NA by 1000 only adds (kT/q)·ln(1000) ≈ 0.179 V at 300 K, regardless of the starting doping level.</p>
-            <p class="explain-incorrect" hidden>Look carefully at the equation — NA appears inside a natural log, not linearly.</p>
+            <p class="explain-correct" hidden>Correct. Because V_bi depends on the logarithm of N_A·N_D, multiplying N_A by 1000 only adds (kT/q)·ln(1000) ≈ 0.179 V at 300 K, regardless of the starting doping level.</p>
+            <p class="explain-incorrect" hidden>Look carefully at the equation — N_A appears inside a natural log, not linearly.</p>
         </div>
 
         <div class="challenge" data-correct="a">
-            <p class="q-text">2. Two junctions have identical doping but different cross-sectional areas. How do their Vbi values compare?</p>
-            <label><input type="radio" name="bipc-q2" value="a"> They are identical — Vbi does not depend on area</label>
-            <label><input type="radio" name="bipc-q2" value="b"> The larger-area junction has a larger Vbi</label>
-            <label><input type="radio" name="bipc-q2" value="c"> The larger-area junction has a smaller Vbi</label>
-            <label><input type="radio" name="bipc-q2" value="d"> Vbi cannot be determined without knowing the area</label>
+            <p class="q-text">2. Two junctions have identical doping but different cross-sectional areas. How do their V_bi values compare?</p>
+            <label><input type="radio" name="bipc-q2" value="a"> They are identical — V_bi does not depend on area</label>
+            <label><input type="radio" name="bipc-q2" value="b"> The larger-area junction has a larger V_bi</label>
+            <label><input type="radio" name="bipc-q2" value="c"> The larger-area junction has a smaller V_bi</label>
+            <label><input type="radio" name="bipc-q2" value="d"> V_bi cannot be determined without knowing the area</label>
             <button class="check-btn" type="button">Check Answer</button>
             <span class="feedback" role="status" aria-live="polite"></span>
-            <p class="explain-correct" hidden>Correct. Vbi is set entirely by NA, ND, ni, and T — all intensive material properties. Junction capacitance, not Vbi, is the quantity that depends on area.</p>
-            <p class="explain-incorrect" hidden>Check the Vbi formula — does the junction's physical area appear anywhere in it?</p>
+            <p class="explain-correct" hidden>Correct. V_bi is set entirely by N_A, N_D, n_i, and T — all intensive material properties. Junction capacitance, not V_bi, is the quantity that depends on area.</p>
+            <p class="explain-incorrect" hidden>Check the V_bi formula — does the junction's physical area appear anywhere in it?</p>
         </div>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">3. In the "Before Contact" view, why are E_Fp and E_Fn drawn at different heights even though E_C and E_V are drawn at the same height in both boxes?</p>
+            <label><input type="radio" name="bipc-q3" value="a"> It's an animation error — they should be at the same height</label>
+            <label><input type="radio" name="bipc-q3" value="b"> The p-side and n-side are made of different materials with different band gaps</label>
+            <label><input type="radio" name="bipc-q3" value="c"> Each side's doping sets where its own Fermi level sits within the same-size gap — heavier doping pulls E_F closer to the corresponding band edge</label>
+            <label><input type="radio" name="bipc-q3" value="d"> E_Fp and E_Fn are unrelated to doping</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Both sides are the same material (same E_C-E_V gap), but N_A sets how close E_Fp sits to E_V, and N_D sets how close E_Fn sits to E_C. That difference in Fermi-level position is exactly what has to be reconciled once the two sides are joined.</p>
+            <p class="explain-incorrect" hidden>Change N_A or N_D and watch only that side's Fermi level move — the gap between E_C and E_V stays fixed since the material doesn't change.</p>
+        </div>
+
+        <p class="key-takeaway"><strong>Key Takeaway:</strong> The built-in potential isn't an extra ingredient added to the junction — it's the direct, unavoidable consequence of forcing two materials with different Fermi levels into a single crystal with one Fermi level. The size of that reconciliation, \(qV_{bi}\), is set entirely by how far apart the two isolated Fermi levels started, which depends only on doping, material, and temperature — never on device area.</p>
 
     </div>
     </details>

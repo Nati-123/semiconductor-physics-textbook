@@ -24,6 +24,7 @@ let containerHeight = canvasHeight;
 let currentStep = 0;
 let prevBtn = { x: 0, y: 0, w: 90, h: 36 };
 let nextBtn = { x: 0, y: 0, w: 90, h: 36 };
+let restartBtn = { x: 0, y: 0, w: 120, h: 32 };
 
 // Depletion extent (fraction of each side's half-width that has been
 // swept clear of mobile carriers) at each step, and which overlays to
@@ -166,8 +167,8 @@ function drawJunctionState(x, y, w, h, opts) {
   // strip above the p/n boxes (not drawn above the illustration box
   // into the title, as it originally was), and the boundary label /
   // equilibrium caption get separate stacked rows below.
-  const topMargin = 8 + (opts.showField ? 22 : 0);
-  const bottomMargin = 8 + (opts.showUncoveredLabel || opts.showBoundaries ? 30 : 0) + (opts.showEquilibrium ? 18 : 0);
+  const topMargin = 8 + (opts.showField ? 24 : 0);
+  const bottomMargin = 8 + (opts.showUncoveredLabel || opts.showBoundaries ? 30 : 0) + (opts.showEquilibrium ? (compact() ? 40 : 34) : 0);
   const boxY0 = y + topMargin, boxY1 = y + h - bottomMargin;
 
   noStroke(); fill(255, 235, 235);
@@ -175,11 +176,11 @@ function drawJunctionState(x, y, w, h, opts) {
   fill(230, 240, 255);
   rect(nX0 + 4, boxY0, halfW - 8, boxY1 - boxY0, 6);
 
-  fill(190, 40, 40); textAlign(CENTER, TOP); textSize(compact() ? 10.5 : 12); textStyle(BOLD);
-  text('p-type (N_A)', pX0 + halfW / 2, boxY0 + 4);
+  const typeLabelSize = compact() ? 10.5 : 12;
+  fill(190, 40, 40);
+  smlMathText(pX0 + halfW / 2, boxY0 + 4, 'p-type (N_A)', { size: typeLabelSize, align: 'center', bold: true });
   fill(40, 40, 190);
-  text('n-type (N_D)', nX0 + halfW / 2, boxY0 + 4);
-  textStyle(NORMAL);
+  smlMathText(nX0 + halfW / 2, boxY0 + 4, 'n-type (N_D)', { size: typeLabelSize, align: 'center', bold: true });
 
   if (opts.showJunction) {
     stroke(90, 62, 237); strokeWeight(2.5);
@@ -255,9 +256,10 @@ function drawJunctionState(x, y, w, h, opts) {
     line(xpPx, boxY0, xpPx, boxY1);
     line(xnPx, boxY0, xnPx, boxY1);
     drawingContext.setLineDash([]);
-    noStroke(); fill(80); textAlign(CENTER, TOP); textSize(compact() ? 9.5 : 10.5);
-    text('−x_p', xpPx, bottomCursor);
-    text('x_n', xnPx, bottomCursor);
+    noStroke(); fill(80);
+    const boundaryLabelSize = compact() ? 9.5 : 10.5;
+    smlMathText(xpPx, bottomCursor, '−x_p', { size: boundaryLabelSize, align: 'center' });
+    smlMathText(xnPx, bottomCursor, 'x_n', { size: boundaryLabelSize, align: 'center' });
     bottomCursor += compact() ? 13 : 14;
     fill(90, 62, 237); textAlign(CENTER, TOP); textStyle(BOLD); textSize(compact() ? 10 : 11);
     text('Depletion Region', midX, bottomCursor);
@@ -270,30 +272,64 @@ function drawJunctionState(x, y, w, h, opts) {
   }
 
   // ---- built-in field arrow (drawn in the reserved top margin, inside
-  // the illustration box's own area -- never above it into the title) ----
+  // the illustration box's own area -- never above it into the title).
+  // Points from the exposed positive donor charge (n-side) toward the
+  // exposed negative acceptor charge (p-side), which is the physical
+  // direction the label now states explicitly rather than just "n → p". ----
   if (opts.showField) {
     const fy = y + topMargin - 14;
-    stroke(230, 150, 30); strokeWeight(2.5);
+    stroke(230, 150, 30); strokeWeight(3);
     line(midX + depX - 4, fy, midX - depX + 4, fy);
     noStroke(); fill(230, 150, 30);
-    triangle(midX - depX + 4, fy - 6, midX - depX + 4, fy + 6, midX - depX - 5, fy);
-    fill(200, 120, 10); textAlign(CENTER, BOTTOM); textSize(compact() ? 10 : 11); textStyle(BOLD);
-    text('Built-in field E (n → p)', midX, fy - 4);
+    triangle(midX - depX + 4, fy - 7, midX - depX + 4, fy + 7, midX - depX - 6, fy);
+    fill(180, 105, 5); textAlign(CENTER, BOTTOM); textSize(compact() ? 9.5 : 11); textStyle(BOLD);
+    text(compact() ? 'Field E: +donors (n) → −acceptors (p)' : 'Built-in field E: from +ionized donors (n-side) toward −ionized acceptors (p-side)', midX, fy - 5);
     textStyle(NORMAL);
   }
 
-  // ---- equilibrium caption ----
+  // ---- equilibrium caption: a small, clearly-bounded info panel
+  // rather than bare floating text, so it reads as a distinct
+  // "conclusion" rather than another row of body text. ----
   if (opts.showEquilibrium) {
-    noStroke(); fill(40); textAlign(CENTER, TOP); textSize(compact() ? 10.5 : 11.5);
+    const panelW = compact() ? w - 20 : Math.min(w - 20, 340);
+    const panelH = compact() ? 30 : 24;
+    const panelX = x + (w - panelW) / 2;
+    noStroke(); fill(232, 245, 236); stroke(120, 180, 140); strokeWeight(1);
+    rect(panelX, bottomCursor, panelW, panelH, 6);
+    noStroke(); fill(30, 110, 60); textAlign(CENTER, CENTER); textSize(compact() ? 9.5 : 11); textStyle(BOLD);
     // x must be the wrap box's LEFT edge (not its center) once a width
     // is passed to text() -- see the identical fix for the step title.
-    text('Drift current  =  Diffusion current   (everywhere — equilibrium)', x + 10, bottomCursor, w - 20);
+    text('Equilibrium: Drift current = Diffusion current', panelX + 6, bottomCursor + panelH / 2, panelW - 12);
+    textStyle(NORMAL);
   }
 
   if (opts.separated) {
     noStroke(); fill(90); textAlign(CENTER, BOTTOM); textSize(compact() ? 9.5 : 10.5);
     text('separate, individually neutral', midX, y + h - 4);
   }
+
+  // ---- compact legend: only on the steps where ions, carriers, and
+  // the field/boundaries all appear together, so students have a key
+  // for telling the symbol families apart. Sits below the p-type/
+  // n-type row (not beside it) so it never collides with that label,
+  // which centers itself within the n-side box and can reach quite
+  // far right on narrow canvases. ----
+  if (opts.showBoundaries) {
+    drawSymbolLegend(x + w - (compact() ? 4 : 8), boxY0 + (compact() ? 22 : 26), compact());
+  }
+}
+
+function drawSymbolLegend(rightX, topY, isCompact) {
+  const rowH = isCompact ? 14 : 15;
+  const boxW = isCompact ? 108 : 132;
+  const boxX = rightX - boxW;
+  noStroke(); fill(255, 255, 255, 225); stroke(210); strokeWeight(1);
+  rect(boxX, topY, boxW, rowH * 2 + 6, 5);
+  noStroke(); textAlign(LEFT, CENTER); textSize(isCompact ? 8 : 9);
+  fill(140, 20, 130); rect(boxX + 6, topY + 4 + rowH * 0 + rowH / 2 - 4, 8, 8, 1);
+  fill(60); text('fixed ion (square)', boxX + 18, topY + 4 + rowH * 0 + rowH / 2);
+  noFill(); stroke(220, 60, 60); strokeWeight(1.3); circle(boxX + 10, topY + 4 + rowH * 1 + rowH / 2, 8);
+  noStroke(); fill(60); text('mobile carrier (round)', boxX + 18, topY + 4 + rowH * 1 + rowH / 2);
 }
 
 function drawRecombinationBurst(x, y) {
@@ -307,17 +343,33 @@ function drawRecombinationBurst(x, y) {
 }
 
 function drawControls() {
-  const cy = drawHeight + (controlHeight - prevBtn.h) / 2;
+  const isLast = currentStep === STEPS.length - 1;
+  const cy = drawHeight + 14;
   prevBtn.x = 20; prevBtn.y = cy;
   nextBtn.x = canvasWidth - 20 - nextBtn.w; nextBtn.y = cy;
 
   smlDrawButton(prevBtn.x, prevBtn.y, prevBtn.w, prevBtn.h, '◀ Prev', false);
-  smlDrawButton(nextBtn.x, nextBtn.y, nextBtn.w, nextBtn.h, 'Next ▶', false);
+  if (isLast) {
+    // Disabled, inert Next on the final step -- no more silently
+    // wrapping back to Step 1, which was easy to trigger by accident.
+    push();
+    stroke(200); strokeWeight(1.5); fill(238);
+    rect(nextBtn.x, nextBtn.y, nextBtn.w, nextBtn.h, 6);
+    noStroke(); fill(170); textAlign(CENTER, CENTER); textSize(13);
+    text('Next ▶', nextBtn.x + nextBtn.w / 2, nextBtn.y + nextBtn.h / 2);
+    pop();
+  } else {
+    smlDrawButton(nextBtn.x, nextBtn.y, nextBtn.w, nextBtn.h, 'Next ▶', false);
+  }
 
   noStroke(); fill(30); textAlign(CENTER, CENTER); textSize(13);
   text('Step ' + (currentStep + 1) + ' of ' + STEPS.length, canvasWidth / 2, cy + prevBtn.h / 2);
 
-  const dotsY = cy + prevBtn.h + 12;
+  const restartY = cy + prevBtn.h + 12;
+  restartBtn.x = canvasWidth / 2 - restartBtn.w / 2; restartBtn.y = restartY;
+  smlDrawButton(restartBtn.x, restartBtn.y, restartBtn.w, restartBtn.h, '⟲ Restart', isLast);
+
+  const dotsY = restartY + restartBtn.h + 14;
   const totalDotsW = STEPS.length * 16;
   const dotsX0 = canvasWidth / 2 - totalDotsW / 2 + 8;
   for (let i = 0; i < STEPS.length; i++) {
@@ -328,10 +380,18 @@ function drawControls() {
 }
 
 function mousePressed() {
+  const isLast = currentStep === STEPS.length - 1;
+  const prevStep = currentStep;
   if (smlPointInRect(mouseX, mouseY, prevBtn.x, prevBtn.y, prevBtn.w, prevBtn.h)) {
     currentStep = (currentStep - 1 + STEPS.length) % STEPS.length;
-  } else if (smlPointInRect(mouseX, mouseY, nextBtn.x, nextBtn.y, nextBtn.w, nextBtn.h)) {
+  } else if (!isLast && smlPointInRect(mouseX, mouseY, nextBtn.x, nextBtn.y, nextBtn.w, nextBtn.h)) {
     currentStep = (currentStep + 1) % STEPS.length;
+  } else if (smlPointInRect(mouseX, mouseY, restartBtn.x, restartBtn.y, restartBtn.w, restartBtn.h)) {
+    currentStep = 0;
+  }
+  if (currentStep !== prevStep) {
+    updateCanvasSize();
+    resizeCanvas(containerWidth, containerHeight);
   }
 }
 
@@ -342,6 +402,7 @@ function windowResized() {
 
 function updateCanvasSize() {
   minDrawHeight = compact() ? 520 : 440;
+  controlHeight = compact() ? 150 : 134;
   const sz = smlComputeCanvasSize(minDrawHeight, controlHeight);
   containerWidth = sz.width; canvasWidth = sz.width;
   drawHeight = sz.drawHeight; canvasHeight = sz.height; containerHeight = sz.height;

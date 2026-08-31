@@ -137,13 +137,13 @@ function drawStepMetallurgical(x, y, w, h) {
   drawingContext.setLineDash([4, 4]);
   line(midX, y + 8, midX, y + h - 8);
   drawingContext.setLineDash([]);
-  noStroke(); fill(190, 40, 40); textAlign(CENTER, TOP); textSize(compact() ? 11 : 12); textStyle(BOLD);
-  text('p-type (N_A)', x + 8 + (w / 2 - 8) / 2, y + 14);
+  noStroke(); fill(190, 40, 40); textStyle(BOLD);
+  const typeLabelSz = compact() ? 11 : 12;
+  smlMathText(x + 8 + (w / 2 - 8) / 2, y + 14, 'p-type (N_A)', { size: typeLabelSz, align: 'center', bold: true });
   fill(40, 40, 190);
-  text('n-type (N_D)', midX + (w / 2 - 8) / 2, y + 14);
-  fill(90, 62, 237); textAlign(CENTER, BOTTOM); textSize(compact() ? 10 : 11);
+  smlMathText(midX + (w / 2 - 8) / 2, y + 14, 'n-type (N_D)', { size: typeLabelSz, align: 'center', bold: true });
+  fill(90, 62, 237); textAlign(CENTER, BOTTOM); textSize(compact() ? 10 : 11); textStyle(NORMAL);
   text('metallurgical junction, x = 0', midX, y + h - 8);
-  textStyle(NORMAL);
 }
 
 function drawStepDepletion(x, y, w, h) {
@@ -168,12 +168,15 @@ function drawStepDepletion(x, y, w, h) {
 }
 
 function drawStepApproximation(x, y, w, h) {
-  const chartX = x + 50, chartY = y + 20, chartW = w - 90, chartH = h - 50;
+  // chartH leaves extra bottom margin (h-70, not h-50) so the chart's
+  // own "Position x" axis-title row has room to sit above the caption
+  // below it rather than overlapping it.
+  const chartX = x + 50, chartY = y + 20, chartW = w - 90, chartH = h - 70;
   const xp = 0.3, xn = 0.6;
   const pts = [{ x: -1, y: 0 }, { x: -xp, y: 0 }, { x: -xp, y: -1 }, { x: 0, y: -1 }, { x: 0, y: 1 }, { x: xn, y: 1 }, { x: xn, y: 0 }, { x: 1, y: 0 }];
   smlDrawLineChart(chartX, chartY, chartW, chartH, -1, 1, -1.2, 1.2, [{ points: pts, color: color(90, 62, 237) }], { xLabel: 'Position x', yLabel: 'ρ(x)/q', yLabelOffset: 34 });
-  noStroke(); fill(40); textAlign(CENTER, TOP); textSize(compact() ? 10 : 11.5);
-  text('abrupt edges at −x_p and x_n; neutral outside, fully depleted inside', x + w / 2, y + h - 18);
+  noStroke(); fill(40);
+  smlMathText(x + w / 2, y + h - 14, 'abrupt edges at −x_p and x_n; neutral outside, fully depleted inside', { size: compact() ? 10 : 11.5, align: 'center' });
 }
 
 function drawStepVbi(x, y, w, h) {
@@ -202,34 +205,34 @@ function drawStepVbi(x, y, w, h) {
   stroke(90, 180, 120);
   bandCurve(evY - bend, evY);
 
-  noStroke(); fill(90, 62, 237); textAlign(LEFT, BOTTOM); textSize(10.5);
-  text('E_C', x1 + 4, ecY + bend + 4);
+  noStroke(); fill(90, 62, 237);
+  smlDrawSubLabel(x1 + 4, ecY + bend + 4, 'E', 'C', { size: 10.5, baseline: BOTTOM });
   fill(90, 180, 120);
-  text('E_V', x1 + 4, evY + 4);
+  smlDrawSubLabel(x1 + 4, evY + 4, 'E', 'V', { size: 10.5, baseline: BOTTOM });
 
   stroke(230, 150, 30); strokeWeight(1.5);
   line(midX, ecY + bend, midX, ecY);
-  noStroke(); fill(200, 120, 10); textAlign(LEFT, CENTER); textSize(11); textStyle(BOLD);
-  text('qV_bi', midX + 6, ecY + bend / 2);
+  noStroke(); fill(200, 120, 10); textStyle(BOLD);
+  smlMathText(midX + 6, ecY + bend / 2 - 5.5, 'qV_bi', { size: 11 });
   textStyle(NORMAL);
 }
 
 function drawStepPoisson(x, y, w, h) {
-  const chartX = x + 50, chartY = y + 20, chartW = w - 90, chartH = h - 50;
+  const chartX = x + 50, chartY = y + 20, chartW = w - 90, chartH = h - 70;
   const xp = 0.35, xn = 0.55;
   const pts = [{ x: -1, y: 0 }, { x: -xp, y: 0 }, { x: -xp, y: -1 }, { x: 0, y: -1 }, { x: 0, y: 1 }, { x: xn, y: 1 }, { x: xn, y: 0 }, { x: 1, y: 0 }];
   smlDrawLineChart(chartX, chartY, chartW, chartH, -1, 1, -1.2, 1.2, [{ points: pts, color: color(230, 90, 60) }], { xLabel: 'Position x', yLabel: 'ρ(x)/q', yLabelOffset: 34 });
-  noStroke(); fill(40); textAlign(CENTER, TOP); textSize(12);
-  text('dE/dx = ρ(x)/ε', x + w / 2, y + h - 18);
+  noStroke(); fill(40);
+  smlMathText(x + w / 2, y + h - 14, 'dE/dx = ρ(x)/ε', { size: 12, align: 'center' });
 }
 
 function drawStepField(x, y, w, h) {
-  const chartX = x + 50, chartY = y + 20, chartW = w - 90, chartH = h - 50;
+  const chartX = x + 50, chartY = y + 20, chartW = w - 90, chartH = h - 70;
   const xp = 0.35, xn = 0.55;
   const pts = [{ x: -xp, y: 0 }, { x: 0, y: -1 }, { x: xn, y: 0 }];
   smlDrawLineChart(chartX, chartY, chartW, chartH, -1, 1, -1.2, 0.2, [{ points: pts, color: color(90, 62, 237) }], { xLabel: 'Position x', yLabel: 'E(x)', yLabelOffset: 34 });
   noStroke(); fill(40); textAlign(CENTER, TOP); textSize(12);
-  text('triangular field, peak at x = 0', x + w / 2, y + h - 18);
+  text('triangular field, peak at x = 0', x + w / 2, y + h - 14);
 }
 
 function drawStepWidth(x, y, w, h) {
@@ -246,11 +249,11 @@ function drawStepWidth(x, y, w, h) {
   line(midX, y + 16, midX, y + h - 16);
   line(midX + xnPx, y + 16, midX + xnPx, y + h - 16);
   drawingContext.setLineDash([]);
-  noStroke(); fill(30); textAlign(CENTER, BOTTOM); textSize(11);
-  text('x_p', midX - xpPx / 2, barY - 6);
-  text('x_n', midX + xnPx / 2, barY - 6);
-  fill(90); textAlign(CENTER, TOP); textSize(11);
-  text('N_A·x_p = N_D·x_n      W = x_p + x_n', midX, barY + barH + 12);
+  noStroke(); fill(30);
+  smlMathText(midX - xpPx / 2, barY - 6 - 12.5, 'x_p', { size: 11, align: 'center' });
+  smlMathText(midX + xnPx / 2, barY - 6 - 12.5, 'x_n', { size: 11, align: 'center' });
+  fill(90);
+  smlMathText(midX, barY + barH + 12, 'N_A·x_p = N_D·x_n      W = x_p + x_n', { size: 11, align: 'center' });
 }
 
 function drawStepCapacitance(x, y, w, h) {
@@ -262,8 +265,8 @@ function drawStepCapacitance(x, y, w, h) {
   line(midX + gap / 2, plateY0, midX + gap / 2, plateY1);
   noStroke(); fill(90); textAlign(CENTER, BOTTOM); textSize(11);
   text('W', midX, plateY0 - 6);
-  fill(30); textAlign(CENTER, TOP); textSize(12);
-  text('C_j = εA / W', midX, plateY1 + 12);
+  fill(30);
+  smlMathText(midX, plateY1 + 12, 'C_j = εA / W', { size: 12, align: 'center' });
 }
 
 // Responsive concept-flow diagram: as many columns as comfortably fit
@@ -304,8 +307,8 @@ function drawStepSummary(x, y, w, h) {
     // passed to text() -- see the identical note in Chapter 13.
     text(item.label, bx + 5, by + boxH * (compactBox ? 0.46 : 0.5), boxW - 10);
     textStyle(NORMAL);
-    fill(95); textSize(compactBox ? 8.5 : 10);
-    text(item.sub, bx + 5, by + boxH * (compactBox ? 0.68 : 0.72), boxW - 10);
+    fill(95); textAlign(CENTER, TOP);
+    smlMathText(bx + boxW / 2, by + boxH * (compactBox ? 0.68 : 0.72), item.sub, { size: compactBox ? 8.5 : 10, align: 'center' });
 
     if (i < n - 1) {
       const nextRow = Math.floor((i + 1) / cols);
@@ -439,10 +442,18 @@ function windowResized() {
 function updateCanvasSize() {
   const isSummary = currentStep === STEPS.length - 1;
   if (isSummary) {
+    // The illustration takes 76% of drawHeight on this step (the 2-row
+    // concept-flow needs more room than a single diagram), which left
+    // only ~36px for the summary caption text at the 440 wide-canvas
+    // value -- enough to clip mid-sentence. 530 leaves a full two-line
+    // caption without shrinking the flow diagram itself.
     const illWGuess = canvasWidth - 40;
-    minDrawHeight = illWGuess < 360 ? 800 : (illWGuess < 760 ? 560 : 440);
+    minDrawHeight = illWGuess < 360 ? 800 : (illWGuess < 760 ? 600 : 530);
   } else {
-    minDrawHeight = 440;
+    // 440 left a large empty strip below the (short) step caption text
+    // on most steps; 380 still comfortably fits the longest caption
+    // (Step 5's) with room to spare.
+    minDrawHeight = 380;
   }
   const sz = smlComputeCanvasSize(minDrawHeight, controlHeight);
   containerWidth = sz.width; canvasWidth = sz.width;

@@ -216,9 +216,7 @@ function smlDrawLineChart(x, y, w, h, xMin, xMax, yMin, yMax, series, opts) {
   if (opts.xLabel) {
     noStroke();
     fill(40);
-    textAlign(CENTER, TOP);
-    textSize(12);
-    text(opts.xLabel, x + w / 2, y + h + 6);
+    smlMathText(x + w / 2, y + h + 6, opts.xLabel, { align: 'center', size: 12 });
   }
   if (opts.yLabel) {
     push();
@@ -226,9 +224,10 @@ function smlDrawLineChart(x, y, w, h, xMin, xMax, yMin, yMax, series, opts) {
     rotate(-HALF_PI);
     noStroke();
     fill(40);
-    textAlign(CENTER, CENTER);
-    textSize(12);
-    text(opts.yLabel, 0, 0);
+    // smlMathText's y is the TOP of the text (not its vertical center),
+    // so shift up by roughly half the font size to approximate the
+    // CENTER,CENTER anchoring this rotated axis-title label needs.
+    smlMathText(0, -6, opts.yLabel, { align: 'center', size: 12 });
     pop();
   }
   pop();
@@ -301,9 +300,11 @@ function smlDrawButton(x, y, w, h, label, active) {
   rect(x, y, w, h, 6);
   noStroke();
   fill(active ? 255 : color(90, 62, 237));
-  textAlign(CENTER, CENTER);
-  textSize(13);
-  text(label, x + w / 2, y + h / 2);
+  // smlMathText so any "N_A"-style subscript notation in a button label
+  // (e.g. preset buttons like "Symmetric (N_A=N_D)") renders as a real
+  // subscript instead of a literal underscore; plain labels ("Next ▶")
+  // pass through unchanged since they contain no "_".
+  smlMathText(x + w / 2, y + h / 2 - 6.5, label, { align: 'center', size: 13 });
   pop();
 }
 
@@ -439,4 +440,65 @@ function smlDrawSubLabel(x, y, main, sub, opts) {
   }
   pop();
   return mainW + subW;
+}
+
+// Renders a full string containing inline "_subscript" markers (e.g.
+// "V_bi = 0.754 V", "N_A·x_p = N_D·x_n") as mixed-size text,
+// approximating real math typesetting on a canvas: each "X_yy" run
+// becomes normal-size "X" immediately followed by a smaller, lowered
+// "yy". Everything else is drawn at normal size on the same baseline.
+// This is the general form of smlDrawSubLabel, for a whole sentence
+// with several subscripted quantities embedded in running text rather
+// than a single isolated "main+sub" pair.
+//   x, y   - position; y is the TOP of the normal-size text (matches
+//            the textAlign(*, TOP) convention used everywhere else in
+//            this library), regardless of align.
+//   align  - 'left' (default), 'center', or 'right'; 'center' takes x
+//            as the horizontal center of the string, 'right' takes x
+//            as its right edge.
+//   opts   - { size, color, bold, maxWidth } (maxWidth wraps onto a
+//            second centered/left-aligned line if exceeded; omit for
+//            single-line labels, which is the common case here)
+// Returns the total rendered width in px (single-line case).
+function smlMathText(x, y, str, opts) {
+  opts = opts || {};
+  var size = opts.size || 13;
+  var subSize = size * 0.66;
+  var subDy = size * 0.32;
+  var baseline = y + size * 0.82;
+
+  var tokens = [];
+  var i = 0;
+  while (i < str.length) {
+    var us = str.indexOf('_', i);
+    if (us === -1) { tokens.push({ t: str.slice(i), sub: false }); break; }
+    if (us > i) tokens.push({ t: str.slice(i, us), sub: false });
+    var j = us + 1;
+    while (j < str.length && /[A-Za-z0-9]/.test(str[j])) j++;
+    if (j === us + 1) { tokens.push({ t: '_', sub: false }); i = j; continue; } // lone underscore, no subscript run
+    tokens.push({ t: str.slice(us + 1, j), sub: true });
+    i = j;
+  }
+
+  push();
+  if (opts.bold) textStyle(BOLD);
+  textAlign(LEFT, BASELINE);
+  var totalW = 0;
+  for (var k = 0; k < tokens.length; k++) {
+    textSize(tokens[k].sub ? subSize : size);
+    totalW += textWidth(tokens[k].t);
+  }
+
+  var cx = x;
+  if (opts.align === 'center') cx = x - totalW / 2;
+  else if (opts.align === 'right') cx = x - totalW;
+  if (opts.color) fill(opts.color);
+  noStroke();
+  for (var m = 0; m < tokens.length; m++) {
+    textSize(tokens[m].sub ? subSize : size);
+    text(tokens[m].t, cx, tokens[m].sub ? baseline + subDy : baseline);
+    cx += textWidth(tokens[m].t);
+  }
+  pop();
+  return totalW;
 }

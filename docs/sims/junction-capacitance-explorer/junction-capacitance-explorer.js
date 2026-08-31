@@ -101,15 +101,15 @@ function draw() {
   const Cj = EPS * A / W;
 
   fill(20); noStroke();
-  textAlign(CENTER, TOP); textSize(compact() ? 11.5 : 15);
-  // x must be the wrap box's LEFT edge (not its center) once a width
-  // is passed to text().
-  text(compact() ? 'C_j = εA / W(V_R)' : 'C_j = εA / W(V_R),   W(V_R) = √[2ε(V_bi+V_R)/q · (1/N_A+1/N_D)]', 10, 8, canvasWidth - 20);
+  smlMathText(canvasWidth / 2, 8, compact() ? 'C_j = εA / W(V_R)' : 'C_j = εA / W(V_R),   W(V_R) = √[2ε(V_bi+V_R)/q · (1/N_A+1/N_D)]', { size: compact() ? 11.5 : 15, align: 'center' });
 
   const stacked = compact();
   if (stacked) {
     const splitY = 40 + (drawHeight - 40) * 0.52;
-    drawCjCurve(NA, ND, Vbi, A, VR, Cj, 10, 40, canvasWidth - 20, splitY - 40 - 10);
+    // chartX needs room for the y-axis tick numbers (e.g. "3.0") to
+    // their left -- 10px left almost none, and they were clipped off
+    // the canvas entirely.
+    drawCjCurve(NA, ND, Vbi, A, VR, Cj, 34, 40, canvasWidth - 44, splitY - 40 - 10);
     drawCapacitorSchematic(W, VR, 10, splitY + 10, canvasWidth - 20, drawHeight - splitY - 20);
   } else {
     drawCjCurve(NA, ND, Vbi, A, VR, Cj, 70, 40, canvasWidth * 0.55 - 70, drawHeight - 70);
@@ -129,11 +129,33 @@ function drawCjCurve(NA, ND, Vbi, A, VR, CjNow, chartX, chartY, chartW, chartH) 
     pts.push({ x: vr, y: cj * 1e12 });
     if (cj * 1e12 > cjMax) cjMax = cj * 1e12;
   }
-  fill(30); noStroke(); textAlign(LEFT, TOP); textSize(compact() ? 10 : 11.5);
-  text('C_j vs. Reverse Bias V_R', chartX, chartY - 20);
-  smlDrawLineChart(chartX, chartY, chartW, chartH - 20, 0, 10, 0, cjMax * 1.15,
+  fill(30); noStroke();
+  smlMathText(chartX, chartY - 20, 'C_j vs. Reverse Bias V_R', { size: compact() ? 10 : 11.5 });
+  const info = smlDrawLineChart(chartX, chartY, chartW, chartH - 20, 0, 10, 0, cjMax * 1.15,
     [{ points: pts, color: color(90, 62, 237) }],
-    { marker: { x: VR, y: CjNow * 1e12 }, xLabel: 'V_R (V)', yLabel: 'C_j (pF)', yLabelOffset: compact() ? 32 : 40 });
+    { marker: { x: VR, y: CjNow * 1e12 }, yLabel: 'C_j (pF)', yLabelOffset: compact() ? 32 : 40 });
+
+  // Numerical tick marks + gridlines on both axes -- smlDrawLineChart
+  // draws none on its own. The "V_R (V)" caption is drawn manually
+  // below the tick row (instead of via opts.xLabel, which sits right
+  // where the tick numbers go and would overlap them).
+  const plotBottom = chartY + chartH - 20;
+  const yStep = Math.max(1, Math.ceil(cjMax * 1.15 / 5));
+  noStroke(); fill(90); textAlign(RIGHT, CENTER); textSize(compact() ? 8 : 9);
+  for (let cv = 0; cv <= cjMax * 1.15; cv += yStep) {
+    const py = info.yToPx(cv);
+    stroke(225); strokeWeight(1); line(chartX, py, chartX + chartW, py);
+    noStroke(); fill(90);
+    text(cv.toFixed(cv < 10 ? 1 : 0), chartX - 5, py);
+  }
+  textAlign(CENTER, TOP);
+  for (let vr = 0; vr <= 10; vr += 2) {
+    const px = info.xToPx(vr);
+    noStroke(); fill(90);
+    text(vr, px, plotBottom + 3);
+  }
+  noStroke(); fill(40);
+  smlMathText(chartX + chartW / 2, plotBottom + (compact() ? 15 : 16), 'V_R (V)', { size: compact() ? 9.5 : 10.5, align: 'center' });
 }
 
 function drawCapacitorSchematic(W, VR, x0, y0, w, h) {
@@ -186,23 +208,33 @@ function drawCapacitorSchematic(W, VR, x0, y0, w, h) {
   }
 }
 
+// Formats a small area value (cm²) as "1.0×10⁻⁴ cm²" -- smlFormatConc
+// is specifically for concentrations (always appends "cm⁻³"), so area
+// needs its own thin wrapper around the same smlSuperscript machinery.
+function formatArea(value) {
+  const exp = Math.floor(Math.log10(value));
+  const mant = value / Math.pow(10, exp);
+  return mant.toFixed(1) + '×10' + smlSuperscript(exp) + ' cm²';
+}
+
 function drawControlLabels(NA, ND, A, VR) {
   const rows = controlRows();
-  fill(30); noStroke(); textAlign(LEFT, TOP); textSize(compact() ? 12 : 13);
+  const sz = compact() ? 12 : 13;
+  fill(30); noStroke(); textAlign(LEFT, TOP); textSize(sz);
   if (rows.stacked) {
-    text('N_A = ' + NA.toExponential(1) + ' cm⁻³', 10, drawHeight + rows.na);
-    text('N_D = ' + ND.toExponential(1) + ' cm⁻³', 10, drawHeight + rows.nd);
-    text('A = ' + A.toExponential(1) + ' cm²', 10, drawHeight + rows.area);
-    text('V_R = ' + VR.toFixed(1) + ' V', 10, drawHeight + rows.vr);
+    smlMathText(10, drawHeight + rows.na, 'N_A = ' + smlFormatConc(NA), { size: sz });
+    smlMathText(10, drawHeight + rows.nd, 'N_D = ' + smlFormatConc(ND), { size: sz });
+    text('A = ' + formatArea(A), 10, drawHeight + rows.area);
+    smlMathText(10, drawHeight + rows.vr, 'V_R = ' + VR.toFixed(1) + ' V', { size: sz });
   } else {
-    text('N_A', 10, drawHeight + rows.na + 9);
-    text('N_D', 10, drawHeight + rows.nd + 9);
+    smlDrawSubLabel(10, drawHeight + rows.na + 9 + sz * 0.36, 'N', 'A', { size: sz, baseline: CENTER });
+    smlDrawSubLabel(10, drawHeight + rows.nd + 9 + sz * 0.36, 'N', 'D', { size: sz, baseline: CENTER });
     text('Area A', 10, drawHeight + rows.area + 9);
-    text('Reverse bias V_R', 10, drawHeight + rows.vr + 9);
+    smlDrawSubLabel(10, drawHeight + rows.vr + 9 + sz * 0.36, 'Reverse bias V', 'R', { size: sz, baseline: CENTER });
     textAlign(RIGHT, TOP);
-    text(NA.toExponential(1) + ' cm⁻³', canvasWidth - 10, drawHeight + rows.na + 9);
-    text(ND.toExponential(1) + ' cm⁻³', canvasWidth - 10, drawHeight + rows.nd + 9);
-    text(A.toExponential(1) + ' cm²', canvasWidth - 10, drawHeight + rows.area + 9);
+    text(smlFormatConc(NA), canvasWidth - 10, drawHeight + rows.na + 9);
+    text(smlFormatConc(ND), canvasWidth - 10, drawHeight + rows.nd + 9);
+    text(formatArea(A), canvasWidth - 10, drawHeight + rows.area + 9);
     text(VR.toFixed(1) + ' V', canvasWidth - 10, drawHeight + rows.vr + 9);
   }
 }
@@ -216,15 +248,30 @@ function drawInfoCard(NA, ND, A, Vbi, VR, W, Cj) {
   fill(247, 249, 255); stroke(200, 215, 245); strokeWeight(1.5);
   rect(cardX, cardY, cardW, cardH, 10);
 
-  noStroke(); fill(90, 62, 237); textAlign(LEFT, TOP); textStyle(BOLD); textSize(compact() ? 14 : 16);
-  text('C_j = ' + (Cj * 1e12).toFixed(3) + ' pF', cardX + 14, cardY + 10);
+  noStroke(); fill(90, 62, 237); textStyle(BOLD); textSize(compact() ? 14 : 16);
+  smlMathText(cardX + 14, cardY + 10, 'C_j = ' + (Cj * 1e12).toFixed(3) + ' pF', { size: compact() ? 14 : 16 });
   textStyle(NORMAL);
-  fill(30); textSize(compact() ? 10.5 : 12);
-  text('V_bi = ' + Vbi.toFixed(3) + ' V      W = ' + (W * 1e4).toFixed(3) + ' μm      V_R = ' + VR.toFixed(1) + ' V',
-    cardX + 14, cardY + 10 + (compact() ? 26 : 26), cardW - 28);
+  fill(30);
+  const sz = compact() ? 10.5 : 12;
+  const lineH = compact() ? 20 : 19;
+  let ly = cardY + 10 + (compact() ? 24 : 26);
+  if (compact()) {
+    smlMathText(cardX + 14, ly, 'N_A = ' + smlFormatConc(NA), { size: sz }); ly += lineH;
+    smlMathText(cardX + 14, ly, 'N_D = ' + smlFormatConc(ND), { size: sz }); ly += lineH;
+    smlMathText(cardX + 14, ly, 'A = ' + formatArea(A), { size: sz }); ly += lineH;
+    smlMathText(cardX + 14, ly, 'V_bi = ' + Vbi.toFixed(3) + ' V     W = ' + (W * 1e4).toFixed(3) + ' μm', { size: sz }); ly += lineH;
+    smlMathText(cardX + 14, ly, 'V_R = ' + VR.toFixed(1) + ' V', { size: sz }); ly += lineH;
+  } else {
+    smlMathText(cardX + 14, ly, 'N_A = ' + smlFormatConc(NA) + '      N_D = ' + smlFormatConc(ND) + '      A = ' + formatArea(A), { size: sz }); ly += lineH;
+    smlMathText(cardX + 14, ly, 'V_bi = ' + Vbi.toFixed(3) + ' V      W = ' + (W * 1e4).toFixed(3) + ' μm      V_R = ' + VR.toFixed(1) + ' V', { size: sz }); ly += lineH;
+  }
   fill(90); textSize(compact() ? 9.5 : 10.5);
-  text('Reverse bias widens W and lowers C_j — the basis of the varactor diode, an electronically-tunable capacitor.',
-    cardX + 14, cardY + 10 + (compact() ? 52 : 50), cardW - 28);
+  if (compact()) {
+    smlMathText(cardX + 14, ly + 4, 'Reverse bias widens W and lowers C_j — the basis of', { size: compact() ? 9.5 : 10.5 }); ly += 14;
+    smlMathText(cardX + 14, ly + 4, 'the varactor diode, an electronically-tunable capacitor.', { size: compact() ? 9.5 : 10.5 });
+  } else {
+    smlMathText(cardX + 14, ly + 4, 'Reverse bias widens W and lowers C_j — the basis of the varactor diode, an electronically-tunable capacitor.', { size: 10.5 });
+  }
 }
 
 function windowResized() {
@@ -236,11 +283,10 @@ function windowResized() {
 
 function updateCanvasSize() {
   minDrawHeight = compact() ? 620 : 420;
-  // Compact mode needs extra room in the info card: its narrower width
-  // wraps the "Reverse bias widens..." note onto two lines, which the
-  // original budget here didn't leave space for (it clipped off the
-  // bottom of the card).
-  controlHeight = compact() ? 360 : 230;
+  // The info card now shows N_A, N_D, A, V_bi, W, and V_R (not just
+  // C_j, V_bi, W, V_R), so it needs more vertical room than a single
+  // summary line -- both budgets here were sized for the shorter card.
+  controlHeight = compact() ? 420 : 270;
   const sz = smlComputeCanvasSize(minDrawHeight, controlHeight);
   containerWidth = sz.width; canvasWidth = sz.width;
   drawHeight = sz.drawHeight; canvasHeight = sz.height; containerHeight = sz.height;

@@ -25,7 +25,7 @@ let containerHeight = canvasHeight;
 
 let materialSelect, naSlider, ndSlider, tSlider;
 let showAfterContact = true;
-let toggleBtnRect = null;
+let toggleBtnRects = [];
 
 const K_EV = 8.617e-5; // eV/K
 const MATERIALS = {
@@ -113,15 +113,21 @@ function draw() {
   const kT_q = K_EV * T;
   const Vbi = kT_q * Math.log((NA * ND) / (ni * ni));
 
-  fill(20); noStroke();
-  textAlign(CENTER, TOP); textSize(compact() ? 13 : 16);
-  text('V_bi = (kT/q)·ln(N_A·N_D / n_i²)', canvasWidth / 2, 8);
+  fill(20); noStroke(); textAlign(CENTER, TOP);
+  smlMathText(canvasWidth / 2, 8, 'V_bi = (kT/q)·ln(N_A·N_D / n_i²)', { size: compact() ? 13 : 16, align: 'center' });
 
-  // ---- toggle button ----
-  const btnW = compact() ? canvasWidth - 20 : 300, btnH = 26;
-  const btnX = compact() ? 10 : Math.round((canvasWidth - btnW) / 2), btnY = 30;
-  smlDrawButton(btnX, btnY, btnW, btnH, showAfterContact ? 'Showing: After Contact (Equilibrium) — click for Before' : 'Showing: Before Contact (separate) — click for After', showAfterContact);
-  toggleBtnRect = { x: btnX, y: btnY, w: btnW, h: btnH };
+  // ---- toggle: a real two-segment switch (not a single button whose
+  // label tries to describe both states in one long string, which
+  // used to overflow its own fixed width and clip off-canvas). ----
+  const btnW = compact() ? canvasWidth - 20 : 360, btnH = 28;
+  const btnX = compact() ? 10 : Math.round((canvasWidth - btnW) / 2), btnY = 32;
+  const halfW = (btnW - 4) / 2;
+  smlDrawButton(btnX, btnY, halfW, btnH, 'Before Contact', !showAfterContact);
+  smlDrawButton(btnX + halfW + 4, btnY, halfW, btnH, 'After Contact', showAfterContact);
+  toggleBtnRects = [
+    { x: btnX, y: btnY, w: halfW, h: btnH, after: false },
+    { x: btnX + halfW + 4, y: btnY, w: halfW, h: btnH, after: true }
+  ];
 
   const diagTop = btnY + btnH + 10;
   // On wide canvases the card sits beside the diagram (both get the
@@ -130,7 +136,7 @@ function draw() {
   // original bug here) the diagram's own height formula filled the
   // entire drawHeight, leaving nothing for the card and pushing it
   // off the bottom of the canvas.
-  const cardH = 150;
+  const cardH = compact() ? 190 : 168;
   const diagAvailH = compact() ? (drawHeight - diagTop - cardH - 10) : (drawHeight - diagTop);
   if (showAfterContact) {
     drawAfterContact(diagTop, diagAvailH, mat, NA, ND, kT_q, ni, Vbi);
@@ -144,16 +150,19 @@ function draw() {
 
 function drawControlLabels() {
   const rows = controlRows();
-  fill(30); noStroke(); textAlign(LEFT, TOP); textSize(compact() ? 12 : 13);
+  fill(30); noStroke(); textSize(compact() ? 12 : 13);
+  const sz = compact() ? 12 : 13;
   if (rows.stacked) {
+    textAlign(LEFT, TOP);
     text('Material', 10, drawHeight + rows.material);
-    text('N_A = 10' + toSup(naSlider.value().toFixed(1)) + ' cm⁻³', 10, drawHeight + rows.na);
-    text('N_D = 10' + toSup(ndSlider.value().toFixed(1)) + ' cm⁻³', 10, drawHeight + rows.nd);
+    smlMathText(10, drawHeight + rows.na, 'N_A = 10' + toSup(naSlider.value().toFixed(1)) + ' cm⁻³', { size: sz });
+    smlMathText(10, drawHeight + rows.nd, 'N_D = 10' + toSup(ndSlider.value().toFixed(1)) + ' cm⁻³', { size: sz });
     text('T = ' + tSlider.value() + ' K', 10, drawHeight + rows.t);
   } else {
+    textAlign(LEFT, TOP);
     text('Material', 10, drawHeight + rows.material + 9);
-    text('N_A', 10, drawHeight + rows.na + 9);
-    text('N_D', 10, drawHeight + rows.nd + 9);
+    smlDrawSubLabel(10, drawHeight + rows.na + 9 + sz * 0.36, 'N', 'A', { size: sz, baseline: CENTER });
+    smlDrawSubLabel(10, drawHeight + rows.nd + 9 + sz * 0.36, 'N', 'D', { size: sz, baseline: CENTER });
     text('T', 10, drawHeight + rows.t + 9);
     textAlign(RIGHT, TOP);
     text('10' + toSup(naSlider.value().toFixed(1)) + ' cm⁻³', canvasWidth - 10, drawHeight + rows.na + 9);
@@ -174,7 +183,12 @@ function drawAfterContact(top, availH, mat, NA, ND, kT_q, ni, Vbi) {
   const midX = (x0 + x1) / 2;
   const bendMaxV = 1.4;
   const bandGapPx = chartH * 0.4;
-  const bendPx = map(constrain(Vbi, 0, bendMaxV), 0, bendMaxV, 0, chartH * 0.5);
+  // bandGapPx/2 (0.2*chartH) plus the bend offset must stay within the
+  // box's own half-height (chartH*0.5) with margin to spare, or the
+  // p-side E_C curve (and the qV_bi arrow, which spans the same range)
+  // overflow above the box at high V_bi (e.g. GaAs) -- 0.26*chartH
+  // keeps 0.2 + 0.26 = 0.46 comfortably under 0.5.
+  const bendPx = map(constrain(Vbi, 0, bendMaxV), 0, bendMaxV, 0, chartH * 0.26);
 
   noFill(); stroke(210); strokeWeight(1);
   rect(x0 - 10, chartY - 6, x1 - x0 + 20, chartH + 12, 6);
@@ -217,14 +231,14 @@ function drawAfterContact(top, availH, mat, NA, ND, kT_q, ni, Vbi) {
   stroke(150, 60, 160); strokeWeight(2); drawingContext.setLineDash([5, 4]);
   line(x0, efPixel, x1, efPixel);
   drawingContext.setLineDash([]);
-  noStroke(); fill(150, 60, 160); textAlign(LEFT, CENTER); textSize(compact() ? 10 : 11); textStyle(BOLD);
-  text('E_F', x1 + 6, efPixel);
+  noStroke(); fill(150, 60, 160); textStyle(BOLD);
+  smlDrawSubLabel(x1 + 6, efPixel, 'E', 'F', { size: compact() ? 11 : 12, baseline: CENTER });
   textStyle(NORMAL);
 
-  noStroke(); fill(90, 62, 237); textAlign(LEFT, BOTTOM); textSize(compact() ? 10 : 11);
-  text('E_C', x1 + 6, ecFlatN + 4);
+  noStroke(); fill(90, 62, 237);
+  smlDrawSubLabel(x1 + 6, ecFlatN, 'E', 'C', { size: compact() ? 10.5 : 11.5, baseline: CENTER });
   fill(90, 180, 120);
-  text('E_V', x1 + 6, evFlatN + 4);
+  smlDrawSubLabel(x1 + 6, evFlatN, 'E', 'V', { size: compact() ? 10.5 : 11.5, baseline: CENTER });
 
   stroke(200); strokeWeight(1);
   drawingContext.setLineDash([2, 3]);
@@ -238,14 +252,18 @@ function drawAfterContact(top, availH, mat, NA, ND, kT_q, ni, Vbi) {
   text('n-side (neutral)', x1, chartY + chartH + 8);
   textStyle(NORMAL);
 
-  const bx = midX;
+  // Placed near x0 (the flat p-side, well clear of the bezier curve's
+  // own bend, which happens near midX) rather than at the diagram's
+  // horizontal center -- the bracket used to sit exactly where the
+  // curves themselves were bending, so the label text overlapped them.
+  const bx = x0 + 22;
   stroke(230, 150, 30); strokeWeight(1.5);
-  line(bx - 34, ecFlatP, bx - 34, ecFlatN);
+  line(bx, ecFlatP, bx, ecFlatN);
   noStroke(); fill(230, 150, 30);
-  triangle(bx - 34, ecFlatP, bx - 38, ecFlatP + 6, bx - 30, ecFlatP + 6);
-  triangle(bx - 34, ecFlatN, bx - 38, ecFlatN - 6, bx - 30, ecFlatN - 6);
-  fill(200, 120, 10); textAlign(LEFT, CENTER); textSize(compact() ? 10 : 11); textStyle(BOLD);
-  text('qV_bi', bx - 26, (ecFlatP + ecFlatN) / 2);
+  triangle(bx, ecFlatP, bx - 4, ecFlatP + 6, bx + 4, ecFlatP + 6);
+  triangle(bx, ecFlatN, bx - 4, ecFlatN - 6, bx + 4, ecFlatN - 6);
+  fill(200, 120, 10); textStyle(BOLD);
+  smlDrawSubLabel(bx + 8, (ecFlatP + ecFlatN) / 2, 'qV', 'bi', { size: compact() ? 10 : 11, baseline: CENTER });
   textStyle(NORMAL);
 }
 
@@ -271,7 +289,7 @@ function drawBeforeContact(top, availH, mat, NA, ND, kT_q, ni, Vbi) {
   // HIGHER physical energy than midgap (smaller pixel y) -- see the
   // derivation in drawAfterContact.
   const bendMaxV = 1.4;
-  const bendPxMax = chartH * 0.5;
+  const bendPxMax = chartH * 0.26; // matches drawAfterContact's bendPx scale
   const pxPerVolt = bendMaxV > 0 ? bendPxMax / bendMaxV : 0;
   const efP = midY + kT_q * Math.log(NA / ni) * pxPerVolt;
   const efN = midY - kT_q * Math.log(ND / ni) * pxPerVolt;
@@ -286,8 +304,12 @@ function drawBeforeContact(top, availH, mat, NA, ND, kT_q, ni, Vbi) {
     stroke(...color1); strokeWeight(2); drawingContext.setLineDash([5, 4]);
     line(bx0, efY, bx1, efY);
     drawingContext.setLineDash([]);
-    noStroke(); fill(...color1); textAlign(CENTER, efY < midY ? BOTTOM : TOP); textSize(compact() ? 10 : 11); textStyle(BOLD);
-    text(efLabel, (bx0 + bx1) / 2, efY + (efY < midY ? -4 : 4));
+    const sz = compact() ? 10 : 11;
+    noStroke(); fill(...color1); textStyle(BOLD);
+    // Approximates the old BOTTOM/TOP anchoring: for a label placed
+    // above its line, back off by roughly the text's own height so it
+    // reads as sitting just above efY; below, start right at efY.
+    smlMathText((bx0 + bx1) / 2, efY < midY ? efY - sz - 4 : efY + 4, efLabel, { size: sz, align: 'center' });
     textStyle(NORMAL);
     fill(90); textAlign(CENTER, TOP); textSize(compact() ? 9.5 : 10.5);
     text(sideLabel, (bx0 + bx1) / 2, chartY + chartH + 8);
@@ -296,10 +318,10 @@ function drawBeforeContact(top, availH, mat, NA, ND, kT_q, ni, Vbi) {
   box(pX0, pX1, [190, 40, 40], efP, 'E_Fp', 'p-side (isolated)');
   box(nX0, nX1, [40, 40, 190], efN, 'E_Fn', 'n-side (isolated)');
 
-  noStroke(); fill(90, 62, 237); textAlign(LEFT, TOP); textSize(compact() ? 10 : 11);
-  text('E_C', pX1 - 24, ecY - 16);
+  noStroke(); fill(90, 62, 237);
+  smlDrawSubLabel(pX1 - 30, ecY - 10, 'E', 'C', { size: compact() ? 10 : 11, baseline: CENTER });
   fill(90, 180, 120);
-  text('E_V', pX1 - 24, evY + 4);
+  smlDrawSubLabel(pX1 - 30, evY + 10, 'E', 'V', { size: compact() ? 10 : 11, baseline: CENTER });
 
   // qV_bi bracket between the two isolated E_F lines.
   const bxk = (pX1 + nX0) / 2;
@@ -312,7 +334,7 @@ function drawBeforeContact(top, availH, mat, NA, ND, kT_q, ni, Vbi) {
   push();
   translate(bxk + (compact() ? 20 : 26), (efP + efN) / 2);
   rotate(-HALF_PI);
-  text('qV_bi apart', 0, 0);
+  smlMathText(0, -6, 'qV_bi apart', { size: compact() ? 9.5 : 10.5, align: 'center', color: color(200, 120, 10) });
   pop();
   textStyle(NORMAL);
 }
@@ -326,30 +348,40 @@ function drawResultCard(diagTop, cardH, NA, ND, T, ni, kT_q, Vbi) {
   const cx = wide ? canvasWidth * 0.62 : 10;
   const cy = wide ? diagTop : drawHeight - cardH;
   const cw = wide ? canvasWidth - cx - 16 : canvasWidth - 20;
-  const ch = wide ? drawHeight - cy - 10 : cardH - 10;
+  const sz = compact() ? 11 : 11.5;
+  const lineH = compact() ? 21 : 20;
+  const nLines = 4;
+  // Content-driven height instead of stretching to fill all remaining
+  // vertical space, which previously left a large, mostly-empty box
+  // below the four result lines on wide canvases.
+  const ch = 12 + 26 + nLines * lineH + 14 + (compact() ? 0 : 40);
 
   noStroke(); fill(240, 245, 255);
   stroke(168, 200, 255); strokeWeight(1.5);
   rect(cx, cy, cw, ch, 10);
-  noStroke(); fill(90, 62, 237); textAlign(CENTER, TOP); textSize(compact() ? 16 : 17); textStyle(BOLD);
-  text('V_bi = ' + Vbi.toFixed(3) + ' V', cx + cw / 2, cy + 12);
+  noStroke(); fill(90, 62, 237); textAlign(CENTER, TOP); textStyle(BOLD);
+  smlMathText(cx + cw / 2, cy + 12, 'V_bi = ' + Vbi.toFixed(3) + ' V', { size: compact() ? 16 : 17, align: 'center', color: color(90, 62, 237) });
   textStyle(NORMAL);
-  fill(30); textAlign(LEFT, TOP); textSize(compact() ? 11 : 11.5);
-  const lines = [
-    'kT/q = ' + kT_q.toFixed(4) + ' V',
-    'n_i(T) = ' + ni.toExponential(2) + ' cm⁻³',
-    'N_A·N_D = ' + (NA * ND).toExponential(2) + ' cm⁻⁶',
-    'N_A·N_D / n_i² = ' + ((NA * ND) / (ni * ni)).toExponential(2)
-  ];
-  for (let i = 0; i < lines.length; i++) {
-    text(lines[i], cx + 14, cy + 44 + i * 22, cw - 28);
+  fill(30);
+  let ly = cy + 44;
+  smlMathText(cx + 14, ly, 'kT/q = ' + kT_q.toFixed(4) + ' V', { size: sz }); ly += lineH;
+  smlMathText(cx + 14, ly, 'n_i(T) = ' + ni.toExponential(2) + ' cm⁻³', { size: sz }); ly += lineH;
+  smlMathText(cx + 14, ly, 'N_A·N_D = ' + (NA * ND).toExponential(2) + ' cm⁻⁶', { size: sz }); ly += lineH;
+  smlMathText(cx + 14, ly, 'N_A·N_D / n_i² = ' + ((NA * ND) / (ni * ni)).toExponential(2), { size: sz }); ly += lineH;
+
+  if (!compact()) {
+    noStroke(); fill(90); textAlign(LEFT, TOP); textSize(10.5);
+    text('The larger this ratio is above 1, the larger V_bi becomes — but only logarithmically: a 1000× bigger ratio only adds (kT/q)·ln(1000) ≈ 0.18 V.', cx + 14, ly + 6, cw - 28);
   }
 }
 
 function mousePressed() {
-  if (toggleBtnRect && smlPointInRect(mouseX, mouseY, toggleBtnRect.x, toggleBtnRect.y, toggleBtnRect.w, toggleBtnRect.h)) {
-    showAfterContact = !showAfterContact;
-    redraw();
+  for (const r of toggleBtnRects) {
+    if (smlPointInRect(mouseX, mouseY, r.x, r.y, r.w, r.h)) {
+      showAfterContact = r.after;
+      redraw();
+      return;
+    }
   }
 }
 

@@ -30,22 +30,28 @@
         <h3>Try This</h3>
         <ul class="explore-list">
             <li><strong>Try this:</strong> Switch to Semi-Log View and watch the forward region collapse into a straight line.</li>
+            <li><strong>Try this:</strong> Click "Compare 300K vs T2" and drag the T2 slider well above and below 300 K to see how much the curve shifts.</li>
             <li><strong>Predict:</strong> Before raising temperature T, predict whether the forward curve at a fixed voltage will shift to higher or lower current.</li>
-            <li><strong>Observe:</strong> Dragging the voltage marker into reverse bias (negative V) shows J leveling off at −J0 almost immediately, well before reaching -2 V.</li>
+            <li><strong>Observe:</strong> Dragging the voltage marker into reverse bias (negative V) shows J leveling off at −J0 almost immediately, well before reaching -2 V — this is the shaded "Reverse Saturation" band.</li>
+            <li><strong>Observe:</strong> As the marker crosses into the green "Exponential Forward Conduction" band, the region badge below the voltage readout changes color and label to match.</li>
         </ul>
 
-        <p class="connects-to"><strong>Connects to Chapter 15:</strong> The <strong>ideal diode equation</strong>, \(J=J_0(e^{V/V_T}-1)\), combines the law of the junction with the <strong>saturation current</strong> \(J_0\) derived from the injected minority carrier profile's gradient. It captures the diode's entire behavior: zero current at equilibrium, exponential forward conduction, and small, nearly voltage-independent reverse current.</p>
+        <p class="connects-to"><strong>Connects to Chapter 15:</strong> The <strong>ideal diode equation</strong>, \(J=J_0(e^{V/V_T}-1)\), combines the law of the junction with the <strong>saturation current</strong> \(J_0\) derived from the injected minority carrier profile's gradient. It captures the diode's entire behavior: zero current at equilibrium, exponential forward conduction, and small, nearly voltage-independent reverse current. Because current depends on voltage through an exponential, each additional \(V_T\) of forward bias multiplies the current by a constant factor \(e\) — this is why the forward current increases exponentially rather than linearly, and why it appears as a straight line only on the semi-log view.</p>
 
         <h3>What Each Control Does</h3>
         <dl class="control-captions">
             <dt>J0</dt>
             <dd>Sets the saturation current density (log scale), shifting the whole curve up or down.</dd>
             <dt>T</dt>
-            <dd>Sets temperature, which sets the thermal voltage VT and therefore the forward curve's steepness.</dd>
+            <dd>In Single Temperature mode, sets the curve's temperature, which sets the thermal voltage VT and therefore the forward curve's steepness.</dd>
+            <dt>Single Temperature / Compare 300K vs T2</dt>
+            <dd>Toggles a second curve, in orange, at an independently-adjustable second temperature T2, plotted alongside the primary curve fixed at 300 K.</dd>
+            <dt>T2</dt>
+            <dd>(Compare mode only) Sets the second curve's temperature, so its VT and steepness can be compared directly against the 300 K curve.</dd>
             <dt>View</dt>
             <dd>Switches between linear and semi-log (log₁₀|J|) display.</dd>
             <dt>V marker</dt>
-            <dd>Reads off J at a chosen voltage.</dd>
+            <dd>Reads off J at a chosen voltage and shows which labeled region (Reverse Saturation, Near-Zero Bias, or Exponential Forward Conduction) that voltage falls in.</dd>
         </dl>
 
         <h3>Challenge Questions</h3>
@@ -72,6 +78,30 @@
             <span class="feedback" role="status" aria-live="polite"></span>
             <p class="explain-correct" hidden>Correct. Once V is a few VT negative, e^(V/VT) is essentially zero, so J approaches the small, fixed value −J0 — the reverse "saturation" current.</p>
             <p class="explain-incorrect" hidden>Set V to a large negative value on the marker and read off where J levels out.</p>
+        </div>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">3. Why does the forward current increase exponentially with voltage rather than, say, linearly?</p>
+            <label><input type="radio" name="dive-q3" value="a"> Because J0 itself grows with voltage</label>
+            <label><input type="radio" name="dive-q3" value="b"> It doesn't — the exponential shape is just a plotting artifact of the semi-log view</label>
+            <label><input type="radio" name="dive-q3" value="c"> Because J = J0(e^(V/VT) − 1), so each extra VT of forward bias multiplies J by a constant factor (e)</label>
+            <label><input type="radio" name="dive-q3" value="d"> Because temperature rises as voltage rises</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Correct. The ideal diode equation's exponential term e^(V/VT) means every additional VT of forward bias multiplies the current by the same factor, e ≈ 2.718 — the hallmark of exponential growth, not linear growth.</p>
+            <p class="explain-incorrect" hidden>Look at the equation itself: V appears in an exponent, e^(V/VT). Equal increments of V in that exponent produce equal ratios of J, not equal differences — that's exponential behavior.</p>
+        </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">4. In Compare mode, raising T2 well above 300 K mainly does what to the orange curve's forward region?</p>
+            <label><input type="radio" name="dive-q4" value="a"> Makes it rise less steeply — the same forward current is reached at a higher voltage</label>
+            <label><input type="radio" name="dive-q4" value="b"> Makes it rise more steeply at the same voltage as the 300 K curve</label>
+            <label><input type="radio" name="dive-q4" value="c"> Has no visible effect on the forward region</label>
+            <label><input type="radio" name="dive-q4" value="d"> Shifts the whole curve left without changing its shape</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Correct. A higher T2 increases VT = kT/q, which stretches out the exponential — the curve needs more volts to reach the same current, so it looks less steep next to the 300 K curve.</p>
+            <p class="explain-incorrect" hidden>Watch the two curves' forward "knees" as you drag T2 up: the higher-T2 curve's knee moves to a higher voltage because VT = kT/q grows with T.</p>
         </div>
 
     </div>

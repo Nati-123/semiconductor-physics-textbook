@@ -109,7 +109,7 @@ flowchart TD
 
 #### Diagram: Forward and Reverse Bias Band Diagram Explorer
 
-<iframe src="../../sims/forward-reverse-bias-band-diagram-explorer/main.html" width="100%" height="620px" scrolling="auto"></iframe>
+<iframe src="../../sims/forward-reverse-bias-band-diagram-explorer/main.html" width="100%" height="630px" scrolling="auto"></iframe>
 
 !!! tip "How to use this MicroSim"
     **Instructions:** Drag the bias slider from reverse through zero into forward bias and watch the band diagram, barrier height, and depletion width all update together.
@@ -182,7 +182,7 @@ Both are limiting cases of the same general continuity-equation solution; real d
 
 #### Diagram: Minority Carrier Injection Profile Explorer
 
-<iframe src="../../sims/minority-carrier-injection-profile-explorer/main.html" width="100%" height="660px" scrolling="auto"></iframe>
+<iframe src="../../sims/minority-carrier-injection-profile-explorer/main.html" width="100%" height="700px" scrolling="auto"></iframe>
 
 !!! tip "How to use this MicroSim"
     **Instructions:** Toggle between long-base and short-base regimes and compare the resulting carrier profiles; vary the applied voltage and the base width \(W'\) relative to \(L_p\).
@@ -260,7 +260,7 @@ where \(I_0=J_0A\) for a junction of area \(A\). This single equation captures t
 
 #### Diagram: Ideal Diode I-V Curve Explorer
 
-<iframe src="../../sims/ideal-diode-iv-curve-explorer/main.html" width="100%" height="660px" scrolling="auto"></iframe>
+<iframe src="../../sims/ideal-diode-iv-curve-explorer/main.html" width="100%" height="720px" scrolling="auto"></iframe>
 
 !!! tip "How to use this MicroSim"
     **Instructions:** Vary \(J_0\) and temperature, and switch between linear and semi-log views of the I-V curve; drag the voltage marker across forward and reverse bias.
@@ -304,7 +304,7 @@ flowchart TD
 
 #### Diagram: Reverse Breakdown Mechanism Explorer
 
-<iframe src="../../sims/reverse-breakdown-mechanism-explorer/main.html" width="100%" height="640px" scrolling="auto"></iframe>
+<iframe src="../../sims/reverse-breakdown-mechanism-explorer/main.html" width="100%" height="960px" scrolling="auto"></iframe>
 
 !!! tip "How to use this MicroSim"
     **Instructions:** Sweep the lightly-doped-side concentration slider and watch the estimated avalanche breakdown voltage fall; observe the crossover region where Zener tunneling would take over in a real device.
@@ -343,6 +343,19 @@ I(V) \approx \begin{cases} I_0\left(e^{V/V_T}-1\right) & V>-V_{BR} \\ \text{rapi
 \]
 
 Across most of the forward region, current rises exponentially — doubling roughly every \(V_T\ln2\approx18\ \text{mV}\) — so real diodes appear to conduct almost negligible current below roughly 0.5-0.6 V (for silicon) and then rise so steeply that the forward voltage across a conducting diode is nearly constant regardless of current, the basis of the familiar "0.7 V diode drop" approximation used throughout circuit analysis. Across the reverse region, current is pinned at the tiny, nearly voltage-independent \(-I_0\) until breakdown, at which point current increases so steeply that external circuitry (a series resistor, in most practical circuits) must limit it to protect the device. This single curve — exponential forward rise, flat reverse saturation, sharp reverse breakdown — is the defining electrical signature of the p-n junction diode, and every transistor covered in later chapters is built from one or more junctions obeying exactly this relationship.
+
+#### Diagram: Complete Junction I-V Characteristic Explorer
+
+<iframe src="../../sims/junction-iv-characteristic-explorer/main.html" width="100%" height="720px" scrolling="auto"></iframe>
+
+!!! tip "How to use this MicroSim"
+    **Instructions:** Set the lightly-doped-side concentration, then drag the voltage marker from deep reverse bias (past breakdown) through zero and into forward conduction, watching the I-V curve, the live junction diagram, and the operating-region readout update together.
+
+    **Learning objective:** Sketch and interpret the complete junction I-V characteristic across forward bias, reverse bias, and breakdown, and connect each region to the physical state of the junction.
+
+    **What to observe:** One doping choice sets both the estimated breakdown voltage \(V_{BR}\) and, through the mini junction diagram, which breakdown mechanism is more likely; the same voltage marker sweeps continuously through breakdown, reverse saturation, and forward conduction on one consistent semi-log current scale — the same three regions introduced separately by the band-diagram, ideal-diode, and breakdown MicroSims earlier in this chapter, now shown as one connected picture.
+
+[Full MicroSim documentation →](../../sims/junction-iv-characteristic-explorer/index.md)
 
 !!! question "Concept Check"
     Why does the forward voltage across a conducting silicon diode change so little (roughly 0.6-0.8 V) even as the current through it varies by several orders of magnitude?
@@ -405,7 +418,7 @@ Use the MicroSim below as a capstone review: a guided, step-through tour of this
 
 #### Diagram: P-N Junction Under Bias Interactive Walkthrough
 
-<iframe src="../../sims/pn-junction-under-bias-interactive-walkthrough/main.html" width="100%" height="670px" scrolling="auto"></iframe>
+<iframe src="../../sims/pn-junction-under-bias-interactive-walkthrough/main.html" width="100%" height="700px" scrolling="auto"></iframe>
 
 !!! tip "How to use this MicroSim"
     **Instructions:** Click "Next ▶" through all steps in order, then use the step dots to jump back to any concept before the chapter quiz.

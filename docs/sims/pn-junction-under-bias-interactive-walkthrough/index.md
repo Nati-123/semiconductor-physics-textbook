@@ -8,7 +8,7 @@ quality_score: 85
 <h1 style="color: #5A3EED !important; border-bottom: 3px solid #5A3EED; padding-bottom: 0.4rem; font-weight: 800;">P-N Junction Under Bias Interactive Walkthrough</h1>
 
 <div style="background: #EEF4FF; border: 2px solid #A8C8FF; border-radius: 12px; padding: 18px; margin: 1.2rem 0; box-shadow: 0 2px 8px rgba(90,61,237,0.07);">
-<iframe src="main.html" height="670px" width="100%" scrolling="auto" style="border:none; border-radius:8px; overflow:hidden;"></iframe>
+<iframe src="main.html" height="700px" width="100%" scrolling="auto" style="border:none; border-radius:8px; overflow:hidden;"></iframe>
 </div>
 
 <a href="../../chapters/15-pn-junction-under-bias/index.md" style="color: #5A3EED; font-weight: 600; font-size: 0.95rem;">&#8592; Back to Chapter 15: The P-N Junction Under Bias</a>
@@ -24,7 +24,8 @@ This capstone MicroSim is an eight-step guided review of Chapter 15's complete s
 <ul style="list-style: none; padding-left: 0; margin: 0;">
 <li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Eight-step guided sequence</strong> covering every concept in the chapter, in order</li>
 <li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Step dots</strong> for jumping directly to any concept before the chapter quiz</li>
-<li style="margin-bottom: 0; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Responsive canvas</strong> that resizes with the browser window</li>
+<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Restart on the final step</strong>: "Next" disables on Step 8 and a highlighted "Restart" button returns to Step 1, instead of silently wrapping around</li>
+<li style="margin-bottom: 0; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Responsive canvas</strong> that resizes with the browser window, including a mobile-width layout for the Step 8 concept chain</li>
 </ul>
 </div>
 

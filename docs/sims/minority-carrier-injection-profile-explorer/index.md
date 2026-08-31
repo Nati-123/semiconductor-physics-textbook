@@ -8,7 +8,7 @@ quality_score: 85
 <h1 style="color: #5A3EED !important; border-bottom: 3px solid #5A3EED; padding-bottom: 0.4rem; font-weight: 800;">Minority Carrier Injection Profile Explorer</h1>
 
 <div style="background: #EEF4FF; border: 2px solid #A8C8FF; border-radius: 12px; padding: 18px; margin: 1.2rem 0; box-shadow: 0 2px 8px rgba(90,61,237,0.07);">
-<iframe src="main.html" height="660px" width="100%" scrolling="auto" style="border:none; border-radius:8px; overflow:hidden;"></iframe>
+<iframe src="main.html" height="700px" width="100%" scrolling="auto" style="border:none; border-radius:8px; overflow:hidden;"></iframe>
 </div>
 
 <a href="../../chapters/15-pn-junction-under-bias/index.md" style="color: #5A3EED; font-weight: 600; font-size: 0.95rem;">&#8592; Back to Chapter 15: The P-N Junction Under Bias</a>
@@ -16,15 +16,16 @@ quality_score: 85
 <h2 style="color: #5A3EED !important; border-bottom: 2px solid #5A3EED; padding-bottom: 0.3rem; font-weight: 700; margin-top: 2rem;">Description</h2>
 
 <p style="color: #555; line-height: 1.85; font-size: 1.02rem; margin-bottom: 1.2rem;">
-This MicroSim plots the excess minority carrier concentration injected at a p-n junction's depletion edge under forward bias, normalized to its peak value so the two limiting-case shapes can be compared directly: the exponentially-decaying <strong>long-base diode</strong> profile, \(e^{-x'/L_p}\), and the linear <strong>short-base diode</strong> profile, \(1-x'/W'\). Sliders for applied voltage, diffusion length, and base width update both curves and the actual peak concentration live.
+This MicroSim plots the excess minority carrier concentration injected at a p-n junction's depletion edge under forward bias, normalized to its peak value so the two limiting-case shapes can be compared directly: the exponentially-decaying <strong>long-base diode</strong> profile, \(e^{-x'/L_p}\), and the linear <strong>short-base diode</strong> profile, \(1-x'/W'\). Sliders for applied voltage, diffusion length, and base width update both curves and the actual peak concentration live, while a color-coded regime badge and a labeled injection-edge marker make the physics explicit on the chart itself rather than only in a legend.
 </p>
 
 <div style="background: #FFF7DD; border: 2px solid #F0D87A; border-radius: 10px; padding: 20px 24px; margin: 1.2rem 0;">
 <p style="color: #B8860B; font-weight: 700; font-size: 1.05rem; margin-top: 0; margin-bottom: 12px;">Key Features</p>
 <ul style="list-style: none; padding-left: 0; margin: 0;">
-<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Side-by-side comparison</strong> of long-base and short-base profiles on one normalized chart</li>
-<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Live peak-concentration calculation</strong> from the law of the junction</li>
-<li style="margin-bottom: 0; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Responsive canvas</strong> that resizes with the browser window</li>
+<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Side-by-side comparison</strong> of long-base and short-base profiles on one normalized chart, with the injection edge (x' = 0) explicitly marked</li>
+<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Live regime badge</strong> (Short-base / Transition / Long-base) that classifies the current \(L_p/W'\) ratio at a glance</li>
+<li style="margin-bottom: 0.6rem; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Live peak-concentration result card</strong> showing \(\Delta p(0)\) computed from the law of the junction, connected explicitly to the applied voltage</li>
+<li style="margin-bottom: 0; line-height: 1.75; color: #333; padding-left: 1.4rem; text-indent: -1.4rem;"><span style="color: #5A3EED; font-weight: 700; margin-right: 0.4rem;">&#9679;</span> <strong>Responsive canvas</strong> that resizes with the browser window, with a stacked layout on narrow screens</li>
 </ul>
 </div>
 

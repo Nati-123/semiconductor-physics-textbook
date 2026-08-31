@@ -29,21 +29,22 @@
 
         <h3>Try This</h3>
         <ul class="explore-list">
-            <li><strong>Try this:</strong> Compare the long-base (purple) and short-base (orange) curves side by side, then drag W' down toward 0 and watch the short-base curve get steeper right at the injection edge.</li>
-            <li><strong>Predict:</strong> Before raising the applied voltage V, predict whether the shape of either curve will change, or only the peak value Δp(0).</li>
-            <li><strong>Observe:</strong> When W' is set much larger than Lp, the short-base line and long-base curve nearly overlap near the injection edge — the short-base approximation breaks down once W' is not actually short.</li>
+            <li><strong>1. Predict:</strong> Before touching W', look only at the long-base (purple) curve and predict what the short-base (orange) curve will look like once W' is dragged well below Lp — will it curve, or go straight to zero?</li>
+            <li><strong>2. Explore:</strong> Drag W' down toward 1 μm and back up past 60 μm while watching both the orange curve and the regime badge above the chart switch between "Short-base," "Transition," and "Long-base."</li>
+            <li><strong>3. Observe:</strong> When W' is set much larger than Lp, the short-base line and long-base curve nearly overlap near the injection edge — the short-base approximation breaks down once W' is not actually short, exactly when the badge reads "Long-base regime" instead of "Short-base regime."</li>
+            <li><strong>4. Explain:</strong> Raise the applied voltage V and watch the result card — the curve <em>shapes</em> stay fixed (they are normalized to Δp(0)), but the actual peak concentration Δp(0) itself rises exponentially. Explain why changing V never changes either curve's shape, only its scale.</li>
         </ul>
 
-        <p class="connects-to"><strong>Connects to Chapter 15:</strong> <strong>Minority carrier injection</strong> at the depletion edge is set by the law of the junction. The injected carriers then diffuse according to the continuity equation, giving an exponential decay in the <strong>long-base diode</strong> limit (quasi-neutral region much longer than the diffusion length) or a linear profile in the <strong>short-base diode</strong> limit (quasi-neutral region much shorter than the diffusion length, forced to zero at the nearby ohmic contact).</p>
+        <p class="connects-to"><strong>Connects to Chapter 15:</strong> <strong>Minority carrier injection</strong> at the depletion edge is set by the law of the junction. The injected carriers then diffuse according to the continuity equation, giving an exponential decay in the <strong>long-base diode</strong> limit (quasi-neutral region much longer than the diffusion length — the contact is effectively infinitely far away, so carriers diffuse and recombine before ever reaching it) or a linear profile in the <strong>short-base diode</strong> limit (quasi-neutral region much shorter than the diffusion length — the nearby ohmic contact forces the excess concentration to zero right there, with essentially no recombination in between).</p>
 
         <h3>What Each Control Does</h3>
         <dl class="control-captions">
             <dt>V</dt>
-            <dd>Sets the applied forward bias, which sets the peak injected concentration Δp(0) via the law of the junction.</dd>
+            <dd>Sets the applied forward bias, which sets the peak injected concentration Δp(0) via the law of the junction (shown live in the result card). It never changes either curve's normalized shape.</dd>
             <dt>Lp</dt>
-            <dd>Sets the minority carrier diffusion length used in the long-base exponential curve.</dd>
+            <dd>Sets the minority carrier diffusion length used in the long-base exponential curve. Physically Lp = √(Dp·τp) — a larger diffusion coefficient Dp or a longer minority-carrier lifetime τp both increase Lp.</dd>
             <dt>W'</dt>
-            <dd>Sets the quasi-neutral region width used in the short-base linear curve.</dd>
+            <dd>Sets the quasi-neutral region width used in the short-base linear curve. The Lp/W' ratio (shown under the regime badge) is what actually decides whether the diode behaves as short-base, long-base, or something in between.</dd>
         </dl>
 
         <h3>Challenge Questions</h3>
@@ -70,6 +71,18 @@
             <span class="feedback" role="status" aria-live="polite"></span>
             <p class="explain-correct" hidden>Correct. The same concentration drop happens over the shorter distance W' rather than Lp, producing a steeper gradient and a larger saturation current, exactly as seen when W' is dragged well below Lp.</p>
             <p class="explain-incorrect" hidden>Compare the two curves when W' is set much smaller than Lp — which one falls off faster near the injection edge?</p>
+        </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">3. Why does the short-base profile become a straight line instead of curving like the long-base profile?</p>
+            <label><input type="radio" name="mcipe-q3" value="a"> The quasi-neutral region is so short that almost no carriers recombine before reaching the contact, so the diffusion equation reduces to a linear (zero-recombination) solution with a fixed boundary value of zero at the contact</label>
+            <label><input type="radio" name="mcipe-q3" value="b"> Straight lines are simply easier to compute, so short-base diodes are always modeled that way as an approximation</label>
+            <label><input type="radio" name="mcipe-q3" value="c"> The applied voltage V forces the profile to be linear whenever W' is small</label>
+            <label><input type="radio" name="mcipe-q3" value="d"> Diffusion length Lp has no physical meaning once W' is smaller than it</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Correct. With negligible recombination (W' ≪ Lp), the steady-state continuity equation reduces to d²Δp/dx'² ≈ 0, whose general solution is linear — and applying Δp(0) at the injection edge and Δp(W')=0 at the ohmic contact pins down exactly the straight line seen in the simulation.</p>
+            <p class="explain-incorrect" hidden>Start from the steady-state minority-carrier continuity equation and ask what it reduces to when the recombination term becomes negligible over the short distance W'.</p>
         </div>
 
     </div>

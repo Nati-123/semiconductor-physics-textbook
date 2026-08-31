@@ -169,6 +169,7 @@ Interactive educational simulations that accompany this textbook.
 | [Ideal Diode I-V Curve Explorer](ideal-diode-iv-curve-explorer/index.md) | L3 Apply | Plots the ideal diode equation in linear or semi-log view, with adjustable saturation current and temperature |
 | [Reverse Breakdown Mechanism Explorer](reverse-breakdown-mechanism-explorer/index.md) | L4-L5 Analyze/Evaluate | Log-log breakdown-voltage-vs-doping chart with schematic comparison of avalanche and Zener breakdown |
 | [P-N Junction Under Bias Interactive Walkthrough](pn-junction-under-bias-interactive-walkthrough/index.md) | L1-L2 Remember/Understand | An 8-step guided-tour capstone review retracing the chapter's full storyline from applied bias through the complete I-V characteristic |
+| [Complete Junction I-V Characteristic Explorer](junction-iv-characteristic-explorer/index.md) | L4-L5 Analyze/Evaluate | Combines forward conduction, reverse saturation, and reverse breakdown into one I-V curve with a live junction diagram, driven by a single doping slider and voltage marker |
 
 ## Chapter 16: Metal-Semiconductor and MOS Junctions
 

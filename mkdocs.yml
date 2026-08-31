@@ -280,6 +280,7 @@ nav:
           - Ideal Diode I-V Curve Explorer: sims/ideal-diode-iv-curve-explorer/index.md
           - Reverse Breakdown Mechanism Explorer: sims/reverse-breakdown-mechanism-explorer/index.md
           - P-N Junction Under Bias Interactive Walkthrough: sims/pn-junction-under-bias-interactive-walkthrough/index.md
+          - Complete Junction I-V Characteristic Explorer: sims/junction-iv-characteristic-explorer/index.md
       - Chapter 16:
           - Work Function and Barrier Height Explorer: sims/work-function-barrier-height-explorer/index.md
           - Metal-Semiconductor Contact Classifier: sims/metal-semiconductor-contact-classifier/index.md

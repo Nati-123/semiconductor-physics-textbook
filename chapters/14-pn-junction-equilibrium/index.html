@@ -10120,7 +10120,7 @@
 </ul>
 <p>Real depletion regions have a smooth, continuous transition rather than a knife-edge boundary, but the depletion approximation reproduces the built-in potential, depletion width, and capacitance to good accuracy for the doping levels used in most devices, which is why it remains the standard first-order model taught alongside the more exact numerical solution.</p>
 <h4 id="diagram-metallurgical-junction-and-depletion-formation-explorer">Diagram: Metallurgical Junction and Depletion Formation Explorer</h4>
-<iframe height="700px" scrolling="auto" src="../../sims/metallurgical-junction-depletion-formation-explorer/main.html" width="100%"></iframe>
+<iframe height="1150px" scrolling="auto" src="../../sims/metallurgical-junction-depletion-formation-explorer/main.html" width="100%"></iframe>
 <div class="admonition tip">
 <p class="admonition-title">How to use this MicroSim</p>
 <p><strong>Instructions:</strong> Step through all eight stages with the Next button: separate p-type and n-type blocks, contact, majority-carrier diffusion, recombination, uncovered fixed ions, the depletion region and its boundaries <span class="arithmatex">\(-x_p\)</span>, <span class="arithmatex">\(x_n\)</span>, the built-in electric field, and finally equilibrium.</p>
@@ -10138,7 +10138,7 @@
 </details>
 <p>How good is the abrupt-edge idealization above, really? The next MicroSim answers that directly, by plotting the real, smoothly-varying carrier concentration alongside the depletion approximation's idealized step — letting you see, rather than just assert, that the approximation is a genuinely good one for realistic doping levels.</p>
 <h4 id="diagram-depletion-approximation-explorer">Diagram: Depletion Approximation Explorer</h4>
-<iframe height="950px" scrolling="auto" src="../../sims/depletion-approximation-explorer/main.html" width="100%"></iframe>
+<iframe height="1220px" scrolling="auto" src="../../sims/depletion-approximation-explorer/main.html" width="100%"></iframe>
 <div class="admonition tip">
 <p class="admonition-title">How to use this MicroSim</p>
 <p><strong>Instructions:</strong> Compare the solid (real) and dashed (idealized) curves for <span class="arithmatex">\(n(x)\)</span> and <span class="arithmatex">\(p(x)\)</span> across the junction, and raise or lower <span class="arithmatex">\(N_A\)</span>, <span class="arithmatex">\(N_D\)</span> to see the depletion edges <span class="arithmatex">\(-x_p\)</span>, <span class="arithmatex">\(x_n\)</span> move.</p>
@@ -10162,7 +10162,7 @@ V_{bi} = \frac{kT}{q}\ln\!\left(\frac{n_{n0}}{n_{p0}}\right) = \frac{kT}{q}\ln\!
 </ul>
 <p>This single equation captures the essential physics: heavier doping on either side, or a smaller intrinsic carrier concentration (a wider band gap, Chapter 6), increases <span class="arithmatex">\(V_{bi}\)</span>. Note also that <span class="arithmatex">\(V_{bi}\)</span> depends <em>only</em> on material properties and doping concentrations — not on the physical size, shape, or cross-sectional area of the device, a fact worth confirming in the concept check below.</p>
 <h4 id="diagram-built-in-potential-calculator">Diagram: Built-In Potential Calculator</h4>
-<iframe height="820px" scrolling="auto" src="../../sims/built-in-potential-calculator/main.html" width="100%"></iframe>
+<iframe height="1090px" scrolling="auto" src="../../sims/built-in-potential-calculator/main.html" width="100%"></iframe>
 <div class="admonition tip">
 <p class="admonition-title">How to use this MicroSim</p>
 <p><strong>Instructions:</strong> Adjust the <span class="arithmatex">\(N_A\)</span> and <span class="arithmatex">\(N_D\)</span> sliders (log scale, <span class="arithmatex">\(10^{14}\)</span> to <span class="arithmatex">\(10^{19}\ \text{cm}^{-3}\)</span>) and the material dropdown (Si, Ge, GaAs) and read off <span class="arithmatex">\(V_{bi}\)</span>, computed live alongside the equilibrium band diagram. Click the toggle button to compare the separate pre-contact Fermi levels to the single post-contact equilibrium Fermi level.</p>
@@ -10244,7 +10244,7 @@ x_n = W\,\frac{N_A}{N_A+N_D}, \qquad x_p = W\,\frac{N_D}{N_A+N_D}
 \]</div>
 <p>A useful sanity check on these formulas: the more lightly doped side always gets the <em>larger</em> share of the depletion width. This makes physical sense — fewer fixed dopant charges per unit volume on that side means a wider region is needed to expose enough total charge to balance the more heavily doped side.</p>
 <h4 id="diagram-junction-electric-field-and-depletion-width-explorer">Diagram: Junction Electric Field and Depletion Width Explorer</h4>
-<iframe height="990px" scrolling="auto" src="../../sims/junction-field-and-depletion-width-explorer/main.html" width="100%"></iframe>
+<iframe height="1490px" scrolling="auto" src="../../sims/junction-field-and-depletion-width-explorer/main.html" width="100%"></iframe>
 <div class="admonition tip">
 <p class="admonition-title">How to use this MicroSim</p>
 <p><strong>Instructions:</strong> Set <span class="arithmatex">\(N_A\)</span> and <span class="arithmatex">\(N_D\)</span> with the sliders and watch three stacked, aligned plots update together: charge density <span class="arithmatex">\(\rho(x)\)</span>, electric field <span class="arithmatex">\(E(x)\)</span>, and potential <span class="arithmatex">\(\psi(x)\)</span>, with <span class="arithmatex">\(x_p\)</span>, <span class="arithmatex">\(x_n\)</span>, <span class="arithmatex">\(W\)</span>, <span class="arithmatex">\(E_{max}\)</span>, and <span class="arithmatex">\(V_{bi}\)</span> marked directly on the charts. Drag the position marker across the full range (including outside the depletion region) to read exact values at any point.</p>
@@ -10286,7 +10286,7 @@ C_j = \frac{\varepsilon A}{W}
 </ul>
 <p>Because <span class="arithmatex">\(W\)</span> itself depends on the applied voltage across the junction (Chapter 15 shows that an applied bias <span class="arithmatex">\(V_A\)</span> simply replaces <span class="arithmatex">\(V_{bi}\)</span> with <span class="arithmatex">\(V_{bi}-V_A\)</span> in the depletion-width formula), <span class="arithmatex">\(C_j\)</span> is not a fixed capacitance but a <em>voltage-dependent</em> one: reverse bias widens <span class="arithmatex">\(W\)</span> and lowers <span class="arithmatex">\(C_j\)</span>; forward bias narrows <span class="arithmatex">\(W\)</span> and raises <span class="arithmatex">\(C_j\)</span>. This voltage tunability is deliberately exploited in <strong>varactor diodes</strong>, used as electronically-tunable capacitors in RF oscillators and tuning circuits — one of the most direct practical applications of everything derived in this chapter.</p>
 <h4 id="diagram-junction-capacitance-explorer">Diagram: Junction Capacitance Explorer</h4>
-<iframe height="1000px" scrolling="auto" src="../../sims/junction-capacitance-explorer/main.html" width="100%"></iframe>
+<iframe height="1390px" scrolling="auto" src="../../sims/junction-capacitance-explorer/main.html" width="100%"></iframe>
 <div class="admonition tip">
 <p class="admonition-title">How to use this MicroSim</p>
 <p><strong>Instructions:</strong> Set doping concentrations and junction area with the sliders, then use the reverse-bias slider (<span class="arithmatex">\(0\)</span> to <span class="arithmatex">\(10\ \text{V}\)</span>) to see <span class="arithmatex">\(W\)</span> widen and <span class="arithmatex">\(C_j\)</span> fall, plotted on a live <span class="arithmatex">\(C_j\)</span> vs. <span class="arithmatex">\(V_R\)</span> curve.</p>
@@ -10380,7 +10380,7 @@ C_j = \frac{\varepsilon A}{W} = \frac{(1.035\times10^{-12})(1\times10^{-4})}{3.2
 <h2 id="interactive-chapter-walkthrough">Interactive Chapter Walkthrough</h2>
 <p>Use the MicroSim below as a capstone review: a guided, step-through tour of this entire chapter's storyline in order — from joining the two doped regions, through diffusion and depletion, the built-in potential, Poisson's equation and the depletion charge density, the junction electric field, the depletion width, and finally junction capacitance — ending with a summary diagram connecting every concept to the biased junction ahead in Chapter 15.</p>
 <h4 id="diagram-p-n-junction-equilibrium-interactive-walkthrough">Diagram: P-N Junction Equilibrium Interactive Walkthrough</h4>
-<p><iframe src="../../sims/pn-junction-equilibrium-interactive-walkthrough/main.html" width="100%" height="960px" scrolling="auto"></iframe></p>
+<p><iframe src="../../sims/pn-junction-equilibrium-interactive-walkthrough/main.html" width="100%" height="1010px" scrolling="auto"></iframe></p>
 <div class="admonition tip">
 <p class="admonition-title">How to use this MicroSim</p>
 <p><strong>Instructions:</strong> Click "Next ▶" through all nine steps in order — the final step is a responsive concept-flow diagram, not a single dense paragraph — then use the step dots or Restart to review any concept before the chapter quiz.</p>

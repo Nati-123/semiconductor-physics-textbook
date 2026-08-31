@@ -141,7 +141,7 @@ function draw() {
   const totalDiagH = wide ? (drawHeight - diagTop - 10) : (drawHeight - diagTop - cardH - 10);
   const bandBlockH = Math.max(120, totalDiagH - widthBarBlockH - gapBelow);
 
-  drawBandDiagram(diagTop, bandBlockH, x0, x1, barrier, regime.color);
+  drawBandDiagram(diagTop, bandBlockH, x0, x1, barrier, Vbi, V, NA, ND, W, regime.color);
 
   const widthBarY = diagTop + bandBlockH + gapBelow;
   drawWidthBar(widthBarY, widthBarBlockH, x0, x1, W, W0, regime.color);
@@ -203,12 +203,35 @@ function drawControlLabels(V) {
   }
 }
 
-function drawBandDiagram(top, blockH, x0, x1, barrier, regimeColor) {
-  const chartY = top, chartH = Math.max(90, blockH - 40);
+// Geometry note (fixes a real overflow bug found in browser testing): the
+// vertical extent of the two flat band segments from the box's own
+// vertical center is (bandGapPx/2 + bendPx). The OLD code capped bendPx
+// at a fixed chartH*0.5 -- but bandGapPx/2 is ADDED on top of that, so
+// the true extent could reach chartH*0.71, well past the chartH*0.5
+// half-height actually available inside the box, at any large barrier
+// (e.g. V=-3V, barrier=Vbi+3). This version instead (a) reserves the
+// band-gap's own vertical room FIRST, so the bend can only ever use the
+// remaining chartH*0.5-bandGapPx/2 (times a small safety margin) --
+// mathematically guaranteeing the curves stay inside the box at ANY
+// barrier, not just barriers below some fixed cutoff -- and (b) maps
+// barrier through a saturating (not hard-clamped) function of Vbi, so a
+// larger barrier always bends the curve visibly more (never looks
+// "maxed out and identical" the way a hard clamp would), while still
+// asymptotically approaching, but never reaching, that safe maximum.
+function drawBandDiagram(top, blockH, x0, x1, barrier, Vbi, V, NA, ND, W, regimeColor) {
+  // 54px (not the original 40px) reserved below the box: one row for
+  // the -x_p/+x_n depletion-boundary tick labels, a second row below
+  // that for the p-side/n-side labels, so the two don't collide.
+  const chartY = top, chartH = Math.max(90, blockH - 54);
   const midX = (x0 + x1) / 2;
-  const bendMaxV = 1.4;
-  const bandGapPx = chartH * 0.42;
-  const bendPx = map(constrain(barrier, 0, bendMaxV), 0, bendMaxV, 0, chartH * 0.5);
+  const bandGapPx = chartH * 0.38;
+  const bendPxMax = (chartH * 0.5 - bandGapPx / 2) * 0.92; // 8% headroom
+  // Saturating map: bendFrac(barrier=Vbi) = 0.5 always (a consistent,
+  // doping-independent look at equilibrium); bendFrac -> 1 only as
+  // barrier -> infinity, so it can never reach (let alone exceed)
+  // bendPxMax regardless of how far reverse the V slider goes.
+  const bendFrac = barrier / (barrier + Vbi);
+  const bendPx = bendFrac * bendPxMax;
 
   noFill(); stroke(210); strokeWeight(1);
   rect(x0 - 10, chartY - 6, x1 - x0 + 20, chartH + 12, 6);
@@ -218,11 +241,22 @@ function drawBandDiagram(top, blockH, x0, x1, barrier, regimeColor) {
   const evFlatN = ecFlatN + bandGapPx;
   const evFlatP = ecFlatP + bandGapPx;
 
+  // Transition ("band-bending") zone width scales with the ACTUAL
+  // depletion width W, saturating against the same WMAX_UM reference
+  // used by the width bar below, so forward bias (narrow W) reads as a
+  // visibly abrupt step and reverse bias (wide W) reads as a visibly
+  // wide, gradual transition -- not a fixed-width kink regardless of W.
+  const Wfrac = constrain((W * 1e4) / WMAX_UM, 0, 1);
+  const maxHalfW = Math.min(70, (x1 - x0) * 0.18);
+  const minHalfW = Math.min(10, maxHalfW * 0.4);
+  const curveHalfW = minHalfW + (maxHalfW - minHalfW) * Wfrac;
+  const ctrlHalfW = curveHalfW / 3;
+
   function bandCurve(yLeft, yRight) {
     beginShape();
     vertex(x0, yLeft);
-    vertex(midX - 24, yLeft);
-    bezierVertex(midX - 8, yLeft, midX - 8, yRight, midX + 8, yRight);
+    vertex(midX - curveHalfW, yLeft);
+    bezierVertex(midX - ctrlHalfW, yLeft, midX - ctrlHalfW, yRight, midX + ctrlHalfW, yRight);
     vertex(x1, yRight);
     endShape();
   }
@@ -242,10 +276,32 @@ function drawBandDiagram(top, blockH, x0, x1, barrier, regimeColor) {
   line(x1, chartY - 2, x1, chartY + chartH + 4);
   drawingContext.setLineDash([]);
 
-  noStroke(); fill(190, 40, 40); textAlign(CENTER, TOP); textSize(compact() ? 10 : 11); textStyle(BOLD);
-  text('p-side (neutral)', x0, chartY + chartH + 8);
-  fill(40, 40, 190);
-  text('n-side (neutral)', x1, chartY + chartH + 8);
+  // Depletion-region boundaries (-x_p, +x_n) drawn directly in the band
+  // diagram, split asymmetrically per the depletion approximation
+  // (N_A*x_p = N_D*x_n, so the more heavily doped side gets the
+  // narrower share of W) and tied to the SAME curveHalfW pixel scale as
+  // the bend itself, so the two visual cues (transition width and
+  // boundary markers) always move together as W changes with bias.
+  const xpFrac = ND / (NA + ND), xnFrac = NA / (NA + ND);
+  const depBoundaryX = curveHalfW * 2;
+  const xpPx = midX - depBoundaryX * xpFrac;
+  const xnPx = midX + depBoundaryX * xnFrac;
+  stroke(120, 120, 130); strokeWeight(1.2);
+  drawingContext.setLineDash([4, 3]);
+  line(xpPx, chartY - 2, xpPx, chartY + chartH + 4);
+  line(xnPx, chartY - 2, xnPx, chartY + chartH + 4);
+  drawingContext.setLineDash([]);
+  noStroke(); fill(100, 100, 110); textAlign(CENTER, TOP); textSize(compact() ? 8.5 : 9.5);
+  smlDrawSubLabel(xpPx - 8, chartY + chartH + 8, '−x', 'p', { size: compact() ? 8.5 : 9.5, baseline: TOP });
+  smlDrawSubLabel(xnPx - 8, chartY + chartH + 8, '+x', 'n', { size: compact() ? 8.5 : 9.5, baseline: TOP });
+
+  // LEFT/RIGHT-anchored at x0/x1 (not CENTER) so these labels can never
+  // clip off the left/right edge of a narrow (compact) canvas the way a
+  // center-anchored label straddling x0 or x1 would.
+  noStroke(); fill(190, 40, 40); textAlign(LEFT, TOP); textSize(compact() ? 10 : 11); textStyle(BOLD);
+  text('p-side (neutral)', x0, chartY + chartH + 22);
+  fill(40, 40, 190); textAlign(RIGHT, TOP);
+  text('n-side (neutral)', x1, chartY + chartH + 22);
   textStyle(NORMAL);
 
   const bx = midX;
@@ -255,7 +311,12 @@ function drawBandDiagram(top, blockH, x0, x1, barrier, regimeColor) {
   triangle(bx - 34, ecFlatP, bx - 38, ecFlatP + 6, bx - 30, ecFlatP + 6);
   triangle(bx - 34, ecFlatN, bx - 38, ecFlatN - 6, bx - 30, ecFlatN - 6);
   fill(200, 120, 10); textStyle(BOLD);
-  smlMathText(bx - 26, (ecFlatP + ecFlatN) / 2 - 6, 'q(V_bi−V)', { size: compact() ? 10 : 11 });
+  // Barrier label spelled out per-regime (Vbi-VF / Vbi / Vbi+VR) so a
+  // student reads the same three-case story the preset buttons and
+  // result card show, instead of one generic "V_bi-V" formula whose
+  // sign flip for reverse bias is easy to miss.
+  const barrierLabel = V > 0.001 ? 'q(V_bi−V_F)' : (V < -0.001 ? 'q(V_bi+V_R)' : 'qV_bi');
+  smlMathText(bx - 26, (ecFlatP + ecFlatN) / 2 - 6, barrierLabel, { size: compact() ? 10 : 11 });
   textStyle(NORMAL);
 }
 
@@ -310,10 +371,16 @@ function drawResultCard(diagTop, cardH, sz, lineH, headerH, wide, NA, ND, Vbi, V
 
   fill(30);
   let ly = cy + 12 + headerH;
+  // Same per-regime formula spelled out as the band-diagram label
+  // (Vbi-VF / Vbi / Vbi+VR), so the two never tell visually-different
+  // stories about the same number.
+  const barrierFormula = V > 0.001 ? ('V_bi − V_F = ' + Vbi.toFixed(3) + ' − ' + V.toFixed(2))
+    : (V < -0.001 ? ('V_bi + V_R = ' + Vbi.toFixed(3) + ' + ' + (-V).toFixed(2))
+      : 'V_bi');
   const lines = [
     'V_bi = ' + Vbi.toFixed(3) + ' V',
     'Applied V = ' + V.toFixed(2) + ' V',
-    'Barrier = V_bi − V = ' + barrier.toFixed(3) + ' V',
+    'Barrier = ' + barrierFormula + ' = ' + barrier.toFixed(3) + ' V',
     'W = ' + (W * 1e4).toFixed(3) + ' µm',
     'N_A = ' + smlFormatConc(NA),
     'N_D = ' + smlFormatConc(ND)

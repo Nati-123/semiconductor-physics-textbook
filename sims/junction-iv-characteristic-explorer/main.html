@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Complete Junction I-V Characteristic Explorer MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+    <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <link rel="stylesheet" href="../learning-panel.css">
+    <style>
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        main { display: flex; flex-direction: column; }
+        main canvas { display: block; }
+    </style>
+    <script src="../semiconductor-materials-lib.js"></script>
+    <script src="junction-iv-characteristic-explorer.js"></script>
+    <script src="../sim-accessibility.js"></script>
+    <script src="../fullscreen-toggle.js"></script>
+    <script src="../challenge-quiz.js"></script>
+</head>
+<body>
+    <main></main>
+
+    <details class="learning-panel">
+    <summary>Guided Exploration &amp; Challenge Questions</summary>
+    <div class="panel-content">
+
+        <h3>Try This</h3>
+        <ul class="explore-list">
+            <li><strong>Try this:</strong> Leave the doping slider N at its default and slowly drag the V marker slider from the far left (deep reverse breakdown) all the way to the far right (forward bias), watching the dot travel across all three regions of the log|J| chart in one continuous sweep.</li>
+            <li><strong>Predict:</strong> Before dragging the marker from \(V=0\) toward \(+0.5\ \text{V}\), predict how many decades \(|J|\) will rise by the time \(V\) reaches \(0.6\ \text{V}\).</li>
+            <li><strong>Observe:</strong> Now sweep the doping slider N from \(10^{14}\) to \(10^{19}\ \text{cm}^{-3}\) and watch \(V_{BR}\) collapse by orders of magnitude while the breakdown region on the chart slides sharply rightward, and watch the mini-diagram's dominant mechanism flip from Avalanche to Zener once \(V_{BR}\) crosses about 6 V.</li>
+        </ul>
+
+        <p class="connects-to"><strong>Connects to Chapter 15:</strong> This MicroSim is the single synthesis view for the chapter's closing result, the <strong>complete junction I-V characteristic</strong>: \(I(V)\approx I_0(e^{V/V_T}-1)\) for \(V>-V_{BR}\), and a rapid breakdown current increase for \(V\le-V_{BR}\). It combines the <strong>ideal diode equation</strong> (forward diffusion, exponential rise), <strong>reverse saturation current</strong> (the nearly voltage-independent \(-I_0\) plateau), and <strong>reverse breakdown</strong> (avalanche or Zener, set by the same doping-dependent \(V_{BR}\) estimate as the Reverse Breakdown Mechanism Explorer) into the one curve that defines diode behavior throughout every later device chapter.</p>
+
+        <h3>What Each Control Does</h3>
+        <dl class="control-captions">
+            <dt>N</dt>
+            <dd>Sets the lightly-doped side concentration, which drives both the estimated breakdown voltage \(V_{BR}\propto1/N\) and (mildly, illustratively) the saturation current \(J_0\).</dd>
+            <dt>V (marker)</dt>
+            <dd>Positions the live voltage marker on the I-V chart and in the junction cross-section diagram; its range is recomputed from the current \(V_{BR}\) so it always spans well past breakdown through forward bias.</dd>
+        </dl>
+
+        <h3>Challenge Questions</h3>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">1. As the V marker is dragged from 0 V toward +0.6 V, what happens to the current density J?</p>
+            <label><input type="radio" name="jivce-q1" value="a"> It stays essentially at −J0</label>
+            <label><input type="radio" name="jivce-q1" value="b"> It rises exponentially, appearing as a straight line on the log|J| chart</label>
+            <label><input type="radio" name="jivce-q1" value="c"> It increases linearly with V</label>
+            <label><input type="radio" name="jivce-q1" value="d"> It drops toward zero</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Correct. J = J0(e^(V/VT) − 1) rises exponentially in forward bias, which is why it plots as a straight line on a log|J| axis — this is the Forward Conduction region.</p>
+            <p class="explain-incorrect" hidden>Look at the ideal diode equation's exponential term — what happens to e^(V/VT) as V increases well past zero?</p>
+        </div>
+
+        <div class="challenge" data-correct="c">
+            <p class="q-text">2. For a fixed N, which region of the chart shows |J| pinned nearly constant across a wide range of (negative) V?</p>
+            <label><input type="radio" name="jivce-q2" value="a"> Forward Conduction</label>
+            <label><input type="radio" name="jivce-q2" value="b"> Breakdown</label>
+            <label><input type="radio" name="jivce-q2" value="c"> Reverse Saturation</label>
+            <label><input type="radio" name="jivce-q2" value="d"> None — |J| always changes with V</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Correct. Once reverse bias exceeds a few VT, J = J0(e^(V/VT) − 1) ≈ −J0 to high precision, so |J| barely changes with V until breakdown is reached — the flat reverse saturation plateau.</p>
+            <p class="explain-incorrect" hidden>Move the V marker slowly through negative voltages, well before reaching −VBR, and watch how little the readout J(V) changes.</p>
+        </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">3. Increasing the doping slider N moves the Breakdown region on the chart in which direction?</p>
+            <label><input type="radio" name="jivce-q3" value="a"> Toward V = 0 (breakdown happens at a smaller reverse voltage)</label>
+            <label><input type="radio" name="jivce-q3" value="b"> Away from V = 0 (breakdown requires a larger reverse voltage)</label>
+            <label><input type="radio" name="jivce-q3" value="c"> It has no effect on the breakdown location</label>
+            <label><input type="radio" name="jivce-q3" value="d"> It moves the Forward Conduction region instead</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Correct. Since VBR ≈ εEcrit²/(2qN), heavier doping (larger N) gives a smaller VBR, so the dashed breakdown boundary and the whole Breakdown region slide toward V = 0.</p>
+            <p class="explain-incorrect" hidden>Recall from the Reverse Breakdown Mechanism Explorer: is VBR proportional to N, or inversely proportional to N?</p>
+        </div>
+
+    </div>
+    </details>
+</body>
+</html>

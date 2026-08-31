@@ -29,9 +29,11 @@
 
         <h3>Try This</h3>
         <ul class="explore-list">
-            <li><strong>Try this:</strong> Drag the bias slider from 0 V toward +0.7 V (forward) and watch the barrier shrink and the bands flatten toward alignment.</li>
-            <li><strong>Predict:</strong> Before dragging into reverse bias, predict whether the depletion width W will grow or shrink.</li>
-            <li><strong>Observe:</strong> The barrier height readout always equals \(V_{bi}-V\) exactly — a positive (forward) V subtracts from \(V_{bi}\), a negative (reverse) V adds to it.</li>
+            <li><strong>Predict:</strong> Before clicking anything, predict what happens to the potential barrier and the depletion width \(W\) when you jump from the <strong>Equilibrium</strong> preset to the <strong>Forward Bias</strong> preset.</li>
+            <li><strong>Explore:</strong> Click the three preset buttons — <strong>Reverse Bias</strong> (\(V=-3\) V), <strong>Equilibrium</strong> (\(V=0\) V), and <strong>Forward Bias</strong> (\(V=+0.5\) V) — then fine-tune with the continuous bias slider between them.</li>
+            <li><strong>Observe:</strong> Watch the depletion-width bar below the band diagram: it visibly narrows as the bands flatten under forward bias and stretches out under reverse bias, with a dashed "eq." tick marking the equilibrium width for comparison.</li>
+            <li><strong>Explain:</strong> The barrier height readout always equals \(V_{bi}-V\) exactly — a positive (forward) V subtracts from \(V_{bi}\), a negative (reverse) V adds to it — and because \(W\) scales with the square root of the barrier, the width bar shrinks and grows more gently than the barrier itself.</li>
+            <li><strong>Predict:</strong> What happens to the depletion width when forward bias increases?</li>
         </ul>
 
         <p class="connects-to"><strong>Connects to Chapter 15:</strong> Applying <strong>forward bias</strong> lowers the junction's potential barrier from \(V_{bi}\) to \(V_{bi}-V\), narrowing the depletion region and sharply increasing diffusion current. Applying <strong>reverse bias</strong> raises the barrier to \(V_{bi}+V\), widening the depletion region and suppressing diffusion to a tiny drift-limited current.</p>
@@ -41,7 +43,9 @@
             <dt>NA, ND</dt>
             <dd>Set doping concentrations, which set the equilibrium built-in potential \(V_{bi}\).</dd>
             <dt>Bias V</dt>
-            <dd>Positive values are forward bias (barrier shrinks); negative values are reverse bias (barrier grows).</dd>
+            <dd>Positive values are forward bias (barrier shrinks); negative values are reverse bias (barrier grows). Drag freely or click a preset to snap to a representative value.</dd>
+            <dt>Reverse Bias / Equilibrium / Forward Bias buttons</dt>
+            <dd>Snap the bias slider to \(-3\) V, \(0\) V, or \(+0.5\) V. The button closest to the slider's current value is always highlighted, even while dragging.</dd>
         </dl>
 
         <h3>Challenge Questions</h3>
@@ -68,6 +72,18 @@
             <span class="feedback" role="status" aria-live="polite"></span>
             <p class="explain-correct" hidden>Correct. Reverse bias raises the effective voltage in the W formula to Vbi + V, and since W grows with the square root of that voltage, W widens.</p>
             <p class="explain-incorrect" hidden>Look at the W(V) formula — does raising the voltage term inside the square root increase or decrease W?</p>
+        </div>
+
+        <div class="challenge" data-correct="a">
+            <p class="q-text">3. What happens to the depletion width when forward bias increases?</p>
+            <label><input type="radio" name="frbbde-q3" value="a"> It shrinks</label>
+            <label><input type="radio" name="frbbde-q3" value="b"> It widens</label>
+            <label><input type="radio" name="frbbde-q3" value="c"> It stays exactly constant</label>
+            <label><input type="radio" name="frbbde-q3" value="d"> It becomes negative</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Correct. Increasing forward bias lowers the barrier (Vbi − V), so W = √[2ε(Vbi−V)/q · (1/NA+1/ND)] shrinks — visible directly in the width bar narrowing toward the "eq." reference tick and below it.</p>
+            <p class="explain-incorrect" hidden>Try clicking the Forward Bias preset and watch the width bar under the band diagram — does it grow or shrink compared to the equilibrium tick?</p>
         </div>
 
     </div>

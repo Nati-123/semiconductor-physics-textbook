@@ -29,17 +29,18 @@
 
         <h3>Try This</h3>
         <ul class="explore-list">
-            <li><strong>Try this:</strong> Sweep the doping slider from \(10^{14}\) to \(10^{19}\ \text{cm}^{-3}\) and watch the estimated breakdown voltage fall by several orders of magnitude.</li>
-            <li><strong>Predict:</strong> Before crossing the ~6 V dashed line, predict which schematic panel (Avalanche or Zener) will become highlighted.</li>
-            <li><strong>Observe:</strong> The Avalanche panel's depletion region is drawn wide, giving carriers room to accelerate; the Zener panel's is drawn narrow, short enough for direct tunneling.</li>
+            <li><strong>Predict:</strong> Before moving the slider, predict which mechanism — Avalanche or Zener — will be favored at very light doping (\(N \approx 10^{14}\ \text{cm}^{-3}\)) versus very heavy doping (\(N \approx 10^{19}\ \text{cm}^{-3}\)).</li>
+            <li><strong>Explore:</strong> Sweep the doping slider across its full range and watch the marker move along the log-log chart, the shaded green/red regions it crosses, and the estimated breakdown voltage fall by several orders of magnitude.</li>
+            <li><strong>Observe:</strong> Watch the labeled rows inside each mechanism panel — doping level, depletion width, electric field, and dominant process — and notice how the "CURRENTLY FAVORED" badge switches panels as you cross the approximate ~6 V crossover region. The Avalanche panel's depletion region animates carriers multiplying in a chain reaction; the Zener panel animates a pulse tunneling directly through the thin barrier.</li>
+            <li><strong>Explain:</strong> Using the depletion-width estimate \(W\) shown in the readout, explain in your own words why a narrower \(W\) (heavier doping) makes tunneling — rather than a multi-step multiplication process — the dominant mechanism.</li>
         </ul>
 
-        <p class="connects-to"><strong>Connects to Chapter 15:</strong> <strong>Reverse breakdown</strong> occurs via two distinct mechanisms. <strong>Avalanche breakdown</strong> is an impact-ionization chain reaction that dominates in lightly-doped junctions with wide depletion regions. <strong>Zener breakdown</strong> is quantum-mechanical tunneling that dominates in heavily-doped junctions with narrow depletion regions — typically below a breakdown voltage of about 5-6 V in silicon.</p>
+        <p class="connects-to"><strong>Connects to Chapter 15:</strong> <strong>Reverse breakdown</strong> occurs via two distinct mechanisms. <strong>Avalanche breakdown</strong> is an impact-ionization chain reaction that dominates in lightly-doped junctions with wide depletion regions, where carriers have room to accelerate to the critical field before colliding. <strong>Zener breakdown</strong> is quantum-mechanical tunneling that dominates in heavily-doped junctions with narrow depletion regions — typically in an approximate crossover region around 5-6 V in silicon, not a sharp universal threshold; real devices transition gradually between the two mechanisms.</p>
 
         <h3>What Each Control Does</h3>
         <dl class="control-captions">
             <dt>N</dt>
-            <dd>Sets the lightly-doped side concentration, which sets the estimated avalanche breakdown voltage \(V_{BR}\propto1/N\).</dd>
+            <dd>Sets the lightly-doped side concentration, which sets the estimated avalanche breakdown voltage \(V_{BR}\propto1/N\) and the estimated one-sided depletion width \(W\) shown in the readout below the chart.</dd>
         </dl>
 
         <h3>Challenge Questions</h3>
@@ -65,7 +66,19 @@
             <button class="check-btn" type="button">Check Answer</button>
             <span class="feedback" role="status" aria-live="polite"></span>
             <p class="explain-correct" hidden>Correct. A breakdown voltage this low requires very heavy doping and a correspondingly thin depletion barrier, characteristic of Zener tunneling rather than avalanche multiplication.</p>
-            <p class="explain-incorrect" hidden>Compare 3 V to the ~6 V crossover line shown on the chart — which regime lies below it?</p>
+            <p class="explain-incorrect" hidden>Compare 3 V to the ~6 V crossover region shown on the chart — which regime lies below it?</p>
+        </div>
+
+        <div class="challenge" data-correct="b">
+            <p class="q-text">3. Why does heavy doping favor Zener breakdown over avalanche breakdown?</p>
+            <label><input type="radio" name="rbme-q3" value="a"> Heavy doping lowers the semiconductor's critical field</label>
+            <label><input type="radio" name="rbme-q3" value="b"> Heavy doping makes the depletion region so narrow that carriers can tunnel directly through it instead of needing room to accelerate and collide</label>
+            <label><input type="radio" name="rbme-q3" value="c"> Heavy doping eliminates the electric field in the junction</label>
+            <label><input type="radio" name="rbme-q3" value="d"> Heavy doping has no effect on which mechanism dominates</label>
+            <button class="check-btn" type="button">Check Answer</button>
+            <span class="feedback" role="status" aria-live="polite"></span>
+            <p class="explain-correct" hidden>Correct. Heavier doping shrinks the depletion width W (see the readout below the chart), which both raises the field for a given voltage and shortens the barrier enough for direct quantum tunneling — leaving too little room for the multi-step impact-ionization chain reaction that avalanche breakdown needs.</p>
+            <p class="explain-incorrect" hidden>Look at the depletion-width row in the Zener panel, and the W estimate in the readout below the chart — what happens to the barrier as doping increases?</p>
         </div>
 
     </div>

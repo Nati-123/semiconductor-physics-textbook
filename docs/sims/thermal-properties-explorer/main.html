@@ -30,22 +30,25 @@
         <h3>Try This</h3>
         <ul class="explore-list">
             <li><strong>Try this:</strong> Switch material from Silicon to GaAs (much lower κ) at the same power and watch ΔT roughly triple.</li>
+            <li><strong>Try this:</strong> Raise the shared temperature T slider and watch I_gen climb by orders of magnitude — n_i(T) grows exponentially with T, so a device running hot leaks far more than the same device at room temperature.</li>
             <li><strong>Predict:</strong> Before raising depletion width W, predict whether Igen will grow, shrink, or stay the same.</li>
-            <li><strong>Observe:</strong> At typical parameter values, the generation-current bar sits several orders of magnitude above the fixed diffusion-current reference bar — a direct visual of how much generation current can dominate real diode leakage.</li>
+            <li><strong>Observe:</strong> At typical parameter values, the generation-current bar sits several orders of magnitude above the fixed diffusion-current reference bar — a direct visual of how much generation current can dominate real diode leakage, and this gap widens further as T rises.</li>
         </ul>
 
-        <p class="connects-to"><strong>Connects to Chapter 17:</strong> <strong>Thermal conductivity</strong> \(\kappa\) governs how efficiently a device sheds heat, \(\Delta T=Pt/(\kappa A)\). Separately, <strong>thermal generation rate</strong> \(G_{th}=n_i/\tau_0\) inside a depletion region produces a real generation current \(I_{gen}=qG_{th}WA\), a leakage mechanism beyond the ideal diffusion-based saturation current derived in Chapter 15.</p>
+        <p class="connects-to"><strong>Connects to Chapter 17:</strong> <strong>Thermal conductivity</strong> \(\kappa\) governs how efficiently a device sheds the steady-state heat it dissipates, \(\Delta T=Pt/(\kappa A)\). The device's operating temperature \(T\) also sets the intrinsic carrier concentration \(n_i(T)\) (Chapter 9's Varshni model), so <strong>thermal generation rate</strong> \(G_{th}=n_i(T)/\tau_0\) inside a depletion region — and the resulting generation current \(I_{gen}=qG_{th}WA\) — both grow with the same T that Panel 1 is trying to conduct away. This is why thermal design (Panel 1) and leakage current (Panel 2) are the same engineering problem, not two unrelated ones.</p>
 
         <h3>What Each Control Does</h3>
         <dl class="control-captions">
             <dt>P</dt>
-            <dd>Power dissipated through the slab, directly proportional to ΔT.</dd>
+            <dd>Power dissipated through the slab, directly proportional to ΔT (Panel 1 only).</dd>
             <dt>Material</dt>
-            <dd>Sets thermal conductivity κ, inversely proportional to ΔT.</dd>
+            <dd>Sets thermal conductivity κ, inversely proportional to ΔT (Panel 1 only).</dd>
+            <dt>Shared T</dt>
+            <dd>Device lattice temperature, used by both panels — it sets the ambient baseline in Panel 1 and, via n_i(T), directly drives the generation current in Panel 2.</dd>
             <dt>τ0</dt>
-            <dd>Generation lifetime; longer τ0 means fewer thermally-generated carriers per second.</dd>
+            <dd>Generation lifetime; longer τ0 means fewer thermally-generated carriers per second (Panel 2 only).</dd>
             <dt>W</dt>
-            <dd>Depletion width; Igen scales directly with W.</dd>
+            <dd>Depletion width; Igen scales directly with W (Panel 2 only).</dd>
         </dl>
 
         <h3>Challenge Questions</h3>

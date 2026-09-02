@@ -99,7 +99,7 @@ The reciprocal \(1/\alpha\), the **penetration depth**, is the characteristic de
 <iframe src="../../sims/optical-absorption-explorer/main.html" width="100%" height="620px" scrolling="auto"></iframe>
 
 !!! tip "How to use this MicroSim"
-    **Instructions:** Adjust the absorption coefficient and material (direct vs. indirect gap) and watch the intensity-vs-depth curve and penetration depth marker update.
+    **Instructions:** Choose a real material (Si, Ge, or GaAs) and adjust the illumination wavelength — the absorption coefficient \(\alpha\) is computed from the resulting photon energy \(h\nu\) relative to that material's band gap, and the intensity-vs-depth curve and penetration depth marker update live.
 
     **Learning objective:** Apply the Beer-Lambert law to compute light intensity as a function of depth from the absorption coefficient.
 
@@ -141,7 +141,7 @@ directly reusing the conductivity formula from Chapter 11, but with excess rathe
 
 #### Diagram: Photoconductivity Explorer
 
-<iframe src="../../sims/photoconductivity-explorer/main.html" width="100%" height="620px" scrolling="auto"></iframe>
+<iframe src="../../sims/photoconductivity-explorer/main.html" width="100%" height="700px" scrolling="auto"></iframe>
 
 !!! tip "How to use this MicroSim"
     **Instructions:** Vary illumination intensity (generation rate) and minority carrier lifetime, and watch excess carrier concentration and the resulting conductivity change.
@@ -193,7 +193,7 @@ flowchart TD
 <iframe src="../../sims/photodiode-solar-cell-iv-explorer/main.html" width="100%" height="640px" scrolling="auto"></iframe>
 
 !!! tip "How to use this MicroSim"
-    **Instructions:** Adjust photocurrent and dark saturation current, and observe the I-V curve shift downward into the power-generating fourth quadrant, with \(V_{oc}\) and \(I_{sc}\) marked.
+    **Instructions:** Adjust illumination level (photocurrent \(I_L\)) and dark saturation current \(I_0\), and observe the illuminated I-V curve shift downward from the dark curve into the power-generating fourth quadrant, with \(V_{oc}\), \(I_{sc}\), and the maximum-power point marked.
 
     **Learning objective:** Explain how a photodiode converts absorbed light into a photocurrent, and how a solar cell uses the same structure to generate power.
 
@@ -237,7 +237,7 @@ Because silicon and germanium are indirect-gap materials, they make extremely po
 <iframe src="../../sims/led-emission-explorer/main.html" width="100%" height="600px" scrolling="auto"></iframe>
 
 !!! tip "How to use this MicroSim"
-    **Instructions:** Adjust the band gap slider and watch the computed emission wavelength move across the visible spectrum, with a swatch showing the approximate perceived color.
+    **Instructions:** Choose a realistic LED material preset (GaAs, AlGaAs, GaAsP, GaP, InGaN, or GaN) or sweep the band gap slider freely, and watch the computed emission wavelength move across the visible spectrum, with a swatch showing the approximate perceived color — or an explicit infrared/ultraviolet label outside it.
 
     **Learning objective:** Compute LED emission wavelength from band gap, and compare it to a photodiode's or solar cell's spectral response.
 
@@ -279,10 +279,10 @@ is a real, physically distinct leakage mechanism *in addition to* the ideal diff
 
 #### Diagram: Thermal Conductivity and Generation Rate Explorer
 
-<iframe src="../../sims/thermal-properties-explorer/main.html" width="100%" height="640px" scrolling="auto"></iframe>
+<iframe src="../../sims/thermal-properties-explorer/main.html" width="100%" height="720px" scrolling="auto"></iframe>
 
 !!! tip "How to use this MicroSim"
-    **Instructions:** Adjust power dissipation, slab geometry, and thermal conductivity to see temperature rise; separately adjust generation lifetime and depletion width to see generation current compared against a reference diffusion current.
+    **Instructions:** Adjust power dissipation and material (thermal conductivity) in Panel 1 to see the steady-state temperature rise; adjust generation lifetime and depletion width in Panel 2 to see generation current compared against a reference diffusion current. The shared temperature slider drives both panels at once — raising it increases the ambient baseline in Panel 1 and, through \(n_i(T)\), increases the generation current in Panel 2.
 
     **Learning objective:** Explain the role of thermal conductivity in device heat dissipation, and compute thermal generation rate and its contribution to diode leakage current.
 

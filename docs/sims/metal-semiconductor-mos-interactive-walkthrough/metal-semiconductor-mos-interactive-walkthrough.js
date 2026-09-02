@@ -90,11 +90,25 @@ function draw() {
 
   const step = STEPS[currentStep];
 
-  fill(20); noStroke();
-  textAlign(CENTER, TOP); textSize(15.5);
-  text(step.title, canvasWidth / 2, 10, canvasWidth - 20);
+  // Keep clear of the fixed fullscreen button (top:4px;right:4px) with a
+  // blank top margin, then auto-shrink the title to fit one line at any
+  // canvas width -- titles here range 30-46 characters and previously used
+  // a p5 text() wrap-width with CENTER align, which anchors the wrap box's
+  // LEFT edge at x (not its center), so a "centered" box at canvasWidth/2
+  // actually started there and grew rightward, straight under the button.
+  const topSafe = 26;
+  fill(20); noStroke(); textAlign(CENTER, TOP);
+  let titleSize = 15.5;
+  textSize(titleSize);
+  const maxTitleW = canvasWidth - 24;
+  if (textWidth(step.title) > maxTitleW) {
+    titleSize = max(10, titleSize * maxTitleW / textWidth(step.title));
+    textSize(titleSize);
+  }
+  text(step.title, canvasWidth / 2, topSafe + 6);
+  const contentTop = topSafe + titleSize * 1.3 + 12;
 
-  const illX = 20, illY = 42, illW = canvasWidth - 40, illH = drawHeight * 0.48;
+  const illX = 20, illY = contentTop, illW = canvasWidth - 40, illH = drawHeight * 0.46;
   noStroke(); fill(255);
   stroke(210); strokeWeight(1);
   rect(illX, illY, illW, illH, 8);
@@ -118,12 +132,46 @@ function drawStepWorkFunction(x, y, w, h) {
   fill(255, 245, 230);
   rect(midX, y + 8, w / 2 - 8, h - 16, 6);
   fill(30); textAlign(CENTER, TOP); textSize(11); textStyle(BOLD);
-  text('Metal (ΦM)', x + 8 + (w / 2 - 8) / 2, y + 12);
+  smlDrawSubLabel(x + 8 + (w / 2 - 8) / 2 - 34, y + 12, 'Metal (Φ', 'M', { size: 11 });
+  text(')', x + 8 + (w / 2 - 8) / 2 + 40, y + 12);
   text('Semiconductor (χ)', midX + (w / 2 - 8) / 2, y + 12);
   textStyle(NORMAL);
-  noStroke(); fill(90); textAlign(CENTER, CENTER); textSize(10.5);
-  text('vacuum → EF', x + 8 + (w / 2 - 8) / 2, y + h / 2);
-  text('vacuum → EC (χ)\nEC → EF (doping)', midX + (w / 2 - 8) / 2, y + h / 2);
+
+  // Vacuum-level line + a visible drop to E_F for the metal (its depth IS
+  // Phi_M), and vacuum -> E_C -> E_F for the semiconductor (E_C at chi,
+  // then a further drop set by doping) -- an actual mini band diagram
+  // instead of two boxes of plain text.
+  const vacY = y + 34, metalEfY = y + h - 26;
+  const leftCx = x + 8 + (w / 2 - 8) / 2;
+  stroke(140); strokeWeight(1); drawingContext.setLineDash([2, 3]);
+  line(x + 24, vacY, midX - 24, vacY);
+  drawingContext.setLineDash([]);
+  noStroke(); fill(100); textAlign(LEFT, BOTTOM); textSize(9);
+  text('vacuum', x + 24, vacY - 3);
+  stroke(90, 62, 237); strokeWeight(2.2);
+  line(leftCx - 40, metalEfY, leftCx + 40, metalEfY);
+  stroke(150); strokeWeight(1);
+  line(leftCx - 40, vacY, leftCx - 40, metalEfY);
+  noStroke(); fill(90, 62, 237); textAlign(LEFT, TOP); textSize(9.5);
+  smlDrawSubLabel(leftCx + 44, metalEfY - 6, 'E', 'F', { size: 9.5 });
+  fill(90); textAlign(LEFT, CENTER); textSize(9);
+  smlDrawSubLabel(leftCx - 34, (vacY + metalEfY) / 2, 'Φ', 'M', { size: 9 });
+
+  const rightCx = midX + (w / 2 - 8) / 2;
+  const ecY = y + h * 0.5, semEfY = y + h - 26;
+  stroke(90, 180, 220); strokeWeight(2.2);
+  line(rightCx - 45, ecY, rightCx + 45, ecY);
+  stroke(150); strokeWeight(1);
+  line(rightCx - 45, vacY, rightCx - 45, ecY);
+  stroke(90); strokeWeight(1); drawingContext.setLineDash([1, 3]);
+  line(rightCx - 20, ecY, rightCx - 20, semEfY);
+  drawingContext.setLineDash([]);
+  noStroke(); fill(90, 140, 180); textAlign(LEFT, BOTTOM); textSize(9.5);
+  smlDrawSubLabel(rightCx + 48, ecY + 3, 'E', 'C', { size: 9.5 });
+  fill(90); textSize(9);
+  smlDrawSubLabel(rightCx - 60, (vacY + ecY) / 2, 'χ', '', { size: 9 });
+  fill(90); textAlign(LEFT, TOP);
+  text('(doping)', rightCx - 16, ecY + 4);
 }
 
 function drawStepBarrier(x, y, w, h) {
@@ -206,28 +254,65 @@ function drawStepSchottkyDiode(x, y, w, h) {
 }
 
 function drawStepMOSCap(x, y, w, h) {
-  const barH = h * 0.5, barY = y + (h - barH) / 2;
+  const barH = h * 0.62, barY = y + (h - barH) / 2 - 6;
   const seg = w / 3;
   noStroke(); fill(120); rect(x, barY, seg, barH);
-  fill(230, 230, 245); rect(x + seg, barY, seg, barH);
+  stroke(170); strokeWeight(1);
+  for (let hx = x + 6; hx < x + seg - 2; hx += 9) line(hx, barY + 2, hx, barY + barH - 2);
+  noStroke(); fill(230, 230, 245); rect(x + seg, barY, seg, barH);
   fill(255, 245, 230); rect(x + 2 * seg, barY, seg, barH);
-  fill(255); textAlign(CENTER, CENTER); textSize(11); textStyle(BOLD);
-  text('Gate', x + seg / 2, barY + barH / 2);
+  fill(255); textAlign(CENTER, TOP); textSize(11); textStyle(BOLD);
+  text('Gate', x + seg / 2, barY + 8);
   fill(60);
-  text('Oxide', x + seg + seg / 2, barY + barH / 2);
-  text('Semiconductor', x + 2 * seg + seg / 2, barY + barH / 2);
+  text('Oxide', x + seg + seg / 2, barY + 8);
+  text('Semiconductor', x + 2 * seg + seg / 2, barY + 8);
   textStyle(NORMAL);
-  stroke(90); strokeWeight(1);
+  stroke(90); strokeWeight(1); noFill();
   for (let i = 0; i < 3; i++) rect(x, barY, seg, barH);
+
+  // Applied field lines through the oxide, connecting a charge sign on the
+  // gate to the induced opposite charge at the semiconductor surface --
+  // this is the actual electrostatic action a MOS capacitor performs.
+  noStroke(); fill(230, 90, 60); textAlign(CENTER, CENTER); textSize(13); textStyle(BOLD);
+  for (let i = 0; i < 3; i++) text('+', x + seg - 12, barY + barH * 0.35 + i * barH * 0.28);
+  stroke(120, 130, 220); strokeWeight(1.3);
+  for (let i = 0; i < 3; i++) {
+    const fy = barY + barH * 0.35 + i * barH * 0.28;
+    line(x + seg - 2, fy, x + 2 * seg + 2, fy);
+  }
+  noStroke(); fill(60, 90, 200); textAlign(CENTER, CENTER); textSize(13); textStyle(BOLD);
+  for (let i = 0; i < 3; i++) text('–', x + 2 * seg + 12, barY + barH * 0.35 + i * barH * 0.28);
+  textStyle(NORMAL);
+  fill(90); textAlign(CENTER, TOP); textSize(9);
+  text('field penetrates the oxide -- no DC current crosses it', x + w / 2, barY + barH + 8);
 }
 
 function drawStepFlatBand(x, y, w, h) {
-  const chartX = x + 40, chartY = y + h / 2 - 2, chartW = w - 80;
-  stroke(90, 62, 237); strokeWeight(2.2);
+  // Same gate | oxide | semiconductor structure as step 6, so this reads
+  // as "the same capacitor, now at the one gate voltage where the
+  // semiconductor bands are flat" rather than two disconnected lines.
+  const barH = h * 0.46, barY = y + 8, seg = w / 3;
+  noStroke(); fill(225, 225, 232); rect(x, barY, seg, barH);
+  fill(235, 235, 245); rect(x + seg, barY, seg, barH);
+  fill(255, 245, 230); rect(x + 2 * seg, barY, seg, barH);
+  stroke(180); strokeWeight(1); noFill();
+  for (let i = 0; i < 3; i++) rect(x, barY, seg, barH);
+  fill(80); noStroke(); textAlign(CENTER, TOP); textSize(9);
+  text('gate', x + seg / 2, barY + barH + 4);
+  text('oxide', x + seg + seg / 2, barY + barH + 4);
+  text('semiconductor', x + 2 * seg + seg / 2, barY + barH + 4);
+
+  const chartX = x + 2 * seg + 8, chartY = barY + barH * 0.28, chartW = (x + w) - chartX - 12;
+  const chartY2 = barY + barH * 0.72;
+  stroke(90, 62, 237); strokeWeight(2.4);
   line(chartX, chartY, chartX + chartW, chartY);
-  line(chartX, chartY + 30, chartX + chartW, chartY + 30);
+  line(chartX, chartY2, chartX + chartW, chartY2);
   noStroke(); fill(90, 62, 237); textAlign(LEFT, BOTTOM); textSize(10.5); textStyle(BOLD);
-  text('flat bands at ψs = 0 (VG = VFB)', chartX, chartY - 6);
+  smlDrawSubLabel(chartX, chartY - 4, 'E', 'C', { size: 10.5 });
+  smlDrawSubLabel(chartX, chartY2 - 4, 'E', 'V', { size: 10.5 });
+  textStyle(NORMAL);
+  noStroke(); fill(60); textAlign(CENTER, TOP); textSize(11); textStyle(BOLD);
+  text('flat bands at ψs = 0  (VG = VFB)', x + w / 2, barY + barH + 22);
   textStyle(NORMAL);
 }
 
@@ -262,36 +347,52 @@ function drawStepStrongInversion(x, y, w, h) {
 }
 
 function drawStepThreshold(x, y, w, h) {
-  const items = ['VFB', '2φF', 'Qdep,max/Cox'];
+  const items = ['V_FB', '2φ_F', 'Q_dep,max/C_ox'];
   const colors = [color(220, 90, 60), color(90, 62, 237), color(40, 150, 90)];
   const n = items.length;
-  const boxW = (w - 8 * (n - 1)) / (n + 1);
+  // n term boxes + 1 V_T box = n+1 boxes; (n-1) "+" signs + 1 "=" sign = n
+  // connector symbols. Both box count AND symbol count were previously
+  // missing from the width budget (only n boxes were sized for for n+1
+  // actually drawn, and the "+"/"=" gaps were extra on top of that), which
+  // is exactly what pushed the final V_T box off the right edge.
+  const symbolW = min(30, w * 0.06);
+  const boxW = (w - n * symbolW) / (n + 1);
+  const midY = y + h * 0.5, boxH = h * 0.36;
   let cx = x;
+  const fs = min(10.5, boxW / 8.5);
   for (let i = 0; i < n; i++) {
     noStroke(); fill(colors[i]);
-    rect(cx, y + h * 0.35, boxW, h * 0.35, 4);
-    fill(255); textAlign(CENTER, CENTER); textSize(10);
-    text(items[i], cx + boxW / 2, y + h * 0.35 + h * 0.175);
-    noStroke(); fill(60); textAlign(CENTER, CENTER); textSize(14);
-    if (i < n - 1) text('+', cx + boxW + 4, y + h * 0.35 + h * 0.175);
-    cx += boxW + 8;
+    rect(cx, midY - boxH / 2, boxW, boxH, 4);
+    fill(255); textAlign(CENTER, CENTER);
+    smlMathText(cx + boxW / 2, midY - fs / 2, items[i], { size: fs, align: 'center', color: 255 });
+    cx += boxW;
+    noStroke(); fill(60); textAlign(CENTER, CENTER);
+    textSize(i < n - 1 ? min(15, symbolW * 0.55) : min(17, symbolW * 0.6));
+    if (i < n - 1) { text('+', cx + symbolW / 2, midY); }
+    else { textStyle(BOLD); text('=', cx + symbolW / 2, midY); textStyle(NORMAL); }
+    cx += symbolW;
   }
-  noStroke(); fill(60); textAlign(CENTER, CENTER); textSize(16); textStyle(BOLD);
-  text('=', cx + 6, y + h * 0.35 + h * 0.175);
-  fill(20);
-  rect(cx + 26, y + h * 0.3, boxW, h * 0.4, 4);
-  fill(255); textAlign(CENTER, CENTER); textSize(11);
-  text('VT', cx + 26 + boxW / 2, y + h * 0.3 + h * 0.2);
-  textStyle(NORMAL);
+  noStroke(); fill(20);
+  rect(cx, midY - h * 0.22, boxW, h * 0.44, 4);
+  fill(255); textAlign(CENTER, CENTER);
+  smlDrawSubLabel(cx + boxW / 2 - 10, midY, 'V', 'T', { size: min(13, boxW / 6), baseline: CENTER });
 }
 
 function drawControls() {
+  const isLastStep = currentStep === STEPS.length - 1;
   const cy = drawHeight + (controlHeight - prevBtn.h) / 2;
   prevBtn.x = 20; prevBtn.y = cy;
   nextBtn.x = canvasWidth - 20 - nextBtn.w; nextBtn.y = cy;
 
   smlDrawButton(prevBtn.x, prevBtn.y, prevBtn.w, prevBtn.h, '◀ Prev', false);
-  smlDrawButton(nextBtn.x, nextBtn.y, nextBtn.w, nextBtn.h, 'Next ▶', false);
+  // On the last step there's nowhere for "Next" to go -- replace it with a
+  // prominent, filled "Restart" button instead of leaving a dead-end button
+  // that wraps silently back to step 1.
+  if (isLastStep) {
+    smlDrawButton(nextBtn.x, nextBtn.y, nextBtn.w, nextBtn.h, '⟲ Restart', true);
+  } else {
+    smlDrawButton(nextBtn.x, nextBtn.y, nextBtn.w, nextBtn.h, 'Next ▶', false);
+  }
 
   noStroke(); fill(30); textAlign(CENTER, CENTER); textSize(12.5);
   text('Step ' + (currentStep + 1) + ' of ' + STEPS.length, canvasWidth / 2, cy + prevBtn.h / 2);
@@ -310,6 +411,7 @@ function mousePressed() {
   if (smlPointInRect(mouseX, mouseY, prevBtn.x, prevBtn.y, prevBtn.w, prevBtn.h)) {
     currentStep = (currentStep - 1 + STEPS.length) % STEPS.length;
   } else if (smlPointInRect(mouseX, mouseY, nextBtn.x, nextBtn.y, nextBtn.w, nextBtn.h)) {
+    // On the last step this button is drawn/labeled as Restart.
     currentStep = (currentStep + 1) % STEPS.length;
   }
 }

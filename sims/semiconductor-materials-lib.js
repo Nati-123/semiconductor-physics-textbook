@@ -213,6 +213,34 @@ function smlDrawLineChart(x, y, w, h, xMin, xMax, yMin, yMax, series, opts) {
     circle(xToPx(opts.marker.x), yToPx(opts.marker.y), 8);
   }
 
+  // Optional tick marks + value labels (opt-in: existing callers that don't
+  // pass xTicks/yTicks are unaffected). Each entry is a data-space value, or
+  // {v, label} to override the default numeric label.
+  if (opts.xTicks) {
+    textSize(9.5);
+    for (var ti = 0; ti < opts.xTicks.length; ti++) {
+      var txv = opts.xTicks[ti], txLabel = (txv && txv.label !== undefined) ? txv.label : txv;
+      var txVal = (txv && txv.v !== undefined) ? txv.v : txv;
+      var tpx = xToPx(txVal);
+      stroke(190); strokeWeight(1);
+      line(tpx, y + h, tpx, y + h + 4);
+      noStroke(); fill(90); textAlign(CENTER, TOP);
+      text(opts.xTickFormat ? opts.xTickFormat(txVal) : txLabel, tpx, y + h + 6);
+    }
+  }
+  if (opts.yTicks) {
+    textSize(9.5);
+    for (var tj = 0; tj < opts.yTicks.length; tj++) {
+      var tyv = opts.yTicks[tj], tyLabel = (tyv && tyv.label !== undefined) ? tyv.label : tyv;
+      var tyVal = (tyv && tyv.v !== undefined) ? tyv.v : tyv;
+      var tpy = yToPx(tyVal);
+      stroke(190); strokeWeight(1);
+      line(x - 4, tpy, x, tpy);
+      noStroke(); fill(90); textAlign(RIGHT, CENTER);
+      text(opts.yTickFormat ? opts.yTickFormat(tyVal) : tyLabel, x - 6, tpy);
+    }
+  }
+
   if (opts.xLabel) {
     noStroke();
     fill(40);

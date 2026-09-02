@@ -29,19 +29,19 @@
 
         <h3>Try This</h3>
         <ul class="explore-list">
-            <li><strong>Try this:</strong> Switch between the GaAs and Si-near-band-edge presets and compare the penetration depths.</li>
-            <li><strong>Predict:</strong> Before dragging the α slider to its minimum, predict whether the curve will fall off faster or slower.</li>
-            <li><strong>Observe:</strong> The curve always falls to about 37% (1/e) of its starting value exactly at x = 1/α, regardless of the α value chosen.</li>
+            <li><strong>Try this:</strong> Switch between GaAs and Silicon at the same wavelength and compare the penetration depths — GaAs absorbs far more strongly.</li>
+            <li><strong>Predict:</strong> Before raising λ above each material's band-gap wavelength, predict whether the curve will fall off faster or slower once hν drops below Eg.</li>
+            <li><strong>Observe:</strong> The curve always falls to about 37% (1/e) of its starting value exactly at x = 1/α, regardless of the material or wavelength chosen.</li>
         </ul>
 
-        <p class="connects-to"><strong>Connects to Chapter 17:</strong> <strong>Optical absorption</strong> follows the Beer-Lambert law, \(I(x)=I_0e^{-\alpha x}\), where the <strong>absorption coefficient</strong> \(\alpha\) sets how quickly light is absorbed with depth. Direct-gap materials have a much larger \(\alpha\) near their band edge than indirect-gap materials, since no phonon assist (Chapter 13) is needed for the underlying <strong>photon absorption</strong> event.</p>
+        <p class="connects-to"><strong>Connects to Chapter 17:</strong> <strong>Optical absorption</strong> follows the Beer-Lambert law, \(I(x)=I_0e^{-\alpha x}\), where the <strong>absorption coefficient</strong> \(\alpha\) sets how quickly light is absorbed with depth. Near the band edge, direct-gap materials follow \(\alpha\propto\sqrt{h\nu-E_g}\) while indirect-gap materials follow the much weaker \(\alpha\propto(h\nu-E_g)^2\), since no phonon assist (Chapter 13) is needed for the underlying <strong>photon absorption</strong> event in a direct-gap material.</p>
 
         <h3>What Each Control Does</h3>
         <dl class="control-captions">
             <dt>Material</dt>
-            <dd>Selects a representative α value for GaAs (direct) or Si (indirect, near or above the band edge).</dd>
-            <dt>α</dt>
-            <dd>Absorption coefficient (log scale), directly setting the penetration depth 1/α.</dd>
+            <dd>Selects a real semiconductor (Si, Ge, or GaAs) — sets the band gap \(E_g\) (via the shared Varshni model) and whether absorption follows the direct- or indirect-gap near-edge formula.</dd>
+            <dt>λ</dt>
+            <dd>Illumination wavelength; sets photon energy \(h\nu=1240/\lambda(\text{nm})\ \text{eV}\), which combines with \(E_g\) to determine \(\alpha\). Below the gap, the material is nearly transparent.</dd>
         </dl>
 
         <h3>Challenge Questions</h3>

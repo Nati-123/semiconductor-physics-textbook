@@ -29,17 +29,19 @@
 
         <h3>Try This</h3>
         <ul class="explore-list">
-            <li><strong>Try this:</strong> Sweep Eg from 0.7 eV up to 3.2 eV and watch the marker sweep across (and off both ends of) the visible spectrum bar.</li>
-            <li><strong>Predict:</strong> Before setting Eg to silicon's 1.12 eV, predict whether the emission would be visible.</li>
-            <li><strong>Observe:</strong> Only a fairly narrow band-gap window (roughly 1.65-3.26 eV) produces a wavelength inside the 380-750 nm visible range at all.</li>
+            <li><strong>Try this:</strong> Step through the material presets from GaAs to GaN and watch the emission move from infrared, through the full visible range, to near-UV.</li>
+            <li><strong>Predict:</strong> Before switching to GaAs (infrared LED/laser), predict whether the emission would be visible.</li>
+            <li><strong>Observe:</strong> Only a fairly narrow band-gap window (roughly 1.65-3.26 eV) produces a wavelength inside the 380-750 nm visible range at all — this is why practical LED colors require specific direct-gap alloys, not just "any semiconductor."</li>
         </ul>
 
-        <p class="connects-to"><strong>Connects to Chapter 17:</strong> A <strong>light-emitting diode</strong> emits photons via <strong>radiative recombination</strong> with energy close to the material's band gap, giving emission wavelength \(\lambda=hc/E_g\approx1240/E_g(\text{eV})\ \text{nm}\). Practical visible LEDs require direct-gap materials with band gaps specifically chosen to land in the visible range.</p>
+        <p class="connects-to"><strong>Connects to Chapter 17:</strong> A <strong>light-emitting diode</strong> emits photons via <strong>radiative recombination</strong> with energy close to the material's band gap, giving emission wavelength \(\lambda=hc/E_g\approx1240/E_g(\text{eV})\ \text{nm}\). Practical visible LEDs require direct-gap materials with band gaps specifically chosen to land in the visible range — GaP is included as a historical/indirect-gap counter-example.</p>
 
         <h3>What Each Control Does</h3>
         <dl class="control-captions">
+            <dt>Material</dt>
+            <dd>Selects a representative LED material (GaAs, AlGaAs, GaAsP, GaP, InGaN, or GaN) and snaps Eg to its typical room-temperature band gap; choose "Custom" to sweep Eg freely.</dd>
             <dt>Eg</dt>
-            <dd>LED material band gap; sets emission wavelength via λ = 1240/Eg.</dd>
+            <dd>LED material band gap; sets emission wavelength via λ = 1240/Eg. Adjusting this slider automatically switches Material to "Custom."</dd>
         </dl>
 
         <h3>Challenge Questions</h3>

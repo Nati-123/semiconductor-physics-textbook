@@ -8,7 +8,7 @@ quality_score: 85
 <h1 style="color: #5A3EED !important; border-bottom: 3px solid #5A3EED; padding-bottom: 0.4rem; font-weight: 800;">Bipolar Transistor and MOSFET Comparison Explorer</h1>
 
 <div style="background: #EEF4FF; border: 2px solid #A8C8FF; border-radius: 12px; padding: 18px; margin: 1.2rem 0; box-shadow: 0 2px 8px rgba(90,61,237,0.07);">
-<iframe src="main.html" height="640px" width="100%" scrolling="auto" style="border:none; border-radius:8px; overflow:hidden;"></iframe>
+<iframe src="main.html" height="720px" width="100%" scrolling="auto" style="border:none; border-radius:8px; overflow:hidden;"></iframe>
 </div>
 
 <a href="../../chapters/18-semiconductor-devices-applications/index.md" style="color: #5A3EED; font-weight: 600; font-size: 0.95rem;">&#8592; Back to Chapter 18: Semiconductor Devices and Applications</a>

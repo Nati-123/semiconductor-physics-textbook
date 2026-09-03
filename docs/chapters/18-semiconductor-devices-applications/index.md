@@ -95,7 +95,7 @@ where \(V_F\) is each diode's forward voltage drop (Chapter 15) and the factor o
 
 #### Diagram: Rectifier Circuit Explorer
 
-<iframe src="../../sims/rectifier-circuit-explorer/main.html" width="100%" height="640px" scrolling="auto"></iframe>
+<iframe src="../../sims/rectifier-circuit-explorer/main.html" width="100%" height="770px" scrolling="auto"></iframe>
 
 !!! tip "How to use this MicroSim"
     **Instructions:** Toggle between half-wave and full-wave rectification and watch the output waveform and computed \(V_{DC}\) update.
@@ -164,7 +164,7 @@ flowchart LR
 
 #### Diagram: Bipolar Transistor and MOSFET Comparison Explorer
 
-<iframe src="../../sims/bjt-mosfet-comparison-explorer/main.html" width="100%" height="640px" scrolling="auto"></iframe>
+<iframe src="../../sims/bjt-mosfet-comparison-explorer/main.html" width="100%" height="720px" scrolling="auto"></iframe>
 
 !!! tip "How to use this MicroSim"
     **Instructions:** Adjust base current to see BJT collector current and gain, and adjust gate overdrive voltage to see MOSFET drain current, side by side.
@@ -237,7 +237,7 @@ This single procedure, applied consistently, produces every band diagram used th
 
 #### Diagram: Band Diagram Builder
 
-<iframe src="../../sims/band-diagram-builder/main.html" width="100%" height="620px" scrolling="auto"></iframe>
+<iframe src="../../sims/band-diagram-builder/main.html" width="100%" height="680px" scrolling="auto"></iframe>
 
 !!! tip "How to use this MicroSim"
     **Instructions:** Select a device type (p-n junction, Schottky junction, or MOS capacitor) and bias condition, and watch the band diagram construct itself step by step.
@@ -267,7 +267,7 @@ Because \(R_{on,sp}\propto V_{BR}^2\), a diode designed to block twice the volta
 
 #### Diagram: Device Design Trade-Off Explorer
 
-<iframe src="../../sims/device-design-tradeoff-explorer/main.html" width="100%" height="620px" scrolling="auto"></iframe>
+<iframe src="../../sims/device-design-tradeoff-explorer/main.html" width="100%" height="590px" scrolling="auto"></iframe>
 
 !!! tip "How to use this MicroSim"
     **Instructions:** Sweep target breakdown voltage and watch specific on-resistance rise along the trade-off curve, with the required drift doping and width shown alongside.
@@ -329,7 +329,7 @@ This closing section works through a complete **capstone device project**, delib
 
 #### Diagram: Capstone Device Project Walkthrough
 
-<iframe src="../../sims/capstone-device-project-walkthrough/main.html" width="100%" height="670px" scrolling="auto"></iframe>
+<iframe src="../../sims/capstone-device-project-walkthrough/main.html" width="100%" height="765px" scrolling="auto"></iframe>
 
 !!! tip "How to use this MicroSim"
     **Instructions:** Adjust the target breakdown voltage, current rating, and die area, and watch every downstream quantity — doping, width, resistance, forward drop, power, and temperature rise — recompute together.

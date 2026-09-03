@@ -18,7 +18,8 @@ let containerHeight = canvasHeight;
 
 let currentStep = 0;
 let prevBtn = { x: 0, y: 0, w: 90, h: 36 };
-let nextBtn = { x: 0, y: 0, w: 90, h: 36 };
+let nextBtn = { x: 0, y: 0, w: 100, h: 36 };
+let dotsHit = null;
 
 const STEPS = [
   {
@@ -85,11 +86,18 @@ function draw() {
 
   const step = STEPS[currentStep];
 
+  // Title: left edge of the wrap box must be the LEFT edge (10), not the
+  // horizontal center — p5's text(str,x,y,w) wraps within [x, x+w]
+  // regardless of textAlign, so passing canvasWidth/2 here (a bug found
+  // and fixed while auditing this file) shoved every title far to the
+  // right, off-canvas and behind the fixed top-right fullscreen button.
+  // The title is also pushed down to y=30 (below the ~28px-tall button)
+  // so it never competes with it vertically either.
   fill(20); noStroke();
   textAlign(CENTER, TOP); textSize(15.5);
-  text(step.title, canvasWidth / 2, 10, canvasWidth - 20);
+  text(step.title, 10, 30, canvasWidth - 20);
 
-  const illX = 20, illY = 42, illW = canvasWidth - 40, illH = drawHeight * 0.48;
+  const illX = 20, illY = 68, illW = canvasWidth - 40, illH = drawHeight * 0.46;
   noStroke(); fill(255);
   stroke(210); strokeWeight(1);
   rect(illX, illY, illW, illH, 8);
@@ -116,13 +124,18 @@ function drawStepPowerDiode(x, y, w, h) {
   rect(midX, y + 8, depW, h - 16);
   noStroke(); fill(30); textAlign(CENTER, TOP); textSize(10.5);
   text('p+', x + 8 + (w / 2 - 8 - depW) / 2, y + 12);
-  text('lightly-doped n− drift region', midX + depW + (w / 2 - 8 - depW) / 2, y + 12, w / 2 - depW - 16);
+  // textAlign(CENTER,...) with a text() width still wraps within [x, x+w],
+  // so x must be that region's LEFT edge, not its center (same bug class
+  // as the title above).
+  text('lightly-doped n− drift region', midX + depW, y + 12, w / 2 - depW - 16);
   fill(90, 62, 237); textAlign(CENTER, BOTTOM); textSize(10.5);
-  text('wide depletion region supports high V_BR', midX + depW / 2, y + h - 8, w * 0.4);
+  text('wide depletion region supports high V_BR', midX - w * 0.2, y + h - 8, w * 0.4);
+  fill(40); textAlign(LEFT, TOP); textSize(10.5);
+  smlMathText(x + 10, y + h - 34, 'N_D ≈ ε_sE_crit² / (2qV_BR)', { size: 10.5 });
 }
 
 function drawStepRectifier(x, y, w, h) {
-  const chartX = x + 50, chartY = y + 16, chartW = w - 90, chartH = h - 46;
+  const chartX = x + 50, chartY = y + 16, chartW = w - 90, chartH = h - 84;
   const pts1 = [], pts2 = [];
   for (let px = 0; px <= chartW; px++) {
     const t = map(px, 0, chartW, 0, 4 * PI);
@@ -137,6 +150,8 @@ function drawStepRectifier(x, y, w, h) {
   text('— AC input', chartX, chartY + 4);
   fill(230, 90, 60);
   text('— rectified output', chartX, chartY + 18);
+  fill(40); textAlign(CENTER, TOP);
+  smlMathText(x + w / 2, y + h - 18, 'V_DC ≈ 2(V_peak − 2V_F) / π  (full-wave bridge)', { align: 'center', size: 11 });
 }
 
 function drawStepVaractor(x, y, w, h) {
@@ -157,19 +172,19 @@ function drawStepVaractor(x, y, w, h) {
 
 function drawStepTransistors(x, y, w, h) {
   const halfW = w / 2;
-  const chartX1 = x + 40, chartY = y + 20, chartW1 = halfW - 60, chartH = h - 50;
+  const chartX1 = x + 40, chartY = y + 34, chartW1 = halfW - 60, chartH = h - 64;
   const pts1 = [];
   for (let ib = 0; ib <= 10; ib += 0.5) pts1.push({ x: ib, y: 100 * ib });
   smlDrawLineChart(chartX1, chartY, chartW1, chartH, 0, 10, 0, 1000, [{ points: pts1, color: color(90, 62, 237) }], { xLabel: 'IB', yLabel: 'IC' });
-  noStroke(); fill(90, 62, 237); textAlign(CENTER, BOTTOM); textSize(10);
-  text('BJT: linear', chartX1 + chartW1 / 2, chartY - 4);
+  noStroke(); fill(90, 62, 237);
+  smlMathText(chartX1 + chartW1 / 2, chartY - 18, 'BJT: I_C = β·I_B', { align: 'center', size: 10.5 });
 
   const chartX2 = x + halfW + 20, chartW2 = halfW - 60;
   const pts2 = [];
   for (let v = 0; v <= 1.5; v += 0.05) pts2.push({ x: v, y: v * v });
   smlDrawLineChart(chartX2, chartY, chartW2, chartH, 0, 1.5, 0, 2.25, [{ points: pts2, color: color(230, 90, 60) }], { xLabel: 'Vov', yLabel: 'ID' });
-  noStroke(); fill(230, 90, 60); textAlign(CENTER, BOTTOM); textSize(10);
-  text('MOSFET: quadratic', chartX2 + chartW2 / 2, chartY - 4);
+  noStroke(); fill(230, 90, 60);
+  smlMathText(chartX2 + chartW2 / 2, chartY - 18, 'MOSFET: I_D ∝ (V_GS−V_T)²', { align: 'center', size: 10.5 });
 }
 
 function drawStepModeling(x, y, w, h) {
@@ -179,14 +194,19 @@ function drawStepModeling(x, y, w, h) {
   const boxW = (w - 30) / n;
   for (let i = 0; i < n; i++) {
     const bx = x + i * (boxW + 15) + 15;
-    const barH = map(i, 0, n - 1, h * 0.25, h * 0.7);
+    const barH = map(i, 0, n - 1, h * 0.3, h * 0.82);
     noStroke(); fill(colors[i]);
     rect(bx, y + h - 30 - barH, boxW - 10, barH, 4);
     fill(30); textAlign(CENTER, TOP); textSize(10);
-    text(items[i], bx + (boxW - 10) / 2, y + h - 24, boxW);
+    // x must be the bar's own LEFT edge (bx), matching its width (boxW-10)
+    // passed as the wrap width — not the bar's center (same bug class as
+    // the title/label fixes above), or the label shifts right and clips.
+    text(items[i], bx, y + h - 24, boxW - 10);
   }
   noStroke(); fill(60); textAlign(CENTER, TOP); textSize(10.5);
-  text('accuracy and cost both increase together →', x + w / 2, y + 8);
+  text('accuracy and cost both increase together →', x + 10, y + 8, w - 20);
+  fill(140); textAlign(CENTER, TOP); textSize(9);
+  text('(qualitative comparison, not measured data)', x + 10, y + 24, w - 20);
 }
 
 function drawStepBandDiagram(x, y, w, h) {
@@ -211,12 +231,17 @@ function drawStepBandDiagram(x, y, w, h) {
 }
 
 function drawStepTradeoff(x, y, w, h) {
-  const chartX = x + 55, chartY = y + 16, chartW = w - 90, chartH = h - 46;
+  const chartX = x + 55, chartY = y + 16, chartW = w - 90, chartH = h - 66;
   const pts = [];
   for (let bv = 0; bv <= 10; bv += 0.2) pts.push({ x: bv, y: bv * bv });
-  smlDrawLineChart(chartX, chartY, chartW, chartH, 0, 10, 0, 100, [{ points: pts, color: color(90, 62, 237) }], { xLabel: 'V_BR', yLabel: 'R_on,sp' });
-  noStroke(); fill(40); textAlign(CENTER, TOP); textSize(11);
-  text('R_on,sp ∝ V_BR²', x + w / 2, y + h - 20);
+  // No xLabel passed to the chart itself (it would land only ~20px above
+  // the caption below and collide with it) — the caption already names
+  // the x-axis quantity (V_BR) as part of the proportionality statement.
+  smlDrawLineChart(chartX, chartY, chartW, chartH, 0, 10, 0, 100, [{ points: pts, color: color(90, 62, 237) }], { yLabel: 'R_on,sp' });
+  noStroke(); fill(60); textAlign(CENTER, TOP); textSize(10);
+  text('V_BR', chartX + chartW / 2, chartY + chartH + 4);
+  fill(40); textAlign(CENTER, TOP); textSize(11);
+  text('R_on,sp ∝ V_BR²', x + w / 2, y + h - 18);
 }
 
 function drawStepCapstone(x, y, w, h) {
@@ -225,8 +250,8 @@ function drawStepCapstone(x, y, w, h) {
   const boxW = (w - 8 * (n - 1)) / n;
   for (let i = 0; i < n; i++) {
     const bx = x + i * (boxW + 8);
-    const by = y + h * 0.35;
-    const bh = h * 0.4;
+    const by = y + h * 0.18;
+    const bh = h * 0.58;
     noStroke(); fill(90, 62, 237, 30 + i * 15);
     stroke(90, 62, 237); strokeWeight(1.2);
     rect(bx, by, boxW, bh, 5);
@@ -255,8 +280,18 @@ function drawControls() {
   prevBtn.x = 20; prevBtn.y = cy;
   nextBtn.x = canvasWidth - 20 - nextBtn.w; nextBtn.y = cy;
 
+  const isFirst = currentStep === 0;
+  const isLast = currentStep === STEPS.length - 1;
+
+  // Prev is disabled (dimmed, inert) on step 1 rather than wrapping to
+  // step 9 — a walkthrough shouldn't silently loop past its ends.
+  push();
+  if (isFirst) drawingContext.globalAlpha = 0.35;
   smlDrawButton(prevBtn.x, prevBtn.y, prevBtn.w, prevBtn.h, '◀ Prev', false);
-  smlDrawButton(nextBtn.x, nextBtn.y, nextBtn.w, nextBtn.h, 'Next ▶', false);
+  pop();
+
+  // On the final step, Next becomes Restart instead of wrapping to step 1.
+  smlDrawButton(nextBtn.x, nextBtn.y, nextBtn.w, nextBtn.h, isLast ? 'Restart ↺' : 'Next ▶', isLast);
 
   noStroke(); fill(30); textAlign(CENTER, CENTER); textSize(13);
   text('Step ' + (currentStep + 1) + ' of ' + STEPS.length, canvasWidth / 2, cy + prevBtn.h / 2);
@@ -269,13 +304,24 @@ function drawControls() {
     fill(i === currentStep ? color(90, 62, 237) : color(210));
     circle(dotsX0 + i * 15, dotsY, 8);
   }
+  // Dots double as a step index: clicking one jumps straight to that step
+  // (documented in this MicroSim's learning panel as "use the step dots to
+  // jump back to any concept" — previously undocumented behavior with no
+  // actual click handler).
+  dotsHit = { y: dotsY, x0: dotsX0, spacing: 15, r: 8 };
 }
 
 function mousePressed() {
+  const isLast = currentStep === STEPS.length - 1;
   if (smlPointInRect(mouseX, mouseY, prevBtn.x, prevBtn.y, prevBtn.w, prevBtn.h)) {
-    currentStep = (currentStep - 1 + STEPS.length) % STEPS.length;
+    if (currentStep > 0) currentStep -= 1; // no-op (disabled) on step 1
   } else if (smlPointInRect(mouseX, mouseY, nextBtn.x, nextBtn.y, nextBtn.w, nextBtn.h)) {
-    currentStep = (currentStep + 1) % STEPS.length;
+    currentStep = isLast ? 0 : currentStep + 1; // Restart on the final step
+  } else if (dotsHit) {
+    for (let i = 0; i < STEPS.length; i++) {
+      const dx = dotsHit.x0 + i * dotsHit.spacing;
+      if (dist(mouseX, mouseY, dx, dotsHit.y) <= dotsHit.r) { currentStep = i; break; }
+    }
   }
 }
 
